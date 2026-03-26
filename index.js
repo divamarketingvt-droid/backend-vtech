@@ -65,7 +65,7 @@ const refreshZohoToken = async () => {
 // MIDDLEWARE
 // ==========================================
 const allowedOrigins = [
-  "https://m93dhs-3000.csb.app",
+  "https://backend-vtech.onrender.com",
   "http://localhost:3000",
   "http://localhost:5000",
   "http://127.0.0.1:3000",
