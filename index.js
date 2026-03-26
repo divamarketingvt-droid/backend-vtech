@@ -321,7 +321,7 @@ app.post("/api/submit-trial", async (req, res) => {
 // ==========================================
 // 4. CHATBOT SUBMISSION (UPDATED, NON-BLOCKING)
 // ==========================================
-app.post("/api/submit-request", (req, res) => {
+app.post("/api/submit-request", async (req, res) => {
   console.log("📦 Chat Request Received:", req.body);
 
   const {
@@ -346,86 +346,77 @@ app.post("/api/submit-request", (req, res) => {
     `📩 Routing email to: ${recipientEmail} (Dept: ${department || "General"})`
   );
 
-  // Respond immediately to frontend
-  res.status(200).json({
-    success: true,
-    message: "Request submitted successfully",
-    data: { emailSentTo: recipientEmail },
-  });
+  try {
+    // 1️⃣ Send Email Notification
+    console.log("📧 Sending Chat Lead email...");
+    await transporter.sendMail({
+      from: `"Verifitech Chat" <${EMAIL_USER}>`,
+      to: recipientEmail,
+      replyTo: email,
+      subject: `New Chat Request: ${department || "General"} - ${firstName}`,
+      html: `
+        <h2>New Chat Request</h2>
+        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        <h3>User Details</h3>
+        <ul>
+          <li><strong>Name:</strong> ${firstName}</li>
+          <li><strong>Email:</strong> ${email}</li>
+          <li><strong>Phone:</strong> ${phone || "Not Provided"}</li>
+          <li><strong>Company:</strong> ${company || "Not Provided"}</li>
+        </ul>
+        <h3>Request Details</h3>
+        <ul>
+          <li><strong>Department:</strong> ${department || "N/A"}</li>
+          <li><strong>Service:</strong> ${serviceType || "N/A"}</li>
+          <li><strong>Description:</strong> ${issueDescription || "N/A"}</li>
+        </ul>
+      `,
+    });
+    console.log("✅ Chat email sent successfully.");
 
-  // --- Background async processing ---
-  (async () => {
-    try {
-      // 1️⃣ Send Email Notification
-      console.log("📧 Sending Chat Lead email...");
-      await transporter.sendMail({
-        from: `"Verifitech Chat" <${EMAIL_USER}>`,
-        to: recipientEmail,
-        replyTo: email,
-        subject: `New Chat Request: ${department || "General"} - ${firstName}`,
-        html: `
-          <h2>New Chat Request</h2>
-          <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-          <h3>User Details</h3>
-          <ul>
-            <li><strong>Name:</strong> ${firstName}</li>
-            <li><strong>Email:</strong> ${email}</li>
-            <li><strong>Phone:</strong> ${phone || "Not Provided"}</li>
-            <li><strong>Company:</strong> ${company || "Not Provided"}</li>
-          </ul>
-          <h3>Request Details</h3>
-          <ul>
-            <li><strong>Department:</strong> ${department || "N/A"}</li>
-            <li><strong>Service:</strong> ${serviceType || "N/A"}</li>
-            <li><strong>Description:</strong> ${issueDescription || "N/A"}</li>
-          </ul>
-        `,
-      });
-      console.log("✅ Chat email sent.");
-    } catch (emailErr) {
-      console.error("❌ Chat email failed:", emailErr.message);
-    }
-
-    try {
-      // 2️⃣ Send to Zoho CRM
-      console.log("☁️ Sending Chat Lead to Zoho...");
-      const zohoPayload = {
-        data: [
-          {
-            First_Name: firstName.split(" ")[0],
-            Last_Name: firstName.split(" ").slice(1).join(" ") || "N/A",
-            Email: email,
-            Phone: phone,
-            Company: company || "Not Provided",
-            Lead_Source: "Website Chatbot",
-            Description: `Dept: ${department}, Service: ${serviceType}, Issue: ${
-              issueDescription || "N/A"
-            }`,
-          },
-        ],
-      };
-
-      const ZOHO_API_URL = `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`;
-
-      let response = await axios.post(ZOHO_API_URL, zohoPayload, {
-        headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
-      });
-
-      if (response.data && response.data.code === "INVALID_TOKEN") {
-        console.log("⚠️ Zoho token invalid, refreshing...");
-        const refreshed = await refreshZohoToken();
-        if (refreshed) {
-          await axios.post(ZOHO_API_URL, zohoPayload, {
-            headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
-          });
-        }
+    // 2️⃣ Send to Zoho CRM (optional, still async)
+    (async () => {
+      try {
+        console.log("☁️ Sending Chat Lead to Zoho...");
+        const zohoPayload = {
+          data: [
+            {
+              First_Name: firstName.split(" ")[0],
+              Last_Name: firstName.split(" ").slice(1).join(" ") || "N/A",
+              Email: email,
+              Phone: phone,
+              Company: company || "Not Provided",
+              Lead_Source: "Website Chatbot",
+              Description: `Dept: ${department}, Service: ${serviceType}, Issue: ${
+                issueDescription || "N/A"
+              }`,
+            },
+          ],
+        };
+        const ZOHO_API_URL = `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`;
+        await axios.post(ZOHO_API_URL, zohoPayload, {
+          headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
+        });
+        console.log("✅ Chat lead pushed to Zoho.");
+      } catch (zohoErr) {
+        console.error("❌ Zoho Chat Error:", zohoErr.response?.data || zohoErr.message);
       }
+    })();
 
-      console.log("✅ Chat lead pushed to Zoho.");
-    } catch (zohoErr) {
-      console.error("❌ Zoho Chat Error:", zohoErr.response?.data || zohoErr.message);
-    }
-  })();
+    // Respond only after email succeeds
+    res.status(200).json({
+      success: true,
+      message: "Request submitted and email sent successfully",
+      data: { emailSentTo: recipientEmail },
+    });
+  } catch (emailErr) {
+    console.error("❌ Chat email failed:", emailErr.message);
+    res.status(500).json({
+      success: false,
+      message: "Failed to send email. Please check server logs.",
+      error: emailErr.message,
+    });
+  }
 });
 // ==========================================
 // 5. CONTACT PAGE SUBMISSION (NEW)
