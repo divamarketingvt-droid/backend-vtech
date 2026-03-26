@@ -88,8 +88,15 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const STATIC_PATH = path.join(__dirname, "public", "index.html");
-app.use(express.static(STATIC_PATH));
+// Serve all static files in public folder
+app.use(express.static(path.join(__dirname, "public")));
+
+// Serve index.html on all other routes (for frontend routing)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+/*const STATIC_PATH = path.join(__dirname, "public", "index.html");
+app.use(express.static(STATIC_PATH));*/
 
 // ==========================================
 // STORAGE & HELPERS
