@@ -1,0 +1,3514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affiliate Program | Earn with Referrals</title>
+    <meta
+      name="description"
+      content="Join AuthBridge's affiliate program and earn competitive commissions by referring background verification and identity solutions. Perfect for HR consultants, bloggers, influencers, and industry professionals."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+        --success: #22c55e;
+        --warning: #f59e0b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation */
+
+      /* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+      /* Ensure navbar has proper z-index */
+      .navbar {
+        z-index: 1050;
+      }
+
+      /* Fix dropdown z-index to appear above hero content */
+      .dropdown-menu {
+        z-index: 1060;
+        position: absolute;
+      }
+
+      /* Ensure dropdown items are clickable and visible */
+      .dropdown-item {
+        position: relative;
+        z-index: 1061;
+      }
+
+      /* Fix for hero section overlapping */
+      .industry-hero {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+      .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Mobile navbar collapse background */
+      .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (min-width: 992px) {
+        .navbar-collapse {
+          background: transparent;
+          backdrop-filter: none;
+          padding: 0;
+          margin-top: 0;
+          box-shadow: none;
+        }
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+
+      .navbar-brand img {
+        height: 100px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+      /* CTA Button - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      /* Login Button */
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important;
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+      /* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* Remove Bootstrap's default white arrow from country selector */
+      .country-selector.dropdown-toggle::after {
+        display: none !important;
+        content: none !important;
+        border: none !important;
+      }
+
+      /* Style the custom chevron icon */
+      .country-selector i.bi-chevron-down {
+        font-size: 0.7rem;
+        color: var(--navy);
+        transition: transform 0.3s ease;
+      }
+
+      .country-selector:hover i.bi-chevron-down {
+        color: var(--primary);
+      }
+
+      /* Rotate chevron when dropdown is open */
+      .country-selector[aria-expanded="true"] i.bi-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .country-flag {
+        font-size: 1.2rem;
+      }
+
+      /* Hero Section - Affiliate Theme */
+      .affiliate-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #ccfbf1 100%
+        );
+        position: relative;
+        overflow: hidden;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .affiliate-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(34, 197, 94, 0.1);
+        color: var(--success);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(34, 197, 94, 0.2);
+      }
+
+      .affiliate-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+
+      .affiliate-hero .lead {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 550px;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .commission-highlight {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+      }
+
+      .commission-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.5rem;
+        background: white;
+        border-radius: 12px;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .commission-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.15);
+        border-color: var(--primary);
+      }
+
+      .commission-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--primary-light);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.25rem;
+      }
+
+      .commission-info strong {
+        display: block;
+        color: var(--dark);
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .commission-info span {
+        color: var(--gray);
+        font-size: 0.85rem;
+      }
+
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+
+      /* Hero Illustration - Affiliate Dashboard Theme */
+      .hero-illustration {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .affiliate-dashboard {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 24px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(26, 194, 193, 0.2);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      }
+
+      .dashboard-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: absolute;
+        animation: floatCard 5s ease-in-out infinite;
+      }
+
+      .dashboard-card.card-main {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        z-index: 10;
+        animation-delay: 0s;
+      }
+
+      .dashboard-card.card-revenue {
+        top: 10%;
+        right: 5%;
+        width: 220px;
+        animation-delay: 0.5s;
+      }
+
+      .dashboard-card.card-referral {
+        bottom: 15%;
+        left: 5%;
+        width: 200px;
+        animation-delay: 1s;
+      }
+
+      .dashboard-card.card-conversion {
+        bottom: 10%;
+        right: 10%;
+        width: 180px;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      .dashboard-card.card-main {
+        animation: floatMain 6s ease-in-out infinite;
+      }
+
+      @keyframes floatMain {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) translateY(0px);
+        }
+        50% {
+          transform: translate(-50%, -50%) translateY(-15px);
+        }
+      }
+
+      .stat-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .stat-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .stat-label-sm {
+        color: var(--gray);
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .stat-value {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--dark);
+      }
+
+      .stat-value.success {
+        color: var(--success);
+      }
+
+      .progress-bar-custom {
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 0.5rem;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+        border-radius: 10px;
+        transition: width 1s ease;
+      }
+
+      .mini-chart {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        height: 50px;
+        margin-top: 1rem;
+      }
+
+      .chart-bar {
+        flex: 1;
+        background: var(--primary-light);
+        border-radius: 4px 4px 0 0;
+        transition: all 0.3s;
+      }
+
+      .chart-bar:nth-child(3),
+      .chart-bar:nth-child(4) {
+        background: var(--primary);
+      }
+
+      .chart-bar:nth-child(5) {
+        background: var(--success);
+        height: 100% !important;
+      }
+
+      .referral-link-box {
+        background: var(--light-gray);
+        padding: 0.75rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-family: monospace;
+        color: var(--gray);
+        margin-top: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .copy-icon {
+        color: var(--primary);
+        cursor: pointer;
+      }
+
+      /* How It Works Section */
+      .how-it-works {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      .step-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        height: 100%;
+        border: 2px solid #e2e8f0;
+        transition: all 0.4s ease;
+        text-align: center;
+        position: relative;
+      }
+
+      .step-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        position: relative;
+      }
+
+      .step-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+
+      .step-card h4 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark);
+        font-size: 1.3rem;
+      }
+
+      .step-card p {
+        color: var(--gray);
+        line-height: 1.7;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .step-arrow {
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        color: var(--primary);
+        opacity: 0.3;
+        z-index: 10;
+      }
+
+      /* Commission Structure Section */
+      .commission-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .tier-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        height: 100%;
+        border: 2px solid #e2e8f0;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tier-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      }
+
+      .tier-card.featured {
+        border-color: var(--primary);
+        box-shadow: 0 25px 50px rgba(26, 194, 193, 0.15);
+      }
+
+      .tier-badge {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        padding: 0.4rem 1rem;
+        background: var(--warning);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .tier-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .tier-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .tier-rate {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .tier-rate span {
+        font-size: 1.2rem;
+        color: var(--gray);
+        font-weight: 600;
+      }
+
+      .tier-desc {
+        color: var(--gray);
+        font-size: 0.95rem;
+      }
+
+      .tier-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .tier-features li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f1f5f9;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+        color: var(--navy);
+      }
+
+      .tier-features li:last-child {
+        border-bottom: none;
+      }
+
+      .tier-features i {
+        color: var(--success);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .tier-features i.not-included {
+        color: #cbd5e1;
+      }
+
+      .btn-tier {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+      }
+
+      .btn-tier-outline {
+        background: transparent;
+        border-color: #e2e8f0;
+        color: var(--navy);
+      }
+
+      .btn-tier-outline:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+
+      .btn-tier-primary {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .btn-tier-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      /* Who Can Join Section */
+      .audience-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .audience-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s ease;
+        text-align: center;
+      }
+
+      .audience-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(26, 194, 193, 0.1);
+      }
+
+      .audience-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--primary);
+        font-size: 2.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .audience-card:hover .audience-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 15px 30px rgba(26, 194, 193, 0.3);
+      }
+
+      .audience-card h5 {
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        font-size: 1.25rem;
+      }
+
+      .audience-card p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* Tools & Resources Section */
+      .tools-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tools-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .tools-section .section-title {
+        color: white;
+      }
+
+      .tools-section .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .tool-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2rem;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .tool-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(26, 194, 193, 0.3);
+        transform: translateY(-5px);
+      }
+
+      .tool-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(26, 194, 193, 0.2);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+      }
+
+      .tool-card h4 {
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+      }
+
+      .tool-card p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Calculator Section */
+      .calculator-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .calculator-card {
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 24px;
+        padding: 3rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+        box-shadow: 0 25px 50px rgba(26, 194, 193, 0.1);
+      }
+
+      .calc-input-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .calc-label {
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .calc-input {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        border: 2px solid #e2e8f0;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .calc-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+        outline: none;
+      }
+
+      .calc-result-box {
+        background: var(--dark);
+        color: white;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .calc-result-label {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .calc-result-value {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+      }
+
+      .calc-result-note {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Testimonials Section */
+      .testimonials-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        transform: translateY(-5px);
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .testimonial-meta h5 {
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      .testimonial-meta span {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .earnings-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(34, 197, 94, 0.1);
+        color: var(--success);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+
+      .testimonial-text {
+        color: var(--navy);
+        line-height: 1.8;
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .star-rating {
+        color: #fbbf24;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .accordion-item {
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+      }
+
+      .accordion-button {
+        padding: 1.5rem;
+        font-weight: 600;
+        color: var(--dark);
+        background: white;
+        border: none;
+        box-shadow: none;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        box-shadow: none;
+      }
+
+      .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(26, 194, 193, 0.5);
+      }
+
+      .accordion-body {
+        padding: 1.5rem;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .cta-section h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-section p {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Footer */
+      .footer-main {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 40px;
+      }
+
+      .footer-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .footer-brand span {
+        color: var(--primary);
+      }
+
+      .footer-tagline {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-heading {
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        margin-top: 3rem;
+      }
+
+      .footer-copyright {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .affiliate-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-illustration {
+          height: 400px;
+          margin-top: 3rem;
+        }
+
+        .dashboard-card {
+          transform: scale(0.9);
+        }
+
+        .step-arrow {
+          display: none;
+        }
+
+        .cta-section h2 {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .affiliate-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .affiliate-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .commission-highlight {
+          justify-content: center;
+        }
+
+        .calculator-card {
+          padding: 2rem;
+        }
+
+        .tier-rate {
+          font-size: 2.5rem;
+        }
+
+        .calc-result-value {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a
+                      href="../checks/lp-id verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a
+                      href="../checks/DIN-verification.html"
+                      class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+                    <a
+                      href="../checks/LP-Directorship check.html"
+                      class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-credit check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a
+                      href="../checks/lp-police clearnce.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i> Vendor
+                      Digillencs</a
+                    >
+                    <a
+                      href="../checks/lp-passport verification.html"
+                      class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport
+                      Verification</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit interviews</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i> Realestate & Construcataion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i> Retail & E-commerce</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html"
+                    ><i class="bi bi-plug"></i> API</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- HELP CENTER Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Help Center <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/customer.html"
+                    ><i class="bi bi-building"></i> For Customers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/partner.html"
+                    ><i class="bi bi-people"></i> For Partners</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../affilate/affilate.html"
+                    ><i class="bi bi-link-45deg"></i> Affiliate Program</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <a
+              href="https://web.verifitech.com/"
+              target="blank"
+              class="btn-login"
+              >Login</a
+            >
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                    ><span class="country-flag">🇺🇸</span> USA</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                    ><span class="country-flag">🇦🇪</span> UAE</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                    ><span class="country-flag">🇦🇺</span> Australia</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                    ><span class="country-flag">🇬🇧</span> UK</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                    ><span class="country-flag">🇸🇬</span> Singapore</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="affiliate-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-badge">
+              <i class="bi bi-cash-coin"></i>
+              Affiliate Program
+            </div>
+            <h1>Earn Passive Income with Every Referral</h1>
+            <p class="lead">
+              Join India's most rewarding affiliate program for background
+              verification and identity solutions. Earn up to 30% recurring
+              commissions for every client you refer to AuthBridge.
+            </p>
+
+            <div class="commission-highlight">
+              <div class="commission-item">
+                <div class="commission-icon">
+                  <i class="bi bi-percent"></i>
+                </div>
+                <div class="commission-info">
+                  <strong>Up to 30%</strong>
+                  <span>Commission Rate</span>
+                </div>
+              </div>
+              <div class="commission-item">
+                <div class="commission-icon">
+                  <i class="bi bi-arrow-repeat"></i>
+                </div>
+                <div class="commission-info">
+                  <strong>Recurring</strong>
+                  <span>Lifetime Earnings</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#join" class="btn btn-primary-custom btn-lg">
+              Start Earning Today <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-illustration">
+              <div class="affiliate-dashboard">
+                <!-- Main Dashboard Card -->
+                <div class="dashboard-card card-main">
+                  <h5 class="mb-3 fw-bold">Affiliate Dashboard</h5>
+                  <div class="stat-row">
+                    <span class="stat-label-sm">Total Earnings</span>
+                    <span class="stat-value success">₹2,45,000</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="stat-label-sm">This Month</span>
+                    <span class="stat-value">₹45,000</span>
+                  </div>
+                  <div class="stat-row">
+                    <span class="stat-label-sm">Active Referrals</span>
+                    <span class="stat-value">28</span>
+                  </div>
+                  <div class="mini-chart">
+                    <div class="chart-bar" style="height: 40%"></div>
+                    <div class="chart-bar" style="height: 60%"></div>
+                    <div class="chart-bar" style="height: 45%"></div>
+                    <div class="chart-bar" style="height: 80%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                    <div class="chart-bar" style="height: 90%"></div>
+                    <div class="chart-bar" style="height: 75%"></div>
+                  </div>
+                </div>
+
+                <!-- Revenue Card -->
+                <div class="dashboard-card card-revenue">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-graph-up-arrow text-success"></i>
+                    <span class="fw-bold text-success">+24%</span>
+                  </div>
+                  <div class="stat-label-sm">Monthly Growth</div>
+                  <div class="progress-bar-custom mt-2">
+                    <div class="progress-fill" style="width: 75%"></div>
+                  </div>
+                </div>
+
+                <!-- Referral Link Card -->
+                <div class="dashboard-card card-referral">
+                  <div class="stat-label-sm mb-2">Your Referral Link</div>
+                  <div class="referral-link-box">
+                    <span>authbridge.com/?ref=john_d</span>
+                    <i class="bi bi-clipboard copy-icon"></i>
+                  </div>
+                </div>
+
+                <!-- Conversion Card -->
+                <div class="dashboard-card card-conversion">
+                  <div class="text-center">
+                    <div
+                      class="stat-value text-primary"
+                      style="font-size: 2rem"
+                    >
+                      12.5%
+                    </div>
+                    <div class="stat-label-sm">Conversion Rate</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-arrow-repeat"></i> Simple Process
+            </div>
+            <h2 class="section-title">How Affiliate Marketing Works</h2>
+            <p class="section-desc mx-auto">
+              Four simple steps to start earning. No technical skills required,
+              just share and earn.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 position-relative">
+          <div class="col-md-3 reveal">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <i class="bi bi-person-plus step-icon"></i>
+              <h4>Sign Up Free</h4>
+              <p>
+                Complete the simple application form. Get approved within 24
+                hours and receive your unique referral link.
+              </p>
+            </div>
+            <div class="step-arrow d-none d-md-block">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+          <div class="col-md-3 reveal">
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <i class="bi bi-share step-icon"></i>
+              <h4>Share Your Link</h4>
+              <p>
+                Promote AuthBridge on your blog, social media, email
+                newsletters, or direct referrals. We provide all marketing
+                materials.
+              </p>
+            </div>
+            <div class="step-arrow d-none d-md-block">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+          <div class="col-md-3 reveal">
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <i class="bi bi-people-fill step-icon"></i>
+              <h4>Refer Clients</h4>
+              <p>
+                When someone clicks your link and becomes a paying customer,
+                they're tagged to your account for lifetime commissions.
+              </p>
+            </div>
+            <div class="step-arrow d-none d-md-block">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+          <div class="col-md-3 reveal">
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <i class="bi bi-cash-stack step-icon"></i>
+              <h4>Get Paid</h4>
+              <p>
+                Earn commissions every month your referrals remain active.
+                Monthly payouts via bank transfer or UPI.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commission Structure Section -->
+    <section class="commission-section" id="commission">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-graph-up"></i> Commission Plans
+            </div>
+            <h2 class="section-title">Earn More as You Grow</h2>
+            <p class="section-desc mx-auto">
+              Three tier levels with increasing commission rates and exclusive
+              benefits. Start at 15% and grow to 30%.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Starter Tier -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="tier-card">
+              <div class="tier-header">
+                <div class="tier-name">Starter</div>
+                <div class="tier-rate">15%</div>
+                <div class="tier-desc">Perfect for beginners</div>
+              </div>
+              <ul class="tier-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 15% recurring
+                  commission
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 90-day cookie duration
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Basic marketing
+                  materials
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Monthly payouts</li>
+                <li><i class="bi bi-check-circle-fill"></i> Email support</li>
+                <li>
+                  <i class="bi bi-check-circle-fill not-included"></i> Dedicated
+                  manager
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill not-included"></i> Custom
+                  creatives
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill not-included"></i> API
+                  access
+                </li>
+              </ul>
+              <button class="btn btn-tier btn-tier-outline">Apply Now</button>
+            </div>
+          </div>
+
+          <!-- Professional Tier (Featured) -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="tier-card featured">
+              <div class="tier-badge">Popular</div>
+              <div class="tier-header">
+                <div class="tier-name">Professional</div>
+                <div class="tier-rate">25%</div>
+                <div class="tier-desc">For serious affiliates</div>
+              </div>
+              <ul class="tier-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 25% recurring
+                  commission
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 120-day cookie
+                  duration
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Premium marketing kit
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Bi-weekly payouts
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Priority support
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Dedicated partner
+                  manager
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Custom landing pages
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill not-included"></i> API
+                  access
+                </li>
+              </ul>
+              <button class="btn btn-tier btn-tier-primary">Apply Now</button>
+            </div>
+          </div>
+
+          <!-- Enterprise Tier -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="tier-card">
+              <div class="tier-header">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-rate">30%</div>
+                <div class="tier-desc">For top performers</div>
+              </div>
+              <ul class="tier-features">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 30% recurring
+                  commission
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Lifetime cookie
+                  duration
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> White-label options
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Weekly payouts</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 24/7 dedicated support
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Strategic account
+                  manager
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Custom co-branded
+                  assets
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Full API access</li>
+              </ul>
+              <button class="btn btn-tier btn-tier-outline">
+                Contact Sales
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12 text-center reveal">
+            <div
+              class="alert alert-info d-inline-flex align-items-center gap-2"
+              style="
+                background: rgba(26, 194, 193, 0.1);
+                border-color: rgba(26, 194, 193, 0.2);
+                color: var(--primary-dark);
+                border-radius: 12px;
+                padding: 1rem 2rem;
+              "
+            >
+              <i class="bi bi-info-circle-fill"></i>
+              <span
+                >Upgrade to higher tiers automatically based on your monthly
+                referral volume. No application required.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Can Join Section -->
+    <section class="audience-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-people"></i> Who Can Join
+            </div>
+            <h2 class="section-title">Perfect For</h2>
+            <p class="section-desc mx-auto">
+              Whether you're a content creator, consultant, or industry
+              professional, our affiliate program is designed for anyone with an
+              audience in HR, recruitment, or business services.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 col-lg-2 reveal">
+            <div class="audience-card">
+              <div class="audience-icon">
+                <i class="bi bi-pencil-square"></i>
+              </div>
+              <h5>Bloggers</h5>
+              <p>
+                HR, recruitment, and business bloggers with engaged audiences.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-2 reveal">
+            <div class="audience-card">
+              <div class="audience-icon">
+                <i class="bi bi-camera-reels"></i>
+              </div>
+              <h5>YouTubers</h5>
+              <p>
+                Content creators in HR tech, business advice, or startup niches.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-2 reveal">
+            <div class="audience-card">
+              <div class="audience-icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <h5>Consultants</h5>
+              <p>
+                HR consultants and recruitment advisors with client networks.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-2 reveal">
+            <div class="audience-card">
+              <div class="audience-icon">
+                <i class="bi bi-linkedin"></i>
+              </div>
+              <h5>LinkedIn Influencers</h5>
+              <p>Thought leaders with strong professional followings.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-2 reveal">
+            <div class="audience-card">
+              <div class="audience-icon">
+                <i class="bi bi-building"></i>
+              </div>
+              <h5>Industry Pros</h5>
+              <p>Staffing agency owners and HR software resellers.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-2 reveal">
+            <div class="audience-card">
+              <div class="audience-icon">
+                <i class="bi bi-globe"></i>
+              </div>
+              <h5>Website Owners</h5>
+              <p>Owners of job boards, HR directories, or business portals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & Resources Section -->
+    <section class="tools-section" id="tools">
+      <div class="container position-relative">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div
+              class="section-subtitle justify-content-center"
+              style="background: rgba(26, 194, 193, 0.2); color: #5eead4"
+            >
+              <i class="bi bi-tools"></i> Affiliate Toolkit
+            </div>
+            <h2 class="section-title">Everything You Need to Succeed</h2>
+            <p class="section-desc mx-auto">
+              We provide all the resources you need to promote AuthBridge
+              effectively and maximize your earnings.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-link-45deg"></i>
+              </div>
+              <h4>Tracking Links</h4>
+              <p>
+                Unique referral URLs with advanced tracking, UTM parameters, and
+                conversion analytics.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-image"></i>
+              </div>
+              <h4>Creative Assets</h4>
+              <p>
+                Banner ads, social media graphics, email templates, and video
+                content ready to use.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h4>Content Library</h4>
+              <p>
+                Pre-written articles, case studies, whitepapers, and product
+                descriptions you can customize.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <h4>Real-time Analytics</h4>
+              <p>
+                Dashboard with clicks, conversions, revenue, and detailed
+                performance metrics updated hourly.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-headset"></i>
+              </div>
+              <h4>Partner Support</h4>
+              <p>
+                Dedicated affiliate support team available via email, chat, and
+                phone for strategy and technical help.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-calendar-event"></i>
+              </div>
+              <h4>Exclusive Events</h4>
+              <p>
+                Access to webinars, training sessions, product launches, and
+                annual partner summits.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-gift"></i>
+              </div>
+              <h4>Bonus Programs</h4>
+              <p>
+                Quarterly contests, performance bonuses, and special promotions
+                to boost your earnings.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <h4>API & Widgets</h4>
+              <p>
+                Advanced affiliates get access to embeddable widgets and API for
+                custom integrations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Earnings Calculator Section -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-calculator"></i> Earnings Estimator
+            </div>
+            <h2 class="section-title">Calculate Your Potential Earnings</h2>
+            <p class="section-desc mx-auto">
+              See how much you could earn monthly based on your referral volume
+              and average deal size.
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10 reveal">
+            <div class="calculator-card">
+              <div class="row align-items-center">
+                <div class="col-md-7">
+                  <div class="calc-input-group">
+                    <label class="calc-label"
+                      >Number of referrals per month</label
+                    >
+                    <input
+                      type="number"
+                      class="calc-input"
+                      id="referralCount"
+                      value="5"
+                      min="1"
+                      max="100"
+                      oninput="calculateEarnings()"
+                    />
+                  </div>
+                  <div class="calc-input-group">
+                    <label class="calc-label">Average deal value (₹)</label>
+                    <input
+                      type="number"
+                      class="calc-input"
+                      id="dealValue"
+                      value="50000"
+                      min="10000"
+                      step="5000"
+                      oninput="calculateEarnings()"
+                    />
+                  </div>
+                  <div class="calc-input-group mb-0">
+                    <label class="calc-label">Your commission tier</label>
+                    <select
+                      class="calc-input"
+                      id="commissionTier"
+                      onchange="calculateEarnings()"
+                    >
+                      <option value="0.15">Starter - 15%</option>
+                      <option value="0.25" selected>Professional - 25%</option>
+                      <option value="0.30">Enterprise - 30%</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-5 mt-4 mt-md-0">
+                  <div class="calc-result-box">
+                    <div class="calc-result-label">
+                      Estimated Monthly Earnings
+                    </div>
+                    <div class="calc-result-value" id="monthlyEarnings">
+                      ₹62,500
+                    </div>
+                    <div class="calc-result-note">
+                      Based on first month + recurring
+                    </div>
+
+                    <div
+                      class="mt-4 pt-4"
+                      style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
+                    >
+                      <div class="calc-result-label">Annual Potential</div>
+                      <div
+                        class="calc-result-value"
+                        style="font-size: 2rem"
+                        id="annualEarnings"
+                      >
+                        ₹7,50,000
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-chat-square-quote"></i> Success Stories
+            </div>
+            <h2 class="section-title">What Our Affiliates Say</h2>
+            <p class="section-desc mx-auto">
+              Real earnings from real affiliates who've built sustainable income
+              streams with AuthBridge.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">RK</div>
+                <div class="testimonial-meta">
+                  <h5>Rahul Kumar</h5>
+                  <span>HR Consultant</span>
+                  <div class="earnings-badge">
+                    <i class="bi bi-currency-rupee"></i> 3.2L/month
+                  </div>
+                </div>
+              </div>
+              <div class="star-rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="testimonial-text">
+                "I recommend AuthBridge to all my HR clients. The 25% recurring
+                commission has become my most stable income stream. The partner
+                support team is incredibly responsive."
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div
+                  class="testimonial-avatar"
+                  style="background: linear-gradient(135deg, #f59e0b, #d97706)"
+                >
+                  PS
+                </div>
+                <div class="testimonial-meta">
+                  <h5>Priya Sharma</h5>
+                  <span>LinkedIn Influencer</span>
+                  <div class="earnings-badge">
+                    <i class="bi bi-currency-rupee"></i> 1.8L/month
+                  </div>
+                </div>
+              </div>
+              <div class="star-rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <p class="testimonial-text">
+                "My LinkedIn posts about HR tech generate consistent leads. The
+                conversion rate is 15% because AuthBridge's brand is trusted.
+                Payouts are always on time."
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div
+                  class="testimonial-avatar"
+                  style="background: linear-gradient(135deg, #ec4899, #be185d)"
+                >
+                  AM
+                </div>
+                <div class="testimonial-meta">
+                  <h5>Amit Mishra</h5>
+                  <span>Blogger & YouTuber</span>
+                  <div class="earnings-badge">
+                    <i class="bi bi-currency-rupee"></i> 4.5L/month
+                  </div>
+                </div>
+              </div>
+              <div class="star-rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <p class="testimonial-text">
+                "Started as a side income, now it's my primary revenue source.
+                The Enterprise tier benefits including API access let me build
+                custom tools for my audience."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-question-circle"></i> Got Questions?
+            </div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-desc mx-auto">
+              Everything you need to know about our affiliate program. Can't
+              find your answer? Contact our partner team.
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 reveal">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    How and when do I get paid?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    We process payments monthly for Starter affiliates,
+                    bi-weekly for Professional, and weekly for Enterprise tier.
+                    Minimum payout threshold is ₹5,000. Payments are made via
+                    bank transfer (NEFT/IMPS) or UPI. Commissions are released
+                    30 days after the referred customer's payment clears to
+                    account for refunds.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    Is there a cost to join the affiliate program?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    No, joining the AuthBridge Affiliate Program is completely
+                    free. There are no hidden fees, no minimum sales
+                    requirements to maintain your account, and no charges for
+                    marketing materials. We provide everything you need to start
+                    earning at zero cost.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    How long do referral cookies last?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Cookie duration depends on your tier: Starter affiliates get
+                    90 days, Professional get 120 days, and Enterprise
+                    affiliates enjoy lifetime cookies. This means if someone
+                    clicks your link and purchases anytime within this window
+                    (or forever for Enterprise), you'll earn the commission.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    Can I refer myself or my own company?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Self-referrals are not permitted and will result in
+                    commission forfeiture and potential account termination.
+                    This includes referring your own company, family members, or
+                    creating multiple accounts. Our fraud detection system
+                    actively monitors for such violations.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    What marketing methods are allowed?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    We encourage blogs, social media, email marketing, webinars,
+                    podcasts, and direct referrals. However, we prohibit: paid
+                    search advertising on our branded keywords, spam email
+                    marketing, misleading claims, coupon sites, and any illegal
+                    or unethical promotion methods. Review our full guidelines
+                    upon approval.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    Do you provide support for affiliates?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Absolutely! All affiliates get access to our knowledge base
+                    and email support. Professional and Enterprise tiers receive
+                    dedicated partner managers, strategy sessions, and priority
+                    support. We also host monthly training webinars and provide
+                    one-on-one onboarding for high-potential affiliates.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="join">
+      <div class="container position-relative">
+        <h2>Start Earning Today</h2>
+        <p>
+          Join 500+ affiliates already earning with AuthBridge. Approval takes
+          less than 24 hours, and you can start sharing your link immediately.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="#" class="btn btn-primary-custom btn-lg px-5">
+            Apply Now - It's Free <i class="bi bi-arrow-right"></i>
+          </a>
+          <a
+            href="#"
+            class="btn btn-outline-light btn-lg px-5 rounded-pill"
+            style="border: 2px solid rgba(255, 255, 255, 0.3); color: white"
+          >
+            Contact Partner Team
+          </a>
+        </div>
+
+        <div class="mt-5 text-white-50 small">
+          <i
+            class="bi bi-check-circle-fill me-2"
+            style="color: var(--primary)"
+          ></i
+          >No credit card required
+          <span class="mx-3">|</span>
+          <i
+            class="bi bi-check-circle-fill me-2"
+            style="color: var(--primary)"
+          ></i
+          >24-hour approval
+          <span class="mx-3">|</span>
+          <i
+            class="bi bi-check-circle-fill me-2"
+            style="color: var(--primary)"
+          ></i
+          >Cancel anytime
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <!-- Footer -->
+    <footer
+      class="footer"
+      style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px"
+    >
+      <div class="container">
+        <!-- Newsletter Section -->
+        <div
+          class="newsletter-footer-section"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(26, 194, 193, 0.1) 0%,
+              rgba(26, 194, 193, 0.05) 100%
+            );
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(26, 194, 193, 0.2);
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="newsletter-icon-footer"
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: linear-gradient(
+                      135deg,
+                      var(--primary) 0%,
+                      var(--primary-dark) 100%
+                    );
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.8rem;
+                    flex-shrink: 0;
+                    box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+                  "
+                >
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div>
+                  <h4
+                    class="newsletter-title"
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      color: var(--dark);
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Stay Updated
+                  </h4>
+                  <p
+                    class="newsletter-subtitle"
+                    style="
+                      color: var(--gray);
+                      font-size: 0.95rem;
+                      margin: 0;
+                      line-height: 1.5;
+                    "
+                  >
+                    Get the latest insights on background verification,
+                    compliance updates, and industry trends.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <form class="newsletter-form-footer">
+                <div
+                  class="input-group-wrapper"
+                  style="
+                    display: flex;
+                    gap: 12px;
+                    margin-bottom: 10px;
+                    align-items: flex-start;
+                  "
+                >
+                  <div style="flex: 1">
+                    <input
+                      type="email"
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      style="
+                        width: 100%;
+                        padding: 14px 20px;
+                        border: 2px solid #e2e8f0;
+                        border-radius: 12px;
+                        font-size: 1rem;
+                        color: var(--dark);
+                        background: white;
+                        transition: all 0.3s ease;
+                      "
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="newsletter-btn"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary) 0%,
+                        var(--primary-dark) 100%
+                      );
+                      color: white;
+                      border: none;
+                      padding: 14px 28px;
+                      border-radius: 12px;
+                      font-weight: 600;
+                      font-size: 1rem;
+                      cursor: pointer;
+                      transition: all 0.3s ease;
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                      white-space: nowrap;
+                      box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+                    "
+                  >
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p
+                  class="newsletter-disclaimer"
+                  style="
+                    color: var(--gray);
+                    font-size: 0.85rem;
+                    margin: 8px 0 0 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                  "
+                >
+                  <i
+                    class="bi bi-shield-check"
+                    style="color: var(--primary)"
+                  ></i>
+                  We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Main Content -->
+        <div class="row footer-main-content" style="margin-top: 20px">
+          <!-- Logo & Description -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+                style="width: 180px; height: auto; margin-bottom: 20px"
+              />
+            </div>
+            <p
+              class="footer-description"
+              style="
+                font-size: 14px;
+                line-height: 1.6;
+                max-width: 280px;
+                color: var(--gray);
+              "
+            >
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Solutions
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Employment Check</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Education Verification</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Reference Checks</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Gap Analysis</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Company
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >About Us</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Partnership</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Careers</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Resources
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Affiliate</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Blog</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Case Studies</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Products
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Exit interview</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >psychometric</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >API</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div
+          class="footer-bottom"
+          style="
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #cbd5e1;
+          "
+        >
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p
+                class="copyright"
+                style="font-size: 14px; margin: 0; color: var(--gray)"
+              >
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div
+                class="social-links"
+                style="display: flex; justify-content: flex-end; gap: 15px"
+              >
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy Policy Row -->
+          <div
+            class="privacy-row"
+            style="
+              margin-top: 20px;
+              padding-top: 20px;
+              border-top: 1px solid #e2e8f0;
+              text-align: center;
+              color: var(--gray);
+              font-size: 0.9rem;
+            "
+          >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Privacy Policy</a
+            >
+            <span
+              class="privacy-separator"
+              style="margin: 0 10px; color: #cbd5e1"
+              >|</span
+            >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Disclaimer</a
+            >
+            <span
+              class="privacy-separator"
+              style="margin: 0 10px; color: #cbd5e1"
+              >|</span
+            >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Terms of Service</a
+            >
+            <span
+              class="privacy-separator"
+              style="margin: 0 10px; color: #cbd5e1"
+              >|</span
+            >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Cookies Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Earnings Calculator
+      function calculateEarnings() {
+        const referrals =
+          parseInt(document.getElementById("referralCount").value) || 0;
+        const dealValue =
+          parseInt(document.getElementById("dealValue").value) || 0;
+        const tier =
+          parseFloat(document.getElementById("commissionTier").value) || 0.25;
+
+        // Calculate first month earnings (one-time)
+        const firstMonth = referrals * dealValue * tier;
+
+        // Calculate recurring (assuming 80% retention and average 12 months lifecycle)
+        const recurringMonthly = firstMonth * 0.8;
+
+        // Show total monthly (first month + recurring from previous months)
+        // Simplified: showing first month + assuming some recurring for demo
+        const totalMonthly = firstMonth + recurringMonthly * 0.5;
+
+        const annual = totalMonthly * 12;
+
+        document.getElementById("monthlyEarnings").textContent =
+          "₹" + Math.round(totalMonthly).toLocaleString("en-IN");
+        document.getElementById("annualEarnings").textContent =
+          "₹" + Math.round(annual).toLocaleString("en-IN");
+      }
+
+      // Initialize calculator
+      calculateEarnings();
+    </script>
+  </body>
+</html>

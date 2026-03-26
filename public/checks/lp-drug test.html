@@ -1,0 +1,2733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drug Test Screening | Workplace Drug Testing | Verifitech</title>
+    <meta
+      name="description"
+      content="Comprehensive drug test screening services for workplaces. DOT-compliant testing, pre-employment screening, random testing programs with certified lab networks and MRO review."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+         html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile navbar collapse background */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* CTA Button - Talk to Sales */
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Remove Bootstrap's default white arrow from country selector */
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Style the custom chevron icon */
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+/* Rotate chevron when dropdown is open */
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+}
+      /* Hero Section */
+      .solution-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #ccfbf1 100%
+        );
+        position: relative;
+        overflow: hidden;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .solution-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .solution-hero h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+
+      .solution-hero .lead {
+        font-size: 1.35rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+
+      .trust-badge {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .trust-badge p {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+      }
+
+      .logo-row {
+        display: flex;
+        gap: 3rem;
+        flex-wrap: wrap;
+        opacity: 0.6;
+      }
+
+      .logo-item {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--navy);
+        filter: grayscale(100%);
+        transition: all 0.3s;
+      }
+
+      .logo-item:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        color: var(--primary);
+      }
+
+      /* Hero Visual */
+      .hero-visual {
+        position: relative;
+        height: 450px;
+      }
+
+      .floating-card {
+        position: absolute;
+        background: white;
+        border-radius: 24px;
+        padding: 1.5rem;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .card-1 {
+        top: 0;
+        right: 0;
+        width: 340px;
+        animation-delay: 0s;
+      }
+
+      .card-2 {
+        top: 200px;
+        left: 0;
+        width: 300px;
+        animation-delay: 1.5s;
+      }
+
+      .verification-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .verification-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .verif-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+
+      .status-badge {
+        margin-left: auto;
+        padding: 0.35rem 0.75rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      /* How it Works */
+      .how-it-works {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      .step-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        height: 100%;
+        border: 2px solid #e2e8f0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .step-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s;
+      }
+
+      .step-card:hover .step-number {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .step-card h4 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .step-card p {
+        color: var(--gray);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .step-connector {
+        position: absolute;
+        top: 45px;
+        right: -25px;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), transparent);
+        opacity: 0.3;
+      }
+
+      @media (max-width: 991px) {
+        .step-connector {
+          display: none;
+        }
+      }
+
+      /* Key Highlights */
+      .key-highlights {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .highlight-card {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .highlight-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        border-color: var(--primary);
+      }
+
+      .highlight-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+        transform-origin: left;
+      }
+
+      .highlight-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .highlight-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+        transition: all 0.3s;
+      }
+
+      .highlight-card:hover .highlight-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .highlight-card h3 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .highlight-card p {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .highlight-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+      }
+
+      .highlight-card ul li {
+        padding: 0.6rem 0;
+        color: var(--gray);
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.95rem;
+      }
+
+      .highlight-card ul li::before {
+        content: "✓";
+        color: var(--primary);
+        font-weight: 700;
+        flex-shrink: 0;
+        font-size: 1.1rem;
+      }
+
+      .btn-outline-custom {
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+        padding: 0.75rem 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-outline-custom:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.3);
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .benefit-item {
+        padding: 2.5rem;
+        background: white;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .benefit-item:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(26, 194, 193, 0.1);
+      }
+
+      .benefit-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--primary);
+        font-size: 2rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+        transition: all 0.3s;
+      }
+
+      .benefit-item:hover .benefit-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .benefit-item h4 {
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+        color: var(--dark);
+      }
+
+      .benefit-item p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .accordion-item {
+        border: none;
+        background: white;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+      }
+
+      .accordion-item:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .accordion-button {
+        padding: 1.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        background: white;
+        border: none;
+        font-size: 1.1rem;
+        box-shadow: none !important;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        box-shadow: none;
+      }
+
+      .accordion-button::after {
+        background-size: 1.2rem;
+        transition: all 0.3s;
+      }
+
+      .accordion-body {
+        padding: 0 1.8rem 1.8rem;
+        color: var(--gray);
+        line-height: 1.8;
+        font-size: 1rem;
+      }
+
+      /* Verification Types */
+      .verification-types {
+        padding: 80px 0;
+        background: white;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .type-card {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem;
+        border: 2px solid #e2e8f0;
+        height: 100%;
+        text-align: center;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .type-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(26, 194, 193, 0.1);
+      }
+
+      .type-card.featured {
+        border-color: var(--primary);
+        background: linear-gradient(135deg, var(--primary-light), white);
+      }
+
+      .type-icon {
+        width: 100px;
+        height: 100px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        color: var(--primary);
+        font-size: 3rem;
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.2);
+        border: 3px solid var(--primary-light);
+      }
+
+      .type-card h3 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+
+      .type-card p {
+        color: var(--gray);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      .badge-featured {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .contact-section h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .contact-section .lead {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-feature {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-feature-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(26, 194, 193, 0.2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 3rem;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+      }
+
+      .form-control,
+      .form-select {
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--primary);
+        color: white;
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .form-select option {
+        background: var(--dark);
+        color: white;
+      }
+
+      .form-check-label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+
+      .form-check-label a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .form-check-label a:hover {
+        text-decoration: underline;
+      }
+
+      .form-check-input {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .form-check-input:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-submit {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        width: 100%;
+        margin-top: 1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-submit:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .solution-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .solution-hero .lead {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-visual {
+          margin-top: 3rem;
+          height: 400px;
+        }
+
+        .floating-card {
+          width: 280px !important;
+        }
+
+        .card-2 {
+          display: none;
+        }
+
+        .contact-form {
+          margin-top: 3rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .solution-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .solution-hero h1 {
+          font-size: 2.2rem;
+          letter-spacing: -0.5px;
+        }
+
+        .logo-row {
+          justify-content: center;
+          gap: 2rem;
+        }
+
+        .step-card {
+          margin-bottom: 1.5rem;
+        }
+
+        .contact-section h2 {
+          font-size: 2.2rem;
+        }
+
+        .contact-form {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Program
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" class="btn-login">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="./contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="solution-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-badge">
+              <i class="bi bi-capsule"></i>
+              Drug Test Screening Solution
+            </div>
+            <h1>Workplace Drug Testing with Certified Lab Networks.</h1>
+            <p class="lead">
+              Comprehensive drug screening programs including pre-employment,
+              random, post-accident, and DOT-compliant testing. NABL certified
+              labs, MRO review, and 48-hour turnaround time with chain of
+              custody compliance.
+            </p>
+
+            <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
+              Get in Touch <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <div class="trust-badge">
+              <p>Trusted by 2,000+ companies</p>
+              <div class="logo-row">
+                <span class="logo-item">FedEx</span>
+                <span class="logo-item">Apollo</span>
+                <span class="logo-item">Tata</span>
+                <span class="logo-item">Amazon</span>
+                <span class="logo-item">DHL</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-visual">
+              <div class="floating-card card-1">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h6 class="mb-0 fw-bold">Drug Test Results</h6>
+                  <span class="badge bg-success bg-opacity-10 text-success"
+                    >Cleared</span
+                  >
+                </div>
+                <div class="verification-row">
+                  <div class="verif-icon"><i class="bi bi-capsule"></i></div>
+                  <div>
+                    <div class="fw-semibold">Panel Test</div>
+                    <small class="text-muted">10-Panel Standard</small>
+                  </div>
+                  <span class="status-badge">Negative</span>
+                </div>
+                <div class="verification-row">
+                  <div class="verif-icon"><i class="bi bi-droplet"></i></div>
+                  <div>
+                    <div class="fw-semibold">Sample Type</div>
+                    <small class="text-muted">Urine Analysis</small>
+                  </div>
+                  <span class="status-badge">Valid</span>
+                </div>
+                <div class="verification-row">
+                  <div class="verif-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Chain of Custody</div>
+                    <small class="text-muted">MRO Verified</small>
+                  </div>
+                  <span class="status-badge">Complete</span>
+                </div>
+              </div>
+
+              <div class="floating-card card-2">
+                <div class="text-center">
+                  <div
+                    class="mb-3"
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary),
+                        var(--primary-dark)
+                      );
+                      border-radius: 20px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto;
+                      color: white;
+                      font-size: 2rem;
+                    "
+                  >
+                    <i class="bi bi-flask"></i>
+                  </div>
+                  <h5 class="fw-bold mb-1">NABL Certified</h5>
+                  <p class="small text-muted mb-2">ISO 15189 Accredited</p>
+                  <div class="d-flex justify-content-center gap-2">
+                    <span class="badge bg-light text-dark border">Urine</span>
+                    <span class="badge bg-light text-dark border">Blood</span>
+                    <span class="badge bg-light text-dark border">Hair</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verification Types -->
+    <section class="verification-types">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-layers"></i> Testing Options
+            </div>
+            <h2 class="section-title">Drug Screening Programs</h2>
+            <p class="section-desc mx-auto">
+              Comprehensive testing solutions tailored for workplace safety,
+              compliance, and hiring requirements.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="type-card featured h-100">
+              <span class="badge-featured">MOST POPULAR</span>
+              <div class="type-icon">
+                <i class="bi bi-person-check"></i>
+              </div>
+              <h3>Pre-Employment</h3>
+              <p>
+                Standard pre-hiring drug screening to ensure a drug-free
+                workplace from day one of employment.
+              </p>
+              <div class="text-start mt-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>5, 10, or 12-panel options</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>48-hour turnaround</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Pan India collection centers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="type-card h-100">
+              <div class="type-icon">
+                <i class="bi bi-shuffle"></i>
+              </div>
+              <h3>Random Testing</h3>
+              <p>
+                Ongoing random drug testing programs to maintain workplace
+                safety and deter substance abuse.
+              </p>
+              <div class="text-start mt-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>DOT compliant random selection</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Quarterly/Annual programs</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Unannounced scheduling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="type-card h-100">
+              <div class="type-icon">
+                <i class="bi bi-exclamation-triangle"></i>
+              </div>
+              <h3>Post-Accident</h3>
+              <p>
+                Rapid response testing following workplace incidents to
+                determine if drugs were a contributing factor.
+              </p>
+              <div class="text-start mt-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>24/7 emergency collection</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Express 24-hour results</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Legal chain of custody</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-arrow-repeat"></i> Process
+            </div>
+            <h2 class="section-title">How Drug Testing Works</h2>
+            <p class="section-desc mx-auto">
+              Seamless sample collection to certified results with complete
+              chain of custody documentation
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">1</div>
+              <h4>Schedule Collection</h4>
+              <p>
+                Candidate receives secure link to schedule testing at nearest
+                NABL certified collection center or on-site visit.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">2</div>
+              <h4>Sample Collection</h4>
+              <p>
+                Trained technician collects sample (urine/blood/hair) with
+                strict chain of custody protocols and identity verification.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">3</div>
+              <h4>Lab Analysis</h4>
+              <p>
+                Sample processed at certified laboratory using immunoassay
+                screening and GC-MS confirmation for positive results.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">4</div>
+              <h4>MRO Review</h4>
+              <p>
+                Medical Review Officer examines positive results, contacts
+                candidate for prescription verification if needed.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-number">5</div>
+              <h4>Secure Reporting</h4>
+              <p>
+                Final results delivered via encrypted dashboard with detailed
+                analysis and compliance documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="key-highlights">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="highlight-card h-100">
+              <div class="highlight-icon">
+                <i class="bi bi-hospital"></i>
+              </div>
+              <h3>Certified Lab Network</h3>
+              <p>
+                Access to 500+ NABL accredited collection centers across India
+              </p>
+              <ul>
+                <li>ISO 15189 certified laboratory partners</li>
+                <li>Samhsa/DOT compliant testing standards</li>
+                <li>Strict chain of custody protocols</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline-custom"
+                >Get Started →</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="highlight-card h-100">
+              <div class="highlight-icon">
+                <i class="bi bi-file-earmark-medical"></i>
+              </div>
+              <h3>MRO Services</h3>
+              <p>Qualified Medical Review Officers for result interpretation</p>
+              <ul>
+                <li>Licensed physicians review all non-negative results</li>
+                <li>
+                  Prescription verification and legitimate medical explanation
+                </li>
+                <li>Split specimen management for retests</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline-custom"
+                >Get Started →</a
+              >
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="highlight-card h-100">
+              <div class="highlight-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3>DOT Compliance</h3>
+              <p>Department of Transportation compliant testing programs</p>
+              <ul>
+                <li>Federal drug testing guidelines adherence</li>
+                <li>Random selection algorithm certification</li>
+                <li>SAP (Substance Abuse Professional) referrals</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline-custom"
+                >Get Started →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section" id="benefits">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-stars"></i> Advantages
+            </div>
+            <h2 class="section-title">Benefits of Drug Testing</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="bi bi-shield-shaded"></i>
+              </div>
+              <h4>Workplace Safety</h4>
+              <p>
+                Reduce accidents and injuries by identifying substance abuse
+                before incidents occur.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-briefcase"></i></div>
+              <h4>Legal Compliance</h4>
+              <p>
+                Meet industry regulations for transportation, construction, and
+                manufacturing sectors.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-cash-stack"></i></div>
+              <h4>Cost Reduction</h4>
+              <p>
+                Lower insurance premiums and reduce workers' compensation
+                claims.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-clock"></i></div>
+              <h4>Fast Results</h4>
+              <p>
+                Negative results within 24-48 hours, positive results with MRO
+                review in 72 hours.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-geo-alt"></i></div>
+              <h4>Pan-India Network</h4>
+              <p>
+                500+ collection centers across metro and tier-2 cities for easy
+                candidate access.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-file-lock"></i></div>
+              <h4>Privacy Protected</h4>
+              <p>
+                HIPAA compliant handling of medical information with secure
+                encrypted reporting.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-plug"></i></div>
+              <h4>ATS Integration</h4>
+              <p>
+                API connectivity with major applicant tracking systems for
+                seamless workflow.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="bi bi-clipboard-check"></i>
+              </div>
+              <h4>Substance Panels</h4>
+              <p>
+                Customizable panels testing for 5 to 25 substances including
+                synthetic drugs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-question-circle"></i> FAQ
+            </div>
+            <h2 class="section-title">FAQs — Drug Test Screening</h2>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 reveal">
+            <div class="accordion" id="drugTestFAQ">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    What is the difference between 5-panel and 10-panel drug
+                    tests?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#drugTestFAQ"
+                >
+                  <div class="accordion-body">
+                    A 5-panel test screens for the five most common street
+                    drugs: Marijuana (THC), Cocaine, Opiates, Phencyclidine
+                    (PCP), and Amphetamines/Methamphetamines. A 10-panel test
+                    includes these five plus prescription drugs commonly abused:
+                    Benzodiazepines, Barbiturates, Methadone, Propoxyphene, and
+                    Quaaludes (or additional synthetic opioids). For
+                    safety-sensitive positions, we recommend 10-panel or
+                    12-panel testing to ensure comprehensive screening.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    How long do drugs stay detectable in different test types?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#drugTestFAQ"
+                >
+                  <div class="accordion-body">
+                    Detection windows vary by substance and test type:
+                    <strong>Urine tests</strong> (most common) detect most drugs
+                    for 1-7 days, though marijuana can be detected for up to 30
+                    days in chronic users. <strong>Blood tests</strong> detect
+                    immediate impairment with a window of hours to 1-2 days.
+                    <strong>Hair follicle tests</strong> show a 90-day history
+                    of drug use but cannot detect use within the last 7-10 days.
+                    <strong>Saliva tests</strong> detect use within the last
+                    24-48 hours. We recommend urine testing for pre-employment
+                    and hair testing for comprehensive historical screening.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    What happens if a candidate fails a drug test or the result
+                    is positive?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#drugTestFAQ"
+                >
+                  <div class="accordion-body">
+                    A positive result undergoes MRO (Medical Review Officer)
+                    review before being reported. The MRO contacts the candidate
+                    to determine if there's a legitimate medical explanation
+                    (prescription medications). If the candidate provides valid
+                    prescription proof, the result may be reported as negative.
+                    If no valid explanation exists, the result is confirmed
+                    positive. Employers typically rescind job offers for
+                    pre-employment positive results. For existing employees,
+                    consequences depend on company policy, ranging from
+                    mandatory counseling/SAP referral to termination, especially
+                    for safety-sensitive positions.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    Is random drug testing legal in India and how should it be
+                    conducted?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#drugTestFAQ"
+                >
+                  <div class="accordion-body">
+                    Yes, random drug testing is legal in India for private
+                    employers, provided it's mentioned in the employment
+                    contract or company policy with employee consent. For
+                    DOT-regulated industries (transportation), random testing is
+                    mandatory with specific percentages (5% for drugs, 10% for
+                    alcohol). Best practices include: having a clear written
+                    policy, using scientifically valid random selection methods
+                    (computer-generated), ensuring confidentiality of results,
+                    and applying consequences consistently. We provide
+                    DOT-compliant random selection algorithms and policy
+                    consultation to ensure legal compliance.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    Can candidates cheat or adulterate urine drug tests?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#drugTestFAQ"
+                >
+                  <div class="accordion-body">
+                    Our collection protocols minimize cheating opportunities
+                    through several measures: (1)
+                    <strong>Supervised collection</strong> for suspicious cases
+                    or regulated testing, (2)
+                    <strong>Temperature checks</strong> immediately after
+                    collection (valid samples must be 90-100°F), (3)
+                    <strong>Adulteration testing</strong> to detect diluted,
+                    substituted, or chemically altered samples, (4)
+                    <strong>Secure collection sites</strong> with bag checks and
+                    removal of outer clothing, (5)
+                    <strong>Split specimen collection</strong> allowing
+                    retesting of the second vial if the first shows tampering.
+                    Any attempt to tamper is reported as a refusal to test,
+                    treated the same as a positive result.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    What substances are included in synthetic drug testing?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#drugTestFAQ"
+                >
+                  <div class="accordion-body">
+                    Our advanced panels include testing for synthetic drugs that
+                    standard panels miss:
+                    <strong>Synthetic Cannabinoids</strong> (K2/Spice, JWH
+                    compounds), <strong>Synthetic Cathinones</strong> (Bath
+                    salts, MDPV, Mephedrone),
+                    <strong>Fentanyl and analogues</strong> (highly potent
+                    synthetic opioids),
+                    <strong>Tramadol and Tapentadol</strong>,
+                    <strong>Ketamine and analogues</strong>, and
+                    <strong>Designer Benzodiazepines</strong> (Etizolam,
+                    Phenazepam). These are increasingly important as traditional
+                    drug users shift to synthetic alternatives that evade
+                    standard detection but pose serious safety risks in
+                    workplaces.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section 
+    <section class="contact-section" id="contact">
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+            <h2>Ready to implement drug testing for your workplace?</h2>
+            <p class="lead">
+              Get in touch with our compliance team to discuss your drug testing
+              policy, volume requirements, and customized pricing.
+            </p>
+
+            <div class="mt-5">
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Assess testing program requirements</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Learn compliance & legal guidelines</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Discuss enterprise pricing & setup</span>
+              </div>
+            </div>
+
+            <div
+              class="mt-5 pt-4"
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
+            >
+              <p class="text-white-50 mb-3">Or reach us directly:</p>
+              <p class="mb-2">
+                <i class="bi bi-envelope me-2 text-primary"></i>
+                screening@verifitech.com
+              </p>
+              <p>
+                <i class="bi bi-telephone me-2 text-primary"></i> +91
+                1800-123-4567
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal">
+            <form
+              class="contact-form"
+              onsubmit="event.preventDefault(); alert('Thank you for your interest! Our screening team will contact you within 24 hours.');"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Work Email *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="Phone Number *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company Name *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <select class="form-select" required>
+                    <option value="" disabled selected>Industry *</option>
+                    <option>Transportation & Logistics</option>
+                    <option>Manufacturing</option>
+                    <option>Construction</option>
+                    <option>Healthcare</option>
+                    <option>IT/ITES</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <select class="form-select" required>
+                <option value="" disabled selected>
+                  Interested Solution *
+                </option>
+                <option selected>Pre-Employment Drug Testing</option>
+                <option>Random Testing Program</option>
+                <option>Post-Accident Testing</option>
+                <option>DOT Compliance Program</option>
+                <option>Hair Follicle Testing</option>
+              </select>
+              <textarea
+                class="form-control"
+                rows="3"
+                placeholder="Tell us about your requirements (Optional)"
+              ></textarea>
+
+              <div class="form-check mt-3 mb-4">
+                <input class="form-check-input" type="checkbox" required />
+                <label class="form-check-label">
+                  I agree to the <a href="#">Privacy Policy</a> and consent to
+                  being contacted regarding Verifitech services.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-submit">
+                Submit Request <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>-->
+
+    <!-- Footer -->
+      <footer class="footer" style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px;">
+  <div class="container">
+    <!-- Newsletter Section -->
+    <div class="newsletter-footer-section" style="background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(26, 194, 193, 0.2); position: relative; overflow: hidden;">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center gap-3">
+            <div class="newsletter-icon-footer" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);">
+              <i class="bi bi-envelope-open"></i>
+            </div>
+            <div>
+              <h4 class="newsletter-title" style="font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem;">Stay Updated</h4>
+              <p class="newsletter-subtitle" style="color: var(--gray); font-size: 0.95rem; margin: 0; line-height: 1.5;">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form class="newsletter-form-footer">
+            <div class="input-group-wrapper" style="display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;">
+              <div style="flex: 1;">
+                <input type="email" placeholder="Enter your work email" class="newsletter-input" style="width: 100%; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; color: var(--dark); background: white; transition: all 0.3s ease;">
+              </div>
+              <button type="submit" class="newsletter-btn" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);">
+                Subscribe <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <p class="newsletter-disclaimer" style="color: var(--gray); font-size: 0.85rem; margin: 8px 0 0 0; display: flex; align-items: center; gap: 6px;">
+              <i class="bi bi-shield-check" style="color: var(--primary);"></i> We respect your privacy. No spam, ever.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Main Content -->
+    <div class="row footer-main-content" style="margin-top: 20px;">
+      <!-- Logo & Description -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-brand">
+          <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" style="width: 180px; height: auto; margin-bottom: 20px;">
+        </div>
+        <p class="footer-description" style="font-size: 14px; line-height: 1.6; max-width: 280px; color: var(--gray);">
+          India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.
+        </p>
+      </div>
+
+      <!-- Solutions Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Solutions</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Employment Check</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Education Verification</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Reference Checks</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Gap Analysis</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Company</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">About Us</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Partnership</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Careers</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Resources</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Affiliate</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Blog</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Products Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Products</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Exit interview</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">psychometric</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">API</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #cbd5e1;">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="copyright" style="font-size: 14px; margin: 0; color: var(--gray);">
+            © 2026 Verifitech Solutions Private Limited. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="social-links" style="display: flex; justify-content: flex-end; gap: 15px;">
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Privacy Policy Row -->
+      <div class="privacy-row" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: var(--gray); font-size: 0.9rem;">
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Disclaimer</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>  
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>        
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Cookies Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp Button -->
+<a 
+  href="#" 
+  id="whatsappFloat"
+  class="whatsapp-float" 
+  title="Chat with us on WhatsApp"
+  onclick="openWhatsApp(event)"
+  style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
+>
+  <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+  <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
+</a>
+
+
+<style>
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: white;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+  }
+  
+  .whatsapp-float:hover .float-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+  
+  .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #333;
+  }
+  
+  .social-icon:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary) !important;
+    transform: translateX(5px);
+  }
+  
+  .privacy-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+  
+  .newsletter-btn:hover i {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 991px) {
+    .whatsapp-float {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    
+    .float-tooltip {
+      display: none;
+    }
+    
+    .newsletter-footer-section {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .newsletter-footer-section .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .newsletter-icon-footer {
+      margin: 0 auto;
+    }
+    
+    .input-group-wrapper {
+      flex-direction: column;
+    }
+    
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+    }
+  }
+</style>
+   
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+          // WhatsApp Functionality
+  const whatsappConfig = {
+    phoneNumber: '+919176663777',
+    defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+    pageContext: true
+  };
+
+  function openWhatsApp(event) {
+    event.preventDefault();
+    
+    const pageTitle = document.title;
+    const currentUrl = window.location.href;
+    
+    let message = whatsappConfig.defaultMessage;
+    
+    if (whatsappConfig.pageContext && pageTitle) {
+      message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+   
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,3962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Exit Interview Software | Employee Offboarding Analytics | Verifitech
+    </title>
+    <meta
+      name="description"
+      content="AI-powered exit interview software that captures honest feedback, analyzes departure trends, and reduces employee turnover. Transform exits into strategic insights."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+        --gradient-start: #f0fdfa;
+        --gradient-end: #ccfbf1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+
+html {
+  scroll-behavior: smooth;
+}
+/* ============================================
+   HERO BUTTONS STYLE
+   ============================================ */
+
+/* Primary Button - Start Free Trial */
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1.1rem 3rem !important; /* Extra large padding */
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 10px 30px rgba(26, 194, 193, 0.4) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-custom:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #0e8a89 100%) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 15px 40px rgba(26, 194, 193, 0.5) !important;
+  color: white !important;
+}
+
+/* Outline Button - Watch Demo */
+.btn-outline-custom {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: var(--dark) !important;
+  border: 2px solid var(--primary) !important;
+  padding: 1.1rem 3rem !important; /* Match primary button padding */
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  backdrop-filter: blur(5px);
+}
+
+.btn-outline-custom:hover {
+  background: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(26, 194, 193, 0.3) !important;
+}
+
+/* Icon Animation for Watch Demo */
+.btn-outline-custom i {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-outline-custom:hover i {
+  transform: scale(1.2);
+}
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile navbar collapse background */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* CTA Button - Talk to Sales */
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Remove Bootstrap's default white arrow from country selector */
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Style the custom chevron icon */
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+/* Rotate chevron when dropdown is open */
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+      /* Hero Section */
+      .hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          var(--gradient-start) 0%,
+          white 50%,
+          var(--gradient-end) 100%
+        );
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.08) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -1.5px;
+        color: var(--dark);
+      }
+
+      .hero h1 .highlight {
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero h1 .highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 12px;
+        background: rgba(26, 194, 193, 0.2);
+        z-index: -1;
+        border-radius: 4px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--gray);
+        margin-bottom: 2.5rem;
+        max-width: 540px;
+        line-height: 1.7;
+      }
+
+      .hero-badges {
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .badge-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .badge-icon {
+        width: 48px;
+        height: 48px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(26, 194, 193, 0.2);
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .badge-item:hover .badge-icon {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(26, 194, 193, 0.2);
+      }
+
+      .badge-text h6 {
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--dark);
+      }
+
+      .badge-text p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+
+      /* Hero Visual - Floating Cards */
+      .hero-visual {
+        position: relative;
+        height: 500px;
+        perspective: 1000px;
+      }
+
+      .floating-card {
+        position: absolute;
+        background: white;
+        border-radius: 20px;
+        padding: 1.5rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        animation: float 6s ease-in-out infinite;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+      }
+
+      .floating-card:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+      }
+
+      .card-1 {
+        top: 0;
+        right: 0;
+        width: 320px;
+        animation-delay: 0s;
+        z-index: 3;
+      }
+
+      .card-2 {
+        top: 140px;
+        left: 20px;
+        width: 280px;
+        animation-delay: 1s;
+        z-index: 2;
+      }
+
+      .card-3 {
+        bottom: 40px;
+        right: 40px;
+        width: 300px;
+        animation-delay: 2s;
+        z-index: 1;
+      }
+
+      .sentiment-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f1f5f9;
+        transition: all 0.3s;
+      }
+
+      .sentiment-row:hover {
+        background: var(--primary-light);
+        margin: 0 -1rem 1rem -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 8px;
+      }
+
+      .sentiment-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .sentiment-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: 2px solid white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        transition: all 0.3s;
+      }
+
+      .sentiment-row:hover .sentiment-avatar {
+        transform: scale(1.1);
+        border-color: var(--primary);
+      }
+
+      .sentiment-info h6 {
+        font-weight: 600;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .sentiment-info p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+
+      .sentiment-score {
+        margin-left: auto;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        transition: all 0.3s;
+      }
+
+      .score-positive {
+        background: rgba(34, 197, 94, 0.1);
+        color: #16a34a;
+      }
+
+      .score-negative {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+      }
+
+      .score-neutral {
+        background: rgba(245, 158, 11, 0.1);
+        color: #d97706;
+      }
+
+      .sentiment-row:hover .sentiment-score {
+        transform: scale(1.1);
+      }
+
+      /* Trust Logos */
+      .trust-section {
+        padding: 60px 0;
+        background: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .trust-title {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+        font-weight: 600;
+      }
+
+      .logo-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+        opacity: 0.5;
+      }
+
+      .logo-item {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--navy);
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: all 0.3s ease;
+      }
+
+      .logo-item:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Section Styling */
+      .section-padding {
+        padding: 100px 0;
+      }
+
+      .section-header {
+        margin-bottom: 4rem;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .section-subtitle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(26, 194, 193, 0.15);
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        background: white;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        height: 100%;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+        transform-origin: left;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        border-color: transparent;
+      }
+
+      .feature-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .feature-icon-wrap {
+        width: 72px;
+        height: 72px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        font-size: 2rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-icon-wrap {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
+      }
+
+      .feature-card h4 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        transition: color 0.3s;
+      }
+
+      .feature-card:hover h4 {
+        color: var(--primary-dark);
+      }
+
+      .feature-card p {
+        color: var(--gray);
+        margin: 0;
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .feature-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        padding: 0.35rem 0.75rem;
+        background: var(--light-gray);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        color: var(--gray);
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .tag:hover {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Analytics Dashboard Section - Dark */
+      .dark-section {
+        background: var(--dark);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .dark-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 1000px;
+        height: 1000px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .dark-section .section-title {
+        color: white;
+      }
+
+      .dark-section .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .insight-list-item {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 2;
+        transition: transform 0.3s;
+      }
+
+      .insight-list-item:hover {
+        transform: translateX(10px);
+      }
+
+      .insight-number {
+        width: 50px;
+        height: 50px;
+        background: rgba(26, 194, 193, 0.2);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-weight: 800;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .insight-list-item:hover .insight-number {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .insight-content h4 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .insight-content p {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      /* Use Cases Section */
+      .usecases-section {
+        background: var(--light-gray);
+      }
+
+      .usecase-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .usecase-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary);
+      }
+
+      .usecase-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--primary);
+        font-size: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .usecase-card:hover .usecase-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) rotate(10deg);
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
+      }
+
+      .usecase-card h5 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .usecase-card p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* Stats Bar */
+      .stats-bar {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        color: white;
+        padding: 60px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stats-bar::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .stat-item-main {
+        text-align: center;
+        position: relative;
+        transition: transform 0.3s;
+      }
+
+      .stat-item-main:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        display: block;
+        line-height: 1;
+        transition: all 0.3s;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        font-weight: 500;
+      }
+
+      /* Process Section */
+      .process-section {
+        background: white;
+      }
+
+      .process-cards-wrapper {
+        position: relative;
+        margin-top: 3rem;
+      }
+
+      .process-connector {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          to right,
+          var(--primary-light),
+          var(--primary),
+          var(--primary-light)
+        );
+        z-index: 1;
+        opacity: 0.3;
+      }
+
+      .process-card {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        border: 2px solid #e2e8f0;
+        transition: all 0.4s ease;
+        z-index: 2;
+      }
+
+      .process-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(26, 194, 193, 0.15);
+      }
+
+      .process-number {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--primary);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .process-card:hover .process-number {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
+      }
+
+      .process-icon-main {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: block;
+        transition: all 0.3s;
+      }
+
+      .process-card:hover .process-icon-main {
+        transform: scale(1.2);
+      }
+
+      .process-card h4 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark);
+        font-size: 1.4rem;
+      }
+
+      .process-card p {
+        color: var(--gray);
+        line-height: 1.7;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      /* Integration/API Section */
+      .integration-section {
+        background: var(--light-gray);
+      }
+
+      .code-block {
+        background: var(--dark);
+        border-radius: 16px;
+        padding: 2rem;
+        color: #e2e8f0;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+
+      .code-block:hover {
+        transform: translateY(-5px);
+      }
+
+      .code-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .code-dots {
+        position: absolute;
+        top: 12px;
+        left: 20px;
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .dot-red {
+        background: #ff5f56;
+      }
+      .dot-yellow {
+        background: #ffbd2e;
+      }
+      .dot-green {
+        background: #27c93f;
+      }
+
+      .code-content {
+        margin-top: 20px;
+        overflow-x: auto;
+      }
+
+      .keyword {
+        color: #ff79c6;
+      }
+      .string {
+        color: #f1fa8c;
+      }
+      .function {
+        color: #8be9fd;
+      }
+      .comment {
+        color: #6272a4;
+      }
+
+      /* Testimonial Section - Bento Grid */
+      .testimonial-section {
+        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.05) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2rem;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #5eead4);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px -12px rgba(26, 194, 193, 0.15);
+        border-color: transparent;
+      }
+
+      .testimonial-card:hover::before {
+        opacity: 1;
+      }
+
+      .testimonial-card.featured {
+        grid-column: span 7;
+        background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 400px;
+      }
+
+      .testimonial-card.featured::before {
+        background: linear-gradient(90deg, var(--primary), #5eead4);
+        opacity: 1;
+      }
+
+      .testimonial-card.featured .testimonial-text {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.35rem;
+        line-height: 1.6;
+        font-weight: 500;
+      }
+
+      .testimonial-card.featured .author-name {
+        color: white;
+      }
+
+      .testimonial-card.featured .author-role {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .testimonial-card.secondary {
+        grid-column: span 5;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .testimonial-card.small {
+        grid-column: span 4;
+      }
+
+      .testimonial-card.medium {
+        grid-column: span 4;
+      }
+
+      .quote-icon-large {
+        font-size: 4rem;
+        color: var(--primary);
+        opacity: 0.2;
+        line-height: 1;
+        margin-bottom: 1rem;
+        transition: all 0.3s;
+      }
+
+      .testimonial-card:hover .quote-icon-large {
+        transform: scale(1.1);
+        opacity: 0.3;
+      }
+
+      .testimonial-card.featured .quote-icon-large {
+        color: var(--primary);
+        opacity: 0.4;
+      }
+
+      .testimonial-text {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--navy);
+        margin-bottom: 2rem;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .testimonial-card:hover .author-avatar {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+      }
+
+      .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .author-info h6 {
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.05rem;
+        color: var(--dark);
+      }
+
+      .author-info span {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .star-rating {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 1rem;
+        color: #fbbf24;
+        font-size: 1rem;
+        transition: transform 0.3s;
+      }
+
+      .testimonial-card:hover .star-rating {
+        transform: scale(1.1);
+      }
+
+      .testimonial-card.featured .star-rating {
+        color: #fbbf24;
+      }
+
+      .company-badge {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s;
+      }
+
+      .testimonial-card:not(.featured) .company-badge {
+        background: var(--light-gray);
+        color: var(--navy);
+        border: 1px solid #e2e8f0;
+      }
+
+      .testimonial-card:hover .company-badge {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .video-indicator {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        width: 48px;
+        height: 48px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.4);
+      }
+
+      .video-indicator:hover {
+        transform: scale(1.1);
+        background: var(--primary-dark);
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(26, 194, 193, 0.1);
+        transition: all 0.3s;
+      }
+
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+      }
+
+      .shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+      }
+
+      .cta-content h2 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .cta-content p {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 40px;
+      }
+
+      .footer-brand {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: white;
+        text-decoration: none;
+        line-height: 1;
+        transition: color 0.3s;
+      }
+
+      .footer-brand:hover {
+        color: var(--primary);
+      }
+
+      .footer-brand span {
+        color: var(--primary);
+      }
+
+      .footer-tagline {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-desc {
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 2rem;
+        max-width: 300px;
+        line-height: 1.8;
+      }
+
+      .footer h5 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: white;
+        font-size: 1.1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer h5::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        font-size: 0.95rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .footer-bottom {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .social-icon:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+      }
+
+      /* Newsletter Section */
+      .newsletter-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-box:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(26, 194, 193, 0.3);
+      }
+
+      .newsletter-form .input-group {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-form .input-group:focus-within {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(26, 194, 193, 0.1);
+      }
+
+      .newsletter-input {
+        background: transparent;
+        border: none;
+        color: white;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .newsletter-input:focus {
+        background: transparent;
+        color: white;
+        box-shadow: none;
+        outline: none;
+      }
+
+      .newsletter-btn {
+        background: var(--primary);
+        border: none;
+        color: white;
+        padding: 0.75rem 1.25rem;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-btn:hover {
+        background: var(--primary-dark);
+      }
+
+      .newsletter-btn i {
+        transition: transform 0.3s ease;
+      }
+
+      .newsletter-form:hover .newsletter-btn i {
+        transform: translateX(3px);
+      }
+
+      /* Compliance Badges */
+      .compliance-badges {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .comp-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s;
+      }
+
+      .comp-badge:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile Menu Fixes */
+      @media (max-width: 991px) {
+        .navbar {
+          height: auto;
+          padding: 1rem 0;
+        }
+
+        .navbar-collapse {
+          background: white;
+          padding: 1.5rem;
+          border-radius: 16px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          margin-top: 1rem;
+          max-height: 80vh;
+          overflow-y: auto;
+        }
+
+        .nav-link {
+          padding: 0.75rem 0 !important;
+          border-bottom: 1px solid #f1f5f9;
+          margin: 0;
+        }
+
+        .dropdown-menu {
+          border: none;
+          box-shadow: none;
+          padding: 0.5rem;
+          margin-left: 1rem;
+          margin-top: 0;
+          border-left: 2px solid var(--primary-light);
+          border-radius: 0;
+          min-width: auto !important;
+          border-top: none;
+        }
+
+        .dropdown-menu.mega-menu {
+          min-width: auto !important;
+        }
+
+        .dropdown-item:hover {
+          transform: none;
+        }
+
+        .btn-sales {
+          margin: 1rem 0 0 0;
+          width: 100%;
+          text-align: center;
+        }
+
+        .country-selector {
+          margin: 0.5rem 0 0 0;
+          justify-content: center;
+        }
+
+        .testimonial-card,
+        .testimonial-card.featured,
+        .testimonial-card.secondary,
+        .testimonial-card.small,
+        .testimonial-card.medium {
+          grid-column: span 12;
+          min-height: auto;
+        }
+      }
+
+      /* Responsive Styles - Tablet */
+      @media (max-width: 991px) {
+        .hero {
+          padding: 120px 0 80px;
+          min-height: auto;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+          letter-spacing: -1px;
+        }
+
+        .hero-visual {
+          height: 450px;
+          margin-top: 4rem;
+        }
+
+        .floating-card {
+          width: 260px !important;
+        }
+
+        .card-1 {
+          right: 10%;
+        }
+        .card-2 {
+          left: 0;
+          top: 120px;
+        }
+        .card-3 {
+          right: 5%;
+          bottom: 20px;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .section-padding {
+          padding: 80px 0;
+        }
+
+        .stat-number {
+          font-size: 3rem;
+        }
+
+        .process-connector {
+          display: none;
+        }
+
+        .process-card {
+          margin-bottom: 2rem;
+        }
+
+        .cta-content h2 {
+          font-size: 3rem;
+        }
+      }
+
+      /* Responsive Styles - Mobile */
+      @media (max-width: 767px) {
+        .hero {
+          padding: 100px 0 60px;
+          text-align: center;
+        }
+
+        .hero h1 {
+          font-size: 2.25rem;
+          line-height: 1.2;
+          letter-spacing: -0.5px;
+        }
+
+        .hero h1 .highlight::after {
+          height: 8px;
+          bottom: 2px;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+          max-width: 100%;
+        }
+
+        .hero-badges {
+          flex-direction: column;
+          gap: 1.25rem;
+          align-items: center;
+          text-align: left;
+        }
+
+        .hero-visual {
+          height: 400px;
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .floating-card {
+          position: relative !important;
+          width: 90% !important;
+          max-width: 340px;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+          bottom: auto !important;
+          animation: none;
+          margin: 0 auto;
+        }
+
+        .floating-card.card-2 {
+          display: none;
+        }
+        .floating-card.card-3 {
+          display: none;
+        }
+
+        .btn-primary-custom {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .section-padding {
+          padding: 60px 0;
+        }
+
+        .section-title {
+          font-size: 2rem;
+          letter-spacing: -0.5px;
+        }
+
+        .section-header {
+          margin-bottom: 2.5rem;
+        }
+
+        .feature-card {
+          padding: 2rem;
+        }
+
+        .feature-icon-wrap {
+          width: 60px;
+          height: 60px;
+          font-size: 1.75rem;
+        }
+
+        .process-card {
+          padding: 2.5rem 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .process-number {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .process-icon-main {
+          font-size: 2rem;
+        }
+
+        .process-card h4 {
+          font-size: 1.25rem;
+        }
+
+        .usecase-card {
+          padding: 1.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .usecase-icon {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .code-block {
+          padding: 1.5rem;
+          font-size: 0.8rem;
+        }
+
+        .stats-bar .col-6 {
+          margin-bottom: 2rem;
+        }
+
+        .stat-number {
+          font-size: 2.5rem;
+        }
+
+        .cta-content h2 {
+          font-size: 2rem;
+        }
+
+        .cta-content p {
+          font-size: 1.1rem;
+        }
+
+        .cta-section {
+          padding: 80px 0;
+        }
+
+        .compliance-badges {
+          justify-content: center;
+        }
+
+        .insight-list-item {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .footer {
+          text-align: center;
+          padding: 60px 0 30px;
+        }
+
+        .footer-desc {
+          max-width: 100%;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+
+        .footer-links a:hover {
+          transform: none;
+        }
+
+        .testimonial-card {
+          padding: 1.5rem;
+        }
+
+        .testimonial-card.featured .testimonial-text {
+          font-size: 1.1rem;
+        }
+
+        .video-indicator {
+          display: none;
+        }
+
+        .newsletter-box {
+          text-align: center;
+          padding: 1.25rem;
+        }
+
+        .newsletter-form {
+          max-width: 300px;
+          margin: 0 auto;
+        }
+      }
+
+      /* Small Mobile Devices */
+      @media (max-width: 375px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .floating-card {
+          width: 95% !important;
+          padding: 1.25rem;
+        }
+
+        .sentiment-row {
+          gap: 0.75rem;
+        }
+
+        .sentiment-avatar {
+          width: 38px;
+          height: 38px;
+          font-size: 0.8rem;
+        }
+
+        .sentiment-info h6 {
+          font-size: 0.9rem;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .logo-item {
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content">
+            <div class="reveal">
+              <div
+                class="d-flex align-items-center gap-2 mb-4 justify-content-center justify-content-lg-start"
+              >
+                <span
+                  class="badge bg-white text-dark border d-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm"
+                >
+                  <span
+                    class="rounded-circle d-block"
+                    style="width: 8px; height: 8px; background: var(--primary)"
+                  ></span>
+                  Now with AI Sentiment Analysis
+                </span>
+              </div>
+              <h1>
+                Turn Exits Into
+                <span class="highlight">Strategic Insights</span>
+              </h1>
+              <p class="hero-subtitle">
+                AI-powered exit interview software that captures honest
+                feedback, analyzes departure trends, and helps you reduce
+                employee turnover by up to 40%.
+              </p>
+
+              <div
+                class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-4"
+              >
+                <a
+                  href="../tools/exitinterview.html"
+                  class="btn btn-primary-custom btn-lg px-5 py-3"
+                  style="font-size: 1.1rem"
+                >
+                  Start Free Trial
+                </a>
+                <!--<a
+                  href="#features"
+                  class="btn btn-outline-custom btn-lg px-4 py-3 d-flex align-items-center gap-2"
+                  style="font-size: 1.1rem"
+                >
+                  <i class="bi bi-play-circle"></i> Watch Demo
+                </a> -->
+              </div>
+
+              <div class="hero-badges">
+                <div class="badge-item">
+                  <div class="badge-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="badge-text">
+                    <h6>100% Anonymous</h6>
+                    <p>Honest Feedback</p>
+                  </div>
+                </div>
+                <div class="badge-item">
+                  <div class="badge-icon">
+                    <i class="bi bi-lightning-charge"></i>
+                  </div>
+                  <div class="badge-text">
+                    <h6>Real-time Insights</h6>
+                    <p>Instant Analytics</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-visual reveal">
+              <div class="floating-card card-1">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h6 class="mb-0 fw-bold">Live Sentiment Analysis</h6>
+                  <span class="badge bg-success bg-opacity-10 text-success"
+                    >Live</span
+                  >
+                </div>
+                <div class="sentiment-row">
+                  <div class="sentiment-avatar">RJ</div>
+                  <div class="sentiment-info">
+                    <h6>Robert Johnson</h6>
+                    <p>Exit Interview Completed</p>
+                  </div>
+                  <div class="sentiment-score score-positive">+4.2</div>
+                </div>
+                <div class="sentiment-row">
+                  <div
+                    class="sentiment-avatar"
+                    style="background: #fef3c7; color: #d97706"
+                  >
+                    EW
+                  </div>
+                  <div class="sentiment-info">
+                    <h6>Emily Watson</h6>
+                    <p>Manager Feedback</p>
+                  </div>
+                  <div class="sentiment-score score-negative">-2.1</div>
+                </div>
+                <div class="sentiment-row">
+                  <div
+                    class="sentiment-avatar"
+                    style="background: #dbeafe; color: #2563eb"
+                  >
+                    MK
+                  </div>
+                  <div class="sentiment-info">
+                    <h6>Michael Kim</h6>
+                    <p>Culture Survey</p>
+                  </div>
+                  <div class="sentiment-score score-neutral">0.0</div>
+                </div>
+              </div>
+
+              <div class="floating-card card-2">
+                <div class="text-center">
+                  <div
+                    class="mb-3"
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary),
+                        var(--primary-dark)
+                      );
+                      border-radius: 16px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto;
+                      color: white;
+                      font-size: 1.5rem;
+                    "
+                  >
+                    <i class="bi bi-graph-up-arrow"></i>
+                  </div>
+                  <h6 class="fw-bold mb-1">Turnover Reduced</h6>
+                  <p class="small text-muted mb-2">Last 6 Months</p>
+                  <div
+                    class="progress"
+                    style="height: 6px; border-radius: 10px"
+                  >
+                    <div
+                      class="progress-bar bg-success"
+                      style="
+                        width: 75%;
+                        border-radius: 10px;
+                        background: var(--primary) !important;
+                      "
+                    ></div>
+                  </div>
+                  <div class="mt-2 text-success fw-bold">-40%</div>
+                </div>
+              </div>
+
+              <div class="floating-card card-3">
+                <h6 class="fw-bold mb-3">Top Exit Reasons</h6>
+                <div class="d-flex flex-column gap-2">
+                  <div class="d-flex align-items-center gap-2">
+                    <div
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: var(--primary);
+                        border-radius: 50%;
+                      "
+                    ></div>
+                    <span class="small">Career Growth (32%)</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <div
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: #fbbf24;
+                        border-radius: 50%;
+                      "
+                    ></div>
+                    <span class="small">Compensation (28%)</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <div
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: #f87171;
+                        border-radius: 50%;
+                      "
+                    ></div>
+                    <span class="small">Management (24%)</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <div
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: #60a5fa;
+                        border-radius: 50%;
+                      "
+                    ></div>
+                    <span class="small">Work-Life (16%)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Logos -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="trust-title">Trusted by 500+ HR Teams</div>
+        <div class="logo-row">
+          <div class="logo-item">Google</div>
+          <div class="logo-item">Microsoft</div>
+          <div class="logo-item">Amazon</div>
+          <div class="logo-item">Meta</div>
+          <div class="logo-item">Netflix</div>
+          <div class="logo-item">Adobe</div>
+          <div class="logo-item">Salesforce</div>
+          <div class="logo-item">HubSpot</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features-grid section-padding" id="features">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-grid-3x3-gap"></i> Key Features
+            </div>
+            <h2 class="section-title">Complete Exit Intelligence Platform</h2>
+            <p class="section-desc mx-auto">
+              From automated interview scheduling to predictive analytics,
+              everything you need to understand and reduce employee turnover.
+            </p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-robot"></i>
+              </div>
+              <h4>AI-Powered Interviews</h4>
+              <p>
+                Smart conversational AI conducts exit interviews 24/7, asking
+                follow-up questions based on responses to uncover deep insights.
+              </p>
+              <div class="feature-tags">
+                <span class="tag">NLP</span>
+                <span class="tag">24/7</span>
+                <span class="tag">Multilingual</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h4>Anonymous Feedback</h4>
+              <p>
+                Military-grade anonymity ensures honest responses. No IP
+                tracking, no identifiers, just pure insights.
+              </p>
+              <div class="feature-tags">
+                <span class="tag">GDPR</span>
+                <span class="tag">Encrypted</span>
+                <span class="tag">Secure</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-emoji-smile"></i>
+              </div>
+              <h4>Sentiment Analysis</h4>
+              <p>
+                Advanced NLP algorithms detect emotions, tone, and sentiment
+                trends across all exit interview responses.
+              </p>
+              <div class="feature-tags">
+                <span class="tag">AI/ML</span>
+                <span class="tag">Real-time</span>
+                <span class="tag">Trends</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-bell"></i>
+              </div>
+              <h4>Smart Alerts</h4>
+              <p>
+                Instant notifications for critical feedback, harassment reports,
+                or legal issues requiring immediate HR attention.
+              </p>
+              <div class="feature-tags">
+                <span class="tag">Slack</span>
+                <span class="tag">Email</span>
+                <span class="tag">SMS</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <h4>Predictive Analytics</h4>
+              <p>
+                Identify flight risks before they resign. ML models analyze
+                patterns to predict turnover 30-60 days in advance.
+              </p>
+              <div class="feature-tags">
+                <span class="tag">Predictive</span>
+                <span class="tag">Dashboard</span>
+                <span class="tag">API</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon-wrap">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h4>Custom Templates</h4>
+              <p>
+                Build role-specific, department-specific, or geography-specific
+                exit interview questionnaires with our drag-and-drop builder.
+              </p>
+              <div class="feature-tags">
+                <span class="tag">Drag-Drop</span>
+                <span class="tag">Templates</span>
+                <span class="tag">Logic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analytics Dashboard Section - Dark -->
+    <section class="dark-section section-padding" id="analytics">
+      <div class="container position-relative">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div
+              class="section-subtitle"
+              style="background: rgba(26, 194, 193, 0.2); color: #5eead4"
+            >
+              <i class="bi bi-bar-chart-line"></i> Analytics
+            </div>
+            <h2 class="section-title">Insights That Drive Action</h2>
+            <p class="section-desc mb-5">
+              Transform raw exit data into strategic workforce intelligence.
+              Identify trends, benchmark against industry standards, and take
+              data-driven retention actions.
+            </p>
+
+            <div class="insight-list-item">
+              <div class="insight-number">01</div>
+              <div class="insight-content">
+                <h4>Turnover Cost Calculator</h4>
+                <p>
+                  Automatically calculate the financial impact of each departure
+                  including recruitment, training, and productivity loss costs.
+                </p>
+              </div>
+            </div>
+            <div class="insight-list-item">
+              <div class="insight-number">02</div>
+              <div class="insight-content">
+                <h4>Manager Effectiveness Scores</h4>
+                <p>
+                  Correlate exit feedback with management performance. Identify
+                  training needs and recognize high-performing leaders.
+                </p>
+              </div>
+            </div>
+            <div class="insight-list-item">
+              <div class="insight-number">03</div>
+              <div class="insight-content">
+                <h4>Benchmarking Reports</h4>
+                <p>
+                  Compare your turnover rates, exit reasons, and sentiment
+                  scores against industry peers and best-in-class companies.
+                </p>
+              </div>
+            </div>
+
+            <div class="compliance-badges">
+              <div class="comp-badge">
+                <i class="bi bi-file-earmark-pdf"></i> PDF Reports
+              </div>
+              <div class="comp-badge">
+                <i class="bi bi-file-earmark-excel"></i> Excel Export
+              </div>
+              <div class="comp-badge">
+                <i class="bi bi-share"></i> Shareable
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 24px;
+                padding: 3rem;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <div class="text-center mb-4">
+                <i
+                  class="bi bi-speedometer2"
+                  style="font-size: 4rem; color: var(--primary)"
+                ></i>
+              </div>
+              <h4 class="text-center mb-4">Executive Dashboard</h4>
+              <div class="d-flex flex-column gap-3">
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-people-fill me-2 text-primary"></i> Monthly
+                    Exits</span
+                  >
+                  <span class="badge bg-white text-dark"
+                    >12
+                    <small class="text-muted">(-3 vs last month)</small></span
+                  >
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-heart-pulse me-2 text-primary"></i> eNPS
+                    Score</span
+                  >
+                  <span class="badge bg-white text-dark"
+                    >42 <small class="text-success">↑ 8pts</small></span
+                  >
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-clock-history me-2 text-primary"></i> Avg.
+                    Tenure</span
+                  >
+                  <span class="badge bg-white text-dark">2.4 years</span>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i
+                      class="bi bi-exclamation-triangle me-2 text-primary"
+                    ></i>
+                    At-Risk Employees</span
+                  >
+                  <span class="badge bg-danger text-white">23</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="usecases-section section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-briefcase"></i> Use Cases
+            </div>
+            <h2 class="section-title">Built for Every Team</h2>
+            <p class="section-desc mx-auto">
+              Whether you're a startup or enterprise, our exit interview
+              solution adapts to your organization's unique needs.
+            </p>
+          </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="usecase-card">
+              <div class="usecase-icon">
+                <i class="bi bi-building"></i>
+              </div>
+              <h5>Enterprise</h5>
+              <p>
+                Multi-entity rollups, SSO integration, and advanced compliance
+                for 10,000+ employee organizations
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="usecase-card">
+              <div
+                class="usecase-icon"
+                style="background: #fef3c7; color: #d97706"
+              >
+                <i class="bi bi-rocket"></i>
+              </div>
+              <h5>High-Growth</h5>
+              <p>
+                Rapid deployment, scalable pricing, and insights to maintain
+                culture during hypergrowth phases
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="usecase-card">
+              <div
+                class="usecase-icon"
+                style="background: #dbeafe; color: #2563eb"
+              >
+                <i class="bi bi-globe"></i>
+              </div>
+              <h5>Global Teams</h5>
+              <p>
+                Multi-language support, regional compliance, and timezone-aware
+                interview scheduling
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="usecase-card">
+              <div
+                class="usecase-icon"
+                style="background: #fce7f3; color: #db2777"
+              >
+                <i class="bi bi-shop"></i>
+              </div>
+              <h5>Retail & Hospitality</h5>
+              <p>
+                High-volume hourly worker exits, kiosk-based interviews, and
+                seasonal turnover analysis
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="40">0</span>%
+              <div class="stat-label">Turnover Reduced</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="85">0</span>%
+              <div class="stat-label">Response Rate</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="3">0</span>x
+              <div class="stat-label">More Insights</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="24">0</span>/7
+              <div class="stat-label">Availability</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-arrow-repeat"></i> How It Works
+            </div>
+            <h2 class="section-title">Seamless Exit Intelligence in 3 Steps</h2>
+            <p class="section-desc mx-auto">
+              From resignation to actionable insights, automate your entire
+              offboarding feedback process.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-cards-wrapper">
+          <div class="process-connector"></div>
+          <div class="row g-4 position-relative" style="z-index: 2">
+            <div class="col-md-4 reveal">
+              <div class="process-card">
+                <div class="process-number">1</div>
+                <i class="bi bi-person-x process-icon-main"></i>
+                <h4>Trigger Interview</h4>
+                <p>
+                  Automatically initiate exit interviews upon resignation
+                  submission via HRIS integration or manual entry.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 reveal">
+              <div class="process-card">
+                <div class="process-number">2</div>
+                <i class="bi bi-chat-dots process-icon-main"></i>
+                <h4>Collect Feedback</h4>
+                <p>
+                  AI conducts conversational interviews via chat, email, or
+                  voice. Employees respond at their convenience.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 reveal">
+              <div class="process-card">
+                <div class="process-number">3</div>
+                <i class="bi bi-lightbulb process-icon-main"></i>
+                <h4>Act on Insights</h4>
+                <p>
+                  Receive automated reports with sentiment analysis, trends, and
+                  recommended retention actions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration/API Section -->
+    <section class="integration-section section-padding" id="integrations">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="section-subtitle">
+              <i class="bi bi-plug"></i> Integrations
+            </div>
+            <h2 class="section-title">Works With Your HR Stack</h2>
+            <p class="section-desc mb-4">
+              Native integrations with leading HRIS, ATS, and communication
+              platforms. Sync data automatically and trigger workflows across
+              your tools.
+            </p>
+
+            <div class="d-flex flex-column gap-4 mt-4">
+              <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: rgba(26, 194, 193, 0.1);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--primary);
+                      font-size: 1.3rem;
+                    "
+                  >
+                    <i class="bi bi-building"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">HRIS Connect</h5>
+                  <p class="text-muted mb-0">
+                    Workday, BambooHR, SAP SuccessFactors, ADP, and more.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: rgba(26, 194, 193, 0.1);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--primary);
+                      font-size: 1.3rem;
+                    "
+                  >
+                    <i class="bi bi-slack"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">Slack & Teams</h5>
+                  <p class="text-muted mb-0">
+                    Real-time alerts, bot interviews, and channel notifications.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: rgba(26, 194, 193, 0.1);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--primary);
+                      font-size: 1.3rem;
+                    "
+                  >
+                    <i class="bi bi-code-slash"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">REST API</h5>
+                  <p class="text-muted mb-0">
+                    Build custom integrations with comprehensive API
+                    documentation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <div class="code-block">
+              <div class="code-dots">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+              </div>
+              <div class="code-content">
+                <div>
+                  <span class="comment"
+                    >// Trigger exit interview on resignation</span
+                  >
+                </div>
+                <div>
+                  <span class="keyword">POST</span> /api/v1/exit-interviews
+                </div>
+                <div style="margin-top: 10px; color: #8be9fd">{</div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  employee_id: <span class="string">"emp_789"</span>,
+                </div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  last_day: <span class="string">"2024-03-15"</span>,
+                </div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  template: <span class="string">"standard"</span>,
+                </div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  anonymous: <span class="keyword">true</span>
+                </div>
+                <div style="color: #8be9fd">}</div>
+                <div style="margin-top: 15px; color: #6272a4">
+                  // Webhook: interview.completed
+                </div>
+                <div style="color: #f1fa8c">"insights_available": true,</div>
+                <div style="color: #f1fa8c">"risk_level": "high",</div>
+                <div style="color: #f1fa8c">"recommended_actions": [...]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section - Bento Grid -->
+    <section class="testimonial-section section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-chat-square-quote"></i> Customer Stories
+            </div>
+            <h2 class="section-title">Loved by HR Leaders</h2>
+            <p class="section-desc mx-auto">
+              See how teams are transforming exit data into retention
+              strategies.
+            </p>
+          </div>
+        </div>
+
+        <div class="testimonial-grid reveal">
+          <!-- Featured Large Testimonial -->
+          <div class="testimonial-card featured">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+              <div class="quote-icon-large"><i class="bi bi-quote"></i></div>
+              <span class="company-badge">TechCorp Inc.</span>
+            </div>
+
+            <div class="star-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+
+            <p class="testimonial-text">
+              "We reduced voluntary turnover by 35% in 6 months using
+              Verifitech's exit insights. The AI identified that lack of career
+              growth was our #1 issue - something our manual exit interviews
+              never captured accurately."
+            </p>
+
+            <div class="testimonial-author">
+              <div class="author-avatar">SK</div>
+              <div class="author-info">
+                <h6 class="author-name">Sarah Kennedy</h6>
+                <span class="author-role">Chief People Officer</span>
+              </div>
+            </div>
+
+            <div class="video-indicator">
+              <i class="bi bi-play-fill"></i>
+            </div>
+          </div>
+
+          <!-- Secondary Featured -->
+          <div class="testimonial-card secondary">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+              <div class="quote-icon-large"><i class="bi bi-quote"></i></div>
+              <span class="company-badge">RetailMax</span>
+            </div>
+
+            <div class="star-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+
+            <p class="testimonial-text">
+              "The anonymous feedback feature is a game-changer. We're getting
+              honest insights about management issues that we never heard
+              before. Response rates went from 30% to 89%."
+            </p>
+
+            <div class="testimonial-author">
+              <div
+                class="author-avatar"
+                style="background: #dbeafe; color: #1e40af"
+              >
+                MR
+              </div>
+              <div class="author-info">
+                <h6 class="author-name">Mike Rodriguez</h6>
+                <span class="author-role">VP Human Resources</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small Cards Row -->
+          <div class="testimonial-card small">
+            <div class="star-rating mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+            <p class="testimonial-text" style="font-size: 0.95rem">
+              "Integration with Workday took 10 minutes. The predictive alerts
+              helped us retain 12 high-performers who were flight risks."
+            </p>
+            <div class="testimonial-author mt-3">
+              <div
+                class="author-avatar"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  font-size: 1rem;
+                  background: #fef3c7;
+                  color: #92400e;
+                  border-radius: 12px;
+                "
+              >
+                JL
+              </div>
+              <div class="author-info">
+                <h6 class="author-name" style="font-size: 0.95rem">
+                  Jennifer Liu
+                </h6>
+                <span class="author-role" style="font-size: 0.8rem"
+                  >HR Director, FinServe</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card medium">
+            <div class="star-rating mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text" style="font-size: 0.95rem">
+              "The sentiment analysis surfaced patterns across 500+ exits that
+              we never noticed. Turned out our onboarding was the real problem,
+              not compensation."
+            </p>
+            <div class="testimonial-author mt-3">
+              <div
+                class="author-avatar"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  font-size: 1rem;
+                  background: #fce7f3;
+                  color: #be185d;
+                  border-radius: 12px;
+                "
+              >
+                DP
+              </div>
+              <div class="author-info">
+                <h6 class="author-name" style="font-size: 0.95rem">
+                  David Park
+                </h6>
+                <span class="author-role" style="font-size: 0.8rem"
+                  >Head of People, StartupX</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card small">
+            <div class="star-rating mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text" style="font-size: 0.95rem">
+              "Best investment in HR tech we've made. The ROI was clear within
+              90 days - saved us $2M in turnover costs."
+            </p>
+            <div class="testimonial-author mt-3">
+              <div
+                class="author-avatar"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  font-size: 1rem;
+                  background: #e0e7ff;
+                  color: #4338ca;
+                  border-radius: 12px;
+                "
+              >
+                AT
+              </div>
+              <div class="author-info">
+                <h6 class="author-name" style="font-size: 0.95rem">
+                  Amanda Torres
+                </h6>
+                <span class="author-role" style="font-size: 0.8rem"
+                  >CPO, HealthPlus</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="demo">
+      <div class="cta-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+      </div>
+      <div class="container position-relative">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8 reveal">
+            <h2>Ready to Reduce Turnover?</h2>
+            <p>
+              Join 500+ companies using Verifitech Exit Interviews to build
+              better workplaces. Start your free 14-day trial with unlimited
+              interviews.
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+              <a
+                href="#"
+                class="btn btn-primary-custom btn-lg px-5"
+                style="
+                  background: var(--primary) !important;
+                  border: 2px solid var(--primary);
+                "
+              >
+                Start Free Trial
+              </a>
+              <a
+                href="#"
+                class="btn btn-outline-light btn-lg px-5 rounded-pill"
+                style="border: 2px solid rgba(255, 255, 255, 0.3); color: white"
+              >
+                Schedule Demo
+              </a>
+            </div>
+
+            <div class="mt-5 text-white-50 small">
+              <i
+                class="bi bi-check-circle-fill me-2"
+                style="color: var(--primary)"
+              ></i
+              >No credit card required
+              <span class="mx-3">|</span>
+              <i
+                class="bi bi-check-circle-fill me-2"
+                style="color: var(--primary)"
+              ></i
+              >Free 14-day trial
+              <span class="mx-3">|</span>
+              <i
+                class="bi bi-check-circle-fill me-2"
+                style="color: var(--primary)"
+              ></i
+              >Cancel anytime
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    
+    <!-- Footer -->
+   <footer class="footer" style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px;">
+  <div class="container">
+    <!-- Newsletter Section -->
+    <div class="newsletter-footer-section" style="background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(26, 194, 193, 0.2); position: relative; overflow: hidden;">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center gap-3">
+            <div class="newsletter-icon-footer" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);">
+              <i class="bi bi-envelope-open"></i>
+            </div>
+            <div>
+              <h4 class="newsletter-title" style="font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem;">Stay Updated</h4>
+              <p class="newsletter-subtitle" style="color: var(--gray); font-size: 0.95rem; margin: 0; line-height: 1.5;">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form class="newsletter-form-footer">
+            <div class="input-group-wrapper" style="display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;">
+              <div style="flex: 1;">
+                <input type="email" placeholder="Enter your work email" class="newsletter-input" style="width: 100%; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; color: var(--dark); background: white; transition: all 0.3s ease;">
+              </div>
+              <button type="submit" class="newsletter-btn" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);">
+                Subscribe <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <p class="newsletter-disclaimer" style="color: var(--gray); font-size: 0.85rem; margin: 8px 0 0 0; display: flex; align-items: center; gap: 6px;">
+              <i class="bi bi-shield-check" style="color: var(--primary);"></i> We respect your privacy. No spam, ever.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Main Content -->
+    <div class="row footer-main-content" style="margin-top: 20px;">
+      <!-- Logo & Description -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-brand">
+          <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" style="width: 180px; height: auto; margin-bottom: 20px;">
+        </div>
+        <p class="footer-description" style="font-size: 14px; line-height: 1.6; max-width: 280px; color: var(--gray);">
+          India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.
+        </p>
+      </div>
+
+      <!-- Solutions Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Solutions</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Employment Check</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Education Verification</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Reference Checks</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Gap Analysis</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Company</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">About Us</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Partnership</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Careers</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Resources</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Affiliate</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Blog</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Products Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Products</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Exit interview</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">psychometric</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">API</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #cbd5e1;">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="copyright" style="font-size: 14px; margin: 0; color: var(--gray);">
+            © 2026 Verifitech Solutions Private Limited. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="social-links" style="display: flex; justify-content: flex-end; gap: 15px;">
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Privacy Policy Row -->
+      <div class="privacy-row" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: var(--gray); font-size: 0.9rem;">
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Disclaimer</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>  
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>        
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Cookies Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp Button -->
+<a 
+  href="#" 
+  id="whatsappFloat"
+  class="whatsapp-float" 
+  title="Chat with us on WhatsApp"
+  onclick="openWhatsApp(event)"
+  style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
+>
+  <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+  <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
+</a>
+
+
+<style>
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: white;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+  }
+  
+  .whatsapp-float:hover .float-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+  
+  .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #333;
+  }
+  
+  .social-icon:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary) !important;
+    transform: translateX(5px);
+  }
+  
+  .privacy-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+  
+  .newsletter-btn:hover i {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 991px) {
+    .whatsapp-float {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    
+    .float-tooltip {
+      display: none;
+    }
+    
+    .newsletter-footer-section {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .newsletter-footer-section .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .newsletter-icon-footer {
+      margin: 0 auto;
+    }
+    
+    .input-group-wrapper {
+      flex-direction: column;
+    }
+    
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+    }
+  }
+</style>
+   
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      
+      // WhatsApp Functionality
+  const whatsappConfig = {
+    phoneNumber: '+919176663777',
+    defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+    pageContext: true
+  };
+
+  function openWhatsApp(event) {
+    event.preventDefault();
+    
+    const pageTitle = document.title;
+    const currentUrl = window.location.href;
+    
+    let message = whatsappConfig.defaultMessage;
+    
+    if (whatsappConfig.pageContext && pageTitle) {
+      message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+     
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+
+            // Animate counters
+            if (entry.target.querySelector(".stat-number")) {
+              const counters = entry.target.querySelectorAll(".stat-number");
+              counters.forEach((counter) => {
+                const target = parseInt(counter.getAttribute("data-target"));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                  current += step;
+                  if (current >= target) {
+                    counter.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                  } else {
+                    counter.textContent = Math.floor(current).toLocaleString();
+                  }
+                }, 16);
+              });
+            }
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Observe stats section specifically
+      const statsSection = document.querySelector(".stats-bar");
+      if (statsSection) observer.observe(statsSection);
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Newsletter subscription function
+      function showSubscribeMessage(form) {
+        const successDiv = form.querySelector(".newsletter-success");
+        const input = form.querySelector(".newsletter-input");
+
+        successDiv.style.display = "block";
+        input.value = "";
+
+        setTimeout(() => {
+          successDiv.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

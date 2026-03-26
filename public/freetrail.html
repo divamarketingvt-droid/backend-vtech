@@ -1,0 +1,2266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Free Trial | Background Verification | Verifitech</title>
+    <meta
+      name="description"
+      content="Start your free trial with Verifitech. Experience automated background verification, KYC, and compliance checks. No credit card required."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+        --success: #10b981;
+        --warning: #f59e0b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation */
+      .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+      }
+
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+        text-decoration: none;
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* Hero Section */
+      .trial-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 30%,
+          #ccfbf1 70%,
+          #e0f7f7 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .trial-hero::before {
+        content: "";
+        position: absolute;
+        top: -30%;
+        left: -10%;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.12) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+        animation: pulse 8s ease-in-out infinite;
+      }
+
+      .trial-hero::after {
+        content: "";
+        position: absolute;
+        bottom: -20%;
+        right: -5%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.08) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+        animation: pulse 10s ease-in-out infinite reverse;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.4;
+        }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 194, 193, 0.15),
+          rgba(26, 194, 193, 0.05)
+        );
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      .trial-hero h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .trial-hero .lead {
+        font-size: 1.35rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      .trial-features {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .trial-feature {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+
+      .trial-feature i {
+        color: var(--success);
+        font-size: 1.2rem;
+      }
+
+      /* Process Section Container */
+      .process-section {
+        background: var(--light-gray);
+        padding: 60px 0;
+      }
+
+      /* Step Cards */
+      .step-card {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .step-card.active {
+        border-color: var(--primary);
+        box-shadow: 0 20px 60px rgba(26, 194, 193, 0.15);
+      }
+
+      .step-card.completed {
+        border-color: var(--success);
+        background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
+      }
+
+      .step-card.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid #f1f5f9;
+      }
+
+      .step-number-badge {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 800;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .step-card.active .step-number-badge {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      .step-card.completed .step-number-badge {
+        background: var(--success);
+        color: white;
+      }
+
+      .step-card:not(.active):not(.completed) .step-number-badge {
+        background: #f1f5f9;
+        color: var(--gray);
+      }
+
+      .step-title-group h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: var(--dark);
+      }
+
+      .step-title-group p {
+        color: var(--gray);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .step-status {
+        margin-left: auto;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .step-card.active .step-status {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      .step-card.completed .step-status {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .step-card:not(.active):not(.completed) .step-status {
+        background: #f1f5f9;
+        color: var(--gray);
+      }
+
+      /* Lead Form in Step 1 */
+      .lead-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .form-floating-custom {
+        position: relative;
+      }
+
+      .form-floating-custom.full-width {
+        grid-column: 1 / -1;
+      }
+
+      .form-floating-custom input,
+      .form-floating-custom select {
+        width: 100%;
+        padding: 1rem 1.2rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+        background: white;
+        height: auto;
+      }
+
+      .form-floating-custom input:focus,
+      .form-floating-custom select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+      }
+
+      .form-floating-custom label {
+        position: absolute;
+        left: 1.2rem;
+        top: 1rem;
+        font-size: 1rem;
+        color: var(--gray);
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background: white;
+        padding: 0 0.25rem;
+      }
+
+      .form-floating-custom input:focus + label,
+      .form-floating-custom input:not(:placeholder-shown) + label,
+      .form-floating-custom select:focus + label,
+      .form-floating-custom select:not([value=""]) + label {
+        top: -0.6rem;
+        font-size: 0.85rem;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .btn-step-action {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        margin-top: 1rem;
+      }
+
+      .btn-step-action:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        color: white;
+      }
+
+      .btn-edit {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .btn-edit:hover {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      /* Check Selection Grid */
+      .check-category {
+        margin-bottom: 2rem;
+      }
+
+      .category-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .category-icon {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.25rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .category-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin: 0;
+      }
+
+      .category-count {
+        margin-left: auto;
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .check-card {
+        background: var(--light-gray);
+        border: 2px solid transparent;
+        border-radius: 16px;
+        padding: 1.25rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .check-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.1);
+        background: white;
+      }
+
+      .check-card.selected {
+        border-color: var(--primary);
+        background: var(--primary-light);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.15);
+      }
+
+      .check-card.selected::after {
+        content: "\F26B";
+        font-family: "bootstrap-icons";
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 24px;
+        height: 24px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        animation: checkPop 0.3s ease;
+      }
+
+      @keyframes checkPop {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .check-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .check-icon {
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .check-card.selected .check-icon {
+        background: white;
+      }
+
+      .check-info h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.2rem;
+      }
+
+      .check-info p {
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      .check-meta {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+
+      .check-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .check-meta i {
+        color: var(--primary);
+        font-size: 0.9rem;
+      }
+
+      /* Selection Summary within Step 2 */
+      .selection-summary-box {
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border: 2px solid var(--primary);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .selection-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .selection-count {
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .selection-text h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--dark);
+      }
+
+      .selection-text p {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin: 0;
+      }
+
+      .btn-continue-step {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.875rem 2rem;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+      }
+
+      .btn-continue-step:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        color: white;
+      }
+
+      .btn-continue-step:disabled {
+        background: #cbd5e1;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      /* Candidate Form Step */
+      .candidate-form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .form-floating > .form-control,
+      .form-floating > .form-select {
+        border-radius: 12px;
+        border: 2px solid #e2e8f0;
+        height: calc(3.5rem + 2px);
+      }
+
+      .form-floating > .form-control:focus,
+      .form-floating > .form-select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+      }
+
+      .consent-box {
+        background: var(--light-gray);
+        border-radius: 12px;
+        padding: 1.25rem;
+        margin-top: 1rem;
+      }
+
+      .form-check {
+        margin-bottom: 0.75rem;
+      }
+
+      .form-check:last-child {
+        margin-bottom: 0;
+      }
+
+      .form-check-input:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .form-check-label {
+        font-size: 0.9rem;
+        color: var(--gray);
+      }
+
+      .form-check-label a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .btn-submit-final {
+        background: var(--success);
+        color: white;
+        border: none;
+        padding: 1.1rem 3rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+        margin-top: 1.5rem;
+      }
+
+      .btn-submit-final:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45);
+        color: white;
+      }
+
+      /* Success Message */
+      .success-message {
+        display: none;
+        text-align: center;
+        padding: 3rem;
+        background: linear-gradient(135deg, #f0fdf4, white);
+        border-radius: 20px;
+        border: 2px solid var(--success);
+      }
+
+      .success-message.show {
+        display: block;
+        animation: fadeIn 0.6s ease;
+      }
+
+      .success-icon-large {
+        width: 100px;
+        height: 100px;
+        background: var(--success);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        animation: scaleIn 0.5s ease;
+      }
+
+      .success-icon-large i {
+        color: white;
+        font-size: 3rem;
+      }
+
+      .success-message h3 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 0.75rem;
+      }
+
+      .success-message p {
+        color: var(--gray);
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .success-details {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
+
+      .success-detail-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .success-detail-item:last-child {
+        border-bottom: none;
+      }
+
+      .success-detail-label {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .success-detail-value {
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      @keyframes scaleIn {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Info Section */
+      .info-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .section-header {
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .info-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 20px;
+        background: var(--light-gray);
+        transition: all 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .info-icon-large {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2.5rem;
+        margin: 0 auto 1.5rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .info-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .info-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 60px 0 30px;
+      }
+
+      footer h4 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      footer h6 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      footer a:hover {
+        color: var(--primary);
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .trial-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .lead-form-grid,
+        .candidate-form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .step-header {
+          flex-wrap: wrap;
+        }
+
+        .step-status {
+          margin-left: 0;
+          margin-top: 1rem;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .selection-summary-box {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .trial-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .trial-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .trial-features {
+          justify-content: center;
+        }
+
+        .step-card {
+          padding: 1.5rem;
+        }
+
+        .step-header {
+          gap: 1rem;
+        }
+
+        .step-number-badge {
+          width: 50px;
+          height: 50px;
+          font-size: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          Verifi<span>tech</span>
+          <span class="brand-tagline">Trust Simplified</span>
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Industries</a
+              >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-gear-wide-connected"></i> Manufacturing</a
+                >
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-broadcast"></i> Telecom</a
+                >
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-truck"></i> Transport & Logistics</a
+                >
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-cart"></i> Ecommerce</a
+                >
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#process">Start Trial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#info">How It Works</a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <a href="#process" class="btn btn-sales">Start Free Trial</a>
+            <div class="country-selector">
+              <i class="bi bi-globe" style="color: var(--primary)"></i>
+              <span>Global</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="trial-hero">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8 reveal">
+            <div class="hero-badge">
+              <i class="bi bi-lightning-charge-fill"></i>
+              Free Trial Available
+            </div>
+            <h1>Start Your Free Verification Trial</h1>
+            <p class="lead mx-auto">
+              Experience the power of automated background verification with 5
+              free checks. No credit card required. Complete the three steps
+              below to get started.
+            </p>
+
+            <div class="trial-features justify-content-center">
+              <div class="trial-feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>5 Free Checks</span>
+              </div>
+              <div class="trial-feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>No Credit Card</span>
+              </div>
+              <div class="trial-feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Instant Setup</span>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <a
+                href="#process"
+                class="btn btn-lg px-5 py-3 rounded-pill fw-bold"
+                style="
+                  background: var(--primary);
+                  color: white;
+                  box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
+                "
+              >
+                Start Your Trial <i class="bi bi-arrow-down ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section - All Steps Visible -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <!-- Step 1: Your Details -->
+        <div class="step-card active" id="step1Card">
+          <div class="step-header">
+            <div class="step-number-badge">1</div>
+            <div class="step-title-group">
+              <h3>Your Details</h3>
+              <p>Tell us about yourself and your organization</p>
+            </div>
+            <div class="step-status" id="step1Status">
+              <i class="bi bi-circle"></i> In Progress
+            </div>
+          </div>
+
+          <div class="step-content" id="step1Content">
+            <form id="leadForm" onsubmit="submitStep1(event)">
+              <div class="lead-form-grid">
+                <div class="form-floating-custom">
+                  <input type="text" id="firstName" placeholder=" " required />
+                  <label for="firstName">First Name *</label>
+                </div>
+                <div class="form-floating-custom">
+                  <input type="text" id="lastName" placeholder=" " required />
+                  <label for="lastName">Last Name *</label>
+                </div>
+                <div class="form-floating-custom full-width">
+                  <input type="email" id="email" placeholder=" " required />
+                  <label for="email">Work Email Address *</label>
+                </div>
+                <div class="form-floating-custom">
+                  <input type="tel" id="phone" placeholder=" " required />
+                  <label for="phone">Phone Number *</label>
+                </div>
+                <div class="form-floating-custom">
+                  <input type="text" id="company" placeholder=" " required />
+                  <label for="company">Company Name *</label>
+                </div>
+                <div class="form-floating-custom">
+                  <select id="industry" required>
+                    <option value="" disabled selected></option>
+                    <option value="it">IT & ITeS</option>
+                    <option value="bfsi">BFSI</option>
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="retail">Retail</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <label for="industry">Industry *</label>
+                </div>
+                <div class="form-floating-custom">
+                  <select id="role" required>
+                    <option value="" disabled selected></option>
+                    <option value="hr">HR / Talent Acquisition</option>
+                    <option value="operations">Operations</option>
+                    <option value="compliance">Compliance / Legal</option>
+                    <option value="cxo">CXO / Leadership</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <label for="role">Your Role *</label>
+                </div>
+              </div>
+
+              <div class="d-flex gap-3 mt-4">
+                <button type="submit" class="btn-step-action">
+                  Continue to Step 2 <i class="bi bi-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="step-summary" id="step1Summary" style="display: none">
+            <div class="row">
+              <div class="col-md-6">
+                <p class="mb-1">
+                  <strong>Name:</strong> <span id="summaryName"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Email:</strong> <span id="summaryEmail"></span>
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p class="mb-1">
+                  <strong>Company:</strong> <span id="summaryCompany"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Industry:</strong> <span id="summaryIndustry"></span>
+                </p>
+              </div>
+            </div>
+            <button class="btn-edit" onclick="editStep1()">
+              <i class="bi bi-pencil"></i> Edit Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Select Checks -->
+        <div class="step-card disabled" id="step2Card">
+          <div class="step-header">
+            <div class="step-number-badge">2</div>
+            <div class="step-title-group">
+              <h3>Select Checks</h3>
+              <p>Choose up to 5 verification types for your free trial</p>
+            </div>
+            <div class="step-status" id="step2Status">
+              <i class="bi bi-lock"></i> Locked
+            </div>
+          </div>
+
+          <div class="step-content" id="step2Content">
+            <!-- Identity Verification -->
+            <div class="check-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="bi bi-person-badge"></i>
+                </div>
+                <h4 class="category-title">Identity Verification</h4>
+                <span class="category-count" id="identityCount"
+                  >0 selected</span
+                >
+              </div>
+              <div class="check-grid">
+                <div
+                  class="check-card"
+                  data-category="identity"
+                  data-name="ID Verification"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon">
+                      <i class="bi bi-card-text"></i>
+                    </div>
+                    <div class="check-info">
+                      <h4>ID Verification</h4>
+                      <p>
+                        Verify government-issued IDs including Aadhaar, PAN,
+                        Passport
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> Instant</span>
+                    <span
+                      ><i class="bi bi-shield-check"></i> 99.9% Accurate</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="identity"
+                  data-name="Face Match"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon">
+                      <i class="bi bi-person-bounding-box"></i>
+                    </div>
+                    <div class="check-info">
+                      <h4>Face Match</h4>
+                      <p>
+                        Biometric facial recognition to match photo with ID
+                        documents
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> Instant</span>
+                    <span><i class="bi bi-camera"></i> AI Powered</span>
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="identity"
+                  data-name="Liveness Detection"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-eye"></i></div>
+                    <div class="check-info">
+                      <h4>Liveness Detection</h4>
+                      <p>
+                        Prevent spoofing with advanced liveness detection
+                        technology
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> Instant</span>
+                    <span
+                      ><i class="bi bi-shield-lock"></i> Fraud Prevention</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Employment Verification -->
+            <div class="check-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+                <h4 class="category-title">Employment Verification</h4>
+                <span class="category-count" id="employmentCount"
+                  >0 selected</span
+                >
+              </div>
+              <div class="check-grid">
+                <div
+                  class="check-card"
+                  data-category="employment"
+                  data-name="Employment History"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-building"></i></div>
+                    <div class="check-info">
+                      <h4>Employment History</h4>
+                      <p>
+                        Verify previous employment details, designation, and
+                        tenure
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 24-48 Hours</span>
+                    <span><i class="bi bi-telephone"></i> HR Contact</span>
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="employment"
+                  data-name="Reference Check"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon">
+                      <i class="bi bi-chat-square-text"></i>
+                    </div>
+                    <div class="check-info">
+                      <h4>Reference Check</h4>
+                      <p>
+                        Professional reference verification with structured
+                        questionnaire
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 24-48 Hours</span>
+                    <span><i class="bi bi-file-text"></i> Detailed Report</span>
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="employment"
+                  data-name="Gap Verification"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon">
+                      <i class="bi bi-calendar-x"></i>
+                    </div>
+                    <div class="check-info">
+                      <h4>Gap Verification</h4>
+                      <p>
+                        Validate reasons for employment gaps in candidate
+                        history
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 24-48 Hours</span>
+                    <span><i class="bi bi-check2-all"></i> Gap Analysis</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education & Certification -->
+            <div class="check-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="bi bi-mortarboard"></i>
+                </div>
+                <h4 class="category-title">Education & Certification</h4>
+                <span class="category-count" id="educationCount"
+                  >0 selected</span
+                >
+              </div>
+              <div class="check-grid">
+                <div
+                  class="check-card"
+                  data-category="education"
+                  data-name="Education Check"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-book"></i></div>
+                    <div class="check-info">
+                      <h4>Education Check</h4>
+                      <p>
+                        Verify degrees, diplomas, and academic credentials with
+                        institutions
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 3-5 Days</span>
+                    <span><i class="bi bi-globe"></i> Global Coverage</span>
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="education"
+                  data-name="Professional License"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-award"></i></div>
+                    <div class="check-info">
+                      <h4>Professional License</h4>
+                      <p>Validate professional licenses and certifications</p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 24-48 Hours</span>
+                    <span
+                      ><i class="bi bi-shield-check"></i> Regulatory
+                      Compliant</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Criminal & Legal -->
+            <div class="check-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="bi bi-shield-shaded"></i>
+                </div>
+                <h4 class="category-title">Criminal & Legal</h4>
+                <span class="category-count" id="criminalCount"
+                  >0 selected</span
+                >
+              </div>
+              <div class="check-grid">
+                <div
+                  class="check-card"
+                  data-category="criminal"
+                  data-name="Criminal Record"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon">
+                      <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="check-info">
+                      <h4>Criminal Record Check</h4>
+                      <p>
+                        Comprehensive criminal history check across
+                        jurisdictions
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 2-4 Days</span>
+                    <span><i class="bi bi-shield-lock"></i> Court Records</span>
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="criminal"
+                  data-name="Court Record Check"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-bank"></i></div>
+                    <div class="check-info">
+                      <h4>Court Record Check</h4>
+                      <p>Civil and criminal litigation history verification</p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> 3-5 Days</span>
+                    <span
+                      ><i class="bi bi-file-earmark"></i> Detailed Records</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="criminal"
+                  data-name="Global Database"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-globe2"></i></div>
+                    <div class="check-info">
+                      <h4>Global Database Check</h4>
+                      <p>
+                        Screen against international watchlists and sanctions
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> Instant</span>
+                    <span><i class="bi bi-search"></i> 500+ Databases</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Credit & Financial -->
+            <div class="check-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="bi bi-credit-card"></i>
+                </div>
+                <h4 class="category-title">Credit & Financial</h4>
+                <span class="category-count" id="financialCount"
+                  >0 selected</span
+                >
+              </div>
+              <div class="check-grid">
+                <div
+                  class="check-card"
+                  data-category="financial"
+                  data-name="Credit Check"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-graph-up"></i></div>
+                    <div class="check-info">
+                      <h4>Credit Check</h4>
+                      <p>Credit history and financial behavior assessment</p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> Instant</span>
+                    <span
+                      ><i class="bi bi-shield-check"></i> RBI Compliant</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="check-card"
+                  data-category="financial"
+                  data-name="Bank Account Verify"
+                  onclick="toggleCheck(this)"
+                >
+                  <div class="check-header">
+                    <div class="check-icon"><i class="bi bi-bank2"></i></div>
+                    <div class="check-info">
+                      <h4>Bank Account Verification</h4>
+                      <p>
+                        Verify account details and ownership through penny drop
+                      </p>
+                    </div>
+                  </div>
+                  <div class="check-meta">
+                    <span><i class="bi bi-clock"></i> Instant</span>
+                    <span><i class="bi bi-check-circle"></i> Real-time</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selection Summary -->
+            <div class="selection-summary-box">
+              <div class="selection-info">
+                <div class="selection-count" id="totalCount">0</div>
+                <div class="selection-text">
+                  <h4>Checks Selected</h4>
+                  <p id="remainingText">
+                    Select up to 5 checks for your free trial
+                  </p>
+                </div>
+              </div>
+              <button
+                class="btn-continue-step"
+                id="continueBtn"
+                onclick="completeStep2()"
+                disabled
+              >
+                Continue to Step 3 <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Candidate Details -->
+        <div class="step-card disabled" id="step3Card">
+          <div class="step-header">
+            <div class="step-number-badge">3</div>
+            <div class="step-title-group">
+              <h3>Candidate Details</h3>
+              <p>Enter the candidate information for verification</p>
+            </div>
+            <div class="step-status" id="step3Status">
+              <i class="bi bi-lock"></i> Locked
+            </div>
+          </div>
+
+          <div class="step-content" id="step3Content">
+            <!-- Selected Checks Summary -->
+            <div
+              class="alert alert-info d-flex align-items-center gap-3 mb-4"
+              style="
+                background: var(--primary-light);
+                border-color: var(--primary);
+                color: var(--primary-dark);
+              "
+            >
+              <i class="bi bi-info-circle-fill fs-4"></i>
+              <div>
+                <strong
+                  >You have selected
+                  <span id="finalCheckCount">0</span> checks:</strong
+                >
+                <div
+                  id="finalCheckList"
+                  class="mt-1"
+                  style="font-size: 0.9rem"
+                ></div>
+              </div>
+            </div>
+
+            <form id="candidateForm" onsubmit="submitFinal(event)">
+              <div class="candidate-form-grid">
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="candidateFirstName"
+                    placeholder="First Name"
+                    required
+                  />
+                  <label for="candidateFirstName">Candidate First Name *</label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="candidateLastName"
+                    placeholder="Last Name"
+                    required
+                  />
+                  <label for="candidateLastName">Candidate Last Name *</label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="candidateEmail"
+                    placeholder="Email"
+                    required
+                  />
+                  <label for="candidateEmail">Candidate Email *</label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="candidatePhone"
+                    placeholder="Phone"
+                  />
+                  <label for="candidatePhone">Candidate Phone</label>
+                </div>
+              </div>
+
+              <div class="consent-box">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="consent"
+                    required
+                  />
+                  <label class="form-check-label" for="consent">
+                    I confirm that I have obtained consent from the candidate to
+                    perform these background checks *
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="terms"
+                    required
+                  />
+                  <label class="form-check-label" for="terms">
+                    I agree to the <a href="#">Terms of Service</a> and
+                    <a href="#">Privacy Policy</a> *
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit-final">
+                Start Free Trial <i class="bi bi-lightning-charge-fill"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Success Message -->
+          <div class="success-message" id="successMessage">
+            <div class="success-icon-large">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            <h3>Trial Started Successfully!</h3>
+            <p>
+              Your verification checks have been initiated. Check your email for
+              dashboard access.
+            </p>
+
+            <div class="success-details">
+              <div class="success-detail-item">
+                <span class="success-detail-label">Account Email</span>
+                <span class="success-detail-value" id="successEmail"></span>
+              </div>
+              <div class="success-detail-item">
+                <span class="success-detail-label">Checks Selected</span>
+                <span class="success-detail-value" id="successChecks"></span>
+              </div>
+              <div class="success-detail-item">
+                <span class="success-detail-label">Candidate</span>
+                <span class="success-detail-value" id="successCandidate"></span>
+              </div>
+            </div>
+
+            <button
+              class="btn btn-lg px-5 rounded-pill fw-bold"
+              onclick="location.reload()"
+              style="background: var(--primary); color: white"
+            >
+              Start New Trial
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section" id="info">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-subtitle">
+            <i class="bi bi-info-circle"></i> How It Works
+          </div>
+          <h2 class="section-title">Simple Three-Step Process</h2>
+          <p class="section-desc">
+            Get started with your free trial in minutes. No complex setup, no
+            hidden fees.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card reveal">
+            <div class="info-icon-large">
+              <i class="bi bi-1-circle"></i>
+            </div>
+            <h3>Your Details</h3>
+            <p>
+              Create your account by providing your work information and company
+              details.
+            </p>
+          </div>
+
+          <div class="info-card reveal">
+            <div class="info-icon-large">
+              <i class="bi bi-2-circle"></i>
+            </div>
+            <h3>Select Checks</h3>
+            <p>
+              Choose up to 5 verification types from our comprehensive catalog
+              of 50+ checks.
+            </p>
+          </div>
+
+          <div class="info-card reveal">
+            <div class="info-icon-large">
+              <i class="bi bi-3-circle"></i>
+            </div>
+            <h3>Add Candidate</h3>
+            <p>
+              Enter candidate details and launch checks. Receive results in your
+              dashboard.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h4 class="mb-3">
+              Verifi<span style="color: var(--primary)">tech</span>
+            </h4>
+            <p class="text-white-50 mb-2">
+              India's leading trust & authentication technology company
+            </p>
+            <p class="text-white-50 small">
+              Start your free trial today and experience the future of
+              background verification.
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6>Solutions</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="#">Background Checks</a></li>
+              <li class="mb-2"><a href="#">KYC / KYB</a></li>
+              <li class="mb-2"><a href="#">Due Diligence</a></li>
+              <li class="mb-2"><a href="#">API Integration</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6>Resources</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="#">Documentation</a></li>
+              <li class="mb-2"><a href="#">API Reference</a></li>
+              <li class="mb-2"><a href="#">Help Center</a></li>
+              <li class="mb-2"><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6>Company</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="#">About Us</a></li>
+              <li class="mb-2"><a href="#">Careers</a></li>
+              <li class="mb-2"><a href="#">Contact</a></li>
+              <li class="mb-2"><a href="#">Press</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6>Legal</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="#">Privacy Policy</a></li>
+              <li class="mb-2"><a href="#">Terms of Use</a></li>
+              <li class="mb-2"><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6 small text-white-50">
+            &copy; 2026 Verifitech Solutions Private Limited. All rights
+            reserved.
+          </div>
+          <div class="col-md-6 text-md-end">
+            <div class="d-flex gap-3 justify-content-md-end">
+              <a href="#"><i class="bi bi-linkedin fs-5"></i></a>
+              <a href="#"><i class="bi bi-twitter fs-5"></i></a>
+              <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Data storage
+      let leadData = {};
+      let selectedChecks = [];
+      const maxChecks = 5;
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Step 1: Submit Lead Form
+      function submitStep1(event) {
+        event.preventDefault();
+
+        leadData = {
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          email: document.getElementById("email").value,
+          phone: document.getElementById("phone").value,
+          company: document.getElementById("company").value,
+          industry: document.getElementById("industry").value,
+          role: document.getElementById("role").value,
+        };
+
+        // Update Step 1 UI
+        document.getElementById("step1Card").classList.remove("active");
+        document.getElementById("step1Card").classList.add("completed");
+        document.getElementById("step1Content").style.display = "none";
+        document.getElementById("step1Summary").style.display = "block";
+        document.getElementById("step1Status").innerHTML =
+          '<i class="bi bi-check-circle-fill"></i> Completed';
+
+        // Populate summary
+        document.getElementById(
+          "summaryName"
+        ).textContent = `${leadData.firstName} ${leadData.lastName}`;
+        document.getElementById("summaryEmail").textContent = leadData.email;
+        document.getElementById("summaryCompany").textContent =
+          leadData.company;
+
+        const industryMap = {
+          it: "IT & ITeS",
+          bfsi: "BFSI",
+          manufacturing: "Manufacturing",
+          healthcare: "Healthcare",
+          retail: "Retail",
+          other: "Other",
+        };
+        document.getElementById("summaryIndustry").textContent =
+          industryMap[leadData.industry] || leadData.industry;
+
+        // Enable Step 2
+        const step2Card = document.getElementById("step2Card");
+        step2Card.classList.remove("disabled");
+        step2Card.classList.add("active");
+        document.getElementById("step2Status").innerHTML =
+          '<i class="bi bi-circle"></i> In Progress';
+
+        // Scroll to Step 2
+        setTimeout(() => {
+          step2Card.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+      }
+
+      function editStep1() {
+        document.getElementById("step1Card").classList.add("active");
+        document.getElementById("step1Card").classList.remove("completed");
+        document.getElementById("step1Content").style.display = "block";
+        document.getElementById("step1Summary").style.display = "none";
+        document.getElementById("step1Status").innerHTML =
+          '<i class="bi bi-circle"></i> In Progress';
+
+        // Disable steps 2 and 3
+        document.getElementById("step2Card").classList.add("disabled");
+        document.getElementById("step2Card").classList.remove("active");
+        document.getElementById("step2Status").innerHTML =
+          '<i class="bi bi-lock"></i> Locked';
+
+        document.getElementById("step3Card").classList.add("disabled");
+        document.getElementById("step3Card").classList.remove("active");
+        document.getElementById("step3Status").innerHTML =
+          '<i class="bi bi-lock"></i> Locked';
+
+        selectedChecks = [];
+        updateCheckUI();
+      }
+
+      // Step 2: Check Selection
+      function toggleCheck(element) {
+        if (document.getElementById("step2Card").classList.contains("disabled"))
+          return;
+
+        const checkName = element.getAttribute("data-name");
+        const category = element.getAttribute("data-category");
+
+        if (element.classList.contains("selected")) {
+          element.classList.remove("selected");
+          selectedChecks = selectedChecks.filter((c) => c.name !== checkName);
+        } else {
+          if (selectedChecks.length >= maxChecks) {
+            alert(
+              `You can only select up to ${maxChecks} checks for the free trial.`
+            );
+            return;
+          }
+          element.classList.add("selected");
+          selectedChecks.push({ name: checkName, category: category });
+        }
+
+        updateCheckUI();
+      }
+
+      function updateCheckUI() {
+        // Update total count
+        document.getElementById("totalCount").textContent =
+          selectedChecks.length;
+
+        // Update category counts
+        const categories = [
+          "identity",
+          "employment",
+          "education",
+          "criminal",
+          "financial",
+        ];
+        categories.forEach((cat) => {
+          const count = selectedChecks.filter((c) => c.category === cat).length;
+          const el = document.getElementById(cat + "Count");
+          if (el) {
+            el.textContent = count + " selected";
+            el.style.background =
+              count > 0 ? "var(--primary)" : "var(--primary-light)";
+            el.style.color = count > 0 ? "white" : "var(--primary-dark)";
+          }
+        });
+
+        // Update remaining text
+        const remaining = maxChecks - selectedChecks.length;
+        const remainingText = document.getElementById("remainingText");
+        if (remaining === 0) {
+          remainingText.textContent =
+            "Maximum checks selected! Ready to continue.";
+          remainingText.style.color = "var(--success)";
+        } else {
+          remainingText.textContent = `Select ${remaining} more check${
+            remaining !== 1 ? "s" : ""
+          } for your free trial`;
+          remainingText.style.color = "var(--gray)";
+        }
+
+        // Enable/disable continue button
+        document.getElementById("continueBtn").disabled =
+          selectedChecks.length === 0;
+      }
+
+      function completeStep2() {
+        if (selectedChecks.length === 0) return;
+
+        // Update Step 2 UI
+        document.getElementById("step2Card").classList.remove("active");
+        document.getElementById("step2Card").classList.add("completed");
+        document.getElementById("step2Status").innerHTML =
+          '<i class="bi bi-check-circle-fill"></i> Completed';
+
+        // Enable Step 3
+        const step3Card = document.getElementById("step3Card");
+        step3Card.classList.remove("disabled");
+        step3Card.classList.add("active");
+        document.getElementById("step3Status").innerHTML =
+          '<i class="bi bi-circle"></i> In Progress';
+
+        // Update Step 3 with selected checks
+        document.getElementById("finalCheckCount").textContent =
+          selectedChecks.length;
+        const checkList = selectedChecks.map((c) => c.name).join(", ");
+        document.getElementById("finalCheckList").textContent = checkList;
+
+        // Scroll to Step 3
+        setTimeout(() => {
+          step3Card.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+      }
+
+      // Step 3: Final Submission
+      function submitFinal(event) {
+        event.preventDefault();
+
+        const candidateData = {
+          firstName: document.getElementById("candidateFirstName").value,
+          lastName: document.getElementById("candidateLastName").value,
+          email: document.getElementById("candidateEmail").value,
+          phone: document.getElementById("candidatePhone").value,
+        };
+
+        // Hide form, show success
+        document.getElementById("step3Content").style.display = "none";
+        document.getElementById("successMessage").classList.add("show");
+        document.getElementById("step3Status").innerHTML =
+          '<i class="bi bi-check-circle-fill"></i> Completed';
+        document.getElementById("step3Card").classList.remove("active");
+        document.getElementById("step3Card").classList.add("completed");
+
+        // Populate success details
+        document.getElementById("successEmail").textContent = leadData.email;
+        document.getElementById("successChecks").textContent =
+          selectedChecks.length + " checks";
+        document.getElementById(
+          "successCandidate"
+        ).textContent = `${candidateData.firstName} ${candidateData.lastName}`;
+
+        // Scroll to success message
+        setTimeout(() => {
+          document
+            .getElementById("successMessage")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 300);
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 100;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

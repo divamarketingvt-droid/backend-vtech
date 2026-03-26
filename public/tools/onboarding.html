@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Onboarding Checklist Template | Verifitech</title>
+    <meta name="description" content="Generate a customized employee onboarding checklist for HR. Streamline pre-boarding, IT setup, and compliance tasks in minutes.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #8b5cf6;
+            --orange: #f97316;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-gray);
+        }
+        
+        /* Navigation */
+        .navbar {
+            padding: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            height: 80px;
+        }
+        
+        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        
+        .navbar-brand span { color: var(--primary); }
+        
+        .brand-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0 0.6rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 2rem 0.5rem !important;
+        }
+        
+        .nav-link:hover { color: var(--primary); }
+        
+        .btn-sales {
+            background: var(--primary);
+            color: white !important;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            margin-left: 1rem;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+            text-decoration: none;
+        }
+        
+        .btn-sales:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+        }
+
+        /* Hero Section */
+        .calculator-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, rgba(26, 194, 193, 0.15), rgba(26, 194, 193, 0.05));
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26, 194, 193, 0.3);
+        }
+        
+        .calculator-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        
+        .calculator-hero .lead {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 60px 0 100px;
+            background: var(--light-gray);
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .calculator-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .calculator-body { padding: 2.5rem; }
+
+        .input-group-custom { margin-bottom: 1.5rem; }
+
+        .input-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .input-label i { color: var(--primary); font-size: 1.1rem; }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-control-custom:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        /* Checklist Card */
+        .checklist-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-card:hover {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .checklist-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .checklist-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checklist-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .checklist-title h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--dark);
+        }
+
+        .checklist-title span {
+            font-size: 0.8rem;
+            color: var(--gray);
+            display: block;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + .toggle-slider { background-color: var(--success); }
+        .toggle-switch input:checked + .toggle-slider:before { transform: translateX(24px); }
+
+        /* Button */
+        .btn-calculate {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+
+        .btn-calculate:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+            color: white;
+        }
+
+        /* Results Card */
+        .results-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            color: white;
+            position: sticky;
+            top: 100px;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .results-header h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        /* Policy Preview Area */
+        .checklist-preview {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: var(--dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .checklist-preview h1 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .checklist-preview h2 { font-size: 1rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.75rem; color: var(--primary-dark); border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .checklist-preview p { margin-bottom: 0.75rem; }
+        .checklist-preview ul { padding-left: 0; margin-bottom: 0.75rem; list-style: none; }
+        .checklist-preview ul li { margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+        .checklist-preview ul li i { color: var(--primary); margin-top: 4px; }
+        .checklist-preview .highlight { color: var(--primary-dark); font-weight: 600; }
+        .checklist-preview .header-meta { font-size: 0.85rem; color: var(--gray); margin-bottom: 1rem; }
+
+        /* Copy Button */
+        .btn-copy {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .btn-copy.copied {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        /* Placeholder */
+        .placeholder-state {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+        }
+
+        .placeholder-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .info-section { padding: 80px 0; background: white; }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(26, 194, 193, 0.1);
+            border-radius: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: white;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .feature-content p { color: var(--gray); font-size: 0.9rem; margin: 0; }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4);
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 194, 193, 0.5);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        footer h4 { font-weight: 700; margin-bottom: 1rem; }
+        footer h6 { font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; }
+        footer a:hover { color: var(--primary); }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .calculator-hero h1 { font-size: 2.5rem; }
+            .results-card { position: relative; top: 0; margin-top: 2rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 767px) {
+            .calculator-hero { padding: 120px 0 60px; text-align: center; }
+            .calculator-hero h1 { font-size: 2rem; }
+            .calculator-body { padding: 1.5rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Verifi<span>tech</span>
+                <span class="brand-tagline">Trust Simplified</span>
+            </a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#generator">Checklist Generator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Best Practices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solution">Solution</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <a href="#" class="btn btn-sales">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 reveal">
+                    <div class="hero-badge">
+                        <i class="bi bi-clipboard-check"></i>
+                        HR Toolkit
+                    </div>
+                    <h1>Employee Onboarding Checklist</h1>
+                    <p class="lead mx-auto">Streamline your new hire process. Generate a comprehensive, role-specific onboarding checklist to ensure nothing falls through the cracks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section class="calculator-section" id="generator">
+        <div class="container">
+            <div class="row">
+                <!-- Input Column -->
+                <div class="col-lg-7">
+                    <div class="calculator-card reveal">
+                        <div class="calculator-header">
+                            <h2><i class="bi bi-person-plus me-2"></i>Setup New Hire Checklist</h2>
+                        </div>
+                        <div class="calculator-body">
+                            
+                            <!-- New Hire Details -->
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="input-group-custom mb-0">
+                                        <label class="input-label"><i class="bi bi-person"></i> Employee Name</label>
+                                        <input type="text" class="form-control-custom" id="employeeName" placeholder="e.g., John Doe">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group-custom mb-0">
+                                        <label class="input-label"><i class="bi bi-briefcase"></i> Job Title</label>
+                                        <input type="text" class="form-control-custom" id="jobTitle" placeholder="e.g., Software Engineer">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group-custom">
+                                <label class="input-label"><i class="bi bi-calendar-event"></i> Start Date</label>
+                                <input type="date" class="form-control-custom" id="startDate">
+                            </div>
+
+                            <div class="section-divider">Pre-Boarding (Before Day 1)</div>
+
+                            <!-- Checklist Items -->
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon"><i class="bi bi-file-earmark-text"></i></div>
+                                        <div>
+                                            <h4>Offer & Contracts</h4>
+                                            <span>Offer letter, NDA, policy docs</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkContracts">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #ede9fe, white); color: var(--purple);"><i class="bi bi-pc-display"></i></div>
+                                        <div>
+                                            <h4>IT Equipment</h4>
+                                            <span>Laptop, monitor, peripherals</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkIT">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #fef3c7, white); color: var(--warning);"><i class="bi bi-person-vcard"></i></div>
+                                        <div>
+                                            <h4>Access & Credentials</h4>
+                                            <span>Email, Slack, CRM, VPN setup</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkAccess">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="section-divider">Day 1 Activities</div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #d1fae5, white); color: var(--success);"><i class="bi bi-people"></i></div>
+                                        <div>
+                                            <h4>Team Introduction</h4>
+                                            <span>Meet the team, assign buddy</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkTeam">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon"><i class="bi bi-building"></i></div>
+                                        <div>
+                                            <h4>Office Orientation</h4>
+                                            <span>Office tour, facilities, safety</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkOffice">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="section-divider">First Week Goals</div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #fee2e2, white); color: var(--danger);"><i class="bi bi-journal-bookmark"></i></div>
+                                        <div>
+                                            <h4>Training & Compliance</h4>
+                                            <span>Security awareness, HR policies</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkTraining">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon"><i class="bi bi-bullseye"></i></div>
+                                        <div>
+                                            <h4>Goal Setting</h4>
+                                            <span>30-60-90 day plan review</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="checkGoals">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button class="btn-calculate" onclick="generateChecklist()">
+                                <i class="bi bi-file-earmark-plus"></i>
+                                Generate Checklist
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Column -->
+                <div class="col-lg-5">
+                    <div class="results-card reveal" id="resultsCard">
+                        <div class="results-header">
+                            <h3>Checklist Preview</h3>
+                            <div id="resultsContent">
+                                <div class="placeholder-state">
+                                    <div class="placeholder-icon">
+                                        <i class="bi bi-clipboard-data"></i>
+                                    </div>
+                                    <p class="placeholder-text">Configure the checklist items and click "Generate" to preview the full onboarding checklist.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="info-section" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle">
+                    <i class="bi bi-stars"></i> Best Practices
+                </div>
+                <h2 class="section-title">Why Structured Onboarding?</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-rocket-takeoff"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Faster Productivity</h4>
+                        <p>Employees with structured onboarding reach productivity 50% faster than those without.</p>
+                    </div>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Higher Retention</h4>
+                        <p>Great onboarding improves new hire retention by 82% and reduces early turnover.</p>
+                    </div>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-emoji-smile"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Employee Satisfaction</h4>
+                        <p>Clear expectations from day one lead to higher engagement and job satisfaction.</p>
+                    </div>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Compliance Assurance</h4>
+                        <p>Ensure all statutory and internal compliance trainings are completed on time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="solution">
+        <div class="container">
+            <div class="reveal">
+                <h2>Verify Your New Hires</h2>
+                <p>Onboarding is smoother when you know who you're hiring. Verify credentials instantly with Verifitech.</p>
+                <a href="#" class="btn-cta">
+                    Start Background Check <i class="bi bi-arrow-right-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Verifi<span style="color: var(--primary);">tech</span></h4>
+                    <p class="text-white-50 mb-2">India's leading trust & authentication technology company</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Solutions</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Background Checks</a></li>
+                        <li class="mb-2"><a href="#">Vendor Screening</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Resources</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Policy Generator</a></li>
+                        <li class="mb-2"><a href="#">Onboarding Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Company</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Legal</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6 small text-white-50">
+                    &copy; 2026 Verifitech Solutions Private Limited.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Set default date
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('startDate').value = today;
+        });
+
+        // Generate Checklist
+        function generateChecklist() {
+            const employeeName = document.getElementById('employeeName').value || '[Employee Name]';
+            const jobTitle = document.getElementById('jobTitle').value || '[Job Title]';
+            const startDate = document.getElementById('startDate').value ? new Date(document.getElementById('startDate').value).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '[Start Date]';
+
+            const checks = {
+                contracts: document.getElementById('checkContracts').checked,
+                it: document.getElementById('checkIT').checked,
+                access: document.getElementById('checkAccess').checked,
+                team: document.getElementById('checkTeam').checked,
+                office: document.getElementById('checkOffice').checked,
+                training: document.getElementById('checkTraining').checked,
+                goals: document.getElementById('checkGoals').checked
+            };
+
+            // Build Checklist HTML
+            let checklistHTML = `
+                <div id="checklist-content">
+                <h1>Onboarding Checklist</h1>
+                <div class="header-meta">
+                    <strong>${employeeName}</strong> | ${jobTitle}<br>
+                    Start Date: ${startDate}
+                </div>
+                
+                ${checks.contracts ? `
+                <h2>1. Pre-Boarding: Paperwork</h2>
+                <ul>
+                    <li><i class="bi bi-square"></i> Send offer letter and job description.</li>
+                    <li><i class="bi bi-square"></i> Sign Employment Agreement & NDA.</li>
+                    <li><i class="bi bi-square"></i> Submit ID proofs (Aadhaar/PAN).</li>
+                    <li><i class="bi bi-square"></i> Bank details for payroll setup.</li>
+                </ul>
+                ` : ''}
+
+                ${checks.it || checks.access ? `
+                <h2>2. Pre-Boarding: Setup</h2>
+                <ul>
+                    ${checks.it ? '<li><i class="bi bi-square"></i> Provision laptop and hardware.</li>' : ''}
+                    ${checks.it ? '<li><i class="bi bi-square"></i> Set up desk station (monitor, keyboard).</li>' : ''}
+                    ${checks.access ? '<li><i class="bi bi-square"></i> Create official email ID.</li>' : ''}
+                    ${checks.access ? '<li><i class="bi bi-square"></i> Grant access to Slack/Teams.</li>' : ''}
+                    ${checks.access ? '<li><i class="bi bi-square"></i> Setup CRM/Project tools access.</li>' : ''}
+                </ul>
+                ` : ''}
+
+                ${checks.team || checks.office ? `
+                <h2>3. Day 1: Welcome</h2>
+                <ul>
+                    ${checks.office ? '<li><i class="bi bi-square"></i> Office tour (pantry, emergency exits).</li>' : ''}
+                    ${checks.team ? '<li><i class="bi bi-square"></i> Introduction to the team.</li>' : ''}
+                    ${checks.team ? '<li><i class="bi bi-square"></i> Assign an onboarding buddy.</li>' : ''}
+                    ${checks.office ? '<li><i class="bi bi-square"></i> Issue ID card/access badge.</li>' : ''}
+                </ul>
+                ` : ''}
+
+                ${checks.training || checks.goals ? `
+                <h2>4. First Week: Integration</h2>
+                <ul>
+                    ${checks.training ? '<li><i class="bi bi-square"></i> Complete security awareness training.</li>' : ''}
+                    ${checks.training ? '<li><i class="bi bi-square"></i> Review employee handbook.</li>' : ''}
+                    ${checks.goals ? '<li><i class="bi bi-square"></i> Define 30-60-90 day goals.</li>' : ''}
+                    ${checks.goals ? '<li><i class="bi bi-square"></i> Schedule 1-week check-in with manager.</li>' : ''}
+                </ul>
+                ` : `
+                <h2>4. First Week: Integration</h2>
+                <ul>
+                    <li><i class="bi bi-square"></i> Schedule 1-week check-in with manager.</li>
+                </ul>
+                `}
+
+                <p style="margin-top: 2rem; font-size: 0.8rem; color: var(--gray); text-align: center;">Generated via Verifitech HR Toolkit</p>
+                </div>
+            `;
+
+            const resultsHTML = `
+                <div class="success-badge">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Checklist Ready
+                </div>
+                <div class="checklist-preview" id="checklistPreviewContainer">
+                    ${checklistHTML}
+                </div>
+                <button class="btn-copy" onclick="copyChecklist()">
+                    <i class="bi bi-clipboard"></i>
+                    <span id="copyBtnText">Copy to Clipboard</span>
+                </button>
+            `;
+
+            document.getElementById('resultsContent').innerHTML = resultsHTML;
+        }
+
+        function copyChecklist() {
+            const content = document.getElementById('checklist-content').innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const btnText = document.getElementById('copyBtnText');
+                btn.classList.add('copied');
+                btnText.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btnText.textContent = 'Copy to Clipboard';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

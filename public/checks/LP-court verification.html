@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Record Verification | Criminal Background Check | Verifitech</title>
+    <meta name="description" content="Comprehensive court record checks across district, state & supreme courts. Verify criminal history, pending cases, arrest records & legal compliance with real-time database access.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+          html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile navbar collapse background */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* CTA Button - Talk to Sales */
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Remove Bootstrap's default white arrow from country selector */
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Style the custom chevron icon */
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+/* Rotate chevron when dropdown is open */
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+}
+
+
+        /* Hero Section */
+        .solution-hero {
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .solution-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.2rem;
+            background: rgba(26, 194, 193, 0.1);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26, 194, 193, 0.2);
+        }
+        
+        .solution-hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        
+        .solution-hero .lead {
+            font-size: 1.35rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn-primary-custom {
+            background: var(--primary) !important;
+            color: white !important;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .btn-primary-custom:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        }
+        
+        .trust-badge {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .trust-badge p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .logo-row {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+        
+        .logo-item {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+        
+        .logo-item:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            color: var(--primary);
+        }
+        
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            height: 450px;
+        }
+        
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .card-1 {
+            top: 0;
+            right: 0;
+            width: 340px;
+            animation-delay: 0s;
+        }
+        
+        .card-2 {
+            top: 200px;
+            left: 0;
+            width: 300px;
+            animation-delay: 1.5s;
+        }
+        
+        .verification-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .verification-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .verif-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .status-badge {
+            margin-left: auto;
+            padding: 0.35rem 0.75rem;
+            background: rgba(26, 194, 193, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* How it Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(26, 194, 193, 0.1);
+            border-radius: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .section-desc {
+            color: var(--gray);
+            font-size: 1.15rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            height: 100%;
+            border: 2px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .step-card:hover .step-number {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .step-card h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .step-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        .step-connector {
+            position: absolute;
+            top: 45px;
+            right: -25px;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            opacity: 0.3;
+        }
+        
+        @media (max-width: 991px) {
+            .step-connector {
+                display: none;
+            }
+        }
+        
+        /* Key Highlights */
+        .key-highlights {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            height: 100%;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            border-color: var(--primary);
+        }
+        
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+        
+        .highlight-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid rgba(26, 194, 193, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .highlight-card:hover .highlight-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .highlight-card h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .highlight-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .highlight-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        
+        .highlight-card ul li {
+            padding: 0.6rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .highlight-card ul li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            padding: 0.75rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.3);
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .benefit-item {
+            padding: 2.5rem;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .benefit-item:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(26, 194, 193, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+            border: 2px solid rgba(26, 194, 193, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .benefit-item:hover .benefit-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .benefit-item h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .benefit-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+        
+        .accordion-item {
+            border: none;
+            background: white;
+            margin-bottom: 1.5rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .accordion-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .accordion-button {
+            padding: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            background: white;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: none !important;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            box-shadow: none;
+        }
+        
+        .accordion-button::after {
+            background-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .accordion-body {
+            padding: 0 1.8rem 1.8rem;
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        /* Verification Types */
+        .verification-types {
+            padding: 80px 0;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .type-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            border: 2px solid #e2e8f0;
+            height: 100%;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .type-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 194, 193, 0.1);
+        }
+        
+        .type-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary-light), white);
+        }
+        
+        .type-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: var(--primary);
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(26, 194, 193, 0.2);
+            border: 3px solid var(--primary-light);
+        }
+        
+        .type-card h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .type-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .badge-featured {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        
+        .contact-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .contact-section .lead {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-feature {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(26, 194, 193, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(26, 194, 193, 0.3);
+        }
+        
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .form-control, .form-select {
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .form-select option {
+            background: var(--dark);
+            color: white;
+        }
+        
+        .form-check-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .form-check-label a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-check-label a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-submit {
+            background: var(--primary) !important;
+            color: white !important;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+        }
+        
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .solution-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .solution-hero .lead {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-visual {
+                margin-top: 3rem;
+                height: 400px;
+            }
+            
+            .floating-card {
+                width: 280px !important;
+            }
+            
+            .card-2 {
+                display: none;
+            }
+            
+            .contact-form {
+                margin-top: 3rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .solution-hero {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+            
+            .solution-hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: -0.5px;
+            }
+            
+            .logo-row {
+                justify-content: center;
+                gap: 2rem;
+            }
+            
+            .step-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <!-- Navigation - AuthBridge Style with Teal Color -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg "
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- 1. SOLUTIONS Dropdown -->
+          <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Solutions</a
+              >
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i>   DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i>  Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Products</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="fa-solid fa-right-from-bracket"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="fa-solid fa-chart-line"></i> psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- 2. INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Industry</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/"
+                    ><i class="bi bi-cart"></i> E-commerce and Retail</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#../industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- 3. RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Resources</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                
+                <li>
+                
+                  <a class="dropdown-item" href="../products/api.html">
+  <i class="bi bi-plug"></i> API
+</a>
+
+                </li>
+              </ul>
+            </li>
+
+            <!-- 4. COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Company</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="far fa-handshake"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- 5. HELP CENTER Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Help Center</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-person"></i> For Candidates</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/customer.html"
+                    ><i class="bi bi-building"></i> For Customers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/partner.html"
+                    ><i class="bi bi-people"></i> For Partners</a
+                  >
+                  
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-link-45deg"></i> Affiliate Program
+
+                  </a
+                  >
+                  
+                </li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+  <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" targer="blank" class="blank">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../Contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+
+
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="solution-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-badge">
+                        <i class="bi bi-shield-check"></i>
+                        Court Record Verification Solution
+                    </div>
+                    <h1>Mitigate Legal Risks with Comprehensive Court Record Checks.</h1>
+                    <p class="lead">Advanced criminal background screening across District, High & Supreme Courts. Detect pending cases, historical convictions, arrest records and legal disputes with real-time access to 20+ crore court records and Crime Record Bureau databases.</p>
+                    
+                    <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
+                        Get in Touch <i class="bi bi-arrow-right"></i>
+                    </a>
+                    
+                    <div class="trust-badge">
+                        <p>Trusted by 2,000+ companies</p>
+                        <div class="logo-row">
+                            <span class="logo-item">Axis Bank</span>
+                            <span class="logo-item">HDFC</span>
+                            <span class="logo-item">Infosys</span>
+                            <span class="logo-item">ICICI</span>
+                            <span class="logo-item">Tata</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-visual">
+                        <div class="floating-card card-1">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0 fw-bold">Court Check Status</h6>
+                                <span class="badge bg-success bg-opacity-10 text-success">Cleared</span>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verif-icon"><i class="bi bi-building"></i></div>
+                                <div>
+                                    <div class="fw-semibold">District Court Records</div>
+                                    <small class="text-muted">All jurisdictions checked</small>
+                                </div>
+                                <span class="status-badge">Clear</span>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verif-icon"><i class="bi bi-bank"></i></div>
+                                <div>
+                                    <div class="fw-semibold">High Court Cases</div>
+                                    <small class="text-muted">Civil & Criminal</small>
+                                </div>
+                                <span class="status-badge">Clear</span>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verif-icon"><i class="bi bi-flag"></i></div>
+                                <div>
+                                    <div class="fw-semibold">Supreme Court</div>
+                                    <small class="text-muted">Pending Appeals</small>
+                                </div>
+                                <span class="status-badge">Clear</span>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-card card-2">
+                            <div class="text-center">
+                                <div class="mb-3" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 2rem;">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h5 class="fw-bold mb-1">Real-time Access</h5>
+                                <p class="small text-muted mb-2">e-Courts Integration</p>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <span class="badge bg-light text-dark border">e-Courts</span>
+                                    <span class="badge bg-light text-dark border">CRB</span>
+                                    <span class="badge bg-light text-dark border">NCRB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Types -->
+    <section class="verification-types">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <div class="section-subtitle justify-content-center">
+                        <i class="bi bi-layers"></i> Comprehensive Coverage
+                    </div>
+                    <h2 class="section-title">Court Verification Types</h2>
+                    <p class="section-desc mx-auto">Multi-layered legal screening across criminal, civil, and corporate litigation databases.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="type-card featured h-100">
+                        <span class="badge-featured">MOST POPULAR</span>
+                        <div class="type-icon">
+                            <i class="bi bi-shield-exclamation"></i>
+                        </div>
+                        <h3>Criminal Records</h3>
+                        <p>Comprehensive criminal background checks across district courts, sessions courts, and magistrate courts for pending and disposed cases.</p>
+                        <div class="text-start mt-4">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Pending cases detection</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Historical conviction records</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Warrants & summons check</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="type-card h-100">
+                        <div class="type-icon">
+                            <i class="bi bi-bank2"></i>
+                        </div>
+                        <h3>Civil Litigation</h3>
+                        <p>Check for ongoing civil disputes, property litigations, family court cases, and high court civil appeals that may indicate risk.</p>
+                        <div class="text-start mt-4">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Property dispute checks</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Financial fraud history</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Bankruptcy petitions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="type-card h-100">
+                        <div class="type-icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h3>Global Sanctions</h3>
+                        <p>International watchlist screening against global terror lists, interpol notices, and OFAC sanctions for senior executives.</p>
+                        <div class="text-start mt-4">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>Interpol notices</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>OFAC/UN sanctions</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-primary"></i>
+                                <span>PEP screening</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center reveal">
+                    <div class="section-subtitle justify-content-center">
+                        <i class="bi bi-arrow-repeat"></i> Process
+                    </div>
+                    <h2 class="section-title">How Court Record Verification Works</h2>
+                    <p class="section-desc mx-auto">Systematic legal screening through automated court database access and manual verification</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg reveal">
+                    <div class="step-card h-100">
+                        <div class="step-connector"></div>
+                        <div class="step-number">1</div>
+                        <h4>Identity Mapping</h4>
+                        <p>Collect candidate identity details (Name, Father's Name, DOB, Address history) to map against court records accurately.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg reveal">
+                    <div class="step-card h-100">
+                        <div class="step-connector"></div>
+                        <div class="step-number">2</div>
+                        <h4>e-Courts Database Scan</h4>
+                        <p>Automated scanning of e-Courts India portal covering District Courts, High Courts, and Supreme Court case statuses.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg reveal">
+                    <div class="step-card h-100">
+                        <div class="step-connector"></div>
+                        <div class="step-number">3</div>
+                        <h4>Police & CRB Check</h4>
+                        <p>Verification with State Crime Record Bureaus and Local Police stations for FIRs and charge sheets.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg reveal">
+                    <div class="step-card h-100">
+                        <div class="step-connector"></div>
+                        <div class="step-number">4</div>
+                        <h4>Physical Court Visit</h4>
+                        <p>On-ground verification at local district courts for cases not digitized or where records need manual extraction.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg reveal">
+                    <div class="step-card h-100">
+                        <div class="step-number">5</div>
+                        <h4>Risk Assessment Report</h4>
+                        <p>Comprehensive legal risk scoring with case details, sections invoked, current status, and final verdict analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="key-highlights">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="highlight-card h-100">
+                        <div class="highlight-icon">
+                            <i class="bi bi-database-check"></i>
+                        </div>
+                        <h3>e-Courts Integration</h3>
+                        <p>Direct API access to 20+ crore court records across India</p>
+                        <ul>
+                            <li>Real-time case status tracking</li>
+                            <li>District Courts, High Courts & Supreme Court</li>
+                            <li>Civil, Criminal & Writ jurisdiction coverage</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 reveal">
+                    <div class="highlight-card h-100">
+                        <div class="highlight-icon">
+                            <i class="bi bi-fingerprint"></i>
+                        </div>
+                        <h3>Identity Resolution</h3>
+                        <p>Advanced name-matching algorithms to handle common names and aliases</p>
+                        <ul>
+                            <li>PAN/Aadhaar linkage verification</li>
+                            <li>Father's name & DOB matching</li>
+                            <li>Address-based disambiguation</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 reveal">
+                    <div class="highlight-card h-100">
+                        <div class="highlight-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <h3>Charge Sheet Analysis</h3>
+                        <p>Detailed review of FIRs and charge sheets for relevant sections</p>
+                        <ul>
+                            <li>Section 420 (Cheating) detection</li>
+                            <li>Violent crime flagging</li>
+                            <li>Financial fraud history</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center reveal">
+                    <div class="section-subtitle justify-content-center">
+                        <i class="bi bi-stars"></i> Advantages
+                    </div>
+                    <h2 class="section-title">Benefits of Court Record Verification</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-shield-exclamation"></i></div>
+                        <h4>Risk Mitigation</h4>
+                        <p>Prevent hiring candidates with criminal backgrounds in sensitive roles handling cash or data.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-clock-history"></i></div>
+                        <h4>Fast TAT</h4>
+                        <p>Digital court records delivered in 3-5 days; physical verification in 7-10 days.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-file-earmark-check"></i></div>
+                        <h4>Regulatory Compliance</h4>
+                        <p>Meet RBI, SEBI, and IRDAI mandates for BFSI sector employee screening.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-globe"></i></div>
+                        <h4>Pan-India Coverage</h4>
+                        <p>Access to court records from all 28 States and 8 Union Territories.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-shield-lock"></i></div>
+                        <h4>Data Privacy</h4>
+                        <p>FCRA and IT Act compliant handling of sensitive legal data with encrypted storage.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-graph-up"></i></div>
+                        <h4>Risk Scoring</h4>
+                        <p>Automated risk categorization based on crime severity and case status.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-plug"></i></div>
+                        <h4>API Integration</h4>
+                        <p>Real-time court status updates via API for continuous workforce monitoring.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="bi bi-file-text"></i></div>
+                        <h4>Legal Opinion</h4>
+                        <p>Expert legal review of complex cases with adverse findings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center reveal">
+                    <div class="section-subtitle justify-content-center">
+                        <i class="bi bi-question-circle"></i> FAQ
+                    </div>
+                    <h2 class="section-title">FAQs — Court Record Verification</h2>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <div class="accordion" id="courtFAQ">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do you handle common names where multiple cases may appear?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#courtFAQ">
+                                <div class="accordion-body">
+                                    We use multi-parameter matching to ensure accurate identification and avoid false positives. Our system cross-references not just the candidate's name, but also father's name, date of birth, address history, and PAN/Aadhaar linkage where available. For common names like "Rajesh Kumar" or "Priya Sharma," we verify additional identifiers such as age range, location proximity, and case filing dates against the candidate's residential history. Each potential match is manually reviewed by legal experts before flagging, ensuring that candidates are not wrongly associated with cases filed by namesakes.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    What is the difference between pending and disposed cases in the report?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#courtFAQ">
+                                <div class="accordion-body">
+                                    Pending cases are active legal proceedings where the trial is ongoing or judgment is awaited—these pose immediate hiring risks especially for fiduciary roles. Disposed cases are concluded matters with final judgments (acquittal, conviction, or compromise). We categorize disposed cases as "Acquitted" (cleared of charges) or "Convicted" (found guilty). For BFSI and security-sensitive roles, even acquitted cases may be reviewed depending on the nature of allegations. Our report clearly distinguishes these statuses with next hearing dates for pending cases and final verdict details for disposed matters, helping HR make informed decisions based on your risk appetite.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do you check for non-cognizable offenses (NC) and traffic violations?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#courtFAQ">
+                                <div class="accordion-body">
+                                    By default, we focus on cognizable offenses (serious crimes where police can arrest without warrant) as these are recorded in court databases and Crime Record Bureaus. However, we can customize checks to include specific non-cognizable offenses (NC) based on your industry requirements. Traffic violations are generally not checked unless specifically requested for driving-related roles (logistics, transportation). We can verify Motor Vehicle Act violations and driving license suspensions through RTO integration. For senior leadership roles, we recommend comprehensive checks including NCs related to financial misconduct, domestic violence, or moral turpitude even if they don't result in arrest.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    How do you verify cases in courts that are not digitized yet?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#courtFAQ">
+                                <div class="accordion-body">
+                                    While e-Courts integration covers approximately 95% of case data from District Courts and 100% of High/Supreme Court records, some older cases (pre-2010) or recent filings in remote districts may not be digitized. For these, we conduct physical court visits where our field executives manually inspect case registers, cause lists, and judgment copies at the relevant District Court Complex. This includes checking the General Diary (GD) at local police stations for FIRs that may not have reached trial stage. Physical verification adds 3-5 days to the TAT but ensures comprehensive coverage, particularly important for candidates from rural areas or those with older address history.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Can the candidate challenge or explain adverse court findings?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#courtFAQ">
+                                <div class="accordion-body">
+                                    Absolutely. We follow a "Right to Explain" protocol before finalizing adverse reports. If we discover pending cases or convictions, we share the basic details (case number, court, sections, and status) with the candidate and allow 48-72 hours for explanation. Candidates can provide court-certified copies of acquittal orders, stay orders, or compromise deeds that may not reflect in online databases. Our legal team reviews these documents to update the final report with contextual information—for example, distinguishing between a malicious 498A case that was quashed versus a genuine financial fraud conviction. This ensures fair evaluation while maintaining screening rigor.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Is court record verification legally compliant with privacy laws?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#courtFAQ">
+                                <div class="accordion-body">
+                                    Yes, our court record checks comply with Indian privacy laws and the Digital Personal Data Protection Act (DPDP). Court records in India are public documents under the Right to Information (RTI) Act, and accessing them for background verification is legal with candidate consent. We obtain explicit written consent before initiating checks, store data on encrypted servers within India, and share reports only with authorized HR personnel. We do not access sealed court records or juvenile justice records (JJ Act protections). For international candidates, we ensure GDPR compliance by limiting data retention to 90 days post-verification unless legally required otherwise.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!--<section class="contact-section" id="contact">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+                    <h2>Ready to Explore Verifitech for your business?</h2>
+                    <p class="lead">Get in touch with our solutions team to discuss your court record verification needs and customized pricing.</p>
+                    
+                    <div class="mt-5">
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Assess team's verification needs</span>
+                        </div>
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Learn products & benefits</span>
+                        </div>
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Discuss enterprise pricing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                        <p class="text-white-50 mb-3">Or reach us directly:</p>
+                        <p class="mb-2"><i class="bi bi-envelope me-2 text-primary"></i> sales@verifitech.com</p>
+                        <p><i class="bi bi-telephone me-2 text-primary"></i> +91 1800-123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest! Our team will contact you within 24 hours.');">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name *" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Work Email *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control" placeholder="Phone Number *" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Company Name *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select" required>
+                                    <option value="" disabled selected>Company Size *</option>
+                                    <option>1-50 employees</option>
+                                    <option>51-200 employees</option>
+                                    <option>201-1000 employees</option>
+                                    <option>1000+ employees</option>
+                                </select>
+                            </div>
+                        </div>
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Interested Solution *</option>
+                            <option selected>Court Record Verification</option>
+                            <option>Criminal Background Check</option>
+                            <option>Police Verification</option>
+                            <option>Complete BGV Suite</option>
+                        </select>
+                        <textarea class="form-control" rows="3" placeholder="Tell us about your requirements (Optional)"></textarea>
+                        
+                        <div class="form-check mt-3 mb-4">
+                            <input class="form-check-input" type="checkbox" required>
+                            <label class="form-check-label">
+                                I agree to the <a href="#">Privacy Policy</a> and consent to being contacted regarding Verifitech services.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">
+                            Submit Request <i class="bi bi-arrow-right ms-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Footer -->
+
+<footer class="footer" style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px;">
+  <div class="container">
+    <!-- Newsletter Section -->
+    <div class="newsletter-footer-section" style="background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(26, 194, 193, 0.2); position: relative; overflow: hidden;">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center gap-3">
+            <div class="newsletter-icon-footer" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);">
+              <i class="bi bi-envelope-open"></i>
+            </div>
+            <div>
+              <h4 class="newsletter-title" style="font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem;">Stay Updated</h4>
+              <p class="newsletter-subtitle" style="color: var(--gray); font-size: 0.95rem; margin: 0; line-height: 1.5;">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form class="newsletter-form-footer">
+            <div class="input-group-wrapper" style="display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;">
+              <div style="flex: 1;">
+                <input type="email" placeholder="Enter your work email" class="newsletter-input" style="width: 100%; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; color: var(--dark); background: white; transition: all 0.3s ease;">
+              </div>
+              <button type="submit" class="newsletter-btn" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);">
+                Subscribe <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <p class="newsletter-disclaimer" style="color: var(--gray); font-size: 0.85rem; margin: 8px 0 0 0; display: flex; align-items: center; gap: 6px;">
+              <i class="bi bi-shield-check" style="color: var(--primary);"></i> We respect your privacy. No spam, ever.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Main Content -->
+    <div class="row footer-main-content" style="margin-top: 20px;">
+      <!-- Logo & Description -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-brand">
+          <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" style="width: 180px; height: auto; margin-bottom: 20px;">
+        </div>
+        <p class="footer-description" style="font-size: 14px; line-height: 1.6; max-width: 280px; color: var(--gray);">
+          India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.
+        </p>
+      </div>
+
+      <!-- Solutions Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Solutions</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Employment Check</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Education Verification</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Reference Checks</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Gap Analysis</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Company</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">About Us</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Partnership</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Careers</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Resources</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Affiliate</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Blog</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Products Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Products</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Exit interview</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">psychometric</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">API</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #cbd5e1;">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="copyright" style="font-size: 14px; margin: 0; color: var(--gray);">
+            © 2026 Verifitech Solutions Private Limited. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="social-links" style="display: flex; justify-content: flex-end; gap: 15px;">
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Privacy Policy Row -->
+      <div class="privacy-row" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: var(--gray); font-size: 0.9rem;">
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Disclaimer</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>  
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>        
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Cookies Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp Button -->
+<a 
+  href="#" 
+  id="whatsappFloat"
+  class="whatsapp-float" 
+  title="Chat with us on WhatsApp"
+  onclick="openWhatsApp(event)"
+  style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
+>
+  <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+  <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
+</a>
+<style>
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: white;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+  }
+  
+  .whatsapp-float:hover .float-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+  
+  .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #333;
+  }
+  
+  .social-icon:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary) !important;
+    transform: translateX(5px);
+  }
+  
+  .privacy-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+  
+  .newsletter-btn:hover i {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 991px) {
+    .whatsapp-float {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    
+    .float-tooltip {
+      display: none;
+    }
+    
+    .newsletter-footer-section {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .newsletter-footer-section .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .newsletter-icon-footer {
+      margin: 0 auto;
+    }
+    
+    .input-group-wrapper {
+      flex-direction: column;
+    }
+    
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+    }
+  }
+</style>
+   
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const whatsappConfig = {
+    phoneNumber: '+919176663777',
+    defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+    pageContext: true
+  };
+
+  function openWhatsApp(event) {
+    event.preventDefault();
+    
+    const pageTitle = document.title;
+    const currentUrl = window.location.href;
+    
+    let message = whatsappConfig.defaultMessage;
+    
+    if (whatsappConfig.pageContext && pageTitle) {
+      message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+  
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

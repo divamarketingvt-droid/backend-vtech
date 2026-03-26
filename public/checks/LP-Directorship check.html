@@ -1,0 +1,3237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Directorship Check | Company Director Verification | Verifitech</title>
+   <meta name="description" content="Verify company directorships, board positions & corporate affiliations with MCA database confirmation. Validate director history, concurrent roles & compliance status across all registered companies.">
+   
+   <!-- Bootstrap 5 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Icons -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+   <style>
+       :root {
+           --primary: #1ac2c1;
+           --primary-dark: #16a8a7;
+           --primary-light: #e0f7f7;
+           --dark: #0f172a;
+           --navy: #1e293b;
+           --gray: #64748b;
+           --light-gray: #f8fafc;
+           --white: #ffffff;
+       }
+       
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       
+       body {
+           font-family: 'Inter', sans-serif;
+           color: var(--dark);
+           line-height: 1.6;
+           overflow-x: hidden;
+       }
+       
+         html {
+  scroll-behavior: smooth;
+}
+      
+    
+       .zf-errorMessage {
+           color: #ef4444;
+           font-size: 0.85rem;
+           margin-top: 6px;
+           margin-bottom: 0;
+           display: none;
+           align-items: center;
+           gap: 4px;
+           font-weight: 500;
+       }
+
+       /* Footer Main Content */
+       .footer-main-content {
+           margin-top: 20px;
+       }
+
+       .footer-logo {
+           width: 180px;
+           height: auto;
+           margin-bottom: 20px;
+       }
+
+       .footer-description {
+           font-size: 14px;
+           line-height: 1.6;
+           max-width: 280px;
+           color: var(--gray);
+       }
+
+       .footer-heading {
+           color: #1a1a1a;
+           font-size: 16px;
+           font-weight: 600;
+           margin-bottom: 20px;
+       }
+
+       .footer-links {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+       }
+
+       .footer-links li {
+           margin-bottom: 1rem;
+       }
+
+       .footer-links a {
+           color: var(--gray);
+           text-decoration: none;
+           transition: all 0.3s;
+           display: inline-block;
+           font-size: 0.95rem;
+       }
+
+       .footer-links a:hover {
+           color: var(--primary);
+           transform: translateX(5px);
+       }
+
+       /* Footer Bottom */
+       .footer-bottom {
+           margin-top: 60px;
+           padding-top: 30px;
+           border-top: 1px solid #cbd5e1;
+       }
+
+       .copyright {
+           font-size: 14px;
+           margin: 0;
+           color: var(--gray);
+       }
+
+       .social-links {
+           display: flex;
+           justify-content: flex-end;
+           gap: 15px;
+       }
+
+       .social-icon {
+           width: 44px;
+           height: 44px;
+           border-radius: 50%;
+           background: rgba(15, 23, 42, 0.1);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--dark);
+           font-size: 1.1rem;
+           transition: all 0.3s;
+           text-decoration: none;
+       }
+
+       .social-icon:hover {
+           background: var(--primary);
+           color: white;
+           transform: translateY(-3px);
+       }
+
+       /* Privacy Row */
+       .privacy-row {
+           margin-top: 20px;
+           padding-top: 20px;
+           border-top: 1px solid #e2e8f0;
+           text-align: center;
+           color: var(--gray);
+           font-size: 0.9rem;
+       }
+
+       .privacy-link {
+           color: var(--primary);
+           text-decoration: none;
+           transition: color 0.3s;
+       }
+
+       .privacy-link:hover {
+           color: var(--primary-dark);
+           text-decoration: underline;
+       }
+
+       .privacy-separator {
+           margin: 0 10px;
+           color: #cbd5e1;
+       }
+
+       /* WhatsApp Float */
+       .whatsapp-float {
+           position: fixed;
+           bottom: 30px;
+           right: 30px;
+           background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+           color: white;
+           width: 60px;
+           height: 60px;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           text-decoration: none;
+           box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+           z-index: 9999;
+           transition: all 0.3s ease;
+           border: 3px solid rgba(255, 255, 255, 0.3);
+       }
+
+       .whatsapp-float:hover {
+           transform: scale(1.1) rotate(10deg);
+           color: white;
+           box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+       }
+
+       .whatsapp-float i {
+           font-size: 1.8rem;
+       }
+
+       .float-tooltip {
+           position: absolute;
+           right: 70px;
+           background: #333;
+           color: white;
+           padding: 8px 16px;
+           border-radius: 8px;
+           font-size: 14px;
+           white-space: nowrap;
+           opacity: 0;
+           visibility: hidden;
+           transition: all 0.3s ease;
+           pointer-events: none;
+       }
+
+       .float-tooltip::after {
+           content: '';
+           position: absolute;
+           right: -5px;
+           top: 50%;
+           transform: translateY(-50%);
+           border-top: 5px solid transparent;
+           border-bottom: 5px solid transparent;
+           border-left: 5px solid #333;
+       }
+
+       .whatsapp-float:hover .float-tooltip {
+           opacity: 1;
+           visibility: visible;
+           right: 75px;
+       }
+
+       /* Responsive */
+       @media (max-width: 991px) {
+           .solution-hero h1 {
+               font-size: 2.8rem;
+           }
+
+           .solution-hero .lead {
+               font-size: 1.1rem;
+           }
+
+           .section-title {
+               font-size: 2.2rem;
+           }
+
+           .hero-visual {
+               margin-top: 3rem;
+               height: 400px;
+           }
+
+           .floating-card {
+               width: 280px !important;
+           }
+
+           .card-2 {
+               display: none;
+           }
+
+           .contact-form {
+               margin-top: 3rem;
+           }
+
+           /* Footer Responsive */
+           .newsletter-footer-section {
+               padding: 30px;
+               text-align: center;
+           }
+
+           .newsletter-footer-section .d-flex.align-items-center.gap-3 {
+               flex-direction: column;
+               text-align: center;
+           }
+
+           .newsletter-icon-footer {
+               margin: 0 auto;
+           }
+
+           .input-group-wrapper {
+               flex-direction: column;
+           }
+
+           .newsletter-btn {
+               width: 100%;
+               justify-content: center;
+           }
+
+           .footer .col-lg-2 {
+               flex: 0 0 33.333%;
+               max-width: 33.333%;
+           }
+
+           .footer .col-lg-3 {
+               flex: 0 0 100%;
+               max-width: 100%;
+               text-align: center;
+           }
+
+           .footer-logo {
+               margin: 0 auto 20px;
+               display: block;
+           }
+
+           .footer-description {
+               max-width: 100%;
+               margin: 0 auto 2rem;
+           }
+
+           .social-links {
+               justify-content: center;
+               margin-top: 20px;
+           }
+
+           .copyright {
+               text-align: center;
+           }
+       }
+
+       @media (max-width: 767px) {
+           .solution-hero {
+               padding: 120px 0 60px;
+               text-align: center;
+           }
+
+           .solution-hero h1 {
+               font-size: 2.2rem;
+               letter-spacing: -0.5px;
+           }
+
+           .logo-row {
+               justify-content: center;
+               gap: 2rem;
+           }
+
+           .step-card {
+               margin-bottom: 1.5rem;
+           }
+
+           .contact-section h2 {
+               font-size: 2.2rem;
+           }
+
+           .contact-form {
+               padding: 2rem;
+           }
+
+           /* Footer Mobile */
+           .newsletter-footer-section {
+               padding: 24px;
+               margin-bottom: 40px;
+           }
+
+           .newsletter-title {
+               font-size: 1.25rem;
+           }
+
+           .newsletter-subtitle {
+               font-size: 0.9rem;
+           }
+
+           .footer .col-lg-2,
+           .footer .col-lg-3,
+           .footer .col-md-6 {
+               flex: 0 0 100%;
+               max-width: 100%;
+               text-align: center;
+               margin-bottom: 2rem;
+           }
+
+           .footer-links {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+           }
+
+           .footer-heading {
+               margin-bottom: 1rem;
+           }
+
+           .whatsapp-float {
+               width: 55px;
+               height: 55px;
+               bottom: 20px;
+               right: 20px;
+           }
+
+           .whatsapp-float i {
+               font-size: 1.5rem;
+           }
+
+           .float-tooltip {
+               display: none;
+           }
+       }
+
+       @media (max-width: 375px) {
+           /* Footer Extra Small */
+           .newsletter-footer-section {
+               padding: 20px 12px;
+           }
+
+           .newsletter-input {
+               padding: 10px 14px;
+               font-size: 16px;
+           }
+
+           .newsletter-btn {
+               padding: 10px 20px;
+               font-size: 0.95rem;
+           }
+       }
+
+       /* Shake animation for errors */
+       @keyframes shake {
+           0%, 100% { transform: translateX(0); }
+           25% { transform: translateX(-5px); }
+           75% { transform: translateX(5px); }
+       }
+
+       .shake-animation {
+           animation: shake 0.5s ease-in-out;
+       }
+
+       /* Chat Icon Button */
+       .chat-icon-btn {
+           position: fixed;
+           bottom: 30px;
+           right: 30px;
+           width: 60px;
+           height: 60px;
+           background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+           border-radius: 50%;
+           border: none;
+           cursor: pointer;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           box-shadow: 0 4px 20px rgba(29, 209, 161, 0.4);
+           transition: all 0.3s ease;
+           z-index: 1000;
+       }
+
+       .chat-icon-btn:hover {
+           transform: scale(1.1);
+           box-shadow: 0 6px 30px rgba(29, 209, 161, 0.6);
+       }
+
+       .chat-icon-btn svg {
+           width: 28px;
+           height: 28px;
+           color: white;
+       }
+
+       /* Chat Container */
+       .chat-container {
+           position: fixed;
+           bottom: 100px;
+           right: 30px;
+           width: 100%;
+           max-width: 380px;
+           height: 550px;
+           background: white;
+           border-radius: 20px;
+           box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+           display: none;
+           flex-direction: column;
+           overflow: hidden;
+           z-index: 999;
+           animation: slideUp 0.3s ease;
+       }
+
+       @keyframes slideUp {
+           from { opacity: 0; transform: translateY(20px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+
+       .chat-container.active {
+           display: flex;
+       }
+
+       .chat-header {
+           background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+           color: white;
+           padding: 16px 20px;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+       }
+
+       .header-left {
+           display: flex;
+           align-items: center;
+           gap: 12px;
+       }
+
+       .avatar {
+           width: 40px;
+           height: 40px;
+           background: rgba(255,255,255,0.2);
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-weight: bold;
+           font-size: 18px;
+       }
+
+       .header-info h3 {
+           font-size: 16px;
+           font-weight: 600;
+       }
+
+       .header-info span {
+           font-size: 12px;
+           opacity: 0.9;
+           display: flex;
+           align-items: center;
+           gap: 4px;
+       }
+
+       .online-dot {
+           width: 6px;
+           height: 6px;
+           background: #2ecc71;
+           border-radius: 50%;
+           display: inline-block;
+       }
+
+       .close-btn {
+           background: none;
+           border: none;
+           color: white;
+           cursor: pointer;
+           font-size: 20px;
+           opacity: 0.8;
+           transition: opacity 0.2s;
+       }
+
+       .close-btn:hover {
+           opacity: 1;
+       }
+
+       .chat-body {
+           flex: 1;
+           overflow-y: auto;
+           padding: 20px;
+           background: #f8f9fa;
+           display: flex;
+           flex-direction: column;
+           gap: 16px;
+       }
+
+       .privacy-notice {
+           background: #e8f4f8;
+           border: 1px solid #bee5eb;
+           border-radius: 12px;
+           padding: 16px;
+       }
+
+       .privacy-header {
+           display: flex;
+           align-items: center;
+           gap: 8px;
+           margin-bottom: 8px;
+           color: #0c5460;
+           font-weight: 600;
+           font-size: 14px;
+       }
+
+       .privacy-text {
+           font-size: 13px;
+           color: #0c5460;
+           line-height: 1.5;
+           margin-bottom: 12px;
+       }
+
+       .privacy-buttons {
+           display: flex;
+           gap: 8px;
+       }
+
+       .btn {
+           padding: 8px 16px;
+           border-radius: 6px;
+           border: none;
+           font-size: 13px;
+           cursor: pointer;
+           font-weight: 500;
+           transition: all 0.2s;
+       }
+
+       .btn-primary {
+           background: #3498db;
+           color: white;
+       }
+
+       .btn-primary:hover {
+           background: #2980b9;
+       }
+
+       .btn-secondary {
+           background: transparent;
+           color: #6c757d;
+           border: 1px solid #dee2e6;
+       }
+
+       .btn-secondary:hover {
+           background: #f8f9fa;
+       }
+
+       .message {
+           display: flex;
+           gap: 12px;
+           animation: fadeIn 0.3s ease;
+       }
+
+       @keyframes fadeIn {
+           from { opacity: 0; transform: translateY(10px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+
+       .message-avatar {
+           width: 32px;
+           height: 32px;
+           background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           font-size: 12px;
+           flex-shrink: 0;
+       }
+
+       .message-content {
+           background: white;
+           padding: 16px;
+           border-radius: 12px;
+           border-top-left-radius: 4px;
+           box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+           max-width: 85%;
+       }
+
+       .message-text {
+           font-size: 14px;
+           line-height: 1.6;
+           color: #2c3e50;
+       }
+
+       .message-text strong {
+           color: #10ac84;
+       }
+
+       .user-message {
+           align-self: flex-end;
+           flex-direction: row-reverse;
+       }
+
+       .user-message .message-content {
+           background: #1dd1a1;
+           color: white;
+           border-top-left-radius: 12px;
+           border-top-right-radius: 4px;
+       }
+
+       .user-message .message-text {
+           color: white;
+       }
+
+       .input-form {
+           background: white;
+           padding: 16px 20px;
+           border-top: 1px solid #e9ecef;
+           display: flex;
+           gap: 12px;
+           align-items: center;
+       }
+
+       .input-field {
+           flex: 1;
+           padding: 12px 16px;
+           border: 1px solid #dee2e6;
+           border-radius: 24px;
+           font-size: 14px;
+           outline: none;
+           transition: border-color 0.2s;
+       }
+
+       .input-field:focus {
+           border-color: #1dd1a1;
+       }
+
+       .input-field:disabled {
+           background: #f8f9fa;
+           cursor: not-allowed;
+       }
+
+       .send-btn {
+           width: 40px;
+           height: 40px;
+           background: #1dd1a1;
+           border: none;
+           border-radius: 50%;
+           color: white;
+           cursor: pointer;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           transition: all 0.2s;
+       }
+
+       .send-btn:hover:not(:disabled) {
+           background: #10ac84;
+           transform: scale(1.05);
+       }
+
+       .send-btn:disabled {
+           background: #ccc;
+           cursor: not-allowed;
+       }
+
+       .hidden {
+           display: none !important;
+       }
+
+       .typing-indicator {
+           display: flex;
+           gap: 4px;
+           padding: 12px 16px;
+           background: white;
+           border-radius: 12px;
+           border-top-left-radius: 4px;
+           width: fit-content;
+           box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+       }
+
+       .typing-dot {
+           width: 8px;
+           height: 8px;
+           background: #1dd1a1;
+           border-radius: 50%;
+           animation: typing 1.4s infinite;
+       }
+
+       .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+       .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+       @keyframes typing {
+           0%, 60%, 100% { transform: translateY(0); }
+           30% { transform: translateY(-10px); }
+       }
+
+       .confirmation-box {
+           background: #f8f9fa;
+           padding: 12px;
+           border-radius: 8px;
+           margin: 12px 0;
+       }
+
+       .detail-row {
+           display: flex;
+           justify-content: space-between;
+           padding: 6px 0;
+           font-size: 13px;
+           border-bottom: 1px solid #e9ecef;
+       }
+
+       .detail-row:last-child {
+           border-bottom: none;
+       }
+
+       .detail-label {
+           color: #666;
+       }
+
+       .detail-value {
+           font-weight: 600;
+           color: #2c3e50;
+       }
+
+       .department-grid {
+           display: grid;
+           gap: 10px;
+           margin-top: 12px;
+       }
+
+       .dept-card {
+           background: white;
+           border: 2px solid #e9ecef;
+           border-radius: 12px;
+           padding: 14px;
+           cursor: pointer;
+           transition: all 0.2s;
+           text-align: left;
+           width: 100%;
+       }
+
+       .dept-card:hover {
+           border-color: #1dd1a1;
+           transform: translateY(-2px);
+           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+       }
+
+       .dept-icon {
+           font-size: 20px;
+           margin-bottom: 6px;
+       }
+
+       .dept-name {
+           font-weight: 600;
+           color: #2c3e50;
+           font-size: 14px;
+           margin-bottom: 2px;
+       }
+
+       .dept-desc {
+           font-size: 12px;
+           color: #666;
+       }
+
+       .action-btn {
+           background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+           color: white;
+           border: none;
+           padding: 12px 24px;
+           border-radius: 8px;
+           font-weight: 600;
+           cursor: pointer;
+           margin-top: 12px;
+           width: 100%;
+           transition: all 0.2s;
+       }
+
+       .action-btn:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 4px 12px rgba(29, 209, 161, 0.3);
+       }
+
+       .bgv-options {
+           display: grid;
+           gap: 8px;
+           margin-top: 12px;
+       }
+
+       .bgv-btn {
+           background: white;
+           border: 2px solid #e9ecef;
+           padding: 12px;
+           border-radius: 8px;
+           cursor: pointer;
+           text-align: left;
+           transition: all 0.2s;
+           font-size: 13px;
+       }
+
+       .bgv-btn:hover {
+           border-color: #1dd1a1;
+           background: #f0fff9;
+       }
+
+       .issue-input {
+           width: 100%;
+           padding: 12px;
+           border: 1px solid #dee2e6;
+           border-radius: 8px;
+           font-size: 14px;
+           margin-top: 12px;
+           resize: none;
+           font-family: inherit;
+       }
+
+       .issue-input:focus {
+           outline: none;
+           border-color: #1dd1a1;
+       }
+
+       .success-msg {
+           background: #d4edda;
+           color: #155724;
+           padding: 12px;
+           border-radius: 8px;
+           margin-top: 8px;
+           font-size: 13px;
+           border-left: 4px solid #28a745;
+       }
+
+       .back-btn {
+           background: #f8f9fa;
+           border: 1px solid #dee2e6;
+           color: #666;
+           padding: 8px 16px;
+           border-radius: 6px;
+           cursor: pointer;
+           font-size: 13px;
+           margin-top: 10px;
+           transition: all 0.2s;
+       }
+
+       .back-btn:hover {
+           background: #e9ecef;
+       }
+
+       .final-confirm-box {
+           background: #fff3cd;
+           border: 1px solid #ffeaa7;
+           border-radius: 8px;
+           padding: 16px;
+           margin: 12px 0;
+       }
+
+       .final-confirm-box h4 {
+           margin-bottom: 10px;
+           color: #856404;
+       }
+
+       .send-final-btn {
+           background: #28a745;
+           color: white;
+           border: none;
+           padding: 10px 20px;
+           border-radius: 6px;
+           cursor: pointer;
+           font-weight: 600;
+           margin-top: 10px;
+           width: 100%;
+       }
+
+       .send-final-btn:hover {
+           background: #218838;
+       }
+
+       .edit-link {
+           color: #3498db;
+           cursor: pointer;
+           font-size: 12px;
+           text-decoration: underline;
+       }
+
+       .whatsapp-float:hover {
+           transform: scale(1.1) rotate(10deg);
+           color: white;
+           box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+       }
+       
+       .whatsapp-float:hover .float-tooltip {
+           opacity: 1;
+           visibility: visible;
+           right: 75px;
+       }
+       
+       .float-tooltip::after {
+           content: '';
+           position: absolute;
+           right: -5px;
+           top: 50%;
+           transform: translateY(-50%);
+           border-top: 5px solid transparent;
+           border-bottom: 5px solid transparent;
+           border-left: 5px solid #333;
+       }
+       
+       .social-icon:hover {
+           background: var(--primary) !important;
+           color: white !important;
+           transform: translateY(-3px);
+       }
+       
+       .footer-links a:hover {
+           color: var(--primary) !important;
+           transform: translateX(5px);
+       }
+       
+       .privacy-link:hover {
+           color: var(--primary-dark) !important;
+           text-decoration: underline;
+       }
+       
+       .newsletter-btn:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+       
+       .newsletter-btn:hover i {
+           transform: translateX(4px);
+       }
+       
+       @media (max-width: 991px) {
+           .whatsapp-float {
+               width: 55px;
+               height: 55px;
+               bottom: 20px;
+               right: 20px;
+           }
+           
+           .whatsapp-float i {
+               font-size: 1.5rem;
+           }
+           
+           .float-tooltip {
+               display: none;
+           }
+           
+           .newsletter-footer-section {
+               padding: 30px;
+               text-align: center;
+           }
+           
+           .newsletter-footer-section .d-flex {
+               flex-direction: column;
+               text-align: center;
+           }
+           
+           .newsletter-icon-footer {
+               margin: 0 auto;
+           }
+           
+           .input-group-wrapper {
+               flex-direction: column;
+           }
+           
+           .newsletter-btn {
+               width: 100%;
+               justify-content: center;
+           }
+           
+           .social-links {
+               justify-content: center;
+               margin-top: 20px;
+           }
+           
+           .copyright {
+               text-align: center;
+           }
+       }
+
+
+
+       /* ============================================
+          Z-INDEX FIXES - KEEP THESE AT TOP
+          ============================================ */
+
+       /* Ensure navbar has proper z-index */
+       .navbar {
+           z-index: 1050;
+       }
+
+       /* Fix dropdown z-index to appear above hero content */
+       .dropdown-menu {
+           z-index: 1060;
+           position: absolute;
+       }
+
+       /* Ensure dropdown items are clickable and visible */
+       .dropdown-item {
+           position: relative;
+           z-index: 1061;
+       }
+
+       /* Fix for hero section overlapping */
+       .industry-hero {
+           position: relative;
+           z-index: 1;
+       }
+
+       /* ============================================
+          NAVBAR & NAVIGATION STYLES
+          ============================================ */
+
+       .navbar {
+           padding: 0;
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+           background: rgba(255, 255, 255, 0.98);
+           backdrop-filter: blur(12px);
+           border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+           height: 80px;
+       }
+
+       .navbar.scrolled {
+           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+       }
+
+       /* Mobile navbar collapse background */
+       .navbar-collapse {
+           background: rgba(255, 255, 255, 0.98);
+           backdrop-filter: blur(12px);
+           border-radius: 12px;
+           padding: 1rem;
+           margin-top: 0.5rem;
+           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+       }
+
+       @media (min-width: 992px) {
+           .navbar-collapse {
+               background: transparent;
+               backdrop-filter: none;
+               padding: 0;
+               margin-top: 0;
+               box-shadow: none;
+           }
+       }
+
+       .navbar-brand {
+           font-weight: 800;
+           font-size: 1.8rem;
+           color: var(--dark);
+           letter-spacing: -0.5px;
+           display: flex;
+           flex-direction: column;
+           line-height: 1.1;
+           transition: color 0.3s;
+       }
+
+       .navbar-brand img {
+           height: 100px;
+           width: 200px;
+           object-fit: contain;
+           display: block;
+       }
+
+       .navbar-brand span {
+           color: var(--primary);
+       }
+
+       .brand-tagline {
+           font-size: 0.65rem;
+           font-weight: 500;
+           color: var(--gray);
+           letter-spacing: 1px;
+           text-transform: uppercase;
+           margin-top: 2px;
+       }
+
+       .nav-link {
+           font-weight: 600;
+           color: var(--navy);
+           margin: 0 0.6rem;
+           position: relative;
+           font-size: 0.9rem;
+           transition: all 0.3s ease;
+           padding: 2rem 0.5rem !important;
+           display: flex;
+           align-items: center;
+           gap: 4px;
+       }
+
+       .nav-link:hover {
+           color: var(--primary);
+       }
+
+       /* ============================================
+          DROPDOWN MENU STYLES
+          ============================================ */
+
+       .dropdown-menu {
+           border: none;
+           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+           border-radius: 12px;
+           padding: 1rem;
+           margin-top: 0.5rem;
+           min-width: 280px;
+           border-top: 3px solid var(--primary);
+           transition: all 0.3s ease;
+       }
+
+       .dropdown-menu.mega-menu {
+           min-width: 600px;
+           padding: 1.5rem;
+       }
+
+       .dropdown-item {
+           padding: 0.6rem 1rem;
+           border-radius: 8px;
+           font-size: 0.9rem;
+           font-weight: 500;
+           color: var(--navy);
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           gap: 10px;
+       }
+
+       .dropdown-item:hover {
+           background: var(--primary-light);
+           color: var(--primary);
+           transform: translateX(5px);
+       }
+
+       .dropdown-item i {
+           font-size: 1.1rem;
+           color: var(--primary);
+           transition: color 0.3s;
+       }
+
+       .dropdown-header {
+           font-size: 0.75rem;
+           font-weight: 700;
+           text-transform: uppercase;
+           letter-spacing: 1px;
+           color: var(--primary);
+           margin-bottom: 0.5rem;
+           padding: 0.5rem 1rem;
+       }
+
+       .dropdown-divider {
+           margin: 0.8rem 0;
+           opacity: 0.1;
+       }
+
+       /* ============================================
+          BUTTON STYLES
+          ============================================ */
+
+       /* CTA Button - Talk to Sales */
+       .btn-sales {
+           background: var(--primary);
+           color: white !important;
+           border: none;
+           padding: 0.6rem 1.5rem;
+           border-radius: 6px;
+           font-weight: 600;
+           font-size: 0.9rem;
+           transition: all 0.3s ease;
+           white-space: nowrap;
+           margin-left: 1rem;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+       }
+
+       .btn-sales:hover {
+           background: var(--primary-dark);
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+
+       /* Login Button */
+       .btn-login {
+           background-color: #ffffff !important;
+           color: #00bfa5 !important;
+           border: 1px solid #00bfa5 !important;
+           box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+           padding: 8px 24px;
+           border-radius: 6px;
+           font-weight: 500;
+           text-decoration: none;
+           transition: all 0.3s ease;
+           margin: 12px;
+       }
+
+       .btn-login:hover {
+           background-color: #00bfa5 !important;
+           color: #ffffff !important;
+           box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+           transform: translateY(-1px);
+       }
+
+       /* ============================================
+          COUNTRY SELECTOR - WHITE ARROW REMOVED
+          ============================================ */
+
+       .country-selector {
+           display: flex;
+           align-items: center;
+           gap: 6px;
+           padding: 0.5rem;
+           border-radius: 6px;
+           border: 1px solid #e2e8f0;
+           font-size: 0.85rem;
+           font-weight: 600;
+           color: var(--navy);
+           cursor: pointer;
+           transition: all 0.3s ease;
+           margin-left: 1rem;
+       }
+
+       .country-selector:hover {
+           border-color: var(--primary);
+           color: var(--primary);
+       }
+
+       /* Remove Bootstrap's default white arrow from country selector */
+       .country-selector.dropdown-toggle::after {
+           display: none !important;
+           content: none !important;
+           border: none !important;
+       }
+
+       /* Style the custom chevron icon */
+       .country-selector i.bi-chevron-down {
+           font-size: 0.7rem;
+           color: var(--navy);
+           transition: transform 0.3s ease;
+       }
+
+       .country-selector:hover i.bi-chevron-down {
+           color: var(--primary);
+       }
+
+       /* Rotate chevron when dropdown is open */
+       .country-selector[aria-expanded="true"] i.bi-chevron-down {
+           transform: rotate(180deg);
+       }
+
+       .country-flag {
+           font-size: 1.2rem;
+       }
+
+       /* Navigation */
+     
+       
+       /* Hero Section */
+       .solution-hero {
+           padding: 140px 0 100px;
+           background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+           position: relative;
+           overflow: hidden;
+           min-height: 90vh;
+           display: flex;
+           align-items: center;
+       }
+       
+       .solution-hero::before {
+           content: '';
+           position: absolute;
+           top: -20%;
+           right: -10%;
+           width: 600px;
+           height: 600px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
+           border-radius: 50%;
+           animation: pulse 4s ease-in-out infinite;
+       }
+       
+       @keyframes pulse {
+           0%, 100% { transform: scale(1); opacity: 0.5; }
+           50% { transform: scale(1.1); opacity: 0.8; }
+       }
+       
+       .hero-badge {
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+           padding: 0.6rem 1.2rem;
+           background: rgba(26, 194, 193, 0.1);
+           color: var(--primary-dark);
+           border-radius: 50px;
+           font-size: 0.95rem;
+           font-weight: 700;
+           margin-bottom: 1.5rem;
+           border: 1px solid rgba(26, 194, 193, 0.2);
+       }
+       
+       .solution-hero h1 {
+           font-size: 3.8rem;
+           font-weight: 800;
+           line-height: 1.1;
+           margin-bottom: 1.5rem;
+           color: var(--dark);
+           letter-spacing: -1.5px;
+       }
+       
+       .solution-hero .lead {
+           font-size: 1.35rem;
+           color: var(--gray);
+           max-width: 600px;
+           margin-bottom: 2.5rem;
+           line-height: 1.6;
+       }
+       
+       .btn-primary-custom {
+           background: var(--primary) !important;
+           color: white !important;
+           border: none;
+           padding: 1rem 2.5rem;
+           border-radius: 50px;
+           font-weight: 700;
+           font-size: 1.1rem;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+           display: inline-flex;
+           align-items: center;
+           gap: 10px;
+           text-decoration: none;
+       }
+       
+       .btn-primary-custom:hover {
+           background: var(--primary-dark) !important;
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+       }
+       
+       .trust-badge {
+           margin-top: 4rem;
+           padding-top: 2rem;
+           border-top: 1px solid rgba(0,0,0,0.08);
+       }
+       
+       .trust-badge p {
+           font-size: 0.9rem;
+           font-weight: 600;
+           color: var(--gray);
+           text-transform: uppercase;
+           letter-spacing: 1px;
+           margin-bottom: 1.5rem;
+       }
+       
+       .logo-row {
+           display: flex;
+           gap: 3rem;
+           flex-wrap: wrap;
+           opacity: 0.6;
+       }
+       
+       .logo-item {
+           font-size: 1.3rem;
+           font-weight: 700;
+           color: var(--navy);
+           filter: grayscale(100%);
+           transition: all 0.3s;
+       }
+       
+       .logo-item:hover {
+           opacity: 1;
+           filter: grayscale(0%);
+           color: var(--primary);
+       }
+       
+       /* Hero Visual */
+       .hero-visual {
+           position: relative;
+           height: 450px;
+       }
+       
+       .floating-card {
+           position: absolute;
+           background: white;
+           border-radius: 24px;
+           padding: 1.5rem;
+           box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+           border: 1px solid rgba(0,0,0,0.05);
+           animation: float 6s ease-in-out infinite;
+       }
+       
+       @keyframes float {
+           0%, 100% { transform: translateY(0px); }
+           50% { transform: translateY(-20px); }
+       }
+       
+       .card-1 {
+           top: 0;
+           right: 0;
+           width: 340px;
+           animation-delay: 0s;
+       }
+       
+       .card-2 {
+           top: 200px;
+           left: 0;
+           width: 300px;
+           animation-delay: 1.5s;
+       }
+       
+       .verification-row {
+           display: flex;
+           align-items: center;
+           gap: 1rem;
+           margin-bottom: 1rem;
+           padding-bottom: 1rem;
+           border-bottom: 1px solid #f1f5f9;
+       }
+       
+       .verification-row:last-child {
+           margin-bottom: 0;
+           padding-bottom: 0;
+           border-bottom: none;
+       }
+       
+       .verif-icon {
+           width: 44px;
+           height: 44px;
+           border-radius: 12px;
+           background: var(--primary-light);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 1.2rem;
+       }
+       
+       .status-badge {
+           margin-left: auto;
+           padding: 0.35rem 0.75rem;
+           background: rgba(26, 194, 193, 0.1);
+           color: var(--primary);
+           border-radius: 50px;
+           font-size: 0.8rem;
+           font-weight: 600;
+       }
+       
+       /* How it Works */
+       .how-it-works {
+           padding: 100px 0;
+           background: white;
+       }
+       
+       .section-subtitle {
+           color: var(--primary);
+           font-weight: 700;
+           text-transform: uppercase;
+           letter-spacing: 1.5px;
+           font-size: 0.85rem;
+           margin-bottom: 1rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+           padding: 0.5rem 1rem;
+           background: rgba(26, 194, 193, 0.1);
+           border-radius: 50px;
+       }
+       
+       .section-title {
+           font-size: 2.8rem;
+           font-weight: 800;
+           color: var(--dark);
+           margin-bottom: 1rem;
+           line-height: 1.2;
+           letter-spacing: -1px;
+       }
+       
+       .section-desc {
+           color: var(--gray);
+           font-size: 1.15rem;
+           max-width: 600px;
+           line-height: 1.7;
+       }
+       
+       .step-card {
+           background: white;
+           border-radius: 24px;
+           padding: 2.5rem;
+           height: 100%;
+           border: 2px solid #e2e8f0;
+           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+           position: relative;
+           overflow: hidden;
+       }
+       
+       .step-card:hover {
+           border-color: var(--primary);
+           transform: translateY(-8px);
+           box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+       }
+       
+       .step-number {
+           width: 60px;
+           height: 60px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border: 3px solid var(--primary);
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-weight: 800;
+           font-size: 1.4rem;
+           color: var(--primary);
+           margin-bottom: 1.5rem;
+           transition: all 0.3s;
+       }
+       
+       .step-card:hover .step-number {
+           background: var(--primary);
+           color: white;
+           transform: scale(1.1);
+       }
+       
+       .step-card h4 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 1.3rem;
+       }
+       
+       .step-card p {
+           color: var(--gray);
+           line-height: 1.7;
+           margin: 0;
+       }
+       
+       .step-connector {
+           position: absolute;
+           top: 45px;
+           right: -25px;
+           width: 50px;
+           height: 3px;
+           background: linear-gradient(90deg, var(--primary), transparent);
+           opacity: 0.3;
+       }
+       
+       @media (max-width: 991px) {
+           .step-connector {
+               display: none;
+           }
+       }
+       
+       /* Key Highlights */
+       .key-highlights {
+           padding: 100px 0;
+           background: var(--light-gray);
+       }
+       
+       .highlight-card {
+           background: white;
+           border-radius: 24px;
+           padding: 3rem;
+           height: 100%;
+           border: 1px solid #e2e8f0;
+           transition: all 0.4s ease;
+           position: relative;
+           overflow: hidden;
+       }
+       
+       .highlight-card:hover {
+           transform: translateY(-10px);
+           box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+           border-color: var(--primary);
+       }
+       
+       .highlight-card::before {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 4px;
+           background: var(--primary);
+           transform: scaleX(0);
+           transition: transform 0.4s;
+           transform-origin: left;
+       }
+       
+       .highlight-card:hover::before {
+           transform: scaleX(1);
+       }
+       
+       .highlight-icon {
+           width: 80px;
+           height: 80px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border-radius: 20px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 2.5rem;
+           margin-bottom: 2rem;
+           border: 2px solid rgba(26, 194, 193, 0.2);
+           transition: all 0.3s;
+       }
+       
+       .highlight-card:hover .highlight-icon {
+           background: var(--primary);
+           color: white;
+           transform: scale(1.1) rotate(5deg);
+       }
+       
+       .highlight-card h3 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 1.5rem;
+       }
+       
+       .highlight-card p {
+           color: var(--gray);
+           margin-bottom: 1.5rem;
+           line-height: 1.7;
+       }
+       
+       .highlight-card ul {
+           list-style: none;
+           padding: 0;
+           margin: 0 0 2rem 0;
+       }
+       
+       .highlight-card ul li {
+           padding: 0.6rem 0;
+           color: var(--gray);
+           display: flex;
+           align-items: flex-start;
+           gap: 12px;
+           font-size: 0.95rem;
+       }
+       
+       .highlight-card ul li::before {
+           content: '✓';
+           color: var(--primary);
+           font-weight: 700;
+           flex-shrink: 0;
+           font-size: 1.1rem;
+       }
+       
+       .btn-outline-custom {
+           border: 2px solid var(--primary);
+           color: var(--primary);
+           background: transparent;
+           padding: 0.75rem 1.8rem;
+           border-radius: 50px;
+           font-weight: 600;
+           transition: all 0.3s ease;
+           text-decoration: none;
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+       }
+       
+       .btn-outline-custom:hover {
+           background: var(--primary);
+           color: white;
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.3);
+       }
+       
+       /* Benefits Section */
+       .benefits-section {
+           padding: 100px 0;
+           background: white;
+       }
+       
+       .benefit-item {
+           padding: 2.5rem;
+           background: white;
+           border-radius: 20px;
+           border: 1px solid #e2e8f0;
+           height: 100%;
+           transition: all 0.3s ease;
+           text-align: center;
+       }
+       
+       .benefit-item:hover {
+           background: var(--primary-light);
+           border-color: var(--primary);
+           transform: translateY(-5px);
+           box-shadow: 0 15px 30px rgba(26, 194, 193, 0.1);
+       }
+       
+       .benefit-icon {
+           width: 70px;
+           height: 70px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border-radius: 20px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           margin: 0 auto 1.5rem;
+           color: var(--primary);
+           font-size: 2rem;
+           border: 2px solid rgba(26, 194, 193, 0.2);
+           transition: all 0.3s;
+       }
+       
+       .benefit-item:hover .benefit-icon {
+           background: var(--primary);
+           color: white;
+           transform: scale(1.1);
+       }
+       
+       .benefit-item h4 {
+           font-weight: 700;
+           margin-bottom: 0.75rem;
+           font-size: 1.2rem;
+           color: var(--dark);
+       }
+       
+       .benefit-item p {
+           color: var(--gray);
+           font-size: 0.95rem;
+           margin: 0;
+           line-height: 1.6;
+       }
+       
+       /* FAQ Section */
+       .faq-section {
+           padding: 100px 0;
+           background: var(--light-gray);
+       }
+       
+       .accordion-item {
+           border: none;
+           background: white;
+           margin-bottom: 1.5rem;
+           border-radius: 16px;
+           overflow: hidden;
+           box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+           transition: all 0.3s;
+       }
+       
+       .accordion-item:hover {
+           box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+       }
+       
+       .accordion-button {
+           padding: 1.8rem;
+           font-weight: 700;
+           color: var(--dark);
+           background: white;
+           border: none;
+           font-size: 1.1rem;
+           box-shadow: none !important;
+       }
+       
+       .accordion-button:not(.collapsed) {
+           background: var(--primary-light);
+           color: var(--primary-dark);
+           box-shadow: none;
+       }
+       
+       .accordion-button::after {
+           background-size: 1.2rem;
+           transition: all 0.3s;
+       }
+       
+       .accordion-body {
+           padding: 0 1.8rem 1.8rem;
+           color: var(--gray);
+           line-height: 1.8;
+           font-size: 1rem;
+       }
+       
+       /* Verification Types */
+       .verification-types {
+           padding: 80px 0;
+           background: white;
+           border-bottom: 1px solid #e2e8f0;
+       }
+       
+       .type-card {
+           background: white;
+           border-radius: 24px;
+           padding: 3rem;
+           border: 2px solid #e2e8f0;
+           height: 100%;
+           text-align: center;
+           transition: all 0.4s;
+           position: relative;
+           overflow: hidden;
+       }
+       
+       .type-card:hover {
+           border-color: var(--primary);
+           transform: translateY(-5px);
+           box-shadow: 0 20px 40px rgba(26, 194, 193, 0.1);
+       }
+       
+       .type-card.featured {
+           border-color: var(--primary);
+           background: linear-gradient(135deg, var(--primary-light), white);
+       }
+       
+       .type-icon {
+           width: 100px;
+           height: 100px;
+           background: white;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           margin: 0 auto 2rem;
+           color: var(--primary);
+           font-size: 3rem;
+           box-shadow: 0 10px 30px rgba(26, 194, 193, 0.2);
+           border: 3px solid var(--primary-light);
+       }
+       
+       .type-card h3 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 1.8rem;
+       }
+       
+       .type-card p {
+           color: var(--gray);
+           line-height: 1.8;
+           margin-bottom: 2rem;
+       }
+       
+       .badge-featured {
+           position: absolute;
+           top: 20px;
+           right: 20px;
+           background: var(--primary);
+           color: white;
+           padding: 0.5rem 1rem;
+           border-radius: 50px;
+           font-size: 0.85rem;
+           font-weight: 700;
+       }
+       
+       /* Contact Section */
+       .contact-section {
+           padding: 100px 0;
+           background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+           color: white;
+           position: relative;
+           overflow: hidden;
+       }
+       
+       .contact-section::before {
+           content: '';
+           position: absolute;
+           top: -50%;
+           right: -20%;
+           width: 600px;
+           height: 600px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+           border-radius: 50%;
+       }
+       
+       .contact-section h2 {
+           font-size: 3rem;
+           font-weight: 800;
+           margin-bottom: 1rem;
+           line-height: 1.2;
+       }
+       
+       .contact-section .lead {
+           color: rgba(255,255,255,0.8);
+           font-size: 1.25rem;
+           margin-bottom: 3rem;
+       }
+       
+       .contact-feature {
+           display: flex;
+           align-items: center;
+           gap: 1.2rem;
+           margin-bottom: 1.5rem;
+       }
+       
+       .contact-feature-icon {
+           width: 50px;
+           height: 50px;
+           background: rgba(26, 194, 193, 0.2);
+           border-radius: 12px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 1.5rem;
+           flex-shrink: 0;
+           border: 1px solid rgba(26, 194, 193, 0.3);
+       }
+       
+       .contact-form {
+           background: rgba(255,255,255,0.05);
+           padding: 3rem;
+           border-radius: 24px;
+           border: 1px solid rgba(255,255,255,0.1);
+           backdrop-filter: blur(10px);
+           position: relative;
+           z-index: 2;
+       }
+       
+       .form-control, .form-select {
+           padding: 1rem 1.2rem;
+           border-radius: 12px;
+           border: 1px solid rgba(255,255,255,0.2);
+           background: rgba(255,255,255,0.05);
+           color: white;
+           margin-bottom: 1.2rem;
+           font-size: 1rem;
+           transition: all 0.3s;
+       }
+       
+       .form-control:focus, .form-select:focus {
+           background: rgba(255,255,255,0.1);
+           border-color: var(--primary);
+           color: white;
+           box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
+       }
+       
+       .form-control::placeholder {
+           color: rgba(255,255,255,0.4);
+       }
+       
+       .form-select option {
+           background: var(--dark);
+           color: white;
+       }
+       
+       .form-check-label {
+           color: rgba(255,255,255,0.8);
+           font-size: 0.9rem;
+       }
+       
+       .form-check-label a {
+           color: var(--primary);
+           text-decoration: none;
+           font-weight: 600;
+       }
+       
+       .form-check-label a:hover {
+           text-decoration: underline;
+       }
+       
+       .form-check-input {
+           width: 20px;
+           height: 20px;
+           margin-right: 10px;
+           border-color: rgba(255,255,255,0.3);
+           background: rgba(255,255,255,0.1);
+       }
+       
+       .form-check-input:checked {
+           background-color: var(--primary);
+           border-color: var(--primary);
+       }
+       
+       .btn-submit {
+           background: var(--primary) !important;
+           color: white !important;
+           border: none;
+           padding: 1rem;
+           border-radius: 12px;
+           font-weight: 700;
+           font-size: 1.1rem;
+           width: 100%;
+           margin-top: 1rem;
+           transition: all 0.3s;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+       }
+       
+       .btn-submit:hover {
+           background: var(--primary-dark) !important;
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+       
+       /* Animations */
+       .reveal {
+           opacity: 0;
+           transform: translateY(30px);
+           transition: all 0.8s ease-out;
+       }
+       
+       .reveal.active {
+           opacity: 1;
+           transform: translateY(0);
+       }
+       
+       /* Responsive */
+       @media (max-width: 991px) {
+           .solution-hero h1 {
+               font-size: 2.8rem;
+           }
+           
+           .solution-hero .lead {
+               font-size: 1.1rem;
+           }
+           
+           .section-title {
+               font-size: 2.2rem;
+           }
+           
+           .hero-visual {
+               margin-top: 3rem;
+               height: 400px;
+           }
+           
+           .floating-card {
+               width: 280px !important;
+           }
+           
+           .card-2 {
+               display: none;
+           }
+           
+           .contact-form {
+               margin-top: 3rem;
+           }
+       }
+       
+       @media (max-width: 767px) {
+           .solution-hero {
+               padding: 120px 0 60px;
+               text-align: center;
+           }
+           
+           .solution-hero h1 {
+               font-size: 2.2rem;
+               letter-spacing: -0.5px;
+           }
+           
+           .logo-row {
+               justify-content: center;
+               gap: 2rem;
+           }
+           
+           .step-card {
+               margin-bottom: 1.5rem;
+           }
+           
+           .contact-section h2 {
+               font-size: 2.2rem;
+           }
+           
+           .contact-form {
+               padding: 2rem;
+           }
+       }
+   </style>
+</head>
+<body>
+   <!-- Navigation -->
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Program
+      </a>
+    </li>
+  </ul  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" class="btn-login">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales">Talk to Sales</a>
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                <li>
+                  <a href="../countries/usa.html" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="../countries/UAE.html" data-country="UAE" data-flag="🇦🇪">
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="../countries/aus.html" data-country="Australia" data-flag="🇦🇺">
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="../countries/uk.html" data-country="UK" data-flag="🇬🇧">
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="../countries/sigapore.html" data-country="Singapore" data-flag="🇸🇬">
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+   <!-- Hero Section -->
+   <section class="solution-hero">
+       <div class="container">
+           <div class="row align-items-center">
+               <div class="col-lg-6">
+                   <div class="hero-badge">
+                       <i class="bi bi-people-fill"></i>
+                       Directorship Check Solution
+                   </div>
+                   <h1>Map Corporate Connections with Complete Board Transparency.</h1>
+                   <p class="lead">Comprehensive directorship verification through MCA database integration. Validate current and past board positions, concurrent directorships, related party networks, and compliance history across 2M+ companies with real-time ROC updates.</p>
+                   
+                   <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
+                       Get in Touch <i class="bi bi-arrow-right"></i>
+                   </a>
+                   
+                   <div class="trust-badge">
+                       <p>Trusted by 2,000+ companies</p>
+                       <div class="logo-row">
+                           <span class="logo-item">Sequoia</span>
+                           <span class="logo-item">Accel</span>
+                           <span class="logo-item">KPMG</span>
+                           <span class="logo-item">EY</span>
+                           <span class="logo-item">PwC</span>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-lg-6">
+                   <div class="hero-visual">
+                       <div class="floating-card card-1">
+                           <div class="d-flex justify-content-between align-items-center mb-3">
+                               <h6 class="mb-0 fw-bold">Directorship Status</h6>
+                               <span class="badge bg-success bg-opacity-10 text-success">Active</span>
+                           </div>
+                           <div class="verification-row">
+                               <div class="verif-icon"><i class="bi bi-person-workspace"></i></div>
+                               <div>
+                                   <div class="fw-semibold">Current Directorships</div>
+                                   <small class="text-muted">4 Active Companies</small>
+                               </div>
+                               <span class="status-badge">Compliant</span>
+                           </div>
+                           <div class="verification-row">
+                               <div class="verif-icon"><i class="bi bi-clock-history"></i></div>
+                               <div>
+                                   <div class="fw-semibold">Past Directorships</div>
+                                   <small class="text-muted">12 Resigned, 2 Struck Off</small>
+                               </div>
+                               <span class="status-badge">Review</span>
+                           </div>
+                           <div class="verification-row">
+                               <div class="verif-icon"><i class="bi bi-diagram-3"></i></div>
+                               <div>
+                                   <div class="fw-semibold">Related Parties</div>
+                                   <small class="text-muted">8 Common Directors</small>
+                               </div>
+                               <span class="status-badge">Mapped</span>
+                           </div>
+                       </div>
+                       
+                       <div class="floating-card card-2">
+                           <div class="text-center">
+                               <div class="mb-3" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 2rem;">
+                                   <i class="bi bi-shield-check"></i>
+                               </div>
+                               <h5 class="fw-bold mb-1">Section 164</h5>
+                               <p class="small text-muted mb-2">Compliance Clear</p>
+                               <div class="d-flex justify-content-center gap-2">
+                                   <span class="badge bg-light text-dark border">Max 20</span>
+                                   <span class="badge bg-light text-dark border">No DQ</span>
+                                   <span class="badge bg-light text-dark border">KYC OK</span>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Verification Types -->
+   <section class="verification-types">
+       <div class="container">
+           <div class="row justify-content-center mb-5">
+               <div class="col-lg-8 text-center">
+                   <div class="section-subtitle justify-content-center">
+                       <i class="bi bi-layers"></i> Comprehensive Coverage
+                   </div>
+                   <h2 class="section-title">Directorship Check Types</h2>
+                   <p class="section-desc mx-auto">Complete board position verification with compliance monitoring and conflict of interest detection across all corporate entities.</p>
+               </div>
+           </div>
+           
+           <div class="row g-4">
+               <div class="col-md-4">
+                   <div class="type-card featured h-100">
+                       <span class="badge-featured">MOST POPULAR</span>
+                       <div class="type-icon">
+                           <i class="bi bi-person-check"></i>
+                       </div>
+                       <h3>Current Directorships</h3>
+                       <p>Verify all active board positions, appointment dates, company status, and compliance with Section 164 limits.</p>
+                       <div class="text-start mt-4">
+                           <div class="d-flex align-items-center gap-2 mb-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Active company listings</span>
+                           </div>
+                           <div class="d-flex align-items-center gap-2 mb-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Section 164 compliance</span>
+                           </div>
+                           <div class="d-flex align-items-center gap-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Designation validation</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4">
+                   <div class="type-card h-100">
+                       <div class="type-icon">
+                           <i class="bi bi-clock-history"></i>
+                       </div>
+                       <h3>Historical Directorships</h3>
+                       <p>Track complete career history including resigned positions, tenure analysis, and reasons for cessation.</p>
+                       <div class="text-start mt-4">
+                           <div class="d-flex align-items-center gap-2 mb-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Resignation history</span>
+                           </div>
+                           <div class="d-flex align-items-center gap-2 mb-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Tenure analysis</span>
+                           </div>
+                           <div class="d-flex align-items-center gap-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Cessation reasons</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4">
+                   <div class="type-card h-100">
+                       <div class="type-icon">
+                           <i class="bi bi-diagram-3"></i>
+                       </div>
+                       <h3>Network Analysis</h3>
+                       <p>Map corporate networks, identify related parties, and detect potential conflicts of interest or shell companies.</p>
+                       <div class="text-start mt-4">
+                           <div class="d-flex align-items-center gap-2 mb-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Common directorships</span>
+                           </div>
+                           <div class="d-flex align-items-center gap-2 mb-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Group company mapping</span>
+                           </div>
+                           <div class="d-flex align-items-center gap-2">
+                               <i class="bi bi-check-circle-fill text-primary"></i>
+                               <span>Conflict detection</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- How it Works -->
+   <section class="how-it-works" id="how-it-works">
+       <div class="container">
+           <div class="row justify-content-center mb-5">
+               <div class="col-lg-8 text-center reveal">
+                   <div class="section-subtitle justify-content-center">
+                       <i class="bi bi-arrow-repeat"></i> Process
+                   </div>
+                   <h2 class="section-title">How Directorship Check Works</h2>
+                   <p class="section-desc mx-auto">Comprehensive board position mapping through MCA integration and corporate network analysis</p>
+               </div>
+           </div>
+           
+           <div class="row g-4">
+               <div class="col-md-6 col-lg reveal">
+                   <div class="step-card h-100">
+                       <div class="step-connector"></div>
+                       <div class="step-number">1</div>
+                       <h4>Identity Input</h4>
+                       <p>Enter DIN, PAN, or director name. System auto-resolves identity through MCA database and suggests matches.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg reveal">
+                   <div class="step-card h-100">
+                       <div class="step-connector"></div>
+                       <div class="step-number">2</div>
+                       <h4>MCA Data Extraction</h4>
+                       <p>Real-time pull of all company associations from Ministry of Corporate Affairs master data and public filings.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg reveal">
+                   <div class="step-card h-100">
+                       <div class="step-connector"></div>
+                       <div class="step-number">3</div>
+                       <h4>Compliance Validation</h4>
+                       <p>Check Section 164 limits, disqualification status, and KYC compliance across all active directorships.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg reveal">
+                   <div class="step-card h-100">
+                       <div class="step-connector"></div>
+                       <div class="step-number">4</div>
+                       <h4>Network Mapping</h4>
+                       <p>Identify interconnections with other directors, group companies, and potential related party transactions.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg reveal">
+                   <div class="step-card h-100">
+                       <div class="step-number">5</div>
+                       <h4>Risk Assessment</h4>
+                       <p>Generate comprehensive report with directorship limits, red flags, and corporate governance risk score.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Key Highlights -->
+   <section class="key-highlights">
+       <div class="container">
+           <div class="row g-4">
+               <div class="col-md-4 reveal">
+                   <div class="highlight-card h-100">
+                       <div class="highlight-icon">
+                           <i class="bi bi-building-check"></i>
+                       </div>
+                       <h3>MCA21 Real-Time Data</h3>
+                       <p>Live integration with Ministry of Corporate Affairs for instant directorship verification</p>
+                       <ul>
+                           <li>Real-time master data access</li>
+                           <li>FILING status monitoring</li>
+                           <li>Charge holder detection</li>
+                       </ul>
+                       <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+                   </div>
+               </div>
+               
+               <div class="col-md-4 reveal">
+                   <div class="highlight-card h-100">
+                       <div class="highlight-icon">
+                           <i class="bi bi-shield-exclamation"></i>
+                       </div>
+                       <h3>Section 164 Compliance</h3>
+                       <p>Automated monitoring of directorship limits and disqualification parameters</p>
+                       <ul>
+                           <li>Max 20 companies check</li>
+                           <li>Public vs private limits</li>
+                           <li>Disqualification alerts</li>
+                       </ul>
+                       <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+                   </div>
+               </div>
+               
+               <div class="col-md-4 reveal">
+                   <div class="highlight-card h-100">
+                       <div class="highlight-icon">
+                           <i class="bi bi-share-network"></i>
+                       </div>
+                       <h3>Corporate Network Graph</h3>
+                       <p>Visual relationship mapping to identify conflicts and related party structures</p>
+                       <ul>
+                           <li>Interactive network diagrams</li>
+                           <li>Common director detection</li>
+                           <li>Group structure analysis</li>
+                       </ul>
+                       <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Benefits -->
+   <section class="benefits-section" id="benefits">
+       <div class="container">
+           <div class="row justify-content-center mb-5">
+               <div class="col-lg-8 text-center reveal">
+                   <div class="section-subtitle justify-content-center">
+                       <i class="bi bi-stars"></i> Advantages
+                   </div>
+                   <h2 class="section-title">Benefits of Directorship Check</h2>
+               </div>
+           </div>
+           
+           <div class="row g-4">
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-shield-check"></i></div>
+                       <h4>Compliance Assurance</h4>
+                       <p>Ensure directors comply with Section 164 limits and avoid regulatory penalties for excess directorships.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-eye"></i></div>
+                       <h4>Conflict Detection</h4>
+                       <p>Identify competing directorships and related party relationships that may create conflicts of interest.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-exclamation-triangle"></i></div>
+                       <h4>Risk Mitigation</h4>
+                       <p>Screen out disqualified directors, dummy directors, and those associated with defaulting companies.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-briefcase"></i></div>
+                       <h4>Due Diligence</h4>
+                       <p>Comprehensive background checks for board appointments, investor evaluations, and M&A transactions.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-graph-up"></i></div>
+                       <h4>Tenure Analysis</h4>
+                       <p>Analyze director stability through appointment/resignation patterns and average tenure metrics.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-bell"></i></div>
+                       <h4>Change Alerts</h4>
+                       <p>Real-time notifications for new appointments, resignations, or disqualification events.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-plug"></i></div>
+                       <h4>API Integration</h4>
+                       <p>Seamless integration with board management software, CRM, and compliance management systems.</p>
+                   </div>
+               </div>
+               <div class="col-md-6 col-lg-3 reveal">
+                   <div class="benefit-item">
+                       <div class="benefit-icon"><i class="bi bi-file-earmark-text"></i></div>
+                       <h4>Audit Reports</h4>
+                       <p>Detailed documentation for regulatory filings, board resolutions, and corporate governance records.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- FAQs -->
+   <section class="faq-section">
+       <div class="container">
+           <div class="row justify-content-center mb-5">
+               <div class="col-lg-8 text-center reveal">
+                   <div class="section-subtitle justify-content-center">
+                       <i class="bi bi-question-circle"></i> FAQ
+                   </div>
+                   <h2 class="section-title">FAQs — Directorship Check</h2>
+               </div>
+           </div>
+           
+           <div class="row justify-content-center">
+               <div class="col-lg-8 reveal">
+                   <div class="accordion" id="directorshipFAQ">
+                       <div class="accordion-item">
+                           <h2 class="accordion-header">
+                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                   What is Section 164 and how does it limit directorships?
+                               </button>
+                           </h2>
+                           <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#directorshipFAQ">
+                               <div class="accordion-body">
+                                   Section 164 of the Companies Act, 2013 specifies the maximum number of directorships a person can hold: (1) Total Limit - A person cannot be a director in more than 20 companies simultaneously, (2) Public Company Limit - Maximum of 10 public companies (listed or unlisted) out of the total 20, (3) Counting Method - Only active directorships are counted; resigned or struck-off companies are excluded after the effective date, (4) Exclusions - Alternate directorships, directorships in Section 8 companies (NGOs), and dormant companies are excluded from the limit, (5) Consequences - Holding office beyond these limits is punishable with fines up to ₹5,000 per day of default. Our system automatically calculates current active directorships against these limits and alerts when appointments would cause non-compliance.
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="accordion-item">
+                           <h2 class="accordion-header">
+                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                   How do you identify related party transactions and conflicts of interest?
+                               </button>
+                           </h2>
+                           <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#directorshipFAQ">
+                               <div class="accordion-body">
+                                   Our network analysis engine identifies potential conflicts through: (1) Common Directorship Mapping - Detects when two companies share directors, indicating potential related party relationships, (2) Group Company Identification - Traces corporate families through common directors, shareholders, and addresses, (3) Circular Directorship Patterns - Flags suspicious networks where directors serve on each other's boards, potentially indicating shell company structures, (4) Cross-Board Appointments - Identifies directors serving on boards of competing companies in the same industry, (5) Kinship Detection - Where data is available, identifies family relationships between directors of different companies, (6) Transaction Pattern Analysis - Flags unusual patterns of business between commonly directed companies. This analysis helps companies comply with Section 177 (Related Party Transactions) and make informed decisions about board appointments.
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="accordion-item">
+                           <h2 class="accordion-header">
+                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                   Can you track changes in directorships over time?
+                               </button>
+                           </h2>
+                           <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#directorshipFAQ">
+                               <div class="accordion-body">
+                                   Yes, our monitoring system tracks directorship changes in real-time: (1) Change Alerts - Instant notifications when a director is appointed or resigns from any company, (2) Historical Timeline - Complete chronological view of all board positions held since DIN allotment, (3) Tenure Analysis - Calculates average tenure, identifies frequent job-hoppers, and flags unusually short or long appointments, (4) Pattern Recognition - Identifies directors who frequently join companies just before they become dormant or struck-off, (5) Cessation Reason Tracking - Captures reasons for resignation (retirement, disqualification, personal reasons, etc.) where filed with ROC, (6) Reappointment Tracking - Monitors directors who return to boards after resignation or cooling-off periods. This historical view is crucial for assessing director stability and identifying red flags like "professional directors" who serve on dozens of companies briefly.
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="accordion-item">
+                           <h2 class="accordion-header">
+                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                   How do you handle directors of struck-off and dissolved companies?
+                               </button>
+                           </h2>
+                           <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#directorshipFAQ">
+                               <div class="accordion-body">
+                                   We provide comprehensive analysis of directorships in non-active companies: (1) Status Classification - Clearly distinguishes between active, struck-off (Section 248), dissolved, under liquidation, and amalgamated companies, (2) Strike-off Reason - Identifies whether struck-off was due to non-filing (defunct) or voluntary closure, (3) Association Risk - Flags directors with high percentages of struck-off companies in their portfolio, (4) Timeline Analysis - Shows when companies became inactive and whether directorship was current at that time, (5) Revival Tracking - Monitors companies restored via NCLT orders and director reappointments, (6) Liability Assessment - Identifies directors potentially liable for dues of struck-off companies under Section 248(7). While struck-off companies don't count toward Section 164 limits, excessive associations with such companies indicate higher risk and potential disqualification under Section 164(2)(a) for failure to file financial statements.
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="accordion-item">
+                           <h2 class="accordion-header">
+                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                   What information is included in the directorship verification report?
+                               </button>
+                           </h2>
+                           <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#directorshipFAQ">
+                               <div class="accordion-body">
+                                   Our comprehensive directorship report includes: (1) Director Summary - Personal details, DIN status, PAN, and KYC compliance, (2) Active Directorships - Company names, CINs, date of appointment, designation (MD, Whole-time, Independent, etc.), company status, and Section 164 compliance check, (3) Past Directorships - Complete history with appointment/resignation dates, tenure duration, and cessation reasons, (4) Disqualification Status - Section 164 applicability, debarment history, and litigation involvement, (5) Network Analysis - Visual graph of related companies, common directors, and group structures, (6) Compliance Score - Risk rating based on directorship patterns, company performance, and regulatory filings, (7) ROC Filing Status - Compliance track record of companies where the person is/was director, and (8) Charge Details - Information about secured loans and charges registered against companies in the portfolio. All data includes MCA reference numbers and timestamps for audit trails.
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="accordion-item">
+                           <h2 class="accordion-header">
+                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                   Is this suitable for investor due diligence and board appointment screening?
+                               </button>
+                           </h2>
+                           <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#directorshipFAQ">
+                               <div class="accordion-body">
+                                   Absolutely, our directorship check is designed for high-stakes decision making: (1) Pre-Investment Due Diligence - Investors use our reports to assess founder/director track records, identify competing interests, and evaluate corporate governance standards before funding rounds, (2) Board Appointment Screening - Companies verify potential independent directors for Section 149 compliance (no pecuniary relationship, not promoter-related) and check for disqualifications, (3) M&A Transaction Support - Acquirers map target company director networks to identify hidden liabilities and related party exposures, (4) Consortium Lending - Banks verify directors across borrower companies to detect common promoters and circular financing risks, (5) Vendor Onboarding - Corporates screen vendor directors for conflict of interest and shell company indicators, (6) Insurance Underwriting - D&O insurers assess director portfolio risk and litigation exposure. Our reports are accepted by Big 4 auditors, law firms, and regulatory bodies for official due diligence purposes.
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Chat Icon -->
+    <button class="chat-icon-btn" onclick="toggleChat()" id="chatIcon">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </svg>
+    </button>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="avatar">V</div>
+                <div class="header-info">
+                    <h3>Veri Assistant</h3>
+                    <span><span class="online-dot"></span> Online</span>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <!-- Privacy Notice -->
+            <div class="privacy-notice" id="privacyNotice">
+                <div class="privacy-header">
+                    <span>🔒</span>
+                    <span>Your Privacy Matters</span>
+                </div>
+                <div class="privacy-text">
+                    This chat is encrypted and your data is handled according to our privacy policy. Do you consent to proceed?
+                </div>
+                <div class="privacy-buttons">
+                    <button class="btn btn-primary" onclick="acceptPrivacy()">Accept</button>
+                    <button class="btn btn-secondary" onclick="declinePrivacy()">Decline</button>
+                </div>
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="message hidden" id="welcomeMessage">
+                <div class="message-avatar">V</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        👋 Hi there! I'm <strong>Veri</strong>, your AI assistant from Verifitech.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-form" id="inputForm">
+            <input type="text" class="input-field" id="messageInput" placeholder="Type a message..." disabled>
+            <button class="send-btn" id="sendBtn" onclick="handleSend()" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer Section with Zoho Newsletter -->
+    <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' name='form' method='POST' onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();' accept-charset='UTF-8' enctype='multipart/form-data' id='form' class="newsletter-form-footer">
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input type="text" name="Email" checktype="c5" value="" maxlength="255" fieldType="9" placeholder="Enter your work email" class="newsletter-input" id="Email"/>
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo"/>
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li><a href="./checks/lp-employment.html">Employment Check</a></li>
+                <li><a href="../checks/lp-education check.html">Education Verification</a></li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li><a href="../checks/lp-gap verification.html">Gap Analysis</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../Contact/talk to sales.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li><a href="../products/exitinterview.html">Exit interview</a></li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://in.linkedin.com/company/verifitechinkedin" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="../privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="privacy-separator">|</span>
+            <a href="../privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="privacy-separator">|</span>  
+            <a href="../privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+      const whatsappConfig = {
+        phoneNumber: '+919176663777',
+        defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+        pageContext: true
+      };
+
+      function openWhatsApp(event) {
+        event.preventDefault();
+        const pageTitle = document.title;
+        const currentUrl = window.location.href;
+        let message = whatsappConfig.defaultMessage;
+        
+        if (whatsappConfig.pageContext && pageTitle) {
+          message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+        }
+        
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+      }
+  
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Chat functions
+      function toggleChat() {
+        const chatContainer = document.getElementById('chatContainer');
+        chatContainer.classList.toggle('active');
+      }
+
+      function acceptPrivacy() {
+        document.getElementById('privacyNotice').classList.add('hidden');
+        document.getElementById('welcomeMessage').classList.remove('hidden');
+        document.getElementById('messageInput').disabled = false;
+        document.getElementById('sendBtn').disabled = false;
+      }
+
+      function declinePrivacy() {
+        toggleChat();
+      }
+
+      function handleSend() {
+        const input = document.getElementById('messageInput');
+        const message = input.value.trim();
+        if (message) {
+          // Add user message logic here
+          input.value = '';
+        }
+      }
+   </script>
+</body>
+</html>

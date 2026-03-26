@@ -1,0 +1,2999 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Background Checks UAE | WPS & MoHRE Compliant Screening | Verifitech
+    </title>
+    <meta
+      name="description"
+      content="UAE Labour Law compliant employment screening and WPS verified background checks. Trusted by 800+ UAE employers across Dubai, Abu Dhabi and all 7 emirates."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+  
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile navbar collapse background */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* CTA Button - Talk to Sales */
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Remove Bootstrap's default white arrow from country selector */
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Style the custom chevron icon */
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+/* Rotate chevron when dropdown is open */
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+      /* UAE Hero Section - EXACT MATCH TO USA DESIGN */
+      .uae-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #fefce8 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .uae-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .uae-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .uae-hero h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+
+      .uae-hero .lead {
+        font-size: 1.35rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+
+      /* Stats Visual - EXACT SAME STRUCTURE AS USA */
+      .uae-stats-visual {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .map-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .uae-map-outline {
+        width: 400px;
+        height: 250px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light) 0%,
+          rgba(26, 194, 193, 0.1) 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border: 2px solid var(--primary);
+        box-shadow: 0 20px 50px rgba(26, 194, 193, 0.15);
+      }
+
+      .uae-map-outline i {
+        font-size: 5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .uae-map-outline span {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .stat-card {
+        position: absolute;
+        background: white;
+        padding: 1.2rem 1.8rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        animation: float 3s ease-in-out infinite;
+        border: 1px solid #e2e8f0;
+      }
+
+      .stat-card:nth-child(2) {
+        top: 10%;
+        left: 0;
+        animation-delay: 0s;
+      }
+
+      .stat-card:nth-child(3) {
+        top: 10%;
+        right: 0;
+        animation-delay: 0.5s;
+      }
+
+      .stat-card:nth-child(4) {
+        bottom: 10%;
+        left: -20px;
+        animation-delay: 1s;
+      }
+
+      .stat-card:nth-child(5) {
+        bottom: 10%;
+        right: -20px;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-light);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+
+      .stat-text h4 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin: 0;
+        line-height: 1;
+      }
+
+      .stat-text p {
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin: 0;
+        margin-top: 4px;
+      }
+
+      /* Section Headers */
+      .section-header {
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 700px;
+        line-height: 1.7;
+      }
+
+      /* Compliance Section */
+      .compliance-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .compliance-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .compliance-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .compliance-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .compliance-card:hover .compliance-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .compliance-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .compliance-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .compliance-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #dcfce7;
+        color: #166534;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Migration Section - EXACT SAME AS USA */
+      .migration-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .migration-section::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.08) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .migration-visual {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .globe-container {
+        position: relative;
+        width: 350px;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .globe-ring {
+        position: absolute;
+        border: 2px dashed rgba(26, 194, 193, 0.3);
+        border-radius: 50%;
+        animation: rotate 30s linear infinite;
+      }
+
+      .globe-ring:nth-child(1) {
+        width: 350px;
+        height: 350px;
+        animation-duration: 30s;
+      }
+
+      .globe-ring:nth-child(2) {
+        width: 250px;
+        height: 250px;
+        animation-duration: 20s;
+        animation-direction: reverse;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .globe-center {
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 50px rgba(26, 194, 193, 0.2);
+        z-index: 5;
+        border: 4px solid var(--primary-light);
+      }
+
+      .globe-center i {
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .globe-center span {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        text-align: center;
+      }
+
+      .migration-node {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 3px solid white;
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+
+      .migration-node:hover {
+        transform: scale(1.1);
+        border-color: var(--primary);
+      }
+
+      .migration-node i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 2px;
+      }
+
+      .migration-node span {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      /* Positioning nodes around the globe */
+      .migration-node:nth-child(4) {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .migration-node:nth-child(5) {
+        top: 15%;
+        right: 5%;
+      }
+      .migration-node:nth-child(6) {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+      .migration-node:nth-child(7) {
+        bottom: 15%;
+        right: 5%;
+      }
+      .migration-node:nth-child(8) {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .migration-node:nth-child(9) {
+        bottom: 15%;
+        left: 5%;
+      }
+      .migration-node:nth-child(10) {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .migration-node:nth-child(11) {
+        top: 15%;
+        left: 5%;
+      }
+
+      .migration-stat-card {
+        position: absolute;
+        background: white;
+        padding: 1rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        animation: float 3s ease-in-out infinite;
+        border: 1px solid #e2e8f0;
+      }
+
+      .migration-stat-card.top-right {
+        top: 5%;
+        right: -20px;
+        animation-delay: 0.5s;
+      }
+
+      .migration-stat-card.bottom-left {
+        bottom: 5%;
+        left: -20px;
+        animation-delay: 1s;
+      }
+
+      .migration-feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .migration-feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .migration-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .migration-feature-card:hover .migration-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .migration-feature-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .migration-feature-card p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .visa-tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* WPS Section - Dark Theme */
+      .wps-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .wps-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .wps-section .section-title {
+        color: white;
+      }
+
+      .wps-section .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .wps-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .wps-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+        border-color: var(--primary);
+      }
+
+      .wps-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--primary);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .wps-card:hover .wps-icon {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
+      }
+
+      .wps-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .wps-card p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .wps-feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .wps-feature i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-top: 2px;
+      }
+
+      .wps-feature h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.25rem;
+      }
+
+      .wps-feature p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .service-card {
+        background: var(--light-gray);
+        border-radius: 20px;
+        padding: 2.5rem;
+        height: 100%;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .service-card:hover {
+        background: white;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .service-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .service-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .service-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--navy);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .service-list li i {
+        color: var(--primary);
+        font-size: 1rem;
+      }
+
+      /* Industries Grid */
+      .industries-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .industry-item {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+      }
+
+      .industry-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .industry-item i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .industry-item h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .industry-item p {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin: 0;
+      }
+
+      /* Trust Section */
+      .trust-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .trust-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .trust-section .section-title {
+        color: white;
+      }
+
+      .trust-section .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .trust-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .trust-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .trust-stat {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .trust-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .trust-desc {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+      }
+
+      /* Process Section */
+      .process-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .process-step {
+        text-align: center;
+        position: relative;
+        padding: 2rem;
+      }
+
+      .process-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -50%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), transparent);
+        z-index: 0;
+      }
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin: 0 auto 1.5rem;
+        position: relative;
+        z-index: 2;
+        background: white;
+      }
+
+      .process-step h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .process-step p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f0fdfa 0%, #fefce8 100%);
+        text-align: center;
+      }
+
+      .cta-box {
+        background: white;
+        border-radius: 24px;
+        padding: 4rem;
+        max-width: 900px;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #d4af37);
+      }
+
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .uae-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .uae-stats-visual {
+          height: 400px;
+          margin-top: 3rem;
+        }
+
+        .stat-card {
+          position: relative;
+          margin-bottom: 1rem;
+          animation: none;
+          width: 100%;
+        }
+
+        .uae-map-outline {
+          display: none;
+        }
+
+        .migration-visual {
+          height: 400px;
+          margin-top: 3rem;
+        }
+
+        .globe-container {
+          width: 280px;
+          height: 280px;
+        }
+
+        .globe-ring:nth-child(1) {
+          width: 280px;
+          height: 280px;
+        }
+
+        .globe-ring:nth-child(2) {
+          width: 200px;
+          height: 200px;
+        }
+
+        .migration-node {
+          width: 55px;
+          height: 55px;
+        }
+
+        .migration-node i {
+          font-size: 1.2rem;
+        }
+
+        .migration-node span {
+          font-size: 0.55rem;
+        }
+
+        .migration-stat-card {
+          position: relative;
+          margin-bottom: 1rem;
+          animation: none;
+        }
+
+        .process-step:not(:last-child)::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .uae-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .uae-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .cta-box {
+          padding: 3rem 2rem;
+        }
+
+        .stat-card {
+          position: static;
+          margin-bottom: 1rem;
+        }
+
+        .migration-visual {
+          height: auto;
+          padding: 2rem 0;
+        }
+
+        .migration-stat-card.top-right,
+        .migration-stat-card.bottom-left {
+          position: static;
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+      <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" >Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇦🇪</span>
+                <span id="current-country">UAE</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>-->
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../index.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- UAE Hero Section -->
+    <section class="uae-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="uae-badge">
+              <i class="bi bi-shield-check"></i>
+              MoHRE Approved Solutions
+            </div>
+            <h1>Employment Screening for the UAE</h1>
+            <p class="lead">
+              UAE Labour Law compliant background checks and WPS verified
+              screening. Trusted by 800+ employers across all 7 emirates for
+              visa processing, work permits, and regulatory compliance.
+            </p>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#services" class="btn btn-primary-custom btn-lg">
+                Explore Solutions <i class="bi bi-arrow-right"></i>
+              </a>
+              <a
+                href="#"
+                class="btn btn-outline-dark btn-lg"
+                style="
+                  border-radius: 50px;
+                  padding: 1rem 2rem;
+                  font-weight: 600;
+                  border-width: 2px;
+                "
+              >
+                <i class="bi bi-play-circle"></i> Watch Demo
+              </a>
+            </div>
+            <div class="mt-4 d-flex align-items-center gap-3">
+              <div class="d-flex">
+                <div
+                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    margin-right: -10px;
+                    border: 2px solid white;
+                    z-index: 3;
+                  "
+                >
+                  <i class="bi bi-check-lg text-success"></i>
+                </div>
+                <div
+                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    margin-right: -10px;
+                    border: 2px solid white;
+                    z-index: 2;
+                  "
+                >
+                  <i class="bi bi-check-lg text-success"></i>
+                </div>
+                <div
+                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid white;
+                    z-index: 1;
+                  "
+                >
+                  <i class="bi bi-check-lg text-success"></i>
+                </div>
+              </div>
+              <p class="mb-0 small text-muted">
+                Trusted across Dubai, Abu Dhabi & all Emirates
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side - EXACT SAME STRUCTURE AS USA HERO -->
+          <div class="col-lg-6 reveal">
+            <div class="uae-stats-visual">
+              <div class="map-container">
+                <div class="uae-map-outline">
+                  <i class="bi bi-map"></i>
+                  <span>7 Emirates Covered</span>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-credit-card"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>100%</h4>
+                    <p>WPS Compliant</p>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-file-earmark-text"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>80%</h4>
+                    <p>Screening Rate</p>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>PDPL</h4>
+                    <p>Data Protection</p>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-globe"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>200+</h4>
+                    <p>Nationalities</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance-section" id="compliance">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-shield-lock"></i> Regulatory Compliance
+          </div>
+          <h2 class="section-title">UAE Labour Law Compliant</h2>
+          <p class="section-desc mx-auto">
+            Navigate UAE employment regulations with confidence. Our platform
+            ensures compliance with Federal Labour Law, PDPL, and MoHRE
+            requirements.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h3>Federal Labour Law No. 33</h3>
+              <p>
+                Full compliance with UAE Federal Labour Law regarding employee
+                screening, consent requirements, and data protection standards.
+              </p>
+              <span class="compliance-badge">Federal Mandate</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3>PDPL Compliance</h3>
+              <p>
+                UAE Data Protection Law compliant handling of candidate
+                information with secure storage and processing protocols.
+              </p>
+              <span class="compliance-badge">Privacy Law</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-credit-card"></i>
+              </div>
+              <h3>WPS Integration</h3>
+              <p>
+                Wage Protection System compliant salary verification and
+                automated SIF generation for MoHRE reporting.
+              </p>
+              <span class="compliance-badge">WPS Ready</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-person-badge"></i>
+              </div>
+              <h3>Emiratisation Support</h3>
+              <p>
+                Nafis program integration and Emirati candidate tracking to meet
+                UAE nationalization quotas and reporting.
+              </p>
+              <span class="compliance-badge">Nafis Ready</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-passport"></i>
+              </div>
+              <h3>Visa & Work Permits</h3>
+              <p>
+                MoHRE approved documentation for employment visa processing,
+                residency permits, and labor card verification.
+              </p>
+              <span class="compliance-badge">MoHRE Approved</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-ban"></i>
+              </div>
+              <h3>Anti-Discrimination</h3>
+              <p>
+                Compliant screening processes respecting Article 4 prohibitions
+                on race, colour, sex, religion, and national origin bias.
+              </p>
+              <span class="compliance-badge">Article 4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Section - EXACT SAME AS USA DESIGN -->
+    <section class="migration-section" id="migration">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 reveal">
+            <div class="section-header">
+              <div class="section-subtitle">
+                <i class="bi bi-globe"></i> Global Workforce
+              </div>
+              <h2 class="section-title">Screening for UAE's Diverse Talent</h2>
+              <p class="section-desc">
+                With over 88% of the UAE population being expatriates and 96% of
+                the private sector workforce coming from 200+ countries, we
+                provide specialized screening solutions for visa holders,
+                blue-collar workers, and multinational candidates while ensuring
+                Kafala compliance and avoiding discrimination.
+              </p>
+            </div>
+
+            <div class="row g-3 mt-4">
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Work Authorization</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Emirates ID Check</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Visa Validation</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">200+ Countries</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Kafala Compliance</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Translation Services</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 reveal">
+            <div class="migration-visual">
+              <div class="globe-container">
+                <div class="globe-ring"></div>
+                <div class="globe-ring"></div>
+                <div class="globe-center">
+                  <i class="bi bi-people-fill"></i>
+                  <span>88% Expatriates</span>
+                </div>
+
+                <!-- Migration nodes representing key origins -->
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>India</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Pakistan</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Bangladesh</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Philippines</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Egypt</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Nepal</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Sri Lanka</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Other</span>
+                </div>
+              </div>
+
+              <div class="migration-stat-card top-right">
+                <div class="stat-icon">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+                <div class="stat-text">
+                  <h4>96%</h4>
+                  <p>Private Sector</p>
+                </div>
+              </div>
+
+              <div class="migration-stat-card bottom-left">
+                <div class="stat-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="stat-text">
+                  <h4>200+</h4>
+                  <p>Countries Covered</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-5">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-passport"></i>
+              </div>
+              <h3>Visa & Immigration Status</h3>
+              <p>
+                Verify work authorization through Emirates ID, residence visas,
+                and labour cards while respecting Kafala sponsorship
+                regulations.
+              </p>
+              <span class="visa-tag">Residence Visa</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-globe-americas"></i>
+              </div>
+              <h3>International Verification</h3>
+              <p>
+                Education and employment verification in 200+ countries with
+                MOFA attestation and equivalency certificate processing.
+              </p>
+              <span class="visa-tag">200+ Countries</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-shield-exclamation"></i>
+              </div>
+              <h3>Worker Protection Compliance</h3>
+              <p>
+                Specialized protocols for screening domestic workers and
+                blue-collar labourers while maintaining ethical recruitment
+                standards.
+              </p>
+              <span class="visa-tag">Worker Protection</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-translate"></i>
+              </div>
+              <h3>Multilingual Support</h3>
+              <p>
+                Documentation and support in Arabic, English, Hindi, Urdu,
+                Tagalog and 20+ languages serving the UAE's diverse workforce.
+              </p>
+              <span class="visa-tag">20+ Languages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WPS Section -->
+    <section class="wps-section" id="wps">
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6 reveal">
+            <div
+              class="section-subtitle"
+              style="background: rgba(255, 255, 255, 0.1); color: white"
+            >
+              <i class="bi bi-credit-card"></i> Wage Protection System
+            </div>
+            <h2 class="section-title mb-3">WPS-Compliant Payroll Screening</h2>
+            <p class="section-desc">
+              Ensure 100% compliance with the UAE Wage Protection System. Our
+              platform integrates with MoHRE's WPS to verify employee
+              credentials before salary processing, preventing fines and work
+              permit suspensions.
+            </p>
+
+            <div class="mt-4">
+              <div class="wps-feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                  <h4>SIF Generation</h4>
+                  <p>
+                    Automated Salary Information File preparation in approved
+                    format for WPS uploads
+                  </p>
+                </div>
+              </div>
+              <div class="wps-feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                  <h4>Penalty Avoidance</h4>
+                  <p>
+                    Stay compliant with salary payment deadlines to avoid AED
+                    5,000 per employee fines
+                  </p>
+                </div>
+              </div>
+              <div class="wps-feature">
+                <i class="bi bi-check-circle-fill"></i>
+                <div>
+                  <h4>Work Permit Protection</h4>
+                  <p>
+                    Prevent suspension of work permits and maintain company
+                    compliance status
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="wps-card">
+                  <div class="wps-icon">
+                    <i class="bi bi-calendar-check"></i>
+                  </div>
+                  <h3>Timely Payments</h3>
+                  <p>
+                    Ensure salaries are paid within 15 days of due date to
+                    maintain WPS compliance and avoid penalties
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="wps-card">
+                  <div class="wps-icon">
+                    <i class="bi bi-file-earmark-arrow-up"></i>
+                  </div>
+                  <h3>File Upload</h3>
+                  <p>
+                    Direct integration with WPS portal for seamless SIF
+                    submission and salary processing
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="wps-card">
+                  <div class="wps-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <h3>Verification First</h3>
+                  <p>
+                    Pre-screen employees before WPS enrollment to ensure valid
+                    work permits and contracts
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="wps-card">
+                  <div class="wps-icon">
+                    <i class="bi bi-bell"></i>
+                  </div>
+                  <h3>SMS Alerts</h3>
+                  <p>
+                    Automated reminders on 5th and 10th of each month to ensure
+                    compliance deadlines are met
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-grid-3x3-gap"></i> Our Services
+          </div>
+          <h2 class="section-title">Comprehensive UAE Screening</h2>
+          <p class="section-desc mx-auto">
+            End-to-end employment verification services tailored for the UAE's
+            diverse, multicultural workforce and regulatory environment
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-passport"></i>
+              </div>
+              <h3>Identity & Document Verification</h3>
+              <p>
+                Verify passport details, visa status, Emirates ID, and work
+                permits in compliance with UAE Labour Law.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Passport Verification
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Emirates ID Check
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Visa Status Validation
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Work Permit
+                  Verification
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-mortarboard"></i>
+              </div>
+              <h3>Education & Attestation</h3>
+              <p>
+                Verify academic credentials with MOFA attestation and Ministry
+                of Education equivalency certificates.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Degree Verification
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> MOFA Attestation
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Certificate
+                  Equivalency
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Professional Licenses
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <h3>Employment History</h3>
+              <p>
+                Verify previous employment in UAE and internationally with
+                compliant reference checks.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> UAE Employment Check
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> International
+                  References
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Experience
+                  Certificates
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Previous Visa History
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-shield-exclamation"></i>
+              </div>
+              <h3>Criminal Record Checks</h3>
+              <p>
+                Police Clearance Certificates from Dubai Police, MOI, and
+                international jurisdictions with consent.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Dubai Police PCC
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> MOI Clearance</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> International Checks
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Security Clearance
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-credit-card"></i>
+              </div>
+              <h3>Financial Screening</h3>
+              <p>
+                Job-relevant credit checks via AECB for finance roles and
+                fiduciary responsibilities only.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> AECB Credit Reports
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Financial History
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Bankruptcy Checks
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Role-Based Screening
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-capsule"></i>
+              </div>
+              <h3>Medical & Drug Testing</h3>
+              <p>
+                Coordinate UAE visa medical tests and role-specific drug/alcohol
+                screening with consent.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Visa Medical
+                  Coordination
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Drug Testing</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Alcohol Screening
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Fitness Certificates
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section" id="industries">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-briefcase"></i> Industries Served
+          </div>
+          <h2 class="section-title">Tailored for UAE Industries</h2>
+          <p class="section-desc mx-auto">
+            Specialized screening programs for key sectors driving the UAE
+            economy
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-building"></i>
+              <h3>Construction</h3>
+              <p>
+                WPS compliance and safety screening for the UAE's largest
+                employment sector
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-heart-pulse"></i>
+              <h3>Healthcare</h3>
+              <p>
+                DHA, HAAD, and MOHAP compliant screening for medical
+                professionals
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-bank"></i>
+              <h3>Banking & Finance</h3>
+              <p>
+                CBUAE compliant screening with AECB integration for financial
+                roles
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-laptop"></i>
+              <h3>Technology</h3>
+              <p>
+                Fast-track screening for Dubai Silicon Oasis and Abu Dhabi tech
+                firms
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-shop"></i>
+              <h3>Retail & Hospitality</h3>
+              <p>
+                High-volume screening for Dubai Mall, Abu Dhabi retail, and
+                hotel groups
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-truck"></i>
+              <h3>Logistics</h3>
+              <p>
+                Driving license verification and safety screening for transport
+                sector
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-mortarboard"></i>
+              <h3>Education</h3>
+              <p>
+                KHDA and ADEK compliant screening for schools and universities
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-shield-shaded"></i>
+              <h3>Security & Defense</h3>
+              <p>
+                High-level clearance and background checks for sensitive
+                positions
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div
+            class="section-subtitle justify-content-center"
+            style="background: rgba(255, 255, 255, 0.1); color: white"
+          >
+            <i class="bi bi-award"></i> Why UAE Employers Choose Us
+          </div>
+          <h2 class="section-title">Trusted Across the Emirates</h2>
+          <p class="section-desc mx-auto">
+            Join hundreds of UAE employers who rely on Verifitech for compliant,
+            efficient screening
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">800+</div>
+              <div class="trust-label">UAE Employers</div>
+              <p class="trust-desc">
+                Trusted by companies across all 7 emirates from SMEs to
+                government entities
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">200+</div>
+              <div class="trust-label">Nationalities Screened</div>
+              <p class="trust-desc">
+                Experience with UAE's diverse expatriate workforce from India,
+                Pakistan, Philippines, and beyond
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">24/7</div>
+              <div class="trust-label">UAE Support</div>
+              <p class="trust-desc">
+                Dubai and Abu Dhabi based support teams with Arabic and English
+                capabilities
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-list-check"></i> How It Works
+          </div>
+          <h2 class="section-title">MoHRE Compliant Process</h2>
+          <p class="section-desc mx-auto">
+            Streamlined screening that respects UAE Labour Law and candidate
+            rights
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Written Consent</h3>
+              <p>
+                Obtain mandatory written consent explaining data use and storage
+                as per PDPL requirements
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Role-Relevant Checks</h3>
+              <p>
+                Conduct only job-related verification avoiding protected
+                characteristics under Article 4
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>MoHRE Verification</h3>
+              <p>
+                Validate work permits, visa status, and Emirates ID through
+                official channels
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>WPS Integration</h3>
+              <p>
+                Seamlessly enroll verified employees into WPS for compliant
+                salary processing
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div
+            class="uae-badge justify-content-center mb-3"
+            style="display: inline-flex"
+          >
+            <i class="bi bi-stars"></i> Start Screening Today
+          </div>
+          <h2 class="section-title mb-3">Ready for UAE Compliant Screening?</h2>
+          <p class="text-muted mb-4" style="font-size: 1.1rem">
+            Join 800+ UAE employers who trust Verifitech for MoHRE compliant
+            background checks and WPS integration across all 7 emirates.
+          </p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="#" class="btn btn-primary-custom btn-lg">
+              <i class="bi bi-calendar-check"></i> Schedule Demo
+            </a>
+            <a
+              href="#"
+              class="btn btn-outline-dark btn-lg"
+              style="
+                border-radius: 50px;
+                padding: 1rem 2.5rem;
+                font-weight: 600;
+                border-width: 2px;
+              "
+            >
+              <i class="bi bi-telephone"></i> Call Sales
+            </a>
+          </div>
+          <p class="mt-4 mb-0 text-muted small">
+            Questions about UAE Labour Law compliance? Speak to our Dubai-based
+            experts at
+            <a
+              href="tel:+97141234567"
+              style="color: var(--primary); font-weight: 600"
+              >+971 4 123 4567</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h4 class="fw-bold mb-3">
+              Verifi<span style="color: var(--primary)">tech</span>
+            </h4>
+            <p class="text-white-50 mb-2">Trust Simplified</p>
+            <p class="text-white-50 small">
+              MoHRE compliant employment screening and WPS verified background
+              checks for UAE employers. Operating across Dubai, Abu Dhabi, and
+              all 7 emirates with offices in DIFC and ADGM.
+            </p>
+
+            <div class="mt-4">
+              <h6 class="fw-bold mb-3 small">Follow Us</h6>
+              <div class="d-flex gap-3">
+                <a href="#" class="text-white fs-5"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a href="#" class="text-white fs-5"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a href="#" class="text-white fs-5"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" class="text-white fs-5"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6 class="fw-bold mb-3">Solutions</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Background Checks</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >WPS Compliance</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Visa Screening</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Emiratisation</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6 class="fw-bold mb-3">Resources</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >UAE Labour Law Guide</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >WPS Compliance</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >PDPL Guidelines</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none">Blog</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6 class="fw-bold mb-3">Company</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Careers</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none">Press</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6">
+            <h6 class="fw-bold mb-3">Legal</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Terms of Use</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >PDPL Notice</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-white-50 text-decoration-none"
+                  >Security</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6 small text-white-50">
+            &copy; 2026 Verifitech Solutions Middle East Ltd. All rights
+            reserved.
+          </div>
+          <div class="col-md-6 text-md-end small text-white-50">
+            <span class="me-3"
+              ><i class="bi bi-shield-check me-1"></i> MoHRE Approved</span
+            >
+            <span class="me-3"
+              ><i class="bi bi-check-circle me-1"></i> WPS Compliant</span
+            >
+            <span><i class="bi bi-globe me-1"></i> ISO 27001</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 100;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

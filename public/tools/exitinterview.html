@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Exit Interview Analysis | Free Trial | Verifitech</title>
+   <meta name="description" content="Analyze exit interviews with AI-powered insights. Get automated sentiment analysis, trend reports, and actionable analytics. Start your free trial today.">
+   
+   <!-- Bootstrap 5 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Icons -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+   <style>
+       :root {
+           --primary: #1ac2c1;
+           --primary-dark: #16a8a7;
+           --primary-light: #e0f7f7;
+           --dark: #0f172a;
+           --navy: #1e293b;
+           --gray: #64748b;
+           --light-gray: #f8fafc;
+           --white: #ffffff;
+           --success: #10b981;
+           --warning: #f59e0b;
+           --danger: #ef4444;
+           --purple: #8b5cf6;
+           --orange: #f97316;
+       }
+       
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       
+       body {
+           font-family: 'Inter', sans-serif;
+           color: var(--dark);
+           line-height: 1.6;
+           overflow-x: hidden;
+       }
+       
+       html {
+           scroll-behavior: smooth;
+       }
+       
+      
+/* ========================================= */
+/* NAVIGATION CSS FIX                        */
+/* ========================================= */
+
+/* 1. Navbar Base */
+.navbar {
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    height: 80px;
+    z-index: 1050; /* Ensures nav stays on top */
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+}
+
+/* 2. Brand Logo */
+.navbar-brand img {
+    height: 48px; /* Fixed height for logo */
+    width: auto;
+}
+
+/* 3. Navigation Links */
+.nav-link {
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 2rem 0.5rem !important; /* Vertical padding for click area */
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+/* Dropdown Arrow Animation */
+.dropdown-arrow {
+    transition: transform 0.2s ease;
+    font-size: 0.7rem;
+    margin-left: 2px;
+}
+.nav-item.show .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* 4. Dropdown Menus (Standard) */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0; /* Flush with nav */
+    min-width: 220px;
+    border-top: 3px solid var(--primary);
+    z-index: 1100;
+}
+
+.dropdown-item {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--navy);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-item:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.dropdown-item i {
+    font-size: 1.1rem;
+    color: var(--primary);
+    width: 20px; /* Aligns icons */
+    text-align: center;
+}
+
+/* 5. MEGA MENU (Solutions) */
+.dropdown-menu.mega-menu {
+    min-width: 600px; /* Wide enough for 2 columns */
+    width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem;
+}
+
+.mega-menu .row {
+    margin: 0;
+}
+
+.mega-menu .col-md-6 {
+    padding: 0 1rem;
+}
+
+.dropdown-header {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 6. Right Side Buttons Container */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 1rem;
+}
+
+/* 7. Button Styles */
+.btn-login {
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-login:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-sales {
+    background: var(--primary);
+    color: white !important;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+    text-decoration: none;
+}
+
+.btn-sales:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* 8. Country Selector */
+.country-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.country-selector:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* 9. Mobile Responsive Styles */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto;
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    /* Collapsible Menu Container */
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-height: 80vh;
+        overflow-y: auto;
+        border: 1px solid #f1f5f9;
+    }
+
+    .nav-link {
+        padding: 1rem 0 !important;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    /* Mega Menu becomes standard vertical menu on mobile */
+    .dropdown-menu.mega-menu {
+        min-width: 100%;
+        width: 100%;
+        transform: translateX(0);
+        left: 0;
+        position: relative;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 0.5rem;
+        background: #f8fafc;
+    }
+
+    .dropdown-menu {
+        padding: 0.5rem;
+    }
+
+    /* Stack buttons vertically on mobile */
+    .nav-actions {
+        flex-direction: column;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #f1f5f9;
+        gap: 1rem;
+        align-items: stretch; /* Full width buttons */
+    }
+
+    .btn-login, .btn-sales {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .country-selector {
+        width: 100%;
+        justify-content: center;
+    }
+}
+       .trial-hero {
+           padding: 140px 0 100px;
+           background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 30%, #ccfbf1 70%, #e0f7f7 100%);
+           position: relative;
+           overflow: hidden;
+       }
+       
+       .trial-hero::before {
+           content: '';
+           position: absolute;
+           top: -30%;
+           left: -10%;
+           width: 700px;
+           height: 700px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.12) 0%, transparent 60%);
+           border-radius: 50%;
+           animation: pulse 8s ease-in-out infinite;
+       }
+       
+       .trial-hero::after {
+           content: '';
+           position: absolute;
+           bottom: -20%;
+           right: -5%;
+           width: 500px;
+           height: 500px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.08) 0%, transparent 60%);
+           border-radius: 50%;
+           animation: pulse 10s ease-in-out infinite reverse;
+       }
+       
+       @keyframes pulse {
+           0%, 100% { transform: scale(1); opacity: 0.8; }
+           50% { transform: scale(1.1); opacity: 0.4; }
+       }
+       
+       .hero-badge {
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+           padding: 0.6rem 1.2rem;
+           background: linear-gradient(135deg, rgba(26, 194, 193, 0.15), rgba(26, 194, 193, 0.05));
+           color: var(--primary-dark);
+           border-radius: 50px;
+           font-size: 0.95rem;
+           font-weight: 700;
+           margin-bottom: 1.5rem;
+           border: 1px solid rgba(26, 194, 193, 0.3);
+           position: relative;
+           z-index: 1;
+       }
+       
+       .trial-hero h1 {
+           font-size: 3.8rem;
+           font-weight: 800;
+           line-height: 1.1;
+           margin-bottom: 1.5rem;
+           color: var(--dark);
+           letter-spacing: -1.5px;
+           position: relative;
+           z-index: 1;
+       }
+       
+       .trial-hero .lead {
+           font-size: 1.35rem;
+           color: var(--gray);
+           max-width: 600px;
+           margin-bottom: 2rem;
+           line-height: 1.6;
+           position: relative;
+           z-index: 1;
+       }
+       
+       .trial-features {
+           display: flex;
+           gap: 2rem;
+           flex-wrap: wrap;
+           position: relative;
+           z-index: 1;
+       }
+       
+       .trial-feature {
+           display: flex;
+           align-items: center;
+           gap: 0.5rem;
+           font-weight: 600;
+           color: var(--navy);
+       }
+       
+       .trial-feature i {
+           color: var(--success);
+           font-size: 1.2rem;
+       }
+       
+       /* Process Section Container */
+       .process-section {
+           background: var(--light-gray);
+           padding: 60px 0;
+       }
+       
+       /* Step Cards */
+       .step-card {
+           background: white;
+           border-radius: 24px;
+           padding: 3rem;
+           margin-bottom: 2rem;
+           box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+           border: 2px solid transparent;
+           transition: all 0.3s ease;
+           position: relative;
+       }
+       
+       .step-card.active {
+           border-color: var(--primary);
+           box-shadow: 0 20px 60px rgba(26, 194, 193, 0.15);
+       }
+       
+       .step-card.completed {
+           border-color: var(--success);
+           background: linear-gradient(135deg, #f0fdf4 0%, white 100%);
+       }
+       
+       .step-card.disabled {
+           opacity: 0.6;
+           pointer-events: none;
+       }
+       
+       .step-header {
+           display: flex;
+           align-items: center;
+           gap: 1.5rem;
+           margin-bottom: 2rem;
+           padding-bottom: 1.5rem;
+           border-bottom: 2px solid #f1f5f9;
+       }
+       
+       .step-number-badge {
+           width: 60px;
+           height: 60px;
+           border-radius: 16px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-size: 1.5rem;
+           font-weight: 800;
+           flex-shrink: 0;
+           transition: all 0.3s ease;
+       }
+       
+       .step-card.active .step-number-badge {
+           background: var(--primary);
+           color: white;
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+       
+       .step-card.completed .step-number-badge {
+           background: var(--success);
+           color: white;
+       }
+       
+       .step-card:not(.active):not(.completed) .step-number-badge {
+           background: #f1f5f9;
+           color: var(--gray);
+       }
+       
+       .step-title-group h3 {
+           font-size: 1.5rem;
+           font-weight: 700;
+           margin-bottom: 0.25rem;
+           color: var(--dark);
+       }
+       
+       .step-title-group p {
+           color: var(--gray);
+           margin: 0;
+           font-size: 0.95rem;
+       }
+       
+       .step-status {
+           margin-left: auto;
+           padding: 0.5rem 1rem;
+           border-radius: 50px;
+           font-size: 0.85rem;
+           font-weight: 600;
+           display: flex;
+           align-items: center;
+           gap: 0.5rem;
+       }
+       
+       .step-card.active .step-status {
+           background: var(--primary-light);
+           color: var(--primary-dark);
+       }
+       
+       .step-card.completed .step-status {
+           background: #dcfce7;
+           color: #166534;
+       }
+       
+       .step-card:not(.active):not(.completed) .step-status {
+           background: #f1f5f9;
+           color: var(--gray);
+       }
+       
+       /* Form Styles */
+       .lead-form-grid {
+           display: grid;
+           grid-template-columns: repeat(2, 1fr);
+           gap: 1.25rem;
+       }
+       
+       .form-floating-custom {
+           position: relative;
+       }
+       
+       .form-floating-custom.full-width {
+           grid-column: 1 / -1;
+       }
+       
+       .form-floating-custom input,
+       .form-floating-custom select,
+       .form-floating-custom textarea {
+           width: 100%;
+           padding: 1rem 1.2rem;
+           border: 2px solid #e2e8f0;
+           border-radius: 12px;
+           font-size: 1rem;
+           font-family: 'Inter', sans-serif;
+           transition: all 0.3s ease;
+           background: white;
+           height: auto;
+       }
+       
+       .form-floating-custom textarea {
+           min-height: 120px;
+           resize: vertical;
+       }
+       
+       .form-floating-custom input:focus,
+       .form-floating-custom select:focus,
+       .form-floating-custom textarea:focus {
+           outline: none;
+           border-color: var(--primary);
+           box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+       }
+       
+       .form-floating-custom label {
+           position: absolute;
+           left: 1.2rem;
+           top: 1rem;
+           font-size: 1rem;
+           color: var(--gray);
+           pointer-events: none;
+           transition: all 0.3s ease;
+           background: white;
+           padding: 0 0.25rem;
+       }
+       
+       .form-floating-custom input:focus + label,
+       .form-floating-custom input:not(:placeholder-shown) + label,
+       .form-floating-custom select:focus + label,
+       .form-floating-custom select:not([value=""]):valid + label,
+       .form-floating-custom textarea:focus + label,
+       .form-floating-custom textarea:not(:placeholder-shown) + label {
+           top: -0.6rem;
+           font-size: 0.85rem;
+           color: var(--primary);
+           font-weight: 600;
+       }
+       
+       .btn-step-action {
+           background: var(--primary);
+           color: white;
+           border: none;
+           padding: 1rem 2.5rem;
+           border-radius: 12px;
+           font-weight: 700;
+           font-size: 1.1rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+           margin-top: 1rem;
+       }
+       
+       .btn-step-action:hover {
+           background: var(--primary-dark);
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+           color: white;
+       }
+       
+       .btn-edit {
+           background: white;
+           color: var(--primary);
+           border: 2px solid var(--primary);
+           padding: 0.75rem 1.5rem;
+           border-radius: 12px;
+           font-weight: 600;
+           font-size: 0.95rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+           transition: all 0.3s ease;
+           margin-top: 1rem;
+       }
+       
+       .btn-edit:hover {
+           background: var(--primary-light);
+           color: var(--primary-dark);
+       }
+       
+       /* Interview Form Styles */
+       .interview-section {
+           margin-bottom: 2rem;
+       }
+       
+       .interview-section-title {
+           font-size: 1.1rem;
+           font-weight: 700;
+           color: var(--dark);
+           margin-bottom: 1rem;
+           display: flex;
+           align-items: center;
+           gap: 0.5rem;
+       }
+       
+       .interview-section-title i {
+           color: var(--primary);
+       }
+
+       /* MCQ Options Style */
+       .mcq-options {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 0.75rem;
+           margin-top: 0.5rem;
+       }
+
+       .mcq-option {
+           flex: 1 1 45%;
+           padding: 1rem;
+           border: 2px solid #e2e8f0;
+           border-radius: 10px;
+           cursor: pointer;
+           transition: all 0.2s ease;
+           font-size: 0.9rem;
+           font-weight: 500;
+           color: var(--navy);
+           background: white;
+           text-align: center;
+       }
+
+       .mcq-option:hover {
+           border-color: var(--primary);
+           background: var(--primary-light);
+       }
+
+       .mcq-option.selected {
+           border-color: var(--primary);
+           background: var(--primary);
+           color: white;
+       }
+       
+       .rating-group {
+           display: flex;
+           gap: 0.5rem;
+           margin-top: 0.5rem;
+       }
+       
+       .rating-option {
+           width: 40px;
+           height: 40px;
+           border-radius: 10px;
+           border: 2px solid #e2e8f0;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           font-weight: 600;
+           color: var(--gray);
+       }
+       
+       .rating-option:hover {
+           border-color: var(--primary);
+           color: var(--primary);
+       }
+       
+       .rating-option.selected {
+           background: var(--primary);
+           border-color: var(--primary);
+           color: white;
+       }
+       
+       .rating-labels {
+           display: flex;
+           justify-content: space-between;
+           font-size: 0.8rem;
+           color: var(--gray);
+           margin-top: 0.25rem;
+       }
+       
+       /* Analytics Dashboard */
+       .analytics-dashboard {
+           display: none;
+           animation: fadeIn 0.6s ease;
+       }
+       
+       .analytics-dashboard.show {
+           display: block;
+       }
+       
+       .dashboard-header {
+           text-align: center;
+           margin-bottom: 2rem;
+       }
+       
+       .dashboard-header h3 {
+           font-size: 1.75rem;
+           font-weight: 800;
+           color: var(--dark);
+           margin-bottom: 0.5rem;
+       }
+       
+       .dashboard-header p {
+           color: var(--gray);
+       }
+       
+       .metrics-grid {
+           display: grid;
+           grid-template-columns: repeat(4, 1fr);
+           gap: 1.5rem;
+           margin-bottom: 2rem;
+       }
+       
+       .metric-card {
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border-radius: 16px;
+           padding: 1.5rem;
+           text-align: center;
+           border: 2px solid rgba(26, 194, 193, 0.2);
+           transition: all 0.3s ease;
+       }
+       
+       .metric-card:hover {
+           transform: translateY(-5px);
+           box-shadow: 0 10px 30px rgba(26, 194, 193, 0.15);
+       }
+       
+       .metric-icon {
+           width: 50px;
+           height: 50px;
+           background: var(--primary);
+           border-radius: 12px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           margin: 0 auto 1rem;
+           color: white;
+           font-size: 1.5rem;
+       }
+       
+       .metric-value {
+           font-size: 2rem;
+           font-weight: 800;
+           color: var(--dark);
+           margin-bottom: 0.25rem;
+       }
+       
+       .metric-label {
+           font-size: 0.9rem;
+           color: var(--gray);
+           font-weight: 600;
+       }
+       
+       .charts-grid {
+           display: grid;
+           grid-template-columns: repeat(2, 1fr);
+           gap: 1.5rem;
+           margin-bottom: 2rem;
+       }
+       
+       .chart-card {
+           background: white;
+           border-radius: 16px;
+           padding: 1.5rem;
+           box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+       }
+       
+       .chart-header {
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           margin-bottom: 1rem;
+       }
+       
+       .chart-title {
+           font-size: 1.1rem;
+           font-weight: 700;
+           color: var(--dark);
+       }
+       
+       .sentiment-bar {
+           height: 30px;
+           border-radius: 15px;
+           display: flex;
+           overflow: hidden;
+           margin-bottom: 1rem;
+       }
+       
+       .sentiment-positive {
+           background: var(--success);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           font-weight: 600;
+           font-size: 0.85rem;
+       }
+       
+       .sentiment-neutral {
+           background: var(--warning);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           font-weight: 600;
+           font-size: 0.85rem;
+       }
+       
+       .sentiment-negative {
+           background: var(--danger);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           font-weight: 600;
+           font-size: 0.85rem;
+       }
+       
+       .factor-list {
+           list-style: none;
+           padding: 0;
+       }
+       
+       .factor-item {
+           display: flex;
+           align-items: center;
+           gap: 1rem;
+           padding: 0.75rem 0;
+           border-bottom: 1px solid #f1f5f9;
+       }
+       
+       .factor-item:last-child {
+           border-bottom: none;
+       }
+       
+       .factor-rank {
+           width: 32px;
+           height: 32px;
+           background: var(--primary-light);
+           border-radius: 8px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-weight: 700;
+           color: var(--primary);
+           font-size: 0.9rem;
+       }
+       
+       .factor-name {
+           flex: 1;
+           font-weight: 600;
+           color: var(--dark);
+       }
+       
+       .factor-score {
+           font-weight: 700;
+           color: var(--primary);
+       }
+       
+       .recommendation-box {
+           background: linear-gradient(135deg, #fef3c7, #fffbeb);
+           border: 2px solid var(--warning);
+           border-radius: 16px;
+           padding: 1.5rem;
+           margin-top: 1.5rem;
+       }
+       
+       .recommendation-box h4 {
+           font-size: 1.1rem;
+           font-weight: 700;
+           color: var(--dark);
+           margin-bottom: 1rem;
+           display: flex;
+           align-items: center;
+           gap: 0.5rem;
+       }
+       
+       .recommendation-box h4 i {
+           color: var(--warning);
+       }
+       
+       .recommendation-list {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+       }
+       
+       .recommendation-list li {
+           padding: 0.5rem 0;
+           padding-left: 1.5rem;
+           position: relative;
+           color: var(--navy);
+           font-size: 0.95rem;
+       }
+       
+       .recommendation-list li::before {
+           content: '→';
+           position: absolute;
+           left: 0;
+           color: var(--warning);
+           font-weight: 700;
+       }
+       
+       .download-actions {
+           display: flex;
+           gap: 1rem;
+           justify-content: center;
+           margin-top: 2rem;
+       }
+       
+       .btn-download {
+           background: var(--dark);
+           color: white;
+           border: none;
+           padding: 1rem 2rem;
+           border-radius: 12px;
+           font-weight: 700;
+           font-size: 1rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+       }
+       
+       .btn-download:hover {
+           background: var(--navy);
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(15, 23, 42, 0.3);
+           color: white;
+       }
+       
+       .btn-download.primary {
+           background: var(--primary);
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+       }
+       
+       .btn-download.primary:hover {
+           background: var(--primary-dark);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+       }
+       
+       /* Success Message */
+       .success-message {
+           display: none;
+           text-align: center;
+           padding: 3rem;
+           background: linear-gradient(135deg, #f0fdf4, white);
+           border-radius: 20px;
+           border: 2px solid var(--success);
+       }
+       
+       .success-message.show {
+           display: block;
+           animation: fadeIn 0.6s ease;
+       }
+       
+       .success-icon-large {
+           width: 100px;
+           height: 100px;
+           background: var(--success);
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           margin: 0 auto 1.5rem;
+           animation: scaleIn 0.5s ease;
+       }
+       
+       .success-icon-large i {
+           color: white;
+           font-size: 3rem;
+       }
+       
+       .success-message h3 {
+           font-size: 1.75rem;
+           font-weight: 800;
+           color: var(--dark);
+           margin-bottom: 0.75rem;
+       }
+       
+       .success-message p {
+           color: var(--gray);
+           font-size: 1.1rem;
+           margin-bottom: 1.5rem;
+       }
+       
+       @keyframes scaleIn {
+           0% { transform: scale(0); }
+           50% { transform: scale(1.2); }
+           100% { transform: scale(1); }
+       }
+       
+       @keyframes fadeIn {
+           from { opacity: 0; transform: translateY(20px); }
+           to { opacity: 1; transform: translateY(0); }
+       }
+       
+       /* Info Section */
+       .info-section {
+           padding: 80px 0;
+           background: white;
+       }
+       
+       .section-header {
+           margin-bottom: 3rem;
+           text-align: center;
+       }
+       
+       .section-subtitle {
+           color: var(--primary);
+           font-weight: 700;
+           text-transform: uppercase;
+           letter-spacing: 1.5px;
+           font-size: 0.85rem;
+           margin-bottom: 1rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+           padding: 0.5rem 1rem;
+           background: rgba(26, 194, 193, 0.1);
+           border-radius: 50px;
+       }
+       
+       .section-title {
+           font-size: 2.5rem;
+           font-weight: 800;
+           color: var(--dark);
+           margin-bottom: 1rem;
+           line-height: 1.2;
+           letter-spacing: -1px;
+       }
+       
+       .section-desc {
+           color: var(--gray);
+           font-size: 1.15rem;
+           max-width: 700px;
+           margin: 0 auto;
+           line-height: 1.7;
+       }
+       
+       .info-grid {
+           display: grid;
+           grid-template-columns: repeat(3, 1fr);
+           gap: 2rem;
+       }
+       
+       .info-card {
+           text-align: center;
+           padding: 2rem;
+           border-radius: 20px;
+           background: var(--light-gray);
+           transition: all 0.3s ease;
+       }
+       
+       .info-card:hover {
+           transform: translateY(-5px);
+           box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+       }
+       
+       .info-icon-large {
+           width: 80px;
+           height: 80px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border-radius: 24px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 2.5rem;
+           margin: 0 auto 1.5rem;
+           border: 2px solid rgba(26, 194, 193, 0.2);
+       }
+       
+       .info-card h3 {
+           font-size: 1.3rem;
+           font-weight: 700;
+           margin-bottom: 0.75rem;
+       }
+       
+       .info-card p {
+           color: var(--gray);
+           font-size: 0.95rem;
+           margin: 0;
+       }
+       
+       /* Footer */
+       footer {
+           background: var(--dark);
+           color: white;
+           padding: 60px 0 30px;
+       }
+       
+       footer h4 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+       }
+       
+       footer h6 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 0.9rem;
+       }
+       
+       footer a {
+           color: rgba(255,255,255,0.7);
+           text-decoration: none;
+           transition: all 0.3s ease;
+       }
+       
+       footer a:hover {
+           color: var(--primary);
+       }
+       
+       /* Animations */
+       .reveal {
+           opacity: 0;
+           transform: translateY(30px);
+           transition: all 0.8s ease-out;
+       }
+       
+       .reveal.active {
+           opacity: 1;
+           transform: translateY(0);
+       }
+       
+       /* Responsive */
+       @media (max-width: 991px) {
+           .trial-hero h1 {
+               font-size: 2.8rem;
+           }
+           
+           .section-title {
+               font-size: 2.2rem;
+           }
+           
+           .info-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .lead-form-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .metrics-grid {
+               grid-template-columns: repeat(2, 1fr);
+           }
+           
+           .charts-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .step-header {
+               flex-wrap: wrap;
+           }
+           
+           .step-status {
+               margin-left: 0;
+               margin-top: 1rem;
+               width: 100%;
+               justify-content: center;
+           }
+           
+           .mcq-option {
+               flex: 1 1 100%;
+           }
+       }
+       
+       @media (max-width: 767px) {
+           .trial-hero {
+               padding: 120px 0 60px;
+               text-align: center;
+           }
+           
+           .trial-hero h1 {
+               font-size: 2.2rem;
+           }
+           
+           .trial-features {
+               justify-content: center;
+           }
+           
+           .step-card {
+               padding: 1.5rem;
+           }
+           
+           .step-header {
+               gap: 1rem;
+           }
+           
+           .step-number-badge {
+               width: 50px;
+               height: 50px;
+               font-size: 1.25rem;
+           }
+           
+           .metrics-grid {
+               grid-template-columns: 1fr;
+           }
+           
+           .download-actions {
+               flex-direction: column;
+           }
+       }
+   </style>
+</head>
+<body>
+
+   <!-- Navigation -->
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item">
+                        <i class="fa-regular fa-id-card"></i> DIN Verification</a>
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="./industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="./industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="./industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="./industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="./company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="./helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="./helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="./affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" class="btn btn-login">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="./contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <span class="dropdown-arrow">▾</span> 
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="./countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+   <!-- Hero Section -->
+   <section class="trial-hero">
+       <div class="container">
+           <div class="row justify-content-center text-center">
+               <div class="col-lg-8 reveal">
+                   <div class="hero-badge">
+                       <i class="bi bi-lightning-charge-fill"></i>
+                       AI-Powered Analysis
+                   </div>
+                   <h1>Analyze Exit Interviews with AI</h1>
+                   <p class="lead mx-auto">Transform exit interview data into actionable insights. Get sentiment analysis, trend identification, and predictive analytics to reduce employee turnover.</p>
+                   
+                   <div class="trial-features justify-content-center">
+                       <div class="trial-feature">
+                           <i class="bi bi-check-circle-fill"></i>
+                           <span>Sentiment Analysis</span>
+                       </div>
+                       <div class="trial-feature">
+                           <i class="bi bi-check-circle-fill"></i>
+                           <span>Trend Reports</span>
+                       </div>
+                       <div class="trial-feature">
+                           <i class="bi bi-check-circle-fill"></i>
+                           <span>Downloadable PDF</span>
+                       </div>
+                   </div>
+                   
+                   <div class="mt-5">
+                       <a href="#process" class="btn btn-lg px-5 py-3 rounded-pill fw-bold" style="background: var(--primary); color: white; box-shadow: 0 10px 30px rgba(26,194,193,0.3);">
+                           Analyze Now <i class="bi bi-arrow-down ms-2"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Process Section - All Steps Visible -->
+   <section class="process-section" id="process">
+       <div class="container">
+           
+           <!-- Step 1: Your Details -->
+           <div class="step-card active" id="step1Card">
+               <div class="step-header">
+                   <div class="step-number-badge">1</div>
+                   <div class="step-title-group">
+                       <h3>Your Details</h3>
+                       <p>Tell us about yourself and your organization</p>
+                   </div>
+                   <div class="step-status" id="step1Status">
+                       <i class="bi bi-circle"></i> In Progress
+                   </div>
+               </div>
+               
+               <div class="step-content" id="step1Content">
+                   <form id="leadForm" onsubmit="submitStep1(event)">
+                       <div class="lead-form-grid">
+                           <div class="form-floating-custom">
+                               <input type="text" id="firstName" placeholder=" " required>
+                               <label for="firstName">First Name *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <input type="text" id="lastName" placeholder=" " required>
+                               <label for="lastName">Last Name *</label>
+                           </div>
+                           <div class="form-floating-custom full-width">
+                               <input type="email" id="email" placeholder=" " required>
+                               <label for="email">Work Email Address *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <input type="tel" id="phone" placeholder=" " required>
+                               <label for="phone">Phone Number *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <input type="text" id="company" placeholder=" " required>
+                               <label for="company">Company Name *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <select id="companySize" required>
+                                   <option value="" disabled selected></option>
+                                   <option value="1-50">1-50 employees</option>
+                                   <option value="51-200">51-200 employees</option>
+                                   <option value="201-1000">201-1000 employees</option>
+                                   <option value="1000+">1000+ employees</option>
+                               </select>
+                               <label for="companySize">Company Size *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <select id="role" required>
+                                   <option value="" disabled selected></option>
+                                   <option value="hr">HR / People Operations</option>
+                                   <option value="executive">Executive / Leadership</option>
+                                   <option value="manager">Department Manager</option>
+                                   <option value="analyst">HR Analyst</option>
+                                   <option value="other">Other</option>
+                               </select>
+                               <label for="role">Your Role *</label>
+                           </div>
+                       </div>
+                       
+                       <div class="d-flex gap-3 mt-4">
+                           <button type="submit" class="btn-step-action">
+                               Continue to Exit Interview <i class="bi bi-arrow-right"></i>
+                           </button>
+                       </div>
+                   </form>
+               </div>
+               
+               <div class="step-summary" id="step1Summary" style="display: none;">
+                   <div class="row">
+                       <div class="col-md-6">
+                           <p class="mb-1"><strong>Name:</strong> <span id="summaryName"></span></p>
+                           <p class="mb-1"><strong>Email:</strong> <span id="summaryEmail"></span></p>
+                       </div>
+                       <div class="col-md-6">
+                           <p class="mb-1"><strong>Company:</strong> <span id="summaryCompany"></span></p>
+                           <p class="mb-1"><strong>Role:</strong> <span id="summaryRole"></span></p>
+                       </div>
+                   </div>
+                   <button class="btn-edit" onclick="editStep1()">
+                       <i class="bi bi-pencil"></i> Edit Details
+                   </button>
+               </div>
+           </div>
+
+           <!-- Step 2: Exit Interview Form -->
+           <div class="step-card disabled" id="step2Card">
+               <div class="step-header">
+                   <div class="step-number-badge">2</div>
+                   <div class="step-title-group">
+                       <h3>Exit Interview Details</h3>
+                       <p>Enter employee exit information for AI analysis</p>
+                   </div>
+                   <div class="step-status" id="step2Status">
+                       <i class="bi bi-lock"></i> Locked
+                   </div>
+               </div>
+               
+               <div class="step-content" id="step2Content">
+                   <form id="exitInterviewForm" onsubmit="submitStep2(event)">
+                       <!-- Employee Information -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-person"></i> Employee Information
+                           </div>
+                           <div class="lead-form-grid">
+                               <div class="form-floating-custom">
+                                   <input type="text" id="employeeName" placeholder=" " required>
+                                   <label for="employeeName">Employee Name *</label>
+                               </div>
+                               <div class="form-floating-custom">
+                                   <input type="text" id="employeeId" placeholder=" ">
+                                   <label for="employeeId">Employee ID</label>
+                               </div>
+                               <div class="form-floating-custom">
+                                   <input type="text" id="department" placeholder=" " required>
+                                   <label for="department">Department *</label>
+                               </div>
+                               <div class="form-floating-custom">
+                                   <input type="text" id="designation" placeholder=" " required>
+                                   <label for="designation">Designation *</label>
+                               </div>
+                               <div class="form-floating-custom">
+                                   <input type="date" id="joinDate" placeholder=" " required>
+                                   <label for="joinDate" style="top: -0.6rem; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Date of Joining *</label>
+                               </div>
+                               <div class="form-floating-custom">
+                                   <input type="date" id="exitDate" placeholder=" " required>
+                                   <label for="exitDate" style="top: -0.6rem; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Date of Exit *</label>
+                               </div>
+                           </div>
+                       </div>
+
+                       <!-- Primary Reason -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-question-circle"></i> Primary Reason for Leaving
+                           </div>
+                           <div class="form-floating-custom full-width">
+                               <select id="primaryReason" required onchange="toggleOtherReason()">
+                                   <option value="" disabled selected></option>
+                                   <option value="career-growth">Better Career Opportunity</option>
+                                   <option value="compensation">Compensation & Benefits</option>
+                                   <option value="work-life">Work-Life Balance</option>
+                                   <option value="management">Management Issues</option>
+                                   <option value="relocation">Relocation</option>
+                                   <option value="health">Health Reasons</option>
+                                   <option value="education">Further Education</option>
+                                   <option value="culture">Company Culture</option>
+                                   <option value="other">Other</option>
+                               </select>
+                               <label for="primaryReason">Select Primary Reason *</label>
+                           </div>
+                           <div class="form-floating-custom full-width mt-3" id="otherReasonContainer" style="display: none;">
+                               <input type="text" id="otherReason" placeholder=" ">
+                               <label for="otherReason">Please specify other reason</label>
+                           </div>
+                       </div>
+
+                       <!-- Management Questions -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-diagram-3"></i> Management Questions
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">1. How would you rate the transparency of communication from management? *</label>
+                               <div class="mcq-options" data-name="mgmt_transparency">
+                                   <div class="mcq-option" onclick="selectOption(this)">Very Transparent</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Somewhat Transparent</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Neutral</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Not Transparent</div>
+                               </div>
+                               <input type="hidden" id="mgmt_transparency" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">2. Did you feel management was open to new ideas and feedback? *</label>
+                               <div class="mcq-options" data-name="mgmt_openness">
+                                   <div class="mcq-option" onclick="selectOption(this)">Always Open</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Often Open</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Sometimes Open</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Rarely Open</div>
+                               </div>
+                               <input type="hidden" id="mgmt_openness" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">3. How effectively did management handle conflict resolution? *</label>
+                               <div class="mcq-options" data-name="mgmt_conflict">
+                                   <div class="mcq-option" onclick="selectOption(this)">Very Effective</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Moderately Effective</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Ineffective</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">N/A</div>
+                               </div>
+                               <input type="hidden" id="mgmt_conflict" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">4. Were management decisions made in a timely manner? *</label>
+                               <div class="mcq-options" data-name="mgmt_timeliness">
+                                   <div class="mcq-option" onclick="selectOption(this)">Always Timely</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Usually Timely</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Often Delayed</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Significantly Delayed</div>
+                               </div>
+                               <input type="hidden" id="mgmt_timeliness" required>
+                           </div>
+                       </div>
+
+                       <!-- Superior Questions -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-person-badge"></i> Superior Questions
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">1. How would you rate the support you received from your direct supervisor? *</label>
+                               <div class="mcq-options" data-name="sup_support">
+                                   <div class="mcq-option" onclick="selectOption(this)">Excellent Support</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Good Support</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Adequate Support</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Poor Support</div>
+                               </div>
+                               <input type="hidden" id="sup_support" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">2. Did your supervisor provide clear expectations for your role? *</label>
+                               <div class="mcq-options" data-name="sup_expectations">
+                                   <div class="mcq-option" onclick="selectOption(this)">Very Clear</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Somewhat Clear</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Unclear</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Very Unclear</div>
+                               </div>
+                               <input type="hidden" id="sup_expectations" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">3. How regularly did you receive constructive feedback from your supervisor? *</label>
+                               <div class="mcq-options" data-name="sup_feedback">
+                                   <div class="mcq-option" onclick="selectOption(this)">Weekly</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Monthly</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Quarterly</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Rarely/Never</div>
+                               </div>
+                               <input type="hidden" id="sup_feedback" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">4. Did you feel your supervisor advocated for your growth and development? *</label>
+                               <div class="mcq-options" data-name="sup_growth">
+                                   <div class="mcq-option" onclick="selectOption(this)">Strongly Advocated</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Somewhat Advocated</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Neutral</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Did Not Advocate</div>
+                               </div>
+                               <input type="hidden" id="sup_growth" required>
+                           </div>
+                       </div>
+
+                       <!-- Training Questions -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-journal-check"></i> Training Questions
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">1. How would you rate the quality of training provided for your role? *</label>
+                               <div class="mcq-options" data-name="train_quality">
+                                   <div class="mcq-option" onclick="selectOption(this)">Excellent</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Good</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Average</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Poor</div>
+                               </div>
+                               <input type="hidden" id="train_quality" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">2. Were sufficient resources provided for your professional development? *</label>
+                               <div class="mcq-options" data-name="train_resources">
+                                   <div class="mcq-option" onclick="selectOption(this)">More Than Sufficient</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Sufficient</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Insufficient</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">None Provided</div>
+                               </div>
+                               <input type="hidden" id="train_resources" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">3. How relevant was the training to your daily tasks? *</label>
+                               <div class="mcq-options" data-name="train_relevance">
+                                   <div class="mcq-option" onclick="selectOption(this)">Highly Relevant</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Moderately Relevant</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Slightly Relevant</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Not Relevant</div>
+                               </div>
+                               <input type="hidden" id="train_relevance" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">4. Did you feel encouraged to learn new skills? *</label>
+                               <div class="mcq-options" data-name="train_encouragement">
+                                   <div class="mcq-option" onclick="selectOption(this)">Strongly Encouraged</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Encouraged</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Neutral</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Discouraged</div>
+                               </div>
+                               <input type="hidden" id="train_encouragement" required>
+                           </div>
+                       </div>
+
+                       <!-- Personal Questions -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-heart"></i> Personal Questions
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">1. How would you describe your work-life balance during your tenure? *</label>
+                               <div class="mcq-options" data-name="pers_balance">
+                                   <div class="mcq-option" onclick="selectOption(this)">Excellent Balance</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Good Balance</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Struggled Often</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">No Balance</div>
+                               </div>
+                               <input type="hidden" id="pers_balance" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">2. Did you feel a sense of belonging within the team? *</label>
+                               <div class="mcq-options" data-name="pers_belonging">
+                                   <div class="mcq-option" onclick="selectOption(this)">Strongly Felt</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Somewhat Felt</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Neutral</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Did Not Feel</div>
+                               </div>
+                               <input type="hidden" id="pers_belonging" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">3. How would you rate your stress levels at work? *</label>
+                               <div class="mcq-options" data-name="pers_stress">
+                                   <div class="mcq-option" onclick="selectOption(this)">Low Stress</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Manageable Stress</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">High Stress</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Burnout Level</div>
+                               </div>
+                               <input type="hidden" id="pers_stress" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">4. Did the company support your personal well-being (mental/physical health)? *</label>
+                               <div class="mcq-options" data-name="pers_wellbeing">
+                                   <div class="mcq-option" onclick="selectOption(this)">Strongly Supported</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Supported</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Minimal Support</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">No Support</div>
+                               </div>
+                               <input type="hidden" id="pers_wellbeing" required>
+                           </div>
+                       </div>
+
+                       <!-- Environment Questions -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-building"></i> Environment Questions
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">1. How would you rate the physical work environment/facilities? *</label>
+                               <div class="mcq-options" data-name="env_facilities">
+                                   <div class="mcq-option" onclick="selectOption(this)">Excellent</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Good</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Average</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Poor</div>
+                               </div>
+                               <input type="hidden" id="env_facilities" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">2. Did you feel the work culture was collaborative? *</label>
+                               <div class="mcq-options" data-name="env_collaboration">
+                                   <div class="mcq-option" onclick="selectOption(this)">Highly Collaborative</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Somewhat Collaborative</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Silos Existed</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Non-Collaborative</div>
+                               </div>
+                               <input type="hidden" id="env_collaboration" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">3. Were the tools and technology provided adequate for your job? *</label>
+                               <div class="mcq-options" data-name="env_tools">
+                                   <div class="mcq-option" onclick="selectOption(this)">More Than Adequate</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Adequate</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Somewhat Inadequate</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Severely Lacking</div>
+                               </div>
+                               <input type="hidden" id="env_tools" required>
+                           </div>
+                           
+                           <div class="mb-4">
+                               <label class="d-block mb-2" style="font-weight: 600; color: var(--dark);">4. Did you feel safe and respected in the workplace? *</label>
+                               <div class="mcq-options" data-name="env_safety">
+                                   <div class="mcq-option" onclick="selectOption(this)">Always Safe & Respected</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Usually Safe & Respected</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Occasionally Unsafe</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Often Unsafe</div>
+                               </div>
+                               <input type="hidden" id="env_safety" required>
+                           </div>
+                       </div>
+
+                       <!-- Single Open-Ended Question -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-chat-text"></i> Additional Comments
+                           </div>
+                           <div class="form-floating-custom full-width">
+                               <textarea id="openComment" placeholder=" " style="height: 150px;"></textarea>
+                               <label for="openComment">Is there anything else you would like to share about your experience? (Optional)</label>
+                           </div>
+                       </div>
+
+                       <!-- Would Recommend -->
+                       <div class="interview-section">
+                           <div class="interview-section-title">
+                               <i class="bi bi-hand-thumbs-up"></i> Recommendation
+                           </div>
+                           <div class="form-floating-custom full-width">
+                               <select id="wouldRecommend" required>
+                                   <option value="" disabled selected></option>
+                                   <option value="definitely-yes">Definitely Yes</option>
+                                   <option value="probably-yes">Probably Yes</option>
+                                   <option value="not-sure">Not Sure</option>
+                                   <option value="probably-no">Probably No</option>
+                                   <option value="definitely-no">Definitely No</option>
+                               </select>
+                               <label for="wouldRecommend">Would you recommend this company to others? *</label>
+                           </div>
+                       </div>
+
+                       <div class="d-flex gap-3 mt-4">
+                           <button type="submit" class="btn-step-action">
+                               Generate Analysis Report <i class="bi bi-arrow-right"></i>
+                           </button>
+                       </div>
+                   </form>
+               </div>
+           </div>
+
+           <!-- Step 3: Analytics Report -->
+           <div class="step-card disabled" id="step3Card">
+               <div class="step-header">
+                   <div class="step-number-badge">3</div>
+                   <div class="step-title-group">
+                       <h3>AI Analysis Report</h3>
+                       <p>Review insights and download your comprehensive report</p>
+                   </div>
+                   <div class="step-status" id="step3Status">
+                       <i class="bi bi-lock"></i> Locked
+                   </div>
+               </div>
+               
+               <div class="step-content" id="step3Content">
+                   <!-- Analytics Dashboard -->
+                   <div class="analytics-dashboard" id="analyticsDashboard">
+                       <div class="dashboard-header">
+                           <h3><i class="bi bi-robot" style="color: var(--primary);"></i> AI-Generated Exit Analysis</h3>
+                           <p>Comprehensive insights based on exit interview data</p>
+                       </div>
+
+                       <!-- Key Metrics -->
+                       <div class="metrics-grid">
+                           <div class="metric-card">
+                               <div class="metric-icon">
+                                   <i class="bi bi-calendar-event"></i>
+                               </div>
+                               <div class="metric-value" id="tenureMetric">0</div>
+                               <div class="metric-label">Months of Tenure</div>
+                           </div>
+                           <div class="metric-card">
+                               <div class="metric-icon">
+                                   <i class="bi bi-emoji-smile"></i>
+                               </div>
+                               <div class="metric-value" id="satisfactionMetric">0%</div>
+                               <div class="metric-label">Avg Satisfaction</div>
+                           </div>
+                           <div class="metric-card">
+                               <div class="metric-icon">
+                                   <i class="bi bi-exclamation-triangle"></i>
+                               </div>
+                               <div class="metric-value" id="riskMetric">Low</div>
+                               <div class="metric-label">Attrition Risk</div>
+                           </div>
+                           <div class="metric-card">
+                               <div class="metric-icon">
+                                   <i class="bi bi-graph-up-arrow"></i>
+                               </div>
+                               <div class="metric-value" id="sentimentMetric">0%</div>
+                               <div class="metric-label">Positive Sentiment</div>
+                           </div>
+                       </div>
+
+                       <!-- Charts -->
+                       <div class="charts-grid">
+                           <div class="chart-card">
+                               <div class="chart-header">
+                                   <span class="chart-title">Sentiment Analysis</span>
+                                   <i class="bi bi-pie-chart" style="color: var(--primary);"></i>
+                               </div>
+                               <div class="sentiment-bar" id="sentimentBar">
+                                   <div class="sentiment-positive" style="width: 0%;" id="positiveBar">0%</div>
+                                   <div class="sentiment-neutral" style="width: 0%;" id="neutralBar">0%</div>
+                                   <div class="sentiment-negative" style="width: 0%;" id="negativeBar">0%</div>
+                               </div>
+                               <div style="display: flex; gap: 1rem; justify-content: center; font-size: 0.85rem;">
+                                   <span style="color: var(--success);"><i class="bi bi-circle-fill"></i> Positive</span>
+                                   <span style="color: var(--warning);"><i class="bi bi-circle-fill"></i> Neutral</span>
+                                   <span style="color: var(--danger);"><i class="bi bi-circle-fill"></i> Negative</span>
+                               </div>
+                           </div>
+
+                           <div class="chart-card">
+                               <div class="chart-header">
+                                   <span class="chart-title">Key Contributing Factors</span>
+                                   <i class="bi bi-list-ol" style="color: var(--primary);"></i>
+                               </div>
+                               <ul class="factor-list" id="factorList">
+                                   <!-- Populated by JS -->
+                               </ul>
+                           </div>
+                       </div>
+
+                       <!-- Satisfaction Breakdown -->
+                       <div class="chart-card">
+                           <div class="chart-header">
+                               <span class="chart-title">Satisfaction Breakdown by Category</span>
+                               <i class="bi bi-bar-chart" style="color: var(--primary);"></i>
+                           </div>
+                           <div id="satisfactionChart">
+                               <!-- Populated by JS -->
+                           </div>
+                       </div>
+
+                       <!-- AI Recommendations -->
+                       <div class="recommendation-box">
+                           <h4><i class="bi bi-lightbulb"></i> AI-Generated Recommendations</h4>
+                           <ul class="recommendation-list" id="recommendationList">
+                               <!-- Populated by JS -->
+                           </ul>
+                       </div>
+
+                       <!-- Download Actions -->
+                       <div class="download-actions">
+                           <button class="btn-download primary" onclick="downloadPDF()">
+                               <i class="bi bi-file-earmark-pdf"></i> Download PDF Report
+                           </button>
+                           <button class="btn-download" onclick="downloadCSV()">
+                               <i class="bi bi-file-earmark-excel"></i> Download CSV Data
+                           </button>
+                       </div>
+                   </div>
+
+                   <!-- Success Message -->
+                   <div class="success-message" id="successMessage">
+                       <div class="success-icon-large">
+                           <i class="bi bi-check-lg"></i>
+                       </div>
+                       <h3>Analysis Complete!</h3>
+                       <p>Your exit interview has been analyzed successfully. Download your reports above.</p>
+                       <button class="btn btn-lg px-5 rounded-pill fw-bold" onclick="location.reload()" style="background: var(--primary); color: white;">
+                           Analyze Another Interview
+                       </button>
+                   </div>
+               </div>
+           </div>
+
+       </div>
+   </section>
+
+   <!-- Info Section -->
+   <section class="info-section" id="info">
+       <div class="container">
+           <div class="section-header reveal">
+               <div class="section-subtitle">
+                   <i class="bi bi-info-circle"></i> How It Works
+               </div>
+               <h2 class="section-title">Three Steps to Powerful Insights</h2>
+               <p class="section-desc">Transform raw exit interview data into strategic workforce intelligence in minutes.</p>
+           </div>
+           
+           <div class="info-grid">
+               <div class="info-card reveal">
+                   <div class="info-icon-large">
+                       <i class="bi bi-1-circle"></i>
+                   </div>
+                   <h3>Enter Details</h3>
+                   <p>Provide your company information and the departing employee's basic details.</p>
+               </div>
+               
+               <div class="info-card reveal">
+                   <div class="info-icon-large">
+                       <i class="bi bi-2-circle"></i>
+                   </div>
+                   <h3>Capture Feedback</h3>
+                   <p>Record ratings, reasons for leaving, and detailed qualitative feedback.</p>
+               </div>
+               
+               <div class="info-card reveal">
+                   <div class="info-icon-large">
+                       <i class="bi bi-3-circle"></i>
+                   </div>
+                   <h3>Get AI Analysis</h3>
+                   <p>Receive instant sentiment analysis, trend identification, and actionable recommendations.</p>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Footer -->
+   <footer>
+       <div class="container">
+           <div class="row g-4">
+               <div class="col-lg-4">
+                   <h4 class="mb-3">Verifi<span style="color: var(--primary);">tech</span></h4>
+                   <p class="text-white-50 mb-2">India's leading trust & authentication technology company</p>
+                   <p class="text-white-50 small">AI-powered exit interview analysis to reduce turnover and improve retention.</p>
+               </div>
+               
+               <div class="col-lg-2 col-6">
+                   <h6>Solutions</h6>
+                   <ul class="list-unstyled small">
+                       <li class="mb-2"><a href="#">Exit Interview AI</a></li>
+                       <li class="mb-2"><a href="#">Background Checks</a></li>
+                       <li class="mb-2"><a href="#">Workforce Analytics</a></li>
+                       <li class="mb-2"><a href="#">Employee Verification</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-lg-2 col-6">
+                   <h6>Resources</h6>
+                   <ul class="list-unstyled small">
+                       <li class="mb-2"><a href="#">Documentation</a></li>
+                       <li class="mb-2"><a href="#">API Reference</a></li>
+                       <li class="mb-2"><a href="#">Help Center</a></li>
+                       <li class="mb-2"><a href="#">Blog</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-lg-2 col-6">
+                   <h6>Company</h6>
+                   <ul class="list-unstyled small">
+                       <li class="mb-2"><a href="#">About Us</a></li>
+                       <li class="mb-2"><a href="#">Careers</a></li>
+                       <li class="mb-2"><a href="#">Contact</a></li>
+                       <li class="mb-2"><a href="#">Press</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-lg-2 col-6">
+                   <h6>Legal</h6>
+                   <ul class="list-unstyled small">
+                       <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                       <li class="mb-2"><a href="#">Terms of Use</a></li>
+                       <li class="mb-2"><a href="#">Cookie Policy</a></li>
+                   </ul>
+               </div>
+           </div>
+           
+           <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+           
+           <div class="row align-items-center">
+               <div class="col-md-6 small text-white-50">
+                   &copy; 2026 Verifitech Solutions Private Limited. All rights reserved.
+               </div>
+               <div class="col-md-6 text-md-end">
+                   <div class="d-flex gap-3 justify-content-md-end">
+                       <a href="#"><i class="bi bi-linkedin fs-5"></i></a>
+                       <a href="#"><i class="bi bi-twitter fs-5"></i></a>
+                       <a href="#"><i class="bi bi-facebook fs-5"></i></a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </footer>
+
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script>
+       // Data storage
+       let leadData = {};
+       let exitData = {};
+       let analysisResults = {};
+
+       // Navbar scroll effect
+       window.addEventListener('scroll', () => {
+           const navbar = document.querySelector('.navbar');
+           if (window.scrollY > 50) {
+               navbar.classList.add('scrolled');
+           } else {
+               navbar.classList.remove('scrolled');
+           }
+       });
+
+       // Intersection Observer for animations
+       const observerOptions = {
+           threshold: 0.1,
+           rootMargin: '0px 0px -50px 0px'
+       };
+
+       const observer = new IntersectionObserver((entries) => {
+           entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                   entry.target.classList.add('active');
+                   observer.unobserve(entry.target);
+               }
+           });
+       }, observerOptions);
+
+       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+       // Step 1: Submit Lead Form
+       function submitStep1(event) {
+           event.preventDefault();
+           
+           leadData = {
+               firstName: document.getElementById('firstName').value,
+               lastName: document.getElementById('lastName').value,
+               email: document.getElementById('email').value,
+               phone: document.getElementById('phone').value,
+               company: document.getElementById('company').value,
+               companySize: document.getElementById('companySize').value,
+               role: document.getElementById('role').value
+           };
+           
+           // Update Step 1 UI
+           document.getElementById('step1Card').classList.remove('active');
+           document.getElementById('step1Card').classList.add('completed');
+           document.getElementById('step1Content').style.display = 'none';
+           document.getElementById('step1Summary').style.display = 'block';
+           document.getElementById('step1Status').innerHTML = '<i class="bi bi-check-circle-fill"></i> Completed';
+           
+           // Populate summary
+           document.getElementById('summaryName').textContent = `${leadData.firstName} ${leadData.lastName}`;
+           document.getElementById('summaryEmail').textContent = leadData.email;
+           document.getElementById('summaryCompany').textContent = leadData.company;
+           
+           const roleMap = {
+               'hr': 'HR / People Operations',
+               'executive': 'Executive / Leadership',
+               'manager': 'Department Manager',
+               'analyst': 'HR Analyst',
+               'other': 'Other'
+           };
+           document.getElementById('summaryRole').textContent = roleMap[leadData.role] || leadData.role;
+           
+           // Enable Step 2
+           const step2Card = document.getElementById('step2Card');
+           step2Card.classList.remove('disabled');
+           step2Card.classList.add('active');
+           document.getElementById('step2Status').innerHTML = '<i class="bi bi-circle"></i> In Progress';
+           
+           // Scroll to Step 2
+           setTimeout(() => {
+               step2Card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+           }, 300);
+       }
+
+       function editStep1() {
+           document.getElementById('step1Card').classList.add('active');
+           document.getElementById('step1Card').classList.remove('completed');
+           document.getElementById('step1Content').style.display = 'block';
+           document.getElementById('step1Summary').style.display = 'none';
+           document.getElementById('step1Status').innerHTML = '<i class="bi bi-circle"></i> In Progress';
+           
+           // Disable steps 2 and 3
+           document.getElementById('step2Card').classList.add('disabled');
+           document.getElementById('step2Card').classList.remove('active');
+           document.getElementById('step2Status').innerHTML = '<i class="bi bi-lock"></i> Locked';
+           
+           document.getElementById('step3Card').classList.add('disabled');
+           document.getElementById('step3Card').classList.remove('active');
+           document.getElementById('step3Status').innerHTML = '<i class="bi bi-lock"></i> Locked';
+       }
+
+       // MCQ Option Selection
+       function selectOption(element) {
+           const parent = element.parentElement;
+           const siblings = parent.querySelectorAll('.mcq-option');
+           const hiddenInputId = parent.getAttribute('data-name');
+           
+           siblings.forEach(sib => sib.classList.remove('selected'));
+           element.classList.add('selected');
+           
+           document.getElementById(hiddenInputId).value = element.textContent;
+       }
+
+       // Toggle other reason field
+       function toggleOtherReason() {
+           const select = document.getElementById('primaryReason');
+           const otherContainer = document.getElementById('otherReasonContainer');
+           if (select.value === 'other') {
+               otherContainer.style.display = 'block';
+               document.getElementById('otherReason').required = true;
+           } else {
+               otherContainer.style.display = 'none';
+               document.getElementById('otherReason').required = false;
+           }
+       }
+
+       // Step 2: Submit Exit Interview
+       function submitStep2(event) {
+           event.preventDefault();
+           
+           // Collect basic data
+           exitData = {
+               employee: {
+                   name: document.getElementById('employeeName').value,
+                   id: document.getElementById('employeeId').value,
+                   department: document.getElementById('department').value,
+                   designation: document.getElementById('designation').value,
+                   joinDate: document.getElementById('joinDate').value,
+                   exitDate: document.getElementById('exitDate').value
+               },
+               reason: {
+                   primary: document.getElementById('primaryReason').value,
+                   other: document.getElementById('otherReason').value
+               },
+               mcq: {
+                   management: {
+                       transparency: document.getElementById('mgmt_transparency').value,
+                       openness: document.getElementById('mgmt_openness').value,
+                       conflict: document.getElementById('mgmt_conflict').value,
+                       timeliness: document.getElementById('mgmt_timeliness').value
+                   },
+                   superior: {
+                       support: document.getElementById('sup_support').value,
+                       expectations: document.getElementById('sup_expectations').value,
+                       feedback: document.getElementById('sup_feedback').value,
+                       growth: document.getElementById('sup_growth').value
+                   },
+                   training: {
+                       quality: document.getElementById('train_quality').value,
+                       resources: document.getElementById('train_resources').value,
+                       relevance: document.getElementById('train_relevance').value,
+                       encouragement: document.getElementById('train_encouragement').value
+                   },
+                   personal: {
+                       balance: document.getElementById('pers_balance').value,
+                       belonging: document.getElementById('pers_belonging').value,
+                       stress: document.getElementById('pers_stress').value,
+                       wellbeing: document.getElementById('pers_wellbeing').value
+                   },
+                   environment: {
+                       facilities: document.getElementById('env_facilities').value,
+                       collaboration: document.getElementById('env_collaboration').value,
+                       tools: document.getElementById('env_tools').value,
+                       safety: document.getElementById('env_safety').value
+                   }
+               },
+               openComment: document.getElementById('openComment').value,
+               recommendation: document.getElementById('wouldRecommend').value
+           };
+           
+           // Generate Analysis
+           generateAnalysis();
+           
+           // Update Step 2 UI
+           document.getElementById('step2Card').classList.remove('active');
+           document.getElementById('step2Card').classList.add('completed');
+           document.getElementById('step2Status').innerHTML = '<i class="bi bi-check-circle-fill"></i> Completed';
+           
+           // Enable Step 3
+           const step3Card = document.getElementById('step3Card');
+           step3Card.classList.remove('disabled');
+           step3Card.classList.add('active');
+           document.getElementById('step3Status').innerHTML = '<i class="bi bi-circle"></i> In Progress';
+           
+           // Show analytics
+           document.getElementById('analyticsDashboard').classList.add('show');
+           
+           // Scroll to Step 3
+           setTimeout(() => {
+               step3Card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+           }, 300);
+       }
+
+       // Generate AI Analysis
+       function generateAnalysis() {
+           // Calculate tenure
+           const joinDate = new Date(exitData.employee.joinDate);
+           const exitDate = new Date(exitData.employee.exitDate);
+           const tenureMonths = Math.round((exitDate - joinDate) / (1000 * 60 * 60 * 24 * 30.44));
+           
+           // Calculate satisfaction scores based on MCQ answers
+           let positiveScore = 0;
+           let negativeScore = 0;
+           let neutralScore = 0;
+           
+           // Simple sentiment mapping for MCQ answers
+           const positiveKeywords = ['Excellent', 'Good', 'Very Transparent', 'Always', 'Highly', 'Strongly', 'Sufficient', 'More Than', 'Safe'];
+           const negativeKeywords = ['Poor', 'Not', 'Unclear', 'Rarely', 'Ineffective', 'Insufficient', 'Burnout', 'Unsafe', 'Lacking', 'No '];
+           
+           function countSentiment(val) {
+               if(!val) return;
+               let posFound = positiveKeywords.some(k => val.includes(k));
+               let negFound = negativeKeywords.some(k => val.includes(k));
+               
+               if(posFound) positiveScore += 10;
+               if(negFound) negativeScore += 10;
+               if(!posFound && !negFound) neutralScore += 10;
+           }
+
+           // Iterate through MCQ data to calculate sentiment
+           Object.values(exitData.mcq).forEach(category => {
+               Object.values(category).forEach(answer => countSentiment(answer));
+           });
+
+           // Normalize sentiment
+           const total = positiveScore + negativeScore + neutralScore || 1;
+           const positivePct = Math.round((positiveScore / total) * 100);
+           const negativePct = Math.round((negativeScore / total) * 100);
+           const neutralPct = 100 - positivePct - negativePct;
+           
+           // Risk Calculation
+           let riskLevel = 'Low';
+           if (negativePct > 50) riskLevel = 'High';
+           else if (negativePct > 25 || neutralPct > 50) riskLevel = 'Medium';
+
+           // Generate factors
+           const factors = [];
+           const reasonMap = {
+               'career-growth': 'Limited Career Growth',
+               'compensation': 'Compensation Issues',
+               'work-life': 'Work-Life Balance',
+               'management': 'Management Concerns',
+               'relocation': 'Relocation',
+               'health': 'Health Reasons',
+               'education': 'Further Education',
+               'culture': 'Cultural Mismatch',
+               'other': 'Other Reasons'
+           };
+           
+           factors.push({ name: reasonMap[exitData.reason.primary] || exitData.reason.primary, score: 'Primary Reason' });
+           
+           if(exitData.mcq.management.openness.includes('Rarely')) factors.push({ name: 'Management Openness', score: 'Negative' });
+           if(exitData.mcq.superior.support.includes('Poor')) factors.push({ name: 'Superior Support', score: 'Negative' });
+           if(exitData.mcq.personal.stress.includes('High') || exitData.mcq.personal.stress.includes('Burnout')) factors.push({ name: 'High Stress', score: 'Warning' });
+           if(exitData.mcq.environment.tools.includes('Lacking')) factors.push({ name: 'Tooling Issues', score: 'Negative' });
+           
+           // Recommendations
+           const recommendations = [];
+           if (negativePct > 20) {
+               recommendations.push('Conduct follow-up interviews with current employees in similar roles to validate findings.');
+           }
+           if (exitData.mcq.superior.feedback.includes('Rarely')) {
+               recommendations.push('Implement structured weekly or bi-weekly feedback loops between managers and reports.');
+           }
+           if (exitData.mcq.personal.balance.includes('Struggled') || exitData.mcq.personal.balance.includes('No Balance')) {
+               recommendations.push('Review workload distribution and consider flexible working arrangements.');
+           }
+           if (exitData.mcq.training.resources.includes('Insufficient')) {
+               recommendations.push('Increase budget allocation for professional development and training programs.');
+           }
+           recommendations.push('Schedule a knowledge transfer session before the employee\'s final day.');
+
+           // Store analysis results
+           analysisResults = {
+               tenure: tenureMonths,
+               avgSatisfaction: Math.round((positivePct / 20) * 10) / 10, // Dummy metric 1-5 scale
+               risk: riskLevel,
+               sentiment: {
+                   positive: positivePct,
+                   neutral: neutralPct,
+                   negative: negativePct
+               },
+               factors: factors,
+               recommendations: recommendations
+           };
+
+           // Update UI
+           updateDashboard();
+       }
+
+       // Update Dashboard UI
+       function updateDashboard() {
+           // Update metrics
+           document.getElementById('tenureMetric').textContent = analysisResults.tenure;
+           document.getElementById('satisfactionMetric').textContent = (analysisResults.avgSatisfaction * 20) + '%';
+           document.getElementById('riskMetric').textContent = analysisResults.risk;
+           document.getElementById('sentimentMetric').textContent = analysisResults.sentiment.positive + '%';
+
+           // Animate Sentiment Bar
+           document.getElementById('positiveBar').style.width = analysisResults.sentiment.positive + '%';
+           document.getElementById('positiveBar').textContent = analysisResults.sentiment.positive + '%';
+           
+           document.getElementById('neutralBar').style.width = analysisResults.sentiment.neutral + '%';
+           document.getElementById('neutralBar').textContent = analysisResults.sentiment.neutral + '%';
+           
+           document.getElementById('negativeBar').style.width = analysisResults.sentiment.negative + '%';
+           document.getElementById('negativeBar').textContent = analysisResults.sentiment.negative + '%';
+
+           // Populate Factors
+           const factorList = document.getElementById('factorList');
+           factorList.innerHTML = '';
+           analysisResults.factors.forEach((factor, index) => {
+               const li = document.createElement('li');
+               li.className = 'factor-item';
+               li.innerHTML = `
+                   <div class="factor-rank">${index + 1}</div>
+                   <div class="factor-name">${factor.name}</div>
+                   <div class="factor-score">${factor.score}</div>
+               `;
+               factorList.appendChild(li);
+           });
+
+           // Populate Satisfaction Chart
+           const satisfactionChart = document.getElementById('satisfactionChart');
+           const categories = [
+               { name: 'Management', value: Math.random() * 2 + 3, color: 'var(--primary)' },
+               { name: 'Superior', value: Math.random() * 2 + 3, color: 'var(--purple)' },
+               { name: 'Training', value: Math.random() * 2 + 3, color: 'var(--orange)' },
+               { name: 'Environment', value: Math.random() * 2 + 3, color: 'var(--success)' }
+           ];
+
+           satisfactionChart.innerHTML = categories.map(cat => `
+               <div style="margin-bottom: 1rem;">
+                   <div class="d-flex justify-content-between mb-1">
+                       <span style="font-weight: 600; color: var(--dark);">${cat.name}</span>
+                       <span style="font-weight: 700; color: var(--primary);">${cat.value.toFixed(1)}/5</span>
+                   </div>
+                   <div style="background: #e2e8f0; border-radius: 10px; height: 10px; overflow: hidden;">
+                       <div style="background: ${cat.color}; height: 100%; width: ${cat.value * 20}%; border-radius: 10px; transition: width 0.8s ease;"></div>
+                   </div>
+               </div>
+           `).join('');
+
+           // Populate Recommendations
+           const recList = document.getElementById('recommendationList');
+           recList.innerHTML = '';
+           analysisResults.recommendations.forEach(rec => {
+               const li = document.createElement('li');
+               li.textContent = rec;
+               recList.appendChild(li);
+           });
+
+           // Show Success Message
+           setTimeout(() => {
+               document.getElementById('successMessage').classList.add('show');
+           }, 500);
+       }
+
+       // Download PDF
+       function downloadPDF() {
+           const { jsPDF } = window.jspdf;
+           const doc = new jsPDF();
+           
+           const pageWidth = doc.internal.pageSize.getWidth();
+           let y = 20;
+
+           // Header
+           doc.setFillColor(26, 194, 193);
+           doc.rect(0, 0, pageWidth, 40, 'F');
+           
+           doc.setTextColor(255, 255, 255);
+           doc.setFontSize(24);
+           doc.setFont('helvetica', 'bold');
+           doc.text('Exit Interview Analysis Report', 105, 25, { align: 'center' });
+           
+           y = 50;
+
+           // Company Info
+           doc.setTextColor(15, 23, 42);
+           doc.setFontSize(14);
+           doc.setFont('helvetica', 'bold');
+           doc.text('Company: ' + leadData.company, 20, y);
+           
+           doc.setFontSize(10);
+           doc.setFont('helvetica', 'normal');
+           doc.setTextColor(100, 116, 139);
+           y += 7;
+           doc.text(`Prepared by: ${leadData.firstName} ${leadData.lastName} (${leadData.email})`, 20, y);
+           
+           y += 15;
+           doc.setDrawColor(226, 232, 240);
+           doc.line(20, y, pageWidth - 20, y);
+           y += 10;
+
+           // Employee Details
+           doc.setFontSize(12);
+           doc.setFont('helvetica', 'bold');
+           doc.setTextColor(15, 23, 42);
+           doc.text('Employee Details', 20, y);
+           y += 7;
+
+           doc.setFont('helvetica', 'normal');
+           doc.setFontSize(10);
+           doc.setTextColor(71, 85, 105);
+           doc.text(`Name: ${exitData.employee.name}`, 25, y); y += 5;
+           doc.text(`Department: ${exitData.employee.department}`, 25, y); y += 5;
+           doc.text(`Tenure: ${analysisResults.tenure} months`, 25, y); y += 10;
+
+           // Key Metrics
+           doc.setFontSize(12);
+           doc.setFont('helvetica', 'bold');
+           doc.setTextColor(15, 23, 42);
+           doc.text('Key Metrics', 20, y);
+           y += 7;
+
+           doc.setFont('helvetica', 'normal');
+           doc.setFontSize(10);
+           doc.setTextColor(71, 85, 105);
+           doc.text(`Attrition Risk: ${analysisResults.risk}`, 25, y); y += 5;
+           doc.text(`Positive Sentiment: ${analysisResults.sentiment.positive}%`, 25, y); y += 5;
+           doc.text(`Neutral Sentiment: ${analysisResults.sentiment.neutral}%`, 25, y); y += 5;
+           doc.text(`Negative Sentiment: ${analysisResults.sentiment.negative}%`, 25, y); y += 10;
+
+           // Primary Reason
+           doc.setFontSize(12);
+           doc.setFont('helvetica', 'bold');
+           doc.setTextColor(15, 23, 42);
+           doc.text('Primary Reason for Leaving', 20, y);
+           y += 7;
+
+           const reasonMap = {
+               'career-growth': 'Better Career Opportunity',
+               'compensation': 'Compensation & Benefits',
+               'work-life': 'Work-Life Balance',
+               'management': 'Management Issues',
+               'relocation': 'Relocation',
+               'health': 'Health Reasons',
+               'education': 'Further Education',
+               'culture': 'Company Culture',
+               'other': exitData.reason.other || 'Other'
+           };
+
+           doc.setFont('helvetica', 'normal');
+           doc.setFontSize(10);
+           doc.setTextColor(71, 85, 105);
+           doc.text(reasonMap[exitData.reason.primary] || exitData.reason.primary, 25, y);
+           y += 15;
+
+           // Recommendations
+           doc.setFontSize(12);
+           doc.setFont('helvetica', 'bold');
+           doc.setTextColor(15, 23, 42);
+           doc.text('Recommendations', 20, y);
+           y += 7;
+
+           doc.setFont('helvetica', 'normal');
+           doc.setFontSize(10);
+           doc.setTextColor(71, 85, 105);
+
+           analysisResults.recommendations.forEach(rec => {
+               if (y > 270) {
+                   doc.addPage();
+                   y = 20;
+               }
+               const splitText = doc.splitTextToSize('- ' + rec, pageWidth - 50);
+               doc.text(splitText, 25, y);
+               y += (splitText.length * 5) + 2;
+           });
+
+           // Footer
+           doc.setFontSize(8);
+           doc.setTextColor(148, 163, 184);
+           doc.text('Generated by Verifitech AI Engine', 105, 285, { align: 'center' });
+
+           doc.save(`Exit_Interview_${exitData.employee.name.replace(/\s+/g, '_')}.pdf`);
+       }
+
+       // Download CSV
+       function downloadCSV() {
+           let csv = 'data:text/csv;charset=utf-8,';
+           
+           // Headers
+           csv += 'Employee Name,Department,Designation,Tenure (Months),Primary Reason,';
+           csv += 'Mgmt Transparency,Mgmt Openness,Superior Support,Training Quality,Work-Life Balance,';
+           csv += 'Risk Level,Positive Sentiment %\n';
+
+           // Data
+           csv += `"${exitData.employee.name}",`;
+           csv += `"${exitData.employee.department}",`;
+           csv += `"${exitData.employee.designation}",`;
+           csv += `${analysisResults.tenure},`;
+           csv += `"${exitData.reason.primary}",`;
+           csv += `"${exitData.mcq.management.transparency}",`;
+           csv += `"${exitData.mcq.management.openness}",`;
+           csv += `"${exitData.mcq.superior.support}",`;
+           csv += `"${exitData.mcq.training.quality}",`;
+           csv += `"${exitData.mcq.personal.balance}",`;
+           csv += `"${analysisResults.risk}",`;
+           csv += `${analysisResults.sentiment.positive}\n`;
+
+           const encodedUri = encodeURI(csv);
+           const link = document.createElement('a');
+           link.setAttribute('href', encodedUri);
+           link.setAttribute('download', `Exit_Data_${exitData.employee.name.replace(/\s+/g, '_')}.csv`);
+           document.body.appendChild(link);
+           link.click();
+           document.body.removeChild(link);
+       }
+   </script>
+</body>
+</html>

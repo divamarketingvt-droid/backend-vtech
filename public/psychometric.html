@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Psychometric Assessment | AI Proctored | Verifitech</title>
+   <meta name="description" content="Evaluate Cognitive Ability, Social Skills, and Integrity with AI-driven proctoring.">
+   
+   <!-- Bootstrap 5 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Icons -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   
+   <style>
+       :root {
+           --primary: #1ac2c1;
+           --primary-dark: #16a8a7;
+           --primary-light: #e0f7f7;
+           --dark: #0f172a;
+           --navy: #1e293b;
+           --gray: #64748b;
+           --light-gray: #f8fafc;
+           --white: #ffffff;
+           --success: #10b981;
+           --warning: #f59e0b;
+           --danger: #ef4444;
+           --cognitive: #6366f1;
+           --social: #ec4899;
+           --integrity: #f59e0b;
+       }
+       
+       * { margin: 0; padding: 0; box-sizing: border-box; }
+       body { font-family: 'Inter', sans-serif; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+       html { scroll-behavior: smooth; }
+       
+       /* Navbar */
+       .navbar { padding: 0; transition: all 0.3s; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); height: 80px; }
+       .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+       .navbar-brand { font-weight: 800; font-size: 1.8rem; color: var(--dark); display: flex; flex-direction: column; line-height: 1.1; }
+       .navbar-brand span { color: var(--primary); }
+       .brand-tagline { font-size: 0.65rem; font-weight: 500; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+       .nav-link { font-weight: 600; color: var(--navy); margin: 0 0.6rem; font-size: 0.9rem; padding: 2rem 0.5rem !important; }
+       .nav-link:hover { color: var(--primary); }
+       .btn-sales { background: var(--primary); color: white !important; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; margin-left: 1rem; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3); text-decoration: none; transition: all 0.3s; }
+       .btn-sales:hover { background: var(--primary-dark); transform: translateY(-1px); }
+       
+       /* Hero */
+       .trial-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #e0f7f7 100%); position: relative; overflow: hidden; }
+       .trial-hero::before { content: ''; position: absolute; top: -30%; left: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(26, 194, 193, 0.12) 0%, transparent 60%); border-radius: 50%; animation: pulse 8s infinite; }
+       @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+       .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(26, 194, 193, 0.15); color: var(--primary-dark); border-radius: 50px; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(26, 194, 193, 0.3); }
+       .trial-hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--dark); }
+       .trial-hero .lead { font-size: 1.2rem; color: var(--gray); margin-bottom: 2rem; }
+       .trial-features { display: flex; gap: 2rem; flex-wrap: wrap; }
+       .trial-feature { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--navy); }
+       .trial-feature i { color: var(--success); }
+
+       /* Process Section */
+       .process-section { background: var(--light-gray); padding: 60px 0; }
+       
+       /* Step Cards */
+       .step-card { background: white; border-radius: 24px; padding: 2.5rem; margin-bottom: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 2px solid transparent; transition: all 0.3s; position: relative; }
+       .step-card.active { border-color: var(--primary); box-shadow: 0 20px 60px rgba(26, 194, 193, 0.15); }
+       .step-card.completed { border-color: var(--success); background: linear-gradient(135deg, #f0fdf4 0%, white 100%); }
+       .step-card.disabled { opacity: 0.5; pointer-events: none; }
+       
+       .step-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 1.5rem; }
+       .step-number-badge { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; flex-shrink: 0; }
+       .step-card.active .step-number-badge { background: var(--primary); color: white; }
+       .step-card.completed .step-number-badge { background: var(--success); color: white; }
+       .step-card:not(.active):not(.completed) .step-number-badge { background: #f1f5f9; color: var(--gray); }
+       .step-title-group h3 { font-size: 1.4rem; font-weight: 700; margin: 0; }
+       .step-title-group p { margin: 0; color: var(--gray); font-size: 0.9rem; }
+       .step-status { margin-left: auto; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+       .step-card.active .step-status { background: var(--primary-light); color: var(--primary-dark); }
+       .step-card.completed .step-status { background: #dcfce7; color: #166534; }
+       
+       /* Forms */
+       .lead-form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+       .form-floating-custom { position: relative; }
+       .form-floating-custom.full-width { grid-column: 1 / -1; }
+       .form-floating-custom input, .form-floating-custom select { width: 100%; padding: 1rem 1.2rem; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; transition: all 0.3s; background: white; }
+       .form-floating-custom input:focus, .form-floating-custom select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1); }
+       .form-floating-custom label { position: absolute; left: 1.2rem; top: 1rem; font-size: 1rem; color: var(--gray); pointer-events: none; transition: all 0.3s; background: white; padding: 0 0.25rem; }
+       .form-floating-custom input:focus + label, .form-floating-custom input:not(:placeholder-shown) + label, .form-floating-custom select:valid + label { top: -0.6rem; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+       
+       .btn-step-action { background: var(--primary); color: white; border: none; padding: 1rem 2.5rem; border-radius: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35); margin-top: 1rem; }
+       .btn-step-action:hover { background: var(--primary-dark); color: white; transform: translateY(-2px); }
+       .btn-edit { background: white; color: var(--primary); border: 2px solid var(--primary); padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; margin-top: 1rem; transition: all 0.3s; }
+       .btn-edit:hover { background: var(--primary-light); }
+       
+       /* Assessment Content */
+       .assessment-section { margin-bottom: 2.5rem; }
+       .assessment-section-title { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+       .assessment-section-title i { font-size: 1.2rem; }
+       .question-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+       .question-text { font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; font-size: 0.95rem; }
+       
+       .mcq-options { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+       .mcq-option { flex: 1 1 45%; padding: 0.75rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 500; color: var(--navy); background: white; text-align: center; transition: all 0.2s; }
+       .mcq-option:hover { border-color: var(--primary); background: var(--primary-light); }
+       .mcq-option.selected { border-color: var(--primary); background: var(--primary); color: white; }
+       
+       .likert-scale { display: flex; justify-content: space-between; gap: 0.5rem; }
+       .likert-option { flex: 1; padding: 0.6rem; border: 2px solid #e2e8f0; border-radius: 8px; text-align: center; cursor: pointer; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; background: white; }
+       .likert-option:hover { border-color: var(--primary); }
+       .likert-option.selected { background: var(--primary); border-color: var(--primary); color: white; }
+
+       /* Camera Widget */
+       .camera-widget { position: fixed; bottom: 30px; right: 30px; width: 300px; background: var(--dark); border-radius: 16px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.4); z-index: 1050; border: 3px solid var(--primary); display: none; animation: slideInUp 0.5s ease; }
+       .camera-widget.active { display: block; }
+       @keyframes slideInUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+       .camera-header { background: rgba(0,0,0,0.5); padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between; color: white; font-size: 0.8rem; font-weight: 600; position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+       .rec-dot { width: 8px; height: 8px; background: var(--danger); border-radius: 50%; display: inline-block; margin-right: 6px; animation: blink 1.5s infinite; }
+       @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+       .camera-video { width: 100%; height: auto; display: block; transform: scaleX(-1); background: #000; }
+       .ai-log-overlay { position: absolute; bottom: 40px; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); padding: 0.5rem; font-size: 0.7rem; color: var(--primary); font-family: 'Courier New', monospace; height: 60px; overflow: hidden; border-top: 1px solid rgba(26, 194, 193, 0.3); }
+       .log-entry { opacity: 0.7; margin-bottom: 2px; white-space: nowrap; }
+       .log-entry.alert { color: var(--warning); font-weight: bold; opacity: 1; }
+       .camera-footer { background: var(--primary); color: white; text-align: center; font-size: 0.75rem; font-weight: 600; padding: 0.4rem; }
+       .camera-placeholder { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: var(--navy); color: var(--gray); text-align: center; font-size: 0.9rem; }
+
+       /* Analytics Dashboard */
+       .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+       .metric-card { background: white; border-radius: 16px; padding: 1.5rem; text-align: center; border: 2px solid #f1f5f9; transition: all 0.3s; }
+       .metric-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+       .metric-card.cognitive { border-color: rgba(99, 102, 241, 0.2); background: linear-gradient(135deg, #eef2ff, white); }
+       .metric-card.social { border-color: rgba(236, 72, 153, 0.2); background: linear-gradient(135deg, #fdf2f8, white); }
+       .metric-card.integrity { border-color: rgba(245, 158, 11, 0.2); background: linear-gradient(135deg, #fffbeb, white); }
+       .metric-card.behavior { border-color: rgba(16, 185, 129, 0.2); background: linear-gradient(135deg, #ecfdf5, white); }
+       .metric-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; }
+       .metric-card.cognitive .metric-icon { background: var(--cognitive); }
+       .metric-card.social .metric-icon { background: var(--social); }
+       .metric-card.integrity .metric-icon { background: var(--integrity); }
+       .metric-card.behavior .metric-icon { background: var(--success); }
+       .metric-value { font-size: 2rem; font-weight: 800; color: var(--dark); }
+       .metric-label { font-size: 0.85rem; color: var(--gray); font-weight: 600; }
+       
+       .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+       .chart-card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+       .chart-title { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem; display: flex; justify-content: space-between; }
+       .flag-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; }
+       .flag-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; flex-shrink: 0; }
+       .flag-icon.warning { background: var(--warning); }
+       .flag-icon.danger { background: var(--danger); }
+       .flag-text { flex: 1; font-size: 0.9rem; }
+
+       /* Info & Footer */
+       .info-section { padding: 80px 0; background: white; }
+       .section-header { margin-bottom: 3rem; text-align: center; }
+       .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+       .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+       .info-card { text-align: center; padding: 2rem; border-radius: 20px; background: var(--light-gray); }
+       .info-icon-large { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 2rem; margin: 0 auto 1.5rem; background: var(--primary-light); }
+       footer { background: var(--dark); color: white; padding: 40px 0; }
+
+       @media (max-width: 991px) {
+           .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+           .charts-grid { grid-template-columns: 1fr; }
+           .lead-form-grid { grid-template-columns: 1fr; }
+           .camera-widget { width: 180px; bottom: 15px; right: 15px; }
+       }
+   </style>
+</head>
+<body>
+
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg fixed-top">
+       <div class="container">
+           <a class="navbar-brand" href="#">Verifi<span>tech</span><span class="brand-tagline">Trust Simplified</span></a>
+           <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav mx-auto">
+                   <li class="nav-item"><a class="nav-link" href="#process">Assessment</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#info">Features</a></li>
+               </ul>
+               <a href="#process" class="btn btn-sales">Start Free</a>
+           </div>
+       </div>
+   </nav>
+
+   <!-- Hero -->
+   <section class="trial-hero">
+       <div class="container">
+           <div class="row justify-content-center text-center">
+               <div class="col-lg-8">
+                   <div class="hero-badge"><i class="bi bi-shield-check"></i> AI-Proctored Assessment</div>
+                   <h1>Psychometric Analysis</h1>
+                   <p class="lead mx-auto">Evaluate Cognitive Ability, Social Skills, and Integrity with live camera monitoring and behavioral analytics.</p>
+                   <div class="trial-features justify-content-center">
+                       <div class="trial-feature"><i class="bi bi-check-circle-fill"></i><span>Cognitive Analysis</span></div>
+                       <div class="trial-feature"><i class="bi bi-check-circle-fill"></i><span>Behavioral Flags</span></div>
+                       <div class="trial-feature"><i class="bi bi-check-circle-fill"></i><span>Integrity Score</span></div>
+                   </div>
+                   <div class="mt-5">
+                       <a href="#process" class="btn btn-lg px-5 py-3 rounded-pill fw-bold" style="background: var(--primary); color: white;">
+                           Start Test <i class="bi bi-arrow-down ms-2"></i>
+                       </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <!-- Process Section -->
+   <section class="process-section" id="process">
+       <div class="container">
+           
+           <!-- Step 1 -->
+           <div class="step-card active" id="step1Card">
+               <div class="step-header">
+                   <div class="step-number-badge">1</div>
+                   <div class="step-title-group">
+                       <h3>Candidate Details</h3>
+                       <p>Enter your information to begin</p>
+                   </div>
+                   <div class="step-status" id="step1Status"><i class="bi bi-circle"></i> In Progress</div>
+               </div>
+               <div class="step-content" id="step1Content">
+                   <form id="leadForm" onsubmit="submitStep1(event)">
+                       <div class="lead-form-grid">
+                           <div class="form-floating-custom">
+                               <input type="text" id="firstName" placeholder=" " required>
+                               <label>First Name *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <input type="text" id="lastName" placeholder=" " required>
+                               <label>Last Name *</label>
+                           </div>
+                           <div class="form-floating-custom full-width">
+                               <input type="email" id="email" placeholder=" " required>
+                               <label>Email Address *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <input type="text" id="role" placeholder=" " required>
+                               <label>Applied Role *</label>
+                           </div>
+                           <div class="form-floating-custom">
+                               <input type="tel" id="phone" placeholder=" " required>
+                               <label>Phone Number *</label>
+                           </div>
+                       </div>
+                       <button type="submit" class="btn-step-action">Begin Assessment <i class="bi bi-arrow-right"></i></button>
+                   </form>
+               </div>
+               <div class="step-summary" id="step1Summary" style="display:none; padding: 1rem 0;">
+                   <div class="row">
+                       <div class="col-md-6">
+                           <p class="mb-1"><strong>Name:</strong> <span id="sumName"></span></p>
+                           <p><strong>Email:</strong> <span id="sumEmail"></span></p>
+                       </div>
+                       <div class="col-md-6">
+                           <p class="mb-1"><strong>Role:</strong> <span id="sumRole"></span></p>
+                           <p><strong>Phone:</strong> <span id="sumPhone"></span></p>
+                       </div>
+                   </div>
+                   <button class="btn-edit" onclick="editStep1()"><i class="bi bi-pencil"></i> Edit</button>
+               </div>
+           </div>
+
+           <!-- Step 2 -->
+           <div class="step-card disabled" id="step2Card">
+               <div class="step-header">
+                   <div class="step-number-badge">2</div>
+                   <div class="step-title-group">
+                       <h3>Assessment</h3>
+                       <p>Complete all sections (Camera Active)</p>
+                   </div>
+                   <div class="step-status" id="step2Status"><i class="bi bi-lock"></i> Locked</div>
+               </div>
+               <div class="step-content" id="step2Content">
+                   <div class="alert alert-warning d-flex align-items-center mb-4" style="background:#fffbeb; border-color:#f59e0b; color:#92400e;">
+                       <i class="bi bi-camera-video-fill me-2 fs-5"></i>
+                       <div><strong>Important:</strong> Your camera is active and being monitored for integrity.</div>
+                   </div>
+                   
+                   <form id="assessmentForm" onsubmit="submitStep2(event)">
+                       
+                       <!-- Section 1: Cognitive -->
+                       <div class="assessment-section">
+                           <div class="assessment-section-title"><i class="bi bi-lightning-charge" style="color:var(--cognitive)"></i> Cognitive Ability</div>
+                           
+                           <!-- Q1 -->
+                           <div class="question-card">
+                               <div class="question-text">1. Logical: If all roses are flowers, and some flowers fade quickly, can we conclude that some roses fade quickly?</div>
+                               <div class="mcq-options" data-name="cog_1">
+                                   <div class="mcq-option" onclick="selectOption(this)">Yes</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">No</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Uncertain</div>
+                               </div>
+                               <input type="hidden" id="cog_1" required>
+                           </div>
+                           <!-- Q2 -->
+                           <div class="question-card">
+                               <div class="question-text">2. Numerical: A shirt costs $20. If it is on sale for 25% off, what is the new price?</div>
+                               <div class="mcq-options" data-name="cog_2">
+                                   <div class="mcq-option" onclick="selectOption(this)">$15</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">$16</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">$18</div>
+                               </div>
+                               <input type="hidden" id="cog_2" required>
+                           </div>
+                           <!-- Q3 -->
+                           <div class="question-card">
+                               <div class="question-text">3. Pattern: What comes next in the sequence: A, C, E, G, ?</div>
+                               <div class="mcq-options" data-name="cog_3">
+                                   <div class="mcq-option" onclick="selectOption(this)">H</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">I</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">J</div>
+                               </div>
+                               <input type="hidden" id="cog_3" required>
+                           </div>
+                       </div>
+
+                       <!-- Section 2: Social -->
+                       <div class="assessment-section">
+                           <div class="assessment-section-title"><i class="bi bi-people" style="color:var(--social)"></i> Social & Behavioural Skills</div>
+                           
+                           <!-- Q1 -->
+                           <div class="question-card">
+                               <div class="question-text">1. I find it easy to stay calm when a teammate disagrees with me.</div>
+                               <div class="likert-scale" data-name="soc_1">
+                                   <div class="likert-option" onclick="selectLikert(this)">Disagree</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Neutral</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Agree</div>
+                               </div>
+                               <input type="hidden" id="soc_1" required>
+                           </div>
+                           <!-- Q2 -->
+                           <div class="question-card">
+                               <div class="question-text">2. I enjoy collaborating with others rather than working alone.</div>
+                               <div class="likert-scale" data-name="soc_2">
+                                   <div class="likert-option" onclick="selectLikert(this)">Disagree</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Neutral</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Agree</div>
+                               </div>
+                               <input type="hidden" id="soc_2" required>
+                           </div>
+                           <!-- Q3 -->
+                           <div class="question-card">
+                               <div class="question-text">3. I adapt my communication style based on who I am talking to.</div>
+                               <div class="likert-scale" data-name="soc_3">
+                                   <div class="likert-option" onclick="selectLikert(this)">Disagree</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Neutral</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Agree</div>
+                               </div>
+                               <input type="hidden" id="soc_3" required>
+                           </div>
+                       </div>
+
+                       <!-- Section 3: Integrity -->
+                       <div class="assessment-section">
+                           <div class="assessment-section-title"><i class="bi bi-shield-lock" style="color:var(--integrity)"></i> Integrity Factors</div>
+                           
+                           <!-- Q1 -->
+                           <div class="question-card">
+                               <div class="question-text">1. You find a wallet with $100 in it. No one is around. What do you do?</div>
+                               <div class="mcq-options" data-name="int_1">
+                                   <div class="mcq-option" onclick="selectOption(this)">Keep the money</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Check for ID to return it</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Leave it there</div>
+                               </div>
+                               <input type="hidden" id="int_1" required>
+                           </div>
+                           <!-- Q2 -->
+                           <div class="question-card">
+                               <div class="question-text">2. A friend asks you to lie for them to cover a mistake at work.</div>
+                               <div class="mcq-options" data-name="int_2">
+                                   <div class="mcq-option" onclick="selectOption(this)">Agree to help a friend</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Refuse to lie</div>
+                                   <div class="mcq-option" onclick="selectOption(this)">Suggest they tell the truth</div>
+                               </div>
+                               <input type="hidden" id="int_2" required>
+                           </div>
+                           <!-- Q3 -->
+                           <div class="question-card">
+                               <div class="question-text">3. How strictly do you follow company rules even if no one is watching?</div>
+                               <div class="likert-scale" data-name="int_3">
+                                   <div class="likert-option" onclick="selectLikert(this)">Rarely</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Sometimes</div>
+                                   <div class="likert-option" onclick="selectLikert(this)">Always</div>
+                               </div>
+                               <input type="hidden" id="int_3" required>
+                           </div>
+                       </div>
+
+                       <button type="submit" class="btn-step-action">Generate Report <i class="bi bi-clipboard-data"></i></button>
+                   </form>
+               </div>
+           </div>
+
+           <!-- Step 3: Report -->
+           <div class="step-card disabled" id="step3Card">
+               <div class="step-header">
+                   <div class="step-number-badge">3</div>
+                   <div class="step-title-group">
+                       <h3>Analysis Report</h3>
+                       <p>Scores and Behavior Analysis</p>
+                   </div>
+                   <div class="step-status" id="step3Status"><i class="bi bi-lock"></i> Locked</div>
+               </div>
+               <div class="step-content" id="step3Content">
+                   <div class="analytics-dashboard" id="analyticsDashboard">
+                       
+                       <div class="metrics-grid">
+                           <div class="metric-card cognitive">
+                               <div class="metric-icon"><i class="bi bi-lightning-charge"></i></div>
+                               <div class="metric-value" id="valCog">0%</div>
+                               <div class="metric-label">Cognitive</div>
+                           </div>
+                           <div class="metric-card social">
+                               <div class="metric-icon"><i class="bi bi-heart"></i></div>
+                               <div class="metric-value" id="valSoc">0%</div>
+                               <div class="metric-label">Social</div>
+                           </div>
+                           <div class="metric-card integrity">
+                               <div class="metric-icon"><i class="bi bi-shield-check"></i></div>
+                               <div class="metric-value" id="valInt">0%</div>
+                               <div class="metric-label">Integrity</div>
+                           </div>
+                           <div class="metric-card behavior">
+                               <div class="metric-icon"><i class="bi bi-eye"></i></div>
+                               <div class="metric-value" id="valFocus">0%</div>
+                               <div class="metric-label">Focus Score</div>
+                           </div>
+                       </div>
+
+                       <div class="charts-grid">
+                           <div class="chart-card">
+                               <div class="chart-title"><span>AI Proctoring Flags</span></div>
+                               <div id="flagList"></div>
+                           </div>
+                           <div class="chart-card">
+                               <div class="chart-title"><span>Overall Assessment</span></div>
+                               <p id="reportSum" style="color:var(--gray); font-size:0.95rem;"></p>
+                           </div>
+                       </div>
+
+                       <div class="text-center">
+                           <button onclick="downloadPDF()" class="btn btn-lg px-5 py-3 rounded-pill fw-bold" style="background: var(--dark); color: white;">
+                               <i class="bi bi-download me-2"></i> Download Report
+                           </button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+       </div>
+   </section>
+
+   <!-- Camera Widget -->
+   <div id="cameraWidget" class="camera-widget">
+       <div class="camera-header">
+           <span><span class="rec-dot"></span>REC</span>
+           <span><i class="bi bi-webcam"></i></span>
+       </div>
+       <video id="cameraFeed" class="camera-video" autoplay playsinline muted></video>
+       <div id="cameraPlaceholder" class="camera-placeholder" style="display:none;">
+           <div><i class="bi bi-camera-video-off fs-3 d-block mb-2"></i>Camera Unavailable</div>
+       </div>
+       <div class="ai-log-overlay" id="aiLog"><div class="log-entry">Initializing...</div></div>
+       <div class="camera-footer">Monitoring Active</div>
+   </div>
+
+   <!-- Info Section -->
+   <section class="info-section" id="info">
+       <div class="container">
+           <div class="section-header">
+               <h2 class="section-title">Secure & Reliable</h2>
+               <p class="text-muted">Our AI ensures test integrity.</p>
+           </div>
+           <div class="info-grid">
+               <div class="info-card">
+                   <div class="info-icon-large"><i class="bi bi-cpu"></i></div>
+                   <h5>AI Analysis</h5>
+                   <p class="text-muted small">Real-time behavior processing.</p>
+               </div>
+               <div class="info-card">
+                   <div class="info-icon-large"><i class="bi bi-shield-lock"></i></div>
+                   <h5>Data Security</h5>
+                   <p class="text-muted small">Encrypted video streams.</p>
+               </div>
+               <div class="info-card">
+                   <div class="info-icon-large"><i class="bi bi-graph-up"></i></div>
+                   <h5>Actionable Reports</h5>
+                   <p class="text-muted small">Hiring decision support.</p>
+               </div>
+           </div>
+       </div>
+   </section>
+
+   <footer>
+       <div class="container text-center">
+           <p class="mb-0">&copy; 2026 Verifitech Solutions Pvt Ltd.</p>
+       </div>
+   </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script>
+       let leadData = {};
+       let analysisResults = {};
+       let videoStream = null;
+       let proctorInterval = null;
+       let behaviorData = { focus: 100, flags: [], log: [] };
+
+       window.addEventListener('scroll', () => document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50));
+
+       // --- Camera & Proctoring ---
+       function addLog(msg, isAlert=false) {
+           const logEl = document.getElementById('aiLog');
+           const entry = document.createElement('div');
+           entry.className = 'log-entry' + (isAlert ? ' alert' : '');
+           entry.textContent = `> ${msg}`;
+           logEl.prepend(entry);
+           if(logEl.children.length > 6) logEl.lastChild.remove();
+           behaviorData.log.push(msg);
+       }
+
+       function startCamera() {
+           const widget = document.getElementById('cameraWidget');
+           const video = document.getElementById('cameraFeed');
+           const placeholder = document.getElementById('cameraPlaceholder');
+           
+           widget.classList.add('active');
+           
+           navigator.mediaDevices.getUserMedia({ video: true })
+               .then(stream => {
+                   videoStream = stream;
+                   video.srcObject = stream;
+                   video.style.display = 'block';
+                   placeholder.style.display = 'none';
+                   addLog("Camera access granted");
+                   startBehaviorSim();
+               })
+               .catch(err => {
+                   console.error(err);
+                   video.style.display = 'none';
+                   placeholder.style.display = 'flex';
+                   addLog("Camera access denied", true);
+                   behaviorData.flags.push("Camera Access Denied");
+                   behaviorData.focus = 0;
+               });
+       }
+
+       function startBehaviorSim() {
+           const events = [
+               { msg: "Face detected", pts: 0 },
+               { msg: "High focus detected", pts: 2 },
+               { msg: "Environment stable", pts: 1 },
+               { msg: "Looking away", pts: -5, flag: "Looking Away" },
+               { msg: "Possible distraction", pts: -3, flag: "Distraction Detected" }
+           ];
+
+           proctorInterval = setInterval(() => {
+               const ev = events[Math.floor(Math.random() * events.length)];
+               addLog(ev.msg, ev.pts < 0);
+               
+               behaviorData.focus = Math.max(0, Math.min(100, behaviorData.focus + ev.pts));
+               
+               if(ev.flag && behaviorData.flags.length < 5) {
+                   behaviorData.flags.push(ev.flag);
+               }
+           }, 4000);
+       }
+
+       function stopCamera() {
+           if(videoStream) videoStream.getTracks().forEach(t => t.stop());
+           if(proctorInterval) clearInterval(proctorInterval);
+           document.getElementById('cameraWidget').classList.remove('active');
+       }
+
+       // --- Step Logic ---
+       function submitStep1(e) {
+           e.preventDefault();
+           leadData = {
+               name: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+               email: document.getElementById('email').value,
+               role: document.getElementById('role').value,
+               phone: document.getElementById('phone').value
+           };
+
+           // UI Updates
+           document.getElementById('step1Card').classList.replace('active', 'completed');
+           document.getElementById('step1Content').style.display = 'none';
+           document.getElementById('step1Summary').style.display = 'block';
+           document.getElementById('step1Status').innerHTML = '<i class="bi bi-check-circle-fill"></i> Completed';
+           
+           // Fill Summary
+           document.getElementById('sumName').textContent = leadData.name;
+           document.getElementById('sumEmail').textContent = leadData.email;
+           document.getElementById('sumRole').textContent = leadData.role;
+           document.getElementById('sumPhone').textContent = leadData.phone;
+
+           // Enable Step 2
+           document.getElementById('step2Card').classList.remove('disabled');
+           document.getElementById('step2Card').classList.add('active');
+           document.getElementById('step2Status').innerHTML = '<i class="bi bi-circle"></i> In Progress';
+
+           startCamera();
+           document.getElementById('step2Card').scrollIntoView({ behavior: 'smooth' });
+       }
+
+       function editStep1() {
+           document.getElementById('step1Card').classList.replace('completed', 'active');
+           document.getElementById('step1Content').style.display = 'block';
+           document.getElementById('step1Summary').style.display = 'none';
+           document.getElementById('step2Card').classList.add('disabled');
+           document.getElementById('step2Card').classList.remove('active');
+           stopCamera();
+       }
+
+       // --- Assessment Logic ---
+       function selectOption(el) {
+           el.parentElement.querySelectorAll('.mcq-option').forEach(o => o.classList.remove('selected'));
+           el.classList.add('selected');
+           document.getElementById(el.parentElement.getAttribute('data-name')).value = el.textContent;
+       }
+
+       function selectLikert(el) {
+           el.parentElement.querySelectorAll('.likert-option').forEach(o => o.classList.remove('selected'));
+           el.classList.add('selected');
+           document.getElementById(el.parentElement.getAttribute('data-name')).value = el.textContent;
+       }
+
+       function submitStep2(e) {
+           e.preventDefault();
+           stopCamera();
+
+           // Simple Scoring Logic
+           let cogScore = 0;
+           if(document.getElementById('cog_1').value === 'Uncertain') cogScore += 33;
+           if(document.getElementById('cog_2').value === '$15') cogScore += 33; // 20 * 0.75 = 15
+           if(document.getElementById('cog_3').value === 'I') cogScore += 33; // A(+2), C(+2), E(+2), G(+2) = I
+           
+           let socScore = 0;
+           if(document.getElementById('soc_1').value === 'Agree') socScore += 33;
+           if(document.getElementById('soc_2').value === 'Agree') socScore += 33;
+           if(document.getElementById('soc_3').value === 'Agree') socScore += 33;
+
+           let intScore = 0;
+           if(document.getElementById('int_1').value === 'Check for ID to return it') intScore += 33;
+           if(document.getElementById('int_2').value === 'Refuse to lie') intScore += 33;
+           if(document.getElementById('int_3').value === 'Always') intScore += 33;
+
+           analysisResults = {
+               cognitive: Math.min(100, cogScore),
+               social: Math.min(100, socScore),
+               integrity: Math.min(100, intScore),
+               behavior: behaviorData
+           };
+
+           // UI Updates
+           document.getElementById('step2Card').classList.replace('active', 'completed');
+           document.getElementById('step3Card').classList.remove('disabled');
+           document.getElementById('step3Card').classList.add('active');
+           document.getElementById('analyticsDashboard').classList.add('show');
+           
+           updateDashboard();
+           document.getElementById('step3Card').scrollIntoView({ behavior: 'smooth' });
+       }
+
+       function updateDashboard() {
+           document.getElementById('valCog').textContent = analysisResults.cognitive + '%';
+           document.getElementById('valSoc').textContent = analysisResults.social + '%';
+           document.getElementById('valInt').textContent = analysisResults.integrity + '%';
+           document.getElementById('valFocus').textContent = analysisResults.behavior.focus + '%';
+
+           const flagList = document.getElementById('flagList');
+           if(analysisResults.behavior.flags.length === 0) {
+               flagList.innerHTML = '<div class="text-center py-4 text-success fw-bold"><i class="bi bi-check-circle-fill me-2"></i>No Flags Raised</div>';
+           } else {
+               flagList.innerHTML = analysisResults.behavior.flags.map(f => `
+                   <div class="flag-item">
+                       <div class="flag-icon warning"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                       <div class="flag-text">${f}</div>
+                   </div>
+               `).join('');
+           }
+
+           document.getElementById('reportSum').textContent = `Candidate demonstrated a focus level of ${analysisResults.behavior.focus}% during the session. Cognitive ability is assessed at ${analysisResults.cognitive}%. Integrity score is ${analysisResults.integrity}%.`;
+       }
+
+       function downloadPDF() {
+           const { jsPDF } = window.jspdf;
+           const doc = new jsPDF();
+           
+           // Header
+           doc.setFillColor(26, 194, 193);
+           doc.rect(0, 0, 220, 35, 'F');
+           doc.setTextColor(255, 255, 255);
+           doc.setFontSize(22);
+           doc.text('Psychometric Report', 105, 22, { align: 'center' });
+
+           let y = 50;
+           doc.setTextColor(15, 23, 42);
+           doc.setFontSize(12);
+           doc.text(`Candidate: ${leadData.name}`, 20, y); y+=7;
+           doc.setFontSize(10);
+           doc.text(`Role: ${leadData.role}`, 20, y); y+=7;
+           doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, y); y+=15;
+
+           // Scores
+           doc.setFont('helvetica', 'bold');
+           doc.text('Assessment Scores:', 20, y); y+=8;
+           doc.setFont('helvetica', 'normal');
+           doc.text(`- Cognitive Ability: ${analysisResults.cognitive}%`, 25, y); y+=6;
+           doc.text(`- Social Skills: ${analysisResults.social}%`, 25, y); y+=6;
+           doc.text(`- Integrity Index: ${analysisResults.integrity}%`, 25, y); y+=10;
+
+           // Behavior
+           doc.setFont('helvetica', 'bold');
+           doc.text('Behavioral Analysis:', 20, y); y+=8;
+           doc.setFont('helvetica', 'normal');
+           doc.text(`- Focus Score: ${analysisResults.behavior.focus}%`, 25, y); y+=6;
+           doc.text(`- Flags Raised: ${analysisResults.behavior.flags.length}`, 25, y); y+=8;
+           
+           if(analysisResults.behavior.flags.length > 0) {
+               doc.setFont('helvetica', 'italic');
+               analysisResults.behavior.flags.forEach(f => {
+                   doc.text(`* ${f}`, 25, y); y+=5;
+               });
+           }
+
+           doc.save(`Assessment_${leadData.name}.pdf`);
+       }
+   </script>
+</body>
+</html>

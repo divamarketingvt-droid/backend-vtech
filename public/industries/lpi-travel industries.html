@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Travel & Hospitality Background Verification | Guest Safety & Vendor
+      Screening | Verifitech
+    </title>
+    <meta
+      name="description"
+      content="Comprehensive background verification for Travel & Hospitality sector. Hotel staff screening, vendor audits, driver verification, and guest safety compliance for Hotels, Airlines, and Travel Agencies."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+  /* Ensure navbar has proper z-index */
+  .navbar {
+    z-index: 1050; /* Higher than most content */
+  }
+  
+  /* Fix dropdown z-index to appear above hero content */
+  .dropdown-menu {
+    z-index: 1060; /* Higher than navbar */
+    position: absolute; /* Ensure proper positioning */
+  }
+  
+  /* Ensure dropdown items are clickable and visible */
+  .dropdown-item {
+    position: relative;
+    z-index: 1061;
+  }
+  
+  /* Fix for hero section overlapping */
+  .industry-hero {
+    position: relative;
+    z-index: 1; /* Lower than navbar */
+  }
+  
+  /* Ensure navbar collapse has proper background when expanded on mobile */
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+      margin-top: 0;
+      box-shadow: none;
+    }
+  }
+      /* Navigatio*/
+        .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+      .navbar-brand img {
+        height: 100px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* Dropdown Styling with Teal Accents */
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* CTA Button Style - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important; /* Teal color - adjust to your exact teal shade */
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important; /* Teal box shadow */
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+
+      /* Country Selector */
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .country-selector i {
+        font-size: 1.2rem;
+      }
+
+ 
+      /* Enhanced Hero Section */
+      .industry-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #ccfbf1 100%
+        );
+        position: relative;
+        overflow: hidden;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .industry-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .industry-hero h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+
+      .industry-hero .lead {
+        font-size: 1.35rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+
+      /* Enhanced Hero Illustration */
+      .hero-illustration {
+        position: relative;
+        height: 550px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .banking-ecosystem {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Central Shield Hub */
+      .central-shield {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 180px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 4rem;
+        box-shadow: 0 30px 60px rgba(26, 194, 193, 0.4),
+          inset 0 0 0 4px rgba(255, 255, 255, 0.2);
+        z-index: 10;
+        animation: floatShield 6s ease-in-out infinite;
+      }
+
+      @keyframes floatShield {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translate(-50%, -50%) translateY(-15px) rotate(5deg);
+        }
+      }
+
+      /* Orbital Rings */
+      .orbit-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px dashed rgba(26, 194, 193, 0.25);
+        border-radius: 50%;
+        animation: rotate 30s linear infinite;
+      }
+
+      .orbit-ring.ring-1 {
+        width: 350px;
+        height: 350px;
+        animation-duration: 25s;
+      }
+
+      .orbit-ring.ring-2 {
+        width: 280px;
+        height: 280px;
+        animation-direction: reverse;
+        animation-duration: 20s;
+        border-color: rgba(26, 194, 193, 0.15);
+      }
+
+      @keyframes rotate {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      /* Satellite Nodes - Travel Icons */
+      .satellite-node {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        color: var(--primary);
+        font-size: 1.8rem;
+        z-index: 5;
+        border: 2px solid var(--primary-light);
+        transition: all 0.3s ease;
+      }
+
+      .satellite-node:hover {
+        transform: scale(1.1);
+        box-shadow: 0 20px 45px rgba(26, 194, 193, 0.3);
+      }
+
+      .satellite-node.node-1 {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: floatNode 4s ease-in-out infinite;
+      }
+      .satellite-node.node-2 {
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: floatNode 4s ease-in-out infinite 0.5s;
+      }
+      .satellite-node.node-3 {
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: floatNode 4s ease-in-out infinite 1s;
+      }
+      .satellite-node.node-4 {
+        right: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: floatNode 4s ease-in-out infinite 1.5s;
+      }
+      .satellite-node.node-5 {
+        top: 25%;
+        right: 15%;
+        animation: floatNode 4s ease-in-out infinite 0.3s;
+      }
+      .satellite-node.node-6 {
+        bottom: 25%;
+        left: 15%;
+        animation: floatNode 4s ease-in-out infinite 0.8s;
+      }
+
+      /* Travel Icon Colors */
+      .satellite-node.node-1 i {
+        color: #ea580c;
+      }
+      .satellite-node.node-2 i {
+        color: #2563eb;
+      }
+      .satellite-node.node-3 i {
+        color: #dc2626;
+      }
+      .satellite-node.node-4 i {
+        color: #7c3aed;
+      }
+      .satellite-node.node-5 i {
+        color: #059669;
+      }
+      .satellite-node.node-6 i {
+        color: #0891b2;
+      }
+
+      @keyframes floatNode {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-10px) scale(1.05);
+        }
+      }
+
+      /* Floating Data Cards */
+      .data-float-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 1.25rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(26, 194, 193, 0.2);
+        z-index: 20;
+      }
+
+      .data-float-card.card-top {
+        top: -20px;
+        right: 20px;
+        width: 200px;
+        animation: floatCard 5s ease-in-out infinite;
+      }
+
+      .data-float-card.card-bottom {
+        bottom: 20px;
+        left: -10px;
+        width: 220px;
+        animation: floatCard 5s ease-in-out infinite 1.5s;
+      }
+
+      @keyframes floatCard {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      .mini-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .mini-stat:last-child {
+        margin-bottom: 0;
+      }
+
+      .mini-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--primary-light);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      /* Industry Specific Section */
+      .industry-challenges {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      .challenge-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        height: 100%;
+        border: 2px solid #e2e8f0;
+        transition: all 0.4s ease;
+        text-align: center;
+      }
+
+      .challenge-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+      }
+
+      .challenge-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2.5rem;
+        margin: 0 auto 1.5rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+      }
+
+      /* Solutions Grid */
+      .solutions-grid {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .solution-item {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .solution-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .solution-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .solution-icon-sm {
+        width: 56px;
+        height: 56px;
+        background: var(--primary-light);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+
+      .solution-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin: 0;
+      }
+
+      .solution-desc {
+        color: var(--gray);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Verification Suite - Card Style */
+      .verification-suite {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .verification-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .verification-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .verification-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .verification-icon-sm {
+        width: 56px;
+        height: 56px;
+        background: var(--primary-light);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+
+      .verification-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin: 0;
+      }
+
+      .verification-list {
+        color: var(--gray);
+        line-height: 1.6;
+        margin: 0;
+        list-style: none;
+        padding: 0;
+      }
+
+      .verification-list li {
+        padding: 0.4rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Vendor Management Highlight Section */
+      .cpv-highlight {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cpv-highlight::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.15) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .cpv-visual {
+        position: relative;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .location-network {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .map-pin {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: var(--primary);
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.4);
+        animation: bounce 2s infinite;
+      }
+
+      .map-pin:nth-child(1) {
+        top: 20%;
+        left: 20%;
+        animation-delay: 0s;
+      }
+      .map-pin:nth-child(2) {
+        top: 40%;
+        right: 25%;
+        animation-delay: 0.3s;
+      }
+      .map-pin:nth-child(3) {
+        bottom: 25%;
+        left: 40%;
+        animation-delay: 0.6s;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: rotate(-45deg) translateY(0);
+        }
+        50% {
+          transform: rotate(-45deg) translateY(-10px);
+        }
+      }
+
+      .cpv-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 4rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+      }
+
+      /* Use Cases */
+      .use-cases {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .use-case-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s;
+      }
+
+      .use-case-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+      }
+
+      .use-case-header {
+        padding: 2rem;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .use-case-icon-lg {
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2rem;
+        box-shadow: 0 10px 25px rgba(26, 194, 193, 0.2);
+        margin-bottom: 1rem;
+      }
+
+      .use-case-body {
+        padding: 2rem;
+      }
+
+      /* Regulatory Section */
+      .regulatory-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .compliance-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: rgba(26, 194, 193, 0.1);
+        border: 2px solid rgba(26, 194, 193, 0.2);
+        border-radius: 50px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 1rem;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .contact-section h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .contact-section .lead {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-feature {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-feature-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(26, 194, 193, 0.2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 3rem;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+      }
+
+      .form-control,
+      .form-select {
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--primary);
+        color: white;
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .form-select option {
+        background: var(--dark);
+        color: white;
+      }
+
+      .form-check-label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+
+      .form-check-label a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .form-check-input {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .form-check-input:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-submit {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        width: 100%;
+        margin-top: 1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-submit:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .industry-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-illustration {
+          height: 450px;
+          margin-top: 3rem;
+        }
+
+        .data-float-card {
+          display: none;
+        }
+
+        .contact-section h2 {
+          font-size: 2.2rem;
+        }
+
+        .contact-form {
+          padding: 2rem;
+          margin-top: 2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .industry-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .industry-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .satellite-node {
+          width: 50px;
+          height: 50px;
+          font-size: 1.3rem;
+        }
+
+        .central-shield {
+          width: 140px;
+          height: 140px;
+          font-size: 3rem;
+        }
+
+        .orbit-ring.ring-1 {
+          width: 280px;
+          height: 280px;
+        }
+
+        .orbit-ring.ring-2 {
+          width: 220px;
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" >Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Hero Section - Travel  Hospitality Theme -->
+    <section class="industry-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-badge">
+              <i class="bi bi-airplane"></i>
+              Travel & Hospitality Solutions
+            </div>
+            <h1>Guest Safety & Vendor Trust for Hospitality</h1>
+            <p class="lead">
+              Comprehensive background verification for Hotels, Airlines, Travel
+              Agencies, and Resorts. Staff screening, vendor audits, driver
+              verification, and guest safety compliance. Ensure FCRA adherence
+              and protect your brand reputation.
+            </p>
+
+            <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
+              Get Started <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-illustration">
+              <div class="banking-ecosystem">
+                <!-- Orbital Rings -->
+                <div class="orbit-ring ring-1"></div>
+                <div class="orbit-ring ring-2"></div>
+
+                <!-- Central Shield Hub -->
+                <div class="central-shield">
+                  <i class="bi bi-shield-fill-check"></i>
+                </div>
+
+                <!-- Satellite Nodes - Travel Icons -->
+                <div class="satellite-node node-1" title="Airline Operations">
+                  <i class="bi bi-airplane"></i>
+                </div>
+                <div class="satellite-node node-2" title="Hotels & Resorts">
+                  <i class="bi bi-building"></i>
+                </div>
+                <div
+                  class="satellite-node node-3"
+                  title="Identity Verification"
+                >
+                  <i class="bi bi-passport"></i>
+                </div>
+                <div class="satellite-node node-4" title="Travel & Tourism">
+                  <i class="bi bi-suitcase-lg"></i>
+                </div>
+                <div
+                  class="satellite-node node-5"
+                  title="Transport & Logistics"
+                >
+                  <i class="bi bi-car-front"></i>
+                </div>
+                <div class="satellite-node node-6" title="Guest Safety">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+
+                <!-- Floating Data Cards -->
+                <div class="data-float-card card-top">
+                  <div class="mini-stat">
+                    <div class="mini-icon">
+                      <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <div>
+                      <div class="fw-bold text-dark" style="font-size: 0.9rem">
+                        FCRA Compliant
+                      </div>
+                      <small class="text-muted" style="font-size: 0.75rem"
+                        >Global Standards</small
+                      >
+                    </div>
+                  </div>
+                  <div class="mini-stat">
+                    <div class="mini-icon">
+                      <i class="bi bi-clock-fill"></i>
+                    </div>
+                    <div>
+                      <div class="fw-bold text-dark" style="font-size: 0.9rem">
+                        Fast Turnaround
+                      </div>
+                      <small class="text-muted" style="font-size: 0.75rem"
+                        >24-48 Hours</small
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-float-card card-bottom">
+                  <div class="mini-stat">
+                    <div class="mini-icon">
+                      <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div>
+                      <div class="fw-bold text-dark" style="font-size: 0.9rem">
+                        Staff Verified
+                      </div>
+                      <small class="text-muted" style="font-size: 0.75rem"
+                        >1M+ Annually</small
+                      >
+                    </div>
+                  </div>
+                  <div class="mini-stat">
+                    <div class="mini-icon">
+                      <i class="bi bi-globe-americas"></i>
+                    </div>
+                    <div>
+                      <div class="fw-bold text-dark" style="font-size: 0.9rem">
+                        Global Coverage
+                      </div>
+                      <small class="text-muted" style="font-size: 0.75rem"
+                        >180+ Countries</small
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Challenges -->
+    <section class="industry-challenges">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-exclamation-triangle"></i> Industry Challenges
+            </div>
+            <h2 class="section-title">
+              Why Hospitality Needs Workforce Verification
+            </h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="challenge-card">
+              <div class="challenge-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h4>Guest Safety & Security</h4>
+              <p class="text-muted">
+                Hotel staff and housekeepers access private guest rooms and
+                handle valuable assets. Verify criminal history, past
+                employment, and trustworthiness to prevent theft and ensure
+                guest security.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="challenge-card">
+              <div class="challenge-icon">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h4>High Turnover Rates</h4>
+              <p class="text-muted">
+                With 74% turnover in hospitality vs 15% in other industries,
+                rapid yet thorough screening is essential. Pre-empt verification
+                for seasonal hiring and bulk recruitment without compromising
+                safety.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="challenge-card">
+              <div class="challenge-icon">
+                <i class="bi bi-shop"></i>
+              </div>
+              <h4>Vendor & Supplier Risk</h4>
+              <p class="text-muted">
+                Food suppliers, transport vendors, and maintenance contractors
+                enter your premises daily. Screen third-party vendors, delivery
+                personnel, and outsourced staff to maintain property security
+                standards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Grid -->
+    <section class="solutions-grid" id="solutions">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-grid-3x3-gap"></i> Solutions
+            </div>
+            <h2 class="section-title">
+              Hospitality Workforce Verification Suite
+            </h2>
+            <p class="section-desc mx-auto">
+              Specialized solutions designed for guest-facing roles, seasonal
+              hiring, and hotel operations security.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="solution-item">
+              <div class="solution-header">
+                <div class="solution-icon-sm">
+                  <i class="bi bi-building-check"></i>
+                </div>
+                <h3 class="solution-title">Hotel Staff Screening</h3>
+              </div>
+              <p class="solution-desc">
+                Comprehensive screening for front desk, housekeeping, concierge,
+                and management. Includes criminal history, employment
+                verification, and reference checks tailored for guest-facing
+                roles.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="solution-item">
+              <div class="solution-header">
+                <div class="solution-icon-sm">
+                  <i class="bi bi-car-front-fill"></i>
+                </div>
+                <h3 class="solution-title">Driver & Valet Verification</h3>
+              </div>
+              <p class="solution-desc">
+                Motor Vehicle Records (MVR) checks, driving license
+                verification, and accident history for shuttle drivers, valet
+                parking attendants, and transportation staff.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="solution-item">
+              <div class="solution-header">
+                <div class="solution-icon-sm">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+                <h3 class="solution-title">Vendor & Contractor Audit</h3>
+              </div>
+              <p class="solution-desc">
+                Screen food suppliers, maintenance crews, event staff, and
+                delivery personnel who access your property. Includes business
+                verification, insurance checks, and worker vetting.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="solution-item">
+              <div class="solution-header">
+                <div class="solution-icon-sm">
+                  <i class="bi bi-credit-card"></i>
+                </div>
+                <h3 class="solution-title">Credit & Financial Checks</h3>
+              </div>
+              <p class="solution-desc">
+                Essential for cash-handling positions, night auditors, and
+                finance teams. Verify financial responsibility and reduce risks
+                of fraud or embezzlement in high-trust roles.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="solution-item">
+              <div class="solution-header">
+                <div class="solution-icon-sm">
+                  <i class="bi bi-capsule"></i>
+                </div>
+                <h3 class="solution-title">Drug & Health Screening</h3>
+              </div>
+              <p class="solution-desc">
+                Pre-employment drug testing for safety-sensitive roles like ski
+                lift operators, kitchen staff, and heavy equipment operators.
+                Ensure compliance and workplace safety.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="solution-item">
+              <div class="solution-header">
+                <div class="solution-icon-sm">
+                  <i class="bi bi-globe"></i>
+                </div>
+                <h3 class="solution-title">Global Screening</h3>
+              </div>
+              <p class="solution-desc">
+                International background checks for foreign hires, expatriate
+                staff, and global hotel chains. Verify credentials from 180+
+                countries with GDPR-compliant processes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Verification Suite -->
+    <section class="verification-suite" id="verification-suite">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-shield-check"></i> Verification Suite
+            </div>
+            <h2 class="section-title">Complete Hospitality Checks</h2>
+            <p class="section-desc mx-auto">
+              Every verification touchpoint required for guest safety,
+              regulatory compliance, and brand protection.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Identity & Criminal -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon-sm">
+                  <i class="bi bi-person-badge"></i>
+                </div>
+                <h3 class="verification-title">Identity & Criminal</h3>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> National ID
+                  Verification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Criminal History
+                  Check
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Sex Offender
+                  Registry
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Global Watchlist
+                  Search
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Address Verification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Biometric Identity
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Social Media
+                  Screening
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Digital Identity
+                  Check
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Employment & Education -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon-sm">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+                <h3 class="verification-title">Employment Verify</h3>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Previous Employment
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Reference Checks
+                </li>
+                <li><i class="bi bi-check2 text-primary"></i> Gap Analysis</li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Service History
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Education
+                  Verification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Hospitality Diplomas
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Professional
+                  Licenses
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Certification Verify
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Driving & Transport -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon-sm">
+                  <i class="bi bi-car-front"></i>
+                </div>
+                <h3 class="verification-title">Transport & Driving</h3>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> MVR - Motor Vehicle
+                  Rpt
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Driving License
+                  Verify
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Accident History
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> DUI/DWI Records
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Commercial License
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> DOT Compliance
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> TWIC Card Verify
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Chauffeur Permits
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Credit & Financial -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon-sm">
+                  <i class="bi bi-credit-card-2-front"></i>
+                </div>
+                <h3 class="verification-title">Credit & Financial</h3>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Credit History Check
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Bankruptcy Search
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Civil Judgments
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Tax Liens Search
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Financial Screening
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Fraud Indicators
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Asset Verification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Foreclosure Check
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Health & Drug -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon-sm">
+                  <i class="bi bi-heart-pulse"></i>
+                </div>
+                <h3 class="verification-title">Health & Drug</h3>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Pre-Employment Drug
+                  Test
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Alcohol Testing
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> DOT Physical Exams
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Medical Fitness Cert
+                </li>
+                <li><i class="bi bi-check2 text-primary"></i> TB Testing</li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Vaccination Records
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Pre-Existing
+                  Conditions
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Return-to-Duty
+                  Testing
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Specialized Hospitality -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="verification-card">
+              <div class="verification-header">
+                <div class="verification-icon-sm">
+                  <i class="bi bi-award"></i>
+                </div>
+                <h3 class="verification-title">Hospitality Specific</h3>
+              </div>
+              <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> TABC Certification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Food Handler Permit
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> ServeSafe Verify
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Crowd Management
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> CPR/First Aid Cert
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Childcare Registry
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Gaming License
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Security Clearance
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vendor Management Highlight Section -->
+    <section class="cpv-highlight" id="vendor">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+            <div class="compliance-badge">
+              <i class="bi bi-shop"></i> Vendor Management
+            </div>
+            <h2
+              style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem"
+            >
+              Third-Party Vendor & Supplier Screening
+            </h2>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+              "
+            >
+              Comprehensive vetting for delivery personnel, maintenance
+              contractors, food suppliers, and event staff who access your
+              property. Ensure visitor safety and maintain security standards
+              across all vendor touchpoints.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                  <span>Real-time Monitoring</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                  <span>Visitor Pass System</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                  <span>Batch Processing</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                  <span>Insurance Verify</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <div class="cpv-visual">
+              <div class="location-network">
+                <div class="map-pin"><i class="bi bi-shop"></i></div>
+                <div class="map-pin"><i class="bi bi-truck"></i></div>
+                <div class="map-pin"><i class="bi bi-person-badge"></i></div>
+                <div class="cpv-center">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-briefcase"></i> Use Cases
+            </div>
+            <h2 class="section-title">Trusted Across Hospitality</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="use-case-card">
+              <div class="use-case-header">
+                <div class="use-case-icon-lg">
+                  <i class="bi bi-building"></i>
+                </div>
+                <h3>Hotels & Resorts</h3>
+              </div>
+              <div class="use-case-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Front desk
+                    screening
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Housekeeping
+                    checks
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Security staff
+                    verify
+                  </li>
+                  <li>
+                    <i class="bi bi-check2 text-primary me-2"></i>Concierge
+                    vetting
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="use-case-card">
+              <div class="use-case-header">
+                <div class="use-case-icon-lg">
+                  <i class="bi bi-airplane"></i>
+                </div>
+                <h3>Airlines & Transport</h3>
+              </div>
+              <div class="use-case-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Crew
+                    verification
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Pilot
+                    credentials
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Ground staff
+                    checks
+                  </li>
+                  <li>
+                    <i class="bi bi-check2 text-primary me-2"></i>TSA compliance
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 reveal">
+            <div class="use-case-card">
+              <div class="use-case-header">
+                <div class="use-case-icon-lg">
+                  <i class="bi bi-globe"></i>
+                </div>
+                <h3>Travel Agencies</h3>
+              </div>
+              <div class="use-case-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Agent
+                    screening
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Tour guide
+                    verify
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Driver vetting
+                  </li>
+                  <li>
+                    <i class="bi bi-check2 text-primary me-2"></i>IATA
+                    compliance
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regulatory Section -->
+    <section class="regulatory-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="section-subtitle">
+              <i class="bi bi-shield-check"></i> Compliance
+            </div>
+            <h2 class="section-title">FCRA, GDPR & DOT Compliant</h2>
+            <p class="section-desc">
+              Our verification processes adhere to Fair Credit Reporting Act
+              (FCRA), General Data Protection Regulation (GDPR) for
+              international travelers, and Department of Transportation (DOT)
+              regulations for commercial drivers.
+            </p>
+
+            <div class="mt-4">
+              <div class="d-flex align-items-start gap-3 mb-3">
+                <i class="bi bi-file-text text-primary fs-4"></i>
+                <div>
+                  <h5 class="mb-1">FCRA Standards</h5>
+                  <p class="text-muted mb-0">
+                    Full compliance with disclosure, authorization, and adverse
+                    action requirements for employment screening
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3 mb-3">
+                <i class="bi bi-globe text-primary fs-4"></i>
+                <div>
+                  <h5 class="mb-1">GDPR Compliance</h5>
+                  <p class="text-muted mb-0">
+                    Data protection for EU travelers and international
+                    hospitality operations with secure data handling
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-car-front text-primary fs-4"></i>
+                <div>
+                  <h5 class="mb-1">DOT Regulations</h5>
+                  <p class="text-muted mb-0">
+                    Department of Transportation compliance for commercial
+                    drivers and safety-sensitive positions
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <div class="bg-light p-5 rounded-4">
+              <div class="row g-4 text-center">
+                <div class="col-6">
+                  <div class="p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-shield-check text-primary fs-1 mb-2"></i>
+                    <div class="fw-bold">FCRA</div>
+                    <small class="text-muted">Compliant</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-globe text-primary fs-1 mb-2"></i>
+                    <div class="fw-bold">GDPR</div>
+                    <small class="text-muted">Ready</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-car-front text-primary fs-1 mb-2"></i>
+                    <div class="fw-bold">DOT</div>
+                    <small class="text-muted">Certified</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="p-3 bg-white rounded-3 shadow-sm">
+                    <i class="bi bi-award text-primary fs-1 mb-2"></i>
+                    <div class="fw-bold">EEOC</div>
+                    <small class="text-muted">Guidelines</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-lg-5 mb-5 mb-lg-0 reveal">
+            <h2>Secure Your Hospitality Business</h2>
+            <p class="lead">
+              Get in touch with our Hospitality screening experts to implement
+              comprehensive workforce verification solutions for your property
+              or agency.
+            </p>
+
+            <div class="mt-5">
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Assess guest safety needs</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Vendor compliance audit</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Seasonal hiring solutions</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Enterprise pricing discussion</span>
+              </div>
+            </div>
+
+            <div
+              class="mt-5 pt-4"
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
+            >
+              <p class="text-white-50 mb-3">Or reach us directly:</p>
+              <p class="mb-2">
+                <i class="bi bi-envelope me-2 text-primary"></i>
+                hospitality@verifitech.com
+              </p>
+              <p>
+                <i class="bi bi-telephone me-2 text-primary"></i> +1
+                800-123-4567
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-7 reveal">
+            <form
+              class="contact-form"
+              onsubmit="event.preventDefault(); alert('Thank you for your interest! Our Hospitality team will contact you within 24 hours.');"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Work Email *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="Phone Number *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company Name *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <select class="form-select" required>
+                    <option value="" disabled selected>Industry Type *</option>
+                    <option>Hotel/Resort</option>
+                    <option>Airline/Airport</option>
+                    <option>Travel Agency</option>
+                    <option>Vacation Rental</option>
+                    <option>Restaurant/Bar</option>
+                    <option>Tour Operator</option>
+                  </select>
+                </div>
+              </div>
+              <select class="form-select" required>
+                <option value="" disabled selected>
+                  Interested Solution *
+                </option>
+                <option>Hotel Staff Screening</option>
+                <option>Vendor/Supplier Audit</option>
+                <option>Driver Verification</option>
+                <option>Complete Hospitality Suite</option>
+              </select>
+              <textarea
+                class="form-control"
+                rows="3"
+                placeholder="Tell us about your requirements (Optional)"
+              ></textarea>
+
+              <div class="form-check mt-3 mb-4">
+                <input class="form-check-input" type="checkbox" required />
+                <label class="form-check-label">
+                  I agree to the <a href="#">Privacy Policy</a> and consent to
+                  being contacted regarding Verifitech services.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-submit">
+                Submit Request <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="footer" style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px;">
+  <div class="container">
+    <!-- Newsletter Section -->
+    <div class="newsletter-footer-section" style="background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(26, 194, 193, 0.2); position: relative; overflow: hidden;">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center gap-3">
+            <div class="newsletter-icon-footer" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);">
+              <i class="bi bi-envelope-open"></i>
+            </div>
+            <div>
+              <h4 class="newsletter-title" style="font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem;">Stay Updated</h4>
+              <p class="newsletter-subtitle" style="color: var(--gray); font-size: 0.95rem; margin: 0; line-height: 1.5;">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form class="newsletter-form-footer">
+            <div class="input-group-wrapper" style="display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;">
+              <div style="flex: 1;">
+                <input type="email" placeholder="Enter your work email" class="newsletter-input" style="width: 100%; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; color: var(--dark); background: white; transition: all 0.3s ease;">
+              </div>
+              <button type="submit" class="newsletter-btn" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);">
+                Subscribe <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            <p class="newsletter-disclaimer" style="color: var(--gray); font-size: 0.85rem; margin: 8px 0 0 0; display: flex; align-items: center; gap: 6px;">
+              <i class="bi bi-shield-check" style="color: var(--primary);"></i> We respect your privacy. No spam, ever.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Main Content -->
+    <div class="row footer-main-content" style="margin-top: 20px;">
+      <!-- Logo & Description -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <div class="footer-brand">
+          <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" style="width: 180px; height: auto; margin-bottom: 20px;">
+        </div>
+        <p class="footer-description" style="font-size: 14px; line-height: 1.6; max-width: 280px; color: var(--gray);">
+          India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.
+        </p>
+      </div>
+
+      <!-- Solutions Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Solutions</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Employment Check</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Education Verification</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Reference Checks</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Gap Analysis</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Company</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">About Us</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Partnership</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Careers</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Resources</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Affiliate</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Blog</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Products Column -->
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h5 class="footer-heading" style="color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px;">Products</h5>
+        <ul class="footer-links" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">Exit interview</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">psychometric</a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: var(--gray); text-decoration: none; transition: all 0.3s; display: inline-block;">API</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom" style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #cbd5e1;">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="copyright" style="font-size: 14px; margin: 0; color: var(--gray);">
+            © 2026 Verifitech Solutions Private Limited. All rights reserved.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="social-links" style="display: flex; justify-content: flex-end; gap: 15px;">
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none;"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Privacy Policy Row -->
+      <div class="privacy-row" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; color: var(--gray); font-size: 0.9rem;">
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Disclaimer</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>  
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+        <span class="privacy-separator" style="margin: 0 10px; color: #cbd5e1;">|</span>        
+        <a href="#" class="privacy-link" style="color: var(--primary); text-decoration: none; transition: color 0.3s;">Cookies Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp Button -->
+<a 
+  href="#" 
+  id="whatsappFloat"
+  class="whatsapp-float" 
+  title="Chat with us on WhatsApp"
+  onclick="openWhatsApp(event)"
+  style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
+>
+  <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+  <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
+</a>
+
+
+<style>
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: white;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+  }
+  
+  .whatsapp-float:hover .float-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+  
+  .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #333;
+  }
+  
+  .social-icon:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary) !important;
+    transform: translateX(5px);
+  }
+  
+  .privacy-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+  
+  .newsletter-btn:hover i {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 991px) {
+    .whatsapp-float {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    
+    .float-tooltip {
+      display: none;
+    }
+    
+    .newsletter-footer-section {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .newsletter-footer-section .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .newsletter-icon-footer {
+      margin: 0 auto;
+    }
+    
+    .input-group-wrapper {
+      flex-direction: column;
+    }
+    
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+    }
+  }
+</style>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+       // WhatsApp Functionality
+  const whatsappConfig = {
+    phoneNumber: '+919176663777',
+    defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+    pageContext: true
+  };
+
+  function openWhatsApp(event) {
+    event.preventDefault();
+    
+    const pageTitle = document.title;
+    const currentUrl = window.location.href;
+    
+    let message = whatsappConfig.defaultMessage;
+    
+    if (whatsappConfig.pageContext && pageTitle) {
+      message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

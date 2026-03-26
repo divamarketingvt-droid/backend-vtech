@@ -1,0 +1,3864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DIN Verification | Director Identification Number Check | Verifitech</title>
+   <meta name="description" content="Verify Director Identification Numbers (DIN) with MCA database confirmation. Validate director details, company associations & compliance status with real-time ROC integration.">
+   
+   <!-- Bootstrap 5 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Icons -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+   <style>
+       :root {
+           --primary: #1ac2c1;
+           --primary-dark: #16a8a7;
+           --primary-light: #e0f7f7;
+           --dark: #0f172a;
+           --navy: #1e293b;
+           --gray: #64748b;
+           --light-gray: #f8fafc;
+           --white: #ffffff;
+       }
+       
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+    
+  
+       body {
+           font-family: 'Inter', sans-serif;
+           color: var(--dark);
+           line-height: 1.6;
+           overflow-x: hidden;
+       }
+       
+       html {
+           scroll-behavior: smooth;
+       }
+   
+       /* Chat Icon Button */
+        .chat-icon-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(29, 209, 161, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chat-icon-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(29, 209, 161, 0.6);
+        }
+
+        .chat-icon-btn svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 100%;
+            max-width: 380px;
+            height: 550px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-container.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .header-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .header-info span {
+            font-size: 12px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .online-dot {
+            width: 6px;
+            height: 6px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .close-btn:hover {
+            opacity: 1;
+        }
+
+        .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .privacy-notice {
+            background: #e8f4f8;
+            border: 1px solid #bee5eb;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .privacy-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: #0c5460;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .privacy-text {
+            font-size: 13px;
+            color: #0c5460;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .privacy-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .message-content {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            border-top-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            max-width: 85%;
+        }
+
+        .message-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .message-text strong {
+            color: #10ac84;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .user-message .message-content {
+            background: #1dd1a1;
+            color: white;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 4px;
+        }
+
+        .user-message .message-text {
+            color: white;
+        }
+
+        .input-form {
+            background: white;
+            padding: 16px 20px;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #dee2e6;
+            border-radius: 24px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            border-color: #1dd1a1;
+        }
+
+        .input-field:disabled {
+            background: #f8f9fa;
+            cursor: not-allowed;
+        }
+
+        .send-btn {
+            width: 40px;
+            height: 40px;
+            background: #1dd1a1;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            background: #10ac84;
+            transform: scale(1.05);
+        }
+
+        .send-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 12px;
+            border-top-left-radius: 4px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #1dd1a1;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .confirmation-box {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #666;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .department-grid {
+            display: grid;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .dept-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .dept-card:hover {
+            border-color: #1dd1a1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .dept-icon {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .dept-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .dept-desc {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 209, 161, 0.3);
+        }
+
+        .bgv-options {
+            display: grid;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .bgv-btn {
+            background: white;
+            border: 2px solid #e9ecef;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+
+        .bgv-btn:hover {
+            border-color: #1dd1a1;
+            background: #f0fff9;
+        }
+
+        .issue-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 12px;
+            resize: none;
+            font-family: inherit;
+        }
+
+        .issue-input:focus {
+            outline: none;
+            border-color: #1dd1a1;
+        }
+
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 13px;
+            border-left: 4px solid #28a745;
+        }
+
+        .back-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #e9ecef;
+        }
+
+        .final-confirm-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+
+        .final-confirm-box h4 {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+
+        .send-final-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .send-final-btn:hover {
+            background: #218838;
+        }
+
+        .edit-link {
+            color: #3498db;
+            cursor: pointer;
+            font-size: 12px;
+            text-decoration: underline;
+        }
+       /* Z-INDEX FIXES */
+       .navbar {
+           z-index: 1050;
+       }
+
+       .dropdown-menu {
+           z-index: 1060;
+           position: absolute;
+       }
+
+       .dropdown-item {
+           position: relative;
+           z-index: 1061;
+       }
+
+       .industry-hero {
+           position: relative;
+           z-index: 1;
+       }
+
+       /* NAVBAR STYLES */
+       .navbar {
+           padding: 0;
+           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+           background: rgba(255, 255, 255, 0.98);
+           backdrop-filter: blur(12px);
+           border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+           height: 80px;
+       }
+
+       .navbar.scrolled {
+           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+       }
+
+       .navbar-collapse {
+           background: rgba(255, 255, 255, 0.98);
+           backdrop-filter: blur(12px);
+           border-radius: 12px;
+           padding: 1rem;
+           margin-top: 0.5rem;
+           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+       }
+
+       @media (min-width: 992px) {
+           .navbar-collapse {
+               background: transparent;
+               backdrop-filter: none;
+               padding: 0;
+               margin-top: 0;
+               box-shadow: none;
+           }
+       }
+
+       .navbar-brand {
+           font-weight: 800;
+           font-size: 1.8rem;
+           color: var(--dark);
+           letter-spacing: -0.5px;
+           display: flex;
+           flex-direction: column;
+           line-height: 1.1;
+           transition: color 0.3s;
+       }
+
+       .navbar-brand img {
+           height: 100px;
+           width: 200px;
+           object-fit: contain;
+           display: block;
+       }
+
+       .navbar-brand span {
+           color: var(--primary);
+       }
+
+       .nav-link {
+           font-weight: 600;
+           color: var(--navy);
+           margin: 0 0.6rem;
+           position: relative;
+           font-size: 0.9rem;
+           transition: all 0.3s ease;
+           padding: 2rem 0.5rem !important;
+           display: flex;
+           align-items: center;
+           gap: 4px;
+       }
+
+       .nav-link:hover {
+           color: var(--primary);
+       }
+
+       /* DROPDOWN STYLES */
+       .dropdown-menu {
+           border: none;
+           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+           border-radius: 12px;
+           padding: 1rem;
+           margin-top: 0.5rem;
+           min-width: 280px;
+           border-top: 3px solid var(--primary);
+           transition: all 0.3s ease;
+       }
+
+       .dropdown-menu.mega-menu {
+           min-width: 600px;
+           padding: 1.5rem;
+       }
+
+       .dropdown-item {
+           padding: 0.6rem 1rem;
+           border-radius: 8px;
+           font-size: 0.9rem;
+           font-weight: 500;
+           color: var(--navy);
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           gap: 10px;
+       }
+
+       .dropdown-item:hover {
+           background: var(--primary-light);
+           color: var(--primary);
+           transform: translateX(5px);
+       }
+
+       .dropdown-item i {
+           font-size: 1.1rem;
+           color: var(--primary);
+       }
+
+       .dropdown-header {
+           font-size: 0.75rem;
+           font-weight: 700;
+           text-transform: uppercase;
+           letter-spacing: 1px;
+           color: var(--primary);
+           margin-bottom: 0.5rem;
+           padding: 0.5rem 1rem;
+       }
+
+       /* BUTTON STYLES */
+       .btn-sales {
+           background: var(--primary);
+           color: white !important;
+           border: none;
+           padding: 0.6rem 1.5rem;
+           border-radius: 6px;
+           font-weight: 600;
+           font-size: 0.9rem;
+           transition: all 0.3s ease;
+           white-space: nowrap;
+           margin-left: 1rem;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+       }
+
+       .btn-sales:hover {
+           background: var(--primary-dark);
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+
+       .btn-login {
+           background-color: #ffffff !important;
+           color: #00bfa5 !important;
+           border: 1px solid #00bfa5 !important;
+           box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+           padding: 8px 24px;
+           border-radius: 6px;
+           font-weight: 500;
+           text-decoration: none;
+           transition: all 0.3s ease;
+           margin: 12px;
+       }
+
+       .btn-login:hover {
+           background-color: #00bfa5 !important;
+           color: #ffffff !important;
+           box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+           transform: translateY(-1px);
+       }
+
+       /* COUNTRY SELECTOR */
+       .country-selector {
+           display: flex;
+           align-items: center;
+           gap: 6px;
+           padding: 0.5rem;
+           border-radius: 6px;
+           border: 1px solid #e2e8f0;
+           font-size: 0.85rem;
+           font-weight: 600;
+           color: var(--navy);
+           cursor: pointer;
+           transition: all 0.3s ease;
+           margin-left: 1rem;
+       }
+
+       .country-selector:hover {
+           border-color: var(--primary);
+           color: var(--primary);
+       }
+
+       .country-selector.dropdown-toggle::after {
+           display: none !important;
+       }
+
+       .country-selector i.bi-chevron-down {
+           font-size: 0.7rem;
+           color: var(--navy);
+           transition: transform 0.3s ease;
+       }
+
+       .country-selector:hover i.bi-chevron-down {
+           color: var(--primary);
+       }
+
+       .country-selector[aria-expanded="true"] i.bi-chevron-down {
+           transform: rotate(180deg);
+       }
+
+       .country-flag {
+           font-size: 1.2rem;
+       }
+
+       /* Hero Section */
+       .solution-hero {
+           padding: 140px 0 100px;
+           background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+           position: relative;
+           overflow: hidden;
+           min-height: 90vh;
+           display: flex;
+           align-items: center;
+       }
+
+       .solution-hero::before {
+           content: '';
+           position: absolute;
+           top: -20%;
+           right: -10%;
+           width: 600px;
+           height: 600px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
+           border-radius: 50%;
+           animation: pulse 4s ease-in-out infinite;
+       }
+
+       @keyframes pulse {
+           0%, 100% { transform: scale(1); opacity: 0.5; }
+           50% { transform: scale(1.1); opacity: 0.8; }
+       }
+
+       .hero-badge {
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+           padding: 0.6rem 1.2rem;
+           background: rgba(26, 194, 193, 0.1);
+           color: var(--primary-dark);
+           border-radius: 50px;
+           font-size: 0.95rem;
+           font-weight: 700;
+           margin-bottom: 1.5rem;
+           border: 1px solid rgba(26, 194, 193, 0.2);
+       }
+
+       .solution-hero h1 {
+           font-size: 3.8rem;
+           font-weight: 800;
+           line-height: 1.1;
+           margin-bottom: 1.5rem;
+           color: var(--dark);
+           letter-spacing: -1.5px;
+       }
+
+       .solution-hero .lead {
+           font-size: 1.35rem;
+           color: var(--gray);
+           max-width: 600px;
+           margin-bottom: 2.5rem;
+           line-height: 1.6;
+       }
+
+       .btn-primary-custom {
+           background: var(--primary) !important;
+           color: white !important;
+           border: none;
+           padding: 1rem 2.5rem;
+           border-radius: 50px;
+           font-weight: 700;
+           font-size: 1.1rem;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+           display: inline-flex;
+           align-items: center;
+           gap: 10px;
+           text-decoration: none;
+       }
+
+       .btn-primary-custom:hover {
+           background: var(--primary-dark) !important;
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+       }
+
+       .trust-badge {
+           margin-top: 4rem;
+           padding-top: 2rem;
+           border-top: 1px solid rgba(0,0,0,0.08);
+       }
+
+       .trust-badge p {
+           font-size: 0.9rem;
+           font-weight: 600;
+           color: var(--gray);
+           text-transform: uppercase;
+           letter-spacing: 1px;
+           margin-bottom: 1.5rem;
+       }
+
+       .logo-row {
+           display: flex;
+           gap: 3rem;
+           flex-wrap: wrap;
+           opacity: 0.6;
+       }
+
+       .logo-item {
+           font-size: 1.3rem;
+           font-weight: 700;
+           color: var(--navy);
+           filter: grayscale(100%);
+           transition: all 0.3s;
+       }
+
+       .logo-item:hover {
+           opacity: 1;
+           filter: grayscale(0%);
+           color: var(--primary);
+       }
+
+       /* Hero Visual */
+       .hero-visual {
+           position: relative;
+           height: 450px;
+       }
+
+       .floating-card {
+           position: absolute;
+           background: white;
+           border-radius: 24px;
+           padding: 1.5rem;
+           box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+           border: 1px solid rgba(0,0,0,0.05);
+           animation: float 6s ease-in-out infinite;
+       }
+
+       @keyframes float {
+           0%, 100% { transform: translateY(0px); }
+           50% { transform: translateY(-20px); }
+       }
+
+       .card-1 {
+           top: 0;
+           right: 0;
+           width: 340px;
+           animation-delay: 0s;
+       }
+
+       .card-2 {
+           top: 200px;
+           left: 0;
+           width: 300px;
+           animation-delay: 1.5s;
+       }
+
+       .verification-row {
+           display: flex;
+           align-items: center;
+           gap: 1rem;
+           margin-bottom: 1rem;
+           padding-bottom: 1rem;
+           border-bottom: 1px solid #f1f5f9;
+       }
+
+       .verification-row:last-child {
+           margin-bottom: 0;
+           padding-bottom: 0;
+           border-bottom: none;
+       }
+
+       .verif-icon {
+           width: 44px;
+           height: 44px;
+           border-radius: 12px;
+           background: var(--primary-light);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 1.2rem;
+       }
+
+       .status-badge {
+           margin-left: auto;
+           padding: 0.35rem 0.75rem;
+           background: rgba(26, 194, 193, 0.1);
+           color: var(--primary);
+           border-radius: 50px;
+           font-size: 0.8rem;
+           font-weight: 600;
+       }
+
+       /* How it Works */
+       .how-it-works {
+           padding: 100px 0;
+           background: white;
+       }
+
+       .section-subtitle {
+           color: var(--primary);
+           font-weight: 700;
+           text-transform: uppercase;
+           letter-spacing: 1.5px;
+           font-size: 0.85rem;
+           margin-bottom: 1rem;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+           padding: 0.5rem 1rem;
+           background: rgba(26, 194, 193, 0.1);
+           border-radius: 50px;
+       }
+
+       .section-title {
+           font-size: 2.8rem;
+           font-weight: 800;
+           color: var(--dark);
+           margin-bottom: 1rem;
+           line-height: 1.2;
+           letter-spacing: -1px;
+       }
+
+       .section-desc {
+           color: var(--gray);
+           font-size: 1.15rem;
+           max-width: 600px;
+           line-height: 1.7;
+       }
+
+       .step-card {
+           background: white;
+           border-radius: 24px;
+           padding: 2.5rem;
+           height: 100%;
+           border: 2px solid #e2e8f0;
+           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+           position: relative;
+           overflow: hidden;
+       }
+
+       .step-card:hover {
+           border-color: var(--primary);
+           transform: translateY(-8px);
+           box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+       }
+
+       .step-number {
+           width: 60px;
+           height: 60px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border: 3px solid var(--primary);
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-weight: 800;
+           font-size: 1.4rem;
+           color: var(--primary);
+           margin-bottom: 1.5rem;
+           transition: all 0.3s;
+       }
+
+       .step-card:hover .step-number {
+           background: var(--primary);
+           color: white;
+           transform: scale(1.1);
+       }
+
+       .step-card h4 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 1.3rem;
+       }
+
+       .step-card p {
+           color: var(--gray);
+           line-height: 1.7;
+           margin: 0;
+       }
+
+       .step-connector {
+           position: absolute;
+           top: 45px;
+           right: -25px;
+           width: 50px;
+           height: 3px;
+           background: linear-gradient(90deg, var(--primary), transparent);
+           opacity: 0.3;
+       }
+
+       @media (max-width: 991px) {
+           .step-connector {
+               display: none;
+           }
+       }
+
+       /* Key Highlights */
+       .key-highlights {
+           padding: 100px 0;
+           background: var(--light-gray);
+       }
+
+       .highlight-card {
+           background: white;
+           border-radius: 24px;
+           padding: 3rem;
+           height: 100%;
+           border: 1px solid #e2e8f0;
+           transition: all 0.4s ease;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .highlight-card:hover {
+           transform: translateY(-10px);
+           box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+           border-color: var(--primary);
+       }
+
+       .highlight-card::before {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 4px;
+           background: var(--primary);
+           transform: scaleX(0);
+           transition: transform 0.4s;
+           transform-origin: left;
+       }
+
+       .highlight-card:hover::before {
+           transform: scaleX(1);
+       }
+
+       .highlight-icon {
+           width: 80px;
+           height: 80px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border-radius: 20px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 2.5rem;
+           margin-bottom: 2rem;
+           border: 2px solid rgba(26, 194, 193, 0.2);
+           transition: all 0.3s;
+       }
+
+       .highlight-card:hover .highlight-icon {
+           background: var(--primary);
+           color: white;
+           transform: scale(1.1) rotate(5deg);
+       }
+
+       .highlight-card h3 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 1.5rem;
+       }
+
+       .highlight-card p {
+           color: var(--gray);
+           margin-bottom: 1.5rem;
+           line-height: 1.7;
+       }
+
+       .highlight-card ul {
+           list-style: none;
+           padding: 0;
+           margin: 0 0 2rem 0;
+       }
+
+       .highlight-card ul li {
+           padding: 0.6rem 0;
+           color: var(--gray);
+           display: flex;
+           align-items: flex-start;
+           gap: 12px;
+           font-size: 0.95rem;
+       }
+
+       .highlight-card ul li::before {
+           content: '✓';
+           color: var(--primary);
+           font-weight: 700;
+           flex-shrink: 0;
+           font-size: 1.1rem;
+       }
+
+       .btn-outline-custom {
+           border: 2px solid var(--primary);
+           color: var(--primary);
+           background: transparent;
+           padding: 0.75rem 1.8rem;
+           border-radius: 50px;
+           font-weight: 600;
+           transition: all 0.3s ease;
+           text-decoration: none;
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+       }
+
+       .btn-outline-custom:hover {
+           background: var(--primary);
+           color: white;
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.3);
+       }
+
+       /* Benefits Section */
+       .benefits-section {
+           padding: 100px 0;
+           background: white;
+       }
+
+       .benefit-item {
+           padding: 2.5rem;
+           background: white;
+           border-radius: 20px;
+           border: 1px solid #e2e8f0;
+           height: 100%;
+           transition: all 0.3s ease;
+           text-align: center;
+       }
+
+       .benefit-item:hover {
+           background: var(--primary-light);
+           border-color: var(--primary);
+           transform: translateY(-5px);
+           box-shadow: 0 15px 30px rgba(26, 194, 193, 0.1);
+       }
+
+       .benefit-icon {
+           width: 70px;
+           height: 70px;
+           background: linear-gradient(135deg, var(--primary-light), white);
+           border-radius: 20px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           margin: 0 auto 1.5rem;
+           color: var(--primary);
+           font-size: 2rem;
+           border: 2px solid rgba(26, 194, 193, 0.2);
+           transition: all 0.3s;
+       }
+
+       .benefit-item:hover .benefit-icon {
+           background: var(--primary);
+           color: white;
+           transform: scale(1.1);
+       }
+
+       .benefit-item h4 {
+           font-weight: 700;
+           margin-bottom: 0.75rem;
+           font-size: 1.2rem;
+           color: var(--dark);
+       }
+
+       .benefit-item p {
+           color: var(--gray);
+           font-size: 0.95rem;
+           margin: 0;
+           line-height: 1.6;
+       }
+
+       /* FAQ Section */
+       .faq-section {
+           padding: 100px 0;
+           background: var(--light-gray);
+       }
+
+       .accordion-item {
+           border: none;
+           background: white;
+           margin-bottom: 1.5rem;
+           border-radius: 16px;
+           overflow: hidden;
+           box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+           transition: all 0.3s;
+       }
+
+       .accordion-item:hover {
+           box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+       }
+
+       .accordion-button {
+           padding: 1.8rem;
+           font-weight: 700;
+           color: var(--dark);
+           background: white;
+           border: none;
+           font-size: 1.1rem;
+           box-shadow: none !important;
+       }
+
+       .accordion-button:not(.collapsed) {
+           background: var(--primary-light);
+           color: var(--primary-dark);
+           box-shadow: none;
+       }
+
+       .accordion-button::after {
+           background-size: 1.2rem;
+           transition: all 0.3s;
+       }
+
+       .accordion-body {
+           padding: 0 1.8rem 1.8rem;
+           color: var(--gray);
+           line-height: 1.8;
+           font-size: 1rem;
+       }
+
+       /* Verification Types */
+       .verification-types {
+           padding: 80px 0;
+           background: white;
+           border-bottom: 1px solid #e2e8f0;
+       }
+
+       .type-card {
+           background: white;
+           border-radius: 24px;
+           padding: 3rem;
+           border: 2px solid #e2e8f0;
+           height: 100%;
+           text-align: center;
+           transition: all 0.4s;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .type-card:hover {
+           border-color: var(--primary);
+           transform: translateY(-5px);
+           box-shadow: 0 20px 40px rgba(26, 194, 193, 0.1);
+       }
+
+       .type-card.featured {
+           border-color: var(--primary);
+           background: linear-gradient(135deg, var(--primary-light), white);
+       }
+
+       .type-icon {
+           width: 100px;
+           height: 100px;
+           background: white;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           margin: 0 auto 2rem;
+           color: var(--primary);
+           font-size: 3rem;
+           box-shadow: 0 10px 30px rgba(26, 194, 193, 0.2);
+           border: 3px solid var(--primary-light);
+       }
+
+       .type-card h3 {
+           font-weight: 700;
+           margin-bottom: 1rem;
+           font-size: 1.8rem;
+       }
+
+       .type-card p {
+           color: var(--gray);
+           line-height: 1.8;
+           margin-bottom: 2rem;
+       }
+
+       .badge-featured {
+           position: absolute;
+           top: 20px;
+           right: 20px;
+           background: var(--primary);
+           color: white;
+           padding: 0.5rem 1rem;
+           border-radius: 50px;
+           font-size: 0.85rem;
+           font-weight: 700;
+       }
+
+       /* Contact Section */
+       .contact-section {
+           padding: 100px 0;
+           background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+           color: white;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .contact-section::before {
+           content: '';
+           position: absolute;
+           top: -50%;
+           right: -20%;
+           width: 600px;
+           height: 600px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+           border-radius: 50%;
+       }
+
+       .contact-section h2 {
+           font-size: 3rem;
+           font-weight: 800;
+           margin-bottom: 1rem;
+           line-height: 1.2;
+       }
+
+       .contact-section .lead {
+           color: rgba(255,255,255,0.8);
+           font-size: 1.25rem;
+           margin-bottom: 3rem;
+       }
+
+       .contact-feature {
+           display: flex;
+           align-items: center;
+           gap: 1.2rem;
+           margin-bottom: 1.5rem;
+       }
+
+       .contact-feature-icon {
+           width: 50px;
+           height: 50px;
+           background: rgba(26, 194, 193, 0.2);
+           border-radius: 12px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--primary);
+           font-size: 1.5rem;
+           flex-shrink: 0;
+           border: 1px solid rgba(26, 194, 193, 0.3);
+       }
+
+       .contact-form {
+           background: rgba(255,255,255,0.05);
+           padding: 3rem;
+           border-radius: 24px;
+           border: 1px solid rgba(255,255,255,0.1);
+           backdrop-filter: blur(10px);
+           position: relative;
+           z-index: 2;
+       }
+
+       .form-control, .form-select {
+           padding: 1rem 1.2rem;
+           border-radius: 12px;
+           border: 1px solid rgba(255,255,255,0.2);
+           background: rgba(255,255,255,0.05);
+           color: white;
+           margin-bottom: 1.2rem;
+           font-size: 1rem;
+           transition: all 0.3s;
+       }
+
+       .form-control:focus, .form-select:focus {
+           background: rgba(255,255,255,0.1);
+           border-color: var(--primary);
+           color: white;
+           box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
+       }
+
+       .form-control::placeholder {
+           color: rgba(255,255,255,0.4);
+       }
+
+       .form-select option {
+           background: var(--dark);
+           color: white;
+       }
+
+       .form-check-label {
+           color: rgba(255,255,255,0.8);
+           font-size: 0.9rem;
+       }
+
+       .form-check-label a {
+           color: var(--primary);
+           text-decoration: none;
+           font-weight: 600;
+       }
+
+       .form-check-label a:hover {
+           text-decoration: underline;
+       }
+
+       .form-check-input {
+           width: 20px;
+           height: 20px;
+           margin-right: 10px;
+           border-color: rgba(255,255,255,0.3);
+           background: rgba(255,255,255,0.1);
+       }
+
+       .form-check-input:checked {
+           background-color: var(--primary);
+           border-color: var(--primary);
+       }
+
+       .btn-submit {
+           background: var(--primary) !important;
+           color: white !important;
+           border: none;
+           padding: 1rem;
+           border-radius: 12px;
+           font-weight: 700;
+           font-size: 1.1rem;
+           width: 100%;
+           margin-top: 1rem;
+           transition: all 0.3s;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+       }
+
+       .btn-submit:hover {
+           background: var(--primary-dark) !important;
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+
+       /* Animations */
+       .reveal {
+           opacity: 0;
+           transform: translateY(30px);
+           transition: all 0.8s ease-out;
+       }
+
+       .reveal.active {
+           opacity: 1;
+           transform: translateY(0);
+       }
+
+       /* ============================================
+          FOOTER STYLES - EXACT MATCH TO IMAGE
+          ============================================ */
+
+       .footer {
+           background: #f0fdfa;
+           color: var(--dark);
+           padding: 80px 0 40px;
+       }
+
+       /* Newsletter Section */
+       .newsletter-footer-section {
+           background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+           border-radius: 20px;
+           padding: 40px;
+           margin-bottom: 50px;
+           border: 1px solid rgba(26, 194, 193, 0.2);
+           position: relative;
+           overflow: hidden;
+       }
+
+       .newsletter-footer-section::before {
+           content: '';
+           position: absolute;
+           top: -50%;
+           right: -10%;
+           width: 300px;
+           height: 300px;
+           background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+           border-radius: 50%;
+           pointer-events: none;
+       }
+
+       .newsletter-icon-footer {
+           width: 60px;
+           height: 60px;
+           background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+           border-radius: 16px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           font-size: 1.8rem;
+           flex-shrink: 0;
+           box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+       }
+
+       .newsletter-title {
+           font-size: 1.5rem;
+           font-weight: 700;
+           color: var(--dark);
+           margin-bottom: 0.25rem;
+       }
+
+       .newsletter-subtitle {
+           color: var(--gray);
+           font-size: 0.95rem;
+           margin: 0;
+           line-height: 1.5;
+       }
+
+       /* Newsletter Form */
+       .newsletter-form-footer {
+           width: 100%;
+           position: relative;
+           z-index: 2;
+       }
+
+       .input-group-wrapper {
+           display: flex;
+           gap: 12px;
+           margin-bottom: 10px;
+           align-items: flex-start;
+       }
+
+       .zf-tempContDiv {
+           flex: 1;
+           position: relative;
+           margin: 0;
+           padding: 0;
+       }
+
+       .newsletter-input {
+           width: 100%;
+           padding: 14px 20px;
+           border: 2px solid #e2e8f0;
+           border-radius: 12px;
+           font-size: 1rem;
+           color: var(--dark);
+           background: white;
+           transition: all 0.3s ease;
+           min-width: 0;
+           font-family: 'Inter', sans-serif;
+           margin: 0;
+       }
+
+       .newsletter-input:focus {
+           outline: none;
+           border-color: var(--primary);
+           box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+       }
+
+       .newsletter-input::placeholder {
+           color: #94a3b8;
+       }
+
+       .newsletter-btn {
+           background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+           color: white;
+           border: none;
+           padding: 14px 28px;
+           border-radius: 12px;
+           font-weight: 600;
+           font-size: 1rem;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           gap: 8px;
+           white-space: nowrap;
+           box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+           font-family: 'Inter', sans-serif;
+           height: fit-content;
+       }
+
+       .newsletter-btn:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+       }
+
+       .newsletter-btn i {
+           transition: transform 0.3s ease;
+       }
+
+       .newsletter-btn:hover i {
+           transform: translateX(4px);
+       }
+
+       .newsletter-disclaimer {
+           color: var(--gray);
+           font-size: 0.85rem;
+           margin: 8px 0 0 0;
+           display: flex;
+           align-items: center;
+           gap: 6px;
+       }
+
+       .newsletter-disclaimer i {
+           color: var(--primary);
+       }
+
+       .zf-errorMessage {
+           color: #ef4444;
+           font-size: 0.85rem;
+           margin-top: 6px;
+           margin-bottom: 0;
+           display: none;
+           align-items: center;
+           gap: 4px;
+           font-weight: 500;
+       }
+
+       /* Footer Main Content */
+       .footer-main-content {
+           margin-top: 20px;
+       }
+
+       .footer-logo {
+           width: 180px;
+           height: auto;
+           margin-bottom: 20px;
+       }
+
+       .footer-description {
+           font-size: 14px;
+           line-height: 1.6;
+           max-width: 280px;
+           color: var(--gray);
+       }
+
+       .footer-heading {
+           color: #1a1a1a;
+           font-size: 16px;
+           font-weight: 600;
+           margin-bottom: 20px;
+       }
+
+       .footer-links {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+       }
+
+       .footer-links li {
+           margin-bottom: 1rem;
+       }
+
+       .footer-links a {
+           color: var(--gray);
+           text-decoration: none;
+           transition: all 0.3s;
+           display: inline-block;
+           font-size: 0.95rem;
+       }
+
+       .footer-links a:hover {
+           color: var(--primary);
+           transform: translateX(5px);
+       }
+
+       /* Footer Bottom */
+       .footer-bottom {
+           margin-top: 60px;
+           padding-top: 30px;
+           border-top: 1px solid #cbd5e1;
+       }
+
+       .copyright {
+           font-size: 14px;
+           margin: 0;
+           color: var(--gray);
+       }
+
+       .social-links {
+           display: flex;
+           justify-content: flex-end;
+           gap: 15px;
+       }
+
+       .social-icon {
+           width: 44px;
+           height: 44px;
+           border-radius: 50%;
+           background: rgba(15, 23, 42, 0.1);
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: var(--dark);
+           font-size: 1.1rem;
+           transition: all 0.3s;
+           text-decoration: none;
+       }
+
+       .social-icon:hover {
+           background: var(--primary);
+           color: white;
+           transform: translateY(-3px);
+       }
+
+       /* Privacy Row */
+       .privacy-row {
+           margin-top: 20px;
+           padding-top: 20px;
+           border-top: 1px solid #e2e8f0;
+           text-align: center;
+           color: var(--gray);
+           font-size: 0.9rem;
+       }
+
+       .privacy-link {
+           color: var(--primary);
+           text-decoration: none;
+           transition: color 0.3s;
+       }
+
+       .privacy-link:hover {
+           color: var(--primary-dark);
+           text-decoration: underline;
+       }
+
+       .privacy-separator {
+           margin: 0 10px;
+           color: #cbd5e1;
+       }
+
+       /* WhatsApp Float */
+       .whatsapp-float {
+           position: fixed;
+           bottom: 30px;
+           right: 30px;
+           background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+           color: white;
+           width: 60px;
+           height: 60px;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           text-decoration: none;
+           box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+           z-index: 9999;
+           transition: all 0.3s ease;
+           border: 3px solid rgba(255, 255, 255, 0.3);
+       }
+
+       .whatsapp-float:hover {
+           transform: scale(1.1) rotate(10deg);
+           color: white;
+           box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+       }
+
+       .whatsapp-float i {
+           font-size: 1.8rem;
+       }
+
+       .float-tooltip {
+           position: absolute;
+           right: 70px;
+           background: #333;
+           color: white;
+           padding: 8px 16px;
+           border-radius: 8px;
+           font-size: 14px;
+           white-space: nowrap;
+           opacity: 0;
+           visibility: hidden;
+           transition: all 0.3s ease;
+           pointer-events: none;
+       }
+
+       .float-tooltip::after {
+           content: '';
+           position: absolute;
+           right: -5px;
+           top: 50%;
+           transform: translateY(-50%);
+           border-top: 5px solid transparent;
+           border-bottom: 5px solid transparent;
+           border-left: 5px solid #333;
+       }
+
+       .whatsapp-float:hover .float-tooltip {
+           opacity: 1;
+           visibility: visible;
+           right: 75px;
+       }
+
+       /* Responsive */
+       @media (max-width: 991px) {
+           .solution-hero h1 {
+               font-size: 2.8rem;
+           }
+
+           .solution-hero .lead {
+               font-size: 1.1rem;
+           }
+
+           .section-title {
+               font-size: 2.2rem;
+           }
+
+           .hero-visual {
+               margin-top: 3rem;
+               height: 400px;
+           }
+
+           .floating-card {
+               width: 280px !important;
+           }
+
+           .card-2 {
+               display: none;
+           }
+
+           .contact-form {
+               margin-top: 3rem;
+           }
+
+           /* Footer Responsive */
+           .newsletter-footer-section {
+               padding: 30px;
+               text-align: center;
+           }
+
+           .newsletter-footer-section .d-flex.align-items-center.gap-3 {
+               flex-direction: column;
+               text-align: center;
+           }
+
+           .newsletter-icon-footer {
+               margin: 0 auto;
+           }
+
+           .input-group-wrapper {
+               flex-direction: column;
+           }
+
+           .newsletter-btn {
+               width: 100%;
+               justify-content: center;
+           }
+
+           .footer .col-lg-2 {
+               flex: 0 0 33.333%;
+               max-width: 33.333%;
+           }
+
+           .footer .col-lg-3 {
+               flex: 0 0 100%;
+               max-width: 100%;
+               text-align: center;
+           }
+
+           .footer-logo {
+               margin: 0 auto 20px;
+               display: block;
+           }
+
+           .footer-description {
+               max-width: 100%;
+               margin: 0 auto 2rem;
+           }
+
+           .social-links {
+               justify-content: center;
+               margin-top: 20px;
+           }
+
+           .copyright {
+               text-align: center;
+           }
+       }
+
+       @media (max-width: 767px) {
+           .solution-hero {
+               padding: 120px 0 60px;
+               text-align: center;
+           }
+
+           .solution-hero h1 {
+               font-size: 2.2rem;
+               letter-spacing: -0.5px;
+           }
+
+           .logo-row {
+               justify-content: center;
+               gap: 2rem;
+           }
+
+           .step-card {
+               margin-bottom: 1.5rem;
+           }
+
+           .contact-section h2 {
+               font-size: 2.2rem;
+           }
+
+           .contact-form {
+               padding: 2rem;
+           }
+
+           /* Footer Mobile */
+           .newsletter-footer-section {
+               padding: 24px;
+               margin-bottom: 40px;
+           }
+
+           .newsletter-title {
+               font-size: 1.25rem;
+           }
+
+           .newsletter-subtitle {
+               font-size: 0.9rem;
+           }
+
+           .footer .col-lg-2,
+           .footer .col-lg-3,
+           .footer .col-md-6 {
+               flex: 0 0 100%;
+               max-width: 100%;
+               text-align: center;
+               margin-bottom: 2rem;
+           }
+
+           .footer-links {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+           }
+
+           .footer-heading {
+               margin-bottom: 1rem;
+           }
+
+           .whatsapp-float {
+               width: 55px;
+               height: 55px;
+               bottom: 20px;
+               right: 20px;
+           }
+
+           .whatsapp-float i {
+               font-size: 1.5rem;
+           }
+
+           .float-tooltip {
+               display: none;
+           }
+       }
+
+       @media (max-width: 375px) {
+           /* Footer Extra Small */
+           .newsletter-footer-section {
+               padding: 20px 12px;
+           }
+
+           .newsletter-input {
+               padding: 10px 14px;
+               font-size: 16px;
+           }
+
+           .newsletter-btn {
+               padding: 10px 20px;
+               font-size: 0.95rem;
+           }
+       }
+
+       /* Shake animation for errors */
+       @keyframes shake {
+           0%, 100% { transform: translateX(0); }
+           25% { transform: translateX(-5px); }
+           75% { transform: translateX(5px); }
+       }
+
+       .shake-animation {
+           animation: shake 0.5s ease-in-out;
+       }
+   </style>
+</head>
+<body>
+   <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Program
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="./contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+               <div class="dropdown">
+                  <div class="country-selector dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                     <span class="country-flag" id="current-flag">🇮🇳</span>
+                     <span id="current-country">India</span>
+                     <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+                  </div>
+                  <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                     <li><a href="../countries/usa.html" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸"><span class="country-flag">🇺🇸</span> USA</a></li>
+                     <li><a class="dropdown-item country-option" href="../countries/UAE.html" data-country="UAE" data-flag="🇦🇪"><span class="country-flag">🇦🇪</span> UAE</a></li>
+                     <li><a class="dropdown-item country-option" href="../countries/aus.html" data-country="Australia" data-flag="🇦🇺"><span class="country-flag">🇦🇺</span> Australia</a></li>
+                     <li><a class="dropdown-item country-option" href="../countries/uk.html" data-country="UK" data-flag="🇬🇧"><span class="country-flag">🇬🇧</span> UK</a></li>
+                     <li><a class="dropdown-item country-option" href="../countries/sigapore.html" data-country="Singapore" data-flag="🇸🇬"><span class="country-flag">🇸🇬</span> Singapore</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </nav>
+
+   <!-- Hero Section -->
+   <section class="solution-hero">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-lg-6">
+               <div class="hero-badge">
+                  <i class="bi bi-building-check"></i>
+                  DIN Verification Solution
+               </div>
+               <h1>Validate Director Credentials with MCA Database Precision.</h1>
+               <p class="lead">Comprehensive DIN verification through direct Ministry of Corporate Affairs integration. Validate director details, company associations, disqualification status, and compliance history with real-time ROC data across 2.5M+ registered directors.</p>
+               
+               <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
+                  Get in Touch <i class="bi bi-arrow-right"></i>
+               </a>
+               
+               <div class="trust-badge">
+                  <p>Trusted by 2,000+ companies</p>
+                  <div class="logo-row">
+                     <span class="logo-item">HDFC Bank</span>
+                     <span class="logo-item">ICICI</span>
+                     <span class="logo-item">Kotak</span>
+                     <span class="logo-item">Axis</span>
+                     <span class="logo-item">Bajaj</span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6">
+               <div class="hero-visual">
+                  <div class="floating-card card-1">
+                     <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0 fw-bold">DIN Check Status</h6>
+                        <span class="badge bg-success bg-opacity-10 text-success">Active</span>
+                     </div>
+                     <div class="verification-row">
+                        <div class="verif-icon"><i class="bi bi-person-vcard"></i></div>
+                        <div>
+                           <div class="fw-semibold">Director Name</div>
+                           <small class="text-muted">Rajesh Kumar Sharma</small>
+                        </div>
+                        <span class="status-badge">Verified</span>
+                     </div>
+                     <div class="verification-row">
+                        <div class="verif-icon"><i class="bi bi-123"></i></div>
+                        <div>
+                           <div class="fw-semibold">DIN Number</div>
+                           <small class="text-muted">01234567</small>
+                        </div>
+                        <span class="status-badge">Valid</span>
+                     </div>
+                     <div class="verification-row">
+                        <div class="verif-icon"><i class="bi bi-buildings"></i></div>
+                        <div>
+                           <div class="fw-semibold">Companies</div>
+                           <small class="text-muted">3 Active, 1 Struck Off</small>
+                        </div>
+                        <span class="status-badge">Clear</span>
+                     </div>
+                  </div>
+                  
+                  <div class="floating-card card-2">
+                     <div class="text-center">
+                        <div class="mb-3" style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 2rem;">
+                           <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5 class="fw-bold mb-1">MCA Integration</h5>
+                        <p class="small text-muted mb-2">Live ROC Data</p>
+                        <div class="d-flex justify-content-center gap-2">
+                           <span class="badge bg-light text-dark border">MCA21</span>
+                           <span class="badge bg-light text-dark border">V3</span>
+                           <span class="badge bg-light text-dark border">API</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Verification Types -->
+   <section class="verification-types">
+      <div class="container">
+         <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+               <div class="section-subtitle justify-content-center">
+                  <i class="bi bi-layers"></i> Comprehensive Coverage
+               </div>
+               <h2 class="section-title">DIN Verification Types</h2>
+               <p class="section-desc mx-auto">Complete director due diligence through MCA database checks, compliance monitoring, and disqualification screening.</p>
+            </div>
+         </div>
+         
+         <div class="row g-4">
+            <div class="col-md-4">
+               <div class="type-card featured h-100">
+                  <span class="badge-featured">MOST POPULAR</span>
+                  <div class="type-icon">
+                     <i class="bi bi-person-check"></i>
+                  </div>
+                  <h3>DIN Status Check</h3>
+                  <p>Verify DIN validity, director identity, and KYC compliance status through direct MCA portal authentication.</p>
+                  <div class="text-start mt-4">
+                     <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>DIN validity confirmation</span>
+                     </div>
+                     <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>Director KYC status</span>
+                     </div>
+                     <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>PAN-Aadhaar linking</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="type-card h-100">
+                  <div class="type-icon">
+                     <i class="bi bi-building-gear"></i>
+                  </div>
+                  <h3>Company Associations</h3>
+                  <p>Map complete directorship portfolio including current, past, and struck-off companies with shareholding patterns.</p>
+                  <div class="text-start mt-4">
+                     <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>Active company listings</span>
+                     </div>
+                     <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>Resigned directorships</span>
+                     </div>
+                     <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>Struck-off entities</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="type-card h-100">
+                  <div class="type-icon">
+                     <i class="bi bi-shield-exclamation"></i>
+                  </div>
+                  <h3>Compliance & Disqualification</h3>
+                  <p>Screen for disqualification under Section 164, defaulting companies, and regulatory violations.</p>
+                  <div class="text-start mt-4">
+                     <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>Disqualification check</span>
+                     </div>
+                     <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>Defaulting director status</span>
+                     </div>
+                     <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle-fill text-primary"></i>
+                        <span>ROC compliance history</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- How it Works -->
+   <section class="how-it-works" id="how-it-works">
+      <div class="container">
+         <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+               <div class="section-subtitle justify-content-center">
+                  <i class="bi bi-arrow-repeat"></i> Process
+               </div>
+               <h2 class="section-title">How DIN Verification Works</h2>
+               <p class="section-desc mx-auto">Systematic validation of director credentials through MCA21 integration and regulatory database checks</p>
+            </div>
+         </div>
+         
+         <div class="row g-4">
+            <div class="col-md-6 col-lg reveal">
+               <div class="step-card h-100">
+                  <div class="step-connector"></div>
+                  <div class="step-number">1</div>
+                  <h4>DIN Capture</h4>
+                  <p>Input DIN number or director details. System auto-fetches data from MCA21 portal and validates format authenticity.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg reveal">
+               <div class="step-card h-100">
+                  <div class="step-connector"></div>
+                  <div class="step-number">2</div>
+                  <h4>MCA Database Pull</h4>
+                  <p>Real-time extraction from Ministry of Corporate Affairs including master data, filings, and public documents.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg reveal">
+               <div class="step-card h-100">
+                  <div class="step-connector"></div>
+                  <div class="step-number">3</div>
+                  <h4>Compliance Screening</h4>
+                  <p>Check disqualification lists, DIN deactivation status, and KYC non-compliance flags from ROC records.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg reveal">
+               <div class="step-card h-100">
+                  <div class="step-connector"></div>
+                  <div class="step-number">4</div>
+                  <h4>Company Mapping</h4>
+                  <p>Retrieve all company associations with CIN numbers, appointment dates, resignation records, and current status.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg reveal">
+               <div class="step-card h-100">
+                  <div class="step-number">5</div>
+                  <h4>Risk Assessment Report</h4>
+                  <p>Comprehensive report with compliance score, red flags, litigation history, and directorship risk rating.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Key Highlights -->
+   <section class="key-highlights">
+      <div class="container">
+         <div class="row g-4">
+            <div class="col-md-4 reveal">
+               <div class="highlight-card h-100">
+                  <div class="highlight-icon">
+                     <i class="bi bi-database-check"></i>
+                  </div>
+                  <h3>MCA21 Live Integration</h3>
+                  <p>Direct API connectivity with Ministry of Corporate Affairs for real-time data accuracy</p>
+                  <ul>
+                     <li>Real-time MCA21 V3 API access</li>
+                     <li>Master data synchronization</li>
+                     <li>Public document retrieval</li>
+                  </ul>
+                  <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+               </div>
+            </div>
+            
+            <div class="col-md-4 reveal">
+               <div class="highlight-card h-100">
+                  <div class="highlight-icon">
+                     <i class="bi bi-shield-lock"></i>
+                  </div>
+                  <h3>Disqualification Monitoring</h3>
+                  <p>Active screening against debarred directors and compliance violation databases</p>
+                  <ul>
+                     <li>Section 164 disqualification check</li>
+                     <li>NFRA debarred list screening</li>
+                     <li>ROC prosecution tracking</li>
+                  </ul>
+                  <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+               </div>
+            </div>
+            
+            <div class="col-md-4 reveal">
+               <div class="highlight-card h-100">
+                  <div class="highlight-icon">
+                     <i class="bi bi-diagram-3"></i>
+                  </div>
+                  <h3>Network Analysis</h3>
+                  <p>Advanced relationship mapping to identify shell companies and related party networks</p>
+                  <ul>
+                     <li>Common directorship detection</li>
+                     <li>Group company identification</li>
+                     <li>Beneficial ownership tracing</li>
+                  </ul>
+                  <a href="#contact" class="btn btn-outline-custom">Get Started →</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Benefits -->
+   <section class="benefits-section" id="benefits">
+      <div class="container">
+         <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+               <div class="section-subtitle justify-content-center">
+                  <i class="bi bi-stars"></i> Advantages
+               </div>
+               <h2 class="section-title">Benefits of DIN Verification</h2>
+            </div>
+         </div>
+         
+         <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-shield-check"></i></div>
+                  <h4>Regulatory Compliance</h4>
+                  <p>Meet RBI, SEBI, and MCA due diligence requirements for director appointments and KYC.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-lightning-charge"></i></div>
+                  <h4>Instant TAT</h4>
+                  <p>Real-time verification through API integration with MCA21 portal for immediate results.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-exclamation-triangle"></i></div>
+                  <h4>Fraud Prevention</h4>
+                  <p>Detect dummy directors, shell company operators, and disqualified persons before onboarding.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                  <h4>Risk Scoring</h4>
+                  <p>Automated risk ratings based on compliance history, litigation, and company performance.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-file-earmark-text"></i></div>
+                  <h4>ROC Filing History</h4>
+                  <p>Access annual returns, financial statements, and charge documents for complete due diligence.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-bell"></i></div>
+                  <h4>Change Monitoring</h4>
+                  <p>Continuous monitoring alerts for new directorships, resignations, or disqualification events.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-plug"></i></div>
+                  <h4>API Integration</h4>
+                  <p>Seamless integration with loan origination systems, onboarding platforms, and compliance tools.</p>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal">
+               <div class="benefit-item">
+                  <div class="benefit-icon"><i class="bi bi-file-check"></i></div>
+                  <h4>Audit Trail</h4>
+                  <p>Complete documentation with MCA response logs for regulatory examinations and audits.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- FAQs -->
+   <section class="faq-section">
+      <div class="container">
+         <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+               <div class="section-subtitle justify-content-center">
+                  <i class="bi bi-question-circle"></i> FAQ
+               </div>
+               <h2 class="section-title">FAQs — DIN Verification</h2>
+            </div>
+         </div>
+         
+         <div class="row justify-content-center">
+            <div class="col-lg-8 reveal">
+               <div class="accordion" id="dinFAQ">
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                           What is a DIN and why is verification necessary?
+                        </button>
+                     </h2>
+                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#dinFAQ">
+                        <div class="accordion-body">
+                           DIN (Director Identification Number) is an 8-digit unique identification number allotted by the Ministry of Corporate Affairs (MCA) to individuals who intend to be appointed as directors or are already directors of companies in India. Verification is essential for: (1) Confirming the director's identity and legitimacy, (2) Checking disqualification status under Section 164 of the Companies Act, 2013, (3) Identifying all companies associated with the director to assess conflict of interest, (4) Ensuring KYC compliance as per MCA requirements, and (5) Screening for involvement in struck-off or defaulting companies. Banks, NBFCs, investors, and corporates use DIN verification for vendor due diligence, loan processing, and partnership evaluations.
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                           How do you verify if a director is disqualified under Section 164?
+                        </button>
+                     </h2>
+                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#dinFAQ">
+                        <div class="accordion-body">
+                           We conduct comprehensive disqualification screening through multiple channels: (1) MCA21 portal check for active DIN status and deactivation flags, (2) Cross-reference with the list of disqualified directors published by MCA under Section 164, (3) Verification of DIN surrender or deactivation due to KYC non-compliance, (4) Check for conviction by courts in relation to company matters, (5) Verification of undischarged insolvency status, and (6) Screening against NFRA (National Financial Reporting Authority) debarred list. We also check for disqualification due to association with companies that have defaulted on deposits, debentures, or statutory dues for continuous periods as specified under the Companies Act.
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                           Can you identify shell companies and related party networks through DIN verification?
+                        </button>
+                     </h2>
+                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#dinFAQ">
+                        <div class="accordion-body">
+                           Yes, our advanced network analysis capabilities help identify potential shell companies and related party structures: (1) Common directorship mapping to find interconnected entities, (2) Identification of companies with common addresses, email IDs, or contact details, (3) Pattern analysis of incorporation dates and capital structures, (4) Cross-referencing with MCA's list of struck-off companies and shell company databases, (5) Analysis of frequent appointment/resignation patterns indicative of dummy directorships, and (6) Beneficial ownership tracing through shareholding patterns. We flag high-risk indicators such as directors associated with multiple companies at the same address, circular investment patterns, or involvement in companies previously struck off for non-compliance.
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                           What information is included in the DIN verification report?
+                        </button>
+                     </h2>
+                     <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#dinFAQ">
+                        <div class="accordion-body">
+                           Our comprehensive DIN verification report includes: (1) Director Personal Details - Name, PAN, address, nationality, and occupation as per MCA records, (2) DIN Status - Active/Inactive, KYC compliance status, and validity period, (3) Company Associations - Complete list of companies (active, struck-off, under liquidation) with CIN numbers, appointment dates, resignation dates, and designation, (4) Compliance History - ROC filing defaults, charge satisfaction delays, and statutory violation flags, (5) Disqualification Status - Section 164 applicability, debarment history, and litigation involvement, (6) Risk Assessment - Overall risk rating based on directorship patterns, company performance, and compliance history, and (7) Network Analysis - Related party connections and common directorships with risk-flagged entities. All data is timestamped and includes MCA reference numbers for audit purposes.
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                           How current is the data and how often is it updated?
+                        </button>
+                     </h2>
+                     <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#dinFAQ">
+                        <div class="accordion-body">
+                           Our DIN verification system provides real-time data through direct API integration with MCA21 V3 portal, ensuring the information is as current as the MCA database itself. Updates occur: (1) Real-time for DIN status, KYC compliance, and active company associations, (2) Within 24 hours for new filings and ROC documents, (3) Immediate alerts for disqualification orders or DIN deactivation events. For continuous monitoring clients, we provide change alerts whenever there's a new directorship appointment, resignation, company status change, or compliance filing. Historical data is maintained as per MCA records, typically available from 2006 onwards when the DIN system was introduced, though some older records may have limited details.
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                           Is DIN verification compliant with RBI and SEBI due diligence requirements?
+                        </button>
+                     </h2>
+                     <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#dinFAQ">
+                        <div class="accordion-body">
+                           Yes, our DIN verification solution fully complies with regulatory requirements: (1) RBI KYC Master Direction - Meets requirements for director verification in loan processing, consortium lending, and NBFC onboarding, (2) SEBI LODR Regulations - Supports listed companies in verifying independent director qualifications and related party disclosures, (3) SEBI ICDR - Assists in promoter group identification and shareholding pattern verification for IPO due diligence, (4) Companies Act 2013 - Validates compliance with Section 164 disqualifications and Section 149 independent director criteria, (5) PMLA 2002 - Aids in identifying beneficial owners and politically exposed persons (PEPs) in corporate structures. Our reports include audit trails and MCA reference IDs required for regulatory examinations and statutory audits.
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Contact Section -->
+   <!-- <section class="contact-section" id="contact">
+      <div class="container position-relative">
+         <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+               <h2>Ready to Explore Verifitech for your business?</h2>
+               <p class="lead">Get in touch with our solutions team to discuss your DIN verification needs and customized pricing for corporate due diligence.</p>
+               
+               <div class="mt-5">
+                  <div class="contact-feature">
+                     <div class="contact-feature-icon">
+                        <i class="bi bi-check-lg"></i>
+                     </div>
+                     <span>Assess verification volume requirements</span>
+                  </div>
+                  <div class="contact-feature">
+                     <div class="contact-feature-icon">
+                        <i class="bi bi-check-lg"></i>
+                     </div>
+                     <span>Learn about API & batch processing options</span>
+                  </div>
+                  <div class="contact-feature">
+                     <div class="contact-feature-icon">
+                        <i class="bi bi-check-lg"></i>
+                     </div>
+                     <span>Discuss enterprise pricing & SLAs</span>
+                  </div>
+               </div>
+               
+               <div class="mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                  <p class="text-white-50 mb-3">Or reach us directly:</p>
+                  <p class="mb-2"><i class="bi bi-envelope me-2 text-primary"></i> sales@verifitech.com</p>
+                  <p><i class="bi bi-telephone me-2 text-primary"></i> +91 1800-123-4567</p>
+               </div>
+            </div>
+            
+            <div class="col-lg-6 reveal">
+               <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest! Our team will contact you within 24 hours.');">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="First Name *" required>
+                     </div>
+                     <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Last Name *" required>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <input type="email" class="form-control" placeholder="Work Email *" required>
+                     </div>
+                     <div class="col-md-6">
+                        <input type="tel" class="form-control" placeholder="Phone Number *" required>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Company Name *" required>
+                     </div>
+                     <div class="col-md-6">
+                        <select class="form-select" required>
+                           <option value="" disabled selected>Company Size *</option>
+                           <option>1-50 employees</option>
+                           <option>51-200 employees</option>
+                           <option>201-1000 employees</option>
+                           <option>1000+ employees</option>
+                        </select>
+                     </div>
+                  </div>
+                  <select class="form-select" required>
+                     <option value="" disabled selected>Interested Solution *</option>
+                     <option selected>DIN Verification</option>
+                     <option>Director Due Diligence</option>
+                     <option>Company Background Check</option>
+                     <option>Complete BGV Suite</option>
+                  </select>
+                  <textarea class="form-control" rows="3" placeholder="Tell us about your requirements (Optional)"></textarea>
+                  
+                  <div class="form-check mt-3 mb-4">
+                     <input class="form-check-input" type="checkbox" required>
+                     <label class="form-check-label">
+                        I agree to the <a href="#">Privacy Policy</a> and consent to being contacted regarding Verifitech services.
+                     </label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-submit">
+                     Submit Request <i class="bi bi-arrow-right ms-2"></i>
+                  </button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </section>-->
+<!-- Chat Icon -->
+    <button class="chat-icon-btn" onclick="toggleChat()" id="chatIcon">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+        </svg>
+    </button>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="avatar">V</div>
+                <div class="header-info">
+                    <h3>Verifitech assistant Assistant</h3>
+                    <span><span class="online-dot"></span> Online</span>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <!-- Privacy Notice -->
+            <div class="privacy-notice" id="privacyNotice">
+                <div class="privacy-header">
+                    <span>🔒</span>
+                    <span>Your Privacy Matters</span>
+                </div>
+                <div class="privacy-text">
+                    This chat is encrypted and your data is handled according to our privacy policy. Do you consent to proceed?
+                </div>
+                <div class="privacy-buttons">
+                    <button class="btn btn-primary" onclick="acceptPrivacy()">Accept</button>
+                    <button class="btn btn-secondary" onclick="declinePrivacy()">Decline</button>
+                </div>
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="message hidden" id="welcomeMessage">
+                <div class="message-avatar">V</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        👋 Hi there! I'm <strong>Veri</strong>, your AI assistant from Verifitech.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-form" id="inputForm">
+            <input type="text" class="input-field" id="messageInput" placeholder="Type a message..." disabled>
+            <button class="send-btn" id="sendBtn" onclick="handleSend()" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Footer Section with Zoho Newsletter -->
+    <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="./checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../Contact/talk to sales.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="../products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://in.linkedin.com/company/verifitechinkedin" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="../privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="privacy-separator">|</span>
+            <a href="../privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="privacy-separator">|</span>  
+            <a href="../privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-sepa.rator">|</span>        
+            <a href="./privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+   <!-- Floating WhatsApp Button
+   <a 
+      href="#" 
+      id="whatsappFloat"
+      class="whatsapp-float" 
+      title="Chat with us on WhatsApp"
+      onclick="openWhatsApp(event)"
+   >
+      <i class="bi bi-whatsapp"></i>
+      <span class="float-tooltip">How can we help?</span>
+   </a>-->
+
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+         const navbar = document.querySelector('.navbar');
+         if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+         } else {
+            navbar.classList.remove('scrolled');
+         }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+         threshold: 0.1,
+         rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               entry.target.classList.add('active');
+               observer.unobserve(entry.target);
+            }
+         });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+         anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+               const offsetTop = target.offsetTop - 80;
+               window.scrollTo({
+                  top: offsetTop,
+                  behavior: 'smooth'
+               });
+            }
+         });
+      });
+
+      // Zoho Form Validation Variables
+      var zf_MandArray = [ "Email"]; 
+      var zf_FieldArray = [ "Email"]; 
+
+      // Zoho Validation and Submission Function
+      function zf_ValidateAndSubmit() {
+         var email = document.getElementById('Email').value.trim();
+         var emailInput = document.getElementById('Email');
+         var errorElement = document.getElementById('Email_error');
+         
+         // Email validation regex
+         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         
+         // Reset states
+         emailInput.classList.remove('zf-error', 'zf-success');
+         errorElement.style.display = 'none';
+         
+         // Check if empty
+         if (email === '') {
+            errorElement.textContent = 'Email is required';
+            errorElement.style.display = 'flex';
+            emailInput.classList.add('zf-error');
+            emailInput.classList.add('shake-animation');
+            setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
+            return false;
+         }
+         
+         // Check format
+         if (!emailRegex.test(email)) {
+            errorElement.textContent = 'Please enter a valid email address';
+            errorElement.style.display = 'flex';
+            emailInput.classList.add('zf-error');
+            emailInput.classList.add('shake-animation');
+            setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
+            return false;
+         }
+         
+         // Show loading state
+         var submitBtn = document.querySelector('.newsletter-btn');
+         submitBtn.disabled = true;
+         submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Subscribing...';
+         
+         // Add success state
+         emailInput.classList.add('zf-success');
+         
+         // Allow form submission to Zoho
+         return true;
+      }
+
+      // Real-time validation
+      document.addEventListener('DOMContentLoaded', function() {
+         var emailInput = document.getElementById('Email');
+         
+         if (emailInput) {
+            emailInput.addEventListener('input', function() {
+               this.classList.remove('zf-error', 'zf-success');
+               document.getElementById('Email_error').style.display = 'none';
+            });
+            
+            emailInput.addEventListener('blur', function() {
+               if (this.value.trim() !== '') {
+                  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  if (!emailRegex.test(this.value.trim())) {
+                     var errorElement = document.getElementById('Email_error');
+                     errorElement.textContent = 'Please enter a valid email address';
+                     errorElement.style.display = 'flex';
+                     this.classList.add('zf-error');
+                  }
+               }
+            });
+         }
+      });
+
+      // WhatsApp Functionality
+      const whatsappConfig = {
+         phoneNumber: '+919176663777',
+         defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+         pageContext: true
+      };
+
+      function openWhatsApp(event) {
+         event.preventDefault();
+         
+         const pageTitle = document.title;
+         const currentUrl = window.location.href;
+         
+         let message = whatsappConfig.defaultMessage;
+         
+         if (whatsappConfig.pageContext && pageTitle) {
+            message += `\n\nI am currently viewing: ${pageTitle}`;
+         }
+         
+         const encodedMessage = encodeURIComponent(message);
+         const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+         
+         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+         
+         if (isMobile) {
+            window.location.href = whatsappUrl;
+            setTimeout(() => {
+               window.open(whatsappUrl, '_blank');
+            }, 1000);
+         } else {
+            window.open(whatsappUrl, '_blank');
+         }
+      }
+      
+       let currentStep = 'privacy';
+        let selectedDept = '';
+        let selectedService = '';
+        let userData = { name: '', email: '', number: '', company: '' };
+
+        function toggleChat() {
+            const container = document.getElementById('chatContainer');
+            container.classList.toggle('active');
+        }
+
+        function acceptPrivacy() {
+            document.getElementById('privacyNotice').classList.add('hidden');
+            document.getElementById('welcomeMessage').classList.remove('hidden');
+            
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    askForName();
+                }, 800);
+            }, 500);
+        }
+
+        function declinePrivacy() {
+            alert('You must accept the privacy policy to continue.');
+        }
+
+        function showTyping() {
+            const chatBody = document.getElementById('chatBody');
+            const typing = document.createElement('div');
+            typing.className = 'message typing-indicator';
+            typing.id = 'typing';
+            typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+            chatBody.appendChild(typing);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+
+        function addMessage(text, isUser = false) {
+            const chatBody = document.getElementById('chatBody');
+            const msg = document.createElement('div');
+            msg.className = isUser ? 'message user-message' : 'message';
+            
+            if (isUser) {
+                msg.innerHTML = `<div class="message-content"><div class="message-text">${text}</div></div>`;
+            } else {
+                msg.innerHTML = `<div class="message-avatar">V</div><div class="message-content"><div class="message-text">${text}</div></div>`;
+            }
+            
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function askForName() {
+            currentStep = 'name';
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    addMessage('To get started, could you please provide your <strong>full name</strong>?');
+                    enableInput('Type your full name...');
+                }, 800);
+            }, 300);
+        }
+
+        function askForEmail() {
+            currentStep = 'email';
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    addMessage('Thanks! Now, please provide your <strong>email address</strong>.');
+                    enableInput('Type your email address...');
+                }, 800);
+            }, 300);
+        }
+
+        function askForNumber() {
+            currentStep = 'number';
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    addMessage('Great! Please provide your <strong>contact number</strong>.');
+                    enableInput('Type your contact number...');
+                }, 800);
+            }, 300);
+        }
+
+        function askForCompany() {
+            currentStep = 'company';
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    addMessage('Finally, please provide your <strong>company name</strong>.');
+                    enableInput('Type your company name...');
+                }, 800);
+            }, 300);
+        }
+
+        function showConfirmation() {
+            currentStep = 'confirm';
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    const chatBody = document.getElementById('chatBody');
+                    const msg = document.createElement('div');
+                    msg.className = 'message';
+                    msg.innerHTML = `
+                        <div class="message-avatar">V</div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                Please confirm your details:
+                                <div class="confirmation-box">
+                                    <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">${userData.name}</span></div>
+                                    <div class="detail-row"><span class="detail-label">Email:</span><span class="detail-value">${userData.email}</span></div>
+                                    <div class="detail-row"><span class="detail-label">Number:</span><span class="detail-value">${userData.number}</span></div>
+                                    <div class="detail-row"><span class="detail-label">Company:</span><span class="detail-value">${userData.company}</span></div>
+                                </div>
+                                Are these details correct? Please type <strong>YES</strong> to confirm or <strong>NO</strong> to edit name.
+                            </div>
+                        </div>
+                    `;
+                    chatBody.appendChild(msg);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    enableInput('Type YES to confirm or NO to edit name...');
+                }, 800);
+            }, 300);
+        }
+
+        function showDepartments() {
+            currentStep = 'departments';
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    const chatBody = document.getElementById('chatBody');
+                    const msg = document.createElement('div');
+                    msg.className = 'message';
+                    msg.innerHTML = `
+                        <div class="message-avatar">V</div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                Perfect! How can we help you today? Please select a department:
+                                <div class="department-grid">
+                                    <button class="dept-card" onclick="selectDepartment('service')">
+                                        <div class="dept-icon">🛠️</div>
+                                        <div class="dept-name">Service</div>
+                                        <div class="dept-desc">BGV & verification services</div>
+                                    </button>
+                                    <button class="dept-card" onclick="selectDepartment('career')">
+                                        <div class="dept-icon">💼</div>
+                                        <div class="dept-name">Career</div>
+                                        <div class="dept-desc">Job opportunities</div>
+                                    </button>
+                                    <button class="dept-card" onclick="selectDepartment('support')">
+                                        <div class="dept-icon">🎧</div>
+                                        <div class="dept-name">Support</div>
+                                        <div class="dept-desc">Customer support</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    chatBody.appendChild(msg);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    disableInput();
+                }, 800);
+            }, 300);
+        }
+
+        function selectDepartment(dept) {
+            selectedDept = dept;
+            addMessage(dept.charAt(0).toUpperCase() + dept.slice(1), true);
+            
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    if (dept === 'service') {
+                        showBGVOptions(); // Directly show BGV options, no Reach Out button
+                    } else {
+                        showReachOut(dept);
+                    }
+                }, 800);
+            }, 300);
+        }
+
+        function showBGVOptions() {
+            const chatBody = document.getElementById('chatBody');
+            const msg = document.createElement('div');
+            msg.className = 'message';
+            msg.innerHTML = `
+                <div class="message-avatar">V</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        Select a BGV service you need:
+                        <div class="bgv-options">
+                            <button class="bgv-btn" onclick="prepareServiceRequest('Employee Background Check')">👤 Employee Background Check</button>
+                            <button class="bgv-btn" onclick="prepareServiceRequest('Tenant Verification')">🏠 Tenant Verification</button>
+                            <button class="bgv-btn" onclick="prepareServiceRequest('Criminal Record Check')">🔍 Criminal Record Check</button>
+                            <button class="bgv-btn" onclick="prepareServiceRequest('Education Verification')">🎓 Education Verification</button>
+                            <button class="bgv-btn" onclick="prepareServiceRequest('Employment History')">💼 Employment History Check</button>
+                            <button class="bgv-btn" onclick="prepareServiceRequest('Other')">📝 Other (Specify below)</button>
+                        </div>
+                        <button class="back-btn" onclick="showDepartments()">← Back</button>
+                    </div>
+                </div>
+            `;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function prepareServiceRequest(serviceType) {
+            selectedService = serviceType;
+            addMessage(serviceType, true);
+            
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    if (serviceType === 'Other') {
+                        // Show input for custom service
+                        const chatBody = document.getElementById('chatBody');
+                        const msg = document.createElement('div');
+                        msg.className = 'message';
+                        msg.innerHTML = `
+                            <div class="message-avatar">V</div>
+                            <div class="message-content">
+                                <div class="message-text">
+                                    Please specify the service you need:
+                                    <textarea class="issue-input" id="customService" rows="2" placeholder="Describe the service you need..."></textarea>
+                                    <button class="action-btn" onclick="confirmCustomService()">Continue</button>
+                                    <button class="back-btn" onclick="showBGVOptions()">← Back</button>
+                                </div>
+                            </div>
+                        `;
+                        chatBody.appendChild(msg);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    } else {
+                        showFinalConfirmation('service');
+                    }
+                }, 800);
+            }, 300);
+        }
+
+        function confirmCustomService() {
+            const customText = document.getElementById('customService').value.trim();
+            if (!customText) {
+                alert('Please describe the service you need.');
+                return;
+            }
+            selectedService = 'Other: ' + customText;
+            showFinalConfirmation('service');
+        }
+
+        function showReachOut(dept) {
+            const chatBody = document.getElementById('chatBody');
+            const msg = document.createElement('div');
+            msg.className = 'message';
+            msg.innerHTML = `
+                <div class="message-avatar">V</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        You've selected <strong>${dept.charAt(0).toUpperCase() + dept.slice(1)}</strong> department.
+                        <button class="action-btn" onclick="showDeptAction('${dept}')">📞 Reach Out</button>
+                        <button class="back-btn" onclick="showDepartments()">← Back</button>
+                    </div>
+                </div>
+            `;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function showDeptAction(dept) {
+            addMessage('Reach Out', true);
+            
+            setTimeout(() => {
+                showTyping();
+                setTimeout(() => {
+                    removeTyping();
+                    
+                    if (dept === 'career') {
+                        const chatBody = document.getElementById('chatBody');
+                        const msg = document.createElement('div');
+                        msg.className = 'message';
+                        msg.innerHTML = `
+                            <div class="message-avatar">V</div>
+                            <div class="message-content">
+                                <div class="message-text">
+                                    Interested in joining our team?
+                                    <button class="action-btn" onclick="openCareerPage()">🚀 Apply Now</button>
+                                    <p style="margin-top: 10px; font-size: 12px; color: #666;">Click to visit careers page</p>
+                                    <button class="back-btn" onclick="showDepartments()">← Back</button>
+                                </div>
+                            </div>
+                        `;
+                        chatBody.appendChild(msg);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    } else if (dept === 'support') {
+                        const chatBody = document.getElementById('chatBody');
+                        const msg = document.createElement('div');
+                        msg.className = 'message';
+                        msg.innerHTML = `
+                            <div class="message-avatar">V</div>
+                            <div class="message-content">
+                                <div class="message-text">
+                                    Please describe your issue:
+                                    <textarea class="issue-input" id="issueText" rows="3" placeholder="Type your issue here..."></textarea>
+                                    <button class="action-btn" onclick="prepareSupportTicket()">Continue</button>
+                                    <button class="back-btn" onclick="showDepartments()">← Back</button>
+                                </div>
+                            </div>
+                        `;
+                        chatBody.appendChild(msg);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }
+                }, 800);
+            }, 300);
+        }
+
+        function prepareSupportTicket() {
+            const issueText = document.getElementById('issueText').value.trim();
+            if (!issueText) {
+                alert('Please describe your issue first.');
+                return;
+            }
+            selectedService = 'Support Issue: ' + issueText;
+            showFinalConfirmation('support');
+        }
+
+        function showFinalConfirmation(type) {
+            const chatBody = document.getElementById('chatBody');
+            const msg = document.createElement('div');
+            msg.className = 'message';
+            
+            let detailsHtml = `
+                <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">${userData.name}</span></div>
+                <div class="detail-row"><span class="detail-label">Email:</span><span class="detail-value">${userData.email}</span></div>
+                <div class="detail-row"><span class="detail-label">Number:</span><span class="detail-value">${userData.number}</span></div>
+                <div class="detail-row"><span class="detail-label">Company:</span><span class="detail-value">${userData.company}</span></div>
+                <div class="detail-row"><span class="detail-label">Request:</span><span class="detail-value">${selectedService}</span></div>
+            `;
+            
+            msg.innerHTML = `
+                <div class="message-avatar">V</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        <div class="final-confirm-box">
+                            <h4>📋 Review Your Request</h4>
+                            ${detailsHtml}
+                            <button class="send-final-btn" onclick="sendFinalRequest()">✅ Send Request</button>
+                        </div>
+                        <button class="back-btn" onclick="${type === 'service' ? 'showBGVOptions()' : 'showDeptAction(\'' + type + '\')'}">← Edit</button>
+                    </div>
+                </div>
+            `;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendFinalRequest() {
+            const chatBody = document.getElementById('chatBody');
+            
+            let successContent = '';
+            if (selectedDept === 'service') {
+                successContent = `
+                    <div class="success-msg">
+                        ✅ <strong>Service Request Submitted!</strong><br>
+                        Service: ${selectedService}<br>
+                        Name: ${userData.name}<br>
+                        Email: ${userData.email}<br>
+                        Contact: ${userData.number}<br>
+                        Company: ${userData.company}
+                    </div>
+                    <p style="margin-top: 10px; font-size: 13px;">Our team will contact you within 24 hours.</p>
+                `;
+            } else if (selectedDept === 'support') {
+                successContent = `
+                    <div class="success-msg">
+                        ✅ <strong>Support Ticket Created!</strong><br>
+                        Ticket ID: #SUP-${Date.now().toString().slice(-6)}<br>
+                        ${selectedService}<br>
+                        Name: ${userData.name}<br>
+                        Email: ${userData.email}
+                    </div>
+                    <p style="margin-top: 10px; font-size: 13px;">Our support team will reach out shortly.</p>
+                `;
+            }
+            
+            const msg = document.createElement('div');
+            msg.className = 'message';
+            msg.innerHTML = `
+                <div class="message-avatar">V</div>
+                <div class="message-content">
+                    <div class="message-text">
+                        ${successContent}
+                        <button class="back-btn" onclick="showDepartments()">← New Request</button>
+                    </div>
+                </div>
+            `;
+            chatBody.appendChild(msg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function openCareerPage() {
+            addMessage('Apply Now', true);
+            setTimeout(() => {
+                window.open('https://careers.verifitech.com', '_blank');
+                
+                const chatBody = document.getElementById('chatBody');
+                const msg = document.createElement('div');
+                msg.className = 'message';
+                msg.innerHTML = `
+                    <div class="message-avatar">V</div>
+                    <div class="message-content">
+                        <div class="message-text">
+                            <div class="success-msg">
+                                🚀 Career page opened in new tab!
+                            </div>
+                            <button class="back-btn" onclick="showDepartments()">← Back</button>
+                        </div>
+                    </div>
+                `;
+                chatBody.appendChild(msg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 500);
+        }
+
+        function enableInput(placeholder) {
+            const input = document.getElementById('messageInput');
+            const btn = document.getElementById('sendBtn');
+            input.disabled = false;
+            btn.disabled = false;
+            input.placeholder = placeholder;
+            input.focus();
+        }
+
+        function disableInput() {
+            const input = document.getElementById('messageInput');
+            const btn = document.getElementById('sendBtn');
+            input.disabled = true;
+            btn.disabled = true;
+            input.placeholder = 'Select an option above...';
+        }
+
+        function handleSend() {
+            const input = document.getElementById('messageInput');
+            const value = input.value.trim();
+            if (!value) return;
+
+            addMessage(value, true);
+            input.value = '';
+
+            setTimeout(() => {
+                processUserInput(value);
+            }, 300);
+        }
+
+        // Enter key support
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleSend();
+        });
+
+        function processUserInput(value) {
+            const upperValue = value.toUpperCase();
+
+            switch(currentStep) {
+                case 'name':
+                    userData.name = value;
+                    askForEmail();
+                    break;
+                case 'email':
+                    userData.email = value;
+                    askForNumber();
+                    break;
+                case 'number':
+                    userData.number = value;
+                    askForCompany();
+                    break;
+                case 'company':
+                    userData.company = value;
+                    showConfirmation();
+                    break;
+                case 'confirm':
+                    if (upperValue === 'YES') {
+                        showDepartments();
+                    } else if (upperValue === 'NO') {
+                        currentStep = 'name';
+                        setTimeout(() => {
+                            showTyping();
+                            setTimeout(() => {
+                                removeTyping();
+                                addMessage('No problem! Please provide your <strong>correct name</strong> again.');
+                                enableInput('Type your correct full name...');
+                            }, 800);
+                        }, 300);
+                    } else {
+                        addMessage('Please type <strong>YES</strong> to confirm or <strong>NO</strong> to edit name.');
+                    }
+                    break;
+            }
+        }
+   </script>
+</body>
+</html>
