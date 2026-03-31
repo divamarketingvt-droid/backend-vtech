@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,7 +60,7 @@ body {
   background-color: var(--light-gray);
   overflow-x: hidden;
 }
-      /* Hero Button - Fixed Visibility */
+      /* Button - Fixed Visibility */
       .btn-primary-custom {
         background: var(--primary) !important;
         color: white !important;
@@ -90,7 +89,8 @@ body {
     z-index: 1050; /* Higher than most content */
   }
   
-  /* Fix dropdown z-index to appear above hero content */
+  /* Fix dropdown z-index to appear above 
+      content */
   .dropdown-menu {
     z-index: 1060; /* Higher than navbar */
     position: absolute; /* Ensure proper positioning */
@@ -153,7 +153,7 @@ body {
         transition: color 0.3s;
       }
       .navbar-brand img {
-        height: 100px;
+        height: 90px;
         width: 200px;
         object-fit: contain;
         display: block;
@@ -330,8 +330,6 @@ body {
   display: flex;
   align-items: center;
 }
-      /* Hero Badges — REMOVED, keeping just in case it's referenced elsewhere */
-.hero-badges { display: none; }
 
 .hero::before {
   content: "";
@@ -1495,7 +1493,8 @@ body {
   gap: 16px;
 }
 
-.message {
+.
+      {
   display: flex;
   gap: 12px;
   animation: fadeIn 0.3s ease;
@@ -2740,7 +2739,7 @@ body {
                             </li>
                             <li>
                                 <a class="dropdown-item" href="./industries/lpi-IT-ITES.html">
-                                    <i class="bi bi-laptop"></i> IT/ITES
+                                    <i class="bi bi-laptop"></i> IT/ITeS
                                 </a>
                             </li>
                             <li>
@@ -2917,99 +2916,221 @@ body {
 
     <!-- Hero Section -->
     <section class="hero">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Left Column -->
-      <div class="col-lg-6 hero-content">
-        <div class="reveal">
-          <div class="d-flex align-items-center gap-2 mb-4 justify-content-center justify-content-lg-start">
-            <span class="badge bg-white text-dark border d-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm">
-              <span class="bg-success rounded-circle d-block" style="width: 8px; height: 8px"></span>
-              Now ISO 27001 Certified
-            </span>
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Column -->
+          <div class="col-lg-6 hero-content">
+            <div class="reveal">
+              <div
+                class="d-flex align-items-center gap-2 mb-4 justify-content-center justify-content-lg-start"
+              >
+                <span
+                  class="badge bg-white text-dark border d-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm"
+                >
+                  <span
+                    class="bg-success rounded-circle d-block"
+                    style="width: 8px; height: 8px"
+                  ></span>
+                  Now ISO 27001 Certified
+                </span>
+              </div>
+              <h1>
+                Background Verification <br />Powered by
+                <span class="highlight">AI & Precision</span>
+              </h1>
+              <p class="hero-subtitle">
+                Enterprise-grade screening solutions delivering 99.9% accuracy.
+                From identity verification to criminal checks, we ensure every
+                hire is a trusted hire.
+              </p>
+              <div
+                class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
+              >
+                <a href="./tools/FreeTrail.html" class="btn btn-primary-custom btn-lg" 
+                  >Start Free Trial</a
+                >
+              </div>
+
+              <!-- Hero Badges -->
+              <div class="hero-badges"style="display:none;">
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="bi bi-shield-check"></i></div>
+                  <div class="badge-text">
+                    <h6>99.9%</h6>
+                    <p>Accuracy</p>
+                  </div>
+                </div>
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="bi bi-lightning-charge"></i></div>
+                  <div class="badge-text">
+                    <h6>24hrs</h6>
+                    <p>Turnaround</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1>
-            Background Verification <br />Powered by
-            <span class="highlight">AI & Precision</span>
-          </h1>
-          <p class="hero-subtitle">
-            Enterprise-grade screening solutions delivering 99.9% accuracy.
-            From identity verification to criminal checks, we ensure every
-            hire is a trusted hire.
-          </p>
-          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-            <a href="./tools/FreeTrail.html" class="btn btn-primary-custom btn-lg">Start Free Trial</a>
+
+          <!-- Right Column -->
+          <div class="col-lg-6">
+            <div class="hero-visual reveal">
+              <div class="floating-card card-1">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h6 class="mb-0 fw-bold">Live Verifications</h6>
+                  <span class="badge bg-success bg-opacity-10 text-success"
+                    >Live</span
+                  >
+                </div>
+                <div class="verification-row">
+                  <div class="verif-avatar">JD</div>
+                  <div class="verif-info">
+                    <h6>John Doe</h6>
+                    <p>Employment Check</p>
+                  </div>
+                  <div class="verif-status"><i class="bi bi-check-lg"></i></div>
+                </div>
+                <div class="verification-row">
+                  <div
+                    class="verif-avatar"
+                    style="background: #fef3c7; color: #d97706"
+                  >
+                    SK
+                  </div>
+                  <div class="verif-info">
+                    <h6>Sarah Kumar</h6>
+                    <p>Criminal Record</p>
+                  </div>
+                  <div
+                    class="verif-status"
+                    style="background: #fbbf24; color: white"
+                  >
+                    <i class="bi bi-arrow-repeat"></i>
+                  </div>
+                </div>
+                <div class="verification-row">
+                  <div
+                    class="verif-avatar"
+                    style="background: #dbeafe; color: #2563eb"
+                  >
+                    AP
+                  </div>
+                  <div class="verif-info">
+                    <h6>Amit Patel</h6>
+                    <p>Education Verify</p>
+                  </div>
+                  <div class="verif-status"><i class="bi bi-check-lg"></i></div>
+                </div>
+              </div>
+
+              <div class="floating-card card-2">
+                <div class="text-center">
+                  <div
+                    class="mb-3"
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary),
+                        var(--primary-dark)
+                      );
+                      border-radius: 16px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto;
+                      color: white;
+                      font-size: 1.5rem;
+                    "
+                  >
+                    <i class="bi bi-fingerprint"></i>
+                  </div>
+                  <h6 class="fw-bold mb-1">Identity Verified</h6>
+                  <p class="small text-muted mb-2">Aadhaar Authentication</p>
+                  <div
+                    class="progress"
+                    style="height: 6px; border-radius: 10px"
+                  >
+                    <div
+                      class="progress-bar bg-success"
+                      style="width: 100%; border-radius: 10px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="floating-card card-3">
+                <h6 class="fw-bold mb-3">API Response Time</h6>
+                <div
+                  class="d-flex align-items-end gap-2 justify-content-center"
+                  style="height: 60px"
+                >
+                  <div
+                    style="
+                      width: 8px;
+                      height: 30%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 50%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.5;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 70%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.6;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 40%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.4;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 90%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 60%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.5;
+                    "
+                  ></div>
+                  <span class="ms-2 small fw-bold text-primary">245ms</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Right Column -->
-      <div class="col-lg-6">
-        <div class="hero-visual reveal">
-          <div class="floating-card card-1">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h6 class="mb-0 fw-bold">Live Verifications</h6>
-              <span class="badge bg-success bg-opacity-10 text-success">Live</span>
-            </div>
-            <div class="verification-row">
-              <div class="verif-avatar">JD</div>
-              <div class="verif-info">
-                <h6>John Doe</h6>
-                <p>Employment Check</p>
-              </div>
-              <div class="verif-status"><i class="bi bi-check-lg"></i></div>
-            </div>
-            <div class="verification-row">
-              <div class="verif-avatar" style="background: #fef3c7; color: #d97706">SK</div>
-              <div class="verif-info">
-                <h6>Sarah Kumar</h6>
-                <p>Criminal Record</p>
-              </div>
-              <div class="verif-status" style="background: #fbbf24; color: white">
-                <i class="bi bi-arrow-repeat"></i>
-              </div>
-            </div>
-            <div class="verification-row">
-              <div class="verif-avatar" style="background: #dbeafe; color: #2563eb">AP</div>
-              <div class="verif-info">
-                <h6>Amit Patel</h6>
-                <p>Education Verify</p>
-              </div>
-              <div class="verif-status"><i class="bi bi-check-lg"></div>
-            </div>
-          </div>
-
-          <div class="floating-card card-2">
-            <div class="text-center">
-              <div class="mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: white; font-size: 1.5rem;">
-                <i class="bi bi-fingerprint"></i>
-              </div>
-              <h6 class="fw-bold mb-1">Identity Verified</h6>
-              <p class="small text-muted mb-2">Aadhaar Authentication</p>
-              <div class="progress" style="height: 6px; border-radius: 10px">
-                <div class="progress-bar bg-success" style="width: 100%; border-radius: 10px"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="floating-card card-3">
-            <h6 class="fw-bold mb-3">API Response Time</h6>
-            <div class="d-flex align-items-end gap-2 justify-content-center" style="height: 60px">
-              <div style="width: 8px; height: 30%; background: var(--primary); border-radius: 4px; opacity: 0.3;"></div>
-              <div style="width: 8px; height: 50%; background: var(--primary); border-radius: 4px; opacity: 0.5;"></div>
-              <div style="width: 8px; height: 70%; background: var(--primary); border-radius: 4px; opacity: 0.6;"></div>
-              <div style="width: 8px; height: 40%; background: var(--primary); border-radius: 4px; opacity: 0.4;"></div>
-              <div style="width: 8px; height: 90%; background: var(--primary); border-radius: 4px;"></div>
-              <div style="width: 8px; height: 60%; background: var(--primary); border-radius: 4px; opacity: 0.5;"></div>
-              <span class="ms-2 small fw-bold text-primary">245ms</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
     <!-- Trust Logos -->
+      <!-- Trust Logos -->
         <section class="trust-section">
       <div class="container">
         <div class="trust-title">Trusted by 500+ Enterprises</div>
@@ -3021,136 +3142,155 @@ body {
           <div class="logo-item">GUVI</div>
           <div class="logo-item">DSG -Group</div>
           <div class="logo-item">Infinite research</div>
-          <div class="logo-item">Karur Vysya Bank
+          <div class="logo-item">KVB-Bank
 </div>
         
     </section>  
 
     <!-- Services Grid -->
-    <section class="services-grid section-padding" id="solutions">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-lg-8 text-center reveal">
-            <div class="section-subtitle justify-content-center">
-              <i class="bi bi-grid-3x3-gap"></i> Our Solutions
-            </div>
-            <h2 class="section-title">Comprehensive Verification Suite</h2>
-            <p class="section-desc mx-auto">
-              End-to-end background screening services powered by AI and
-              verified through both digital and physical channels across 19,000+
-              pin codes.
-            </p>
-          </div>
+  <!-- Services Grid -->
+<!-- Services Grid -->
+<section class="services-grid section-padding" id="solutions">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center reveal">
+        <div class="section-subtitle justify-content-center">
+          <i class="bi bi-grid-3x3-gap"></i> Our Solutions
         </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon-wrap">
-                <i class="bi bi-person-vcard"></i>
-              </div>
-              <h4>Identity Verification</h4>
-              <p>
-                Multi-layered identity authentication using Aadhaar, PAN,
-                Passport, and Biometric validation with government database
-                verification.
-              </p>
-              <div class="service-tags">
-                <span class="tag">Aadhaar</span>
-                <span class="tag">PAN</span>
-                <span class="tag">Biometric</span>
-              </div>
-            </div>
+        <h2 class="section-title">Comprehensive Verification Suite</h2>
+        <p class="section-desc mx-auto">
+          End-to-end background screening services powered by AI and
+          verified through both digital and physical channels across 19,000+
+          pin codes.
+        </p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-person-vcard"></i>
           </div>
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon-wrap">
-                <i class="bi bi-briefcase"></i>
-              </div>
-              <h4>Employment History</h4>
-              <p>
-                Verify previous employments, designations, tenure, and reasons
-                for leaving. Direct HR database checks and reference validation.
-              </p>
-              <div class="service-tags">
-                <span class="tag">3-10 Years</span>
-                <span class="tag">BVG</span>
-                <span class="tag">Global</span>
-              </div>
-            </div>
+          <h4>Identity Verification</h4>
+          <p>
+            Multi-layered identity authentication using Aadhaar, PAN,
+            Passport, and Biometric validation with government database
+            verification.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Aadhaar</span>
+            <span class="tag">PAN</span>
+            <span class="tag">Biometric</span>
           </div>
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon-wrap">
-                <i class="bi bi-mortarboard"></i>
-              </div>
-              <h4>Education Check</h4>
-              <p>
-                Authenticate degrees, diplomas, and professional certifications
-                directly with universities and educational institutions
-                worldwide.
-              </p>
-              <div class="service-tags">
-                <span class="tag">UGC</span>
-                <span class="tag">AICTE</span>
-                <span class="tag">Global</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon-wrap">
-                <i class="bi bi-shield-exclamation"></i>
-              </div>
-              <h4>Criminal Record Check</h4>
-              <p>
-                Court record verification across jurisdictions, police station
-                checks, and ongoing criminal database monitoring.
-              </p>
-              <div class="service-tags">
-                <span class="tag">Court</span>
-                <span class="tag">Police</span>
-                <span class="tag">Watchlist</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon-wrap">
-                <i class="bi bi-geo-alt"></i>
-              </div>
-              <h4>Address Verification</h4>
-              <p>
-                Physical address confirmation through field executives, digital
-                address verification, and geotagging across all locations.
-              </p>
-              <div class="service-tags">
-                <span class="tag">Physical</span>
-                <span class="tag">Digital</span>
-                <span class="tag">Geo-tagged</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon-wrap">
-                <i class="bi bi-capsule"></i>
-              </div>
-              <h4>Drug & Health Screening</h4>
-              <p>
-                Pre-employment drug testing and health screening through
-                certified medical partners with digital report delivery.
-              </p>
-              <div class="service-tags">
-                <span class="tag">NABL</span>
-                <span class="tag">OSHA</span>
-                <span class="tag">Instant</span>
-              </div>
-            </div>
-          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
         </div>
       </div>
-    </section>
-
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-briefcase"></i>
+          </div>
+          <h4>Employment History</h4>
+          <p>
+            Verify previous employments, designations, tenure, and reasons
+            for leaving. Direct HR database checks and reference validation.
+          </p>
+          <div class="service-tags">
+            <span class="tag">3-10 Years</span>
+            <span class="tag">BVG</span>
+            <span class="tag">Global</span>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+          <h4>Education Check</h4>
+          <p>
+            Authenticate degrees, diplomas, and professional certifications
+            directly with universities and educational institutions
+            worldwide.
+          </p>
+          <div class="service-tags">
+            <span class="tag">UGC</span>
+            <span class="tag">AICTE</span>
+            <span class="tag">Global</span>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-shield-exclamation"></i>
+          </div>
+          <h4>Criminal Record Check</h4>
+          <p>
+            Court record verification across jurisdictions, police station
+            checks, and ongoing criminal database monitoring.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Court</span>
+            <span class="tag">Police</span>
+            <span class="tag">Watchlist</span>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <h4>Address Verification</h4>
+          <p>
+            Physical address confirmation through field executives, digital
+            address verification, and geotagging across all locations.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Physical</span>
+            <span class="tag">Digital</span>
+            <span class="tag">Geo-tagged</span>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-capsule"></i>
+          </div>
+          <h4>Drug & Health Screening</h4>
+          <p>
+            Pre-employment drug testing and health screening through
+            certified medical partners with digital report delivery.
+          </p>
+          <div class="service-tags">
+            <span class="tag">NABL</span>
+            <span class="tag">OSHA</span>
+            <span class="tag">Instant</span>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Technology/API Section -->
     <section class="integration-section section-padding" id="technology">
       <div class="container">
@@ -3295,49 +3435,37 @@ body {
     </section>
 
     <!-- Stats Bar -->
-<!-- Stats Bar -->
-<section class="stats-bar">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
-        <div class="stat-item-main">
-          <div class="stat-value">
-            <span class="stat-number" data-target="25">0</span>
-            <span class="stat-suffix">+</span>
+    <section class="stats-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="25 +">0+</span> 
+              <div class="stat-label">Global countries</div>
+            </div>
           </div>
-          <div class="stat-label">Global countries</div>
+          <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="1000">0</span>+
+              <div class="stat-label"> Clients served</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="99">0</span>.9%
+              <div class="stat-label">Verifications Done
+</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 reveal">
+            <div class="stat-item-main">
+              <span class="stat-number" data-target="19000">0</span>+
+              <div class="stat-label">Pin Codes Covered</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
-        <div class="stat-item-main">
-          <div class="stat-value">
-            <span class="stat-number" data-target="1000">0</span>
-            <span class="stat-suffix">+</span>
-          </div>
-          <div class="stat-label">Clients served</div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6 reveal">
-        <div class="stat-item-main">
-          <div class="stat-value">
-            <span class="stat-number" data-target="99">0</span>
-            <span class="stat-suffix">.9%</span>
-          </div>
-          <div class="stat-label">Accuracy Rate</div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6 reveal">
-        <div class="stat-item-main">
-          <div class="stat-value">
-            <span class="stat-number" data-target="19000">0</span>
-            <span class="stat-suffix">+</span>
-          </div>
-          <div class="stat-label">Pin Codes Covered</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Industries-->
     <!-- Industries -->
@@ -3805,18 +3933,17 @@ body {
       </div>
   </div>
 
-  <div class="input-form" id="inputForm">
-      <input type="text" class="input-field" id="messageInput" placeholder="Type a message..." disabled>
-      <button class="send-btn" id="sendBtn" onclick="handleSend()" disabled>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-      </button>
-  </div>
-</div> 
 
-
+        <div class="input-form" id="inputForm">
+            <input type="text" class="input-field" id="messageInput" placeholder="Type a message..." disabled>
+            <button class="send-btn" id="sendBtn" onclick="handleSend()" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
     <!-- Footer Section with Zoho Newsletter -->
     <!-- ============================================
    COOKIE CONSENT & GOOGLE TAG MANAGER
@@ -5042,7 +5169,7 @@ body {
             <div class="quote-icon"><i class="bi bi-quote"></i></div>
             <p class="testimonial-text">"${t.quote}"</p>
             <div class="testimonial-author-row">
-              <div class="author-fz" style="background: ${t.color}">${t.initials}</div>
+              <div class="author-img" style="background: ${t.color}">${t.initials}</div>
               <div class="author-details">
                 <h6>${t.author}</h6>
                 <span>${t.role}</span>
