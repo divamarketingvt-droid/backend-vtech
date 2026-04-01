@@ -1359,60 +1359,168 @@
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
       <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
         <div class="newsletter-footer-section">
           <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-              <div class="d-flex align-items-center gap-3">
-                <div class="newsletter-icon-footer"><i class="bi bi-envelope-open"></i></div>
-                <div>
-                  <h4 style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">Stay Updated</h4>
-                  <p style="color: var(--gray); font-size: 0.95rem;">Get latest insights on verification & compliance</p>
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-6">
-              <form style="display: flex; gap: 12px;">
-                <input type="email" placeholder="Enter work email" style="flex: 1; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px;">
-                <button type="submit" class="newsletter-btn">Subscribe <i class="bi bi-arrow-right"></i></button>
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
               </form>
             </div>
           </div>
         </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
 
-        <div class="row">
-          <div class="col-lg-3 col-md-6 mb-4">
-            <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" style="width: 180px; margin-bottom: 20px;">
-            <p style="font-size: 14px; color: var(--gray);">India's most trusted employment verification platform</p>
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="./checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="./checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="./checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="./checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <h5 style="font-size: 16px; font-weight: 600; margin-bottom: 20px;">Solutions</h5>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray); text-decoration: none;">Employment Check</a></li>
-              <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray); text-decoration: none;">Education Verify</a></li>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="./company/aboutus.html">About Us</a></li>
+              <li><a href="./company/partnership.html">Partnership</a></li>
+              <li><a href="./company/careers.html">Careers</a></li>
+              <li><a href="./Contact/talk to sales.html">Contact</a></li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <h5 style="font-size: 16px; font-weight: 600; margin-bottom: 20px;">Company</h5>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray); text-decoration: none;">About Us</a></li>
-              <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray); text-decoration: none;">Careers</a></li>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="./affilate/affilate.html">Affiliate</a></li>
+              <li><a href="./resources/blog.html">Blog</a></li>
+              <li><a href="./resources/casestudy.html">Case Studies</a></li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4">
-            <h5 style="font-size: 16px; font-weight: 600; margin-bottom: 20px;">Resources</h5>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray); text-decoration: none;">Case Studies</a></li>
-              <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--gray); text-decoration: none;">Blog</a></li>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="./products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="./products/pm.html">psychometric</a></li>
+              <li><a href="./products/api.html">API</a></li>
             </ul>
           </div>
         </div>
 
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #cbd5e1; text-align: center;">
-          <p style="font-size: 14px; color: var(--gray);">© 2026 Verifitech Solutions. All rights reserved.</p>
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://in.linkedin.com/company/verifitechinkedin" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="privacy-separator">|</span>  
+            <a href="Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
         </div>
       </div>
     </footer>
-
     <!-- WhatsApp -->
     <a href="#" class="whatsapp-float" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i></a>
 
