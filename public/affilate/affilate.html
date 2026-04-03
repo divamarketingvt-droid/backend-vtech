@@ -2812,78 +2812,181 @@
         </div>
       </div>
     </section>
+ <!-- Footer -->
 
     <!-- Footer -->
-  <footer class="footer">
+    <footer
+      class="footer"
+      style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px"
+    >
       <div class="container">
-        <!-- Newsletter Section with Zoho Form -->
-        <div class="newsletter-footer-section">
+        <!-- Newsletter Section -->
+        <div
+          class="newsletter-footer-section"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(26, 194, 193, 0.1) 0%,
+              rgba(26, 194, 193, 0.05) 100%
+            );
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(26, 194, 193, 0.2);
+            position: relative;
+            overflow: hidden;
+          "
+        >
           <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-              <div class="d-flex align-items-center gap-3 newsletter-header-content">
-                <div class="newsletter-icon-footer">
+              <div class="d-flex align-items-center gap-3">
+                <div
+                  class="newsletter-icon-footer"
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: linear-gradient(
+                      135deg,
+                      var(--primary) 0%,
+                      var(--primary-dark) 100%
+                    );
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.8rem;
+                    flex-shrink: 0;
+                    box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+                  "
+                >
                   <i class="bi bi-envelope-open"></i>
                 </div>
-                <div class="newsletter-text-content">
-                  <h4 class="newsletter-title">Stay Updated</h4>
-                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                <div>
+                  <h4
+                    class="newsletter-title"
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      color: var(--dark);
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Stay Updated
+                  </h4>
+                  <p
+                    class="newsletter-subtitle"
+                    style="
+                      color: var(--gray);
+                      font-size: 0.95rem;
+                      margin: 0;
+                      line-height: 1.5;
+                    "
+                  >
+                    Get the latest insights on background verification,
+                    compliance updates, and industry trends.
+                  </p>
                 </div>
               </div>
             </div>
             <div class="col-lg-6">
-              <!-- Zoho Form Integration -->
-              <form 
-                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
-                name='form'
-                method='POST'
-                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
-                accept-charset='UTF-8' 
-                enctype='multipart/form-data' 
-                id='form'
-                class="newsletter-form-footer"
-              >
-                <input type="hidden" name="zf_referrer_name" value="">
-                <input type="hidden" name="zf_redirect_url" value="">
-                <input type="hidden" name="zc_gad" value="">
-                
-                <div class="input-group-wrapper">
-                  <div class="zf-tempContDiv">
-                    <input 
-                      type="text" 
-                      name="Email" 
-                      checktype="c5" 
-                      value="" 
-                      maxlength="255" 
-                      fieldType="9" 
+              <form class="newsletter-form-footer">
+                <div
+                  class="input-group-wrapper"
+                  style="
+                    display: flex;
+                    gap: 12px;
+                    margin-bottom: 10px;
+                    align-items: flex-start;
+                  "
+                >
+                  <div style="flex: 1">
+                    <input
+                      type="email"
                       placeholder="Enter your work email"
                       class="newsletter-input"
-                      id="Email"
+                      style="
+                        width: 100%;
+                        padding: 14px 20px;
+                        border: 2px solid #e2e8f0;
+                        border-radius: 12px;
+                        font-size: 1rem;
+                        color: var(--dark);
+                        background: white;
+                        transition: all 0.3s ease;
+                      "
                     />
-                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
                   </div>
-                  <button type="submit" class="newsletter-btn zf-submitColor">
+                  <button
+                    type="submit"
+                    class="newsletter-btn"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary) 0%,
+                        var(--primary-dark) 100%
+                      );
+                      color: white;
+                      border: none;
+                      padding: 14px 28px;
+                      border-radius: 12px;
+                      font-weight: 600;
+                      font-size: 1rem;
+                      cursor: pointer;
+                      transition: all 0.3s ease;
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                      white-space: nowrap;
+                      box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+                    "
+                  >
                     Subscribe <i class="bi bi-arrow-right"></i>
                   </button>
                 </div>
-                <p class="newsletter-disclaimer">
-                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                <p
+                  class="newsletter-disclaimer"
+                  style="
+                    color: var(--gray);
+                    font-size: 0.85rem;
+                    margin: 8px 0 0 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                  "
+                >
+                  <i
+                    class="bi bi-shield-check"
+                    style="color: var(--primary)"
+                  ></i>
+                  We respect your privacy. No spam, ever.
                 </p>
               </form>
             </div>
           </div>
         </div>
-        
-        <div class="row footer-main-content">
-          <!-- Logo & Description Column -->
+
+        <!-- Footer Main Content -->
+        <div class="row footer-main-content" style="margin-top: 20px">
+          <!-- Logo & Description -->
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="footer-brand">
               <img
                 src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
                 alt="Verifitech"
                 class="footer-logo"
+                style="width: 180px; height: auto; margin-bottom: 20px"
               />
             </div>
-            <p class="footer-description">
+            <p
+              class="footer-description"
+              style="
+                font-size: 14px;
+                line-height: 1.6;
+                max-width: 280px;
+                color: var(--gray);
+              "
+            >
               India's most trusted employment verification platform with direct
               HR database integration and EPFO validation across 19,000+
               companies.
@@ -2892,88 +2995,438 @@
 
           <!-- Solutions Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-            <div class="footer-column">
-              <h5 class="footer-heading">Solutions</h5>
-              <ul class="footer-links">
-                <li>
-                  <a href="../checks/lp-employment.html">Employment Check</a>
-                </li>
-                <li>
-                  <a href="../checks/lp-education check.html">Education Verification</a>
-                </li>
-                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
-                <li>
-                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
-                </li>
-              </ul>
-            </div>
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Solutions
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Employment Check</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Education Verification</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Reference Checks</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Gap Analysis</a
+                >
+              </li>
+            </ul>
           </div>
 
           <!-- Company Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-            <h5 class="footer-heading">Company</h5>
-            <ul class="footer-links">
-              <li><a href="../company/aboutus.html">About Us</a></li>
-              <li><a href="../company/partnership.html">Partnership</a></li>
-              <li><a href="../company/careers.html">Careers</a></li>
-              <li><a href="../Contact/talk to sales.html">Contact</a></li>
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Company
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >About Us</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Partnership</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Careers</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Contact</a
+                >
+              </li>
             </ul>
           </div>
 
           <!-- Resources Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-            <h5 class="footer-heading">Resources</h5>
-            <ul class="footer-links">
-              <li><a href="../affilate/affilate.html">Affiliate</a></li>
-              <li><a href="../resources/blog.html">Blog</a></li>
-              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Resources
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Affiliate</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Blog</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Case Studies</a
+                >
+              </li>
             </ul>
           </div>
 
           <!-- Products Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-            <h5 class="footer-heading">Products</h5>
-            <ul class="footer-links">
-              <li>
-                <a href="./products/exitinterview.html">Exit interview</a>
+            <h5
+              class="footer-heading"
+              style="
+                color: #1a1a1a;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 20px;
+              "
+            >
+              Products
+            </h5>
+            <ul
+              class="footer-links"
+              style="list-style: none; padding: 0; margin: 0"
+            >
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >Exit interview</a
+                >
               </li>
-              <li><a href="../products/pm.html">psychometric</a></li>
-              <li><a href="../products/api.html">API</a></li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >psychometric</a
+                >
+              </li>
+              <li style="margin-bottom: 1rem">
+                <a
+                  href="#"
+                  style="
+                    color: var(--gray);
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    display: inline-block;
+                  "
+                  >API</a
+                >
+              </li>
             </ul>
           </div>
         </div>
 
         <!-- Bottom Footer -->
-        <div class="footer-bottom">
+        <div
+          class="footer-bottom"
+          style="
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #cbd5e1;
+          "
+        >
           <div class="row align-items-center">
             <div class="col-md-6">
-              <p class="copyright">
+              <p
+                class="copyright"
+                style="font-size: 14px; margin: 0; color: var(--gray)"
+              >
                 © 2026 Verifitech Solutions Private Limited. All rights
                 reserved.
               </p>
             </div>
             <div class="col-md-6">
-              <div class="social-links">
-                <a href="https://in.linkedin.com/company/verifitechinkedin" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
-                <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a>
-                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
-                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
-                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
-                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
-              </div>
+              <div
+                class="social-links"
+                style="display: flex; justify-content: flex-end; gap: 15px"
+              >
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a
+                  href="#"
+                  class="social-icon"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(15, 23, 42, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--dark);
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                  "
+                  ><i class="bi bi-instagram"></i
+                ></a>
               </div>
             </div>
           </div>
-          
+
           <!-- Privacy Policy Row -->
-          <div class="privacy-row">
-            <a href="../Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
-            <span class="privacy-separator">|</span>
-            <a href="../Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
-            <span class="privacy-separator">|</span>  
-            <a href="../Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
-            <span class="privacy-separator">|</span>        
-            <a href="../Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          <div
+            class="privacy-row"
+            style="
+              margin-top: 20px;
+              padding-top: 20px;
+              border-top: 1px solid #e2e8f0;
+              text-align: center;
+              color: var(--gray);
+              font-size: 0.9rem;
+            "
+          >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Privacy Policy</a
+            >
+            <span
+              class="privacy-separator"
+              style="margin: 0 10px; color: #cbd5e1"
+              >|</span
+            >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Disclaimer</a
+            >
+            <span
+              class="privacy-separator"
+              style="margin: 0 10px; color: #cbd5e1"
+              >|</span
+            >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Terms of Service</a
+            >
+            <span
+              class="privacy-separator"
+              style="margin: 0 10px; color: #cbd5e1"
+              >|</span
+            >
+            <a
+              href="#"
+              class="privacy-link"
+              style="
+                color: var(--primary);
+                text-decoration: none;
+                transition: color 0.3s;
+              "
+              >Cookies Policy</a
+            >
           </div>
         </div>
       </div>
