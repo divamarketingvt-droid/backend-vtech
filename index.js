@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 // CONFIGURATION
 // ==========================================
 const EMAIL_USER = "kovendan16@gmail.com";
-const EMAIL_PASS = "imdq swrp xhzl jxyi";
+const EMAIL_PASS = "kjxy hyrx skfb xjio";
 const ADMIN_EMAIL = "kovendan16@gmail.com";
 
 // ==========================================
