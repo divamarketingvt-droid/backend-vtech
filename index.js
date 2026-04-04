@@ -105,7 +105,6 @@ app.use(express.static(STATIC_PATH));*/
 // STORAGE & HELPERS
 // ==========================================
 const blockedDomains = [
-  "gmail.com",
   "yahoo.com",
   "yahoo.co.in",
   "hotmail.com",
