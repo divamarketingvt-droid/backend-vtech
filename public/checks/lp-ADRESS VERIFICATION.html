@@ -867,151 +867,6 @@
         font-size: 1rem;
       }
 
-      /* Contact Section */
-      .contact-section {
-        padding: 100px 0;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
-        color: white;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 60%
-        );
-        border-radius: 50%;
-      }
-
-      .contact-section h2 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-
-      .contact-section .lead {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.25rem;
-        margin-bottom: 3rem;
-      }
-
-      .contact-feature {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .contact-feature-icon {
-        width: 50px;
-        height: 50px;
-        background: rgba(26, 194, 193, 0.2);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary);
-        font-size: 1.5rem;
-        flex-shrink: 0;
-        border: 1px solid rgba(26, 194, 193, 0.3);
-      }
-
-      .contact-form {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 3rem;
-        border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        position: relative;
-        z-index: 2;
-      }
-
-      .form-control,
-      .form-select {
-        padding: 1rem 1.2rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
-        margin-bottom: 1.2rem;
-        font-size: 1rem;
-        transition: all 0.3s;
-      }
-
-      .form-control:focus,
-      .form-select:focus {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: var(--primary);
-        color: white;
-        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
-      }
-
-      .form-control::placeholder {
-        color: rgba(255, 255, 255, 0.4);
-      }
-
-      .form-select option {
-        background: var(--dark);
-        color: white;
-      }
-
-      .form-check-label {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.9rem;
-      }
-
-      .form-check-label a {
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .form-check-label a:hover {
-        text-decoration: underline;
-      }
-
-      .form-check-input {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        border-color: rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .form-check-input:checked {
-        background-color: var(--primary);
-        border-color: var(--primary);
-      }
-
-      .btn-submit {
-        background: var(--primary) !important;
-        color: white !important;
-        border: none;
-        padding: 1rem;
-        border-radius: 12px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        width: 100%;
-        margin-top: 1rem;
-        transition: all 0.3s;
-        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-      }
-
-      .btn-submit:hover {
-        background: var(--primary-dark) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-      }
-
       /* Physical vs Digital Toggle */
       .verification-types {
         padding: 80px 0;
@@ -1306,18 +1161,64 @@
                 >Industry</a
               >
               <ul class="dropdown-menu">
+                <!-- 1. IT & ITES -->
                 <li>
-                  <a class="dropdown-item" href="../industries/lp-banks.html"
-                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT & ITES</a
                   >
                 </li>
+
+                <!-- 2. Manufacturing & Automobiles -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing & Automobiles</a
+                  >
+                </li>
+
+                <!-- 3. Logistics & Mobility -->
+                <li>
+                  <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics & Mobility</a
+                  >
+                </li>
+
+                <!-- 4. Banking & NBFC -->
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & NBFC</a
+                  >
+                </li>
+
+                <!-- 5. Healthcare & Pharma -->
                 <li>
                   <a
                     class="dropdown-item"
                     href="../industries/lpi-healthcare.html"
-                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                    ><i class="bi bi-heart-pulse"></i> Healthcare & Pharma</a
                   >
                 </li>
+
+                <!-- 6. Hospitality & Travel -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Hospitality & Travel</a
+                  >
+                </li>
+
+                <!-- 7. Staffing & Recruitment -->
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing & Recruitment</a
+                  >
+                </li>
+
+                <li><hr class="dropdown-divider"></li>
+
+                <!-- Other Random -->
                 <li>
                   <a
                     class="dropdown-item"
@@ -1326,48 +1227,27 @@
                   >
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/lpi-Manfacturing.html"
-                    ><i class="bi bi-building-gear"></i> Manufacturing</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
-                    ><i class="bi bi-laptop"></i> IT/ITeS</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lp-banks.html"
-                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    href="../industries/lpi-travel industries.html"
-                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                    href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i> Real Estate & Construction</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
-                    ><i class="bi bi-person-workspace"></i> Staffing and
-                    Recruitment</a
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i> Retail & E-commerce</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="../industries/lpi-telecom.html"
                     ><i class="bi bi-broadcast"></i> Telecom</a
-                  >
-                </li>
-                <!--<li>
-                  <a class="dropdown-item" href="#"
-                    ><i class="bi bi-cart"></i> E-commerce and Retail</a
-                  >
-                </li>-->
-                <li>
-                  <a class="dropdown-item" href="../industries/LP-FMCG.html"
-                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
                   >
                 </li>
               </ul>
@@ -1484,8 +1364,7 @@
           </ul>
 
           <div class="d-flex align-items-center">
-           <a href="https://web.verifitech.com/" target="blank" class="Login" style="text-decoration:none; color:black;"> Login</a>
-
+            <a href="https://web.verifitech.com/" targer="blank">Login</a>
           </div>
 
           <div class="d-flex align-items-center">
@@ -1586,27 +1465,16 @@
               <i class="bi bi-geo-alt-fill"></i>
               Address Verification Solution
             </div>
-            <h1>Verify Addresses Instantly, Right from Where You Are.</h1>
+            <h1>Instant Address Verification</h1>
             <p class="lead">
-              Industry-first digital address verification leveraging image
-              recognition, GPS geo-tagging, and liveness detection technology.
+              Confirm where someone truly lives using intelligent, real-time digital verification powered by GPS, image validation, and live user authentication.
             </p>
 
             <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
               Get in Touch <i class="bi bi-arrow-right"></i>
             </a>
-
-            <div class="trust-badge">
-              <p>Trusted by 2,000+ companies</p>
-              <div class="logo-row">
-                <span class="logo-item">TCS</span>
-                <span class="logo-item">Infosys</span>
-                <span class="logo-item">HDFC</span>
-                <span class="logo-item">Amazon</span>
-                <span class="logo-item">Flipkart</span>
-              </div>
-            </div>
           </div>
+          <!-- HERO VISUAL COLUMN ADDED -->
           <div class="col-lg-6">
             <div class="hero-visual">
               <div class="floating-card card-1">
@@ -1697,8 +1565,7 @@
             </div>
             <h2 class="section-title">Choose Your Verification Approach</h2>
             <p class="section-desc mx-auto">
-              We offer both cutting-edge digital verification and comprehensive
-              physical field verification to match your compliance requirements.
+              Every business has different risk and compliance needs. That’s why we offer both digital and physical verification—so you stay in control.
             </p>
           </div>
         </div>
@@ -1710,28 +1577,26 @@
               <div class="type-icon">
                 <i class="bi bi-phone"></i>
               </div>
-              <h3>Digital Address Verification</h3>
+              <h3>Digital Address Verification (Recommended)</h3>
               <p>
-                Instant verification using smartphone technology with AI-powered
-                validation, perfect for remote hiring and quick turnaround
-                needs.
+                Quick process and it specially built for modern hiring - ideal for remote onboarding and high-volume verification.
               </p>
               <div class="text-start mt-4">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>2-5 minutes TAT</span>
+                  <span>Completed within minutes</span>
                 </div>
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>GPS geo-tagging accuracy</span>
+                  <span>GPS-based location accuracy</span>
                 </div>
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>Selfie & liveness detection</span>
+                  <span>Selfie with liveness detection</span>
                 </div>
                 <div class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>Pan-India coverage</span>
+                  <span>Coverage across India</span>
                 </div>
               </div>
             </div>
@@ -1743,26 +1608,24 @@
               </div>
               <h3>Physical Address Verification</h3>
               <p>
-                Traditional field executive visit for in-person verification,
-                ideal for high-security roles and regulatory compliance
-                mandates.
+                On-ground verification by trained field executives for roles requiring deeper validation or regulatory compliance.
               </p>
               <div class="text-start mt-4">
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>24-48 hours TAT</span>
+                  <span>24–48 hour turnaround time</span>
                 </div>
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>Field executive visit</span>
+                  <span>In-person residence verification</span>
                 </div>
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>Neighbor verification</span>
+                  <span>Neighbour confirmation checks</span>
                 </div>
                 <div class="d-flex align-items-center gap-2">
                   <i class="bi bi-check-circle-fill text-primary"></i>
-                  <span>Detailed residence report</span>
+                  <span>Detailed verification report</span>
                 </div>
               </div>
             </div>
@@ -1779,9 +1642,9 @@
             <div class="section-subtitle justify-content-center">
               <i class="bi bi-arrow-repeat"></i> Process
             </div>
-            <h2 class="section-title">How it Works — Verification Steps</h2>
+            <h2 class="section-title">How Digital Address Verification Works</h2>
             <p class="section-desc mx-auto">
-              Explains the digital verification workflow
+              A simple, guided process designed for speed, accuracy, and ease—without compromising on trust.
             </p>
           </div>
         </div>
@@ -1791,10 +1654,9 @@
             <div class="step-card h-100">
               <div class="step-connector"></div>
               <div class="step-number">1</div>
-              <h4>Share Details</h4>
+              <h4>Share Candidate Details</h4>
               <p>
-                Individual's details & registered mobile number are shared with
-                Verifitech.
+                Basic information and registered mobile number are securely submitted to initiate the verification.
               </p>
             </div>
           </div>
@@ -1802,10 +1664,9 @@
             <div class="step-card h-100">
               <div class="step-connector"></div>
               <div class="step-number">2</div>
-              <h4>Auto-Populated Form</h4>
+              <h4>Instant Verification Link</h4>
               <p>
-                Candidate receives an auto-populated form on phone via
-                SMS/WhatsApp.
+                The candidate receives a secured pre-filled form via SMS or WhatsApp—ready to complete in minutes.
               </p>
             </div>
           </div>
@@ -1813,10 +1674,9 @@
             <div class="step-card h-100">
               <div class="step-connector"></div>
               <div class="step-number">3</div>
-              <h4>Upload Media</h4>
+              <h4>Upload & Capture</h4>
               <p>
-                Candidate uploads a selfie, photo ID, and residence photo with
-                geo-tags.
+                The candidate submits there ID proof with a photo of their residence—all captured with built-in validation.
               </p>
             </div>
           </div>
@@ -1824,20 +1684,18 @@
             <div class="step-card h-100">
               <div class="step-connector"></div>
               <div class="step-number">4</div>
-              <h4>GPS Capture</h4>
+              <h4>GPS Location Validation</h4>
               <p>
-                GPS coordinates are auto-captured & triangulated for accuracy
-                verification.
+                Location coordinates are automatically captured and cross-verified to confirm the exact address.
               </p>
             </div>
           </div>
           <div class="col-md-6 col-lg reveal">
             <div class="step-card h-100">
               <div class="step-number">5</div>
-              <h4>Digital Verification</h4>
+              <h4>Verified Digital Report</h4>
               <p>
-                The address is digitally verified and a tamper-proof report is
-                generated.
+                A tamper-proof report to generated instantly to complete with verification status, geo-data, and audit trail.
               </p>
             </div>
           </div>
@@ -1848,20 +1706,26 @@
     <!-- Key Highlights -->
     <section class="key-highlights">
       <div class="container">
+        <div class="row justify-content-center mb-5">
+           <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-stars"></i> Features
+            </div>
+             <h2 class="section-title">Built for Accuracy, Speed, and Scale</h2>
+          </div>
+        </div>
         <div class="row g-4">
           <div class="col-md-4 reveal">
             <div class="highlight-card h-100">
               <div class="highlight-icon">
                 <i class="bi bi-geo-alt"></i>
               </div>
-              <h3>Geo Tagging</h3>
-              <p>Get detailed address capture with GEO coordinates</p>
+              <h3>Geo-Tagging Accuracy</h3>
+              <p>Capture exact location data directly from the candidate’s device, ensuring the address is genuine and verifiable.</p>
               <ul>
-                <li>
-                  Full automation & GPS capturing from smartphone submission
-                </li>
-                <li>Multiple data points triangulated for accuracy</li>
-                <li>Works across rural & urban areas</li>
+                <li>GPS-enabled data capture</li>
+                <li>Multi-point validation for higher accuracy</li>
+                <li>Valid for across all urban and rural locations</li>
               </ul>
               <a href="#contact" class="btn btn-outline-custom"
                 >Get Started →</a
@@ -1874,14 +1738,12 @@
               <div class="highlight-icon">
                 <i class="bi bi-file-earmark-text"></i>
               </div>
-              <h3>End-to-End Digitization</h3>
-              <p>Minimize paperwork, enhance customer experience</p>
+              <h3>End to End Digital Experience</h3>
+              <p>Deliver a seamless verification journey—without any paperwork, delays, and manual follow-ups.</p>
               <ul>
-                <li>Fully paperless address onboarding</li>
-                <li>Customisable workflows & easy case initiation</li>
-                <li>
-                  Exception handling for candidates not present at address
-                </li>
+                <li>Paperless onboarding</li>
+                <li>Easy case initiation and tracking</li>
+                <li>Smart handling of exceptions</li>
               </ul>
               <a href="#contact" class="btn btn-outline-custom"
                 >Get Started →</a
@@ -1894,12 +1756,12 @@
               <div class="highlight-icon">
                 <i class="bi bi-shield-check"></i>
               </div>
-              <h3>Seamless Integrations</h3>
-              <p>Data security compliant and integrable</p>
+              <h3>Seamless Integration & Security</h3>
+              <p>Built to fit into your existing systems while maintaining enterprise-grade data protection.</p>
               <ul>
-                <li>ISO/IEC 27001:2013 compliant for information security</li>
-                <li>Works as standalone web platform or integrated system</li>
-                <li>Configurable workflows for business needs</li>
+                <li>ISO-aligned information security practices</li>
+                <li>Works as standalone or integrated solution</li>
+                <li>Flexible workflows tailored to your needs</li>
               </ul>
               <a href="#contact" class="btn btn-outline-custom"
                 >Get Started →</a
@@ -1919,7 +1781,7 @@
               <i class="bi bi-stars"></i> Advantages
             </div>
             <h2 class="section-title">
-              Benefits of Digital Address Verification
+              Why Businesses Choose Digital Address Verification
             </h2>
           </div>
         </div>
@@ -1928,8 +1790,8 @@
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-wifi"></i></div>
-              <h4>Contactless</h4>
-              <p>Fully digital customer onboarding without physical visits</p>
+              <h4>Contactless & Convenient</h4>
+              <p>No field visits required—verify from anywhere, anytime.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
@@ -1937,50 +1799,50 @@
               <div class="benefit-icon">
                 <i class="bi bi-lightning-charge"></i>
               </div>
-              <h4>Quick</h4>
-              <p>TAT reduced to minutes instead of days</p>
+              <h4>Faster Turnaround</h4>
+              <p>Reduce verification time from days to minutes.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-bullseye"></i></div>
-              <h4>Accurate</h4>
-              <p>Enhanced accuracy via GPS triangulation technology</p>
+              <h4>Higher Accuracy</h4>
+              <p>GPS triangulation and real-time validation ensure reliable results.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-gear"></i></div>
-              <h4>Automation</h4>
-              <p>Streamlined automated data capture and validation</p>
+              <h4>Fully Automated</h4>
+              <p>From data capture to report generation—no manual intervention needed.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-plug"></i></div>
-              <h4>Integrated APIs</h4>
-              <p>API integration for centralized onboarding</p>
+              <h4>Easy Integration</h4>
+              <p>Connect with your HRMS, ATS, or onboarding platforms effortlessly.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-sliders"></i></div>
-              <h4>Configurable</h4>
-              <p>Workflow customisation per business requirements</p>
+              <h4>Customizable Workflows</h4>
+              <p>Define rules based on your industry requirements and risk level.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-translate"></i></div>
-              <h4>User-friendly</h4>
-              <p>Self-serve + assisted modules in 7 languages</p>
+              <h4>User-Friendly Experience</h4>
+              <p>Simple guided process with multilingual support for better completion rates.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-item">
               <div class="benefit-icon"><i class="bi bi-lock-fill"></i></div>
-              <h4>Data & Compliance</h4>
-              <p>SSL/TLS encryption & GDPR compliant architecture</p>
+              <h4>Secure & Compliant</h4>
+              <p>End-to-end encryption and compliance is ready to architecture for safe data handling.</p>
             </div>
           </div>
         </div>
@@ -2010,8 +1872,7 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#faq1"
                   >
-                    How is information accuracy confirmed for selfie, photo ID &
-                    house photos?
+                    How is the accuracy of submitted data ensured?
                   </button>
                 </h2>
                 <div
@@ -2020,13 +1881,7 @@
                   data-bs-parent="#addressFAQ"
                 >
                   <div class="accordion-body">
-                    Our AI-powered image recognition technology validates the
-                    authenticity of uploaded documents through liveness
-                    detection (preventing spoofing), OCR matching of address
-                    text, and visual verification of the residence photo against
-                    geo-coordinates. We also cross-verify the selfie with the
-                    photo ID using facial recognition algorithms to ensure the
-                    same person is submitting the verification.
+                    We validate every submission by using a combination of image analysis and geo-location checks. The system ensures the same individual is submitting the data and that the address aligns with captured GPS coordinates.
                   </div>
                 </div>
               </div>
@@ -2039,7 +1894,7 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#faq2"
                   >
-                    How is user information protected?
+                    How is user data protected?
                   </button>
                 </h2>
                 <div
@@ -2048,12 +1903,7 @@
                   data-bs-parent="#addressFAQ"
                 >
                   <div class="accordion-body">
-                    We employ 256-bit SSL/TLS encryption for all data in transit
-                    and AES-256 encryption for data at rest. Our systems are
-                    ISO/IEC 27001:2013 certified and GDPR compliant. All images
-                    are stored in encrypted format with strict access controls,
-                    and we conduct regular security audits and penetration
-                    testing to ensure data integrity.
+                    All data is encrypted during transmission and storage of using industry-standard security protocols. Strict the data access controls to ensure that  authorized personnel can access the sensitive information.
                   </div>
                 </div>
               </div>
@@ -2066,7 +1916,7 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#faq3"
                   >
-                    What is the GPS accuracy for geo coordinate tracking?
+                    How accurate is GPS-based verification?
                   </button>
                 </h2>
                 <div
@@ -2075,13 +1925,7 @@
                   data-bs-parent="#addressFAQ"
                 >
                   <div class="accordion-body">
-                    Our GPS tracking achieves accuracy within 3-5 meters in
-                    urban areas using high-precision satellite triangulation.
-                    For rural locations, accuracy ranges between 10-15 meters.
-                    We use multiple data points including cell tower
-                    triangulation and Wi-Fi positioning to enhance accuracy,
-                    along with validation against the declared address in our
-                    database.
+                    GPS tracking provides high precision especially in urban areas. Multiple data points will use to validate the location to ensure the address closely matches the declared residence.
                   </div>
                 </div>
               </div>
@@ -2094,7 +1938,7 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#faq4"
                   >
-                    What is TAT for physical address verification?
+                    What is the turnaround time for Digital & Physical (TAT)?
                   </button>
                 </h2>
                 <div
@@ -2103,12 +1947,7 @@
                   data-bs-parent="#addressFAQ"
                 >
                   <div class="accordion-body">
-                    For digital verification, the turnaround time is 2-5
-                    minutes. For physical verification requirements where a
-                    field executive visits the location, the standard TAT is
-                    24-48 hours depending on location tier. Metro cities
-                    typically take 24 hours, while Tier 2/3 cities may take up
-                    to 48 hours due to travel logistics.
+                    Digital verification is typically completed within minutes. Physical verification will takes between 24 to 72 hours depending on the location.
                   </div>
                 </div>
               </div>
@@ -2121,7 +1960,7 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#faq5"
                   >
-                    How can clients check authenticity of field verification?
+                    How can we trust physical verification results?
                   </button>
                 </h2>
                 <div
@@ -2130,13 +1969,7 @@
                   data-bs-parent="#addressFAQ"
                 >
                   <div class="accordion-body">
-                    Each verification comes with a unique QR code and digital
-                    signature that can be validated through our portal. For
-                    physical verifications, we provide geo-tagged photos,
-                    timestamp logs, field executive details, and voice
-                    recordings of neighbor confirmations where applicable. All
-                    data is immutable and stored on secure servers with audit
-                    trails.
+                    Each report includes geo-tagged images, timestamps, and verification in detailed. A secure validation mechanism to ensures the report is genuine and tamper-proof.
                   </div>
                 </div>
               </div>
@@ -2149,7 +1982,7 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#faq6"
                   >
-                    Which address should be verified — current or permanent?
+                    Which address should be verified?
                   </button>
                 </h2>
                 <div
@@ -2158,13 +1991,7 @@
                   data-bs-parent="#addressFAQ"
                 >
                   <div class="accordion-body">
-                    For employment purposes, we recommend verifying the current
-                    residential address where the candidate currently resides.
-                    However, for high-security roles or financial services,
-                    verifying both current and permanent addresses provides
-                    comprehensive risk coverage. Our system allows you to
-                    configure which address types are mandatory based on your
-                    company policy.
+                    For most hiring scenarios, the current residential address is mandatory. For sensitive roles, we have to verify the both current and permanent addresses provides very stronger risk coverage.
                   </div>
                 </div>
               </div>
@@ -2173,146 +2000,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Contact Section -->
-   <!-- <section class="contact-section" id="contact">
-      <div class="container position-relative">
-        <div class="row">
-          <div class="col-lg-6 mb-5 mb-lg-0 reveal">
-            <h2>Ready to Explore Verifitech for your business?</h2>
-            <p class="lead">
-              Get in touch with our solutions team to discuss your verification
-              needs and customized pricing.
-            </p>
-
-            <div class="mt-5">
-              <div class="contact-feature">
-                <div class="contact-feature-icon">
-                  <i class="bi bi-check-lg"></i>
-                </div>
-                <span>Assess team's verification needs</span>
-              </div>
-              <div class="contact-feature">
-                <div class="contact-feature-icon">
-                  <i class="bi bi-check-lg"></i>
-                </div>
-                <span>Learn products & benefits</span>
-              </div>
-              <div class="contact-feature">
-                <div class="contact-feature-icon">
-                  <i class="bi bi-check-lg"></i>
-                </div>
-                <span>Discuss enterprise pricing</span>
-              </div>
-            </div>
-
-            <div
-              class="mt-5 pt-4"
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
-            >
-              <p class="text-white-50 mb-3">Or reach us directly:</p>
-              <p class="mb-2">
-                <i class="bi bi-envelope me-2 text-primary"></i>
-                sales@verifitech.com
-              </p>
-              <p>
-                <i class="bi bi-telephone me-2 text-primary"></i> +91
-                1800-123-4567
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 reveal">
-            <form
-              class="contact-form"
-              onsubmit="event.preventDefault(); alert('Thank you for your interest! Our team will contact you within 24 hours.');"
-            >
-              <div class="row">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="First Name *"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Last Name *"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Work Email *"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="tel"
-                    class="form-control"
-                    placeholder="Phone Number *"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Company Name *"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <select class="form-select" required>
-                    <option value="" disabled selected>Company Size *</option>
-                    <option>1-50 employees</option>
-                    <option>51-200 employees</option>
-                    <option>201-1000 employees</option>
-                    <option>1000+ employees</option>
-                  </select>
-                </div>
-              </div>
-              <select class="form-select" required>
-                <option value="" disabled selected>
-                  Interested Solution *
-                </option>
-                <option selected>Address Verification (Digital)</option>
-                <option>Address Verification (Physical)</option>
-                <option>Both Digital & Physical</option>
-                <option>Complete BGV Suite</option>
-              </select>
-              <textarea
-                class="form-control"
-                rows="3"
-                placeholder="Tell us about your requirements (Optional)"
-              ></textarea>
-
-              <div class="form-check mt-3 mb-4">
-                <input class="form-check-input" type="checkbox" required />
-                <label class="form-check-label">
-                  I agree to the <a href="#">Privacy Policy</a> and consent to
-                  being contacted regarding Verifitech services.
-                </label>
-              </div>
-
-              <button type="submit" class="btn btn-submit">
-                Submit Request <i class="bi bi-arrow-right ms-2"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>-->
 
     <!-- Footer -->
    <footer class="footer" style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px;">
@@ -2437,7 +2124,6 @@
   </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
 <!-- Floating WhatsApp Button -->
 <a 
   href="#" 
