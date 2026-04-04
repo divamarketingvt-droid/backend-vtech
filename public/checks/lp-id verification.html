@@ -369,7 +369,10 @@
         transform: translateY(-2px);
       }
 
-      /* Hero Section */
+      /* ============================================
+         HERO SECTION - ALIGNMENT FIXES
+         ============================================ */
+
       .solution-hero {
         padding: 140px 0 100px;
         background: linear-gradient(
@@ -380,7 +383,8 @@
         );
         position: relative;
         overflow: hidden;
-        min-height: 90vh;
+        /* Ensure minimum height for alignment */
+        min-height: 90vh; 
         display: flex;
         align-items: center;
       }
@@ -399,6 +403,7 @@
         );
         border-radius: 50%;
         animation: pulse 4s ease-in-out infinite;
+        z-index: 0;
       }
 
       @keyframes pulse {
@@ -444,46 +449,16 @@
         line-height: 1.6;
       }
 
-      .trust-badge {
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
-      }
-
-      .trust-badge p {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--gray);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 1.5rem;
-      }
-
-      .logo-row {
-        display: flex;
-        gap: 3rem;
-        flex-wrap: wrap;
-        opacity: 0.6;
-      }
-
-      .logo-item {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--navy);
-        filter: grayscale(100%);
-        transition: all 0.3s;
-      }
-
-      .logo-item:hover {
-        opacity: 1;
-        filter: grayscale(0%);
-        color: var(--primary);
-      }
-
-      /* Hero Visual */
+      /* Hero Visual - Fixed Alignment */
       .hero-visual {
         position: relative;
-        height: 450px;
+        /* Changed from fixed height to min-height to prevent cut-off on varying screen sizes */
+        min-height: 450px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Allows it to fill the height of the parent container for perfect vertical centering */
+        height: 100%;
       }
 
       .floating-card {
@@ -494,6 +469,7 @@
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, 0.05);
         animation: float 6s ease-in-out infinite;
+        z-index: 2; /* Ensure cards are above background */
       }
 
       @keyframes float {
@@ -513,11 +489,17 @@
         animation-delay: 0s;
       }
 
+      /* FIX: Adjusted positioning for Card 2 */
       .card-2 {
-        top: 200px;
-        left: 0;
+        /* Vertically centered relative to the visual container */
+        top: 50%;
+        transform: translateY(-50%);
+        /* Moved away from absolute left edge (0) to 20px for better padding/alignment */
+        left: 20px; 
         width: 300px;
         animation-delay: 1.5s;
+        /* Ensure it sits behind card 1 if they overlap vertically */
+        z-index: 1;
       }
 
       .verification-row {
@@ -1126,15 +1108,22 @@
 
         .hero-visual {
           margin-top: 3rem;
-          height: 400px;
+          min-height: 400px;
         }
 
         .floating-card {
           width: 280px !important;
+          /* Reset absolute positioning on mobile for better stacking */
+          position: relative;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+          transform: none !important;
+          margin: 0 auto 1.5rem auto;
         }
 
         .card-2 {
-          display: none;
+          display: none; /* Keeping the logic to hide second card on mobile to save space */
         }
 
         .contact-form {
@@ -1357,11 +1346,6 @@
                     ><i class="bi bi-laptop"></i> IT/ITeS</a
                   >
                 </li>
-                <!--<li>
-                  <a class="dropdown-item" href="./industries/lp-banks.html"
-                    ><i class="bi bi-shield-plus"></i> Insurance</a
-                  >
-                </li> -->
                 <a class="dropdown-item" href="../industries/LP-FMCG.html"
                     ><i class="bi bi-box"></i> FMCG</a
                   >
@@ -1405,11 +1389,6 @@
                     ><i class="bi bi-broadcast"></i> Telecom</a
                   >
                 </li>
-             <!--  <li>
-                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
-                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
-                  >
-                </li> -->
               </ul>
             </li>
 
@@ -1589,15 +1568,6 @@
                     <span class="country-flag">🇸🇬</span> Singapore
                   </a>
                 </li>
-                <!--<li>
-                  <a
-                    class="dropdown-item country-option"
-                    href="./countries/india.html"
-                    data-country="India"
-                    data-flag="🇮🇳"
-                  >
-                    <span class="country-flag">🇮🇳</span> India
-                  </a>-->
                 </li>
               </ul>
             </div>
@@ -1628,7 +1598,7 @@
             </a>
 
             <!-- Trust Badge Section -->
-            <div class="trust-badge">
+            <!-- <div class="trust-badge">
               <p>Trusted by 2,000+ companies</p>
               <div class="logo-row">
                 <span class="logo-item">TCS</span>
@@ -1637,7 +1607,7 @@
                 <span class="logo-item">Amazon</span>
                 <span class="logo-item">Flipkart</span>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Hero Visual (Floating Cards) -->
@@ -2106,9 +2076,10 @@
                 >
                   <!-- UPDATED CONTENT -->
                   <div class="accordion-body">
-                    Yes. Aadhaar-based eKYC is fully compliant with regulatory when implemented through authorized channels depends on our process follows UIDAI guidelines.
+Yes. Aadhaar-based eKYC is fully compliant with regulatory when implemented through authorized channels depends on our process follows UIDAI guidelines.
                     <br><br>
-                    To ensure privacy, Aadhaar numbers are masked—only the last four digits are stored for reference—keeping your organization compliant while protecting user data.
+To ensure privacy, Aadhaar number last four digits are masked and stored for reference—keeping your compliant while protecting user data.
+
                   </div>
                 </div>
               </div>
@@ -2131,9 +2102,11 @@
                 >
                   <!-- UPDATED CONTENT -->
                   <div class="accordion-body">
-                    We combine intelligent technology with real-time validation to detect fraud.
+We combine intelligent technology with real-time validation to detect fraud.
+
                     <br><br>
-                    Our system checks for signs of image manipulation, validates document structures (like fonts and security elements), cross-verifies details with trusted databases, and if the uses live selfie verification to ensure the person is physically present—not a spoof or replay.
+Our system checks for signs of image manipulation, validates document, alignment as government standard (like fonts and security elements), cross-verifies details with trusted databases, and if the uses live selfie verification to ensure the person is physically present—not a spoof or replay.
+
                   </div>
                 </div>
               </div>
@@ -2156,9 +2129,11 @@
                 >
                   <!-- UPDATED CONTENT -->
                   <div class="accordion-body">
-                    Our OCR technology is for precision and consistency. For standard documents like Aadhaar and PAN are more accuracy with high due to their structured formats.
+Our OCR technology is for precision and consistency. For standard documents like Aadhaar and PAN are more accuracy with high due to their structured formats.
+
                     <br><br>
-                    If the uploaded image or pdf is unclear, the system instantly prompts the user to reupload it—ensuring only clean, reliable data enters the verification process.
+If the uploaded image or pdf is unclear, the system instantly prompts the user to reupload it—ensuring only clean, reliable data enters the verification process.
+
                   </div>
                 </div>
               </div>
@@ -2181,9 +2156,11 @@
                 >
                   <!-- UPDATED CONTENT -->
                   <div class="accordion-body">
-                    Data security is built into every layer of the process. All sensitive information is end to end encrypted in the storage and during transmission by using the industry standard protocols.
+Data security is built into every layer of the process. All sensitive information is end to end encrypted in the storage and during transmission by using the industry standard protocols.
+
                     <br><br>
-                    Our access is more secure controlled through role-based permissions and multi-factor authentication, to ensure that only authorized users can view depends on the role.
+Our access is more secure controlled through role-based permissions and multi-factor authentication, to ensure that only authorized users can view depends on the role.
+
                   </div>
                 </div>
               </div>
@@ -2206,9 +2183,11 @@
                 >
                   <!-- UPDATED CONTENT -->
                   <div class="accordion-body">
-                    Our system to handle such scenarios without disruption. It automatically retries verification and queues requests if needed.
+Our system to handle such scenarios without disruption. It automatically retries verification and queues requests if needed.
+
                     <br><br>
-                    Once the service is restored, the verification is completed and you’re notified—so your workflow continues without manual follow-up.
+Once the service is restored, the verification is completed and you’re notified—so your workflow continues without manual follow-up.
+
                   </div>
                 </div>
               </div>
@@ -2231,7 +2210,8 @@
                 >
                   <!-- UPDATED CONTENT -->
                   <div class="accordion-body">
-                    Yes, we support identity verification for global candidates. Passport validation and international database checks allow you to onboard talent from multiple countries with confidence.
+Yes, we support identity verification for global candidates. Passport validation and international database checks allow you to onboard talent from multiple countries with confidence.
+
                   </div>
                 </div>
               </div>
@@ -2241,148 +2221,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <!--
-   <section class="contact-section" id="contact">
-      <div class="container position-relative">
-        <div class="row">
-          <div class="col-lg-6 mb-5 mb-lg-0 reveal">
-            <h2>Ready to Explore Verifitech for your business?</h2>
-            <p class="lead">
-              Get in touch with our solutions team to discuss your ID
-              verification needs and customized pricing.
-            </p>
-
-            <div class="mt-5">
-              <div class="contact-feature">
-                <div class="contact-feature-icon">
-                  <i class="bi bi-check-lg"></i>
-                </div>
-                <span>Assess team's verification needs</span>
-              </div>
-              <div class="contact-feature">
-                <div class="contact-feature-icon">
-                  <i class="bi bi-check-lg"></i>
-                </div>
-                <span>Learn products & benefits</span>
-              </div>
-              <div class="contact-feature">
-                <div class="contact-feature-icon">
-                  <i class="bi bi-check-lg"></i>
-                </div>
-                <span>Discuss enterprise pricing</span>
-              </div>
-            </div>
-
-            <div
-              class="mt-5 pt-4"
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
-            >
-              <p class="text-white-50 mb-3">Or reach us directly:</p>
-              <p class="mb-2">
-                <i class="bi bi-envelope me-2 text-primary"></i>
-                sales@verifitech.com
-              </p>
-              <p>
-                <i class="bi bi-telephone me-2 text-primary"></i> +91
-                1800-123-4567
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 reveal">
-            <form
-              class="contact-form"
-              onsubmit="event.preventDefault(); alert('Thank you for your interest! Our team will contact you within 24 hours.');"
-            >
-              <div class="row">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="First Name *"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Last Name *"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Work Email *"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="tel"
-                    class="form-control"
-                    placeholder="Phone Number *"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Company Name *"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <select class="form-select" required>
-                    <option value="" disabled selected>Company Size *</option>
-                    <option>1-50 employees</option>
-                    <option>51-200 employees</option>
-                    <option>201-1000 employees</option>
-                    <option>1000+ employees</option>
-                  </select>
-                </div>
-              </div>
-              <select class="form-select" required>
-                <option value="" disabled selected>
-                  Interested Solution *
-                </option>
-                <option selected>ID Verification (Aadhaar/PAN)</option>
-                <option>eKYC Solutions</option>
-                <option>Document Verification</option>
-                <option>Complete BGV Suite</option>
-              </select>
-              <textarea
-                class="form-control"
-                rows="3"
-                placeholder="Tell us about your requirements (Optional)"
-              ></textarea>
-
-              <div class="form-check mt-3 mb-4">
-                <input class="form-check-input" type="checkbox" required />
-                <label class="form-check-label">
-                  I agree to the <a href="#">Privacy Policy</a> and consent to
-                  being contacted regarding Verifitech services.
-                </label>
-              </div>
-
-              <button type="submit" class="btn btn-submit">
-                Submit Request <i class="bi bi-arrow-right ms-2"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  -->
-    
     <!-- Footer -->
    <footer class="footer" style="background: #f0fdfa; color: var(--dark); padding: 80px 0 40px;">
   <div class="container">
@@ -2619,8 +2457,6 @@
   }
 </style>
     
-    <!--footer-->
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
