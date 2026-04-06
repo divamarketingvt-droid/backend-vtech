@@ -312,7 +312,7 @@ app.post("/api/submit-trial", async (req, res) => {
 });
 
 // ==========================================
-// 4. CHATBOT SUBMISSION (FIXED)
+// 4. CHATBOT SUBMISSION (FINAL FIX)
 // ==========================================
 app.post("/api/submit-request", async (req, res) => {
   console.log("📦 Chat Request Received:", req.body);
@@ -337,7 +337,7 @@ app.post("/api/submit-request", async (req, res) => {
   const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
   
   console.log(
-    `📩 Email TO: ${ADMIN_EMAIL}, CC: ${ccEmail} (Dept: ${department || "General"})`
+    `📩 Preparing Email -> TO: ${ADMIN_EMAIL}, CC: ${ccEmail}`
   );
 
   try {
@@ -345,7 +345,8 @@ app.post("/api/submit-request", async (req, res) => {
     console.log("📧 Sending Chat Lead email...");
     await transporter.sendMail({
       from: `"Verifitech Chat" <${EMAIL_USER}>`,
-      to: DEPARTMENT_EMAILS,
+      to: ADMIN_EMAIL, // CRITICAL FIX: Must be the string email, not the object
+      cc: ccEmail,      // CC: The specific department email
       replyTo: email,
       subject: `New Chat Request: ${department || "General"} - ${firstName}`,
       html: `
