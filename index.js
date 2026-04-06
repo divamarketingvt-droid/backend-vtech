@@ -375,7 +375,7 @@ app.post("/api/submit-request", async (req, res) => {
     await transporter.sendMail({
       from: `"Verifitech Chat" <${EMAIL_USER}>`,
       to: ADMIN_USER,
-      cc:recipientEmail
+      cc:recipientEmail,
       replyTo: email,
       subject: `New Chat Request: ${department || "General"} - ${firstName}`,
       html: `
