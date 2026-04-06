@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5462,17 +5463,20 @@ body {
   });
   // ==========================================
 // CONFIGURATION - FIXED URLS
-<script>
-  // ==========================================
-  // CONFIGURATION
+
+// ==========================================
+
+// ==========================================
+// CONFIGURATION
+// ==========================================
   // ==========================================
   const API_BASE_URL = 'https://backend-vtech.onrender.com';
 
-  const DEPARTMENT_EMAILS = {
+  // Define email addresses for each department
+  const departmentEmails = {
     'service': 'kovendan16@gmail.com',
     'career': 'hr@verifitech.com',
-    'support': 'support@verifitech.com',
-    'default': 'kovendan16@gmail.com'
+    'support': 'support@verifitech.com'
   };
 
   // ==========================================
@@ -5486,7 +5490,7 @@ body {
     department: '',
     serviceType: '',
     issueDescription: '',
-    recipientEmail: ''
+    recipientEmail: '' 
   };
 
   let currentStep = 'welcome';
@@ -5619,13 +5623,17 @@ body {
   function selectDepartment(dept) {
     selectedDept = dept;
     chatData.department = dept;
-    chatData.recipientEmail = DEPARTMENT_EMAILS[dept] || 'info@verifitech.com';
+    
+    // Set the recipient email based on the selected department
+    chatData.recipientEmail = departmentEmails[dept] || 'info@verifitech.com';
+
     addMessage(dept.charAt(0).toUpperCase() + dept.slice(1), true);
     
     setTimeout(() => {
       showTyping();
       setTimeout(() => {
         removeTyping();
+        
         if (dept === 'service') {
           showBGVOptions();
         } else {
@@ -5672,6 +5680,7 @@ body {
       showTyping();
       setTimeout(() => {
         removeTyping();
+        
         if (serviceType === 'Other') {
           showCustomServiceInput();
         } else {
@@ -5734,10 +5743,12 @@ body {
 
   function showDeptAction(dept) {
     addMessage('Reach Out', true);
+    
     setTimeout(() => {
       showTyping();
       setTimeout(() => {
         removeTyping();
+        
         if (dept === 'career') {
           chatData.serviceType = 'Career Opportunity';
           startDataCollection();
@@ -5780,7 +5791,7 @@ body {
   }
 
   // ==========================================
-  // DATA COLLECTION FLOW (WITH OTP)
+  // DATA COLLECTION FLOW
   // ==========================================
   function startDataCollection() {
     setTimeout(() => {
@@ -5815,86 +5826,6 @@ body {
         enableInput('Enter your email...');
       }, 800);
     }, 300);
-  }
-
-  // NEW: Handle Email Input & Trigger OTP
-  async function handleEmailSubmit(emailInput) {
-    // 1. Basic Validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailInput)) {
-      addMessage('❌ Please enter a valid email address.');
-      enableInput('Enter valid email...');
-      return;
-    }
-
-    // 2. Show Sending State
-    disableInput();
-    showTyping();
-
-    try {
-      // 3. Call API to send OTP
-      const response = await fetch(`${API_BASE_URL}/api/send-otp`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailInput })
-      });
-
-      const result = await response.json();
-      removeTyping();
-
-      if (result.success) {
-        chatData.email = emailInput;
-        addMessage(`OTP sent to ${emailInput}. Please enter it below.`);
-        askForOTP(); // Switch to OTP input step
-      } else {
-        addMessage(`❌ ${result.message}. Please try again.`);
-        enableInput('Enter your email...');
-      }
-
-    } catch (error) {
-      removeTyping();
-      addMessage('❌ Connection error. Please try again later.');
-      enableInput('Enter your email...');
-    }
-  }
-
-  // NEW: Ask for OTP
-  function askForOTP() {
-    currentStep = 'otp';
-    enableInput('Enter OTP...');
-  }
-
-  // NEW: Handle OTP Verification
-  async function handleOTPSubmit(otpInput) {
-    disableInput();
-    showTyping();
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/verify-otp`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          email: chatData.email, 
-          otp: otpInput 
-        })
-      });
-
-      const result = await response.json();
-      removeTyping();
-
-      if (result.success) {
-        addMessage('✅ Email verified successfully!');
-        setTimeout(() => askForNumber(), 500); // Proceed to Phone
-      } else {
-        addMessage(`❌ ${result.message}. Please try again.`);
-        enableInput('Enter OTP...');
-      }
-
-    } catch (error) {
-      removeTyping();
-      addMessage('❌ Connection error verifying OTP.');
-      enableInput('Enter OTP...');
-    }
   }
 
   function askForNumber() {
@@ -5964,7 +5895,7 @@ body {
   }
 
   // ==========================================
-  // SUBMIT TO BACKEND
+  // SUBMIT TO BACKEND (FIXED LOGIC)
   // ==========================================
   async function submitToBackend() {
     if (isSubmitting) return;
@@ -5974,24 +5905,41 @@ body {
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Sending...';
     
-    const timestampedUrl = `${API_BASE_URL}/api/submit-request?t=${new Date().getTime()}`;
+    const url = `${API_BASE_URL}/api/submit-request`;
+    
+    // ---------------------------------------------------------
+    // FIX 1: Add timestamp to prevent caching
+    // ---------------------------------------------------------
+    const timestampedUrl = `${url}?t=${new Date().getTime()}`;
+
+    console.log('Submitting to:', timestampedUrl);
+    console.log('Data:', chatData);
     
     try {
+      // ---------------------------------------------------------
+      // FIX 2: Explicit Fetch Options
+      // ---------------------------------------------------------
       const response = await fetch(timestampedUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
         },
         body: JSON.stringify(chatData)
       });
       
       console.log('Response status:', response.status);
       
+      // ---------------------------------------------------------
+      // FIX 3: Handle Non-JSON Responses (Common in 500 errors)
+      // ---------------------------------------------------------
       const contentType = response.headers.get('content-type');
+      
       if (!contentType || !contentType.includes('application/json')) {
         const text = await response.text();
-        throw new Error(`Server error ${response.status}: ${text.substring(0, 100)}`);
+        console.error('Non-JSON response:', text.substring(0, 500));
+        throw new Error(`Server returned ${response.status} ${response.statusText}. Please check server logs.`);
       }
       
       const result = await response.json();
@@ -6005,14 +5953,19 @@ body {
       
     } catch (error) {
       console.error('Submission Error:', error);
+      
+      // ---------------------------------------------------------
+      // FIX 4: Graceful Fallback for User
+      // ---------------------------------------------------------
       showFallbackMessage(error.message);
+      
     } finally {
       isSubmitting = false;
     }
   }
 
   // ==========================================
-  // SUCCESS & FALLBACK MESSAGES
+  // SUCCESS MESSAGE
   // ==========================================
   function showSuccessMessage(data) {
     const chatBody = document.getElementById('chatBody');
@@ -6068,6 +6021,9 @@ body {
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 
+  // ==========================================
+  // FALLBACK ERROR HANDLING
+  // ==========================================
   function showFallbackMessage(errorMsg) {
     const btn = document.getElementById('sendRequestBtn');
     if (btn) {
@@ -6076,6 +6032,8 @@ body {
     }
     
     const chatBody = document.getElementById('chatBody');
+    
+    // Prepare mailto link with data
     const subject = encodeURIComponent(`New ${chatData.department} Request from ${chatData.firstName}`);
     const body = encodeURIComponent(
       `Name: ${chatData.firstName}\n` +
@@ -6098,10 +6056,10 @@ body {
             ❌ <strong>Connection Error:</strong> ${errorMsg}
           </div>
           <p style="font-size: 13px; color: #555; margin-bottom: 10px;">
-            Our server might be waking up. You can manually send this request via email:
+            Our server might be waking up (Render Free Tier). You can manually send this request via email:
           </p>
           <a href="${mailtoLink}" class="action-btn" style="display:inline-block; text-decoration:none; text-align:center;">
-            ✉️ Email Request
+            ✉️ Email Request to ${chatData.recipientEmail}
           </a>
           <br><br>
           <button class="back-btn" onclick="submitToBackend()">🔄 Retry Connection</button>
@@ -6112,6 +6070,9 @@ body {
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 
+  // ==========================================
+  // RESET CHAT
+  // ==========================================
   function resetChat() {
     chatData = {
       firstName: '',
@@ -6146,7 +6107,7 @@ body {
   }
 
   // ==========================================
-  // MAIN INPUT HANDLER
+  // INPUT HANDLING
   // ==========================================
   function handleSend() {
     const input = document.getElementById('messageInput');
@@ -6156,30 +6117,12 @@ body {
     addMessage(value, true);
     input.value = '';
 
-    // Route input based on current step
     setTimeout(() => {
-      if (currentStep === 'firstName') {
-        chatData.firstName = value;
-        askForEmail();
-      } 
-      else if (currentStep === 'email') {
-        handleEmailSubmit(value); // New: Trigger OTP logic
-      } 
-      else if (currentStep === 'otp') {
-        handleOTPSubmit(value); // New: Verify OTP logic
-      }
-      else if (currentStep === 'number') {
-        chatData.phone = value;
-        askForCompany();
-      } 
-      else if (currentStep === 'company') {
-        chatData.company = value;
-        showFinalConfirmation();
-      }
+      processUserInput(value);
     }, 300);
   }
 
-  // Initialize Event Listeners
+  // Enter key support
   document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('messageInput');
     if (input) {
@@ -6189,7 +6132,33 @@ body {
     }
   });
 
-  // Spinner CSS Injection
+  function processUserInput(value) {
+    switch(currentStep) {
+      case 'firstName':
+        chatData.firstName = value;
+        askForEmail();
+        break;
+      case 'email':
+        if (value.includes('@') && value.includes('.')) {
+          chatData.email = value;
+          askForNumber();
+        } else {
+          addMessage('❌ Please enter a valid email address.');
+          enableInput('Enter valid email...');
+        }
+        break;
+      case 'number':
+        chatData.phone = value;
+        askForCompany();
+        break;
+      case 'company':
+        chatData.company = value;
+        showFinalConfirmation();
+        break;
+    }
+  }
+
+  // Add spinner animation style (Dynamically added to ensure it exists)
   const style = document.createElement('style');
   style.textContent = `
     .spinner {
@@ -6208,7 +6177,7 @@ body {
     }
   `;
   document.head.appendChild(style);
-
+  
   </script>
   </body>
 </html>
