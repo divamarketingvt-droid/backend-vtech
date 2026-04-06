@@ -13,16 +13,16 @@ const PORT = process.env.PORT || 3000;
 // ==========================================
 const EMAIL_USER = "kovendan16@gmail.com";
 const EMAIL_PASS = "bopv udhz zhnv cxzb";
-const ADMIN_EMAIL = "kovendan16@gmail.com";
+const ADMIN_EMAIL = "kovendan16@gmail.com"; // Main Recipient
 
 // ==========================================
-// DEPARTMENT EMAIL CONFIGURATION (NEW)
+// DEPARTMENT EMAIL CONFIGURATION (FOR CC)
 // ==========================================
 const DEPARTMENT_EMAILS = {
-  service: "kovendan16@gmail.com", // Replace with actual service email
-  career: "hr@verifitech.com", // Replace with actual HR email
-  support: "koventhanfreelance@gmail.com", // Replace with actual Support email
-  default: ADMIN_EMAIL, // Fallback email
+  service: "kovendan16@gmail.com", 
+  career: "hr@verifitech.com", 
+  support: "koventhanfreelance@gmail.com", 
+  default: ADMIN_EMAIL, 
 };
 
 // ZOHO CONFIGURATION
@@ -95,8 +95,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
-/*const STATIC_PATH = path.join(__dirname, "public", "index.html");
-app.use(express.static(STATIC_PATH));*/
 
 // ==========================================
 // STORAGE & HELPERS
@@ -122,8 +120,10 @@ const isBusinessEmail = (email) => {
   const domain = email.split("@")[1];
   return domain ? !blockedDomains.includes(domain.toLowerCase()) : false;
 };
+
 const generateOTP = () => Math.floor(1000 + Math.random() * 9000).toString();
 
+// FIXED NODemailer TRANSPORTER
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -131,30 +131,24 @@ const transporter = nodemailer.createTransport({
   auth: { user: EMAIL_USER, pass: EMAIL_PASS },
   tls: { rejectUnauthorized: false },
   
-  // FIX 1: Enable pooling (best practice for Render)
+  // FIX: Enable pooling
   pool: true,
   maxConnections: 1,
   maxMessages: 5,
-  
-  // FIX 2: Extended timeouts (prevents premature disconnection)
   connectionTimeout: 60000, 
   socketTimeout: 60000,
   
-  // FIX 3: THE CRITICAL FIX - Force IPv4 DNS Resolution
+  // FIX: Force IPv4
   dns: {
     lookup: function(hostname, options, callback) {
-      // This tells Node.js to ONLY look up IPv4 addresses (family: 4)
-      // It ignores IPv6 addresses, preventing the ENETUNREACH error
       require('dns').resolve4(hostname, options, function(err, addresses) {
-        if (err) {
-          return callback(err);
-        }
-        // Use the first valid IPv4 address found
+        if (err) return callback(err);
         callback(null, addresses[0], 4);
       });
     }
   }
 });
+
 // ==========================================
 // API ROUTES
 // ==========================================
@@ -222,7 +216,6 @@ app.post("/api/submit-trial", async (req, res) => {
       .json({ success: false, message: "Email not verified." });
   }
 
-  // --- PREPARE DATA ---
   let checksListHtml = "<li>None selected</li>";
   let checksTextForZoho = "None selected";
 
@@ -241,7 +234,6 @@ app.post("/api/submit-trial", async (req, res) => {
     checksTextForZoho = JSON.stringify(selectedChecks);
   }
 
-  // --- SEND EMAIL ---
   try {
     console.log("📧 Sending Trial email...");
     await transporter.sendMail({
@@ -264,10 +256,8 @@ app.post("/api/submit-trial", async (req, res) => {
     console.error("❌ Email failed:", err);
   }
 
-  // --- SEND TO ZOHO ---
   try {
     console.log("☁️ Sending to Zoho...");
-
     const nameParts = (leadData.name || "Unknown Lead").split(" ");
     const zohoPayload = {
       data: [
@@ -283,53 +273,35 @@ app.post("/api/submit-trial", async (req, res) => {
         },
       ],
     };
-
     const ZOHO_API_URL = `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`;
-
     let response = await axios.post(ZOHO_API_URL, zohoPayload, {
       headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
     });
 
     if (response.data && response.data.code === "INVALID_TOKEN") {
-      console.log("⚠️ Token invalid, refreshing...");
       const refreshed = await refreshZohoToken();
       if (refreshed) {
         response = await axios.post(ZOHO_API_URL, zohoPayload, {
-          headers: {
-            Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}`,
-          },
+          headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
         });
       }
     }
-
     console.log("✅ Data pushed to Zoho CRM.");
   } catch (zohoErr) {
     if (zohoErr.response && zohoErr.response.status === 401) {
       const refreshed = await refreshZohoToken();
       if (refreshed) {
         try {
-          await axios.post(
-            `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`,
-            zohoPayload,
-            {
-              headers: {
-                Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}`,
-              },
-            }
-          );
+          await axios.post(`${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`, zohoPayload, {
+            headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
+          });
           console.log("✅ Data pushed to Zoho CRM (after retry).");
         } catch (retryErr) {
-          console.error(
-            "❌ Zoho failed after retry:",
-            retryErr.response?.data || retryErr.message
-          );
+          console.error("❌ Zoho failed after retry:", retryErr.message);
         }
       }
     } else {
-      console.error(
-        "❌ Zoho CRM error:",
-        zohoErr.response?.data || zohoErr.message
-      );
+      console.error("❌ Zoho CRM error:", zohoErr.message);
     }
   }
 
@@ -340,9 +312,7 @@ app.post("/api/submit-trial", async (req, res) => {
 });
 
 // ==========================================
-// ==========================================
-// ==========================================
-// 4. CHATBOT SUBMISSION (UPDATED, NON-BLOCKING)
+// 4. CHATBOT SUBMISSION (FIXED)
 // ==========================================
 app.post("/api/submit-request", async (req, res) => {
   console.log("📦 Chat Request Received:", req.body);
@@ -363,10 +333,11 @@ app.post("/api/submit-request", async (req, res) => {
       .json({ success: false, message: "Name and Email are required." });
   }
 
-  const recipientEmail =
-    DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
+  // Determine the Department Email for CC
+  const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
+  
   console.log(
-    `📩 Routing email to: ${recipientEmail} (Dept: ${department || "General"})`
+    `📩 Email TO: ${ADMIN_EMAIL}, CC: ${ccEmail} (Dept: ${department || "General"})`
   );
 
   try {
@@ -374,8 +345,8 @@ app.post("/api/submit-request", async (req, res) => {
     console.log("📧 Sending Chat Lead email...");
     await transporter.sendMail({
       from: `"Verifitech Chat" <${EMAIL_USER}>`,
-      to: ADMIN_USER,
-      cc:recipientEmail,
+      to: ADMIN_EMAIL, // FIXED: Was ADMIN_USER (undefined)
+      cc: ccEmail,      // FIXED: Department email goes here
       replyTo: email,
       subject: `New Chat Request: ${department || "General"} - ${firstName}`,
       html: `
@@ -398,7 +369,7 @@ app.post("/api/submit-request", async (req, res) => {
     });
     console.log("✅ Chat email sent successfully.");
 
-    // 2️⃣ Send to Zoho CRM (optional, still async)
+    // 2️⃣ Send to Zoho CRM (async)
     (async () => {
       try {
         console.log("☁️ Sending Chat Lead to Zoho...");
@@ -423,15 +394,14 @@ app.post("/api/submit-request", async (req, res) => {
         });
         console.log("✅ Chat lead pushed to Zoho.");
       } catch (zohoErr) {
-        console.error("❌ Zoho Chat Error:", zohoErr.response?.data || zohoErr.message);
+        console.error("❌ Zoho Chat Error:", zohoErr.message);
       }
     })();
 
-    // Respond only after email succeeds
     res.status(200).json({
       success: true,
       message: "Request submitted and email sent successfully",
-      data: { emailSentTo: recipientEmail },
+      data: { emailSentTo: ADMIN_EMAIL, cc: ccEmail },
     });
   } catch (emailErr) {
     console.error("❌ Chat email failed:", emailErr.message);
@@ -442,8 +412,9 @@ app.post("/api/submit-request", async (req, res) => {
     });
   }
 });
+
 // ==========================================
-// 5. CONTACT PAGE SUBMISSION (NEW)
+// 5. CONTACT PAGE SUBMISSION (UPDATED FOR CC)
 // ==========================================
 app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Form Request Received:", req.body);
@@ -451,7 +422,6 @@ app.post("/api/submit-contact", async (req, res) => {
   const { fullName, email, phone, company, lookingFor, message, userType } =
     req.body;
 
-  // 1. Basic Validation
   if (!fullName || !email || !phone) {
     return res.status(400).json({
       success: false,
@@ -459,7 +429,6 @@ app.post("/api/submit-contact", async (req, res) => {
     });
   }
 
-  // 2. Business Email Validation (For Business User Type)
   if (userType === "business" && !isBusinessEmail(email)) {
     return res.status(400).json({
       success: false,
@@ -468,8 +437,6 @@ app.post("/api/submit-contact", async (req, res) => {
     });
   }
 
-  // 3. OTP Verification Check
-  // Ensure the user verified their email via OTP before submitting
   if (!verifiedEmails.has(email)) {
     return res.status(403).json({
       success: false,
@@ -477,15 +444,15 @@ app.post("/api/submit-contact", async (req, res) => {
     });
   }
 
-  // 4. Determine Recipient (Sales Email)
-  const recipientEmail = DEPARTMENT_EMAILS.service; // or ADMIN_EMAIL
+  // Determine CC Email (Using Service Dept for Contact Page)
+  const ccEmail = DEPARTMENT_EMAILS.service; 
 
-  // 5. Send Email Notification
   try {
     console.log("📧 Sending Contact Form email...");
     await transporter.sendMail({
       from: `"Verifitech Website" <${EMAIL_USER}>`,
-      to: recipientEmail,
+      to: ADMIN_EMAIL, // Main recipient
+      cc: ccEmail,      // CC Department
       replyTo: email,
       subject: `New Contact Lead: ${fullName} - ${company || "Individual"}`,
       html: `
@@ -537,13 +504,10 @@ app.post("/api/submit-contact", async (req, res) => {
     console.log("✅ Contact email sent.");
   } catch (emailErr) {
     console.error("❌ Contact email failed:", emailErr);
-    // Continue execution even if email fails to try Zoho
   }
 
-  // 6. Push to Zoho CRM
   try {
     console.log("☁️ Sending Contact Lead to Zoho...");
-
     const nameParts = (fullName || "Unknown Lead").split(" ");
     const zohoPayload = {
       data: [
@@ -560,42 +524,28 @@ app.post("/api/submit-contact", async (req, res) => {
         },
       ],
     };
-
     const ZOHO_API_URL = `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`;
-
-    // Attempt 1
     let response = await axios.post(ZOHO_API_URL, zohoPayload, {
       headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
     });
 
-    // Retry if token expired
     if (response.data && response.data.code === "INVALID_TOKEN") {
-      console.log("⚠️ Token invalid, refreshing...");
       const refreshed = await refreshZohoToken();
       if (refreshed) {
         await axios.post(ZOHO_API_URL, zohoPayload, {
-          headers: {
-            Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}`,
-          },
+          headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
         });
       }
     }
     console.log("✅ Contact lead pushed to Zoho.");
   } catch (zohoErr) {
-    // Handle 401 errors specifically
     if (zohoErr.response && zohoErr.response.status === 401) {
       const refreshed = await refreshZohoToken();
       if (refreshed) {
         try {
-          await axios.post(
-            `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`,
-            zohoPayload,
-            {
-              headers: {
-                Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}`,
-              },
-            }
-          );
+          await axios.post(`${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`, zohoPayload, {
+            headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
+          });
           console.log("✅ Zoho retry successful.");
         } catch (retryErr) {
           console.error("❌ Zoho Contact Retry failed:", retryErr.message);
@@ -606,14 +556,14 @@ app.post("/api/submit-contact", async (req, res) => {
     }
   }
 
-  // 7. Cleanup and Respond
-  verifiedEmails.delete(email); // Remove from verified set after use
+  verifiedEmails.delete(email);
 
   res.status(200).json({
     success: true,
     message: "Thank you! Your request has been submitted successfully.",
   });
 });
+
 // ==========================================
 // START SERVER
 // ==========================================
