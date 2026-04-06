@@ -288,6 +288,7 @@ app.post("/api/submit-trial", async (req, res) => {
     }
     console.log("✅ Data pushed to Zoho CRM.");
   } catch (zohoErr) {
+    console.error("❌ Zoho Error Details:", zohoErr.response ? zohoErr.response.data : zohoErr.message);
     if (zohoErr.response && zohoErr.response.status === 401) {
       const refreshed = await refreshZohoToken();
       if (refreshed) {
@@ -300,8 +301,6 @@ app.post("/api/submit-trial", async (req, res) => {
           console.error("❌ Zoho failed after retry:", retryErr.message);
         }
       }
-    } else {
-      console.error("❌ Zoho CRM error:", zohoErr.message);
     }
   }
 
@@ -312,7 +311,7 @@ app.post("/api/submit-trial", async (req, res) => {
 });
 
 // ==========================================
-// 4. CHATBOT SUBMISSION (FINAL FIX)
+// 4. CHATBOT SUBMISSION (REVIEWED & SECURED)
 // ==========================================
 app.post("/api/submit-request", async (req, res) => {
   console.log("📦 Chat Request Received:", req.body);
@@ -333,8 +332,18 @@ app.post("/api/submit-request", async (req, res) => {
       .json({ success: false, message: "Name and Email are required." });
   }
 
-  // Determine the Department Email for CC
-  const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
+  // SECURITY FIX: Ensure email is verified before allowing chat submission
+  if (!verifiedEmails.has(email)) {
+    return res.status(403).json({ 
+      success: false, 
+      message: "Email verification required. Please verify your email first." 
+    });
+  }
+
+  // Robust CC Logic: Handle case sensitivity safely
+  const ccEmail = (department && DEPARTMENT_EMAILS[department]) 
+    ? DEPARTMENT_EMAILS[department] 
+    : DEPARTMENT_EMAILS.default;
   
   console.log(
     `📩 Preparing Email -> TO: ${ADMIN_EMAIL}, CC: ${ccEmail}`
@@ -345,8 +354,8 @@ app.post("/api/submit-request", async (req, res) => {
     console.log("📧 Sending Chat Lead email...");
     await transporter.sendMail({
       from: `"Verifitech Chat" <${EMAIL_USER}>`,
-      to: ADMIN_EMAIL, // CRITICAL FIX: Must be the string email, not the object
-      cc: ccEmail,      // CC: The specific department email
+      to: ADMIN_EMAIL,
+      cc: ccEmail,
       replyTo: email,
       subject: `New Chat Request: ${department || "General"} - ${firstName}`,
       html: `
@@ -394,9 +403,12 @@ app.post("/api/submit-request", async (req, res) => {
         });
         console.log("✅ Chat lead pushed to Zoho.");
       } catch (zohoErr) {
-        console.error("❌ Zoho Chat Error:", zohoErr.message);
+        console.error("❌ Zoho Chat Error Details:", zohoErr.response ? zohoErr.response.data : zohoErr.message);
       }
     })();
+
+    // Cleanup verification after successful submission
+    verifiedEmails.delete(email);
 
     res.status(200).json({
       success: true,
@@ -539,6 +551,7 @@ app.post("/api/submit-contact", async (req, res) => {
     }
     console.log("✅ Contact lead pushed to Zoho.");
   } catch (zohoErr) {
+    console.error("❌ Zoho Contact Error Details:", zohoErr.response ? zohoErr.response.data : zohoErr.message);
     if (zohoErr.response && zohoErr.response.status === 401) {
       const refreshed = await refreshZohoToken();
       if (refreshed) {
@@ -551,8 +564,6 @@ app.post("/api/submit-contact", async (req, res) => {
           console.error("❌ Zoho Contact Retry failed:", retryErr.message);
         }
       }
-    } else {
-      console.error("❌ Zoho Contact Error:", zohoErr.message);
     }
   }
 
