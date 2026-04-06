@@ -5468,19 +5468,20 @@ body {
 // ==========================================
 // CONFIGURATION
 // ==========================================
-const API_BASE_URL ='https://backend-vtech.onrender.com' ;
+  // ==========================================
+  const API_BASE_URL = 'https://backend-vtech.onrender.com';
 
-// Define email addresses for each department
-const departmentEmails = {
+  // Define email addresses for each department
+  const departmentEmails = {
     'service': 'kovendan16@gmail.com',
     'career': 'hr@verifitech.com',
     'support': 'support@verifitech.com'
-};
+  };
 
-// ==========================================
-// DATA STORAGE
-// ==========================================
-let chatData = {
+  // ==========================================
+  // DATA STORAGE
+  // ==========================================
+  let chatData = {
     firstName: '',
     email: '',
     phone: '',
@@ -5488,41 +5489,41 @@ let chatData = {
     department: '',
     serviceType: '',
     issueDescription: '',
-    recipientEmail: '' // New field to store target email
-};
+    recipientEmail: '' 
+  };
 
-let currentStep = 'welcome';
-let selectedDept = '';
-let selectedService = '';
-let isSubmitting = false;
-let isOpenedOnce = false;
+  let currentStep = 'welcome';
+  let selectedDept = '';
+  let selectedService = '';
+  let isSubmitting = false;
+  let isOpenedOnce = false;
 
-// ==========================================
-// CHAT TOGGLE
-// ==========================================
-function toggleChat() {
+  // ==========================================
+  // CHAT TOGGLE
+  // ==========================================
+  function toggleChat() {
     const container = document.getElementById('chatContainer');
     const icon = document.getElementById('chatIcon');
     
     container.classList.toggle('active');
     
     if (container.classList.contains('active')) {
-        icon.style.display = 'none';
-        if (!isOpenedOnce) {
-            setTimeout(() => {
-                showDepartments();
-            }, 500);
-            isOpenedOnce = true;
-        }
+      icon.style.display = 'none';
+      if (!isOpenedOnce) {
+        setTimeout(() => {
+          showDepartments();
+        }, 500);
+        isOpenedOnce = true;
+      }
     } else {
-        icon.style.display = 'flex';
+      icon.style.display = 'flex';
     }
-}
+  }
 
-// ==========================================
-// UTILITY FUNCTIONS
-// ==========================================
-function showTyping() {
+  // ==========================================
+  // UTILITY FUNCTIONS
+  // ==========================================
+  function showTyping() {
     const chatBody = document.getElementById('chatBody');
     const typing = document.createElement('div');
     typing.className = 'message typing-indicator';
@@ -5530,95 +5531,95 @@ function showTyping() {
     typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
     chatBody.appendChild(typing);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function removeTyping() {
+  function removeTyping() {
     const typing = document.getElementById('typing');
     if (typing) typing.remove();
-}
+  }
 
-function addMessage(text, isUser = false) {
+  function addMessage(text, isUser = false) {
     const chatBody = document.getElementById('chatBody');
     const msg = document.createElement('div');
     msg.className = isUser ? 'message user-message' : 'message';
     
     if (isUser) {
-        msg.innerHTML = `<div class="message-content"><div class="message-text">${text}</div></div>`;
+      msg.innerHTML = `<div class="message-content"><div class="message-text">${text}</div></div>`;
     } else {
-        msg.innerHTML = `<div class="message-avatar">V</div><div class="message-content"><div class="message-text">${text}</div></div>`;
+      msg.innerHTML = `<div class="message-avatar">V</div><div class="message-content"><div class="message-text">${text}</div></div>`;
     }
     
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function enableInput(placeholder) {
+  function enableInput(placeholder) {
     const input = document.getElementById('messageInput');
     const btn = document.getElementById('sendBtn');
     if (input) {
-        input.disabled = false;
-        input.placeholder = placeholder || 'Type a message...';
-        input.focus();
+      input.disabled = false;
+      input.placeholder = placeholder || 'Type a message...';
+      input.focus();
     }
     if (btn) btn.disabled = false;
-}
+  }
 
-function disableInput() {
+  function disableInput() {
     const input = document.getElementById('messageInput');
     const btn = document.getElementById('sendBtn');
     if (input) {
-        input.disabled = true;
-        input.placeholder = 'Select an option above...';
+      input.disabled = true;
+      input.placeholder = 'Select an option above...';
     }
     if (btn) btn.disabled = true;
-}
+  }
 
-// ==========================================
-// DEPARTMENT SELECTION (START)
-// ==========================================
-function showDepartments() {
+  // ==========================================
+  // DEPARTMENT SELECTION (START)
+  // ==========================================
+  function showDepartments() {
     currentStep = 'departments';
     selectedDept = '';
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            const chatBody = document.getElementById('chatBody');
-            const msg = document.createElement('div');
-            msg.className = 'message';
-            msg.innerHTML = `
-                <div class="message-avatar">V</div>
-                <div class="message-content">
-                    <div class="message-text">
-                        How can we help you? Select a department:
-                        <div class="department-grid">
-                            <button class="dept-card" onclick="selectDepartment('service')">
-                                <div class="dept-icon">🛠️</div>
-                                <div class="dept-name">Service</div>
-                                <div class="dept-desc">BGV & verification services</div>
-                            </button>
-                            <button class="dept-card" onclick="selectDepartment('career')">
-                                <div class="dept-icon">💼</div>
-                                <div class="dept-name">Career</div>
-                                <div class="dept-desc">Job opportunities</div>
-                            </button>
-                            <button class="dept-card" onclick="selectDepartment('support')">
-                                <div class="dept-icon">🎧</div>
-                                <div class="dept-name">Support</div>
-                                <div class="dept-desc">Customer support</div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            chatBody.appendChild(msg);
-            chatBody.scrollTop = chatBody.scrollHeight;
-            disableInput();
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        const chatBody = document.getElementById('chatBody');
+        const msg = document.createElement('div');
+        msg.className = 'message';
+        msg.innerHTML = `
+          <div class="message-avatar">V</div>
+          <div class="message-content">
+            <div class="message-text">
+              How can we help you? Select a department:
+              <div class="department-grid">
+                <button class="dept-card" onclick="selectDepartment('service')">
+                  <div class="dept-icon">🛠️</div>
+                  <div class="dept-name">Service</div>
+                  <div class="dept-desc">BGV & verification services</div>
+                </button>
+                <button class="dept-card" onclick="selectDepartment('career')">
+                  <div class="dept-icon">💼</div>
+                  <div class="dept-name">Career</div>
+                  <div class="dept-desc">Job opportunities</div>
+                </button>
+                <button class="dept-card" onclick="selectDepartment('support')">
+                  <div class="dept-icon">🎧</div>
+                  <div class="dept-name">Support</div>
+                  <div class="dept-desc">Customer support</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        disableInput();
+      }, 800);
     }, 300);
-}
+  }
 
-function selectDepartment(dept) {
+  function selectDepartment(dept) {
     selectedDept = dept;
     chatData.department = dept;
     
@@ -5628,232 +5629,232 @@ function selectDepartment(dept) {
     addMessage(dept.charAt(0).toUpperCase() + dept.slice(1), true);
     
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            
-            if (dept === 'service') {
-                showBGVOptions();
-            } else {
-                showReachOut(dept);
-            }
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        
+        if (dept === 'service') {
+          showBGVOptions();
+        } else {
+          showReachOut(dept);
+        }
+      }, 800);
     }, 300);
-}
+  }
 
-// ==========================================
-// SERVICE FLOW
-// ==========================================
-function showBGVOptions() {
+  // ==========================================
+  // SERVICE FLOW
+  // ==========================================
+  function showBGVOptions() {
     const chatBody = document.getElementById('chatBody');
     const msg = document.createElement('div');
     msg.className = 'message';
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content">
-            <div class="message-text">
-                Select a BGV service:
-                <div class="bgv-options">
-                    <button class="bgv-btn" onclick="prepareServiceRequest('Employee Background Check')">👤 Employee Background Check</button>
-                    <button class="bgv-btn" onclick="prepareServiceRequest('Tenant Verification')">🏠 Tenant Verification</button>
-                    <button class="bgv-btn" onclick="prepareServiceRequest('Criminal Record Check')">🔍 Criminal Record Check</button>
-                    <button class="bgv-btn" onclick="prepareServiceRequest('Education Verification')">🎓 Education Verification</button>
-                    <button class="bgv-btn" onclick="prepareServiceRequest('Employment History')">💼 Employment History Check</button>
-                    <button class="bgv-btn" onclick="prepareServiceRequest('Other')">📝 Other Service</button>
-                </div>
-                <button class="back-btn" onclick="showDepartments()">← Back</button>
-            </div>
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          Select a BGV service:
+          <div class="bgv-options">
+            <button class="bgv-btn" onclick="prepareServiceRequest('Employee Background Check')">👤 Employee Background Check</button>
+            <button class="bgv-btn" onclick="prepareServiceRequest('Tenant Verification')">🏠 Tenant Verification</button>
+            <button class="bgv-btn" onclick="prepareServiceRequest('Criminal Record Check')">🔍 Criminal Record Check</button>
+            <button class="bgv-btn" onclick="prepareServiceRequest('Education Verification')">🎓 Education Verification</button>
+            <button class="bgv-btn" onclick="prepareServiceRequest('Employment History')">💼 Employment History Check</button>
+            <button class="bgv-btn" onclick="prepareServiceRequest('Other')">📝 Other Service</button>
+          </div>
+          <button class="back-btn" onclick="showDepartments()">← Back</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function prepareServiceRequest(serviceType) {
+  function prepareServiceRequest(serviceType) {
     selectedService = serviceType;
     chatData.serviceType = serviceType;
     addMessage(serviceType, true);
     
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            
-            if (serviceType === 'Other') {
-                showCustomServiceInput();
-            } else {
-                startDataCollection();
-            }
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        
+        if (serviceType === 'Other') {
+          showCustomServiceInput();
+        } else {
+          startDataCollection();
+        }
+      }, 800);
     }, 300);
-}
+  }
 
-function showCustomServiceInput() {
+  function showCustomServiceInput() {
     const chatBody = document.getElementById('chatBody');
     const msg = document.createElement('div');
     msg.className = 'message';
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content">
-            <div class="message-text">
-                Please describe the service you need:
-                <textarea class="issue-input" id="customService" rows="3" placeholder="Describe the service you need..."></textarea>
-                <button class="action-btn" onclick="confirmCustomService()">Continue</button>
-                <button class="back-btn" onclick="showBGVOptions()">← Back</button>
-            </div>
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          Please describe the service you need:
+          <textarea class="issue-input" id="customService" rows="3" placeholder="Describe the service you need..."></textarea>
+          <button class="action-btn" onclick="confirmCustomService()">Continue</button>
+          <button class="back-btn" onclick="showBGVOptions()">← Back</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function confirmCustomService() {
+  function confirmCustomService() {
     const customText = document.getElementById('customService').value.trim();
     if (!customText) {
-        alert('Please describe the service you need.');
-        return;
+      alert('Please describe the service you need.');
+      return;
     }
     selectedService = 'Other: ' + customText;
     chatData.serviceType = selectedService;
     startDataCollection();
-}
+  }
 
-// ==========================================
-// CAREER & SUPPORT FLOW
-// ==========================================
-function showReachOut(dept) {
+  // ==========================================
+  // CAREER & SUPPORT FLOW
+  // ==========================================
+  function showReachOut(dept) {
     const chatBody = document.getElementById('chatBody');
     const msg = document.createElement('div');
     msg.className = 'message';
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content">
-            <div class="message-text">
-                You've selected <strong>${dept.charAt(0).toUpperCase() + dept.slice(1)}</strong> department.
-                <button class="action-btn" onclick="showDeptAction('${dept}')">📞 Reach Out</button>
-                <button class="back-btn" onclick="showDepartments()">← Back</button>
-            </div>
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          You've selected <strong>${dept.charAt(0).toUpperCase() + dept.slice(1)}</strong> department.
+          <button class="action-btn" onclick="showDeptAction('${dept}')">📞 Reach Out</button>
+          <button class="back-btn" onclick="showDepartments()">← Back</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function showDeptAction(dept) {
+  function showDeptAction(dept) {
     addMessage('Reach Out', true);
     
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            
-            if (dept === 'career') {
-                chatData.serviceType = 'Career Opportunity';
-                startDataCollection();
-            } else if (dept === 'support') {
-                showSupportInput();
-            }
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        
+        if (dept === 'career') {
+          chatData.serviceType = 'Career Opportunity';
+          startDataCollection();
+        } else if (dept === 'support') {
+          showSupportInput();
+        }
+      }, 800);
     }, 300);
-}
+  }
 
-function showSupportInput() {
+  function showSupportInput() {
     const chatBody = document.getElementById('chatBody');
     const msg = document.createElement('div');
     msg.className = 'message';
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content">
-            <div class="message-text">
-                Please describe your issue:
-                <textarea class="issue-input" id="issueText" rows="3" placeholder="Type your issue here..."></textarea>
-                <button class="action-btn" onclick="prepareSupportTicket()">Continue</button>
-                <button class="back-btn" onclick="showDepartments()">← Back</button>
-            </div>
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          Please describe your issue:
+          <textarea class="issue-input" id="issueText" rows="3" placeholder="Type your issue here..."></textarea>
+          <button class="action-btn" onclick="prepareSupportTicket()">Continue</button>
+          <button class="back-btn" onclick="showDepartments()">← Back</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function prepareSupportTicket() {
+  function prepareSupportTicket() {
     const issueText = document.getElementById('issueText').value.trim();
     if (!issueText) {
-        alert('Please describe your issue first.');
-        return;
+      alert('Please describe your issue first.');
+      return;
     }
     selectedService = 'Support Issue: ' + issueText;
     chatData.serviceType = 'Support Request';
     chatData.issueDescription = issueText;
     startDataCollection();
-}
+  }
 
-// ==========================================
-// DATA COLLECTION FLOW
-// ==========================================
-function startDataCollection() {
+  // ==========================================
+  // DATA COLLECTION FLOW
+  // ==========================================
+  function startDataCollection() {
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            addMessage("Great! I'll need a few details to proceed.");
-            setTimeout(() => askForFirstName(), 500);
-        }, 500);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMessage("Great! I'll need a few details to proceed.");
+        setTimeout(() => askForFirstName(), 500);
+      }, 500);
     }, 300);
-}
+  }
 
-function askForFirstName() {
+  function askForFirstName() {
     currentStep = 'firstName';
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            addMessage('Please provide your <strong>Name</strong>.');
-            enableInput('Enter your name...');
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMessage('Please provide your <strong>Name</strong>.');
+        enableInput('Enter your name...');
+      }, 800);
     }, 300);
-}
+  }
 
-function askForEmail() {
+  function askForEmail() {
     currentStep = 'email';
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            addMessage('Thanks! Now your <strong>Email Address</strong>?');
-            enableInput('Enter your email...');
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMessage('Thanks! Now your <strong>Email Address</strong>?');
+        enableInput('Enter your email...');
+      }, 800);
     }, 300);
-}
+  }
 
-function askForNumber() {
+  function askForNumber() {
     currentStep = 'number';
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            addMessage('Please provide your <strong>Contact Number</strong> (with country code).');
-            enableInput('e.g., +91 9876543210...');
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMessage('Please provide your <strong>Contact Number</strong> (with country code).');
+        enableInput('e.g., +91 9876543210...');
+      }, 800);
     }, 300);
-}
+  }
 
-function askForCompany() {
+  function askForCompany() {
     currentStep = 'company';
     setTimeout(() => {
-        showTyping();
-        setTimeout(() => {
-            removeTyping();
-            addMessage('Finally, your <strong>Company Name</strong>?');
-            enableInput('Enter company name...');
-        }, 800);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMessage('Finally, your <strong>Company Name</strong>?');
+        enableInput('Enter company name...');
+      }, 800);
     }, 300);
-}
+  }
 
-// ==========================================
-// FINAL CONFIRMATION & SUBMIT
-// ==========================================
-function showFinalConfirmation() {
+  // ==========================================
+  // FINAL CONFIRMATION & SUBMIT
+  // ==========================================
+  function showFinalConfirmation() {
     currentStep = 'finalConfirm';
     
     const chatBody = document.getElementById('chatBody');
@@ -5862,40 +5863,40 @@ function showFinalConfirmation() {
     
     let serviceDisplay = chatData.serviceType;
     if (chatData.issueDescription) {
-        serviceDisplay += `<br><small style="color:#666">Details: ${chatData.issueDescription}</small>`;
+      serviceDisplay += `<br><small style="color:#666">Details: ${chatData.issueDescription}</small>`;
     }
     
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content" style="max-width: 90%;">
-            <div class="message-text">
-                <div class="final-confirm-box">
-                    <h4>📋 Review Your Request</h4>
-                    <div class="confirmation-box">
-                        <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">${chatData.firstName}</span></div>
-                        <div class="detail-row"><span class="detail-label">Email:</span><span class="detail-value">${chatData.email}</span></div>
-                        <div class="detail-row"><span class="detail-label">Contact:</span><span class="detail-value">${chatData.phone}</span></div>
-                        <div class="detail-row"><span class="detail-label">Company:</span><span class="detail-value">${chatData.company}</span></div>
-                        <div class="detail-row"><span class="detail-label">Department:</span><span class="detail-value text-capitalize">${chatData.department}</span></div>
-                        <div class="detail-row"><span class="detail-label">Service:</span><span class="detail-value">${serviceDisplay}</span></div>
-                    </div>
-                    <button class="send-final-btn" id="sendRequestBtn" onclick="submitToBackend()">
-                        ✅ Send Request
-                    </button>
-                </div>
-                <button class="back-btn" onclick="resetChat()">← Start Over</button>
+      <div class="message-avatar">V</div>
+      <div class="message-content" style="max-width: 90%;">
+        <div class="message-text">
+          <div class="final-confirm-box">
+            <h4>📋 Review Your Request</h4>
+            <div class="confirmation-box">
+              <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">${chatData.firstName}</span></div>
+              <div class="detail-row"><span class="detail-label">Email:</span><span class="detail-value">${chatData.email}</span></div>
+              <div class="detail-row"><span class="detail-label">Contact:</span><span class="detail-value">${chatData.phone}</span></div>
+              <div class="detail-row"><span class="detail-label">Company:</span><span class="detail-value">${chatData.company}</span></div>
+              <div class="detail-row"><span class="detail-label">Department:</span><span class="detail-value text-capitalize">${chatData.department}</span></div>
+              <div class="detail-row"><span class="detail-label">Service:</span><span class="detail-value">${serviceDisplay}</span></div>
             </div>
+            <button class="send-final-btn" id="sendRequestBtn" onclick="submitToBackend()">
+              ✅ Send Request
+            </button>
+          </div>
+          <button class="back-btn" onclick="resetChat()">← Start Over</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
     disableInput();
-}
+  }
 
-// ==========================================
-// SUBMIT TO BACKEND
-// ==========================================
-async function submitToBackend() {
+  // ==========================================
+  // SUBMIT TO BACKEND (FIXED LOGIC)
+  // ==========================================
+  async function submitToBackend() {
     if (isSubmitting) return;
     
     const btn = document.getElementById('sendRequestBtn');
@@ -5904,140 +5905,183 @@ async function submitToBackend() {
     btn.innerHTML = '<span class="spinner"></span> Sending...';
     
     const url = `${API_BASE_URL}/api/submit-request`;
-    console.log('Submitting to:', url);
+    
+    // ---------------------------------------------------------
+    // FIX 1: Add timestamp to prevent caching
+    // ---------------------------------------------------------
+    const timestampedUrl = `${url}?t=${new Date().getTime()}`;
+
+    console.log('Submitting to:', timestampedUrl);
     console.log('Data:', chatData);
     
     try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(chatData)
-        });
-        
-        console.log('Response status:', response.status);
-        
-        const contentType = response.headers.get('content-type');
-        console.log('Content-Type:', contentType);
-        
-        if (!contentType || !contentType.includes('application/json')) {
-            const text = await response.text();
-            console.error('Non-JSON response:', text.substring(0, 500));
-            throw new Error(`Server returned ${response.status} with non-JSON response`);
-        }
-        
-        const result = await response.json();
-        console.log('Response:', result);
-        
-        if (result.success) {
-            showSuccessMessage(result.data);
-        } else {
-            throw new Error(result.message || 'Failed to send');
-        }
-        
+      // ---------------------------------------------------------
+      // FIX 2: Explicit Fetch Options
+      // ---------------------------------------------------------
+      const response = await fetch(timestampedUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
+        },
+        body: JSON.stringify(chatData)
+      });
+      
+      console.log('Response status:', response.status);
+      
+      // ---------------------------------------------------------
+      // FIX 3: Handle Non-JSON Responses (Common in 500 errors)
+      // ---------------------------------------------------------
+      const contentType = response.headers.get('content-type');
+      
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('Non-JSON response:', text.substring(0, 500));
+        throw new Error(`Server returned ${response.status} ${response.statusText}. Please check server logs.`);
+      }
+      
+      const result = await response.json();
+      console.log('Response:', result);
+      
+      if (result.success) {
+        showSuccessMessage(result.data);
+      } else {
+        throw new Error(result.message || 'Failed to send request');
+      }
+      
     } catch (error) {
-        console.error('Error:', error);
-        showErrorMessage(error.message);
+      console.error('Submission Error:', error);
+      
+      // ---------------------------------------------------------
+      // FIX 4: Graceful Fallback for User
+      // ---------------------------------------------------------
+      showFallbackMessage(error.message);
+      
     } finally {
-        isSubmitting = false;
+      isSubmitting = false;
     }
-}
+  }
 
-function showSuccessMessage(data) {
+  // ==========================================
+  // SUCCESS MESSAGE
+  // ==========================================
+  function showSuccessMessage(data) {
     const chatBody = document.getElementById('chatBody');
     
     let successContent = '';
     if (selectedDept === 'service') {
-        successContent = `
-            <div class="success-msg">
-                <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
-                <strong>Service Request Submitted!</strong><br><br>
-                <strong>Name:</strong> ${chatData.firstName}<br>
-                <strong>Email:</strong> ${chatData.email}<br>
-                <strong>Contact:</strong> ${chatData.phone}<br>
-                <strong>Company:</strong> ${chatData.company}<br>
-                <strong>Service:</strong> ${chatData.serviceType}<br>
-                <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
-                <span style="font-size: 13px;">Our team will contact you within 24 hours.</span>
-            </div>
-        `;
+      successContent = `
+        <div class="success-msg">
+          <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+          <strong>Service Request Submitted!</strong><br><br>
+          <strong>Name:</strong> ${chatData.firstName}<br>
+          <strong>Email:</strong> ${chatData.email}<br>
+          <strong>Contact:</strong> ${chatData.phone}<br>
+          <strong>Company:</strong> ${chatData.company}<br>
+          <strong>Service:</strong> ${chatData.serviceType}<br>
+          <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
+          <span style="font-size: 13px;">Our team will contact you within 24 hours.</span>
+        </div>
+      `;
     } else if (selectedDept === 'support') {
-        successContent = `
-            <div class="success-msg">
-                <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
-                <strong>Support Ticket Created!</strong><br><br>
-                <strong>Ticket ID:</strong> #SUP-${Date.now().toString().slice(-6)}<br>
-                <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
-                <span style="font-size: 13px;">Our support team will reach out shortly.</span>
-            </div>
-        `;
+      successContent = `
+        <div class="success-msg">
+          <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+          <strong>Support Ticket Created!</strong><br><br>
+          <strong>Ticket ID:</strong> #SUP-${Date.now().toString().slice(-6)}<br>
+          <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
+          <span style="font-size: 13px;">Our support team will reach out shortly.</span>
+        </div>
+      `;
     } else if (selectedDept === 'career') {
-        successContent = `
-            <div class="success-msg">
-                <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
-                <strong>Application Received!</strong><br><br>
-                <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
-                <span style="font-size: 13px;">Our HR team will review your profile.</span>
-            </div>
-        `;
+      successContent = `
+        <div class="success-msg">
+          <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+          <strong>Application Received!</strong><br><br>
+          <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
+          <span style="font-size: 13px;">Our HR team will review your profile.</span>
+        </div>
+      `;
     }
     
     const msg = document.createElement('div');
     msg.className = 'message';
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content">
-            <div class="message-text">
-                ${successContent}
-                <button class="action-btn" onclick="resetChat()" style="margin-top: 15px;">🔄 New Request</button>
-            </div>
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          ${successContent}
+          <button class="action-btn" onclick="resetChat()" style="margin-top: 15px;">🔄 New Request</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-function showErrorMessage(errorMsg) {
+  // ==========================================
+  // FALLBACK ERROR HANDLING
+  // ==========================================
+  function showFallbackMessage(errorMsg) {
     const btn = document.getElementById('sendRequestBtn');
     if (btn) {
-        btn.disabled = false;
-        btn.innerHTML = '✅ Send Request';
+      btn.disabled = false;
+      btn.innerHTML = '✅ Send Request';
     }
     
     const chatBody = document.getElementById('chatBody');
+    
+    // Prepare mailto link with data
+    const subject = encodeURIComponent(`New ${chatData.department} Request from ${chatData.firstName}`);
+    const body = encodeURIComponent(
+      `Name: ${chatData.firstName}\n` +
+      `Email: ${chatData.email}\n` +
+      `Phone: ${chatData.phone}\n` +
+      `Company: ${chatData.company}\n` +
+      `Department: ${chatData.department}\n` +
+      `Service: ${chatData.serviceType}\n` +
+      `Description: ${chatData.issueDescription || 'N/A'}`
+    );
+    const mailtoLink = `mailto:${chatData.recipientEmail}?subject=${subject}&body=${body}`;
+
     const msg = document.createElement('div');
     msg.className = 'message';
     msg.innerHTML = `
-        <div class="message-avatar">V</div>
-        <div class="message-content">
-            <div class="message-text">
-                <div style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 8px; border-left: 4px solid #dc3545;">
-                    ❌ Failed to send request.<br>
-                    Error: ${errorMsg}<br><br>
-                    Please try again or contact us directly at support@verifitech.com
-                </div>
-                <button class="back-btn" onclick="submitToBackend()" style="margin-top: 10px;">🔄 Retry</button>
-            </div>
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          <div style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 8px; border-left: 4px solid #dc3545; margin-bottom: 10px;">
+            ❌ <strong>Connection Error:</strong> ${errorMsg}
+          </div>
+          <p style="font-size: 13px; color: #555; margin-bottom: 10px;">
+            Our server might be waking up (Render Free Tier). You can manually send this request via email:
+          </p>
+          <a href="${mailtoLink}" class="action-btn" style="display:inline-block; text-decoration:none; text-align:center;">
+            ✉️ Email Request to ${chatData.recipientEmail}
+          </a>
+          <br><br>
+          <button class="back-btn" onclick="submitToBackend()">🔄 Retry Connection</button>
         </div>
+      </div>
     `;
     chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
-}
+  }
 
-// ==========================================
-// RESET CHAT
-// ==========================================
-function resetChat() {
+  // ==========================================
+  // RESET CHAT
+  // ==========================================
+  function resetChat() {
     chatData = {
-        firstName: '',
-        email: '',
-        phone: '',
-        company: '',
-        department: '',
-        serviceType: '',
-        issueDescription: '',
-        recipientEmail: ''
+      firstName: '',
+      email: '',
+      phone: '',
+      company: '',
+      department: '',
+      serviceType: '',
+      issueDescription: '',
+      recipientEmail: ''
     };
     currentStep = 'welcome';
     selectedDept = '';
@@ -6047,24 +6091,24 @@ function resetChat() {
     
     const chatBody = document.getElementById('chatBody');
     chatBody.innerHTML = `
-        <div class="message" id="welcomeMessage">
-            <div class="message-avatar">V</div>
-            <div class="message-content">
-                <div class="message-text">
-                    👋 Hi there! I'm <strong>Veri</strong>, your AI assistant from Verifitech.
-                </div>
-            </div>
+      <div class="message" id="welcomeMessage">
+        <div class="message-avatar">V</div>
+        <div class="message-content">
+          <div class="message-text">
+            👋 Hi there! I'm <strong>Veri</strong>, your AI assistant from Verifitech.
+          </div>
         </div>
+      </div>
     `;
     
     disableInput();
     toggleChat(); 
-}
+  }
 
-// ==========================================
-// INPUT HANDLING
-// ==========================================
-function handleSend() {
+  // ==========================================
+  // INPUT HANDLING
+  // ==========================================
+  function handleSend() {
     const input = document.getElementById('messageInput');
     const value = input.value.trim();
     if (!value) return;
@@ -6073,65 +6117,65 @@ function handleSend() {
     input.value = '';
 
     setTimeout(() => {
-        processUserInput(value);
+      processUserInput(value);
     }, 300);
-}
+  }
 
-// Enter key support
-document.addEventListener('DOMContentLoaded', function() {
+  // Enter key support
+  document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('messageInput');
     if (input) {
-        input.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') handleSend();
-        });
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleSend();
+      });
     }
-});
+  });
 
-function processUserInput(value) {
+  function processUserInput(value) {
     switch(currentStep) {
-        case 'firstName':
-            chatData.firstName = value;
-            askForEmail();
-            break;
-        case 'email':
-            if (value.includes('@') && value.includes('.')) {
-                chatData.email = value;
-                askForNumber();
-            } else {
-                addMessage('❌ Please enter a valid email address.');
-                enableInput('Enter valid email...');
-            }
-            break;
-        case 'number':
-            chatData.phone = value;
-            askForCompany();
-            break;
-        case 'company':
-            chatData.company = value;
-            showFinalConfirmation();
-            break;
+      case 'firstName':
+        chatData.firstName = value;
+        askForEmail();
+        break;
+      case 'email':
+        if (value.includes('@') && value.includes('.')) {
+          chatData.email = value;
+          askForNumber();
+        } else {
+          addMessage('❌ Please enter a valid email address.');
+          enableInput('Enter valid email...');
+        }
+        break;
+      case 'number':
+        chatData.phone = value;
+        askForCompany();
+        break;
+      case 'company':
+        chatData.company = value;
+        showFinalConfirmation();
+        break;
     }
-}
+  }
 
-// Add spinner animation style (Dynamically added to ensure it exists)
-const style = document.createElement('style');
-style.textContent = `
+  // Add spinner animation style (Dynamically added to ensure it exists)
+  const style = document.createElement('style');
+  style.textContent = `
     .spinner {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border: 2px solid #ffffff;
-        border-top-color: transparent;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-right: 8px;
-        vertical-align: middle;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ffffff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
     }
     @keyframes spin {
-        to { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
-`;
-document.head.appendChild(style);
+  `;
+  document.head.appendChild(style);
   
   </script>
   </body>
