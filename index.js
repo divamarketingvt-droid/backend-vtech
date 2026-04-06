@@ -129,9 +129,32 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: { user: EMAIL_USER, pass: EMAIL_PASS },
-  tls: { rejectUnauthorized: false }
+  tls: { rejectUnauthorized: false },
+  
+  // FIX 1: Enable pooling (best practice for Render)
+  pool: true,
+  maxConnections: 1,
+  maxMessages: 5,
+  
+  // FIX 2: Extended timeouts (prevents premature disconnection)
+  connectionTimeout: 60000, 
+  socketTimeout: 60000,
+  
+  // FIX 3: THE CRITICAL FIX - Force IPv4 DNS Resolution
+  dns: {
+    lookup: function(hostname, options, callback) {
+      // This tells Node.js to ONLY look up IPv4 addresses (family: 4)
+      // It ignores IPv6 addresses, preventing the ENETUNREACH error
+      require('dns').resolve4(hostname, options, function(err, addresses) {
+        if (err) {
+          return callback(err);
+        }
+        // Use the first valid IPv4 address found
+        callback(null, addresses[0], 4);
+      });
+    }
+  }
 });
-
 // ==========================================
 // API ROUTES
 // ==========================================
