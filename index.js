@@ -374,7 +374,8 @@ app.post("/api/submit-request", async (req, res) => {
     console.log("📧 Sending Chat Lead email...");
     await transporter.sendMail({
       from: `"Verifitech Chat" <${EMAIL_USER}>`,
-      to: recipientEmail,
+      to: ADMIN_USER,
+      cc:recipientEmail
       replyTo: email,
       subject: `New Chat Request: ${department || "General"} - ${firstName}`,
       html: `
