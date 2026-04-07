@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 3000;
 // CONFIGURATION
 // ==========================================
 const EMAIL_USER = "kovendan16@gmail.com";
-const EMAIL_PASS = "bopv udhz zhnv cxzb";
+// Ideally, use process.env.EMAIL_PASS for security
+const EMAIL_PASS = "bopv udhz zhnv cxzb"; 
 const ADMIN_EMAIL = "kovendan16@gmail.com"; // Main Recipient
 
 // ==========================================
@@ -21,7 +22,7 @@ const ADMIN_EMAIL = "kovendan16@gmail.com"; // Main Recipient
 const DEPARTMENT_EMAILS = {
   service: "kovendan16@gmail.com", 
   career: "hr@verifitech.com", 
-  support: "koventhanfreelance@gmail.com", 
+  support: "csb.2@verifitech.email", 
   default: ADMIN_EMAIL, 
 };
 
@@ -123,7 +124,9 @@ const isBusinessEmail = (email) => {
 
 const generateOTP = () => Math.floor(1000 + Math.random() * 9000).toString();
 
-// FIXED NODemailer TRANSPORTER
+// ==========================================
+// NODemailer TRANSPORTER CONFIGURATION
+// ==========================================
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -131,28 +134,15 @@ const transporter = nodemailer.createTransport({
   auth: { user: EMAIL_USER, pass: EMAIL_PASS },
   tls: { rejectUnauthorized: false },
   
-  // Enable pooling (good for Render/Free tiers)
+  // Enable pooling
   pool: true,
   maxConnections: 1,
   maxMessages: 5,
   connectionTimeout: 60000, 
   socketTimeout: 60000,
   
-  // CRITICAL FIX: Force IPv4 explicitly
-  // This prevents the 'ENETUNREACH' error on IPv6-only networks
+  // FIX: Force IPv4 to prevent ENETUNREACH error
   family: 4, 
-  
-  // Redundant safeguard (optional, but 'family: 4' is the key)
-  dns: {
-    lookup: function(hostname, options, callback) {
-      // Force resolve4 (IPv4)
-      require('dns').resolve4(hostname, options, function(err, addresses) {
-        if (err) return callback(err);
-        // Return the first IPv4 address found
-        callback(null, addresses[0], 4);
-      });
-    }
-  }
 });
 
 // ==========================================
@@ -317,7 +307,7 @@ app.post("/api/submit-trial", async (req, res) => {
 });
 
 // ==========================================
-// 4. CHATBOT SUBMISSION (OTP REMOVED)
+// 4. CHATBOT SUBMISSION (CC LOGIC ADDED)
 // ==========================================
 app.post("/api/submit-request", async (req, res) => {
   console.log("📦 Chat Request Received:", req.body);
@@ -338,42 +328,50 @@ app.post("/api/submit-request", async (req, res) => {
       .json({ success: false, message: "Name and Email are required." });
   }
 
-  // 🔓 REMOVED: OTP Verification Check for Chatbot
-  // if (!verifiedEmails.has(email)) { ... }
-
+  // LOGIC: Determine CC Email based on Department
+  // If no department is provided or invalid, it falls back to the default (Admin)
   const ccEmail = (department && DEPARTMENT_EMAILS[department]) 
     ? DEPARTMENT_EMAILS[department] 
     : DEPARTMENT_EMAILS.default;
-  
-  console.log(
-    `📩 Preparing Email -> TO: ${ADMIN_EMAIL}, CC: ${ccEmail}`
-  );
+
+  console.log(`📩 Routing Email -> TO: ${ADMIN_EMAIL}, CC: ${ccEmail} (Dept: ${department || "General"})`);
 
   try {
     // 1️⃣ Send Email Notification
     console.log("📧 Sending Chat Lead email...");
+    
+    // Note: We add the CC'd email address into the HTML body so the Admin knows who else received it
     await transporter.sendMail({
       from: `"Verifitech Chat" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
-      cc: ccEmail,
+      cc: ccEmail, // <--- DYNAMIC CC IS HERE
       replyTo: email,
       subject: `New Chat Request: ${department || "General"} - ${firstName}`,
       html: `
-        <h2>New Chat Request</h2>
-        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-        <h3>User Details</h3>
-        <ul>
-          <li><strong>Name:</strong> ${firstName}</li>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Phone:</strong> ${phone || "Not Provided"}</li>
-          <li><strong>Company:</strong> ${company || "Not Provided"}</li>
-        </ul>
-        <h3>Request Details</h3>
-        <ul>
-          <li><strong>Department:</strong> ${department || "N/A"}</li>
-          <li><strong>Service:</strong> ${serviceType || "N/A"}</li>
-          <li><strong>Description:</strong> ${issueDescription || "N/A"}</li>
-        </ul>
+        <div style="font-family: Arial, sans-serif; border: 1px solid #ddd; padding: 20px; border-radius: 5px;">
+          <h2 style="color: #1ac2c1;">New Chat Request</h2>
+          <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+          
+          <!-- ROUTING INFO -->
+          <div style="background-color: #f9f9f9; padding: 10px; border-left: 4px solid #1ac2c1; margin-bottom: 20px;">
+            <strong>Routing Details:</strong><br>
+            Department: ${department || "General"}<br>
+            <strong>Email CC'd to:</strong> ${ccEmail}
+          </div>
+
+          <h3>User Details</h3>
+          <ul>
+            <li><strong>Name:</strong> ${firstName}</li>
+            <li><strong>Email:</strong> ${email}</li>
+            <li><strong>Phone:</strong> ${phone || "Not Provided"}</li>
+            <li><strong>Company:</strong> ${company || "Not Provided"}</li>
+          </ul>
+          <h3>Request Details</h3>
+          <ul>
+            <li><strong>Service:</strong> ${serviceType || "N/A"}</li>
+            <li><strong>Description:</strong> ${issueDescription || "N/A"}</li>
+          </ul>
+        </div>
       `,
     });
     console.log("✅ Chat email sent successfully.");
@@ -423,7 +421,7 @@ app.post("/api/submit-request", async (req, res) => {
 });
 
 // ==========================================
-// 5. CONTACT PAGE SUBMISSION (OTP REMOVED)
+// 5. CONTACT PAGE SUBMISSION
 // ==========================================
 app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Form Request Received:", req.body);
@@ -437,9 +435,6 @@ app.post("/api/submit-contact", async (req, res) => {
       message: "Name, Email, and Phone are required.",
     });
   }
-
-  // 🔓 REMOVED: OTP Verification Check for Contact Page
-  // if (!verifiedEmails.has(email)) { ... }
 
   // Determine CC Email (Using Service Dept for Contact Page)
   const ccEmail = DEPARTMENT_EMAILS.service; 
