@@ -22,7 +22,7 @@ const ADMIN_EMAIL = "kovendan16@gmail.com"; // Main Recipient
 const DEPARTMENT_EMAILS = {
   service: "kovendan16@gmail.com", 
   career: "hr@verifitech.com", 
-  support: "csb.2@verifitech.email", 
+  support: "koventhanfreelance@gmail.com", 
   default: ADMIN_EMAIL, 
 };
 
