@@ -5001,88 +5001,155 @@ body {
         });
       });
 
-      // Zoho Form Validation Variables
-      var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
-      var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
-      var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-      var zf_MandArray = [ "Email"]; 
-      var zf_FieldArray = [ "Email"]; 
-      var isSalesIQIntegrationEnabled = false;
-      var salesIQFieldsArray = [];
+  // 1. Form Switching Logic
+  function switchForm(type) {
+    const businessForm = document.getElementById('businessForm');
+    const candidateForm = document.getElementById('candidateForm');
+    
+    if (type === 'business') {
+      businessForm.style.display = 'block';
+      candidateForm.style.display = 'none';
+    } else {
+      businessForm.style.display = 'none';
+      candidateForm.style.display = 'block';
+    }
+  }
 
-      // Zoho Validation and Submission Function
-      function zf_ValidateAndSubmit() {
-        var email = document.getElementById('Email').value.trim();
-        var emailInput = document.getElementById('Email');
-        var errorElement = document.getElementById('Email_error');
-        
-        // Email validation regex
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        // Reset states
-        emailInput.classList.remove('zf-error', 'zf-success');
-        errorElement.style.display = 'none';
-        
-        // Check if empty
-        if (email === '') {
-          errorElement.textContent = 'Email is required';
-          errorElement.style.display = 'flex';
-          emailInput.classList.add('zf-error');
-          emailInput.classList.add('shake-animation');
-          setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
-          return false;
-        }
-        
-        // Check format
-        if (!emailRegex.test(email)) {
-          errorElement.textContent = 'Please enter a valid email address';
-          errorElement.style.display = 'flex';
-          emailInput.classList.add('zf-error');
-          emailInput.classList.add('shake-animation');
-          setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
-          return false;
-        }
-        
-        // Show loading state
-        var submitBtn = document.querySelector('.newsletter-btn');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Subscribing...';
-        
-        // Add success state
-        emailInput.classList.add('zf-success');
-        
-        // Allow form submission to Zoho
-        return true;
+  // 2. Validation Logic
+  function validateForm(formType) {
+    let isValid = true;
+    
+    // Define required fields for each type
+    const fields = ['fullName', 'email', 'phone', 'lookingFor'];
+    
+    // Candidates don't always have a company field visible, 
+    // but if we added it, we'd add it here. 
+    // For business, we might want to validate 'company' if it exists.
+    if(formType === 'business') {
+      fields.push('company');
+    }
+
+    fields.forEach(field => {
+      const input = document.getElementById(formType + '_' + field);
+      const error = document.getElementById(formType + '_' + field + '_error');
+      
+      if (!input.value.trim()) {
+        if (error) error.style.display = 'block';
+        isValid = false;
+      } else {
+        if (error) error.style.display = 'none';
       }
+    });
 
-      function zf_SetDateAndMonthRegexBasedOnDateFormate(dateFormat) {
-        return ["", ""];
+    // Email specific validation
+    const emailInput = document.getElementById(formType + '_email');
+    const emailError = document.getElementById(formType + '_email_error');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (emailInput.value && !emailRegex.test(emailInput.value)) {
+      if (emailError) {
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.style.display = 'block';
       }
+      isValid = false;
+    }
 
-      // Real-time validation
-      document.addEventListener('DOMContentLoaded', function() {
-        var emailInput = document.getElementById('Email');
-        
-        if (emailInput) {
-          emailInput.addEventListener('input', function() {
-            this.classList.remove('zf-error', 'zf-success');
-            document.getElementById('Email_error').style.display = 'none';
-          });
-          
-          emailInput.addEventListener('blur', function() {
-            if (this.value.trim() !== '') {
-              var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              if (!emailRegex.test(this.value.trim())) {
-                var errorElement = document.getElementById('Email_error');
-                errorElement.textContent = 'Please enter a valid email address';
-                errorElement.style.display = 'flex';
-                this.classList.add('zf-error');
-              }
-            }
-          });
-        }
+    // Privacy Checkbox
+    const privacyCheckbox = document.getElementById('privacy_' + formType);
+    if (!privacyCheckbox.checked) {
+      alert('Please agree to the Privacy Policy and Terms of Use');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  // 3. Handle Submission (BACKEND INTEGRATION)
+  async function handleFormSubmit(event, formType) {
+    event.preventDefault();
+    
+    // Validate
+    if (!validateForm(formType)) {
+      return false;
+    }
+
+    // Show Loader
+    showLoader();
+
+    const form = document.getElementById(formType + 'FormElement');
+    const formData = new FormData(form);
+    
+    // Convert FormData to JSON object for backend
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+    
+    // Add explicit userType for backend logic
+    data.userType = formType;
+
+    try {
+      // CHANGE: Point to your Node.js Backend
+      // If backend is on same domain, just use relative path.
+      // If running locally on port 3000, use full URL.
+      const response = await fetch('http://localhost:3000/api/submit-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       });
 
+      const result = await response.json();
+
+      hideLoader();
+
+      if (result.success) {
+        // Get name for modal
+        const userName = data.fullName ? data.fullName.split(' ')[0] : 'there';
+        showThankYouModal(userName);
+        
+        // Reset form
+        form.reset();
+      } else {
+        alert('Error: ' + result.message);
+      }
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      hideLoader();
+      alert('There was an error submitting the form. Please try again.');
+    }
+
+    return false;
+  }
+
+  // 4. Helper: Get User Name
+  function getUserName(formType) {
+    const fullName = document.getElementById(formType + '_fullName').value;
+    return fullName ? fullName.split(' ')[0] : 'there';
+  }
+
+  // 5. Helper: Real-time validation clearing
+  document.querySelectorAll('input, select, textarea').forEach(input => {
+    input.addEventListener('input', function() {
+      const errorId = this.id + '_error';
+      const errorElement = document.getElementById(errorId);
+      if (errorElement) {
+        errorElement.style.display = 'none';
+      }
+    });
+  });
+
+  // Ensure load state is correct
+  document.addEventListener('DOMContentLoaded', () => {
+      // Check current radio button state
+      const businessRadio = document.getElementById('business');
+      const candidateRadio = document.getElementById('candidate');
+      
+      if(businessRadio.checked) switchForm('business');
+      if(candidateRadio.checked) switchForm('candidate');
+  });
       // WhatsApp Functionality
       const whatsappConfig = {
         phoneNumber: '+919176663777',
