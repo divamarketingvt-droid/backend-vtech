@@ -26,6 +26,8 @@ const DEPARTMENT_EMAILS = {
 };
 
 // ZOHO CONFIGURATION
+// NOTE: We keep this config for other routes (Trial/Chatbot) if they use the API.
+// But the Contact Form route below uses the Public Form URL method.
 const ZOHO_CONFIG = {
   clientId: process.env.ZOHO_CLIENT_ID || "1000.90OF8B9CSCDZZCEA3I37G3YT98O2HM",
   clientSecret:
@@ -70,6 +72,8 @@ const allowedOrigins = [
   "http://localhost:5000",
   "http://127.0.0.1:3000",
   "http://127.0.0.1:5000",
+  "http://127.0.0.1:5500", // Added for Live Server
+  "http://localhost:5500",  // Added for Live Server
   "null",
   undefined,
 ];
@@ -131,24 +135,16 @@ const transporter = nodemailer.createTransport({
   auth: { user: EMAIL_USER, pass: EMAIL_PASS },
   tls: { rejectUnauthorized: false },
   
-  // Enable pooling (good for Render/Free tiers)
   pool: true,
   maxConnections: 1,
   maxMessages: 5,
   connectionTimeout: 60000, 
   socketTimeout: 60000,
-  
-  // CRITICAL FIX: Force IPv4 explicitly
-  // This prevents the 'ENETUNREACH' error on IPv6-only networks
   family: 4, 
-  
-  // Redundant safeguard (optional, but 'family: 4' is the key)
   dns: {
     lookup: function(hostname, options, callback) {
-      // Force resolve4 (IPv4)
       require('dns').resolve4(hostname, options, function(err, addresses) {
         if (err) return callback(err);
-        // Return the first IPv4 address found
         callback(null, addresses[0], 4);
       });
     }
@@ -262,8 +258,9 @@ app.post("/api/submit-trial", async (req, res) => {
     console.error("❌ Email failed:", err);
   }
 
+  // Using API Method for Trial (Keeping original logic here)
   try {
-    console.log("☁️ Sending to Zoho...");
+    console.log("☁️ Sending Trial to Zoho (API Method)...");
     const nameParts = (leadData.name || "Unknown Lead").split(" ");
     const zohoPayload = {
       data: [
@@ -295,19 +292,6 @@ app.post("/api/submit-trial", async (req, res) => {
     console.log("✅ Data pushed to Zoho CRM.");
   } catch (zohoErr) {
     console.error("❌ Zoho Error Details:", zohoErr.response ? zohoErr.response.data : zohoErr.message);
-    if (zohoErr.response && zohoErr.response.status === 401) {
-      const refreshed = await refreshZohoToken();
-      if (refreshed) {
-        try {
-          await axios.post(`${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`, zohoPayload, {
-            headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
-          });
-          console.log("✅ Data pushed to Zoho CRM (after retry).");
-        } catch (retryErr) {
-          console.error("❌ Zoho failed after retry:", retryErr.message);
-        }
-      }
-    }
   }
 
   verifiedEmails.delete(leadData.email);
@@ -337,9 +321,6 @@ app.post("/api/submit-request", async (req, res) => {
       .status(400)
       .json({ success: false, message: "Name and Email are required." });
   }
-
-  // 🔓 REMOVED: OTP Verification Check for Chatbot
-  // if (!verifiedEmails.has(email)) { ... }
 
   const ccEmail = (department && DEPARTMENT_EMAILS[department]) 
     ? DEPARTMENT_EMAILS[department] 
@@ -378,7 +359,7 @@ app.post("/api/submit-request", async (req, res) => {
     });
     console.log("✅ Chat email sent successfully.");
 
-    // 2️⃣ Send to Zoho CRM (async)
+    // 2️⃣ Send to Zoho CRM (async) - Keeping API method for Chatbot
     (async () => {
       try {
         console.log("☁️ Sending Chat Lead to Zoho...");
@@ -423,7 +404,7 @@ app.post("/api/submit-request", async (req, res) => {
 });
 
 // ==========================================
-// 5. CONTACT PAGE SUBMISSION (OTP REMOVED)
+// 5. CONTACT PAGE SUBMISSION (UPDATED: NO TOKEN METHOD)
 // ==========================================
 app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Form Request Received:", req.body);
@@ -438,18 +419,16 @@ app.post("/api/submit-contact", async (req, res) => {
     });
   }
 
-  // 🔓 REMOVED: OTP Verification Check for Contact Page
-  // if (!verifiedEmails.has(email)) { ... }
-
-  // Determine CC Email (Using Service Dept for Contact Page)
+  // Determine CC Email
   const ccEmail = DEPARTMENT_EMAILS.service; 
 
+  // --- STEP 1: SEND EMAIL ---
   try {
     console.log("📧 Sending Contact Form email...");
     await transporter.sendMail({
       from: `"Verifitech Website" <${EMAIL_USER}>`,
-      to: ADMIN_EMAIL, // Main recipient
-      cc: ccEmail,      // CC Department
+      to: ADMIN_EMAIL,
+      cc: ccEmail,
       replyTo: email,
       subject: `New Contact Lead: ${fullName} - ${company || "Individual"}`,
       html: `
@@ -503,53 +482,37 @@ app.post("/api/submit-contact", async (req, res) => {
     console.error("❌ Contact email failed:", emailErr);
   }
 
+  // --- STEP 2: SUBMIT TO ZOHO FORM (NO TOKEN METHOD) ---
   try {
-    console.log("☁️ Sending Contact Lead to Zoho...");
-    const nameParts = (fullName || "Unknown Lead").split(" ");
-    const zohoPayload = {
-      data: [
-        {
-          First_Name: nameParts[0],
-          Last_Name: nameParts.length > 1 ? nameParts.slice(1).join(" ") : "-",
-          Email: email,
-          Phone: phone,
-          Company: company || "Not Provided",
-          Lead_Source: "Contact Page",
-          Description: `User Type: ${userType}\nService: ${lookingFor}\nMessage: ${
-            message || "N/A"
-          }`,
-        },
-      ],
-    };
-    const ZOHO_API_URL = `${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`;
-    let response = await axios.post(ZOHO_API_URL, zohoPayload, {
-      headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
+    console.log("📝 Forwarding data to Zoho Form (Scraping Method)...");
+
+    // This is the URL from your original HTML code
+    const ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/ContactForm/formperma/lfg5PA9JZR5tb1ZhWiO8Wavi2c8-Lcon0bJUYKxYHUI/htmlRecords/submit";
+
+    // Map fields based on your HTML 'name' attributes
+    const formData = new URLSearchParams();
+    formData.append('SingleLine', fullName);      // Full Name
+    formData.append('Email', email);              // Email
+    formData.append('PhoneNumber_countrycode', phone); // Phone
+    formData.append('SingleLine1', company);       // Company Name
+    formData.append('Dropdown1', lookingFor);      // Service Interest
+    formData.append('MultiLine', message);         // Message
+
+    // Send the request
+    const response = await axios.post(ZOHO_FORM_URL, formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Origin': 'https://forms.zohopublic.in',
+        'Referer': ZOHO_FORM_URL 
+      }
     });
 
-    if (response.data && response.data.code === "INVALID_TOKEN") {
-      const refreshed = await refreshZohoToken();
-      if (refreshed) {
-        await axios.post(ZOHO_API_URL, zohoPayload, {
-          headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
-        });
-      }
-    }
-    console.log("✅ Contact lead pushed to Zoho.");
+    console.log("✅ Data forwarded to Zoho Form successfully.");
+
   } catch (zohoErr) {
-    console.error("❌ Zoho Contact Error Details:", zohoErr.response ? zohoErr.response.data : zohoErr.message);
-    if (zohoErr.response && zohoErr.response.status === 401) {
-      const refreshed = await refreshZohoToken();
-      if (refreshed) {
-        try {
-          await axios.post(`${ZOHO_CONFIG.apiDomain}/crm/v2/Leads`, zohoPayload, {
-            headers: { Authorization: `Zoho-oauthtoken ${ZOHO_CONFIG.accessToken}` },
-          });
-          console.log("✅ Zoho retry successful.");
-        } catch (retryErr) {
-          console.error("❌ Zoho Contact Retry failed:", retryErr.message);
-        }
-      }
-    }
+    console.error("❌ Zoho Form submission failed:", zohoErr.message);
+    // Don't fail the whole request if Zoho fails, email was already sent.
   }
 
   res.status(200).json({
