@@ -433,12 +433,12 @@ app.post("/api/submit-contact", async (req, res) => {
     const formData = new URLSearchParams();
     
     // We send the same data to both forms
-    formData.append('SingleLine', fullName);              
-    formData.append('Email', email);                      
-    formData.append('PhoneNumber_countrycode', phone);    
-    if (company) formData.append('SingleLine1', company);               
-    formData.append('Dropdown1', lookingFor);              
-    formData.append('MultiLine', message);                 
+    formData.append('SingleLine', full_Name);              
+    formData.append('Email', Work_Email);                      
+    formData.append('PhoneNumber_countrycode', Phone_Number);    
+    if (company) formData.append('SingleLine1', Company_Name);               
+    formData.append('Dropdown1', What_are_you_looking_for?);              
+    formData.append('MultiLine', Message);                 
     formData.append('isLogin', 'false'); 
     formData.append('privacy', 'True');
 
