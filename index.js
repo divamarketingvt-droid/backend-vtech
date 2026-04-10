@@ -410,117 +410,53 @@ app.post("/api/submit-request", async (req, res) => {
 // 5. CONTACT PAGE SUBMISSION (FIXED)
 // ==========================================
 app.post("/api/submit-contact", async (req, res) => {
-  console.log("📬 Contact Form Request Received:", req.body);
+  console.log("📬 Request Received:", req.body);
 
   const { fullName, email, phone, company, lookingFor, message, userType } = req.body;
 
-  // 1. Basic Validation
+  // 1. Validation
   if (!fullName || !email || !phone) {
-    return res.status(400).json({
-      success: false,
-      message: "Name, Email, and Phone are required.",
-    });
+    return res.status(400).json({ success: false, message: "Missing details" });
   }
 
-  const ccEmail = DEPARTMENT_EMAILS.service; 
-
-  // --- STEP 1: SEND EMAIL NOTIFICATION (Keep this as is) ---
-  try {
-    console.log("📧 Sending Contact Form email...");
-    await transporter.sendMail({
-      from: `"Verifitech Website" <${EMAIL_USER}>`,
-      to: ADMIN_EMAIL,
-      cc: ccEmail,
-      replyTo: email,
-      subject: `New Contact Lead: ${fullName} - ${company || "Individual"}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px;">
-          <h2 style="color: #1ac2c1; border-bottom: 2px solid #1ac2c1; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
-          <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-          
-          <h3 style="background: #f9f9f9; padding: 10px;">User Details</h3>
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Type:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #eee; text-transform: capitalize;">${userType || "Business"}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Name:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;">${fullName}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Phone:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;">${phone}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Company:</strong></td>
-              <td style="padding: 8px; border-bottom: 1px solid #eee;">${company || "Not Provided"}</td>
-            </tr>
-          </table>
-
-          <h3 style="background: #f9f9f9; padding: 10px; margin-top: 20px;">Inquiry Details</h3>
-          <p><strong>Service Interested In:</strong> ${lookingFor || "Not Specified"}</p>
-          <p><strong>Message:</strong></p>
-          <div style="background: #f4f4f4; padding: 15px; border-radius: 5px;">
-            ${message || "No message provided."}
-          </div>
-        </div>
-      `,
-    });
-    console.log("✅ Contact email sent.");
-  } catch (emailErr) {
-    console.error("❌ Contact email failed:", emailErr);
-    // We continue even if email fails, to try Zoho
+  // 2. Pick the Right Link
+  let ZOHO_FORM_URL = "";
+  
+  if (userType === 'business') {
+    ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/gXG2SmjNMF39gOdkUirlDiuaugqo5NYbAzWLT0fozlc";
+  } else {
+    ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
   }
 
-  // --- STEP 2: SUBMIT TO ZOHO FORM (FIXED MAPPING) ---
   try {
-    console.log("📝 Forwarding data to Zoho Form...");
-
-    // The Public Form URL from your HTML
-    const ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
-
-    // Use URLSearchParams for correct form-encoding format
+    // 3. Prepare Data
     const formData = new URLSearchParams();
+    
+    // We send the same data to both forms
     formData.append('SingleLine', fullName);              
     formData.append('Email', email);                      
     formData.append('PhoneNumber_countrycode', phone);    
-    formData.append('SingleLine1', company);               
+    if (company) formData.append('SingleLine1', company);               
     formData.append('Dropdown1', lookingFor);              
     formData.append('MultiLine', message);                 
-    formData.append('isLogin', 'false'); // FIX 3: Hidden field required by Zoho
-    formData.append('privacy', 'True');  // FIX 3: Hidden field required by Zoho
+    formData.append('isLogin', 'false'); 
+    formData.append('privacy', 'True');
 
-    // Send POST request
+    // 4. Send
     const response = await axios.post(ZOHO_FORM_URL, formData, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      // Important: Prevent axios from throwing error on non-2xx if Zoho redirects
-      validateStatus: function (status) {
-        return status >= 200 && status < 400; 
-      }
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      validateStatus: (status) => status >= 200 && status < 400
     });
 
-    console.log("✅ Data forwarded to Zoho Form successfully. Status:", response.status);
+    console.log("✅ Sent to Zoho.");
+    res.status(200).json({ success: true, message: "Success" });
 
-  } catch (zohoErr) {
-    console.error("❌ Zoho Form submission failed:", zohoErr.message);
-    // We don't return error here because email was likely sent.
-    // The 409 error usually happens here on duplicates, which we want to ignore silently.
+  } catch (error) {
+    console.error("❌ Error:", error.message);
+    res.status(500).json({ success: false, message: "Error" });
   }
-
-  res.status(200).json({
-    success: true,
-    message: "Thank you! Your request has been submitted successfully.",
-  });
 });
+
 // ==========================================
 // START SERVER
 // ==========================================
