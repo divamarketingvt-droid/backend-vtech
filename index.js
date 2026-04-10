@@ -484,7 +484,7 @@ app.post("/api/submit-contact", async (req, res) => {
     console.log("📝 Forwarding data to Zoho Form...");
 
     // The Public Form URL from your HTML
-    const ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AAu_pxyF_x894Jj90mWKsHv6Hxj0dBzqM11f4Zhz1bQ/htmlRecords/submit'";
+    const ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
 
     // Use URLSearchParams for correct form-encoding format
     const formData = new URLSearchParams();
