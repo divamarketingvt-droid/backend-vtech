@@ -2432,6 +2432,7 @@ html {
       }
 
       // Handle form submission
+           // Handle form submission
       async function handleFormSubmit(event, formType) {
         event.preventDefault();
         
@@ -2448,51 +2449,51 @@ html {
 
         const form = document.getElementById(formType + 'FormElement');
         const formData = new FormData(form);
-        
-        // Zoho form URLs
-        const zohoUrl = formType === 'business'
-          ? 'https://forms.zohopublic.in/verifitech/form/ContactForm/formperma/lfg5PA9JZR5tb1ZhWiO8Wavi2c8-Lcon0bJUYKxYHUI/htmlRecords/submit'
-          : 'https://forms.zohopublic.in/verifitech/form/Candidate/formperma/nHl1gfzcIvm2GigdPys4YdODCjlOjHsKIIxc0uZO1-g/htmlRecords/submit' 
+
+        // FIX 1: Define Backend API Endpoint (Change port 3000 to your actual backend port if different)
+        // If backend is on same domain, use relative path. If different, use full URL.
+        const BACKEND_URL = 'https://backend-vtech.onrender.com/api/submit-contact'; 
 
         try {
-          // Submit to Zoho using fetch with no-cors mode
-          await fetch(zohoUrl, {
+          // FIX 2: Send to YOUR Backend, not Zoho directly
+          const response = await fetch(BACKEND_URL, {
             method: 'POST',
-            body: formData,
-            mode: 'no-cors',
             headers: {
-              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
-            }
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              userType: formType, // 'business' or 'candidate'
+              fullName: formData.get('SingleLine'),
+              email: formData.get('Email'),
+              phone: formData.get('PhoneNumber_countrycode'),
+              company: formData.get('SingleLine1') || 'N/A',
+              lookingFor: formData.get('Dropdown1'),
+              message: formData.get('MultiLine')
+            })
           });
+
+          const data = await response.json();
 
           // Hide loader
           hideLoader();
 
-          // Show success modal with user's name
-          showThankYouModal(userName);
+          if (data.success) {
+            // Show success modal with user's name
+            showThankYouModal(userName);
+          } else {
+            alert('Submission failed: ' + (data.message || 'Unknown error'));
+          }
 
         } catch (error) {
           console.error('Form submission error:', error);
           hideLoader();
           
-          // Still show success (Zoho usually works despite CORS errors)
-          showThankYouModal(userName);
+          // Fallback error handling
+          alert('There was a network error. Please try again.');
         }
 
         return false;
       }
-
-      // Real-time validation - hide error on input
-      document.querySelectorAll('input, select, textarea').forEach(input => {
-        input.addEventListener('input', function() {
-          const errorId = this.id.replace(/^(business|candidate)_/, '') + '_error';
-          const errorElement = document.getElementById(errorId) || 
-                              document.getElementById(errorId.replace('_error', '_candidate_error'));
-          if (errorElement) {
-            errorElement.style.display = 'none';
-          }
-        });
-      });
     </script>
   </body>
 </html>
