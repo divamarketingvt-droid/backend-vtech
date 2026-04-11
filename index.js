@@ -408,9 +408,10 @@ app.post("/api/submit-request", async (req, res) => {
 // ==========================================
 // 5. CONTACT PAGE SUBMISSION (FIXED - MOCK BROWSER)
 // ==========================================app.post("/api/submit-contact", async (req, res) => {
+ app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
-  // FIX 1: Use the exact keys sent by your Frontend
+  // Use the exact keys sent by your Frontend
   const { 
     userType, 
     fullName, 
@@ -421,7 +422,7 @@ app.post("/api/submit-request", async (req, res) => {
     message 
   } = req.body;
 
-  // FIX 2: Validate using the correct variable names
+  // Validate using the correct variable names
   if (!fullName || !email || !phone) {
     return res.status(400).json({ success: false, message: "Missing required details (Name, Email, Phone)." });
   }
@@ -434,14 +435,11 @@ app.post("/api/submit-request", async (req, res) => {
   try {
     const formData = new URLSearchParams();
     
-    // FIX 3: Map Frontend Variables to Zoho Form Field Names
-    // Note: Check your Zoho form "Field Properties" to ensure these match exactly.
-    
-    // Common Fields for both forms
+    // Map Frontend Variables to Zoho Form Field Names
     formData.append('SingleLine', fullName);             // Full Name Field
     formData.append('Email', email);                      // Email Field
     formData.append('PhoneNumber_countrycode', phone);    // Phone Field
-    formData.append('Dropdown1', lookingFor);             // Dropdown Field (What are you looking for?)
+    formData.append('Dropdown1', lookingFor);             // Dropdown Field
     formData.append('MultiLine', message || "");          // Message Field
     
     // Hidden/Required Zoho Fields
@@ -450,7 +448,6 @@ app.post("/api/submit-request", async (req, res) => {
 
     // Business specific field
     if (userType === 'business') {
-       // Ensure you have a field named 'SingleLine1' in your Business Zoho Form
        formData.append('SingleLine1', company || "N/A"); 
     }
 
@@ -487,7 +484,6 @@ app.post("/api/submit-request", async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to submit form to Zoho.", error: error.message });
   }
 });
-
 // ==========================================
 // START SERVER
 // ==========================================
