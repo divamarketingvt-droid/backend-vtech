@@ -434,13 +434,14 @@ app.post("/api/submit-contact", async (req, res) => {
     const formData = new URLSearchParams();
     
     // Common Fields
-    formData.append('SingleLine', fullName);             
-    formData.append('Email', email);                      
-    formData.append('PhoneNumber_countrycode', phone);    
-    formData.append('Dropdown1', lookingFor);              
-    formData.append('MultiLine', message);                 
-    formData.append('isLogin', 'false'); 
-    formData.append('privacy', 'True');
+    formData.append('SingleLine',Full_Name);             
+    formData.append('Email',Work_Email);                      
+    formData.append('PhoneNumber_countrycode',Phone_Number); 
+    formData.append('PhoneNumber_countrycode',Company_Name); 
+    formData.append('Dropdown1',What_are_you_looking_for);              
+    formData.append('MultiLine',Message);                 
+    formData.append('isLogin','false'); 
+    formData.append('privacy','True');
 
     // Only append Company if Business
     if (userType === 'business' && company) {
