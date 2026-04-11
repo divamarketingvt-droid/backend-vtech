@@ -406,8 +406,8 @@ app.post("/api/submit-request", async (req, res) => {
 // ==========================================
 // 5. CONTACT PAGE SUBMISSION (UPDATED: NO TOKEN METHOD)
 // ==========================================
+// 5. CONTACT PAGE SUBMISSION (FIXED - MOCK BROWSER)
 // ==========================================
-// 5. CONTACT PAGE SUBMISSION (FIXED)
 app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
@@ -433,7 +433,7 @@ app.post("/api/submit-contact", async (req, res) => {
   try {
     const formData = new URLSearchParams();
     
-    // Common Fields (Both Forms)
+    // Common Fields
     formData.append('SingleLine', fullName);             
     formData.append('Email', email);                      
     formData.append('PhoneNumber_countrycode', phone);    
@@ -442,60 +442,44 @@ app.post("/api/submit-contact", async (req, res) => {
     formData.append('isLogin', 'false'); 
     formData.append('privacy', 'True');
 
-    // CRITICAL FIX: Only send Company Name if it is a Business User
-    // The Candidate form does not have a 'SingleLine1' field, so sending it causes errors.
+    // Only append Company if Business
     if (userType === 'business' && company) {
       formData.append('SingleLine1', company);
     }
 
-    console.log(`📤 Sending to Zoho (${userType}):`, ZOHO_FORM_URL);
-    console.log("Payload:", formData.toString());
+    console.log(`📤 Sending to Zoho Form (${userType})...`);
 
-    const response = await axios.post(ZOHO_FORM_URL, formData, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      // Accept 200-399 status codes. Zoho often redirects (302) on success.
-      validateStatus: (status) => status >= 200 && status < 400,
-      maxRedirects: 0 // Important: Prevent Axios from following the redirect, which can cause CORS issues
+    // CRITICAL FIX: Mimic a real Browser to avoid 403/404 Access Denied
+    const response = await axios.post(ZOHO_FORM_URL, formData.toString(), {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'Origin': 'https://forms.zohopublic.in',
+        'Referer': ZOHO_FORM_URL
+      },
+      maxRedirects: 5, 
+      validateStatus: (status) => status >= 200 && status < 400
     });
 
     console.log("✅ Zoho Response Status:", response.status);
-    
-    // If we get a 302 (Redirect), it means Zoho accepted the form
-    if (response.status === 302 || response.status === 200) {
-       res.status(200).json({ success: true, message: "Form submitted successfully" });
-    } else {
-       console.log("Unexpected Zoho response:", response.data);
-       res.status(200).json({ success: true, message: "Form submitted (Status: " + response.status + ")" });
-    }
+    res.status(200).json({ success: true, message: "Form submitted successfully" });
 
   } catch (error) {
     console.error("❌ Zoho Form Error Details:");
-    
-    // Log the error details if Zoho sent back a specific error message
     if (error.response) {
       console.error("Status:", error.response.status);
       console.error("Data:", error.response.data);
-      
-      // If Zoho sends back HTML with an error message, try to parse it or log it
-      if (typeof error.response.data === 'string' && error.response.data.includes('Error')) {
-         return res.status(500).json({ 
-             success: false, 
-             message: "Zoho Rejected Data: Check Server Logs", 
-             details: "A field might be missing or invalid." 
-         });
-      }
     } else {
       console.error("Message:", error.message);
     }
-
-    res.status(500).json({ 
-      success: false, 
-      message: "Failed to submit form to Zoho.", 
-      error: error.message 
-    });
+    res.status(500).json({ success: false, message: "Failed to submit form to Zoho.", error: error.message });
   }
 });
-
 // ==========================================
 // START SERVER
 // ==========================================
