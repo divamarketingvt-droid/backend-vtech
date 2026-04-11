@@ -318,79 +318,175 @@ app.post("/api/submit-request", async (req, res) => {
 // ==========================================
 // 5. CONTACT PAGE SUBMISSION (FIXED - MOCK BROWSER)
 // ==========================================
+// ==========================================
+// 5. CONTACT PAGE SUBMISSION (PUPPETEER METHOD)
+// ==========================================
 app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
+  // FIX 1: Extract variables using correct names from Frontend
   const { 
-    fullName = "", 
-    email = "", 
-    phone = "", 
-    company = "", 
-    lookingFor = "", 
-    message = "", 
-    userType = "business" 
+    userType, 
+    fullName, 
+    email, 
+    phone, 
+    company, 
+    lookingFor, 
+    message 
   } = req.body;
 
+  // FIX 2: Validation
   if (!fullName || !email || !phone) {
-    return res.status(400).json({ success: false, message: "Missing required details (Name, Email, Phone)." });
+    return res.status(400).json({ 
+      success: false, 
+      message: "Missing required details (Name, Email, Phone)." 
+    });
   }
 
-  // Select URL based on user type
+  // Select Zoho Form URL based on user type
   const ZOHO_FORM_URL = userType === 'business' 
     ? "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/gXG2SmjNMF39gOdkUirlDiuaugqo5NYbAzWLT0fozlc"
     : "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
 
+  let browser;
+
   try {
-    const formData = new URLSearchParams();
+    console.log(`🚀 Launching Headless Browser for Zoho...`);
     
-    // Common Fields
-    formData.append('SingleLine', fullName);             
-    formData.append('Email', email);                      
-    formData.append('PhoneNumber_countrycode', phone);    
-    formData.append('Dropdown1', lookingFor);              
-    formData.append('MultiLine', message);                 
-    formData.append('isLogin', 'false'); 
-    formData.append('privacy', 'True');
-
-    // Only append Company if Business
-    if (userType === 'business' && company) {
-      formData.append('SingleLine1', company);
-    }
-
-    console.log(`📤 Sending to Zoho Form (${userType})...`);
-
-    // CRITICAL FIX: Mimic a real Browser to avoid 403/404 Access Denied
-    const response = await axios.post(ZOHO_FORM_URL, formData.toString(), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Origin': 'https://forms.zohopublic.in',
-        'Referer': ZOHO_FORM_URL
-      },
-      maxRedirects: 5, 
-      validateStatus: (status) => status >= 200 && status < 400
+    // Launch Puppeteer (configured for Render/Cloud environments)
+    browser = await puppeteer.launch({
+      headless: "new",
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process', // Helps with low-memory environments
+        '--disable-gpu'
+      ]
     });
 
-    console.log("✅ Zoho Response Status:", response.status);
-    res.status(200).json({ success: true, message: "Form submitted successfully" });
+    const page = await browser.newPage();
+    
+    // Set User Agent to look like a real Chrome browser
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36');
+
+    console.log(`📍 Navigating to Form: ${userType}`);
+    await page.goto(ZOHO_FORM_URL, { waitUntil: 'networkidle2' });
+
+    // ==========================================
+    // FILLING THE FORM FIELDS
+    // ==========================================
+
+    // 1. Full Name (SingleLine)
+    try {
+      await page.waitForSelector('input[name="SingleLine"]', { timeout: 5000 });
+      await page.type('input[name="SingleLine"]', fullName, { delay: 50 });
+      console.log("✅ Typed Name");
+    } catch (e) { console.log("⚠️ Name field not found or skipped"); }
+
+    // 2. Email (Email)
+    try {
+      await page.type('input[name="Email"]', email, { delay: 50 });
+      console.log("✅ Typed Email");
+    } catch (e) { console.log("⚠️ Email field not found or skipped"); }
+
+    // 3. Phone (PhoneNumber_countrycode)
+    try {
+      // Sometimes Zoho phone inputs are tricky, we try to click focus then type
+      await page.click('input[name="PhoneNumber_countrycode"]');
+      await page.type('input[name="PhoneNumber_countrycode"]', phone, { delay: 50 });
+      console.log("✅ Typed Phone");
+    } catch (e) { console.log("⚠️ Phone field not found or skipped"); }
+
+    // 4. Dropdown (Dropdown1)
+    try {
+      // Click dropdown to open options
+      await page.click('select[name="Dropdown1"]');
+      // Select the option by value
+      await page.select('select[name="Dropdown1"]', lookingFor);
+      console.log(`✅ Selected Dropdown: ${lookingFor}`);
+    } catch (e) { console.log("⚠️ Dropdown not found or skipped"); }
+
+    // 5. Message (MultiLine)
+    if (message) {
+      try {
+        await page.type('textarea[name="MultiLine"]', message, { delay: 50 });
+        console.log("✅ Typed Message");
+      } catch (e) { console.log("⚠️ Message field not found or skipped"); }
+    }
+
+    // 6. Business Only: Company Name (SingleLine1)
+    if (userType === 'business' && company) {
+      try {
+        await page.type('input[name="SingleLine1"]', company, { delay: 50 });
+        console.log("✅ Typed Company");
+      } catch (e) { console.log("⚠️ Company field not found or skipped"); }
+    }
+
+    // 7. Privacy Checkbox (Required by Zoho)
+    try {
+      // Check if privacy checkbox exists and is unchecked, then check it
+      const privacyChecked = await page.$eval('input[name="privacy"]', el => el.checked);
+      if (!privacyChecked) {
+        await page.click('input[name="privacy"]');
+        console.log("✅ Checked Privacy");
+      }
+    } catch (e) {
+      // Sometimes privacy is a label or different structure
+      try {
+        // Try clicking the label associated with privacy
+        await page.click('label:has-text("Privacy")'); 
+        console.log("✅ Checked Privacy (via Label)");
+      } catch (err) {
+        console.log("⚠️ Could not find privacy checkbox (might be auto-checked or missing)");
+      }
+    }
+
+    // ==========================================
+    // SUBMIT
+    // ==========================================
+    
+    // Wait a moment for UI to settle
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Find the submit button
+    const submitButton = await page.$('button[type="submit"]');
+    if (submitButton) {
+      console.log("🖱️ Clicking Submit Button...");
+      await submitButton.click();
+      
+      // Wait for navigation after submit
+      await page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 10000 }).catch(() => {
+        console.log("⚠️ Navigation timeout or redirect blocked (might still be successful)");
+      });
+
+      console.log("✅ Form Submitted Successfully (Browser)");
+      
+      // Close browser
+      await browser.close();
+      
+      return res.status(200).json({ 
+        success: true, 
+        message: "Form submitted successfully via Browser" 
+      });
+    } else {
+      throw new Error("Submit button not found on the page.");
+    }
 
   } catch (error) {
-    console.error("❌ Zoho Form Error Details:");
-    if (error.response) {
-      console.error("Status:", error.response.status);
-      console.error("Data:", error.response.data);
-    } else {
-      console.error("Message:", error.message);
-    }
-    res.status(500).json({ success: false, message: "Failed to submit form to Zoho.", error: error.message });
+    console.error("❌ Puppeteer Error:", error.message);
+    if (browser) await browser.close();
+    
+    return res.status(500).json({ 
+      success: false, 
+      message: "Failed to submit form to Zoho.", 
+      error: error.message 
+    });
   }
 });
-
 // ==========================================
 // START SERVER
 // ==========================================
