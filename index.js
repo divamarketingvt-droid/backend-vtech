@@ -19,7 +19,7 @@ const ADMIN_EMAIL = "kovendan16@gmail.com"; // Main Recipient
 // DEPARTMENT EMAIL CONFIGURATION (FOR CC)
 // ==========================================
 const DEPARTMENT_EMAILS = {
-  service: "kovendan16@gmail.com", 
+  service: "connect@verifitech.com", 
   career: "hr@verifitech.com", 
   support: "csb.2@verifitech.email", 
   default: ADMIN_EMAIL, 
