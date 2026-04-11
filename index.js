@@ -8,6 +8,8 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json()); // Parses request body to JSON so req.body.fullName works
+app.use(bodyParser.urlencoded({ extended: true })); /
 // ==========================================
 // CONFIGURATION
 // ==========================================
