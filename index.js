@@ -325,70 +325,39 @@ app.post("/api/submit-request", async (req, res) => {
 app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
-  const { userType, fullName, email, phone, company, lookingFor, message } = req.body;
+  // FIX 1: Extract variables using correct names from req.body
+  const { 
+    userType, 
+    fullName, 
+    email, 
+    phone, 
+    company, 
+    lookingFor, 
+    message 
+  } = req.body;
 
+  // FIX 2: Validation
   if (!fullName || !email || !phone) {
     return res.status(400).json({ success: false, message: "Missing required details." });
   }
 
+  // Select Zoho Form URL
   const ZOHO_FORM_URL = userType === 'business' 
     ? "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/gXG2SmjNMF39gOdkUirlDiuaugqo5NYbAzWLT0fozlc"
     : "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
 
-  try {
-    // Prepare Form Data
-    const formData = new URLSearchParams();
-    formData.append('SingleLine', fullName);
-    formData.append('Email', email);
-    formData.append('PhoneNumber_countrycode', phone);
-    formData.append('Dropdown1', lookingFor);
-    formData.append('MultiLine', message || "");
-    formData.append('isLogin', 'false'); 
-    formData.append('privacy', 'True');
-
-    if (userType === 'business' && company) {
-      formData.append('SingleLine1', company);
-    }
-
-    console.log("📤 Sending to Zoho via Axios...");
-
-    // CRITICAL: Sending with strict Browser Headers to bypass 403
-    const response = await axios.post(ZOHO_FORM_URL, formData.toString(), {
+  // FIX 3: Send Request (No Puppeteer needed)
+  const response = await axios.post(ZOHO_FORM_URL, formData.toString(), {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'none',
-        'Cache-Control': 'max-age=0'
+        // ... headers ...
       },
       maxRedirects: 5,
       validateStatus: (status) => status >= 200 && status < 400
-    });
+  });
 
-    console.log("✅ Zoho Response Status:", response.status);
-    res.status(200).json({ success: true, message: "Form submitted successfully" });
-
-  } catch (error) {
-    console.error("❌ Zoho Error Details:");
-    if (error.response) {
-      console.error("Status:", error.response.status);
-      console.error("Data:", error.response.data);
-    } else {
-      console.error("Message:", error.message);
-    }
-    res.status(500).json({ 
-      success: false, 
-      message: "Failed to submit form to Zoho.", 
-      error: error.message 
-    });
-  }
-});
+  console.log("✅ Zoho Response Status:", response.status);
+  res.status(200).json({ success: true, message: "Form submitted successfully" });
 
 // ==========================================
 // ==========================================
