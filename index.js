@@ -412,12 +412,12 @@ app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
   const { 
-    fullName = "", 
-    email = "", 
-    phone = "", 
-    company = "", 
-    lookingFor = "", 
-    message = "", 
+    Full_Name = "", 
+    Work_Email = "", 
+    Phone_Number = "", 
+    Company_Name = "", 
+    looking_For = "", 
+    Message = "", 
     userType = "business" 
   } = req.body;
 
