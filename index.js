@@ -408,52 +408,91 @@ app.post("/api/submit-request", async (req, res) => {
 // ==========================================
 // ==========================================
 // 5. CONTACT PAGE SUBMISSION (FIXED)
-// ==========================================
 app.post("/api/submit-contact", async (req, res) => {
-  console.log("📬 Request Received:", req.body);
+  console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
-  const { fullName, email, phone, company, lookingFor, message, userType } = req.body;
+  const { 
+    fullName = "", 
+    email = "", 
+    phone = "", 
+    company = "", 
+    lookingFor = "", 
+    message = "", 
+    userType = "business" 
+  } = req.body;
 
-  // 1. Validation
   if (!fullName || !email || !phone) {
-    return res.status(400).json({ success: false, message: "Missing details" });
+    return res.status(400).json({ success: false, message: "Missing required details (Name, Email, Phone)." });
   }
 
-  // 2. Pick the Right Link
-  let ZOHO_FORM_URL = "";
-  
-  if (userType === 'business') {
-    ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/gXG2SmjNMF39gOdkUirlDiuaugqo5NYbAzWLT0fozlc";
-  } else {
-    ZOHO_FORM_URL = "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
-  }
+  // Select URL based on user type
+  const ZOHO_FORM_URL = userType === 'business' 
+    ? "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/gXG2SmjNMF39gOdkUirlDiuaugqo5NYbAzWLT0fozlc"
+    : "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
 
   try {
-    // 3. Prepare Data
     const formData = new URLSearchParams();
     
-    // We send the same data to both forms
-    formData.append('SingleLine', Full_Name);              
-    formData.append('Email', Work_Email);                      
-    formData.append('PhoneNumber_countrycode', Phone_Number);    
-    if (company) formData.append('SingleLine1', Company_Name);               
-    formData.append('Dropdown1', What_are_you_looking_for);              
-    formData.append('MultiLine', Message);                 
+    // Common Fields (Both Forms)
+    formData.append('SingleLine', fullName);             
+    formData.append('Email', email);                      
+    formData.append('PhoneNumber_countrycode', phone);    
+    formData.append('Dropdown1', lookingFor);              
+    formData.append('MultiLine', message);                 
     formData.append('isLogin', 'false'); 
     formData.append('privacy', 'True');
 
-    // 4. Send
+    // CRITICAL FIX: Only send Company Name if it is a Business User
+    // The Candidate form does not have a 'SingleLine1' field, so sending it causes errors.
+    if (userType === 'business' && company) {
+      formData.append('SingleLine1', company);
+    }
+
+    console.log(`📤 Sending to Zoho (${userType}):`, ZOHO_FORM_URL);
+    console.log("Payload:", formData.toString());
+
     const response = await axios.post(ZOHO_FORM_URL, formData, {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      validateStatus: (status) => status >= 200 && status < 400
+      // Accept 200-399 status codes. Zoho often redirects (302) on success.
+      validateStatus: (status) => status >= 200 && status < 400,
+      maxRedirects: 0 // Important: Prevent Axios from following the redirect, which can cause CORS issues
     });
 
-    console.log("✅ Sent to Zoho.");
-    res.status(200).json({ success: true, message: "Success" });
+    console.log("✅ Zoho Response Status:", response.status);
+    
+    // If we get a 302 (Redirect), it means Zoho accepted the form
+    if (response.status === 302 || response.status === 200) {
+       res.status(200).json({ success: true, message: "Form submitted successfully" });
+    } else {
+       console.log("Unexpected Zoho response:", response.data);
+       res.status(200).json({ success: true, message: "Form submitted (Status: " + response.status + ")" });
+    }
 
   } catch (error) {
-    console.error("❌ Error:", error.message);
-    res.status(500).json({ success: false, message: "Error" });
+    console.error("❌ Zoho Form Error Details:");
+    
+    // Log the error details if Zoho sent back a specific error message
+    if (error.response) {
+      console.error("Status:", error.response.status);
+      console.error("Data:", error.response.data);
+      
+      // If Zoho sends back HTML with an error message, try to parse it or log it
+      if (typeof error.response.data === 'string' && error.response.data.includes('Error')) {
+         return res.status(500).json({ 
+             success: false, 
+             message: "Zoho Rejected Data: Check Server Logs", 
+             details: "A field might be missing or invalid." 
+         });
+      }
+    } else {
+      console.error("Message:", error.message);
+    }
+
+    res.status(500).json({ 
+      success: false, 
+      message: "Failed to submit form to Zoho.", 
+      error: error.message 
+    });
   }
 });
 
