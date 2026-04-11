@@ -18,7 +18,7 @@
     "express": "^5.2.1",
     "nodemailer": "^8.0.2",
     "parser": "^0.1.4",
-    "puppeteer": "^21.0.0" 
+  
 
   }
 }
