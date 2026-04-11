@@ -407,25 +407,26 @@ app.post("/api/submit-request", async (req, res) => {
 // 5. CONTACT PAGE SUBMISSION (UPDATED: NO TOKEN METHOD)
 // ==========================================
 // 5. CONTACT PAGE SUBMISSION (FIXED - MOCK BROWSER)
-// ==========================================
-app.post("/api/submit-contact", async (req, res) => {
+// ==========================================app.post("/api/submit-contact", async (req, res) => {
   console.log("📬 Contact Request Received:", JSON.stringify(req.body, null, 2));
 
+  // FIX 1: Use the exact keys sent by your Frontend
   const { 
-    Full_Name = "", 
-    Work_Email = "", 
-    Phone_Number = "", 
-    Company_Name = "", 
-    looking_For = "", 
-    Message = "", 
-    userType = "business" 
+    userType, 
+    fullName, 
+    email, 
+    phone, 
+    company, 
+    lookingFor, 
+    message 
   } = req.body;
 
+  // FIX 2: Validate using the correct variable names
   if (!fullName || !email || !phone) {
     return res.status(400).json({ success: false, message: "Missing required details (Name, Email, Phone)." });
   }
 
-  // Select URL based on user type
+  // Select Zoho Form URL based on user type
   const ZOHO_FORM_URL = userType === 'business' 
     ? "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/gXG2SmjNMF39gOdkUirlDiuaugqo5NYbAzWLT0fozlc"
     : "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AfduEJIOaK67PrjduhiIWWGB33ST3cueCfYEH0f4S2o";
@@ -433,33 +434,36 @@ app.post("/api/submit-contact", async (req, res) => {
   try {
     const formData = new URLSearchParams();
     
-    // Common Fields
-    formData.append('SingleLine',Full_Name);             
-    formData.append('Email',Work_Email);                      
-    formData.append('PhoneNumber_countrycode',Phone_Number); 
-    formData.append('PhoneNumber_countrycode',Company_Name); 
-    formData.append('Dropdown1',What_are_you_looking_for);              
-    formData.append('MultiLine',Message);                 
-    formData.append('isLogin','false'); 
-    formData.append('privacy','True');
+    // FIX 3: Map Frontend Variables to Zoho Form Field Names
+    // Note: Check your Zoho form "Field Properties" to ensure these match exactly.
+    
+    // Common Fields for both forms
+    formData.append('SingleLine', fullName);             // Full Name Field
+    formData.append('Email', email);                      // Email Field
+    formData.append('PhoneNumber_countrycode', phone);    // Phone Field
+    formData.append('Dropdown1', lookingFor);             // Dropdown Field (What are you looking for?)
+    formData.append('MultiLine', message || "");          // Message Field
+    
+    // Hidden/Required Zoho Fields
+    formData.append('isLogin', 'false'); 
+    formData.append('privacy', 'True');
 
-    // Only append Company if Business
-    if (userType === 'business' && company) {
-      formData.append('SingleLine1', company);
+    // Business specific field
+    if (userType === 'business') {
+       // Ensure you have a field named 'SingleLine1' in your Business Zoho Form
+       formData.append('SingleLine1', company || "N/A"); 
     }
 
     console.log(`📤 Sending to Zoho Form (${userType})...`);
+    console.log("Payload:", formData.toString());
 
-    // CRITICAL FIX: Mimic a real Browser to avoid 403/404 Access Denied
+    // Mimic a real Browser to avoid 403/404 Access Denied
     const response = await axios.post(ZOHO_FORM_URL, formData.toString(), {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
         'Origin': 'https://forms.zohopublic.in',
         'Referer': ZOHO_FORM_URL
       },
@@ -468,6 +472,8 @@ app.post("/api/submit-contact", async (req, res) => {
     });
 
     console.log("✅ Zoho Response Status:", response.status);
+    
+    // Return success to frontend
     res.status(200).json({ success: true, message: "Form submitted successfully" });
 
   } catch (error) {
@@ -481,6 +487,7 @@ app.post("/api/submit-contact", async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to submit form to Zoho.", error: error.message });
   }
 });
+
 // ==========================================
 // START SERVER
 // ==========================================
