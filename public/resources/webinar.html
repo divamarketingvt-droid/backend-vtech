@@ -1,0 +1,2754 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webinar: Future of Background Verification | Verifitech</title>
+    <meta
+      name="description"
+      content="Join industry leaders for an exclusive webinar on AI-powered verification strategies, compliance automation, and risk reduction. Register now."
+    />
+
+    <!-- Bootstrap 5 -->bina
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+        /* Ensure navbar has proper z-index */
+  .navbar {
+    z-index: 1050; /* Higher than most content */
+  }
+  
+  /* Fix dropdown z-index to appear above hero content */
+  .dropdown-menu {
+    z-index: 1060; /* Higher than navbar */
+    position: absolute; /* Ensure proper positioning */
+  }
+  
+  /* Ensure dropdown items are clickable and visible */
+  .dropdown-item {
+    position: relative;
+    z-index: 1061;
+  }
+  
+  /* Fix for hero section overlapping */
+  .industry-hero {
+    position: relative;
+    z-index: 1; /* Lower than navbar */
+  }
+  
+  /* Ensure navbar collapse has proper background when expanded on mobile */
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+      margin-top: 0;
+      box-shadow: none;
+    }
+  }
+
+      /* Navigation - Exact same as Case Studies */
+        .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+      .navbar-brand img {
+        height: 80px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* Dropdown Styling with Teal Accents */
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* CTA Button Style - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important; /* Teal color - adjust to your exact teal shade */
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important; /* Teal box shadow */
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+
+      /* Country Selector */
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .country-selector i {
+        font-size: 1.2rem;
+      }
+      /* Webinar Hero Section */
+      .webinar-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #ccfbf1 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .webinar-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .webinar-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .webinar-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+
+      .webinar-meta {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--gray);
+        font-weight: 500;
+      }
+
+      .meta-item i {
+        color: var(--primary);
+        font-size: 1.25rem;
+      }
+
+      .webinar-description {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+
+      /* Countdown Timer */
+      .countdown-container {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .countdown-box {
+        background: white;
+        padding: 1rem;
+        border-radius: 12px;
+        text-align: center;
+        min-width: 80px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .countdown-box .number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+        display: block;
+      }
+
+      .countdown-box .label {
+        font-size: 0.75rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 0.25rem;
+      }
+
+      /* Registration Card */
+      .registration-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .registration-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .registration-card .subtitle {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-control-custom {
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+      }
+
+      .form-control-custom:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+        outline: none;
+      }
+
+      .btn-register {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+        margin-top: 0.5rem;
+      }
+
+      .btn-register:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      .security-note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+
+      /* Speaker Preview */
+      .speaker-preview {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .speaker-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+
+      .speaker-info {
+        flex: 1;
+      }
+
+      .speaker-info h5 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: var(--dark);
+      }
+
+      .speaker-info p {
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin: 0;
+      }
+
+      /* Section Headers - Same as Case Studies */
+      .section-header {
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 700px;
+        line-height: 1.7;
+      }
+
+      /* Learning Outcomes Grid */
+      .learning-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .outcome-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .outcome-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary);
+      }
+
+      .outcome-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        color: var(--primary);
+        margin-bottom: 1.25rem;
+      }
+
+      .outcome-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .outcome-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Speakers Section */
+      .speakers-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .speaker-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .speaker-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      }
+
+      .speaker-image {
+        height: 280px;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .speaker-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(26, 194, 193, 0.2) 0%,
+          transparent 70%
+        );
+      }
+
+      .speaker-placeholder {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        position: relative;
+        z-index: 2;
+      }
+
+      .speaker-badge {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        z-index: 3;
+      }
+
+      .speaker-details {
+        padding: 1.5rem;
+      }
+
+      .speaker-details h3 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: var(--dark);
+      }
+
+      .speaker-details .title {
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .speaker-details p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .speaker-social {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .speaker-social a {
+        color: var(--gray);
+        font-size: 1.1rem;
+        transition: color 0.3s;
+      }
+
+      .speaker-social a:hover {
+        color: var(--primary);
+      }
+
+      /* Agenda Section */
+      .agenda-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .agenda-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .agenda-item {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+      }
+
+      .agenda-time {
+        flex-shrink: 0;
+        width: 100px;
+        text-align: right;
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.1rem;
+        padding-top: 0.5rem;
+      }
+
+      .agenda-content {
+        flex: 1;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        border-left: 4px solid var(--primary);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .agenda-content h4 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .agenda-content p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .agenda-dot {
+        position: absolute;
+        left: 108px;
+        top: 1rem;
+        width: 16px;
+        height: 16px;
+        background: var(--primary);
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 0 0 3px var(--primary-light);
+      }
+
+      /* Trust Badges Section */
+      .trust-section {
+        padding: 80px 0;
+        background: white;
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .trust-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        opacity: 0.6;
+      }
+
+      .trust-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .accordion-item {
+        border: 1px solid #e2e8f0;
+        border-radius: 16px !important;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        background: white;
+      }
+
+      .accordion-button {
+        padding: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        background: white;
+        border: none;
+        box-shadow: none !important;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      .accordion-button::after {
+        background-size: 1.25rem;
+      }
+
+      .accordion-body {
+        padding: 0 1.5rem 1.5rem;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* Final CTA Section - Same as Case Studies */
+      .cta-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+        text-align: center;
+      }
+
+      .cta-box {
+        background: white;
+        border-radius: 24px;
+        padding: 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+      }
+
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+
+      /* Animations - Same as Case Studies */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .webinar-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .registration-card {
+          margin-top: 3rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .webinar-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .webinar-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .webinar-meta {
+          justify-content: center;
+        }
+
+        .countdown-container {
+          justify-content: center;
+        }
+
+        .cta-box {
+          padding: 3rem 2rem;
+        }
+
+        .agenda-item {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .agenda-time {
+          text-align: left;
+          width: auto;
+        }
+
+        .agenda-dot {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation - Identical to Case Studies -->
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+   <!-- <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li> -->
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" style="color:black; text-decoration:none;" >Login</a>
+
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section with Registration Form -->
+    <section class="webinar-hero" id="register">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 reveal">
+            <div class="webinar-badge">
+              <i class="bi bi-camera-video"></i>
+              Live Webinar
+            </div>
+            <h1>The Future of Background Verification: AI & Compliance 2026</h1>
+
+            <div class="webinar-meta">
+              <div class="meta-item">
+                <i class="bi bi-calendar-event"></i>
+                <span>February 15, 2026</span>
+              </div>
+              <div class="meta-item">
+                <i class="bi bi-clock"></i>
+                <span>11:00 AM EST / 4:00 PM GMT</span>
+              </div>
+              <div class="meta-item">
+                <i class="bi bi-hourglass-split"></i>
+                <span>60 Minutes + Q&A</span>
+              </div>
+            </div>
+
+            <p class="webinar-description">
+              Discover how leading enterprises are leveraging AI-powered
+              verification to reduce hiring risks by 80%, ensure global
+              compliance, and cut turnaround times from weeks to hours.
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+              <div class="countdown-box">
+                <span class="number" id="days">13</span>
+                <div class="label">Days</div>
+              </div>
+              <div class="countdown-box">
+                <span class="number" id="hours">04</span>
+                <div class="label">Hours</div>
+              </div>
+              <div class="countdown-box">
+                <span class="number" id="minutes">32</span>
+                <div class="label">Mins</div>
+              </div>
+              <div class="countdown-box">
+                <span class="number" id="seconds">18</span>
+                <div class="label">Secs</div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 flex-wrap">
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Free Registration</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Certificate of Attendance</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <span>Recording Access</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Registration Form -->
+          <div class="col-lg-5 reveal">
+            <div class="registration-card">
+              <h3>Reserve Your Spot</h3>
+              <p class="subtitle">
+                Limited to 500 attendees. Register now to secure your seat.
+              </p>
+
+              <form id="webinarForm">
+                <input
+                  type="text"
+                  class="form-control-custom"
+                  placeholder="Full Name"
+                  required
+                />
+                <input
+                  type="email"
+                  class="form-control-custom"
+                  placeholder="Business Email"
+                  required
+                />
+                <input
+                  type="text"
+                  class="form-control-custom"
+                  placeholder="Company Name"
+                  required
+                />
+                <select
+                  class="form-control-custom"
+                  style="color: var(--gray)"
+                  required
+                >
+                  <option value="" disabled selected>Job Title</option>
+                  <option>CHRO / VP HR</option>
+                  <option>HR Director / Manager</option>
+                  <option>Compliance Officer</option>
+                  <option>Security / Risk Manager</option>
+                  <option>Talent Acquisition</option>
+                  <option>Other</option>
+                </select>
+                <input
+                  type="tel"
+                  class="form-control-custom"
+                  placeholder="Phone Number"
+                />
+
+                <button type="submit" class="btn-register">
+                  <i class="bi bi-check-lg"></i> Register Now
+                </button>
+              </form>
+
+              <div class="security-note">
+                <i class="bi bi-shield-lock"></i>
+                <span>Your data is secure and will never be shared</span>
+              </div>
+
+              <div class="speaker-preview">
+                <div class="speaker-avatar">VS</div>
+                <div class="speaker-info">
+                  <h5>Hosted by Vikram Sharma</h5>
+                  <p>Chief Human Resources Officer, Global Tech Solutions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+      <div class="container text-center reveal">
+        <p
+          class="text-muted mb-4 fw-semibold"
+          style="
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          "
+        >
+          Trusted by professionals from leading enterprises
+        </p>
+        <div class="trust-logos">
+          <div class="trust-logo"><i class="bi bi-building"></i> TechCorp</div>
+          <div class="trust-logo"><i class="bi bi-bank"></i> FinanceBank</div>
+          <div class="trust-logo"><i class="bi bi-hospital"></i> MediCare</div>
+          <div class="trust-logo"><i class="bi bi-shop"></i> RetailMax</div>
+          <div class="trust-logo"><i class="bi bi-truck"></i> LogiChain</div>
+          <div class="trust-logo">
+            <i class="bi bi-gear"></i> AutoIndustries
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section class="learning-section" id="outcomes">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-lightbulb"></i> Key Takeaways
+          </div>
+          <h2 class="section-title">What You'll Learn</h2>
+          <p class="section-desc mx-auto">
+            Actionable insights to transform your verification and compliance
+            strategy
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-robot"></i>
+              </div>
+              <h3>AI-Powered Automation</h3>
+              <p>
+                Learn how to implement machine learning algorithms that reduce
+                manual verification effort by 85% while improving accuracy to
+                99.9%.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-globe"></i>
+              </div>
+              <h3>Global Compliance Framework</h3>
+              <p>
+                Navigate complex international regulations including GDPR, FCRA,
+                and local employment laws across 25+ countries seamlessly.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h3>Risk Mitigation Strategies</h3>
+              <p>
+                Discover frameworks used by Fortune 500 companies to identify
+                high-risk candidates before onboarding and prevent data
+                breaches.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h3>Speed Optimization</h3>
+              <p>
+                Techniques to reduce background check turnaround from industry
+                standard 5-7 days to under 24 hours without compromising
+                thoroughness.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h3>Vendor Management</h3>
+              <p>
+                Best practices for evaluating verification partners, managing
+                SLAs, and building a resilient screening ecosystem.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h3>ROI Measurement</h3>
+              <p>
+                How to calculate the true cost of bad hires and demonstrate
+                quantifiable ROI from your verification investments to
+                leadership.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="speakers-section" id="speakers">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-mic"></i> Industry Experts
+          </div>
+          <h2 class="section-title">Meet Your Speakers</h2>
+          <p class="section-desc mx-auto">
+            Learn from leaders who have transformed verification at scale
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Speaker 1 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="speaker-card">
+              <div class="speaker-image">
+                <div class="speaker-placeholder">VS</div>
+                <span class="speaker-badge">Keynote Speaker</span>
+              </div>
+              <div class="speaker-details">
+                <h3>Vikram Sharma</h3>
+                <div class="title">Chief Human Resources Officer</div>
+                <p>
+                  Vikram oversees global talent strategy for 45,000+ employees
+                  across 20 countries. Previously led HR transformation at
+                  Microsoft and Accenture.
+                </p>
+                <div class="speaker-social">
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 2 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="speaker-card">
+              <div
+                class="speaker-image"
+                style="
+                  background: linear-gradient(135deg, #3730a3 0%, #6366f1 100%);
+                "
+              >
+                <div class="speaker-placeholder">SP</div>
+                <span class="speaker-badge">Technical Expert</span>
+              </div>
+              <div class="speaker-details">
+                <h3>Sarah Peterson</h3>
+                <div class="title">VP of Compliance & Risk</div>
+                <p>
+                  15+ years in global compliance. Former Chief Compliance
+                  Officer at Goldman Sachs. Expert in international data privacy
+                  laws and regulatory frameworks.
+                </p>
+                <div class="speaker-social">
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 3 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="speaker-card">
+              <div
+                class="speaker-image"
+                style="
+                  background: linear-gradient(135deg, #be185d 0%, #ec4899 100%);
+                "
+              >
+                <div class="speaker-placeholder">AR</div>
+                <span class="speaker-badge">Product Leader</span>
+              </div>
+              <div class="speaker-details">
+                <h3>Alex Rivera</h3>
+                <div class="title">Head of AI Product</div>
+                <p>
+                  Leading AI innovation at Verifitech. Former Principal Engineer
+                  at Amazon AWS. PhD in Machine Learning from Stanford
+                  University.
+                </p>
+                <div class="speaker-social">
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agenda Section -->
+    <section class="agenda-section" id="agenda">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-clock-history"></i> Schedule
+          </div>
+          <h2 class="section-title">Webinar Agenda</h2>
+          <p class="section-desc mx-auto">
+            A power-packed 60-minute session with live demonstrations
+          </p>
+        </div>
+
+        <div class="agenda-timeline reveal">
+          <div class="agenda-item">
+            <div class="agenda-time">11:00 AM</div>
+            <div class="agenda-dot"></div>
+            <div class="agenda-content">
+              <h4>Welcome & Market Landscape</h4>
+              <p>
+                Current state of background verification, emerging risks in
+                2026, and why traditional methods are failing modern
+                enterprises.
+              </p>
+            </div>
+          </div>
+
+          <div class="agenda-item">
+            <div class="agenda-time">11:10 AM</div>
+            <div class="agenda-dot"></div>
+            <div class="agenda-content">
+              <h4>AI Demo: Automated Verification</h4>
+              <p>
+                Live demonstration of AI-powered document verification, facial
+                recognition, and real-time data validation across global
+                databases.
+              </p>
+            </div>
+          </div>
+
+          <div class="agenda-item">
+            <div class="agenda-time">11:25 AM</div>
+            <div class="agenda-dot"></div>
+            <div class="agenda-content">
+              <h4>Compliance Deep Dive</h4>
+              <p>
+                Navigating GDPR, FCRA, and regional data privacy laws. Building
+                a compliance-first verification architecture.
+              </p>
+            </div>
+          </div>
+
+          <div class="agenda-item">
+            <div class="agenda-time">11:40 AM</div>
+            <div class="agenda-dot"></div>
+            <div class="agenda-content">
+              <h4>Case Study: Fortune 500 Implementation</h4>
+              <p>
+                How a leading tech company reduced verification TAT by 70% and
+                saved $2M annually while scaling globally.
+              </p>
+            </div>
+          </div>
+
+          <div class="agenda-item">
+            <div class="agenda-time">11:55 AM</div>
+            <div class="agenda-dot"></div>
+            <div class="agenda-content">
+              <h4>Live Q&A Session</h4>
+              <p>
+                Get your specific questions answered by our panel of experts.
+                Bring your toughest verification challenges!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-question-circle"></i> Common Questions
+          </div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc mx-auto">
+            Everything you need to know about the webinar
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 reveal">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    Is this webinar really free?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes, absolutely! This webinar is completely free to attend.
+                    We believe in sharing knowledge that helps elevate industry
+                    standards. However, registration is required to secure your
+                    spot as we limit attendance to ensure quality interaction.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    Will I receive a recording if I can't attend live?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes, all registered attendees will receive an email with the
+                    webinar recording within 24 hours of the live event. You'll
+                    have 30 days to access the recording, slides, and additional
+                    resources.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    Is this suitable for small businesses or only enterprises?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    The strategies and technologies discussed are scalable for
+                    businesses of all sizes. Whether you're a startup hiring
+                    your first 10 employees or a multinational managing 50,000+
+                    workforce, you'll find actionable insights tailored to your
+                    scale.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    Will there be a certificate of attendance?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes! All attendees who stay for the full duration will
+                    receive a digital Certificate of Attendance that can be used
+                    for professional development credits (where applicable) and
+                    LinkedIn credentials.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    Can I ask questions during the webinar?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Absolutely! We encourage interaction. You can submit
+                    questions throughout the webinar using the Q&A feature, and
+                    our speakers will address them during the dedicated Q&A
+                    session at the end. We strive to answer as many questions as
+                    possible.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section - Same style as Case Studies -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div
+            class="webinar-badge justify-content-center mb-3"
+            style="display: inline-flex"
+          >
+            <i class="bi bi-calendar-check"></i> February 15, 2026
+          </div>
+          <h2 class="section-title mb-3">Don't Miss This Opportunity</h2>
+          <p class="text-muted mb-4" style="font-size: 1.1rem">
+            Join 2,000+ HR and compliance professionals transforming their
+            verification strategies. Only 500 seats available!
+          </p>
+          <a href="#register" class="btn btn-primary-custom btn-lg">
+            <i class="bi bi-check-circle"></i> Register Free Now
+          </a>
+          <p class="mt-3 mb-0 text-muted small">
+            Questions? Contact us at
+            <a
+              href="mailto:webinars@verifitech.com"
+              style="color: var(--primary); font-weight: 600"
+              >webinars@verifitech.com</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer - Identical to Case Studies -->
+        <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../contact/contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="../products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/verifitech/" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <!-- <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a> -->
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="./privacy-separator">|</span>  
+            <a href="./Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<!-- Floating WhatsApp Button -->
+<a 
+  href="#" 
+  id="whatsappFloat"
+  class="whatsapp-float" 
+  title="Chat with us on WhatsApp"
+  onclick="openWhatsApp(event)"
+  style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
+>
+  <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+  <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
+</a>
+
+
+<style>
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: white;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+  }
+  
+  .whatsapp-float:hover .float-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+  
+  .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #333;
+  }
+  
+  .social-icon:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary) !important;
+    transform: translateX(5px);
+  }
+  
+  .privacy-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+  
+  .newsletter-btn:hover i {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 991px) {
+    .whatsapp-float {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    
+    .float-tooltip {
+      display: none;
+    }
+    
+    .newsletter-footer-section {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .newsletter-footer-section .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .newsletter-icon-footer {
+      margin: 0 auto;
+    }
+    
+    .input-group-wrapper {
+      flex-direction: column;
+    }
+    
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+    }
+  }
+
+   .footer {
+  background: #f0fdfa;
+  color: var(--dark);
+  padding: 80px 0 40px;
+}
+
+.footer-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.footer-brand span {
+  color: var(--primary);
+}
+
+.footer-desc {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.8;
+}
+
+.footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd5e1;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* Compliance Badges */
+.compliance-badges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.comp-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
+
+/* ============================================
+   NEWSLETTER FOOTER SECTION
+   ============================================ */
+
+.newsletter-footer-section {
+  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-footer-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.newsletter-icon-footer {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+}
+
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.newsletter-form-footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.input-group-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.zf-tempContDiv {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--dark);
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.zf-errorMessage {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.zf-errorMessage::before {
+  content: '\F332';
+  font-family: 'bootstrap-icons';
+  font-size: 0.8rem;
+}
+
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  font-family: 'Inter', sans-serif;
+  height: fit-content;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+.newsletter-btn i {
+  transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover i {
+  transform: translateX(4px);
+}
+
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-disclaimer {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.newsletter-disclaimer i {
+  color: var(--primary);
+}
+
+.zf-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.zf-success {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.footer-main-content {
+  margin-top: 20px;
+}
+
+.privacy-row {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.privacy-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}checks
+
+.privacy-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.privacy-separator {
+  margin: 0 10px;
+  color: #cbd5e1;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--gray);
+}
+
+.footer-heading {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.copyright 
+{
+  font-size: 14px;
+  margin: 0;
+  color: var(--gray);
+}
+</style>
+   
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+       // WhatsApp Functionality
+  const whatsappConfig = {
+    phoneNumber: '+919176663777',
+    defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+    pageContext: true
+  };
+
+  function openWhatsApp(event) {
+    event.preventDefault();
+    
+    const pageTitle = document.title;
+    const currentUrl = window.location.href;
+    
+    let message = whatsappConfig.defaultMessage;
+    
+    if (whatsappConfig.pageContext && pageTitle) {
+      message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+      // Navbar scroll effect - Same as Case Studies
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations - Same as Case Studies
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll - Same as Case Studies
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 100;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Countdown Timer Logic
+      function updateCountdown() {
+        const webinarDate = new Date("February 15, 2026 11:00:00 EST");
+        const now = new Date();
+        const diff = webinarDate - now;
+
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.getElementById("days").textContent = String(days).padStart(
+            2,
+            "0"
+          );
+          document.getElementById("hours").textContent = String(hours).padStart(
+            2,
+            "0"
+          );
+          document.getElementById("minutes").textContent = String(
+            minutes
+          ).padStart(2, "0");
+          document.getElementById("seconds").textContent = String(
+            seconds
+          ).padStart(2, "0");
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Form submission handler
+      document
+        .getElementById("webinarForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for registering! You will receive a confirmation email shortly with your access link."
+          );
+        });
+    </script>
+  </body>
+</html>

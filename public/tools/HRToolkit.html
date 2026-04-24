@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Leader Resource Kit | Verifitech</title>
+    <meta name="description" content="Access free HR tools, calculators, policy templates, and guides. Your one-stop resource hub for hiring, compliance, and background verification.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #8b5cf6;
+            --orange: #f97316;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-gray);
+        }
+        
+        /* Navigation */
+        .navbar {
+            padding: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            height: 80px;
+        }
+        
+        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        
+        .navbar-brand span { color: var(--primary); }
+        
+        .brand-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0 0.6rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 2rem 0.5rem !important;
+        }
+        
+        .nav-link:hover { color: var(--primary); }
+        
+        .btn-sales {
+            background: var(--primary);
+            color: white !important;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            margin-left: 1rem;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+            text-decoration: none;
+        }
+        
+        .btn-sales:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+        }
+
+        /* Hero Section */
+        .calculator-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, rgba(26, 194, 193, 0.15), rgba(26, 194, 193, 0.05));
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26, 194, 193, 0.3);
+        }
+        
+        .calculator-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        
+        .calculator-hero .lead {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Search Section */
+        .search-section {
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 60px;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .search-input-wrapper {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .filter-tab {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 0 0 80px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Resource Card */
+        .resource-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .resource-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-image.bg-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+        .resource-image.bg-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .resource-image.bg-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .resource-image.bg-navy { background: linear-gradient(135deg, var(--navy), var(--dark)); }
+        .resource-image.bg-success { background: linear-gradient(135deg, #10b981, #059669); }
+        .resource-image.bg-warning { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+        .resource-icon {
+            font-size: 3.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .resource-type-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .resource-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-desc {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .resource-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .resource-time {
+            font-size: 0.8rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .btn-resource {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-resource:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4);
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 194, 193, 0.5);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        footer h4 { font-weight: 700; margin-bottom: 1rem; }
+        footer h6 { font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; }
+        footer a:hover { color: var(--primary); }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .calculator-hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 767px) {
+            .calculator-hero { padding: 120px 0 60px; text-align: center; }
+            .calculator-hero h1 { font-size: 2rem; }
+            .filter-tabs { justify-content: center; }
+        }
+
+         .footer {
+  background: #f0fdfa;
+  color: var(--dark);
+  padding: 80px 0 40px;
+}
+
+.footer-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.footer-brand span {
+  color: var(--primary);
+}
+
+.footer-desc {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.8;
+}
+
+.footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd5e1;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* Compliance Badges */
+.compliance-badges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.comp-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
+
+/* ============================================
+   NEWSLETTER FOOTER SECTION
+   ============================================ */
+
+.newsletter-footer-section {
+  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-footer-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.newsletter-icon-footer {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+}
+
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.newsletter-form-footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.input-group-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.zf-tempContDiv {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--dark);
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.zf-errorMessage {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.zf-errorMessage::before {
+  content: '\F332';
+  font-family: 'bootstrap-icons';
+  font-size: 0.8rem;
+}
+
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  font-family: 'Inter', sans-serif;
+  height: fit-content;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+.newsletter-btn i {
+  transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover i {
+  transform: translateX(4px);
+}
+
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-disclaimer {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.newsletter-disclaimer i {
+  color: var(--primary);
+}
+
+.zf-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.zf-success {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.footer-main-content {
+  margin-top: 20px;
+}
+
+.privacy-row {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.privacy-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}checks
+
+.privacy-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.privacy-separator {
+  margin: 0 10px;
+  color: #cbd5e1;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--gray);
+}
+
+.footer-heading {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.copyright 
+{
+  font-size: 14px;
+  margin: 0;
+  color: var(--gray);
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Verifi<span>tech</span>
+                <span class="brand-tagline">Trust Simplified</span>
+            </a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stats">Why Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solution">Contact</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <a href="#" class="btn btn-sales">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 reveal">
+                    <div class="hero-badge">
+                        <i class="bi bi-grid-fill"></i>
+                        Resource Center
+                    </div>
+                    <h1>HR Leader Resource Kit</h1>
+                    <p class="lead mx-auto">Your one-stop library for tools, templates, and guides. Streamline your hiring, compliance, and verification processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-card reveal">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="search-input-wrapper">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" class="search-input" id="searchInput" placeholder="Search tools, templates, guides..." oninput="filterResources()">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mt-3 mt-lg-0">
+                        <div class="filter-tabs">
+                            <div class="filter-tab active" onclick="setFilter('all')" data-filter="all">All</div>
+                            <div class="filter-tab" onclick="setFilter('tool')" data-filter="tool">Tools</div>
+                            <div class="filter-tab" onclick="setFilter('template')" data-filter="template">Templates</div>
+                            <div class="filter-tab" onclick="setFilter('guide')" data-filter="guide">Guides</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Grid -->
+    <section class="resources-section" id="resources">
+        <div class="container">
+            <div class="row g-4" id="resourceGrid">
+                
+                <!-- Vendor Comparison Tool -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="tool" data-title="Vendor Screening Comparison Tool">
+                    <div class="resource-card">
+                        <div class="resource-image bg-primary">
+                            <i class="bi bi-clipboard-data resource-icon"></i>
+                            <span class="resource-type-badge">Interactive Tool</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Vendor Management</div>
+                            <h3 class="resource-title">Vendor Screening Comparison</h3>
+                            <p class="resource-desc">Compare up to 3 screening vendors based on ISO certification, TAT, cost, and tech integration.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-clock"></i> 5 mins</span>
+                                <a href="#" class="btn-resource">
+                                    Launch Tool <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hiring Spike Planner -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="tool" data-title="Hiring Spike Planner Tool">
+                    <div class="resource-card">
+                        <div class="resource-image bg-orange">
+                            <i class="bi bi-graph-up-arrow resource-icon"></i>
+                            <span class="resource-type-badge">Interactive Tool</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Recruitment</div>
+                            <h3 class="resource-title">Hiring Spike Planner</h3>
+                            <p class="resource-desc">Plan recruitment surges, calculate offers needed, batch capacity, and budget allocation.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-clock"></i> 10 mins</span>
+                                <a href="#" class="btn-resource">
+                                    Launch Tool <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HR Benchmark -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="tool" data-title="HR Benchmark Comparison Tool">
+                    <div class="resource-card">
+                        <div class="resource-image bg-navy">
+                            <i class="bi bi-bar-chart-line resource-icon"></i>
+                            <span class="resource-type-badge">Interactive Tool</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Analytics</div>
+                            <h3 class="resource-title">HR Benchmark Comparison</h3>
+                            <p class="resource-desc">Compare your HR metrics like Time to Hire, Attrition, and BGV TAT against industry standards.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-clock"></i> 8 mins</span>
+                                <a href="#" class="btn-resource">
+                                    Launch Tool <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audit Toolkit -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="tool" data-title="Audit Readiness Toolkit">
+                    <div class="resource-card">
+                        <div class="resource-image bg-success">
+                            <i class="bi bi-shield-check resource-icon"></i>
+                            <span class="resource-type-badge">Interactive Tool</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Compliance</div>
+                            <h3 class="resource-title">Audit Readiness Toolkit</h3>
+                            <p class="resource-desc">Check your readiness for Statutory, Client, ISO, and Due Diligence audits instantly.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-clock"></i> 10 mins</span>
+                                <a href="#" class="btn-resource">
+                                    Launch Tool <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policy Template -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="template" data-title="Pre-Employment Screening Policy Template">
+                    <div class="resource-card">
+                        <div class="resource-image bg-purple">
+                            <i class="bi bi-file-earmark-text resource-icon"></i>
+                            <span class="resource-type-badge">Template</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">HR Policy</div>
+                            <h3 class="resource-title">Screening Policy Template</h3>
+                            <p class="resource-desc">Generate a customized pre-employment background verification policy for your organization.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-clock"></i> 15 mins</span>
+                                <a href="#" class="btn-resource">
+                                    Open Template <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BGV Guide -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="guide" data-title="Complete Guide to Background Verification">
+                    <div class="resource-card">
+                        <div class="resource-image bg-warning">
+                            <i class="bi bi-journal-check resource-icon"></i>
+                            <span class="resource-type-badge">Guide</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Best Practices</div>
+                            <h3 class="resource-title">BGV Complete Guide</h3>
+                            <p class="resource-desc">Learn the types of checks, legal compliance, and how to choose the right vendor.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-file-pdf"></i> PDF</span>
+                                <a href="#" class="btn-resource">
+                                    Download <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Privacy Checklist -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="template" data-title="Data Privacy Compliance Checklist">
+                    <div class="resource-card">
+                        <div class="resource-image bg-primary">
+                            <i class="bi bi-shield-lock resource-icon"></i>
+                            <span class="resource-type-badge">Template</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Compliance</div>
+                            <h3 class="resource-title">Data Privacy Checklist</h3>
+                            <p class="resource-desc">Ensure your HR processes comply with PDPA, GDPR, and data protection regulations.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-file-pdf"></i> PDF</span>
+                                <a href="#" class="btn-resource">
+                                    Download <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interview Questions -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="guide" data-title="Behavioral Interview Questions Library">
+                    <div class="resource-card">
+                        <div class="resource-image bg-navy">
+                            <i class="bi bi-chat-square-quote resource-icon"></i>
+                            <span class="resource-type-badge">Guide</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Recruitment</div>
+                            <h3 class="resource-title">Interview Questions Library</h3>
+                            <p class="resource-desc">Curated list of behavioral and technical questions for different roles and experience levels.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-file-earmark-text"></i> Doc</span>
+                                <a href="#" class="btn-resource">
+                                    View <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Onboarding Checklist -->
+                <div class="col-lg-4 col-md-6 reveal resource-item" data-type="template" data-title="New Employee Onboarding Checklist">
+                    <div class="resource-card">
+                        <div class="resource-image bg-success">
+                            <i class="bi bi-person-plus resource-icon"></i>
+                            <span class="resource-type-badge">Template</span>
+                        </div>
+                        <div class="resource-body">
+                            <div class="resource-category">Onboarding</div>
+                            <h3 class="resource-title">Onboarding Checklist</h3>
+                            <p class="resource-desc">Standardized checklist for Day 1, Week 1, and Month 1 onboarding activities.</p>
+                            <div class="resource-footer">
+                                <span class="resource-time"><i class="bi bi-file-pdf"></i> PDF</span>
+                                <a href="#" class="btn-resource">
+                                    Download <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="stat-card">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Free HR Tools</div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="stat-card">
+                        <div class="stat-number">50k+</div>
+                        <div class="stat-label">Resources Downloaded</div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Trusted by HR Leaders</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="solution">
+        <div class="container">
+            <div class="reveal">
+                <h2>Need Custom Solutions?</h2>
+                <p>Partner with Verifitech to automate your background verification and streamline HR compliance.</p>
+                <a href="#" class="btn-cta">
+                    Schedule a Demo <i class="bi bi-calendar-check"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../contact/contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="../products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/verifitech/" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <!-- <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a> -->
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="./privacy-separator">|</span>  
+            <a href="./Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Filter Logic
+        let currentFilter = 'all';
+
+        function setFilter(type) {
+            currentFilter = type;
+            // Update active tab
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                if(tab.dataset.filter === type) tab.classList.add('active');
+                else tab.classList.remove('active');
+            });
+            filterResources();
+        }
+
+        function filterResources() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.resource-item');
+
+            items.forEach(item => {
+                const type = item.dataset.type;
+                const title = item.dataset.title.toLowerCase();
+                
+                const matchesFilter = (currentFilter === 'all' || type === currentFilter);
+                const matchesSearch = title.includes(searchTerm);
+
+                if (matchesFilter && matchesSearch) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Demo | Verifitech</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --primary-lighter: #f0fdfa;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --border-gray: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --orange: #f97316;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #eff6ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* ================= MODAL BASE STYLES ================= */
+        .demo-modal {
+            padding: 0 !important;
+        }
+        
+        .demo-modal .modal-dialog {
+            max-width: 1000px;
+            margin: 20px auto;
+            height: calc(100vh - 40px);
+            max-height: 800px;
+        }
+        
+        @media (max-width: 1024px) {
+            .demo-modal .modal-dialog {
+                max-width: 95vw;
+                margin: 10px auto;
+                height: calc(100vh - 20px);
+                max-height: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .demo-modal .modal-dialog {
+                max-width: 100vw;
+                margin: 0;
+                height: 100vh;
+                max-height: none;
+                border-radius: 0;
+            }
+        }
+        
+        .demo-modal .modal-content {
+            border: none;
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-modal .modal-content {
+                border-radius: 0;
+            }
+        }
+        
+        .demo-modal .modal-body {
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .demo-container {
+            display: flex;
+            height: 100%;
+        }
+        
+        @media (max-width: 991px) {
+            .demo-container {
+                flex-direction: column;
+            }
+        }
+        
+        /* ================= LEFT SIDE PANEL ================= */
+        .demo-content {
+            flex: 0 0 38%;
+            padding: 48px 40px;
+            background: linear-gradient(160deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 1024px) {
+            .demo-content {
+                padding: 32px 24px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .demo-content {
+                flex: none;
+                padding: 24px 20px;
+                min-height: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .demo-content {
+                padding: 20px 16px;
+            }
+        }
+        
+        .demo-content::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -40%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.25) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .demo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(26, 194, 193, 0.15);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            border: 1px solid rgba(26, 194, 193, 0.3);
+            width: fit-content;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-content h2 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            color: white;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 1024px) {
+            .demo-content h2 {
+                font-size: 26px;
+                margin-bottom: 24px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .demo-content h2 {
+                font-size: 22px;
+                margin-bottom: 16px;
+            }
+        }
+        
+        .demo-content h2 span {
+            background: linear-gradient(135deg, var(--primary) 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .benefits-list {
+            position: relative;
+            z-index: 1;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        @media (max-width: 991px) {
+            .benefits-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 1024px) {
+            .benefits-list li {
+                margin-bottom: 16px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .benefits-list li {
+                margin-bottom: 0;
+            }
+        }
+        
+        .benefit-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(26, 194, 193, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 16px;
+            flex-shrink: 0;
+            border: 1px solid rgba(26, 194, 193, 0.2);
+        }
+        
+        .benefit-text {
+            font-weight: 500;
+        }
+        
+        /* ================= RIGHT SIDE FORM AREA ================= */
+        .demo-form-section {
+            flex: 1;
+            padding: 32px 40px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            min-width: 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .demo-form-section {
+                padding: 24px 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .demo-form-section {
+                padding: 20px 16px;
+            }
+        }
+        
+        /* ================= PROGRESS STEPS ================= */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-gray);
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 576px) {
+            .progress-steps {
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 576px) {
+            .step span:not(.step-number) {
+                display: none;
+            }
+        }
+        
+        .step.active {
+            color: var(--primary);
+        }
+        
+        .step.completed {
+            color: var(--success);
+        }
+        
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            border: 2px solid var(--border-gray);
+            flex-shrink: 0;
+        }
+        
+        .step.active .step-number {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .step.completed .step-number {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+        
+        .step-line {
+            flex: 1;
+            height: 2px;
+            background: var(--border-gray);
+            margin: 0 12px;
+            max-width: 60px;
+        }
+        
+        @media (max-width: 576px) {
+            .step-line {
+                margin: 0 8px;
+            }
+        }
+        
+        .step-line.completed {
+            background: var(--success);
+        }
+        
+        /* ================= FORM STEPS ================= */
+        .form-steps-wrapper {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-step {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            animation: slideIn 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .form-step.active {
+            display: flex;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .form-header {
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 576px) {
+            .form-header {
+                margin-bottom: 16px;
+            }
+        }
+        
+        .form-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-header h3 {
+                font-size: 18px;
+            }
+        }
+        
+        .form-header p {
+            font-size: 14px;
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .form-header p {
+                font-size: 13px;
+            }
+        }
+        
+        /* ================= FORM CONTENT SCROLLABLE AREA ================= */
+        .form-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 8px;
+            margin-right: -8px;
+        }
+        
+        .form-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .form-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .form-content::-webkit-scrollbar-thumb {
+            background: var(--border-gray);
+            border-radius: 3px;
+        }
+        
+        .demo-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 576px) {
+            .demo-form .form-group {
+                margin-bottom: 16px;
+            }
+        }
+        
+        .demo-form label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .demo-form .form-control {
+            border: 1.5px solid var(--border-gray);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--dark);
+            background: white;
+            transition: all 0.2s ease;
+            height: 48px;
+        }
+        
+        @media (max-width: 576px) {
+            .demo-form .form-control {
+                height: 44px;
+                font-size: 16px;
+            }
+        }
+        
+        .demo-form .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 194, 193, 0.1);
+            outline: none;
+        }
+        
+        .demo-form .form-control.is-invalid {
+            border-color: var(--danger);
+            background-image: none;
+        }
+        
+        .demo-form .form-control.is-valid {
+            border-color: var(--success);
+            background-image: none;
+        }
+        
+        /* Email validation message */
+        .email-validation-msg {
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .email-validation-msg.show {
+            display: flex;
+        }
+        
+        .email-validation-msg.invalid {
+            color: var(--danger);
+        }
+        
+        .email-validation-msg.valid {
+            color: var(--success);
+        }
+        
+        /* ================= WORKABLE SERVICE SELECTION (3 CARDS) ================= */
+        .services-selection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        @media (max-width: 1024px) {
+            .services-selection {
+                gap: 12px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-selection {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+        
+        .service-card {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .service-card input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+        }
+        
+        .service-card-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+            border: 2px solid var(--border-gray);
+            border-radius: 16px;
+            background: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            height: 100%;
+            position: relative;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-card-inner {
+                padding: 20px 12px;
+            }
+        }
+        
+        .service-card:hover .service-card-inner {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .service-card input[type="radio"]:checked + .service-card-inner {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary-lighter) 0%, white 100%);
+            box-shadow: 0 8px 32px rgba(26, 194, 193, 0.15);
+        }
+        
+        .service-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-card-icon {
+                width: 56px;
+                height: 56px;
+                margin-bottom: 12px;
+            }
+        }
+        
+        .service-card-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            opacity: 0.1;
+            transition: all 0.3s ease;
+        }
+        
+        .bgv-card .service-card-icon { 
+            background: #fef3c7; 
+            color: #f59e0b; 
+        }
+        .bgv-card .service-card-icon::before { 
+            background: #f59e0b; 
+        }
+        
+        .exit-card .service-card-icon { 
+            background: #ede9fe; 
+            color: #8b5cf6; 
+        }
+        .exit-card .service-card-icon::before { 
+            background: #8b5cf6; 
+        }
+        
+        .psycho-card .service-card-icon { 
+            background: #dbeafe; 
+            color: #3b82f6; 
+        }
+        .psycho-card .service-card-icon::before { 
+            background: #3b82f6; 
+        }
+        
+        .service-card:hover .service-card-icon::before,
+        .service-card input[type="radio"]:checked + .service-card-inner .service-card-icon::before {
+            opacity: 0.2;
+            transform: scale(1.1);
+        }
+        
+        .service-card input[type="radio"]:checked + .service-card-inner .service-card-icon {
+            transform: scale(1.05);
+        }
+        
+        .service-card-icon i {
+            font-size: 28px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-card-icon i {
+                font-size: 24px;
+            }
+        }
+        
+        .service-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0 0 8px 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-card h4 {
+                font-size: 14px;
+            }
+        }
+        
+        .service-card p {
+            font-size: 13px;
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-card p {
+                font-size: 12px;
+            }
+        }
+        
+        .service-check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: var(--border-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card input[type="radio"]:checked + .service-card-inner .service-check {
+            opacity: 1;
+            transform: scale(1);
+            background: var(--primary);
+        }
+        
+        /* ================= CANDIDATES INPUT ================= */
+        .candidates-wrapper {
+            background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+            border-radius: 16px;
+            padding: 20px;
+            border: 2px solid var(--border-gray);
+        }
+        
+        .candidates-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        .candidates-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+        
+        .candidates-badge {
+            padding: 4px 10px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        .candidates-input-box {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        
+        @media (max-width: 576px) {
+            .candidates-input-box {
+                flex-direction: column;
+            }
+        }
+        
+        .candidates-field {
+            flex: 1;
+            position: relative;
+        }
+        
+        .candidates-field i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .candidates-field input {
+            width: 100%;
+            border: 1.5px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 14px 16px 14px 48px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+            background: white;
+            transition: all 0.2s ease;
+        }
+        
+        .candidates-field input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 194, 193, 0.1);
+            outline: none;
+        }
+        
+        .candidates-presets {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .preset-btn {
+            padding: 8px 16px;
+            background: white;
+            border: 1.5px solid var(--border-gray);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .preset-btn:hover, .preset-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* ================= NEW CALENDAR LAYOUT ================= */
+        .calendar-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .calendar-fullwidth {
+            width: 100%;
+        }
+        
+        .flatpickr-calendar {
+            box-shadow: none;
+            border: 1.5px solid var(--border-gray);
+            border-radius: 16px;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        
+        .flatpickr-month {
+            height: 50px;
+            margin-bottom: 12px;
+        }
+        
+        .flatpickr-current-month {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .flatpickr-weekdays {
+            margin-bottom: 12px;
+        }
+        
+        .flatpickr-weekday {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gray);
+        }
+        
+        .flatpickr-day {
+            font-size: 14px;
+            height: 44px;
+            line-height: 44px;
+            border-radius: 10px;
+            margin: 3px;
+            font-weight: 600;
+        }
+        
+        .flatpickr-day.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 194, 193, 0.3);
+        }
+        
+        .flatpickr-day.today {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+        
+        /* Time Slots - Below Calendar */
+        .time-slots-section {
+            width: 100%;
+        }
+        
+        .time-slots-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-gray);
+        }
+        
+        .time-slots-header i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+        
+        @media (max-width: 576px) {
+            .slots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+        
+        .time-slot {
+            padding: 16px 12px;
+            border: 2px solid var(--border-gray);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+        
+        .time-slot:hover:not(.disabled) {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .time-slot.selected {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 194, 193, 0.3);
+        }
+        
+        .time-slot.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background: var(--light-gray);
+            text-decoration: line-through;
+        }
+        
+        /* Meeting Platforms - Initially Hidden */
+        .meeting-platforms {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid var(--border-gray);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            display: none;
+        }
+        
+        .meeting-platforms.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .platforms-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .platforms-title i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .platform-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .platform-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .platform-radio {
+            position: relative;
+        }
+        
+        .platform-radio input {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .platform-radio label {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            border: 2px solid var(--border-gray);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+            margin: 0;
+        }
+        
+        @media (max-width: 576px) {
+            .platform-radio label {
+                padding: 16px;
+            }
+        }
+        
+        .platform-radio label:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .platform-radio input:checked + label {
+            border-color: var(--primary);
+            background: var(--primary-lighter);
+            box-shadow: 0 8px 24px rgba(26, 194, 193, 0.15);
+        }
+        
+        .platform-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .zoho .platform-icon { background: #fef3c7; color: #f59e0b; }
+        .teams .platform-icon { background: #e0e7ff; color: #4f46e5; }
+        .google .platform-icon { background: #fce7f3; color: #db2777; }
+        
+        .platform-radio input:checked + label .platform-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .platform-info h5 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+            color: var(--dark);
+        }
+        
+        .platform-info p {
+            font-size: 13px;
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        /* Platform Availability Badge */
+        .platform-availability {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--success);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 20px;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .platform-availability.low {
+            background: var(--warning);
+        }
+        
+        .platform-availability.empty {
+            background: var(--danger);
+        }
+        
+        /* Selected Info Summary */
+        .selected-info {
+            background: linear-gradient(135deg, var(--primary-lighter) 0%, white 100%);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 15px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .selected-info i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        /* ================= BUTTONS ================= */
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 20px;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 576px) {
+            .form-actions {
+                flex-direction: column;
+                padding-top: 16px;
+            }
+        }
+        
+        .btn-primary-custom {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 56px;
+        }
+        
+        @media (max-width: 576px) {
+            .btn-primary-custom {
+                height: 52px;
+                font-size: 15px;
+            }
+        }
+        
+        .btn-primary-custom:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+        }
+        
+        .btn-primary-custom:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary-custom {
+            padding: 16px 28px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid var(--border-gray);
+            background: white;
+            color: var(--gray);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 56px;
+        }
+        
+        @media (max-width: 576px) {
+            .btn-secondary-custom {
+                height: 52px;
+                font-size: 15px;
+            }
+        }
+        
+        .btn-secondary-custom:hover {
+            border-color: var(--dark);
+            color: var(--dark);
+        }
+        
+        /* ================= SUCCESS STATE ================= */
+        .success-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            text-align: center;
+            padding: 20px 0;
+            animation: fadeIn 0.4s ease;
+            overflow-y: auto;
+        }
+        
+        .success-container.active {
+            display: flex;
+        }
+        
+        .success-header {
+            margin-bottom: 24px;
+            flex-shrink: 0;
+        }
+        
+        .success-animation {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-lighter) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            position: relative;
+            border: 3px solid var(--primary-light);
+        }
+        
+        .success-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.2;
+            animation: pulse-ring 2s ease-out infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        .success-animation i {
+            font-size: 40px;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .success-header h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 0 0 8px 0;
+        }
+        
+        .success-header p {
+            color: var(--gray);
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        /* Booking Summary */
+        .booking-summary {
+            background: white;
+            border: 2px solid var(--border-gray);
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .summary-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-gray);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .summary-title i {
+            color: var(--primary);
+        }
+        
+        .summary-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .summary-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .summary-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .summary-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0 0 2px 0;
+        }
+        
+        .summary-text p {
+            font-size: 13px;
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        /* Meeting Link Box */
+        .meeting-link-box {
+            background: var(--primary-lighter);
+            border: 2px dashed var(--primary);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+            text-align: center;
+        }
+        
+        .meeting-link-box label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .meeting-link-box a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 14px;
+            word-break: break-all;
+            text-decoration: none;
+        }
+        
+        .meeting-link-box a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Calendar Actions */
+        .calendar-actions-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+        
+        .calendar-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .btn-calendar {
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        
+        .btn-calendar.google { background: #4285f4; color: white; }
+        .btn-calendar.outlook { background: #0078d4; color: white; }
+        .btn-calendar.ical { background: var(--dark); color: white; }
+        
+        .btn-calendar:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        /* Close Button */
+        .btn-close-custom {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 100;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .btn-close-custom:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        @media (max-width: 768px) {
+            .btn-close-custom {
+                top: 16px;
+                right: 16px;
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+        }
+        
+        /* Form Footer */
+        .form-footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: auto;
+            padding-top: 16px;
+            flex-shrink: 0;
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Loading State */
+        .btn-loading {
+            position: relative;
+            color: transparent !important;
+        }
+        
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spinner 0.8s linear infinite;
+        }
+        
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ================= PAGE DEMO ================= */
+        .page-demo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .page-demo h1 {
+            font-weight: 800;
+            color: var(--dark);
+            text-align: center;
+            font-size: clamp(28px, 5vw, 48px);
+            line-height: 1.2;
+        }
+        
+        .btn-schedule-demo {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white !important;
+            border: none;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 194, 193, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 576px) {
+            .btn-schedule-demo {
+                padding: 16px 28px;
+                font-size: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        .btn-schedule-demo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 194, 193, 0.4);
+        }
+        
+        /* Hide scrollbar for success container */
+        .success-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .success-container::-webkit-scrollbar-thumb {
+            background: var(--border-gray);
+            border-radius: 2px;
+        }
+        
+        /* Error Message */
+        .error-message {
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        /* Warning Message for Low Links */
+        .warning-message {
+            background: #fef3c7;
+            border: 1.5px solid #fcd34d;
+            color: #92400e;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .warning-message.show {
+            display: flex;
+        }
+        
+        .warning-message i {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Redirect countdown message */
+        .redirect-message {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: var(--primary-lighter);
+            border: 1px solid var(--primary-light);
+            border-radius: 8px;
+            color: var(--primary-dark);
+            font-size: 14px;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .redirect-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            text-align: center;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 16px;
+            animation: bounce 2s infinite;
+            display: none;
+        }
+        
+        .scroll-indicator.show {
+            display: block;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Modal - Auto Opens Immediately -->
+    <div class="modal fade demo-modal" id="demoModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close" id="closeModalBtn">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    
+                    <div class="demo-container">
+                        <!-- Left Side: Gradient Info Panel -->
+                        <div class="demo-content">
+                            <div class="demo-badge">
+                                <i class="bi bi-shield-check"></i>
+                                FCRA Compliant
+                            </div>
+                            
+                            <h2>Get your <span>personalized demo</span> in 30 minutes</h2>
+                            
+                            <ul class="benefits-list">
+                                <li>
+                                    <div class="benefit-icon"><i class="bi bi-check-lg"></i></div>
+                                    <span class="benefit-text">FCRA compliant workflows across all 50 states</span>
+                                </li>
+                                <li>
+                                    <div class="benefit-icon"><i class="bi bi-lightning"></i></div>
+                                    <span class="benefit-text">Reduce screening time by up to 60%</span>
+                                </li>
+                                <li>
+                                    <div class="benefit-icon"><i class="bi bi-shield-lock"></i></div>
+                                    <span class="benefit-text">Automated compliance & E-Verify integration</span>
+                                </li>
+                                <li>
+                                    <div class="benefit-icon"><i class="bi bi-graph-up"></i></div>
+                                    <span class="benefit-text">Volume pricing tailored to your needs</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Right Side: Form Area -->
+                        <div class="demo-form-section">
+                            
+                            <!-- Progress Steps -->
+                            <div class="progress-steps" id="progressSteps">
+                                <div class="step active" data-step="1">
+                                    <span class="step-number">1</span>
+                                    <span>Details</span>
+                                </div>
+                                <div class="step-line" id="line1"></div>
+                                <div class="step" data-step="2">
+                                    <span class="step-number">2</span>
+                                    <span>Schedule</span>
+                                </div>
+                                <div class="step-line" id="line2"></div>
+                                <div class="step" data-step="3">
+                                    <span class="step-number">3</span>
+                                    <span>Confirm</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-steps-wrapper">
+                                <!-- Step 1: Contact & Requirements -->
+                                <div class="form-step active" id="step1">
+                                    <div class="form-header">
+                                        <h3>Tell us about your needs</h3>
+                                        <p>Help us prepare a customized demo for your requirements.</p>
+                                    </div>
+                                    
+                                    <div class="form-content">
+                                        <form class="demo-form" id="detailsForm">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="name">Full Name *</label>
+                                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="email">Work Email *</label>
+                                                        <input type="email" class="form-control" id="email" placeholder="you@company.com" required>
+                                                        <div class="email-validation-msg" id="emailValidationMsg">
+                                                            <i class="bi bi-exclamation-circle"></i>
+                                                            <span>Please use a company email address</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone Number *</label>
+                                                        <input type="tel" class="form-control" id="phone" placeholder="+1 (555) 000-0000" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="company">Company Name *</label>
+                                                        <input type="text" class="form-control" id="company" placeholder="Enter company name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- WORKABLE 3-Card Service Selection -->
+                                            <div class="form-group">
+                                                <label>Select Service *</label>
+                                                <div class="services-selection">
+                                                    <!-- BGV Card -->
+                                                    <div class="service-card bgv-card" onclick="selectService('svc-bgv')">
+                                                        <input type="radio" name="service" id="svc-bgv" value="Background Verification" required>
+                                                        <div class="service-card-inner">
+                                                            <div class="service-check"><i class="bi bi-check-lg"></i></div>
+                                                            <div class="service-card-icon">
+                                                                <i class="bi bi-shield-check"></i>
+                                                            </div>
+                                                            <h4>BGV</h4>
+                                                            <p>Background Verification checks for employment screening</p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Exit Interview Card -->
+                                                    <div class="service-card exit-card" onclick="selectService('svc-exit')">
+                                                        <input type="radio" name="service" id="svc-exit" value="Exit Interview">
+                                                        <div class="service-card-inner">
+                                                            <div class="service-check"><i class="bi bi-check-lg"></i></div>
+                                                            <div class="service-card-icon">
+                                                                <i class="bi bi-door-open"></i>
+                                                            </div>
+                                                            <h4>Exit Interview</h4>
+                                                            <p>Automated exit interview process & feedback collection</p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Psychometric Card -->
+                                                    <div class="service-card psycho-card" onclick="selectService('svc-psycho')">
+                                                        <input type="radio" name="service" id="svc-psycho" value="Psychometric Test">
+                                                        <div class="service-card-inner">
+                                                            <div class="service-check"><i class="bi bi-check-lg"></i></div>
+                                                            <div class="service-card-icon">
+                                                                   <i class="bi bi-brain"></i>
+                                                            </div>
+                                                            <h4>Psychometric</h4>
+                                                            <p>Cognitive & behavioral assessment tests for candidates</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Candidates Input -->
+                                            <div class="form-group">
+                                                <div class="candidates-wrapper">
+                                                    <div class="candidates-header">
+                                                        <label class="candidates-label">
+                                                            <i class="bi bi-people-fill" style="color: var(--primary);"></i>
+                                                            Monthly Candidate Volume *
+                                                        </label>
+                                                        <span class="candidates-badge">Estimates OK</span>
+                                                    </div>
+                                                    
+                                                    <div class="candidates-input-box">
+                                                        <div class="candidates-field">
+                                                            <i class="bi bi-hash"></i>
+                                                            <input type="number" id="candidates" placeholder="e.g. 150" min="1" required oninput="validateStep1()">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="candidates-presets">
+                                                        <button type="button" class="preset-btn" data-value="10" onclick="setCandidates(10)">10/month</button>
+                                                        <button type="button" class="preset-btn" data-value="50" onclick="setCandidates(50)">50/month</button>
+                                                        <button type="button" class="preset-btn" data-value="100" onclick="setCandidates(100)">100/month</button>
+                                                        <button type="button" class="preset-btn" data-value="500" onclick="setCandidates(500)">500/month</button>
+                                                        <button type="button" class="preset-btn" data-value="1000" onclick="setCandidates(1000)">1000/month</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-primary-custom" id="continueToStep2" disabled>
+                                            Continue to Scheduling <i class="bi bi-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 2: Calendar & Platform -->
+                                <div class="form-step" id="step2">
+                                    <div class="form-header">
+                                        <h3>Schedule your demo</h3>
+                                        <p>Select your preferred date, time, and meeting platform.</p>
+                                    </div>
+                                    
+                                    <div class="form-content" id="step2Content">
+                                        <!-- Error Message Container -->
+                                        <div class="error-message" id="emailError"></div>
+                                        
+                                        <!-- Warning for low platform links -->
+                                        <div class="warning-message" id="platformWarning">
+                                            <i class="bi bi-exclamation-triangle-fill"></i>
+                                            <span id="platformWarningText">Low availability warning</span>
+                                        </div>
+                                        
+                                        <!-- Selected Date Summary -->
+                                        <div class="selected-info" id="selectedInfo" style="display: none;">
+                                            <i class="bi bi-calendar-check-fill"></i>
+                                            <span id="selectedDateTimeText"></span>
+                                        </div>
+                                        
+                                        <div class="calendar-section">
+                                            <!-- Full Width Calendar -->
+                                            <div class="calendar-fullwidth">
+                                                <div id="calendar"></div>
+                                            </div>
+                                            
+                                            <!-- Time Slots Below Calendar -->
+                                            <div class="time-slots-section" id="timeSlotsSection" style="display: none;">
+                                                <div class="time-slots-header">
+                                                    <i class="bi bi-clock"></i>
+                                                    Available Time Slots
+                                                </div>
+                                                <div class="slots-grid" id="slotsGrid">
+                                                    <!-- Generated by JS -->
+                                                </div>
+                                                
+                                                <!-- Scroll Indicator -->
+                                                <div class="scroll-indicator" id="scrollIndicator">
+                                                    <i class="bi bi-chevron-down"></i> Select a time slot to continue
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Meeting Platforms - Hidden until time slot selected -->
+                                        <div class="meeting-platforms" id="meetingPlatforms">
+                                            <div class="platforms-title">
+                                                <i class="bi bi-camera-video"></i>
+                                                Choose Meeting Platform
+                                            </div>
+                                            <div class="platform-options">
+                                                <div class="platform-radio zoho" style="position: relative;">
+                                                    <span class="platform-availability" id="zohoAvailabilityBadge">3 left</span>
+                                                    <input type="radio" name="platform" id="platform-zoho" value="Zoho Meeting" onchange="selectPlatform(this)">
+                                                    <label for="platform-zoho">
+                                                        <div class="platform-icon">
+                                                            <i class="bi bi-camera-video-fill"></i>
+                                                        </div>
+                                                        <div class="platform-info">
+                                                            <h5>Zoho Meeting</h5>
+                                                            <p>Video Conference</p>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="platform-radio teams" style="position: relative;">
+                                                    <span class="platform-availability" id="teamsAvailabilityBadge">3 left</span>
+                                                    <input type="radio" name="platform" id="platform-teams" value="Microsoft Teams" onchange="selectPlatform(this)">
+                                                    <label for="platform-teams">
+                                                        <div class="platform-icon">
+                                                            <i class="bi bi-microsoft-teams"></i>
+                                                        </div>
+                                                        <div class="platform-info">
+                                                            <h5>Microsoft Teams</h5>
+                                                            <p>Business Meeting</p>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="platform-radio google" style="position: relative;">
+                                                    <span class="platform-availability" id="meetAvailabilityBadge">3 left</span>
+                                                    <input type="radio" name="platform" id="platform-google" value="Google Meet" onchange="selectPlatform(this)">
+                                                    <label for="platform-google">
+                                                        <div class="platform-icon">
+                                                            <i class="bi bi-google"></i>
+                                                        </div>
+                                                        <div class="platform-info">
+                                                            <h5>Google Meet</h5>
+                                                            <p>Video Call</p>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-secondary-custom" id="backToStep1">
+                                            <i class="bi bi-arrow-left"></i> Back
+                                        </button>
+                                        <button type="button" class="btn-primary-custom" id="confirmBooking" disabled>
+                                            Confirm Booking <i class="bi bi-check-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 3: Success -->
+                                <div class="success-container" id="step3">
+                                    <div class="success-header">
+                                        <div class="success-animation">
+                                            <div class="success-pulse"></div>
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <h3>Demo Scheduled!</h3>
+                                        <p>We've sent a confirmation to your email with all the details.</p>
+                                    </div>
+                                    
+                                    <div class="booking-summary">
+                                        <div class="summary-title">
+                                            <i class="bi bi-calendar-check"></i>
+                                            Booking Details
+                                        </div>
+                                        
+                                        <div class="summary-row">
+                                            <div class="summary-icon">
+                                                <i class="bi bi-calendar-event"></i>
+                                            </div>
+                                            <div class="summary-text">
+                                                <h4 id="summaryDate">Monday, January 15, 2024</h4>
+                                                <p id="summaryTime">10:00 AM - 10:30 AM EST</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="summary-row">
+                                            <div class="summary-icon" id="platformSummaryIcon">
+                                                <i class="bi bi-camera-video"></i>
+                                            </div>
+                                            <div class="summary-text">
+                                                <h4 id="summaryPlatform">Google Meet</h4>
+                                                <p id="summaryPlatformText">Meeting link will be sent via email</p>
+                                            </div>
+                                            <div class="meeting-link-box" id="meetLinkBox" style="display: none; width: 100%; margin-top: 8px;">
+                                                <label>Your Meeting Link</label>
+                                                <a href="#" id="meetLink" target="_blank">meet.google.com/...</a>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="summary-row">
+                                            <div class="summary-icon">
+                                                <i class="bi bi-envelope"></i>
+                                            </div>
+                                            <div class="summary-text">
+                                                <h4>Confirmation sent to</h4>
+                                                <p id="summaryEmail">user@company.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calendar-actions-title">Add to your calendar:</div>
+                                    <div class="calendar-actions">
+                                        <a href="#" class="btn-calendar google" id="googleCalLink" target="_blank">
+                                            <i class="bi bi-google"></i> Google Calendar
+                                        </a>
+                                        <a href="#" class="btn-calendar outlook" id="outlookLink" target="_blank">
+                                            <i class="bi bi-microsoft"></i> Outlook
+                                        </a>
+                                        <a href="#" class="btn-calendar ical" id="icalLink" download>
+                                            <i class="bi bi-calendar"></i> iCal
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="redirect-message" id="redirectMessage">
+                                        <i class="bi bi-arrow-clockwise"></i> Redirecting to home page in <span id="countdown">5</span> seconds...
+                                    </div>
+                                    
+                                    <button type="button" class="btn-primary-custom" onclick="goToHome()" style="min-width: 200px;">
+                                        <i class="bi bi-check-circle"></i> Done
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-footer" id="formFooter">
+                                By scheduling a demo, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script>
+        // ================= BLOCKED EMAIL DOMAINS =================
+        const BLOCKED_DOMAINS = [
+            'gmail.com',
+            'yahoo.com',
+            'hotmail.com',
+            'outlook.com',
+            'aol.com',
+            'icloud.com',
+            'me.com',
+            'mac.com',
+            'live.com',
+            'msn.com',
+            'ymail.com',
+            'rocketmail.com',
+            'protonmail.com',
+            'zoho.com',
+            'yandex.com',
+            'mail.ru',
+            'qq.com',
+            '163.com',
+            '126.com',
+            'sina.com',
+            'sohu.com',
+            'hotmail.co.uk',
+            'hotmail.fr',
+            'yahoo.co.uk',
+            'yahoo.fr',
+            'yahoo.in',
+            'outlook.co.uk',
+            'gmail.co.uk',
+            'googlemail.com',
+            'hey.com',
+            'pm.me',
+            'fastmail.com',
+            'tutanota.com',
+            'gmx.com',
+            'gmx.net',
+            'mail.com',
+            'inbox.com'
+        ];
+
+        // ================= PLATFORM LINK POOLS SYSTEM =================
+        const PLATFORM_LINKS_POOL = {
+            googleMeet: {
+                available: [
+                    'https://meet.google.com/fxz-ozwx-rxt',
+                    'https://meet.google.com/kyf-aujr-ekd',
+                    'https://meet.google.com/cgv-xgdi-arx'
+                ],
+                used: [],
+                currentAssignment: null
+            },
+            zohoMeeting: {
+                available: [
+                    'https://meeting.zoho.com/meeting/join?id=123456789',
+                    'https://meeting.zoho.com/meeting/join?id=987654321',
+                    'https://meeting.zoho.com/meeting/join?id=456789123'
+                ],
+                used: [],
+                currentAssignment: null
+            },
+            microsoftTeams: {
+                available: [
+                    'https://teams.live.com/meet/931168647037?p=UWLlyYQSjyy7hEjt90',
+                    'https://teams.microsoft.com/l/meetup-join/19%3ameeting_987654321%40thread.v2/0?context=%7b%22Tid%22%3a%22123%22%7d',
+                    'https://teams.microsoft.com/l/meetup-join/19%3ameeting_456789123%40thread.v2/0?context=%7b%22Tid%22%3a%22123%22%7d'
+                ],
+                used: [],
+                currentAssignment: null
+            }
+        };
+
+        // ================= EMAILJS CONFIGURATION =================
+        const EMAILJS_CONFIG = {
+            PUBLIC_KEY: 'C2FPjMqY1hB1aIB0X',
+            SERVICE_ID: 'service_jkft8rg',
+            USER_TEMPLATE_ID: 'template_fsjkf3s',
+            HOST_TEMPLATE_ID: 'template_gj9o8wa',
+            HOST_EMAIL: 'kovendan16@gmail.com'
+        };
+
+        // Initialize EmailJS
+        (function() {
+            try {
+                emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+                console.log('✅ EmailJS initialized successfully');
+            } catch (error) {
+                console.error('❌ EmailJS init error:', error);
+            }
+        })();
+
+        // State Management
+        let currentStep = 1;
+        let formData = {
+            name: '',
+            email: '',
+            phone: '',
+            company: '',
+            service: '',
+            candidates: '',
+            date: '',
+            time: '',
+            platform: '',
+            meetLink: ''
+        };
+        
+        let bookingCompleted = false;
+        let isEmailValid = false;
+
+        // ================= EMAIL VALIDATION =================
+        function validateCompanyEmail(email) {
+            if (!email || !email.includes('@')) return false;
+            
+            const domain = email.split('@')[1].toLowerCase();
+            return !BLOCKED_DOMAINS.includes(domain);
+        }
+
+        function checkEmailValidation() {
+            const emailInput = document.getElementById('email');
+            const validationMsg = document.getElementById('emailValidationMsg');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                emailInput.classList.remove('is-invalid', 'is-valid');
+                validationMsg.classList.remove('show', 'valid', 'invalid');
+                isEmailValid = false;
+                validateStep1();
+                return;
+            }
+            
+            // Basic email format check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailInput.classList.add('is-invalid');
+                emailInput.classList.remove('is-valid');
+                validationMsg.classList.add('show', 'invalid');
+                validationMsg.classList.remove('valid');
+                validationMsg.innerHTML = '<i class="bi bi-exclamation-circle"></i><span>Please enter a valid email address</span>';
+                isEmailValid = false;
+                validateStep1();
+                return;
+            }
+            
+            // Company email check
+            if (validateCompanyEmail(email)) {
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+                validationMsg.classList.add('show', 'valid');
+                validationMsg.classList.remove('invalid');
+                validationMsg.innerHTML = '<i class="bi bi-check-circle"></i><span>Valid company email</span>';
+                isEmailValid = true;
+            } else {
+                emailInput.classList.add('is-invalid');
+                emailInput.classList.remove('is-valid');
+                validationMsg.classList.add('show', 'invalid');
+                validationMsg.classList.remove('valid');
+                validationMsg.innerHTML = '<i class="bi bi-exclamation-circle"></i><span>Please use a company email address (personal emails like Gmail, Yahoo, Outlook are not allowed)</span>';
+                isEmailValid = false;
+            }
+            
+            validateStep1();
+        }
+
+        // Add email validation listener
+        document.getElementById('email').addEventListener('input', checkEmailValidation);
+        document.getElementById('email').addEventListener('blur', checkEmailValidation);
+
+        // Service Selection
+        function selectService(serviceId) {
+            document.querySelectorAll('input[name="service"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            const selectedRadio = document.getElementById(serviceId);
+            if (selectedRadio) {
+                selectedRadio.checked = true;
+            }
+            
+            validateStep1();
+        }
+
+        // Candidates Input
+        function setCandidates(value) {
+            document.getElementById('candidates').value = value;
+            
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.dataset.value) === value) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            validateStep1();
+        }
+
+        // Validate Step 1
+        function validateStep1() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const service = document.querySelector('input[name="service"]:checked');
+            const candidates = document.getElementById('candidates').value;
+            
+            const isValid = name && email && phone && company && service && candidates && isEmailValid;
+            document.getElementById('continueToStep2').disabled = !isValid;
+            return isValid;
+        }
+
+        // Add input listeners for text fields
+        document.querySelectorAll('#step1 input[type="text"], #step1 input[type="tel"]').forEach(input => {
+            input.addEventListener('input', validateStep1);
+        });
+
+        // Continue to Step 2
+        document.getElementById('continueToStep2').addEventListener('click', function() {
+            if (!validateStep1()) return;
+            
+            formData = {
+                ...formData,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                service: document.querySelector('input[name="service"]:checked').value,
+                candidates: document.getElementById('candidates').value
+            };
+            
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+            updateProgress(2);
+            initCalendar();
+            updateAllPlatformAvailability();
+        });
+
+        // Get platform pool based on selection
+        function getPlatformPool(platformName) {
+            switch(platformName) {
+                case 'Google Meet':
+                    return PLATFORM_LINKS_POOL.googleMeet;
+                case 'Zoho Meeting':
+                    return PLATFORM_LINKS_POOL.zohoMeeting;
+                case 'Microsoft Teams':
+                    return PLATFORM_LINKS_POOL.microsoftTeams;
+                default:
+                    return null;
+            }
+        }
+
+        // Get platform display name for badges
+        function getPlatformBadgeId(platformName) {
+            switch(platformName) {
+                case 'Google Meet':
+                    return 'meetAvailabilityBadge';
+                case 'Zoho Meeting':
+                    return 'zohoAvailabilityBadge';
+                case 'Microsoft Teams':
+                    return 'teamsAvailabilityBadge';
+                default:
+                    return '';
+            }
+        }
+
+        // Update all platform availability displays
+        function updateAllPlatformAvailability() {
+            updatePlatformAvailability('Google Meet');
+            updatePlatformAvailability('Zoho Meeting');
+            updatePlatformAvailability('Microsoft Teams');
+        }
+
+        // Update specific platform availability badge and warnings
+        function updatePlatformAvailability(platformName) {
+            const pool = getPlatformPool(platformName);
+            if (!pool) return;
+            
+            const availableCount = pool.available.length;
+            const badgeId = getPlatformBadgeId(platformName);
+            const badge = document.getElementById(badgeId);
+            const warning = document.getElementById('platformWarning');
+            const warningText = document.getElementById('platformWarningText');
+            
+            const radioIdMap = {
+                'Google Meet': 'platform-google',
+                'Zoho Meeting': 'platform-zoho',
+                'Microsoft Teams': 'platform-teams'
+            };
+            
+            const radio = document.getElementById(radioIdMap[platformName]);
+            
+            if (badge) {
+                badge.textContent = availableCount + ' left';
+                
+                if (availableCount === 0) {
+                    badge.className = 'platform-availability empty';
+                    badge.textContent = 'None';
+                    if (radio) {
+                        radio.disabled = true;
+                        radio.parentElement.style.opacity = '0.5';
+                        radio.parentElement.style.pointerEvents = 'none';
+                    }
+                } else if (availableCount <= 2) {
+                    badge.className = 'platform-availability low';
+                } else {
+                    badge.className = 'platform-availability';
+                }
+            }
+            
+            if (availableCount <= 2 && availableCount > 0) {
+                warningText.textContent = 'Only ' + availableCount + ' ' + platformName + ' link' + (availableCount === 1 ? '' : 's') + ' remaining. Please add more links soon.';
+                warning.classList.add('show');
+            } else if (availableCount === 0) {
+                warningText.textContent = 'No ' + platformName + ' links available. Please select another platform.';
+                warning.style.display = 'flex';
+                warning.style.background = '#fee2e2';
+                warning.style.borderColor = '#fecaca';
+                warning.style.color = '#dc2626';
+            }
+        }
+
+        // Initialize Calendar
+        function initCalendar() {
+            const today = new Date();
+            const maxDate = new Date();
+            maxDate.setDate(today.getDate() + 30);
+            
+            flatpickr("#calendar", {
+                inline: true,
+                minDate: today,
+                maxDate: maxDate,
+                disable: [
+                    function(date) {
+                        return date.getDay() === 0 || date.getDay() === 6;
+                    }
+                ],
+                onChange: function(selectedDates, dateStr) {
+                    formData.date = dateStr;
+                    generateTimeSlots(dateStr);
+                }
+            });
+        }
+
+        // Generate Time Slots
+        function generateTimeSlots(dateStr) {
+            const slotsGrid = document.getElementById('slotsGrid');
+            const timeSlotsSection = document.getElementById('timeSlotsSection');
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            
+            slotsGrid.innerHTML = '';
+            timeSlotsSection.style.display = 'block';
+            scrollIndicator.classList.add('show');
+            
+            document.getElementById('selectedInfo').style.display = 'flex';
+            document.getElementById('selectedDateTimeText').textContent = dateStr;
+            
+            const slots = [
+                '9:00 AM - 9:30 AM',
+                '9:30 AM - 10:00 AM',
+                '10:00 AM - 10:30 AM',
+                '10:30 AM - 11:00 AM',
+                '11:00 AM - 11:30 AM',
+                '11:30 AM - 12:00 PM',
+                '1:00 PM - 1:30 PM',
+                '1:30 PM - 2:00 PM',
+                '2:00 PM - 2:30 PM',
+                '2:30 PM - 3:00 PM',
+                '3:00 PM - 3:30 PM',
+                '3:30 PM - 4:00 PM',
+                '4:00 PM - 4:30 PM',
+                '4:30 PM - 5:00 PM'
+            ];
+            
+            slots.forEach((slot, index) => {
+                const slotEl = document.createElement('div');
+                slotEl.className = 'time-slot';
+                slotEl.textContent = slot;
+                
+                if (Math.random() > 0.85) {
+                    slotEl.classList.add('disabled');
+                    slotEl.title = 'Booked';
+                } else {
+                    slotEl.addEventListener('click', function() {
+                        if (this.classList.contains('disabled')) return;
+                        
+                        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                        this.classList.add('selected');
+                        formData.time = slot;
+                        
+                        document.getElementById('selectedDateTimeText').textContent = dateStr + ' at ' + slot.split(' - ')[0];
+                        
+                        scrollIndicator.classList.remove('show');
+                        
+                        showPlatforms();
+                    });
+                }
+                
+                slotsGrid.appendChild(slotEl);
+            });
+        }
+
+        function showPlatforms() {
+            const platformsSection = document.getElementById('meetingPlatforms');
+            const step2Content = document.getElementById('step2Content');
+            
+            platformsSection.style.display = 'block';
+            setTimeout(() => {
+                platformsSection.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                platformsSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }, 100);
+            
+            document.querySelectorAll('input[name="platform"]').forEach(radio => {
+                radio.checked = false;
+            });
+            formData.platform = '';
+            formData.meetLink = '';
+            document.getElementById('confirmBooking').disabled = true;
+            
+            updateAllPlatformAvailability();
+        }
+
+        // Platform Selection
+        function selectPlatform(radio) {
+            const platformName = radio.value;
+            formData.platform = platformName;
+            
+            const pool = getPlatformPool(platformName);
+            
+            if (!pool) {
+                alert('Invalid platform selected');
+                radio.checked = false;
+                formData.platform = '';
+                return;
+            }
+            
+            if (pool.available.length > 0) {
+                const assignedLink = pool.available.shift();
+                pool.currentAssignment = assignedLink;
+                formData.meetLink = assignedLink;
+                console.log('✅ Assigned ' + platformName + ' link:', assignedLink);
+                console.log('📊 Remaining ' + platformName + ' links:', pool.available.length);
+                
+                updatePlatformAvailability(platformName);
+            } else {
+                alert('Sorry, no ' + platformName + ' links are currently available. Please select another platform.');
+                radio.checked = false;
+                formData.platform = '';
+                formData.meetLink = '';
+                return;
+            }
+            
+            document.getElementById('confirmBooking').disabled = false;
+        }
+
+        // Clear previous platform assignment
+        function clearPreviousPlatformAssignment() {
+            const platforms = ['Google Meet', 'Zoho Meeting', 'Microsoft Teams'];
+            platforms.forEach(platformName => {
+                const pool = getPlatformPool(platformName);
+                if (pool && pool.currentAssignment && !pool.used.includes(pool.currentAssignment)) {
+                    pool.available.unshift(pool.currentAssignment);
+                    pool.currentAssignment = null;
+                    updatePlatformAvailability(platformName);
+                }
+            });
+            formData.meetLink = '';
+        }
+
+        // Back to Step 1
+        document.getElementById('backToStep1').addEventListener('click', function() {
+            clearPreviousPlatformAssignment();
+            
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            updateProgress(1);
+        });
+
+        // ================= EMAILJS SEND FUNCTION =================
+        async function sendEmails() {
+            const errorDiv = document.getElementById('emailError');
+            errorDiv.classList.remove('show');
+            
+            console.log('📧 Preparing to send emails...');
+            console.log('Form Data:', formData);
+            
+            const pool = getPlatformPool(formData.platform);
+            const remainingLinks = pool ? pool.available.length : 0;
+            
+            const meetingLinkText = formData.meetLink || 'Link will be provided by host';
+            const meetingInstructions = formData.meetLink ? 
+                'Click the meeting link below at the scheduled time to join:' : 
+                'The host will provide you with the meeting link via email before the scheduled time.';
+            
+            const userTemplateParams = {
+                to_email: formData.email,
+                to_name: formData.name,
+                user_name: formData.name,
+                user_email: formData.email,
+                user_phone: formData.phone,
+                company: formData.company,
+                service: formData.service,
+                candidates: formData.candidates,
+                date: formData.date,
+                time: formData.time,
+                platform: formData.platform,
+                meet_link: formData.meetLink || 'N/A',
+                meeting_link: meetingLinkText,
+                meeting_instructions: meetingInstructions,
+                subject: 'Your Verifitech Demo is Confirmed - ' + formData.date,
+                reply_to: EMAILJS_CONFIG.HOST_EMAIL
+            };
+
+            const hostTemplateParams = {
+                to_email: EMAILJS_CONFIG.HOST_EMAIL,
+                to_name: 'Verifitech Host',
+                user_name: formData.name,
+                user_email: formData.email,
+                user_phone: formData.phone,
+                company: formData.company,
+                service: formData.service,
+                candidates: formData.candidates,
+                date: formData.date,
+                time: formData.time,
+                platform: formData.platform,
+                meet_link: formData.meetLink || 'N/A',
+                meeting_link: meetingLinkText,
+                remaining_links: remainingLinks,
+                subject: '[NEW BOOKING] Demo Scheduled - ' + formData.name + ' - ' + formData.date,
+                reply_to: formData.email,
+                host_notification: remainingLinks <= 2 ? 
+                    `⚠️ WARNING: Only ${remainingLinks} ${formData.platform} links remaining! Please add more links immediately.` : 
+                    `${formData.platform} links remaining: ${remainingLinks}`
+            };
+
+            try {
+                console.log('📤 Sending confirmation to user:', formData.email);
+                const userResponse = await emailjs.send(
+                    EMAILJS_CONFIG.SERVICE_ID,
+                    EMAILJS_CONFIG.USER_TEMPLATE_ID,
+                    userTemplateParams
+                );
+                console.log('✅ User email sent successfully:', userResponse);
+
+                console.log('📤 Sending notification to host:', EMAILJS_CONFIG.HOST_EMAIL);
+                const hostResponse = await emailjs.send(
+                    EMAILJS_CONFIG.SERVICE_ID,
+                    EMAILJS_CONFIG.HOST_TEMPLATE_ID || EMAILJS_CONFIG.USER_TEMPLATE_ID,
+                    hostTemplateParams
+                );
+                console.log('✅ Host email sent successfully:', hostResponse);
+
+                if (remainingLinks <= 2) {
+                    console.log('🚨 Sending EXPIRY LINK ALERT to host');
+                    
+                    const alertSubject = remainingLinks === 0 ? 
+                        `🚨 ADD ${formData.platform.toUpperCase()} LINK NOW: All Links Depleted` : 
+                        `⚠️ ADD ${formData.platform.toUpperCase()} LINK SOON: Only ${remainingLinks} Left`;
+                    
+                    const alertBody = remainingLinks === 0 ? 
+                        `ADD ${formData.platform.toUpperCase()} LINK IMMEDIATELY\n\nAll ${formData.platform} links have been used up!\n\nLast booking details:\n- Customer: ${formData.name} (${formData.email})\n- Company: ${formData.company}\n- Scheduled: ${formData.date} at ${formData.time}` 
+                        : 
+                        `ADD ${formData.platform.toUpperCase()} LINK SOON\n\nOnly ${remainingLinks} ${formData.platform} link${remainingLinks === 1 ? '' : 's'} remaining.\n\nRecent booking:\n- Customer: ${formData.name}\n- Company: ${formData.company}`;
+
+                    const expiryAlertParams = {
+                        to_email: EMAILJS_CONFIG.HOST_EMAIL,
+                        subject: alertSubject,
+                        message: alertBody,
+                        user_name: 'System Alert',
+                        user_email: EMAILJS_CONFIG.HOST_EMAIL,
+                        platform: formData.platform,
+                        remaining_links: remainingLinks,
+                        alert_type: remainingLinks === 0 ? 'CRITICAL' : 'WARNING'
+                    };
+                    
+                    await emailjs.send(
+                        EMAILJS_CONFIG.SERVICE_ID,
+                        EMAILJS_CONFIG.HOST_TEMPLATE_ID || EMAILJS_CONFIG.USER_TEMPLATE_ID,
+                        expiryAlertParams
+                    );
+                    console.log('✅ EXPIRY LINK ALERT sent');
+                }
+
+                return true;
+                
+            } catch (error) {
+                console.error('❌ EmailJS Error:', error);
+                
+                let errorMsg = 'Failed to send confirmation email. ';
+                if (error.text) {
+                    errorMsg += error.text;
+                } else if (error.message) {
+                    errorMsg += error.message;
+                } else {
+                    errorMsg += 'Please check your email configuration.';
+                }
+                
+                errorDiv.textContent = errorMsg;
+                errorDiv.classList.add('show');
+                return false;
+            }
+        }
+
+        // ================= REDIRECT TO HOME =================
+        function redirectToHome() {
+            console.log('🏠 Starting redirect countdown...');
+            const redirectMessage = document.getElementById('redirectMessage');
+            const countdownSpan = document.getElementById('countdown');
+            
+            if (redirectMessage) {
+                redirectMessage.classList.add('show');
+            }
+            
+            let seconds = 5;
+            
+            const countdownInterval = setInterval(function() {
+                seconds--;
+                if (countdownSpan) {
+                    countdownSpan.textContent = seconds;
+                }
+                
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    goToHome();
+                }
+            }, 1000);
+        }
+
+        function goToHome() {
+            console.log('🚀 Redirecting to home page');
+            window.location.href = '../index.html';
+        }
+
+        // Confirm Booking
+        document.getElementById('confirmBooking').addEventListener('click', async function() {
+            const btn = this;
+            btn.classList.add('btn-loading');
+            btn.disabled = true;
+
+            const emailSent = await sendEmails();
+
+            if (emailSent) {
+                bookingCompleted = true;
+                
+                const pool = getPlatformPool(formData.platform);
+                if (pool && pool.currentAssignment) {
+                    pool.used.push(pool.currentAssignment);
+                    pool.currentAssignment = null;
+                }
+                
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step3').classList.add('active');
+                document.querySelector('.progress-steps').style.display = 'none';
+                document.getElementById('formFooter').style.display = 'none';
+                
+                document.getElementById('closeModalBtn').style.display = 'none';
+                
+                updateSuccessContent();
+                
+                redirectToHome();
+            } else {
+                const pool = getPlatformPool(formData.platform);
+                if (pool && pool.currentAssignment && !pool.used.includes(pool.currentAssignment)) {
+                    pool.available.unshift(pool.currentAssignment);
+                    pool.currentAssignment = null;
+                    updatePlatformAvailability(formData.platform);
+                }
+            }
+
+            btn.classList.remove('btn-loading');
+            btn.disabled = false;
+        });
+
+        function updateSuccessContent() {
+            const dateObj = new Date(formData.date);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            
+            document.getElementById('summaryDate').textContent = dateObj.toLocaleDateString('en-US', options);
+            document.getElementById('summaryTime').textContent = formData.time + ' EST';
+            document.getElementById('summaryPlatform').textContent = formData.platform;
+            document.getElementById('summaryEmail').textContent = formData.email;
+            
+            const platformIcons = {
+                'Zoho Meeting': 'bi-camera-video-fill',
+                'Microsoft Teams': 'bi-microsoft-teams',
+                'Google Meet': 'bi-google'
+            };
+            document.getElementById('platformSummaryIcon').innerHTML = '<i class="bi ' + platformIcons[formData.platform] + '"></i>';
+            
+            const meetLinkBox = document.getElementById('meetLinkBox');
+            const meetLink = document.getElementById('meetLink');
+            const summaryPlatformText = document.getElementById('summaryPlatformText');
+            
+            if (formData.meetLink) {
+                meetLinkBox.style.display = 'block';
+                meetLink.href = formData.meetLink;
+                meetLink.textContent = formData.meetLink.replace('https://', '');
+                summaryPlatformText.textContent = 'Join using the link below';
+            } else {
+                meetLinkBox.style.display = 'none';
+                summaryPlatformText.textContent = 'Meeting link will be sent via email';
+            }
+            
+            generateCalendarLinks(dateObj);
+        }
+
+        function generateCalendarLinks(dateObj) {
+            const timeParts = formData.time.split(' - ');
+            const startTimeStr = timeParts[0];
+            const endTimeStr = timeParts[1];
+            
+            const startDate = parseTime(dateObj, startTimeStr);
+            const endDate = parseTime(dateObj, endTimeStr);
+            
+            const formatDate = function(d) {
+                return d.toISOString().replace(/-|:|\.\d+/g, '');
+            };
+            
+            const start = formatDate(startDate);
+            const end = formatDate(endDate);
+            
+            const title = 'Verifitech Product Demo';
+            const description = 'Personalized demo for ' + formData.company + 
+                              '\nService: ' + formData.service + 
+                              '\nCandidates per month: ' + formData.candidates +
+                              (formData.meetLink ? '\n\nMeeting Link: ' + formData.meetLink : '');
+            const location = formData.meetLink || formData.platform;
+            
+            document.getElementById('googleCalLink').href = 
+                'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + 
+                '&dates=' + start + '/' + end + 
+                '&details=' + encodeURIComponent(description) + 
+                '&location=' + encodeURIComponent(location);
+            
+            document.getElementById('outlookLink').href = 
+                'https://outlook.live.com/calendar/0/deeplink/compose?subject=' + encodeURIComponent(title) + 
+                '&startdt=' + startDate.toISOString() + 
+                '&enddt=' + endDate.toISOString() + 
+                '&body=' + encodeURIComponent(description) + 
+                '&location=' + encodeURIComponent(location);
+            
+            const ics = 'BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:' + start + 
+                       '\nDTEND:' + end + 
+                       '\nSUMMARY:' + title + 
+                       '\nDESCRIPTION:' + description.replace(/\n/g, '\\n') + 
+                       '\nLOCATION:' + location + 
+                       '\nEND:VEVENT\nEND:VCALENDAR';
+            
+            const blob = new Blob([ics], { type: 'text/calendar' });
+            document.getElementById('icalLink').href = URL.createObjectURL(blob);
+        }
+
+        function parseTime(date, timeStr) {
+            const parts = timeStr.split(' ');
+            const time = parts[0];
+            const period = parts[1];
+            const timeParts = time.split(':');
+            let hours = parseInt(timeParts[0]);
+            const minutes = parseInt(timeParts[1]);
+            
+            if (period === 'PM' && hours !== 12) hours += 12;
+            if (period === 'AM' && hours === 12) hours = 0;
+            
+            const d = new Date(date);
+            d.setHours(hours, minutes, 0);
+            return d;
+        }
+
+        function updateProgress(step) {
+            currentStep = step;
+            document.querySelectorAll('.step').forEach(function(el, idx) {
+                const stepNum = idx + 1;
+                el.classList.remove('active', 'completed');
+                
+                if (stepNum === step) {
+                    el.classList.add('active');
+                } else if (stepNum < step) {
+                    el.classList.add('completed');
+                    el.querySelector('.step-number').innerHTML = '<i class="bi bi-check"></i>';
+                } else {
+                    el.querySelector('.step-number').textContent = stepNum;
+                }
+            });
+            
+            document.getElementById('line1').classList.toggle('completed', step > 1);
+            document.getElementById('line2').classList.toggle('completed', step > 2);
+        }
+
+        // Reset on close
+        document.getElementById('demoModal').addEventListener('hidden.bs.modal', function() {
+            if (bookingCompleted) {
+                console.log('✅ Booking completed');
+                return;
+            }
+            
+            console.log('🔄 Resetting form');
+            
+            clearPreviousPlatformAssignment();
+            
+            document.getElementById('detailsForm').reset();
+            document.querySelectorAll('input[name="service"]').forEach(function(r) { r.checked = false; });
+            document.querySelectorAll('input[name="platform"]').forEach(function(r) { r.checked = false; });
+            document.querySelectorAll('.preset-btn').forEach(function(b) { b.classList.remove('active'); });
+            
+            // Reset email validation
+            const emailInput = document.getElementById('email');
+            const validationMsg = document.getElementById('emailValidationMsg');
+            emailInput.classList.remove('is-invalid', 'is-valid');
+            validationMsg.classList.remove('show', 'valid', 'invalid');
+            isEmailValid = false;
+            
+            document.getElementById('step1').classList.add('active');
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step3').classList.remove('active');
+            document.querySelector('.progress-steps').style.display = 'flex';
+            document.getElementById('formFooter').style.display = 'block';
+            
+            document.getElementById('closeModalBtn').style.display = 'flex';
+            
+            document.getElementById('timeSlotsSection').style.display = 'none';
+            document.getElementById('selectedInfo').style.display = 'none';
+            document.getElementById('meetingPlatforms').style.display = 'none';
+            document.getElementById('meetingPlatforms').classList.remove('show');
+            document.getElementById('confirmBooking').disabled = true;
+            document.getElementById('emailError').classList.remove('show');
+            document.getElementById('platformWarning').classList.remove('show');
+            document.getElementById('redirectMessage').classList.remove('show');
+            document.getElementById('scrollIndicator').classList.remove('show');
+            
+            ['platform-google', 'platform-zoho', 'platform-teams'].forEach(function(id) {
+                const radio = document.getElementById(id);
+                if (radio) {
+                    radio.disabled = false;
+                    radio.parentElement.style.opacity = '1';
+                    radio.parentElement.style.pointerEvents = 'auto';
+                }
+            });
+            
+            updateProgress(1);
+            document.getElementById('calendar').innerHTML = '';
+        });
+
+        // Auto-open modal immediately
+        window.addEventListener('load', function() {
+            new bootstrap.Modal(document.getElementById('demoModal')).show();
+        });
+    </script>
+</body>
+</html>
