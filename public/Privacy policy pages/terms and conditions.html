@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use | Website Terms & Conditions | Verifitech</title>
+    <meta name="description" content="Read the Verifitech Terms of Use. Legal terms governing website use, restrictions, warranties, liability limitations, and governing law.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />   
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+           html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile navbar collapse background */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* CTA Button - Talk to Sales */
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Remove Bootstrap's default white arrow from country selector */
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Style the custom chevron icon */
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+/* Rotate chevron when dropdown is open */
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+}
+        /* Hero Section */
+        .terms-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terms-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.2rem;
+            background: rgba(26, 194, 193, 0.1);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26, 194, 193, 0.2);
+        }
+        
+        .terms-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 1rem;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            margin-bottom: 3rem;
+        }
+        
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(26, 194, 193, 0.1);
+            border-radius: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .section-desc {
+            color: var(--gray);
+            font-size: 1.15rem;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+        
+        /* Terms Cards */
+        .terms-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 100%;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terms-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+        }
+        
+        .terms-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(26, 194, 193, 0.2);
+        }
+        
+        .terms-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .terms-card ul {
+            padding-left: 1.2rem;
+            margin-bottom: 0;
+            color: var(--gray);
+        }
+        
+        .terms-card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        
+        .terms-card li:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Alert Boxes */
+        .alert-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+            border-left: 4px solid #ef4444;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+        
+        .alert-box.warning {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+            border-left-color: #f97316;
+        }
+        
+        .alert-box.info {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+            border-left-color: var(--primary);
+        }
+        
+        .alert-box h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .alert-box.warning h4 {
+            color: #c2410c;
+        }
+        
+        .alert-box.info h4 {
+            color: var(--primary-dark);
+        }
+        
+        .alert-box p {
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        .alert-box ul {
+            margin: 1rem 0 0 0;
+            padding-left: 1.2rem;
+            color: var(--gray);
+        }
+        
+        .alert-box li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Legal Highlight Section */
+        .legal-highlight {
+            background: var(--navy);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .legal-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        
+        .legal-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            z-index: 2;
+            height: 100%;
+        }
+        
+        .legal-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(26, 194, 193, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26, 194, 193, 0.3);
+        }
+        
+        /* Jurisdiction Section */
+        .jurisdiction-section {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+        
+        .jurisdiction-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .jurisdiction-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin: 0 auto 2rem;
+            border: 2px solid rgba(26, 194, 193, 0.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .contact-card-simple {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-card-simple:hover {
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
+        }
+        
+        .contact-icon-lg {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-light);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            border: 2px solid rgba(26, 194, 193, 0.2);
+        }
+        
+        /* Accept Button */
+        .btn-accept {
+            background: var(--primary) !important;
+            color: white !important;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-accept:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        }
+        
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .terms-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .legal-card {
+                padding: 2rem;
+            }
+            
+            .jurisdiction-card {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .terms-hero {
+                padding: 120px 0 60px;
+                text-align: center;
+            }
+            
+            .terms-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .terms-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-card-simple {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+            <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" class="btn-login">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="./contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 reveal">
+                    <div class="hero-badge">
+                        <i class="bi bi-file-earmark-text"></i>
+                        Legal Terms
+                    </div>
+                    <h1>Terms of Use</h1>
+                    <p class="lead" style="color: var(--gray); font-size: 1.25rem;">
+                        Please read these terms carefully before using our website. By accessing www.verifitech.com, you agree to be bound by these terms and all applicable laws and regulations.
+                    </p>
+                    <div class="last-updated">
+                        <i class="bi bi-calendar-check" style="color: var(--primary);"></i>
+                        Last Revised: 03/01/2022
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="content-section" id="introduction">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="section-header text-center reveal">
+                        <div class="section-subtitle justify-content-center">
+                            <i class="bi bi-info-circle"></i> Introduction
+                        </div>
+                        <h2 class="section-title">Agreement to Terms</h2>
+                        <p class="section-desc mx-auto">Understanding your rights and obligations when using our website</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6 reveal">
+                    <div class="terms-card h-100">
+                        <div class="terms-icon">
+                            <i class="bi bi-hand-index-thumb-fill"></i>
+                        </div>
+                        <h3>Acceptance of Terms</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            These Website Terms of Use written on this webpage shall manage your use of our website <strong>www.verifitech.com</strong> ("Website"). By accessing the Website, you agree to be bound by these Website Terms of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.
+                        </p>
+                        <div class="alert-box warning mt-3 mb-0" style="margin: 1rem 0;">
+                            <p class="mb-0 small"><strong>Important:</strong> You must not use this Website if you disagree with any of these Website Terms of Use.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="terms-card h-100">
+                        <div class="terms-icon">
+                            <i class="bi bi-shield-fill-check"></i>
+                        </div>
+                        <h3>Intellectual Property Rights</h3>
+                        <p style="color: var(--gray); line-height: 1.8; margin-bottom: 1rem;">
+                            Verifitech Research Services Pvt. Ltd. and/or their affiliates ("Verifitech") retain all their respective Intellectual Property Rights and material contained on this Website including:
+                        </p>
+                        <ul>
+                            <li>Trademarks displayed on this Website</li>
+                            <li>Copyright on all text and content</li>
+                            <li>Graphics, logos, and visual elements</li>
+                            <li>Software, code, and technical infrastructure</li>
+                            <li>Database rights and compilations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restrictions Section -->
+    <section class="content-section bg-light" id="restrictions">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle">
+                    <i class="bi bi-shield-lock"></i> Usage Restrictions
+                </div>
+                <h2 class="section-title">Website Use Restrictions</h2>
+                <p class="section-desc">Specific limitations on how you may use our website content and services</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 reveal">
+                    <div class="terms-card">
+                        <div class="terms-icon">
+                            <i class="bi bi-eye-fill"></i>
+                        </div>
+                        <h3>Limited Access Rights</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            The content and writings on this Website are the property of Verifitech Research Services Private Limited. We grant limited and non-exclusive rights to access and peruse the content herein.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 reveal">
+                    <div class="terms-card">
+                        <div class="terms-icon">
+                            <i class="bi bi-ban-fill"></i>
+                        </div>
+                        <h3>Prohibited Activities</h3>
+                        <ul>
+                            <li>Modify or incorporate content in other works</li>
+                            <li>Post to other websites or publications</li>
+                            <li>Sale or distribution for commercial gain</li>
+                            <li>Reproduction by any means whatsoever</li>
+                            <li>Data mining, harvesting, or extracting</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 reveal">
+                    <div class="terms-card">
+                        <div class="terms-icon">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                        </div>
+                        <h3>Strict Prohibitions</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            Any person, organization or institution discovered reproducing, duplicating and distributing the content herein without express permission will be in violation of and subject to applicable copyright laws.
+                        </p>
+                        <p style="color: var(--gray); margin-top: 1rem; margin-bottom: 0;">
+                            You will not engage in any activity that impacts user access to this Website.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12 reveal">
+                    <div class="alert-box">
+                        <h4><i class="bi bi-exclamation-octagon-fill"></i> Copyright Violation Warning</h4>
+                        <p class="mt-2">No part of the Website shall be modified or incorporated in any other work, publication or other website, whether in hard copy or electronic format, including postings to any other website. Sale or distribution, for commercial gain, by reproduction or otherwise, of any part of the Website, whatsoever, is strictly prohibited hereunder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- No Warranties Section -->
+    <section class="content-section" id="warranties">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 reveal">
+                    <div class="section-subtitle">
+                        <i class="bi bi-x-octagon"></i> No Warranties
+                    </div>
+                    <h2 class="section-title">Disclaimer of Warranties</h2>
+                    <p class="section-desc">Understanding the limitations of information provided on our website</p>
+                    
+                    <div class="terms-card mt-4">
+                        <div class="terms-icon">
+                            <i class="bi bi-info-circle-fill"></i>
+                        </div>
+                        <h3>Accuracy of Information</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            Although every effort has been made to provide accurate content on these pages, neither Verifitech, nor any of its employees, directors, shareholders, consultants, or associates make any warranty, expressed or implied, or assume any legal liability or responsibility for the accuracy or completeness of any information contained on this Website.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="terms-card mb-4">
+                        <div class="terms-icon">
+                            <i class="bi bi-link-45deg"></i>
+                        </div>
+                        <h3>External Links</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            Verifitech cannot be held responsible for the contents of any pages referenced by external sources. Reference herein to any company does not necessarily constitute or imply its endorsement or recommendation by Verifitech or any of its employees.
+                        </p>
+                    </div>
+                    
+                    <div class="alert-box info mb-0">
+                        <h4><i class="bi bi-lightbulb-fill"></i> Good Faith Publication</h4>
+                        <p class="mt-2">All information is provided "as is" without warranty of any kind. We recommend verifying critical information through direct consultation with our team before making business decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limitation of Liability Section -->
+    <section class="legal-highlight" id="liability">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center reveal">
+                    <div class="section-subtitle justify-content-center" style="background: rgba(26, 194, 193, 0.2); color: white;">
+                        <i class="bi bi-shield-exclamation"></i> Liability
+                    </div>
+                    <h2 class="section-title text-white">Limitations of Liability</h2>
+                    <p class="lead" style="color: rgba(255,255,255,0.8);">Understanding the extent of our responsibility and liability</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6 reveal">
+                    <div class="legal-card">
+                        <div class="legal-icon">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </div>
+                        <h3 class="h4 text-white mb-3">No Responsibility for</h3>
+                        <ul class="list-unstyled mb-0" style="color: rgba(255,255,255,0.8);">
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-dash-circle text-primary mt-1"></i>
+                                <span>Inaccuracies, errors or omissions in content</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-dash-circle text-primary mt-1"></i>
+                                <span>Any loss, damage or expense incurred</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-dash-circle text-primary mt-1"></i>
+                                <span>Loss of profit or business opportunities</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-dash-circle text-primary mt-1"></i>
+                                <span>Indirect, special, incidental or consequential damages</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <i class="bi bi-dash-circle text-primary mt-1"></i>
+                                <span>Damages arising out of access to or use of the Website</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="legal-card">
+                        <div class="legal-icon">
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                        </div>
+                        <h3 class="h4 text-white mb-3">Scope of Limitation</h3>
+                        <p style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 1.5rem;">
+                            Verifitech Research Services Pvt Ltd or their affiliates, officers, employees or agents are neither responsible nor liable for any damages arising out of:
+                        </p>
+                        <ul class="list-unstyled mb-0" style="color: rgba(255,255,255,0.8);">
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-check2-circle text-primary mt-1"></i>
+                                <span>Access to or use of the Website</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-check2-circle text-primary mt-1"></i>
+                                <span>Materials contained on the Website</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start gap-2">
+                                <i class="bi bi-check2-circle text-primary mt-1"></i>
+                                <span>Any website linked to it</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <i class="bi bi-check2-circle text-primary mt-1"></i>
+                                <span>Inability to use the Website or materials</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governing Law Section -->
+    <section class="jurisdiction-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <div class="jurisdiction-card">
+                        <div class="jurisdiction-icon">
+                            <i class="bi bi-bank2"></i>
+                        </div>
+                        <h2 class="section-title mb-4">Governing Law & Jurisdiction</h2>
+                        <p class="text-muted mb-4" style="font-size: 1.1rem; line-height: 1.8;">
+                            These Terms of Use are governed by and construed in accordance with the <strong>laws of India</strong>. You irrevocably submit to the <strong>exclusive jurisdiction of the courts in India</strong> for any disputes arising out of or relating to these terms or your use of the Website.
+                        </p>
+                        <div class="row g-3 text-start mt-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3">
+                                    <i class="bi bi-geo-alt-fill text-primary fs-4"></i>
+                                    <div>
+                                        <div class="fw-bold text-dark">Jurisdiction</div>
+                                        <small class="text-muted">Courts in India</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3">
+                                    <i class="bi bi-book-fill text-primary fs-4"></i>
+                                    <div>
+                                        <div class="fw-bold text-dark">Governing Law</div>
+                                        <small class="text-muted">Indian Laws</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Changes Section -->
+    <section class="content-section bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 reveal">
+                    <div class="section-subtitle">
+                        <i class="bi bi-arrow-repeat"></i> Updates
+                    </div>
+                    <h2 class="section-title">Changes to Terms of Use</h2>
+                    <p class="section-desc">We reserve the right to modify these terms at any time</p>
+                    
+                    <div class="terms-card mt-4">
+                        <div class="terms-icon">
+                            <i class="bi bi-bell-fill"></i>
+                        </div>
+                        <h3>Notification of Changes</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            Verifitech Research Services Pvt. Ltd. reserves the right to change or revise these Terms of Use at any time by posting any changes or a revised Terms of Use on this Website.
+                        </p>
+                        <p style="color: var(--gray); margin-top: 1rem;">
+                            We will alert you for any changes or revisions by indicating on the top of this document the date of update when it was last revised.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="alert-box info mb-4">
+                        <h4><i class="bi bi-info-circle-fill"></i> Effective Immediately</h4>
+                        <p>The changed or revised document will be effective immediately after it is posted on this Website. Your use of the Website following the posting any such changes will constitute your acceptance of any such changes or revisions.</p>
+                    </div>
+                    
+                    <div class="alert-box warning mb-4">
+                        <h4><i class="bi bi-exclamation-triangle-fill"></i> Acceptance Required</h4>
+                        <p>If you do not agree to these Terms of Use (including any referenced policies), please refrain from using this Website.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-4 border">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-file-earmark-lock me-2 text-primary"></i>Linked Policies</h5>
+                        <p class="text-muted mb-3">By accepting above mentioned Terms of Use, user also agrees to accept the:</p>
+                        <a href="#" class="btn btn-outline-primary w-100" style="border-radius: 8px; border-width: 2px; font-weight: 600;">
+                            <i class="bi bi-shield-check me-2"></i>Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5 reveal">
+                    <div class="section-subtitle justify-content-center">
+                        <i class="bi bi-question-circle"></i> Questions?
+                    </div>
+                    <h2 class="section-title">Questions About These Terms?</h2>
+                    <p class="section-desc mx-auto">If you have any questions regarding these Terms of Use, please contact us for clarification.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-6 reveal">
+                    <div class="contact-card-simple">
+                        <div class="contact-icon-lg">
+                            <i class="bi bi-envelope-at-fill"></i>
+                        </div>
+                        <h3 class="fw-bold mb-2">Contact Legal Team</h3>
+                        <p class="text-muted mb-4">For inquiries regarding Terms of Use, licensing, or legal matters:</p>
+                        <a href="mailto:connect@verifitech.com" class="btn btn-accept">
+                            <i class="bi bi-envelope me-2"></i> connect@verifitech.com
+                        </a>
+                        <p class="mt-4 mb-0 small text-muted">
+                            <i class="bi bi-clock me-1"></i> We typically respond within 24-48 hours
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../Contact/talk to sales.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="./products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://in.linkedin.com/company/verifitechinkedin" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="../Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="privacy-separator">|</span>
+            <a href="../Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="privacy-separator">|</span>  
+            <a href="../Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="../Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+	

@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Employment Screening Policy Template | Verifitech</title>
+    <meta name="description" content="Generate a customized pre-employment screening policy for your organization. Define checks, compliance standards, and workflow in minutes.">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #8b5cf6;
+            --orange: #f97316;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-gray);
+        }
+        
+          Z-INDEX FIXES - KEEP THESE AT TOP
+         ============================================ */
+
+      /* Ensure navbar has proper z-index */
+      .navbar {
+        z-index: 1050;
+      }
+
+      /* Fix dropdown z-index to appear above hero content */
+      .dropdown-menu {
+        z-index: 1060;
+        position: absolute;
+      }
+
+      /* Ensure dropdown items are clickable and visible */
+      .dropdown-item {
+        position: relative;
+        z-index: 1061;
+      }
+
+      /* Fix for hero section overlapping */
+      .industry-hero {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ============================================
+         NAVBAR & NAVIGATION STYLES
+         ============================================ */
+
+      .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Mobile navbar collapse background */
+      .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (min-width: 992px) {
+        .navbar-collapse {
+          background: transparent;
+          backdrop-filter: none;
+          padding: 0;
+          margin-top: 0;
+          box-shadow: none;
+        }
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+
+      .navbar-brand img {
+        height: 80px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* ============================================
+         DROPDOWN MENU STYLES
+         ============================================ */
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* ============================================
+         BUTTON STYLES
+         ============================================ */
+
+      /* CTA Button - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      /* Login Button */
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important;
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+      /* ============================================
+         COUNTRY SELECTOR - WHITE ARROW REMOVED
+         ============================================ */
+
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* Remove Bootstrap's default white arrow from country selector */
+      .country-selector.dropdown-toggle::after {
+        display: none !important;
+        content: none !important;
+        border: none !important;
+      }
+
+      /* Style the custom chevron icon */
+      .country-selector i.bi-chevron-down {
+        font-size: 0.7rem;
+        color: var(--navy);
+        transition: transform 0.3s ease;
+      }
+
+      .country-selector:hover i.bi-chevron-down {
+        color: var(--primary);
+      }
+
+      /* Rotate chevron when dropdown is open */
+      .country-selector[aria-expanded="true"] i.bi-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .country-flag {
+        font-size: 1.2rem;
+      }
+
+        /* Hero Section */
+        .calculator-hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, rgba(26, 194, 193, 0.15), rgba(26, 194, 193, 0.05));
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26, 194, 193, 0.3);
+        }
+        
+        .calculator-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        
+        .calculator-hero .lead {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 60px 0 100px;
+            background: var(--light-gray);
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .calculator-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .calculator-body { padding: 2.5rem; }
+
+        .input-group-custom { margin-bottom: 1.5rem; }
+
+        .input-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .input-label i { color: var(--primary); font-size: 1.1rem; }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-control-custom:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+        }
+
+        /* Section Divider */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        /* Checklist Card */
+        .checklist-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-card:hover {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .checklist-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .checklist-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checklist-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .checklist-title h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--dark);
+        }
+
+        .checklist-title span {
+            font-size: 0.8rem;
+            color: var(--gray);
+            display: block;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + .toggle-slider { background-color: var(--success); }
+        .toggle-switch input:checked + .toggle-slider:before { transform: translateX(24px); }
+
+        /* Button */
+        .btn-calculate {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+
+        .btn-calculate:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+            color: white;
+        }
+
+        /* Results Card */
+        .results-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            color: white;
+            position: sticky;
+            top: 100px;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .results-header h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        /* Policy Preview Area */
+        .policy-preview {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: var(--dark);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .policy-preview h1 { font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem; text-align: center; }
+        .policy-preview h2 { font-size: 1rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--primary-dark); border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .policy-preview p { margin-bottom: 0.75rem; }
+        .policy-preview ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+        .policy-preview ul li { margin-bottom: 0.25rem; }
+        .policy-preview .highlight { color: var(--primary-dark); font-weight: 600; }
+
+        /* Copy Button */
+        .btn-copy {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .btn-copy.copied {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        /* Placeholder */
+        .placeholder-state {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+        }
+
+        .placeholder-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .info-section { padding: 80px 0; background: white; }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(26, 194, 193, 0.1);
+            border-radius: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: white;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .feature-content p { color: var(--gray); font-size: 0.9rem; margin: 0; }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4);
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 194, 193, 0.5);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        footer h4 { font-weight: 700; margin-bottom: 1rem; }
+        footer h6 { font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; }
+        footer a:hover { color: var(--primary); }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .calculator-hero h1 { font-size: 2.5rem; }
+            .results-card { position: relative; top: 0; margin-top: 2rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 767px) {
+            .calculator-hero { padding: 120px 0 60px; text-align: center; }
+            .calculator-hero h1 { font-size: 2rem; }
+            .calculator-body { padding: 1.5rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+ <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" class="btn-login">Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="./contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../countries/sigapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <!--<li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./countries/india.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>-->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="calculator-hero">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 reveal">
+                    <div class="hero-badge">
+                        <i class="bi bi-file-earmark-text"></i>
+                        HR Policy Tool
+                    </div>
+                    <h1>Pre-Employment Screening Policy Template</h1>
+                    <p class="lead mx-auto">Generate a customized, compliant background verification policy for your organization in minutes. Simply select your requirements and generate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section class="calculator-section" id="generator">
+        <div class="container">
+            <div class="row">
+                <!-- Input Column -->
+                <div class="col-lg-7">
+                    <div class="calculator-card reveal">
+                        <div class="calculator-header">
+                            <h2><i class="bi bi-sliders me-2"></i>Customize Your Policy</h2>
+                        </div>
+                        <div class="calculator-body">
+                            
+                            <!-- Company Details -->
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="input-group-custom mb-0">
+                                        <label class="input-label"><i class="bi bi-building"></i> Company Name</label>
+                                        <input type="text" class="form-control-custom" id="companyName" placeholder="e.g., Acme Technologies">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group-custom mb-0">
+                                        <label class="input-label"><i class="bi bi-calendar-event"></i> Effective Date</label>
+                                        <input type="date" class="form-control-custom" id="effectiveDate">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section-divider">Screening Scope</div>
+
+                            <!-- Screening Checks -->
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon"><i class="bi bi-person-vcard"></i></div>
+                                        <div>
+                                            <h4>Identity Verification</h4>
+                                            <span>Aadhaar, PAN, Passport validation</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkIdentity">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #ede9fe, white); color: var(--purple);"><i class="bi bi-mortarboard"></i></div>
+                                        <div>
+                                            <h4>Education Verification</h4>
+                                            <span>Degrees, certificates, year of passing</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkEducation">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #fef3c7, white); color: var(--warning);"><i class="bi bi-briefcase"></i></div>
+                                        <div>
+                                            <h4>Employment History</h4>
+                                            <span>Previous employers, designation, tenure</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkEmployment">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #fee2e2, white); color: var(--danger);"><i class="bi bi-shield-exclamation"></i></div>
+                                        <div>
+                                            <h4>Criminal Record Check</h4>
+                                            <span>Police/FIR database search</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkCriminal">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon"><i class="bi bi-people"></i></div>
+                                        <div>
+                                            <h4>Reference Checks</h4>
+                                            <span>Professional references from managers</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="checkReference">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon"><i class="bi bi-globe"></i></div>
+                                        <div>
+                                            <h4>Global/Database Checks</h4>
+                                            <span>Global sanctions, watchlists, credit</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="checkGlobal">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="section-divider">Compliance & Process</div>
+
+                            <div class="checklist-card">
+                                <div class="checklist-header">
+                                    <div class="checklist-title">
+                                        <div class="checklist-icon" style="background: linear-gradient(135deg, #d1fae5, white); color: var(--success);"><i class="bi bi-clipboard-check"></i></div>
+                                        <div>
+                                            <h4>Include Adverse Action Clause</h4>
+                                            <span>Process for handling discrepancies</span>
+                                        </div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked id="checkAdverse">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="input-group-custom">
+                                <label class="input-label"><i class="bi bi-building-check"></i> Verification Partner</label>
+                                <input type="text" class="form-control-custom" id="vendorName" value="Verifitech Solutions" placeholder="Background Check Vendor">
+                            </div>
+
+                            <button class="btn-calculate" onclick="generatePolicy()">
+                                <i class="bi bi-file-earmark-plus"></i>
+                                Generate Policy Document
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Column -->
+                <div class="col-lg-5">
+                    <div class="results-card reveal" id="resultsCard">
+                        <div class="results-header">
+                            <h3>Policy Preview</h3>
+                            <div id="resultsContent">
+                                <div class="placeholder-state">
+                                    <div class="placeholder-icon">
+                                        <i class="bi bi-file-text"></i>
+                                    </div>
+                                    <p class="placeholder-text">Configure your policy settings and click "Generate Policy Document" to preview your customized template here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="info-section" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle">
+                    <i class="bi bi-stars"></i> Why Formalize?
+                </div>
+                <h2 class="section-title">Importance of a Screening Policy</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Consistent Process</h4>
+                        <p>Ensure every candidate is screened fairly and thoroughly with a standardized process.</p>
+                    </div>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-scale"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Legal Compliance</h4>
+                        <p>Stay compliant with labor laws and data privacy regulations like PDPA and GDPR.</p>
+                    </div>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Risk Mitigation</h4>
+                        <p>Reduce negligent hiring risks by documenting your due diligence efforts.</p>
+                    </div>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon">
+                        <i class="bi bi-eye"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Transparency</h4>
+                        <p>Build trust with candidates by clearly communicating your screening requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="solution">
+        <div class="container">
+            <div class="reveal">
+                <h2>Need a Verification Partner?</h2>
+                <p>Verifitech offers comprehensive background checks compliant with all major industry standards.</p>
+                <a href="#" class="btn-cta">
+                    Request a Sample Report <i class="bi bi-file-earmark-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer 
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Verifi<span style="color: var(--primary);">tech</span></h4>
+                    <p class="text-white-50 mb-2">India's leading trust & authentication technology company</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Solutions</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Background Checks</a></li>
+                        <li class="mb-2"><a href="#">Vendor Screening</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Resources</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Policy Generator</a></li>
+                        <li class="mb-2"><a href="#">Audit Toolkit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Company</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6>Legal</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6 small text-white-50">
+                    &copy; 2026 Verifitech Solutions Private Limited.
+                </div>
+            </div>
+        </div>
+    </footer>  -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Set default date
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('effectiveDate').value = today;
+        });
+
+        // Generate Policy
+        function generatePolicy() {
+            const companyName = document.getElementById('companyName').value || '[Company Name]';
+            const effectiveDate = document.getElementById('effectiveDate').value ? new Date(document.getElementById('effectiveDate').value).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '[Effective Date]';
+            const vendorName = document.getElementById('vendorName').value || 'Verifitech Solutions';
+
+            const checks = {
+                identity: document.getElementById('checkIdentity').checked,
+                education: document.getElementById('checkEducation').checked,
+                employment: document.getElementById('checkEmployment').checked,
+                criminal: document.getElementById('checkCriminal').checked,
+                reference: document.getElementById('checkReference').checked,
+                global: document.getElementById('checkGlobal').checked,
+                adverse: document.getElementById('checkAdverse').checked
+            };
+
+            // Build Policy HTML
+            let policyHTML = `
+                <div id="policy-content">
+                <h1>Pre-Employment Background Verification Policy</h1>
+                <p style="text-align: center; font-weight: 600;"><strong>${companyName}</strong><br>Effective Date: ${effectiveDate}</p>
+
+                <h2>1. Purpose</h2>
+                <p>The purpose of this policy is to ensure that ${companyName} hires qualified individuals with the highest integrity. This policy establishes standards for conducting background verification checks on prospective employees to maintain a safe and productive work environment.</p>
+
+                <h2>2. Scope</h2>
+                <p>This policy applies to all candidates who have received a conditional offer of employment with ${companyName}, regardless of position or employment type (full-time, part-time, contract, or temporary).</p>
+
+                <h2>3. Verification Components</h2>
+                <p>Background checks will be conducted by <span class="highlight">${vendorName}</span> and may include the following components based on the role:</p>
+                <ul>
+                    ${checks.identity ? '<li><strong>Identity Verification:</strong> Validation of government-issued IDs (Aadhaar, PAN, Passport) to confirm the candidate’s identity.</li>' : ''}
+                    ${checks.education ? '<li><strong>Education Verification:</strong> Verification of academic degrees, diplomas, and certifications claimed by the candidate.</li>' : ''}
+                    ${checks.employment ? '<li><strong>Employment History:</strong> Verification of previous employment details including designation, tenure, and reason for leaving.</li>' : ''}
+                    ${checks.criminal ? '<li><strong>Criminal Record Check:</strong> Search of police records and criminal databases to identify any criminal history.</li>' : ''}
+                    ${checks.reference ? '<li><strong>Reference Checks:</strong> Contacting provided professional references to assess character and work performance.</li>' : ''}
+                    ${checks.global ? '<li><strong>Global Database Check:</strong> Screening against global sanctions lists, watchlists, and credit bureaus (where applicable).</li>' : ''}
+                </ul>
+
+                <h2>4. Process</h2>
+                <ul>
+                    <li><strong>Consent:</strong> A conditional offer will be extended. The candidate must sign a consent form authorizing the background check.</li>
+                    <li><strong>Initiation:</strong> HR will initiate the verification process with ${vendorName} within 24 hours of receiving consent.</li>
+                    <li><strong>Review:</strong> HR and the Hiring Manager will review the completed report upon receipt.</li>
+                    <li><strong>Final Decision:</strong> Employment is confirmed only upon successful verification (or acceptable explanation of minor discrepancies).</li>
+                </ul>
+
+                ${checks.adverse ? `
+                <h2>5. Adverse Action</h2>
+                <p>If the background check reveals information that may negatively affect the employment decision, ${companyName} will:</p>
+                <ul>
+                    <li>Provide the candidate with a copy of the report and a summary of rights.</li>
+                    <li>Allow the candidate a reasonable period (minimum 5 business days) to dispute the accuracy of the report.</li>
+                    <li>Re-evaluate the findings before making a final decision.</li>
+                </ul>
+                ` : ''}
+
+                <h2>6. Confidentiality</h2>
+                <p>All information obtained during the background check process is strictly confidential. Access is restricted to authorized personnel involved in the hiring decision. Data will be stored and handled in compliance with applicable data privacy laws (PDPA, GDPR, etc.).</p>
+
+                <h2>7. Policy Review</h2>
+                <p>This policy will be reviewed annually by the HR Department and Legal Counsel to ensure continued compliance with applicable laws and regulations.</p>
+                <br>
+                <p><em>Approved by: [Authorized Signatory Name]</em><br>
+                <em>Title: [Title]</em><br>
+                <em>Date: ${effectiveDate}</em></p>
+                </div>
+            `;
+
+            const resultsHTML = `
+                <div class="success-badge">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Policy Generated Successfully
+                </div>
+                <div class="policy-preview" id="policyPreviewContainer">
+                    ${policyHTML}
+                </div>
+                <button class="btn-copy" onclick="copyPolicy()">
+                    <i class="bi bi-clipboard"></i>
+                    <span id="copyBtnText">Copy Policy to Clipboard</span>
+                </button>
+            `;
+
+            document.getElementById('resultsContent').innerHTML = resultsHTML;
+        }
+
+        function copyPolicy() {
+            const policyContent = document.getElementById('policy-content').innerText;
+            navigator.clipboard.writeText(policyContent).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const btnText = document.getElementById('copyBtnText');
+                btn.classList.add('copied');
+                btnText.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btnText.textContent = 'Copy Policy to Clipboard';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

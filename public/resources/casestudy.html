@@ -1,0 +1,2914 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Studies | Client Success Stories | Verifitech</title>
+    <meta name="description" content="Explore how leading enterprises leverage Verifitech's verification solutions to reduce risk, ensure compliance, and streamline operations. Real results, real impact." />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+        --border-color: #e2e8f0;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: "Inter", sans-serif; color: var(--dark); line-height: 1.6; overflow-x: hidden; background-color: var(--white); }
+      html { scroll-behavior: smooth; }
+
+      /* Loading & Error States */
+      .loading-spinner { display: flex; justify-content: center; align-items: center; padding: 3rem; }
+      .spinner { width: 50px; height: 50px; border: 4px solid var(--primary-light); border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      
+      .api-error { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; padding: 2rem; border-radius: 12px; text-align: center; margin: 2rem 0; }
+      .api-error button { background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; margin-top: 1rem; cursor: pointer; }
+
+      /* Clickable Card Styles */
+      .case-card { cursor: pointer; position: relative; background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.4s ease; height: 100%; display: flex; flex-direction: column; }
+      .case-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+      
+      /* Featured Image Styles */
+      .case-thumbnail { height: 220px; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%); }
+      .case-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+      .case-card:hover .case-thumbnail img { transform: scale(1.1); }
+      
+      .thumbnail-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); z-index: 1; }
+      
+      .industry-badge { position: absolute; top: 1rem; left: 1rem; background: var(--primary); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 2; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+      
+      .read-more-badge { position: absolute; bottom: 1rem; right: 1rem; background: rgba(255,255,255,0.95); color: var(--dark); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; z-index: 2; display: flex; align-items: center; gap: 0.5rem; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+      .case-card:hover .read-more-badge { opacity: 1; transform: translateY(0); }
+
+      .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Mobile navbar collapse background */
+      .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (min-width: 992px) {
+        .navbar-collapse {
+          background: transparent;
+          backdrop-filter: none;
+          padding: 0;
+          margin-top: 0;
+          box-shadow: none;
+        }
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+
+      .navbar-brand img {
+        height: 80px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* ============================================
+         DROPDOWN MENU STYLES
+         ============================================ */
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* ============================================
+         BUTTON STYLES
+         ============================================ */
+
+      /* CTA Button - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      /* Login Button */
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important;
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+      /* ============================================
+         COUNTRY SELECTOR - WHITE ARROW REMOVED
+         ============================================ */
+
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* Remove Bootstrap's default white arrow from country selector */
+      .country-selector.dropdown-toggle::after {
+        display: none !important;
+        content: none !important;
+        border: none !important;
+      }
+
+      /* Style the custom chevron icon */
+      .country-selector i.bi-chevron-down {
+        font-size: 0.7rem;
+        color: var(--navy);
+        transition: transform 0.3s ease;
+      }
+
+      .country-selector:hover i.bi-chevron-down {
+        color: var(--primary);
+      }
+
+      /* Rotate chevron when dropdown is open */
+      .country-selector[aria-expanded="true"] i.bi-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .country-flag {
+        font-size: 1.2rem;
+      }
+
+      /* Hero Section */
+      .case-study-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%); position: relative; overflow: hidden; }
+      .case-study-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%); border-radius: 50%; }
+      .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(26, 194, 193, 0.1); color: var(--primary-dark); border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(26, 194, 193, 0.2); }
+      .case-study-hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--dark); letter-spacing: -1.5px; }
+      .case-study-hero .lead { font-size: 1.35rem; color: var(--gray); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.6; }
+
+      /* Section Headers */
+      .section-header { margin-bottom: 3rem; }
+      .section-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(26, 194, 193, 0.1); border-radius: 50px; }
+      .section-title { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; letter-spacing: -1px; }
+      .section-desc { color: var(--gray); font-size: 1.15rem; max-width: 700px; line-height: 1.7; }
+
+      /* Case Study Grid */
+      .case-grid-section { padding: 80px 0; background: white; }
+      
+      .case-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+      .case-body h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4; color: var(--dark); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .case-body p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      
+      .results-row { display: flex; gap: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #e2e8f0; }
+      .result-item { text-align: center; flex: 1; }
+      .result-item .value { font-size: 1.25rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 0.25rem; }
+      .result-item .label { font-size: 0.7rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+      /* CTA Section */
+      .cta-section { padding: 100px 0; background: var(--light-gray); text-align: center; }
+      .cta-box { background: white; border-radius: 24px; padding: 4rem; max-width: 800px; margin: 0 auto; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); border: 1px solid #e2e8f0; }
+      .btn-primary-custom { background: var(--primary) !important; color: white !important; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+      .btn-primary-custom:hover { background: var(--primary-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45); }
+
+      /* Footer */
+      .footer { background: #f0fdfa; color: var(--dark); padding: 80px 0 40px; }
+      .newsletter-footer-section { background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(26, 194, 193, 0.2); }
+      .newsletter-icon-footer { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3); }
+      .newsletter-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3); }
+      .newsletter-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4); }
+      
+      .social-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 23, 42, 0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: 1.1rem; transition: all 0.3s; text-decoration: none; }
+      .social-icon:hover { background: var(--primary) !important; color: white !important; transform: translateY(-3px); }
+      
+      .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9998; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer; }
+      .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); color: white; box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5); }
+
+      /* ============================================
+         SINGLE CASE STUDY PAGE STYLES (FROM SECOND CODE)
+         ============================================ */
+      
+      /* Single Case Study Hero Banner */
+      .single-case-hero {
+        position: relative;
+        height: 450px;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        overflow: hidden;
+        margin-top: 80px;
+      }
+
+      .single-case-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+
+      .single-case-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.9) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .breadcrumb-nav {
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9rem;
+        z-index: 10;
+      }
+
+      .breadcrumb-nav a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .breadcrumb-nav a:hover {
+        color: var(--primary);
+      }
+
+      .single-hero-content h1 {
+        color: white;
+        font-size: 3rem;
+        font-weight: 800;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+
+      /* Meta Bar */
+      .case-meta-bar {
+        background: white;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 3rem;
+      }
+
+      .meta-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .meta-left {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--gray);
+      }
+
+      .meta-item i {
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+
+      .rating-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fef3c7;
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        font-weight: 600;
+        color: #d97706;
+        font-size: 0.85rem;
+      }
+
+      .meta-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .action-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--border-color);
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .action-btn:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Single Case Study Container */
+      .single-case-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Article Header */
+      .article-header {
+        margin-bottom: 3rem;
+      }
+
+      .category-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--dark);
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+      }
+
+      .article-subtitle {
+        font-size: 1.25rem;
+        color: var(--gray);
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      /* Two Column Layout */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 4rem;
+        margin-top: 3rem;
+      }
+
+      .main-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--navy);
+      }
+
+      .main-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Featured Image */
+      .featured-image-wrapper {
+        margin: 3rem 0;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      }
+
+      .featured-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Post Details Box */
+      .post-details {
+        background: var(--light-gray);
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-left: 4px solid var(--primary);
+      }
+
+      .post-details-header {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .author-box {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .author-info h5 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: var(--dark);
+      }
+
+      .author-info span {
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+
+      /* Sidebar */
+      .case-sidebar {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+      }
+
+      .stats-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid var(--border-color);
+        margin-bottom: 2rem;
+      }
+
+      .stats-header {
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+
+      .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--gray);
+        font-weight: 600;
+      }
+
+      .cta-card {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        color: white;
+        text-align: center;
+      }
+
+      .cta-card h4 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .cta-card p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-white {
+        background: white;
+        color: var(--primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        color: var(--primary-dark);
+      }
+
+      /* Challenge/Solution/Results Boxes */
+      .content-section {
+        margin: 3rem 0;
+      }
+
+      .section-title-sm {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .challenge-box {
+        background: #fef2f2;
+        border-left: 4px solid #ef4444;
+        padding: 2rem;
+        border-radius: 0 16px 16px 0;
+        margin-bottom: 2rem;
+      }
+
+      .solution-box {
+        background: #f0fdf4;
+        border-left: 4px solid #22c55e;
+        padding: 2rem;
+        border-radius: 0 16px 16px 0;
+        margin-bottom: 2rem;
+      }
+
+      .results-box {
+        background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
+        border: 2px solid var(--primary);
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .icon-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .challenge-box .icon-circle {
+        background: #fecaca;
+        color: #dc2626;
+      }
+
+      .solution-box .icon-circle {
+        background: #bbf7d0;
+        color: #16a34a;
+      }
+
+      .results-box .icon-circle {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Tags */
+      .tags-section {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .tags-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gray);
+        margin-bottom: 1rem;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: var(--light-gray);
+        color: var(--navy);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .tag:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Navigation */
+      .post-navigation {
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--border-color);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .nav-post {
+        padding: 2rem;
+        background: var(--light-gray);
+        border-radius: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .nav-post:hover {
+        background: white;
+        border-color: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        color: inherit;
+      }
+
+      .nav-post.next {
+        text-align: right;
+      }
+
+      .nav-label {
+        font-size: 0.85rem;
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .nav-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      /* Single Case Study View (Hidden by default) */
+      #singleCaseView {
+        display: none;
+      }
+
+      #singleCaseView.active {
+        display: block;
+      }
+
+      #caseStudiesListView.hidden {
+        display: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .case-study-hero h1 { font-size: 2.8rem; }
+        .section-title { font-size: 2.2rem; }
+        
+        /* Single case responsive */
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .case-sidebar {
+          position: relative;
+          top: 0;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+        }
+        
+        .article-title {
+          font-size: 2.2rem;
+        }
+        
+        .single-hero-content h1 {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .case-study-hero { padding: 120px 0 60px; text-align: center; }
+        .case-study-hero h1 { font-size: 2.2rem; }
+        .case-thumbnail { height: 180px; }
+        .read-more-badge { opacity: 1; transform: translateY(0); font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+        
+        /* Single case mobile */
+        .single-case-hero {
+          height: 350px;
+        }
+        
+        .single-hero-content h1 {
+          font-size: 1.8rem;
+          padding: 0 1rem;
+        }
+        
+        .article-title {
+          font-size: 1.8rem;
+        }
+        
+        .meta-wrapper {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        
+        .case-sidebar {
+          grid-template-columns: 1fr;
+        }
+        
+        .post-navigation {
+          grid-template-columns: 1fr;
+        }
+        
+        .nav-post.next {
+          text-align: left;
+        }
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+       .footer {
+  background: #f0fdfa;
+  color: var(--dark);
+  padding: 80px 0 40px;
+}
+
+.footer-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.footer-brand span {
+  color: var(--primary);
+}
+
+.footer-desc {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.8;
+}
+
+.footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd5e1;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* Compliance Badges */
+.compliance-badges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.comp-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
+
+/* ============================================
+   NEWSLETTER FOOTER SECTION
+   ============================================ */
+
+.newsletter-footer-section {
+  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-footer-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.newsletter-icon-footer {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+}
+
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.newsletter-form-footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.input-group-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.zf-tempContDiv {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--dark);
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.zf-errorMessage {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.zf-errorMessage::before {
+  content: '\F332';
+  font-family: 'bootstrap-icons';
+  font-size: 0.8rem;
+}
+
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  font-family: 'Inter', sans-serif;
+  height: fit-content;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+.newsletter-btn i {
+  transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover i {
+  transform: translateX(4px);
+}
+
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-disclaimer {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.newsletter-disclaimer i {
+  color: var(--primary);
+}
+
+.zf-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.zf-success {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.footer-main-content {
+  margin-top: 20px;
+}
+
+.privacy-row {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.privacy-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}checks
+
+.privacy-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.privacy-separator {
+  margin: 0 10px;
+  color: #cbd5e1;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--gray);
+}
+
+.footer-heading {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.copyright 
+{
+  font-size: 14px;
+  margin: 0;
+  color: var(--gray);
+}
+</style>
+  <base target="_blank">
+</head>
+  <body>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" width="200 px" height="60%" />
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
+                    <a href="../checks/lp-ADRESS VERIFICATION.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
+                    <a href="../checks/lp-employment.html" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
+                    <a href="../checks/lp-education check.html" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
+                    <a href="../checks/LP-court verification.html" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a>
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
+                    <a href="../checks/lp-gap verification.html" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
+                    <a href="../checks/lp-socialmeidaverification.html" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a>
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
+                    <a class="dropdown-item" href="../checks/vendor.html"><i class="fa-solid fa-magnifying-glass"></i> Vendor Digillencs</a>
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../products/exitinterview.html"><i class="bi bi-box-arrow-right"></i> Exit interviews</a></li>
+                <li><a class="dropdown-item" href="../products/pm.html"><i class="bi bi-graph-up"></i> Psychometric</a></li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../industries/lp-banks.html"><i class="bi bi-bank"></i> Banking & Financial Services</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-healthcare.html"><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-education.html"><i class="bi bi-book"></i> Education</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-Manfacturing.html"><i class="bi bi-building-gear"></i> Manufacturing</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-IT-ITES.html"><i class="bi bi-laptop"></i> IT/ITeS</a></li>
+                <li><a class="dropdown-item" href="../industries/LP-FMCG.html"><i class="bi bi-box"></i> FMCG</a></li>
+                <li><a class="dropdown-item" href="../industries/Logistics.html"><i class="bi bi-truck"></i> Logistics</a></li>
+                <li><a class="dropdown-item" href="../industries/Realestate & Constructation.html"><i class="bi bi-house"></i> Realestate & Construcataion</a></li>
+                <li><a class="dropdown-item" href="../industries/Retail & E-commerce.html"><i class="bi bi-shop"></i> Retail & E-commerce</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-travel industries.html"><i class="bi bi-airplane"></i> Travel and Hospitality</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-staffing.html"><i class="bi bi-person-workspace"></i> Staffing and Recruitment</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-telecom.html"><i class="bi bi-broadcast"></i> Telecom</a></li>
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../resources/blog.html"><i class="bi bi-journal-text"></i> Blogs</a></li>
+                <li><a class="dropdown-item" href="../resources/whitepapers.html"><i class="bi bi-file-earmark-text"></i> Whitepapers</a></li>
+                <li><a class="dropdown-item" href="../resources/casestudy.html"><i class="bi bi-star"></i> Case Study</a></li>
+                <li><a class="dropdown-item" href="../resources/webinar.html"><i class="bi bi-camera-video"></i> Webinar</a></li>
+                <li><a class="dropdown-item" href="../products/api.html"><i class="bi bi-plug"></i> API</a></li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../company/partnership.html"><i class="bi bi-hand-thumbs-up"></i> Partnership</a></li>
+                <li><a class="dropdown-item" href="../company/aboutus.html"><i class="bi bi-info-circle"></i> About Us</a></li>
+                <li><a class="dropdown-item" href="../company/careers.html"><i class="bi bi-briefcase"></i> Careers</a></li>
+              </ul>
+            </li>
+
+            <!-- HELP CENTER Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Help Center <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../helpcenter/customer.html"><i class="bi bi-building"></i> For Customers</a></li>
+                <li><a class="dropdown-item" href="../helpcenter/partner.html"><i class="bi bi-people"></i> For Partners</a></li>
+                <li><a class="dropdown-item" href="../affilate/affilate.html"><i class="bi bi-link-45deg"></i> Affiliate Marketing</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" >Login</a>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales">Talk to Sales</a>
+
+            <div class="dropdown">
+              <div class="country-selector dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                <li><a href="../countries/usa.html" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸"><span class="country-flag">🇺🇸</span> USA</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/UAE.html" data-country="UAE" data-flag="🇦🇪"><span class="country-flag">🇦🇪</span> UAE</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/aus.html" data-country="Australia" data-flag="🇦🇺"><span class="country-flag">🇦🇺</span> Australia</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/uk.html" data-country="UK" data-flag="🇬🇧"><span class="country-flag">🇬🇧</span> UK</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/sigapore.html" data-country="Singapore" data-flag="🇸🇬"><span class="country-flag">🇸🇬</span> Singapore</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== CASE STUDIES LIST VIEW ==================== -->
+    <div id="caseStudiesListView">
+      <!-- Hero Section -->
+      <section class="case-study-hero">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 reveal">
+              <div class="hero-badge"><i class="bi bi-trophy"></i> Client Success Stories</div>
+              <h1>Case Studies</h1>
+              <p class="lead">Discover how leading enterprises transform their verification processes, reduce risk, and achieve compliance excellence.</p>
+              <a href="#dynamic-cases" class="btn btn-primary-custom btn-lg">View All Stories <i class="bi bi-arrow-down"></i></a>
+            </div>
+            <div class="col-lg-6 reveal">
+              <div style="text-align: center; padding: 2rem;">
+                <div style="display: inline-flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">2,000+</div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">Clients</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">70%</div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">Faster TAT</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--primary);">99.8%</div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">Accuracy</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Case Studies Section -->
+      <section class="case-grid-section" id="dynamic-cases">
+        <div class="container">
+          <div class="section-header text-center reveal">
+            <div class="section-subtitle justify-content-center"><i class="bi bi-grid-3x3-gap"></i> Success Stories</div>
+            <h2 class="section-title">Client Case Studies</h2>
+            <p class="section-desc mx-auto">Click any case study to view full details</p>
+          </div>
+
+          <div id="loading-state" class="loading-spinner"><div class="spinner"></div></div>
+          <div id="error-state" class="api-error" style="display: none;">
+            <i class="bi bi-exclamation-triangle-fill" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+            <h4>Unable to load case studies</h4>
+            <button onclick="loadFallbackData()">Load Sample Data</button>
+          </div>
+
+          <div id="case-studies-container" class="row g-4" style="display: none;"></div>
+
+          <div class="text-center mt-5 reveal" id="load-more-container" style="display: none;">
+            <button class="btn btn-outline-dark btn-lg" style="border-radius: 50px; padding: 0.75rem 2rem; font-weight: 600; border-width: 2px;" onclick="loadMoreCases()">
+              Load More <i class="bi bi-arrow-down ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== SINGLE CASE STUDY VIEW (NEW STRUCTURE) ==================== -->
+    <div id="singleCaseView">
+      <!-- Hero Banner -->
+      <section class="single-case-hero">
+        <img id="singleHeroImage" src="" alt="Case Study Background" />
+        <div class="single-case-hero-overlay">
+          <div class="breadcrumb-nav">
+            <a href="#" onclick="showCaseStudiesList()">Home</a> / 
+            <a href="#" onclick="showCaseStudiesList()">Case Studies</a> / 
+            <span id="singleBreadcrumbIndustry">Industry</span>
+          </div>
+          <div class="single-hero-content">
+            <h1 id="singleHeroTitle">Case Study Title</h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- Meta Bar -->
+      <div class="case-meta-bar">
+        <div class="single-case-container">
+          <div class="meta-wrapper">
+            <div class="meta-left">
+              <div class="rating-badge">
+                <i class="bi bi-star-fill"></i>
+                <span>4.9</span>
+                <small style="opacity: 0.8;">(128 reviews)</small>
+              </div>
+              <div class="meta-item">
+                <i class="bi bi-building"></i>
+                <span id="singleMetaIndustry">Industry</span>
+              </div>
+              <div class="meta-item">
+                <i class="bi bi-geo-alt"></i>
+                <span id="singleMetaLocation">Mumbai, Maharashtra, India</span>
+              </div>
+              <div class="meta-item">
+                <i class="bi bi-calendar3"></i>
+                <span id="singleMetaDate">March 2025</span>
+              </div>
+            </div>
+            <div class="meta-right">
+              <a href="#" class="action-btn" title="Share" onclick="shareCaseStudy()"><i class="bi bi-share"></i></a>
+              <a href="#" class="action-btn" title="Bookmark"><i class="bi bi-bookmark"></i></a>
+              <a href="#" class="action-btn" title="Download PDF" onclick="downloadCaseStudy()"><i class="bi bi-download"></i></a>
+              <a href="#" class="action-btn" title="Print" onclick="window.print()"><i class="bi bi-printer"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <article class="single-case-container">
+        <div class="content-grid">
+          <div class="main-content">
+            
+            <!-- Article Header -->
+            <div class="article-header reveal">
+              <span class="category-tag"><i class="bi bi-trophy"></i> Client Success Story</span>
+              <h1 class="article-title" id="singleArticleTitle">Case Study Title</h1>
+              <p class="article-subtitle" id="singleArticleSubtitle">
+                Discover how this leading enterprise transformed their verification process with Verifitech's automated solutions.
+              </p>
+            </div>
+
+            <!-- Post Details Box -->
+            <div class="post-details reveal">
+              <div class="post-details-header">
+                <i class="bi bi-person-circle"></i> Post Details
+              </div>
+              <div class="author-box">
+                <div class="author-avatar">VK</div>
+                <div class="author-info">
+                  <h5>Verifitech Editorial Team</h5>
+                  <span id="singlePostDate">Posted on 15 March 2025 • 8 min read</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="featured-image-wrapper reveal">
+              <img id="singleFeaturedImage" src="" alt="Case Study Featured Image" />
+            </div>
+
+            <!-- Challenge Section -->
+            <div class="content-section reveal">
+              <div class="challenge-box">
+                <div class="icon-circle"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                <h3 class="section-title-sm" style="margin-bottom: 1rem;">The Challenge</h3>
+                <div id="singleChallengeContent">
+                  <p>The client faced challenges with manual verification processes taking 15+ days across multiple geographies. Compliance standards varied by region, creating risk and operational inefficiencies.</p>
+                  <p>Additionally, high-volume hiring requirements and fragmented systems were causing significant delays and compliance gaps.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div class="content-section reveal">
+              <div class="solution-box">
+                <div class="icon-circle"><i class="bi bi-check-circle-fill"></i></div>
+                <h3 class="section-title-sm" style="margin-bottom: 1rem;">The Solution</h3>
+                <div id="singleSolutionContent">
+                  <p>Verifitech implemented a unified API platform with localized compliance checks, real-time tracking, and automated workflows tailored to the client's specific requirements.</p>
+                  <p>Key implementations included:</p>
+                  <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Instant digital verification with multi-layer authentication</li>
+                    <li>Real-time document verification using AI-powered OCR</li>
+                    <li>Automated compliance screening and risk scoring</li>
+                    <li>Custom dashboard for real-time monitoring</li>
+                    <li>Integration with existing HR and CRM systems</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="content-section reveal">
+              <div class="results-box">
+                <div class="icon-circle"><i class="bi bi-trophy-fill"></i></div>
+                <h3 class="section-title-sm" style="margin-bottom: 1rem; color: var(--primary);">Key Results</h3>
+                <div id="singleResultsContent">
+                  <p style="font-size: 1.2rem; font-weight: 600; color: var(--dark); margin-bottom: 1rem;">
+                    "Verifitech's solution transformed our verification experience. We've seen dramatic improvements in processing time and our compliance team can now focus on high-value tasks."
+                  </p>
+                  <p style="color: var(--gray); font-style: italic;">
+                    — Chief Operating Officer, Client Organization
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full Story Content -->
+            <div class="main-content reveal">
+              <h3 style="font-size: 1.5rem; font-weight: 700; margin: 2rem 0 1rem;">Implementation Journey</h3>
+              <div id="singleFullContent">
+                <p>The implementation began with a pilot program to test and validate the solution. Within the first month, the results were evident. Teams reported that the new system was intuitive and reduced their workload significantly.</p>
+                <p>The success of the pilot led to a rapid rollout across all departments and locations. Verifitech's dedicated project management team ensured minimal disruption to daily operations during the transition.</p>
+                <p>Today, the client processes thousands of verifications monthly through our platform, with industry-leading accuracy and processing times.</p>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section reveal">
+              <div class="tags-title">Related Topics:</div>
+              <div id="singleTags">
+                <a href="#" class="tag">Background Verification</a>
+                <a href="#" class="tag">Compliance</a>
+                <a href="#" class="tag">Digital Transformation</a>
+                <a href="#" class="tag">API Integration</a>
+                <a href="#" class="tag">Automation</a>
+              </div>
+            </div>
+
+            <!-- Post Navigation -->
+            <div class="post-navigation reveal">
+              <a href="#" class="nav-post prev" onclick="navigateCase(-1)">
+                <div class="nav-label"><i class="bi bi-arrow-left"></i> Previous Case Study</div>
+                <div class="nav-title" id="prevCaseTitle">Previous Case Study Title</div>
+              </a>
+              <a href="#" class="nav-post next" onclick="navigateCase(1)">
+                <div class="nav-label">Next Case Study <i class="bi bi-arrow-right"></i></div>
+                <div class="nav-title" id="nextCaseTitle">Next Case Study Title</div>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="case-sidebar">
+            <!-- Stats Card -->
+            <div class="stats-card reveal">
+              <div class="stats-header">Impact Metrics</div>
+              <div id="singleStatsContainer">
+                <div class="stat-item">
+                  <div class="stat-value">70%</div>
+                  <div class="stat-label">Faster Processing</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">24h</div>
+                  <div class="stat-label">Avg. TAT</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">99.8%</div>
+                  <div class="stat-label">Accuracy Rate</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">40%</div>
+                  <div class="stat-label">Cost Reduction</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Card -->
+            <div class="cta-card reveal">
+              <i class="bi bi-rocket-takeoff" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+              <h4>Transform Your Verification Process</h4>
+              <p>Join 2,000+ enterprises that trust Verifitech for their background verification needs.</p>
+              <a href="./contact/contact.html" class="btn-white">Schedule Demo <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </aside>
+        </div>
+      </article>
+
+      <!-- Related Case Studies -->
+      <section style="background: var(--light-gray); padding: 5rem 0; margin-top: 5rem;">
+        <div class="single-case-container">
+          <div class="text-center mb-5 reveal">
+            <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">More Success Stories</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 1rem;">Related Case Studies</h2>
+          </div>
+          
+          <div class="row g-4" id="relatedCasesContainer">
+            <!-- Related cases will be injected here -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section" id="ctaSection">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="hero-badge justify-content-center mb-3" style="display: inline-flex"><i class="bi bi-rocket-takeoff"></i> Start Your Success Story</div>
+          <h2 class="section-title mb-3">Ready to Transform Your Verification Process?</h2>
+          <p class="text-muted mb-4" style="font-size: 1.1rem">Join 2,000+ enterprises that trust Verifitech</p>
+          <a href="./contact/contact.html" class="btn btn-primary-custom btn-lg"><i class="bi bi-calendar-check"></i> Schedule Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+   <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../contact/contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="../products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/verifitech/" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <!-- <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a> -->
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="./privacy-separator">|</span>  
+            <a href="./Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp -->
+    <a href="#" class="whatsapp-float" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    // ============================================
+// WORDPRESS CASE STUDIES - COMPLETE JS
+// ============================================
+
+const WP_API_BASE = 'https://www.verifitech.com/wp-json/wp/v2';
+let currentPage = 1;
+let totalPages = 1;
+let caseStudiesData = [];
+let caseStudyCategoryId = null;
+let currentCaseIndex = 0;
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await findCaseStudyCategory();
+  fetchCaseStudies();
+  initRevealAnimations();
+  initNavbarScroll();
+});
+
+// ============================================
+// CATEGORY DETECTION
+// ============================================
+
+async function findCaseStudyCategory() {
+  try {
+    const searchTerms = ['case-studies', 'case_studies', 'case study', 'casestudies'];
+    
+    for (const term of searchTerms) {
+      const response = await fetch(`${WP_API_BASE}/categories?search=${term}&per_page=20`);
+      if (response.ok) {
+        const categories = await response.json();
+        
+        const caseStudyCat = categories.find(cat => {
+          const slug = cat.slug.toLowerCase();
+          const name = cat.name.toLowerCase();
+          return (
+            slug === 'case-studies' || 
+            slug === 'case_studies' ||
+            slug === 'casestudies' ||
+            name.includes('case study') ||
+            name.includes('case-study') ||
+            name.includes('casestudy')
+          );
+        });
+        
+        if (caseStudyCat) {
+          caseStudyCategoryId = caseStudyCat.id;
+          console.log('Found case-studies category ID:', caseStudyCategoryId, 'Name:', caseStudyCat.name);
+          return;
+        }
+      }
+    }
+    
+    console.log('Case studies category not found, will try to fetch by slug');
+  } catch (error) {
+    console.error('Error finding category:', error);
+  }
+}
+
+// ============================================
+// FETCH CASE STUDIES (CATEGORY FILTERED)
+// ============================================
+
+async function fetchCaseStudies(page = 1, perPage = 6) {
+  try {
+    showLoading(true);
+    hideError();
+    
+    let url;
+    
+    if (caseStudyCategoryId) {
+      url = `${WP_API_BASE}/posts?categories=${caseStudyCategoryId}&per_page=${perPage}&page=${page}&_embed=wp:featuredmedia,wp:term,author&orderby=date&order=desc`;
+    } else {
+      url = `${WP_API_BASE}/posts?per_page=${perPage}&page=${page}&_embed=wp:featuredmedia,wp:term,author&orderby=date&order=desc`;
+    }
+    
+    console.log('Fetching from:', url);
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    totalPages = parseInt(response.headers.get('X-WP-TotalPages')) || 1;
+    const totalPosts = parseInt(response.headers.get('X-WP-Total')) || 0;
+    
+    console.log(`Found ${totalPosts} posts, ${totalPages} pages`);
+    
+    let posts = await response.json();
+    
+    if (!caseStudyCategoryId && posts.length > 0) {
+      posts = filterCaseStudiesClientSide(posts);
+    }
+    
+    // Process posts to extract content images
+    posts = posts.map(post => {
+      post.contentImages = extractImagesFromContent(post.content?.rendered || '');
+      return post;
+    });
+    
+    if (page === 1) {
+      caseStudiesData = posts;
+    } else {
+      caseStudiesData = [...caseStudiesData, ...posts];
+    }
+    
+    showLoading(false);
+    renderCaseStudies(posts);
+    updateLoadMoreButton();
+    
+  } catch (error) {
+    console.error('Fetch error:', error);
+    showLoading(false);
+    showError();
+  }
+}
+
+// Client-side filtering fallback
+function filterCaseStudiesClientSide(posts) {
+  return posts.filter(post => {
+    if (post.categories && post.categories.length > 0) {
+      return true;
+    }
+    
+    const content = (post.content?.rendered || '').toLowerCase();
+    const title = (post.title?.rendered || '').toLowerCase();
+    const excerpt = (post.excerpt?.rendered || '').toLowerCase();
+    
+    const indicators = ['case study', 'case-study', 'casestudy', 'client success', 'success story'];
+    return indicators.some(ind => 
+      title.includes(ind) || 
+      content.includes(ind) || 
+      excerpt.includes(ind)
+    );
+  });
+}
+
+// ============================================
+// IMAGE EXTRACTION FUNCTIONS
+// ============================================
+
+// Extract all images from HTML content
+function extractImagesFromContent(htmlContent) {
+  if (!htmlContent) return [];
+  
+  const images = [];
+  const imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/gi;
+  let match;
+  
+  while ((match = imgRegex.exec(htmlContent)) !== null) {
+    images.push(match[1]);
+  }
+  
+  return images;
+}
+
+// Get first image from content that is different from featured image
+function getContentImage(post, featuredImageUrl) {
+  // Check if we have extracted content images
+  const contentImages = post.contentImages || [];
+  
+  // Find first image that is different from featured image
+  const differentImage = contentImages.find(img => {
+    // Compare base URLs (ignore size parameters)
+    const imgBase = img.split('?')[0];
+    const featuredBase = (featuredImageUrl || '').split('?')[0];
+    return imgBase !== featuredBase && imgBase !== '';
+  });
+  
+  if (differentImage) {
+    return differentImage;
+  }
+  
+  // If no different image found in content, return null
+  // This will trigger the hide logic
+  return null;
+}
+
+// ============================================
+// DATA EXTRACTION HELPERS
+// ============================================
+
+function getFeaturedImage(post, size = 'medium_large') {
+  const embedded = post._embedded;
+  if (!embedded || !embedded['wp:featuredmedia'] || !embedded['wp:featuredmedia'][0]) {
+    return '';
+  }
+  
+  const media = embedded['wp:featuredmedia'][0];
+  
+  if (media.media_details?.sizes?.[size]) {
+    return media.media_details.sizes[size].source_url;
+  }
+  
+  const fallbacks = ['large', 'medium', 'thumbnail'];
+  for (const fb of fallbacks) {
+    if (media.media_details?.sizes?.[fb]) {
+      return media.media_details.sizes[fb].source_url;
+    }
+  }
+  
+  return media.source_url || '';
+}
+
+function getHeroImage(post) {
+  // Get large size for hero
+  let img = getFeaturedImage(post, 'large');
+  if (!img) {
+    img = getFeaturedImage(post, 'full');
+  }
+  if (!img) {
+    img = getFeaturedImage(post, 'medium_large');
+  }
+  return img || getDefaultHeroImage();
+}
+
+function getIndustry(post) {
+  const embedded = post._embedded;
+  if (!embedded || !embedded['wp:term']) return 'General';
+  
+  const categories = embedded['wp:term'].flat().filter(term => term.taxonomy === 'category');
+  
+  const industryCat = categories.find(cat => {
+    const slug = cat.slug.toLowerCase();
+    const name = cat.name.toLowerCase();
+    return (
+      !slug.includes('case') && 
+      !slug.includes('study') &&
+      !slug.includes('uncategorized') &&
+      !name.includes('case study') &&
+      !name.includes('case-study')
+    );
+  });
+  
+  return industryCat ? industryCat.name : (categories[0]?.name || 'General');
+}
+
+function getAllCategories(post) {
+  const embedded = post._embedded;
+  if (!embedded || !embedded['wp:term']) return [];
+  
+  return embedded['wp:term']
+    .flat()
+    .filter(term => term.taxonomy === 'category')
+    .map(cat => cat.name);
+}
+
+function extractMetrics(post) {
+  const content = post.content?.rendered || '';
+  const text = content.replace(/<[^>]*>/g, ' ');
+  
+  const percentMatch = text.match(/(\d+(?:\.\d+)?%)/g);
+  const timeMatch = text.match(/(\d+(?:\.\d+)?)\s*(hours?|hrs?|days?|minutes?|min)/gi);
+  const numberMatch = text.match(/(\d+(?:\.\d+)?[KMB\+]\+?)/g);
+  
+  const defaults = [
+    { value: '70%', label: 'Faster' },
+    { value: '99%', label: 'Accuracy' },
+    { value: '24h', label: 'TAT' }
+  ];
+  
+  const metrics = [];
+  
+  if (percentMatch && percentMatch[0]) {
+    metrics.push({ value: percentMatch[0], label: 'Improvement' });
+  }
+  if (timeMatch && timeMatch[0]) {
+    metrics.push({ value: timeMatch[0].replace(/\s+/g, ''), label: 'Processing Time' });
+  }
+  if (numberMatch && numberMatch[0]) {
+    metrics.push({ value: numberMatch[0], label: 'Volume' });
+  }
+  
+  while (metrics.length < 3) {
+    metrics.push(defaults[metrics.length]);
+  }
+  
+  return metrics.slice(0, 3);
+}
+
+function extractSection(content, ...keywords) {
+  const text = content.replace(/<[^>]*>/g, ' ').trim();
+  
+  for (const keyword of keywords) {
+    const regex = new RegExp(`${keyword}[\\s:]*([^\\n]+(?:\\n[^\\n]+){0,3})`, 'i');
+    const match = text.match(regex);
+    if (match && match[1].length > 20) {
+      return match[1].trim();
+    }
+  }
+  
+  const paragraphs = text.split(/\n\s*\n/);
+  const substantial = paragraphs.find(p => p.length > 50);
+  return substantial ? substantial.substring(0, 300) + '...' : text.substring(0, 300) + '...';
+}
+
+function calculateReadTime(content) {
+  const text = content.replace(/<[^>]*>/g, ' ');
+  const wordCount = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(wordCount / 200));
+}
+
+// ============================================
+// RENDER FUNCTIONS
+// ============================================
+
+function renderCaseStudies(posts) {
+  const container = document.getElementById('case-studies-container');
+  if (!container) return;
+  
+  if (currentPage === 1) {
+    container.innerHTML = '';
+  }
+  
+  posts.forEach((post, index) => {
+    const card = createCaseStudyCard(post);
+    container.insertAdjacentHTML('beforeend', card);
+  });
+  
+  initRevealAnimations();
+}
+
+function createCaseStudyCard(post) {
+  const title = post.title?.rendered || 'Untitled';
+  const excerpt = stripHtml(post.excerpt?.rendered || '').substring(0, 120) + '...';
+  const featuredImage = getFeaturedImage(post) || getDefaultImage();
+  const industry = getIndustry(post);
+  const metrics = extractMetrics(post);
+  
+  return `
+    <div class="col-md-6 col-lg-4 reveal">
+      <div class="case-card" onclick="openSingleCaseStudy(${post.id})">
+        <div class="case-thumbnail">
+          <img src="${featuredImage}" alt="${escapeHtml(title)}" loading="lazy" onerror="this.src='${getDefaultImage()}'">
+          <div class="thumbnail-overlay"></div>
+          <span class="industry-badge">${escapeHtml(industry)}</span>
+          <div class="read-more-badge">
+            Read Full Story <i class="bi bi-arrow-right"></i>
+          </div>
+        </div>
+        <div class="case-body">
+          <h3>${escapeHtml(title)}</h3>
+          <p>${escapeHtml(excerpt)}</p>
+          <div class="results-row">
+            ${metrics.map(m => `
+              <div class="result-item">
+                <div class="value">${escapeHtml(m.value)}</div>
+                <div class="label">${escapeHtml(m.label)}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderRelatedCases(currentId) {
+  const container = document.getElementById('relatedCasesContainer');
+  if (!container) return;
+  
+  const related = caseStudiesData
+    .filter(p => p.id !== currentId)
+    .slice(0, 3);
+  
+  if (related.length === 0) {
+    container.innerHTML = '<p class="text-center text-muted">No related case studies found.</p>';
+    return;
+  }
+  
+  container.innerHTML = related.map(post => {
+    const img = getFeaturedImage(post) || getDefaultImage();
+    const industry = getIndustry(post);
+    const title = post.title?.rendered || 'Untitled';
+    const excerpt = stripHtml(post.excerpt?.rendered || '').substring(0, 80) + '...';
+    
+    return `
+      <div class="col-md-4 reveal">
+        <div class="related-case-card" onclick="openSingleCaseStudy(${post.id})" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); cursor: pointer; transition: all 0.3s ease;">
+          <img src="${img}" style="width: 100%; height: 200px; object-fit: cover;" alt="${escapeHtml(title)}" onerror="this.src='${getDefaultImage()}'">
+          <div style="padding: 1.5rem;">
+            <span style="background: var(--primary-light); color: var(--primary-dark); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;">${escapeHtml(industry)}</span>
+            <h4 style="margin-top: 1rem; font-weight: 700; font-size: 1.1rem; color: var(--dark);">${escapeHtml(title)}</h4>
+            <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem; margin-bottom: 0;">${escapeHtml(excerpt)}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    .related-case-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+    }
+  `;
+  document.head.appendChild(style);
+  
+  initRevealAnimations();
+}
+
+// ============================================
+// SINGLE CASE STUDY VIEW
+// ============================================
+
+function openSingleCaseStudy(postId) {
+  const post = caseStudiesData.find(p => p.id === postId);
+  if (!post) {
+    console.error('Post not found:', postId);
+    return;
+  }
+  
+  currentCaseIndex = caseStudiesData.findIndex(p => p.id === postId);
+  
+  const title = post.title?.rendered || 'Untitled';
+  const content = post.content?.rendered || '';
+  
+  // HERO IMAGE: Featured image (large size)
+  const heroImage = getHeroImage(post);
+  
+  // CONTENT IMAGE: Second image from blog post content (NOT featured image)
+  const contentImage = getContentImage(post, heroImage);
+  
+  console.log('Hero Image:', heroImage);
+  console.log('Content Image from post:', contentImage);
+  console.log('Content images found:', post.contentImages);
+  
+  const industry = getIndustry(post);
+  const date = formatDate(post.date);
+  const readTime = calculateReadTime(content);
+  
+  const challenge = extractSection(content, 'challenge', 'problem', 'issue', 'the challenge');
+  const solution = extractSection(content, 'solution', 'implementation', 'approach', 'the solution');
+  const results = extractSection(content, 'result', 'outcome', 'achievement', 'impact', 'the result');
+  
+  populateSingleCaseStudy({
+    title,
+    content,
+    heroImage,
+    contentImage,
+    industry,
+    date,
+    readTime,
+    challenge,
+    solution,
+    results,
+    post
+  });
+  
+  updateCaseNavigation();
+  renderRelatedCases(postId);
+  
+  document.getElementById('caseStudiesListView').classList.add('hidden');
+  const singleView = document.getElementById('singleCaseView');
+  singleView.classList.add('active');
+  
+  const ctaSection = document.getElementById('ctaSection');
+  if (ctaSection) ctaSection.style.display = 'none';
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  window.currentCaseStudy = post;
+  
+  updateUrl(post);
+}
+
+function populateSingleCaseStudy(data) {
+  const { title, content, heroImage, contentImage, industry, date, readTime, challenge, solution, results, post } = data;
+  
+  // HERO SECTION: Always show featured image
+  const heroImg = document.getElementById('singleHeroImage');
+  if (heroImg) {
+    heroImg.src = heroImage;
+    heroImg.alt = title;
+  }
+  
+  const heroTitle = document.getElementById('singleHeroTitle');
+  if (heroTitle) heroTitle.textContent = title;
+  
+  const breadcrumbIndustry = document.getElementById('singleBreadcrumbIndustry');
+  if (breadcrumbIndustry) breadcrumbIndustry.textContent = industry;
+  
+  // Meta bar
+  const metaIndustry = document.getElementById('singleMetaIndustry');
+  if (metaIndustry) metaIndustry.textContent = industry;
+  
+  const metaDate = document.getElementById('singleMetaDate');
+  if (metaDate) metaDate.textContent = date;
+  
+  // Article header
+  const articleTitle = document.getElementById('singleArticleTitle');
+  if (articleTitle) articleTitle.textContent = title;
+  
+  const articleSubtitle = document.getElementById('singleArticleSubtitle');
+  if (articleSubtitle) {
+    articleSubtitle.textContent = stripHtml(post.excerpt?.rendered || '') || 
+      `Discover how this ${industry} leader transformed their verification process with Verifitech's solutions.`;
+  }
+  
+  // Post details
+  const postDate = document.getElementById('singlePostDate');
+  if (postDate) {
+    postDate.textContent = `Posted on ${date} • ${readTime} min read`;
+  }
+  
+  // CONTENT IMAGE SECTION: Show second image from blog content (NOT featured image)
+  const featuredImg = document.getElementById('singleFeaturedImage');
+  const featuredWrapper = document.querySelector('.featured-image-wrapper');
+  
+  if (featuredImg && featuredWrapper) {
+    // Only show if we found a different image in the content
+    if (contentImage && contentImage !== heroImage) {
+      featuredWrapper.style.display = 'block';
+      featuredImg.src = contentImage;
+      featuredImg.alt = title + ' - Content Image';
+      console.log('Showing content image:', contentImage);
+    } else {
+      // Hide if no different image found
+      featuredWrapper.style.display = 'none';
+      console.log('No different content image found, hiding featured image section');
+    }
+  }
+  
+  // Content sections
+  const challengeContent = document.getElementById('singleChallengeContent');
+  if (challengeContent) {
+    challengeContent.innerHTML = `<p>${escapeHtml(challenge)}</p>`;
+  }
+  
+  const solutionContent = document.getElementById('singleSolutionContent');
+  if (solutionContent) {
+    solutionContent.innerHTML = formatSolutionContent(solution);
+  }
+  
+  const resultsContent = document.getElementById('singleResultsContent');
+  if (resultsContent) {
+    resultsContent.innerHTML = `
+      <p style="font-size: 1.2rem; font-weight: 600; color: var(--dark); margin-bottom: 1rem;">
+        "${escapeHtml(results)}"
+      </p>
+      <p style="color: var(--gray); font-style: italic;">
+        — Chief Operating Officer, ${escapeHtml(industry)}
+      </p>
+    `;
+  }
+  
+  // Full content - remove the first image since we're showing it separately
+  const fullContent = document.getElementById('singleFullContent');
+  if (fullContent) {
+    // Remove images from content to avoid duplication
+    let cleanedContent = content.replace(/<img[^>]*>/gi, '');
+    fullContent.innerHTML = cleanedContent || '<p>Full case study details coming soon...</p>';
+  }
+  
+  // Stats
+  const metrics = extractMetrics(post);
+  const statsContainer = document.getElementById('singleStatsContainer');
+  if (statsContainer) {
+    statsContainer.innerHTML = metrics.map(m => `
+      <div class="stat-item">
+        <div class="stat-value">${escapeHtml(m.value)}</div>
+        <div class="stat-label">${escapeHtml(m.label)}</div>
+      </div>
+    `).join('');
+  }
+  
+  // Tags
+  const categories = getAllCategories(post);
+  const tagsContainer = document.getElementById('singleTags');
+  if (tagsContainer) {
+    const tags = [...categories, 'Background Verification', 'Compliance', 'Digital Transformation'];
+    const uniqueTags = [...new Set(tags)].slice(0, 6);
+    tagsContainer.innerHTML = uniqueTags.map(tag => 
+      `<a href="#" class="tag" onclick="event.preventDefault()">${escapeHtml(tag)}</a>`
+    ).join('');
+  }
+}
+
+function formatSolutionContent(solution) {
+  if (solution.includes('•') || solution.includes('-') || solution.includes(':')) {
+    const parts = solution.split(/[•:-]/).filter(p => p.trim());
+    if (parts.length > 1) {
+      return `
+        <p>${escapeHtml(parts[0])}</p>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          ${parts.slice(1).map(p => `<li>${escapeHtml(p.trim())}</li>`).join('')}
+        </ul>
+      `;
+    }
+  }
+  return `<p>${escapeHtml(solution)}</p>`;
+}
+
+// ============================================
+// BACK TO CASE STUDIES FUNCTION
+// ============================================
+
+function showCaseStudiesList() {
+  const singleView = document.getElementById('singleCaseView');
+  singleView.classList.remove('active');
+  
+  const listView = document.getElementById('caseStudiesListView');
+  listView.classList.remove('hidden');
+  
+  const ctaSection = document.getElementById('ctaSection');
+  if (ctaSection) ctaSection.style.display = 'block';
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  if (history.pushState) {
+    history.pushState(null, null, window.location.pathname);
+  }
+}
+
+// ============================================
+// NAVIGATION FUNCTIONS
+// ============================================
+
+function updateCaseNavigation() {
+  const prevBtn = document.querySelector('.nav-post.prev');
+  const nextBtn = document.querySelector('.nav-post.next');
+  const prevTitle = document.getElementById('prevCaseTitle');
+  const nextTitle = document.getElementById('nextCaseTitle');
+  
+  if (currentCaseIndex > 0) {
+    const prevCase = caseStudiesData[currentCaseIndex - 1];
+    if (prevTitle) prevTitle.textContent = prevCase.title?.rendered || 'Previous';
+    if (prevBtn) {
+      prevBtn.style.visibility = 'visible';
+      prevBtn.style.pointerEvents = 'auto';
+    }
+  } else {
+    if (prevTitle) prevTitle.textContent = 'No previous case study';
+    if (prevBtn) {
+      prevBtn.style.visibility = 'hidden';
+      prevBtn.style.pointerEvents = 'none';
+    }
+  }
+  
+  if (currentCaseIndex < caseStudiesData.length - 1) {
+    const nextCase = caseStudiesData[currentCaseIndex + 1];
+    if (nextTitle) nextTitle.textContent = nextCase.title?.rendered || 'Next';
+    if (nextBtn) {
+      nextBtn.style.visibility = 'visible';
+      nextBtn.style.pointerEvents = 'auto';
+    }
+  } else {
+    if (nextTitle) nextTitle.textContent = 'No next case study';
+    if (nextBtn) {
+      nextBtn.style.visibility = 'hidden';
+      nextBtn.style.pointerEvents = 'none';
+    }
+  }
+}
+
+function navigateCase(direction) {
+  const newIndex = currentCaseIndex + direction;
+  if (newIndex >= 0 && newIndex < caseStudiesData.length) {
+    openSingleCaseStudy(caseStudiesData[newIndex].id);
+  }
+}
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+function loadMoreCases() {
+  currentPage++;
+  fetchCaseStudies(currentPage);
+}
+
+function updateLoadMoreButton() {
+  const container = document.getElementById('load-more-container');
+  if (!container) return;
+  
+  if (currentPage < totalPages) {
+    container.style.display = 'block';
+  } else {
+    container.style.display = 'none';
+  }
+}
+
+function showLoading(show) {
+  const loader = document.getElementById('loading-state');
+  const container = document.getElementById('case-studies-container');
+  const error = document.getElementById('error-state');
+  
+  if (loader) loader.style.display = show ? 'flex' : 'none';
+  if (container) container.style.display = show ? 'none' : 'flex';
+  if (error) error.style.display = 'none';
+}
+
+function showError() {
+  const loader = document.getElementById('loading-state');
+  const container = document.getElementById('case-studies-container');
+  const error = document.getElementById('error-state');
+  
+  if (loader) loader.style.display = 'none';
+  if (container) container.style.display = 'none';
+  if (error) error.style.display = 'block';
+}
+
+function hideError() {
+  const error = document.getElementById('error-state');
+  if (error) error.style.display = 'none';
+}
+
+function shareCaseStudy() {
+  const post = window.currentCaseStudy;
+  const url = window.location.href;
+  const title = post?.title?.rendered || 'Case Study';
+  
+  if (navigator.share) {
+    navigator.share({
+      title: title,
+      text: `Check out this case study: ${title}`,
+      url: url
+    }).catch(err => console.log('Share cancelled'));
+  } else {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('Link copied to clipboard!');
+    });
+  }
+}
+
+function downloadCaseStudy() {
+  const post = window.currentCaseStudy;
+  if (!post) return;
+  
+  const title = post.title?.rendered || 'Case Study';
+  const industry = getIndustry(post);
+  const date = formatDate(post.date);
+  const content = stripHtml(post.content?.rendered || '');
+  
+  const docContent = `
+================================================================================
+CASE STUDY: ${title.toUpperCase()}
+================================================================================
+
+Industry: ${industry}
+Date: ${date}
+Source: Verifitech Solutions
+
+--------------------------------------------------------------------------------
+EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+${post.excerpt?.rendered ? stripHtml(post.excerpt.rendered) : 'No summary available.'}
+
+--------------------------------------------------------------------------------
+FULL CASE STUDY
+--------------------------------------------------------------------------------
+${content}
+
+--------------------------------------------------------------------------------
+© ${new Date().getFullYear()} Verifitech Solutions. All rights reserved.
+================================================================================
+  `;
+  
+  const blob = new Blob([docContent], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Case-Study-${post.slug || 'download'}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function updateUrl(post) {
+  if (history.pushState && post.slug) {
+    const newUrl = `${window.location.pathname}#case-${post.id}`;
+    history.pushState({ caseId: post.id }, post.title?.rendered, newUrl);
+  }
+}
+
+// ============================================
+// FALLBACK DATA
+// ============================================
+
+function loadFallbackData() {
+  const fallbackData = [
+    {
+      id: 1,
+      title: { rendered: 'Global IT Major Transforms Background Verification' },
+      excerpt: { rendered: 'Fortune 500 tech company streamlined hiring across 15 countries with automated verification.' },
+      content: { rendered: `
+        <h3>The Challenge</h3>
+        <p>The client faced challenges with manual verification processes taking 15+ days across multiple geographies.</p>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200" alt="Team working" />
+        <p>Compliance standards varied by region, creating significant risk and operational bottlenecks.</p>
+        
+        <h3>The Solution</h3>
+        <p>Verifitech implemented a unified API platform with localized compliance checks.</p>
+        
+        <h3>Results</h3>
+        <p>Achieved 70% faster processing, 99.8% accuracy rate.</p>
+      `},
+      date: '2024-01-15T10:00:00',
+      slug: 'it-major-verification',
+      categories: [10],
+      contentImages: [
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200'
+      ],
+      _embedded: {
+        'wp:featuredmedia': [{ 
+          source_url: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800',
+          media_details: { sizes: { 
+            large: { source_url: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200' },
+            medium_large: { source_url: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800' }
+          } }
+        }],
+        'wp:term': [[
+          { taxonomy: 'category', name: 'IT', slug: 'it' },
+          { taxonomy: 'category', name: 'Case Studies', slug: 'case-studies' }
+        ]]
+      }
+    },
+    {
+      id: 2,
+      title: { rendered: 'Leading Bank Reduces KYC Onboarding by 85%' },
+      excerpt: { rendered: 'Private bank reduced account opening from 5 days to 2 hours with digital verification.' },
+      content: { rendered: `
+        <h3>The Challenge</h3>
+        <p>Manual KYC processes were causing customer drop-offs and compliance delays.</p>
+        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200" alt="Banking" />
+        <p>The 5-day average processing time was unacceptable.</p>
+        
+        <h3>The Solution</h3>
+        <p>Digital verification with real-time ID checks deployed across 1,200+ branches.</p>
+        
+        <h3>Results</h3>
+        <p>85% time reduction, 2M+ customers onboarded seamlessly.</p>
+      `},
+      date: '2024-02-20T10:00:00',
+      slug: 'banking-kyc-transformation',
+      categories: [11],
+      contentImages: [
+        'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200'
+      ],
+      _embedded: {
+        'wp:featuredmedia': [{ 
+          source_url: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800',
+          media_details: { sizes: { 
+            large: { source_url: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200' },
+            medium_large: { source_url: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800' }
+          } }
+        }],
+        'wp:term': [[
+          { taxonomy: 'category', name: 'BFSI', slug: 'bfsi' },
+          { taxonomy: 'category', name: 'Case Studies', slug: 'case-studies' }
+        ]]
+      }
+    },
+    {
+      id: 3,
+      title: { rendered: 'Healthcare Giant Streamlines Staff Verification' },
+      excerpt: { rendered: '45 hospitals unified their background check process with continuous monitoring.' },
+      content: { rendered: `
+        <h3>The Challenge</h3>
+        <p>Managing verification for 10,000+ healthcare workers was a major challenge.</p>
+        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=1200" alt="Healthcare" />
+        <p>Manual processes created compliance gaps and patient safety risks.</p>
+        
+        <h3>The Solution</h3>
+        <p>Centralized verification platform with automated license checking.</p>
+        
+        <h3>Results</h3>
+        <p>60% faster hiring, 100% compliance rate.</p>
+      `},
+      date: '2024-03-10T10:00:00',
+      slug: 'healthcare-verification',
+      categories: [12],
+      contentImages: [
+        'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=1200'
+      ],
+      _embedded: {
+        'wp:featuredmedia': [{ 
+          source_url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
+          media_details: { sizes: { 
+            large: { source_url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200' },
+            medium_large: { source_url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800' }
+          } }
+        }],
+        'wp:term': [[
+          { taxonomy: 'category', name: 'Healthcare', slug: 'healthcare' },
+          { taxonomy: 'category', name: 'Case Studies', slug: 'case-studies' }
+        ]]
+      }
+    }
+  ];
+  
+  caseStudiesData = fallbackData;
+  hideError();
+  showLoading(false);
+  renderCaseStudies(fallbackData);
+  updateLoadMoreButton();
+  
+  console.log('Loaded fallback data:', fallbackData.length, 'case studies');
+}
+
+// ============================================
+// HELPER FUNCTIONS
+// ============================================
+
+function stripHtml(html) {
+  if (!html) return '';
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || '';
+}
+
+function escapeHtml(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function formatDate(dateString) {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+}
+
+function getDefaultImage() {
+  return 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop';
+}
+
+function getDefaultHeroImage() {
+  return 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&h=600&fit=crop';
+}
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    z-index: 10000;
+    animation: fadeInUp 0.3s ease;
+  `;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.style.animation = 'fadeOut 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// ============================================
+// ANIMATIONS & UI
+// ============================================
+
+function initRevealAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1, 
+    rootMargin: '0px 0px -50px 0px' 
+  });
+
+  document.querySelectorAll('.reveal:not(.active)').forEach((el) => {
+    observer.observe(el);
+  });
+}
+
+function initNavbarScroll() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+}
+
+// WhatsApp handler
+function openWhatsApp(event) {
+  if (event) event.preventDefault();
+  const message = encodeURIComponent('Hi Verifitech Team, I am interested in your background verification services.');
+  window.open(`https://wa.me/919176663777?text=${message}`, '_blank');
+}
+
+// Keyboard navigation for single case study
+document.addEventListener('keydown', (e) => {
+  const singleView = document.getElementById('singleCaseView');
+  if (!singleView || !singleView.classList.contains('active')) return;
+  
+  if (e.key === 'Escape') {
+    showCaseStudiesList();
+  } else if (e.key === 'ArrowLeft') {
+    navigateCase(-1);
+  } else if (e.key === 'ArrowRight') {
+    navigateCase(1);
+  }
+});
+
+// Handle browser back button
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.caseId) {
+    openSingleCaseStudy(e.state.caseId);
+  } else {
+    showCaseStudiesList();
+  }
+});
+    </script>
+  </body>
+</html>
