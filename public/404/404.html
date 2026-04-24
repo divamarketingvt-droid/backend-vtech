@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | Verifitech</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --primary-lighter: #f0fdfa;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+        --border-gray: #e2e8f0;
+        --accent-blue: #3b82f6;
+        --accent-purple: #8b5cf6;
+        --accent-pink: #ec4899;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #eff6ff 100%
+        );
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ================= 404 PAGE ================= */
+      .error-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        position: relative;
+      }
+
+      .error-container {
+        text-align: center;
+        max-width: 800px;
+        width: 100%;
+      }
+
+      /* Large Unique Magnifying Glass Illustration */
+      .error-illustration {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto 50px;
+        position: relative;
+      }
+
+      @media (max-width: 576px) {
+        .error-illustration {
+          width: 280px;
+          height: 280px;
+        }
+      }
+
+      .illustration-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Main Background Circle */
+      .bg-circle-main {
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-lighter) 0%,
+          var(--primary-light) 100%
+        );
+        border-radius: 50%;
+        opacity: 0.4;
+      }
+
+      @media (max-width: 576px) {
+        .bg-circle-main {
+          width: 220px;
+          height: 220px;
+        }
+      }
+
+      /* Secondary Background Circle */
+      .bg-circle-secondary {
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 20px 60px rgba(26, 194, 193, 0.15);
+      }
+
+      @media (max-width: 576px) {
+        .bg-circle-secondary {
+          width: 180px;
+          height: 180px;
+        }
+      }
+
+      /* Large Magnifying Glass */
+      .magnifier-large {
+        position: relative;
+        z-index: 10;
+        animation: magnifier-float 4s ease-in-out infinite;
+      }
+
+      @keyframes magnifier-float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-8deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(8deg);
+        }
+      }
+
+      .magnifier-glass-large {
+        width: 140px;
+        height: 140px;
+        border: 8px solid var(--primary);
+        border-radius: 50%;
+        position: relative;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 40px rgba(26, 194, 193, 0.2),
+          inset 0 5px 20px rgba(26, 194, 193, 0.05);
+      }
+
+      @media (max-width: 576px) {
+        .magnifier-glass-large {
+          width: 100px;
+          height: 100px;
+          border-width: 6px;
+        }
+      }
+
+      .magnifier-handle-large {
+        position: absolute;
+        bottom: -50px;
+        right: -30px;
+        width: 70px;
+        height: 14px;
+        background: linear-gradient(
+          90deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        border-radius: 7px;
+        transform: rotate(45deg);
+        box-shadow: 0 5px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      @media (max-width: 576px) {
+        .magnifier-handle-large {
+          width: 50px;
+          height: 10px;
+          bottom: -35px;
+          right: -20px;
+        }
+      }
+
+      .magnifier-shine-large {
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        width: 35px;
+        height: 12px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.4)
+        );
+        border-radius: 6px;
+        transform: rotate(-25deg);
+      }
+
+      @media (max-width: 576px) {
+        .magnifier-shine-large {
+          width: 25px;
+          height: 8px;
+          top: 15px;
+          left: 18px;
+        }
+      }
+
+      .magnifier-reflection {
+        position: absolute;
+        bottom: 20px;
+        right: 25px;
+        width: 20px;
+        height: 20px;
+        background: rgba(26, 194, 193, 0.2);
+        border-radius: 50%;
+      }
+
+      /* 404 Numbers - Large and Behind */
+      .error-numbers-large {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .error-number-large {
+        font-size: 140px;
+        font-weight: 900;
+        color: var(--dark);
+        opacity: 0.08;
+        line-height: 1;
+        letter-spacing: -10px;
+      }
+
+      @media (max-width: 576px) {
+        .error-number-large {
+          font-size: 90px;
+          letter-spacing: -5px;
+        }
+      }
+
+      /* Floating Orbit Elements */
+      .orbit-system {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .orbit-item {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        animation: orbit-rotate 12s linear infinite;
+      }
+
+      .orbit-1 {
+        width: 30px;
+        height: 30px;
+        background: var(--primary);
+        margin-top: -15px;
+        margin-left: -15px;
+        --orbit-radius: 170px;
+        animation-delay: 0s;
+        box-shadow: 0 5px 20px rgba(26, 194, 193, 0.4);
+      }
+
+      .orbit-2 {
+        width: 20px;
+        height: 20px;
+        background: var(--accent-blue);
+        margin-top: -10px;
+        margin-left: -10px;
+        --orbit-radius: 170px;
+        animation-delay: -4s;
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+      }
+
+      .orbit-3 {
+        width: 25px;
+        height: 25px;
+        background: var(--accent-purple);
+        margin-top: -12.5px;
+        margin-left: -12.5px;
+        --orbit-radius: 170px;
+        animation-delay: -8s;
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+      }
+
+      @media (max-width: 576px) {
+        .orbit-1,
+        .orbit-2,
+        .orbit-3 {
+          --orbit-radius: 120px;
+        }
+        .orbit-1 {
+          width: 20px;
+          height: 20px;
+          margin-top: -10px;
+          margin-left: -10px;
+        }
+        .orbit-2 {
+          width: 14px;
+          height: 14px;
+          margin-top: -7px;
+          margin-left: -7px;
+        }
+        .orbit-3 {
+          width: 18px;
+          height: 18px;
+          margin-top: -9px;
+          margin-left: -9px;
+        }
+      }
+
+      @keyframes orbit-rotate {
+        0% {
+          transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg) translateX(var(--orbit-radius))
+            rotate(-360deg);
+        }
+      }
+
+      /* Decorative Elements */
+      .deco-element {
+        position: absolute;
+        opacity: 0.6;
+      }
+
+      .deco-ring-dashed {
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border: 3px dashed var(--primary-light);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: slow-rotate 20s linear infinite;
+      }
+
+      @media (max-width: 576px) {
+        .deco-ring-dashed {
+          width: 250px;
+          height: 250px;
+        }
+      }
+
+      @keyframes slow-rotate {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .deco-cross {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .deco-cross::before,
+      .deco-cross::after {
+        content: "";
+        position: absolute;
+        background: var(--accent-pink);
+        border-radius: 2px;
+      }
+
+      .deco-cross::before {
+        width: 100%;
+        height: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .deco-cross::after {
+        width: 4px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      @media (max-width: 576px) {
+        .deco-cross {
+          width: 16px;
+          height: 16px;
+          top: 20px;
+          left: 30px;
+        }
+      }
+
+      .deco-square {
+        width: 20px;
+        height: 20px;
+        background: var(--accent-blue);
+        border-radius: 4px;
+        position: absolute;
+        bottom: 50px;
+        right: 60px;
+        transform: rotate(15deg);
+        animation: pulse 2s ease-in-out infinite 0.5s;
+      }
+
+      @media (max-width: 576px) {
+        .deco-square {
+          width: 14px;
+          height: 14px;
+          bottom: 35px;
+          right: 40px;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1) rotate(15deg);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.2) rotate(15deg);
+          opacity: 1;
+        }
+      }
+
+      /* Dots Patterns */
+      .dots-pattern-large {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background-image: radial-gradient(
+          circle,
+          var(--primary) 2px,
+          transparent 2px
+        );
+        background-size: 12px 12px;
+        opacity: 0.15;
+      }
+
+      .dots-top-right {
+        top: 20px;
+        right: 20px;
+      }
+
+      .dots-bottom-left {
+        bottom: 30px;
+        left: 10px;
+      }
+
+      /* Error Content */
+      .error-content {
+        position: relative;
+        z-index: 20;
+      }
+
+      .error-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+
+      .error-title {
+        font-size: 56px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 16px;
+        letter-spacing: -1px;
+      }
+
+      @media (max-width: 576px) {
+        .error-title {
+          font-size: 40px;
+        }
+      }
+
+      .error-message {
+        color: var(--gray);
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Back Button */
+      .btn-back-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-back-home:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.4);
+        color: white;
+      }
+
+      /* Brand Logo */
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 50px;
+        font-weight: 700;
+        color: var(--dark);
+        font-size: 22px;
+      }
+
+      .brand-logo i {
+        color: var(--primary);
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 404 ERROR PAGE -->
+    <div class="error-page">
+      <div class="error-container">
+        <!-- Brand Logo -->
+        <div class="brand-logo">
+          <i class="bi bi-shield-check"></i>
+          Verifitech
+        </div>
+
+        <!-- Large Unique Magnifying Glass Illustration -->
+        <div class="error-illustration">
+          <div class="illustration-wrapper">
+            <!-- Background Elements -->
+            <div class="bg-circle-main"></div>
+            <div class="bg-circle-secondary"></div>
+
+            <!-- Dashed Ring -->
+            <div class="deco-ring-dashed"></div>
+
+            <!-- Dots Patterns -->
+            <div class="dots-pattern-large dots-top-right"></div>
+            <div class="dots-pattern-large dots-bottom-left"></div>
+
+            <!-- Decorative Elements -->
+            <div class="deco-element deco-cross"></div>
+            <div class="deco-element deco-square"></div>
+
+            <!-- 404 Numbers -->
+            <div class="error-numbers-large">
+              <span class="error-number-large">4</span>
+              <span class="error-number-large">0</span>
+              <span class="error-number-large">4</span>
+            </div>
+
+            <!-- Large Magnifying Glass -->
+            <div class="magnifier-large">
+              <div class="magnifier-glass-large">
+                <div class="magnifier-shine-large"></div>
+                <div class="magnifier-reflection"></div>
+              </div>
+              <div class="magnifier-handle-large"></div>
+            </div>
+
+            <!-- Orbiting Elements -->
+            <div class="orbit-system">
+              <div class="orbit-item orbit-1"></div>
+              <div class="orbit-item orbit-2"></div>
+              <div class="orbit-item orbit-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Content -->
+        <div class="error-content">
+          <div class="error-label">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            Error
+          </div>
+
+          <h1 class="error-title">Page not found</h1>
+
+          <p class="error-message">
+            Oops! The page you're looking for seems to have vanished into thin
+            air. Let's get you back on track.
+          </p>
+
+          <a href="#" class="btn-back-home">
+            <i class="bi bi-arrow-left"></i>
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

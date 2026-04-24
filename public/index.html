@@ -1,0 +1,6273 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verifitech - Enterprise Background Verification Solutions</title>
+    <meta
+      name="description"
+      content="AI-powered background verification and screening solutions for enterprises. Fast, accurate, and compliant BGV services."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+    :root {
+  --primary: #1ac2c1;
+  --primary-dark: #16a8a7;
+  --primary-light: #e0f7f7;
+  --dark: #0f172a;
+  --navy: #1e293b;
+  --gray: #64748b;
+  --light-gray: #f8fafc;
+  --white: #ffffff;
+  --gradient-start: #f0fdfa;
+  --gradient-end: #ccfbf1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light-gray);
+  overflow-x: hidden;
+}
+      /* Button - Fixed Visibility */
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 0.75rem 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        color: white !important;
+      }
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+    /* Ensure navbar has proper z-index */
+  .navbar {
+    z-index: 1050; /* Higher than most content */
+  }
+  
+  /* Fix dropdown z-index to appear above 
+      content */
+  .dropdown-menu {
+    z-index: 1060; /* Higher than navbar */
+    position: absolute; /* Ensure proper positioning */
+  }
+  
+  /* Ensure dropdown items are clickable and visible */
+  .dropdown-item {
+    position: relative;
+    z-index: 1061;
+  }
+  
+  /* Fix for hero section overlapping */
+  .industry-hero {
+    position: relative;
+    z-index: 1; /* Lower than navbar */
+  }
+  
+  /* Ensure navbar collapse has proper background when expanded on mobile */
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+      margin-top: 0;
+      box-shadow: none;
+    }
+  }
+
+      /* Navigation */
+     .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 100px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+      .navbar-brand img {
+        height: 100px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* Dropdown Styling with Teal Accents */
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* CTA Button Style - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important; /* Teal color - adjust to your exact teal shade */
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important; /* Teal box shadow */
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+
+      /* Country Selector */
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .country-selector i {
+        font-size: 1.2rem;
+      }
+
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  padding: 140px 0 100px;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    white 50%,
+    var(--gradient-end) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(26, 194, 193, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1.5px;
+  color: var(--dark);
+}
+
+.hero h1 .highlight {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero h1 .highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(26, 194, 193, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--gray);
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badge-icon {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  flex-shrink: 0;
+}
+
+.badge-text h6 {
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--dark);
+}
+
+.badge-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+  height: 500px;
+  perspective: 1000px;
+}
+
+.floating-card {
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  animation: float 6s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+}
+
+.card-1 {
+  top: 0;
+  right: 0;
+  width: 320px;
+  animation-delay: 0s;
+  z-index: 3;
+}
+
+.card-2 {
+  top: 140px;
+  left: 20px;
+  width: 280px;
+  animation-delay: 1s;
+  z-index: 2;
+}
+
+.card-3 {
+  bottom: 40px;
+  right: 40px;
+  width: 300px;
+  animation-delay: 2s;
+  z-index: 1;
+}
+
+.verification-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.verification-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.verif-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-light), white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.verif-info h6 {
+  font-weight: 600;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.verif-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.verif-status {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  background: rgba(26, 194, 193, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   TRUST SECTION
+   ============================================ */
+
+.trust-section {
+  padding: 60px 0;
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.trust-title {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  opacity: 0.5;
+}
+
+.logo-item {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+
+.logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* ============================================
+   SECTION COMMON STYLES
+   ============================================ */
+
+.section-padding {
+  padding: 100px 0;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.section-subtitle {
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(26, 194, 193, 0.1);
+  border-radius: 50px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.section-desc {
+  color: var(--gray);
+  font-size: 1.15rem;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   SERVICES GRID
+   ============================================ */
+
+.services-grid {
+  background: white;
+}
+
+.service-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+  transform-origin: left;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+  border-color: transparent;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon-wrap {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--primary-light), white);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 2rem;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  transition: all 0.3s;
+}
+
+.service-card:hover .service-icon-wrap {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.service-card h4 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.service-card p {
+  color: var(--gray);
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.service-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 0.35rem 0.75rem;
+  background: var(--light-gray);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+/* ============================================
+   DARK FEATURE SECTION
+   ============================================ */
+
+.dark-section {
+  background: var(--dark);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(26, 194, 193, 0.1) 0%,
+    transparent 60%
+  );
+  border-radius: 50%;
+}
+
+.dark-section .section-title {
+  color: white;
+}
+
+.dark-section .section-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-list-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-number {
+  width: 50px;
+  height: 50px;
+  background: rgba(26, 194, 193, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(26, 194, 193, 0.3);
+}
+
+.feature-content h4 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.feature-content p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ============================================
+   INDUSTRY CARDS
+   ============================================ */
+
+.industries-section {
+  background: var(--light-gray);
+}
+
+.industry-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  text-align: center;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.industry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.industry-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+.industry-card h5 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.industry-card p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* View More Button */
+.view-more-btn {
+  border-radius: 50px;
+  padding: 12px 32px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-width: 2px;
+  position: relative;
+  overflow: hidden;
+  background-color: #0d9488;
+  color: #ffffff;
+  border: 2px solid #0d9488;
+}
+
+.view-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.2);
+  background-color: #0f766e;
+  border-color: #0f766e;
+}
+
+.view-more-btn:active {
+  transform: translateY(0);
+}
+
+/* Smooth collapse animation */
+.collapse {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+
+.stats-bar {
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  color: white;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-bar::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.stat-item-main {
+  text-align: center;
+  position: relative;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+/* Stat Particles */
+.stat-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-up 4s ease-in infinite;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   PROCESS SECTION
+   ============================================ */
+
+.process-section {
+  background: white;
+}
+
+.process-cards-wrapper {
+  position: relative;
+  margin-top: 3rem;
+}
+
+.process-connector {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--primary-light),
+    var(--primary),
+    var(--primary-light)
+  );
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.process-card {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  border: 2px solid #e2e8f0;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.process-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(26, 194, 193, 0.15);
+}
+
+.process-number {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--primary-light), white);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  position: relative;
+}
+
+.process-icon-main {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.process-card h4 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dark);
+  font-size: 1.4rem;
+}
+
+.process-card p {
+  color: var(--gray);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   INTEGRATION/API SECTION
+   ============================================ */
+
+.integration-section {
+  background: var(--light-gray);
+}
+
+.code-block {
+  background: var(--dark);
+  border-radius: 16px;
+  padding: 2rem;
+  color: #e2e8f0;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.code-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-dots {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red {
+  background: #ff5f56;
+}
+
+.dot-yellow {
+  background: #ffbd2e;
+}
+
+.dot-green {
+  background: #27c93f;
+}
+
+.code-content {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.keyword {
+  color: #ff79c6;
+}
+
+.string {
+  color: #f1fa8c;
+}
+
+.function {
+  color: #8be9fd;
+}
+
+.comment {
+  color: #6272a4;
+}
+
+/* ============================================
+   TESTIMONIALS - 3D SLIDER
+   ============================================ */
+
+.testimonial-section {
+  background: white;
+  overflow: hidden;
+}
+
+.testimonial-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.testimonial-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.testimonial-card-large {
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -150px;
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.testimonial-card-large:active {
+  cursor: grabbing;
+}
+
+.quote-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--navy);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.testimonial-author-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.author-details h6 {
+  font-weight: 700;
+  margin: 0;
+  color: var(--dark);
+}
+
+.author-details span {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.slider-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.slider-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background: var(--primary);
+  width: 30px;
+  border-radius: 5px;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+  color: white;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(26, 194, 193, 0.1);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+}
+
+.cta-content h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.cta-content p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+/* ============================================
+   CHAT WIDGET
+   ============================================ */
+/* Additional styles for integrated version */
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.final-confirm-box {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 12px 0;
+}
+
+.final-confirm-box h4 {
+    margin-bottom: 15px;
+    color: #856404;
+    font-size: 16px;
+}
+
+.success-msg {
+    background: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #28a745;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.success-msg strong {
+    color: #0f5132;
+}
+.chat-icon-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(29, 209, 161, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.chat-icon-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(29, 209, 161, 0.6);
+}
+
+.chat-icon-btn svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.chat-container {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 100%;
+  max-width: 380px;
+  height: 550px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-container.active {
+  display: flex;
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.header-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header-info span {
+  font-size: 12px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.online-dot {
+  width: 6px;
+  height: 6px;
+  background: #2ecc71;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* .
+      {
+  display: flex;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+} */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.message-content {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border-top-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 85%;
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.message-text strong {
+  color: #10ac84;
+}
+
+.user-message {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.user-message .message-content {
+  background: #1dd1a1;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 4px;
+}
+
+.user-message .message-text {
+  color: white;
+}
+
+.input-form {
+  background: white;
+  padding: 16px 20px;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.input-field {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 24px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: #1dd1a1;
+}
+
+.input-field:disabled {
+  background: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.send-btn {
+  width: 40px;
+  height: 40px;
+  background: #1dd1a1;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: #10ac84;
+  transform: scale(1.05);
+}
+
+.send-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 12px;
+  border-top-left-radius: 4px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: #1dd1a1;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+}
+
+.confirmation-box {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #666;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.department-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.dept-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.dept-card:hover {
+  border-color: #1dd1a1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dept-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.dept-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.dept-desc {
+  font-size: 12px;
+  color: #666;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 209, 161, 0.3);
+}
+
+.bgv-options {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.bgv-btn {
+  background: white;
+  border: 2px solid #e9ecef;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  font-size: 13px;
+}
+
+.bgv-btn:hover {
+  border-color: #1dd1a1;
+  background: #f0fff9;
+}
+
+.issue-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 12px;
+  resize: none;
+  font-family: inherit;
+}
+
+.issue-input:focus {
+  outline: none;
+  border-color: #1dd1a1;
+}
+
+.success-msg {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 13px;
+  border-left: 4px solid #28a745;
+}
+
+.back-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #666;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  background: #e9ecef;
+}
+
+.final-confirm-box {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.final-confirm-box h4 {
+  margin-bottom: 10px;
+  color: #856404;
+}
+
+.send-final-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.send-final-btn:hover {
+  background: #218838;
+}
+
+.edit-link {
+  color: #3498db;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+}
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+
+.footer {
+  background: #f0fdfa;
+  color: var(--dark);
+  padding: 80px 0 40px;
+}
+
+.footer-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.footer-brand span {
+  color: var(--primary);
+}
+
+.footer-desc {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.8;
+}
+
+.footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd5e1;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* Compliance Badges */
+.compliance-badges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.comp-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
+
+/* ============================================
+   NEWSLETTER FOOTER SECTION
+   ============================================ */
+
+.newsletter-footer-section {
+  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-footer-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.newsletter-icon-footer {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+}
+
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.newsletter-form-footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.input-group-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.zf-tempContDiv {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--dark);
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.zf-errorMessage {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.zf-errorMessage::before {
+  content: '\F332';
+  font-family: 'bootstrap-icons';
+  font-size: 0.8rem;
+}
+
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  font-family: 'Inter', sans-serif;
+  height: fit-content;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+.newsletter-btn i {
+  transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover i {
+  transform: translateX(4px);
+}
+
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-disclaimer {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.newsletter-disclaimer i {
+  color: var(--primary);
+}
+
+.zf-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.zf-success {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.footer-main-content {
+  margin-top: 20px;
+}
+
+.privacy-row {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.privacy-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.privacy-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.privacy-separator {
+  margin: 0 10px;
+  color: #cbd5e1;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--gray);
+}
+
+.footer-heading {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.copyright {
+  font-size: 14px;
+  margin: 0;
+  color: var(--gray);
+}
+
+/* ============================================
+   WHATSAPP FLOAT
+   ============================================ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) rotate(10deg);
+  color: white;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float i {
+  font-size: 1.8rem;
+}
+
+.float-tooltip {
+  position: absolute;
+  right: 70px;
+  background: #333;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.float-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #333;
+}
+
+.whatsapp-float:hover .float-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 75px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.shake-animation {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-link {
+    padding: 1rem 0.5rem !important;
+    justify-content: space-between;
+  }
+
+  .dropdown-arrow {
+    margin-left: auto;
+    font-size: 0.7rem;
+  }
+
+  .dropdown-menu {
+    border: none;
+    padding-left: 1rem;
+    background: rgba(26, 194, 193, 0.03);
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-menu.mega-menu {
+    min-width: 100%;
+  }
+
+  .country-selector {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .newsletter-footer-section {
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .newsletter-footer-section .d-flex.align-items-center.gap-3 {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem !important;
+  }
+
+  .newsletter-icon-footer {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .newsletter-title {
+    font-size: 1.25rem;
+  }
+
+  .newsletter-subtitle {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .input-group-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .zf-tempContDiv {
+    width: 100%;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+  }
+
+  .footer .col-lg-2 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+
+  .footer .col-lg-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .footer-description {
+    max-width: 100%;
+    margin: 0 auto 2rem;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  .whatsapp-float {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-visual {
+    height: 400px;
+    margin-top: 3rem;
+  }
+
+  .floating-card {
+    transform: scale(0.9);
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .testimonial-wrapper {
+    height: 400px;
+  }
+
+  .testimonial-card-large {
+    width: 300px;
+    margin-left: -150px;
+    margin-top: -120px;
+    padding: 1.5rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 120px 0 60px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-badges {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .floating-card {
+    position: relative;
+    margin-bottom: 1rem;
+    animation: none;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: auto !important;
+  }
+
+  .hero-visual {
+    height: auto;
+    perspective: none;
+  }
+
+  .newsletter-footer-section {
+    padding: 24px 16px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+  }
+
+  .newsletter-footer-section::before {
+    width: 200px;
+    height: 200px;
+    top: -30%;
+    right: -20%;
+  }
+
+  .newsletter-icon-footer {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .newsletter-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .newsletter-disclaimer {
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  .footer .col-lg-2,
+  .footer .col-lg-3,
+  .footer .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-heading {
+    margin-bottom: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .process-connector {
+    display: none;
+  }
+
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float i {
+    font-size: 1.5rem;
+  }
+
+  .float-tooltip {
+    display: none;
+  }
+
+  .chat-container {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    bottom: 80px;
+  }
+
+  .chat-icon-btn {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .privacy-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .privacy-separator {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar-brand img {
+    width: 140px;
+  }
+
+  .newsletter-footer-section {
+    padding: 20px 12px;
+  }
+
+  .newsletter-title {
+    font-size: 1.1rem;
+  }
+
+  .newsletter-input {
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+
+  .newsletter-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Ensure proper stacking in footer main content on mobile */
+@media (max-width: 767px) {
+  .footer-main-content {
+    margin-top: 10px;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .copyright {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Fix for newsletter icon alignment on desktop */
+@media (min-width: 992px) {
+  .newsletter-footer-section .d-flex.align-items-center.gap-3 {
+    justify-content: flex-start;
+  }
+
+  .newsletter-icon-footer {
+    flex-shrink: 0;
+  }
+}
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+     <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" width="200" height="60%">
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <!-- SOLUTIONS Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Solutions <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="dropdown-header">Verification Services</h6>
+                                    <a href="./checks/lp-id verification.html" class="dropdown-item">
+                                        <i class="bi bi-person-badge"></i> ID Verification
+                                    </a>
+                                    <a href="./checks/lp-ADRESS VERIFICATION.html" class="dropdown-item">
+                                        <i class="bi bi-geo-alt"></i> Address Verification
+                                    </a>
+                                    <a href="./checks/lp-employment.html" class="dropdown-item">
+                                        <i class="bi bi-briefcase"></i> Employment Verification
+                                    </a>
+                                    <a href="./checks/lp-education check.html" class="dropdown-item">
+                                        <i class="bi bi-mortarboard"></i> Education Verification
+                                    </a>
+                                    <a href="./checks/LP-court verification.html" class="dropdown-item">
+                                        <i class="bi bi-shield-exclamation"></i> Court Record Verification
+                                    </a>
+                                    <a href="./checks/lp-refernce.html" class="dropdown-item">
+                                        <i class="bi bi-people"></i> Reference Check
+                                    </a>
+                                    <a href="./checks/DIN-verification.html" class="dropdown-item">
+                                        <i class="fa-regular fa-id-card"></i> DIN Verification
+                                    </a>
+                                    <a href="./checks/LP-Directorship check.html" class="dropdown-item">
+                                        <i class="fa-regular fa-user"></i> Directorship
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="dropdown-header">Specialized Checks</h6>
+                                    <a href="../checks/global check.html" class="dropdown-item">
+                                        <i class="bi bi-globe"></i> Global Database Verification
+                                    </a>
+                                    <a href="./checks/lp-credit check.html" class="dropdown-item">
+                                        <i class="bi bi-credit-card"></i> Credit Check
+                                    </a>
+                                    <a href="./checks/lp-gap verification.html" class="dropdown-item">
+                                        <i class="bi bi-calendar-x"></i> Gap Check
+                                    </a>
+                                    <a href="./checks/lp-socialmeidaverification.html" class="dropdown-item">
+                                        <i class="bi bi-share"></i> Social Media Verification
+                                    </a>
+                                    <a href="./checks/lp-police clearnce.html" class="dropdown-item">
+                                        <i class="bi bi-shield-check"></i> Police Clearance
+                                    </a>
+                                    <a href="./checks/lp-drug test.html" class="dropdown-item">
+                                        <i class="bi bi-capsule"></i> Drug Test Screening
+                                    </a>
+                                    <a class="dropdown-item" href="./checks/vendor.html">
+                                        <i class="fa-solid fa-magnifying-glass"></i> Vendor Digillencs
+                                    </a>
+                                    <a href="./checks/lp-passport verification.html" class="dropdown-item">
+                                        <i class="fa-solid fa-passport"></i> Passport Verification
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Products Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./products/exitinterview.html">
+                                    <i class="bi bi-box-arrow-right"></i> Exit interviews
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./products/pm.html">
+                                    <i class="bi bi-graph-up"></i> Psychometric
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- INDUSTRY Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Industry <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./industries/lp-banks.html">
+                                    <i class="bi bi-bank"></i> Banking & Financial Services
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/lpi-healthcare.html">
+                                    <i class="bi bi-heart-pulse"></i> Healthcare and Pharma
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/lpi-education.html">
+                                    <i class="bi bi-book"></i> Education
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../industries/lpi-Manfacturing.html">
+                                    <i class="bi bi-building-gear"></i> Manufacturing
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/lpi-IT-ITES.html">
+                                    <i class="bi bi-laptop"></i> IT/ITeS
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../industries/LP-FMCG.html">
+                                    <i class="bi bi-box"></i> FMCG
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/Logistics.html">
+                                    <i class="bi bi-truck"></i> Logistics
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/Realestate & Constructation.html">
+                                    <i class="bi bi-house"></i> Realestate & Construcataion
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/Retail & E-commerce.html">
+                                    <i class="bi bi-shop"></i> Retail & E-commerce
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/lpi-travel industries.html">
+                                    <i class="bi bi-airplane"></i> Travel and Hospitality
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/lpi-staffing.html">
+                                    <i class="bi bi-person-workspace"></i> Staffing and Recruitment
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./industries/lpi-telecom.html">
+                                    <i class="bi bi-broadcast"></i> Telecom
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- RESOURCES Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./resources/blog.html">
+                                    <i class="bi bi-journal-text"></i> Blogs
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./resources/whitepapers.html">
+                                    <i class="bi bi-file-earmark-text"></i> Whitepapers
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./resources/casestudy.html">
+                                    <i class="bi bi-star"></i> Case Study
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./resources/webinar.html">
+                                    <i class="bi bi-camera-video"></i> Webinar
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./products/api.html">
+                                    <i class="bi bi-plug"></i> API
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- COMPANY Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Company <span class="dropdown-arrow">▾</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./company/partnership.html">
+                                    <i class="bi bi-hand-thumbs-up"></i> Partnership
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./company/aboutus.html">
+                                    <i class="bi bi-info-circle"></i> About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./company/careers.html">
+                                    <i class="bi bi-briefcase"></i> Careers
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- HELP CENTER Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Help Center <span class="dropdown-arrow">▾</span> 
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="./helpcenter/customer.html">
+                                    <i class="bi bi-building"></i> For Customers
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./helpcenter/partner.html">
+                                    <i class="bi bi-people"></i> For Partners
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="./affilate/affilate.html">
+                                    <i class="bi bi-link-45deg"></i> Affiliate Program 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Right Side Buttons -->
+                <div class="d-flex align-items-center">
+                    <a href="https://web.verifitech.com/" target="_blank" Style="text-decoration: none; color: black;" >Login</a>
+                    <a href="./contact/contact.html" class="btn btn-sales">Talk to Sales</a>
+
+                    <!-- Country Selector -->
+                    <div class="dropdown">
+                        <div class="country-selector " data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="country-flag" id="current-flag">🇮🇳</span>
+                            <span id="current-country">India</span>
+                            <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                            <li>
+                                <a href="./countries/usa.html" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
+                                    <span class="country-flag">🇺🇸</span> USA
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item country-option" href="./countries/UAE.html" data-country="UAE" data-flag="🇦🇪">
+                                    <span class="country-flag">🇦🇪</span> UAE
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item country-option" href="./countries/aus.html" data-country="Australia" data-flag="🇦🇺">
+                                    <span class="country-flag">🇦🇺</span> Australia
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item country-option" href="./countries/uk.html" data-country="UK" data-flag="🇬🇧">
+                                    <span class="country-flag">🇬🇧</span> UK
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item country-option" href="./countries/sigapore.html" data-country="Singapore" data-flag="🇸🇬">
+                                    <span class="country-flag">🇸🇬</span> Singapore
+                                </a>
+                            </li>
+                            <!--<li>
+                                <a class="dropdown-item country-option" href="./index.html" data-country="India" data-flag="🇮🇳">
+                                    <span class="country-flag">🇮🇳</span> India
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+                                
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Column -->
+          <div class="col-lg-6 hero-content">
+            <div class="reveal">
+              <div
+                class="d-flex align-items-center gap-2 mb-4 justify-content-center justify-content-lg-start"
+              >
+                <span
+                  class="badge bg-white text-dark border d-flex align-items-center gap-2 px-3 py-2 rounded-pill shadow-sm"
+                >
+                  <span
+                    class="bg-success rounded-circle d-block"
+                    style="width: 8px; height: 8px"
+                  ></span>
+                  Now ISO 27001 Certified
+                </span>
+              </div>
+              <h1>
+                Background Verification <br />Powered by
+                <span class="highlight">AI & Precision</span>
+              </h1>
+              <p class="hero-subtitle">
+                Enterprise-grade screening solutions delivering 99.9% accuracy.
+                From identity verification to criminal checks, we ensure every
+                hire is a trusted hire.
+              </p>
+              <div
+                class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
+              >
+                <a href="./tools/FreeTrail.html" class="btn btn-primary-custom btn-lg" 
+                  >Start Free Trial</a
+                >
+              </div>
+
+              <!-- Hero Badges -->
+              <div class="hero-badges"style="display:none;">
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="bi bi-shield-check"></i></div>
+                  <div class="badge-text">
+                    <h6>99.9%</h6>
+                    <p>Accuracy</p>
+                  </div>
+                </div>
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="bi bi-lightning-charge"></i></div>
+                  <div class="badge-text">
+                    <h6>24hrs</h6>
+                    <p>Turnaround</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="col-lg-6">
+            <div class="hero-visual reveal">
+              <div class="floating-card card-1">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h6 class="mb-0 fw-bold">Live Verifications</h6>
+                  <span class="badge bg-success bg-opacity-10 text-success"
+                    >Live</span
+                  >
+                </div>
+                <div class="verification-row">
+                  <div class="verif-avatar">JD</div>
+                  <div class="verif-info">
+                    <h6>John Doe</h6>
+                    <p>Employment Check</p>
+                  </div>
+                  <div class="verif-status"><i class="bi bi-check-lg"></i></div>
+                </div>
+                <div class="verification-row">
+                  <div
+                    class="verif-avatar"
+                    style="background: #fef3c7; color: #d97706"
+                  >
+                    SK
+                  </div>
+                  <div class="verif-info">
+                    <h6>Sarah Kumar</h6>
+                    <p>Criminal Record</p>
+                  </div>
+                  <div
+                    class="verif-status"
+                    style="background: #fbbf24; color: white"
+                  >
+                    <i class="bi bi-arrow-repeat"></i>
+                  </div>
+                </div>
+                <div class="verification-row">
+                  <div
+                    class="verif-avatar"
+                    style="background: #dbeafe; color: #2563eb"
+                  >
+                    AP
+                  </div>
+                  <div class="verif-info">
+                    <h6>Amit Patel</h6>
+                    <p>Education Verify</p>
+                  </div>
+                  <div class="verif-status"><i class="bi bi-check-lg"></i></div>
+                </div>
+              </div>
+
+              <div class="floating-card card-2">
+                <div class="text-center">
+                  <div
+                    class="mb-3"
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary),
+                        var(--primary-dark)
+                      );
+                      border-radius: 16px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto;
+                      color: white;
+                      font-size: 1.5rem;
+                    "
+                  >
+                    <i class="bi bi-fingerprint"></i>
+                  </div>
+                  <h6 class="fw-bold mb-1">Identity Verified</h6>
+                  <p class="small text-muted mb-2">Aadhaar Authentication</p>
+                  <div
+                    class="progress"
+                    style="height: 6px; border-radius: 10px"
+                  >
+                    <div
+                      class="progress-bar bg-success"
+                      style="width: 100%; border-radius: 10px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="floating-card card-3">
+                <h6 class="fw-bold mb-3">API Response Time</h6>
+                <div
+                  class="d-flex align-items-end gap-2 justify-content-center"
+                  style="height: 60px"
+                >
+                  <div
+                    style="
+                      width: 8px;
+                      height: 30%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.3;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 50%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.5;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 70%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.6;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 40%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.4;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 90%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 8px;
+                      height: 60%;
+                      background: var(--primary);
+                      border-radius: 4px;
+                      opacity: 0.5;
+                    "
+                  ></div>
+                  <span class="ms-2 small fw-bold text-primary">245ms</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Logos -->
+      <!-- Trust Logos -->
+        <section class="trust-section">
+      <div class="container">
+        <div class="trust-title">Trusted by 500+ Enterprises</div>
+        <div class="logo-row">
+          <div class="logo-item">Bluestar</div>
+          <div class="logo-item">Paytm</div>
+          <div class="logo-item">Viewgol</div>
+          <div class="logo-item">Indium </div>
+          <div class="logo-item">GUVI</div>
+          <div class="logo-item">DSG -Group</div>
+          <div class="logo-item">Infinite research</div>
+        
+</div>
+     </div>   
+    </section>  
+
+    <!-- Services Grid -->
+<!-- Services Grid -->
+<section class="services-grid section-padding" id="solutions">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center reveal">
+        <div class="section-subtitle justify-content-center">
+          <i class="bi bi-grid-3x3-gap"></i> Our Solutions
+        </div>
+        <h2 class="section-title">Comprehensive Verification Suite</h2>
+        <p class="section-desc mx-auto">
+          End-to-end background screening services powered by AI and
+          verified through both digital and physical channels across 19,000+
+          pin codes.
+        </p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-person-vcard"></i>
+          </div>
+          <h4>Identity Verification</h4>
+          <p>
+            Multi-layered identity authentication using Aadhaar, PAN,
+            Passport, and Biometric validation with government database
+            verification.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Aadhaar</span>
+            <span class="tag">PAN</span>
+            <span class="tag">Biometric</span>
+          </div>
+          <a href="./checks/lp-id verification.html" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-briefcase"></i>
+          </div>
+          <h4>Employment History</h4>
+          <p>
+            Verify previous employments, designations, tenure, and reasons
+            for leaving. Direct HR database checks and reference validation.
+          </p>
+          <div class="service-tags">
+            <span class="tag">3-10 Years</span>
+            <span class="tag">BVG</span>
+            <span class="tag">Global</span>
+          </div>
+          <a href="./check/lp-employment.html" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+          <h4>Education Check</h4>
+          <p>
+            Authenticate degrees, diplomas, and professional certifications
+            directly with universities and educational institutions
+            worldwide.
+          </p>
+          <div class="service-tags">
+            <span class="tag">UGC</span>
+            <span class="tag">AICTE</span>
+            <span class="tag">Global</span>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-shield-exclamation"></i>
+          </div>
+          <h4>Criminal Record Check</h4>
+          <p>
+            Court record verification across jurisdictions, police station
+            checks, and ongoing criminal database monitoring.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Court</span>
+            <span class="tag">Police</span>
+            <span class="tag">Watchlist</span>
+          </div>
+          <a href="./industries/lpi-policeverification.html" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <h4>Address Verification</h4>
+          <p>
+            Physical address confirmation through field executives, digital
+            address verification, and geotagging across all locations.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Physical</span>
+            <span class="tag">Digital</span>
+            <span class="tag">Geo-tagged</span>
+          </div>
+          <a href="./checks/lp-ADRESS VERIFICATION.html" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon-wrap">
+            <i class="bi bi-capsule"></i>
+          </div>
+          <h4>Drug & Health Screening</h4>
+          <p>
+            Pre-employment drug testing and health screening through
+            certified medical partners with digital report delivery.
+          </p>
+          <div class="service-tags">
+            <span class="tag">NABL</span>
+            <span class="tag">OSHA</span>
+            <span class="tag">Instant</span>
+          </div>
+          <a href="./checks/lp-drug test.html" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 18px; background: rgba(6,182,212,0.1); color: #06b6d4; font-size: 14px; font-weight: 600; border-radius: 50px; text-decoration: none; border: 1px solid rgba(6,182,212,0.2); cursor: pointer; transition: all 0.3s ease;">
+            View More <i class="bi bi-arrow-right" style="font-size: 14px;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Technology/API Section -->
+    <section class="integration-section section-padding" id="technology">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="section-subtitle">
+              <i class="bi bi-cpu"></i> Technology
+            </div>
+            <h2 class="section-title">Seamless API Integration</h2>
+            <p class="section-desc mb-4">
+              Integrate our verification engine directly into your HRMS, ATS, or
+              custom applications with our robust REST APIs. Webhook support for
+              real-time updates.
+            </p>
+
+            <div class="d-flex flex-column gap-4 mt-4">
+              <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: rgba(26, 194, 193, 0.1);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--primary);
+                      font-size: 1.3rem;
+                    "
+                  >
+                    <i class="bi bi-code-slash"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">RESTful API</h5>
+                  <p class="text-muted mb-0">
+                    Simple JSON-based API with comprehensive documentation and
+                    SDKs.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: rgba(26, 194, 193, 0.1);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--primary);
+                      font-size: 1.3rem;
+                    "
+                  >
+                    <i class="bi bi-arrow-left-right"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">Webhooks</h5>
+                  <p class="text-muted mb-0">
+                    Real-time notifications when verification statuses change.
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                  <div
+                    style="
+                      width: 50px;
+                      height: 50px;
+                      background: rgba(26, 194, 193, 0.1);
+                      border-radius: 12px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--primary);
+                      font-size: 1.3rem;
+                    "
+                  >
+                    <i class="bi bi-shield-lock"></i>
+                  </div>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">Bank-Grade Security</h5>
+                  <p class="text-muted mb-0">
+                    256-bit encryption, OAuth 2.0, and SOC 2 Type II compliance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <div class="code-block">
+              <div class="code-dots">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+              </div>
+              <div class="code-content">
+                <div>
+                  <span class="keyword">const</span> verification =
+                  <span class="keyword">await</span> verifitech.<span
+                    class="function"
+                    >createCheck</span
+                  >({
+                </div>
+                <div style="padding-left: 20px">
+                  candidateId: <span class="string">'cand_123456'</span>,
+                </div>
+                <div style="padding-left: 20px">
+                  checks: [<span class="string">'identity'</span>,
+                  <span class="string">'criminal'</span>,
+                  <span class="string">'employment'</span>],
+                </div>
+                <div style="padding-left: 20px">
+                  callbackUrl:
+                  <span class="string">'https://your-app.com/webhook'</span>
+                </div>
+                <div>});</div>
+                <div style="margin-top: 15px; color: #6272a4">
+                  // Response: Verification initiated
+                </div>
+                <div style="color: #8be9fd">{</div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  status: <span class="string">'pending'</span>,
+                </div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  estimatedTime: <span class="string">'24h'</span>,
+                </div>
+                <div style="padding-left: 20px; color: #8be9fd">
+                  trackingId: <span class="string">'vt_789XYZ'</span>
+                </div>
+                <div style="color: #8be9fd">}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+     <!-- Stats Bar -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+        <div class="stat-item-main">
+          <span class="stat-number" data-target="25">0</span>+
+          <div class="stat-label">Global countries</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+        <div class="stat-item-main">
+          <span class="stat-number" data-target="1000">0</span>+
+          <div class="stat-label">Clients served</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 reveal">
+        <div class="stat-item-main">
+          <span class="stat-number" data-target="99.9">0</span>%
+          <div class="stat-label">Verifications Done</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 reveal">
+        <div class="stat-item-main">
+          <span class="stat-number" data-target="19000">0</span>+
+          <div class="stat-label">Pin Codes Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </section>
+
+    <!-- Industries-->
+    <!-- Industries -->
+<section class="industries-section section-padding" id="industries">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center reveal">
+        <div class="section-subtitle justify-content-center">
+          <i class="bi bi-buildings"></i> Industries
+        </div>
+        <h2 class="section-title">Tailored for Every Sector</h2>
+        <p class="section-desc mx-auto">
+          Customized verification workflows designed for industry-specific
+          compliance requirements and risk profiles.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Row 1: Always Visible -->
+    <div class="row g-4 justify-content-center mb-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="industry-card">
+          <div class="industry-icon">
+            <i class="bi bi-laptop"></i>
+          </div>
+          <h5><a href="./indistries/lpi-IT-ITES.html" style="color:black; text-decoration:none;">IT & ITeS</a> </h5>
+          <p>Rapid screening for high-volume hiring</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="industry-card">
+          <div class="industry-icon" style="background: #fef3c7; color: #d97706">
+            <i class="bi bi-bank"></i>
+          </div>
+          <h5><a href="./checks/lp-credit check.html" style="text-decoration:none; color:black;">BFSI</a></h5>
+          <p>RBI compliant thorough checks</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="industry-card">
+          <div class="industry-icon" style="background: #dbeafe; color: #2563eb">
+            <i class="bi bi-heart-pulse"></i>
+          </div>
+          <h5><a href="./industries/lpi-healthcare.html" style="text-decoration:none; color:black;">Healthcare</h5>
+          <p>Medical license verification</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="industry-card">
+          <div class="industry-icon" style="background: #fce7f3; color: #db2777">
+            <i class="bi bi-shop"></i>
+          </div>
+          <h5><a href="./industries/lpi-staffing.html"style="text-decoration:none; color:black;">Retail</a></h5>
+          <p>High-volume seasonal staffing</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Industries Container -->
+    <div id="hiddenIndustries" class="collapse">
+      <!-- Row 2 -->
+      <div class="row g-4 justify-content-center mb-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #dcfce7; color: #16a34a">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <h5><a href="./industries/lp-banks.html"style="text-decoration:none; color:black;">Banking</a></h5>
+            <p>Financial integrity & credit checks</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #ffedd5; color: #ea580c">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <h5><a href="./industries/LP-FMCG.html"style="text-decoration:none; color:black;">FMCG</h5>
+            <p>Supply chain workforce verification</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #e0e7ff; color: #4f46e5">
+              <i class="bi bi-truck"></i>
+            </div>
+            <h5><a href="./industries/Logistics.html" style="color:black; text-decoration:none;">Logistics</a></h5>
+            <p>Driver & warehouse staff screening</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #f3e8ff; color: #9333ea">
+              <i class="bi bi-broadcast"></i>
+            </div>
+            <h5><a href="./industries/lpi-telecom.html"style="color:black; text-decoration:none;">Telecom</a></h5>
+            <p>Network security clearance checks</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #fef9c3; color: #ca8a04">
+              <i class="bi bi-mortarboard"></i>
+            </div>
+            <h5><a hre="./checks/lp-education.html"style="text-decoration:none; color:black;">Education</a></h5>
+            <p>Faculty credential & safety checks</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #ccfbf1; color: #0d9488">
+              <i class="bi bi-building"></i>
+            </div>
+            <h5><a href="./industries/Real Estate & Construction.html"style="text-decoration:none; color:black;">Real Estate</a>a</h5>
+            <p>Property dealer license verification</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #ffe4e6; color: #e11d48">
+              <i class="bi bi-airplane"></i>
+            </div>
+            <h5><a href="./industries/lpi-travel industries.html"style="text-decoration:none; color:black;">Travel & Hospitality</a></h5>
+            <p>Guest safety & service staff checks</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="industry-card">
+            <div class="industry-icon" style="background: #e0f2fe; color: #0284c7">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5><a href="./industries/lpi-staffing.html"style="text-decoration:none; color:black;">Staffing & Recruitment</a></h5>
+            <p>Temp worker rapid deployment screening</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View More Button 
+    <div class="text-center mt-5">
+      <button 
+        class="btn btn-outline-primary btn-lg view-more-btn" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#hiddenIndustries" 
+        aria-expanded="false" 
+        aria-controls="hiddenIndustries"
+        id="viewMoreBtn"
+      >
+        <span class="view-more-text">
+          <i class="bi bi-chevron-down me-2"></i>View More Industries
+        </span>
+        <span class="view-less-text d-none">
+          <i class="bi bi-chevron-up me-2"></i>Show Less
+        </span>
+      </button>
+    </div>
+  </div>
+  -->
+    <!-- View More Button -->
+<div class="text-center mt-5">
+  <button 
+    class="btn btn-lg view-more-btn" 
+    type="button" 
+    data-bs-toggle="collapse" 
+    data-bs-target="#hiddenIndustries" 
+    aria-expanded="false" 
+    aria-controls="hiddenIndustries"
+    id="viewMoreBtn"
+    style="background-color: transparent; color: #1ac2c1; border: 2px solid #1ac2c1; padding: 12px 32px; border-radius: 8px; font-weight: 500; text-decoration: none; transition: all 0.3s ease;"
+    onmouseover="this.style.backgroundColor='#1ac2c1'; this.style.color='#ffffff';"
+    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#1ac2c1';"
+  >
+    <span class="view-more-text">
+      <i class="bi bi-chevron-down me-2"></i>View More Industries
+    </span>
+    <span class="view-less-text d-none">
+      <i class="bi bi-chevron-up me-2"></i>Show Less
+    </span>
+  </button>
+</div>
+</section>
+
+      <!-- Process Section -->
+    <section class="process-section section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-arrow-repeat"></i> How It Works
+            </div>
+            <h2 class="section-title">Verification in 3 Simple Steps</h2>
+            <p class="section-desc mx-auto">
+              Our streamlined digital process ensures quick turnaround without
+              compromising on thoroughness.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-cards-wrapper">
+          <div class="process-connector"></div>
+          <div class="row g-4 position-relative" style="z-index: 2">
+            <div class="col-md-4 reveal">
+              <div class="process-card">
+                <div class="process-number">1</div>
+                <i class="bi bi-cloud-arrow-up process-icon-main"></i>
+                <h4>Submit Details</h4>
+                <p>
+                  Upload candidate data via API, bulk Excel, or manual entry.
+                  Digital consent captured securely via OTP authentication.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 reveal">
+              <div class="process-card">
+                <div class="process-number">2</div>
+                <i class="bi bi-cpu process-icon-main"></i>
+                <h4>AI Processing</h4>
+                <p>
+                  Our algorithms verify against 200+ databases while field
+                  executives conduct physical checks where required.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 reveal">
+              <div class="process-card">
+                <div class="process-number">3</div>
+                <i class="bi bi-clipboard-check process-icon-main"></i>
+                <h4>Secure Report</h4>
+                <p>
+                  Receive tamper-proof digital reports with risk indicators,
+                  fully compliant with industry regulations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance & Security -->
+    <section class="dark-section section-padding" id="compliance">
+      <div class="container position-relative">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div
+              class="section-subtitle"
+              style="background: rgba(26, 194, 193, 0.2); color: var(--primary)"
+            >
+              <i class="bi bi-shield-check"></i> Compliance
+            </div>
+            <h2 class="section-title">Enterprise-Grade Security</h2>
+            <p class="section-desc mb-5">
+              Built with privacy-by-design principles. Fully compliant with
+              global data protection regulations and industry standards.
+            </p>
+
+            <div class="feature-list-item">
+              <div class="feature-number">01</div>
+              <div class="feature-content">
+                <h4>Data Privacy Compliance</h4>
+                <p>
+                  Fully compliant with GDPR, DPDP Act 2023, and FCRA. Consent
+                  management built into every check.
+                </p>
+              </div>
+            </div>
+            <div class="feature-list-item">
+              <div class="feature-number">02</div>
+              <div class="feature-content">
+                <h4>ISO Certifications</h4>
+                <p>
+                  ISO 27001:2022 for Information Security, ISO 9001:2015 for
+                  Quality Management.
+                </p>
+              </div>
+            </div>
+            <div class="feature-list-item">
+              <div class="feature-number">03</div>
+              <div class="feature-content">
+                <h4>256-bit Encryption</h4>
+                <p>
+                  End-to-end encryption for data at rest and in transit. SOC 2
+                  Type II certified data centers.
+                </p>
+              </div>
+            </div>
+
+            <div class="compliance-badges">
+              <div class="comp-badge">
+                <i class="bi bi-shield-check"></i> ISO 27001
+              </div>
+              <div class="comp-badge">
+                <i class="bi bi-shield-check"></i> SOC 2
+              </div>
+              <div class="comp-badge">
+                <i class="bi bi-shield-check"></i> GDPR
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 24px;
+                padding: 3rem;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <div class="text-center mb-4">
+                <i
+                  class="bi bi-lock-fill"
+                  style="font-size: 4rem; color: var(--primary)"
+                ></i>
+              </div>
+              <h4 class="text-center mb-4">Security Infrastructure</h4>
+              <div class="d-flex flex-column gap-3">
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-database-check me-2 text-primary"></i> Data
+                    Residency</span
+                  >
+                  <span class="badge bg-white text-dark">India / EU / US</span>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-clock-history me-2 text-primary"></i>
+                    Retention Policy</span
+                  >
+                  <span class="badge bg-white text-dark">Auto-delete 7yr</span>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-eye-slash me-2 text-primary"></i> Access
+                    Control</span
+                  >
+                  <span class="badge bg-white text-dark">RBAC + MFA</span>
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-center p-3"
+                  style="
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                  "
+                >
+                  <span
+                    ><i class="bi bi-file-earmark-lock me-2 text-primary"></i>
+                    Audit Logs</span
+                  >
+                  <span class="badge bg-white text-dark">Immutable</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials - 3D Slider Section -->
+    <section class="testimonial-section section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-3">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-chat-square-quote"></i> Testimonials
+            </div>
+            <h2 class="section-title">Trusted by HR Leaders</h2>
+            <p class="section-desc mx-auto">
+              See why enterprise teams choose Verifitech for their background
+              verification needs.
+            </p>
+          </div>
+        </div>
+        
+        <!-- 3D Slider Container -->
+        <div class="testimonial-wrapper reveal" id="testimonialWrapper">
+          <div class="testimonial-carousel" id="testimonialCarousel">
+            <!-- Cards will be injected by JS -->
+          </div>
+        </div>
+        
+        <!-- Controls -->
+        <div class="slider-controls reveal">
+          <button class="slider-btn" id="prevBtn"><i class="bi bi-chevron-left"></i></button>
+          <button class="slider-btn" id="nextBtn"><i class="bi bi-chevron-right"></i></button>
+        </div>
+        
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="cta-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+      </div>
+      <div class="container position-relative">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8 reveal">
+            <h2>Ready to Build Trust in Your Workforce?</h2>
+            <p>
+              Join 500+ enterprises using Verifitech to make informed hiring
+              decisions. Start your free trial today with 50 complimentary
+              checks.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+              <a href="./DEMO/demo.html" class="btn btn-primary-custom btn-lg px-5"
+                >Book a Free Demo</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <button class="chat-icon-btn" onclick="toggleChat()" id="chatIcon">
+  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+  </svg>
+</button>
+
+<!-- Chat Container -->
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">
+      <div class="header-left">
+          <div class="avatar">V</div>
+          <div class="header-info">
+              <h3>Veri Assistant</h3>
+              <span><span class="online-dot"></span> Online</span>
+          </div>
+      </div>
+      <button class="close-btn" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+      <!-- Welcome Message -->
+      <div class="message" id="welcomeMessage">
+          <div class="message-avatar">V</div>
+          <div class="message-content">
+              <div class="message-text">
+                  👋 Hi there! I'm <strong>Veri</strong>, your AI assistant from Verifitech.
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+        <div class="input-form" id="inputForm">
+            <input type="text" class="input-field" id="messageInput" placeholder="Type a message..." disabled>
+            <button class="send-btn" id="sendBtn" onclick="handleSend()" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Footer Section with Zoho Newsletter -->
+    <!-- ============================================
+   COOKIE CONSENT & GOOGLE TAG MANAGER
+   ============================================ -->
+
+<script>
+  // Initialize dataLayer first (always needed)
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  // Default consent state - ALL denied until user accepts
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'functionality_storage': 'denied',
+    'personalization_storage': 'denied',
+    'security_storage': 'granted'
+  });
+
+  // GTM Loader - Only loads if consent given
+  function loadGTM() {
+    if (window.gtmLoaded) return;
+    
+    const gtmId = 'GTM-XXXXXXX'; // ⚠️ REPLACE WITH YOUR ACTUAL GTM ID
+    
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',gtmId);
+    
+    const noscript = document.createElement('noscript');
+    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+    document.body.appendChild(noscript);
+    
+    window.gtmLoaded = true;
+    console.log('✅ GTM loaded');
+  }
+
+  // Check existing consent on load
+  (function(){
+    const saved = localStorage.getItem('verifitech_cookie_consent');
+    if (saved) {
+      try {
+        const consent = JSON.parse(saved);
+        if (consent.analytics || consent.marketing || consent.functionality) {
+          loadGTM();
+        }
+      } catch(e){}
+    }
+  })();
+</script>
+
+<style>
+  :root {
+    --cookie-primary: #1ac2c1;
+    --cookie-primary-dark: #16a8a7;
+    --cookie-bg: #ffffff;
+    --cookie-text: #0f172a;
+    --cookie-gray: #64748b;
+    --cookie-border: #e2e8f0;
+    --cookie-overlay: rgba(0, 0, 0, 0.5);
+  }
+
+  .cookie-float-icon {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--cookie-primary) 0%, var(--cookie-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4);
+    z-index: 9998;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: cookie-pulse 2s infinite;
+    font-size: 24px;
+  }
+
+  .cookie-float-icon:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 6px 25px rgba(26, 194, 193, 0.6);
+  }
+
+  @keyframes cookie-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4); }
+    50% { box-shadow: 0 4px 30px rgba(26, 194, 193, 0.7); }
+  }
+
+  .cookie-tooltip {
+    position: absolute;
+    left: 60px;
+    background: #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-weight: 500;
+  }
+
+  .cookie-tooltip::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #333;
+  }
+
+  .cookie-float-icon:hover .cookie-tooltip {
+    opacity: 1;
+    visibility: visible;
+    left: 65px;
+  }
+
+  .cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cookie-overlay);
+    z-index: 10000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .cookie-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    max-width: 900px;
+    width: calc(100% - 40px);
+    background: var(--cookie-bg);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    border: 1px solid var(--cookie-border);
+  }
+
+  .cookie-banner.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  .cookie-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 30px 15px;
+    background: linear-gradient(135deg, rgba(26, 194, 193, 0.05) 0%, transparent 100%);
+    border-bottom: 1px solid var(--cookie-border);
+  }
+
+  .cookie-icon-large {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--cookie-primary) 0%, var(--cookie-primary-dark) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+  }
+
+  .cookie-title-group h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cookie-text);
+  }
+
+  .cookie-title-group p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: var(--cookie-gray);
+  }
+
+  .cookie-body {
+    padding: 25px 30px;
+  }
+
+  .cookie-description {
+    color: var(--cookie-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+
+  .cookie-description a {
+    color: var(--cookie-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .cookie-description a:hover {
+    text-decoration: underline;
+  }
+
+  .cookie-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .cookie-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .cookie-category:hover {
+    border-color: var(--cookie-primary);
+    background: rgba(26, 194, 193, 0.05);
+  }
+
+  .cookie-category.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .cookie-cat-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cookie-cat-icon {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .cookie-cat-text h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cookie-text);
+  }
+
+  .cookie-cat-text span {
+    font-size: 0.8rem;
+    color: var(--cookie-gray);
+  }
+
+  .cookie-toggle {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: #e2e8f0;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .cookie-toggle.active {
+    background: var(--cookie-primary);
+  }
+
+  .cookie-toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .cookie-toggle.active::after {
+    transform: translateX(24px);
+  }
+
+  .cookie-toggle input {
+    display: none;
+  }
+
+  .cookie-footer {
+    display: flex;
+    gap: 12px;
+    padding: 20px 30px;
+    background: #f8fafc;
+    border-top: 1px solid var(--cookie-border);
+    flex-wrap: wrap;
+  }
+
+  .cookie-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .cookie-btn-primary {
+    background: linear-gradient(135deg, var(--cookie-primary) 0%, var(--cookie-primary-dark) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  }
+
+  .cookie-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+
+  .cookie-btn-secondary {
+    background: white;
+    color: var(--cookie-text);
+    border: 2px solid var(--cookie-border);
+  }
+
+  .cookie-btn-secondary:hover {
+    border-color: var(--cookie-primary);
+    color: var(--cookie-primary);
+    background: rgba(26, 194, 193, 0.05);
+  }
+
+  .cookie-btn-text {
+    background: transparent;
+    color: var(--cookie-gray);
+    text-decoration: underline;
+    padding: 14px;
+  }
+
+  .cookie-btn-text:hover {
+    color: var(--cookie-primary);
+  }
+
+  .cookie-preferences {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .cookie-preferences.expanded {
+    display: block;
+    max-height: 500px;
+  }
+
+  @media (max-width: 768px) {
+    .cookie-float-icon {
+      bottom: 20px;
+      left: 20px;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+
+    .cookie-banner {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(100%);
+      width: 100%;
+      max-width: 100%;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .cookie-banner.active {
+      transform: translateY(0);
+    }
+
+    .cookie-header, .cookie-body {
+      padding: 20px;
+    }
+
+    .cookie-footer {
+      padding: 15px 20px;
+      flex-direction: column;
+    }
+
+    .cookie-btn {
+      width: 100%;
+    }
+
+    .cookie-tooltip {
+      display: none;
+    }
+  }
+</style>
+
+<!-- Cookie Floating Icon -->
+<!-- Cookie Floating Icon - Custom Teal Outline -->
+<div class="cookie-float-icon" onclick="openCookieBanner()" title="Manage Cookie Preferences">
+  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; display: block;">
+    <!-- Cookie base with teal outline -->
+    <circle cx="32" cy="32" r="26" stroke="#1ac2c1" stroke-width="3" fill="white"/>
+    
+    <!-- Bite mark -->
+    <path d="M50 18 Q56 13 53 6 Q48 3 43 8" stroke="#1ac2c1" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Chocolate chips -->
+    <circle cx="22" cy="24" r="4" fill="#1ac2c1"/>
+    <circle cx="42" cy="22" r="3.5" fill="#1ac2c1"/>
+    <circle cx="32" cy="38" r="4.5" fill="#1ac2c1"/>
+    <circle cx="20" cy="42" r="3" fill="#1ac2c1"/>
+    <circle cx="46" cy="44" r="3.5" fill="#1ac2c1"/>
+    <circle cx="36" cy="50" r="2.5" fill="#1ac2c1"/>
+  </svg>
+  <span class="cookie-tooltip">Cookie Settings</span>
+</div>
+<!-- Cookie Banner Overlay -->
+<div class="cookie-overlay" id="cookieOverlay" onclick="closeCookieBanner()"></div>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-header">
+    <div class="cookie-icon-large">🍪</div>
+    <div class="cookie-title-group">
+      <h3>We value your privacy</h3>
+      <p>Customize your cookie preferences</p>
+    </div>
+  </div>
+
+  <div class="cookie-body">
+    <p class="cookie-description">
+      We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. 
+      By clicking "Accept All", you consent to our use of cookies. 
+      <a href="./Privacy policy pages/cookiepolicy.html" target="_blank">Read our Cookie Policy</a>
+    </p>
+
+    <!-- Simple View -->
+    <div id="cookieSimpleView">
+      <div class="cookie-footer" style="padding: 0; background: transparent; border: none;">
+        <button class="cookie-btn cookie-btn-primary" onclick="acceptAllCookies()">
+          <i class="bi bi-check-lg"></i> Accept All
+        </button>
+        <button class="cookie-btn cookie-btn-secondary" onclick="showCookiePreferences()">
+          <i class="bi bi-sliders"></i> Customize
+        </button>
+      </div>
+    </div>
+
+    <!-- Detailed Preferences View -->
+    <div class="cookie-preferences" id="cookiePreferences">
+      <div class="cookie-categories">
+        
+        <!-- Necessary - Always On -->
+        <div class="cookie-category disabled">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">🔒</div>
+            <div class="cookie-cat-text">
+              <h4>Necessary</h4>
+              <span>Essential for the website to function</span>
+            </div>
+          </div>
+          <div class="cookie-toggle active" style="opacity: 0.6;">
+            <input type="checkbox" checked disabled>
+          </div>
+        </div>
+
+        <!-- Analytics -->
+        <div class="cookie-category" onclick="toggleCookieCategory('analytics')">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">📊</div>
+            <div class="cookie-cat-text">
+              <h4>Analytics</h4>
+              <span>Helps us improve our website</span>
+            </div>
+          </div>
+          <div class="cookie-toggle" id="toggle-analytics">
+            <input type="checkbox" id="checkbox-analytics">
+          </div>
+        </div>
+
+        <!-- Marketing -->
+        <div class="cookie-category" onclick="toggleCookieCategory('marketing')">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">🎯</div>
+            <div class="cookie-cat-text">
+              <h4>Marketing</h4>
+              <span>Used to deliver personalized advertisements</span>
+            </div>
+          </div>
+          <div class="cookie-toggle" id="toggle-marketing">
+            <input type="checkbox" id="checkbox-marketing">
+          </div>
+        </div>
+
+        <!-- Functionality -->
+        <div class="cookie-category" onclick="toggleCookieCategory('functionality')">
+          <div class="cookie-cat-info">
+            <div class="cookie-cat-icon">⚙️</div>
+            <div class="cookie-cat-text">
+              <h4>Functionality</h4>
+              <span>Enables enhanced functionality</span>
+            </div>
+          </div>
+          <div class="cookie-toggle" id="toggle-functionality">
+            <input type="checkbox" id="checkbox-functionality">
+          </div>
+        </div>
+
+      </div>
+      
+
+      <div class="cookie-footer" style="padding: 0; background: transparent; border: none;">
+        <button class="cookie-btn cookie-btn-primary" onclick="saveCookiePreferences()">
+          <i class="bi bi-check-lg"></i> Save Preferences
+        </button>
+        <button class="cookie-btn cookie-btn-secondary" onclick="acceptAllCookies()">
+          Accept All
+        </button>
+        <button class="cookie-btn cookie-btn-text" onclick="hideCookiePreferences()">
+          Back to Simple View
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ==========================================
+  // COOKIE CONSENT MANAGEMENT
+  // ==========================================
+  
+  const COOKIE_CONSENT_KEY = 'verifitech_cookie_consent';
+  const COOKIE_EXPIRY_DAYS = 365;
+  
+  let cookieState = {
+    necessary: true,
+    analytics: false,
+    marketing: false,
+    functionality: false,
+    timestamp: null
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    loadCookieConsent();
+    
+    setTimeout(() => {
+      if (!hasConsent()) {
+        openCookieBanner();
+      }
+    }, 2000);
+  });
+
+  function hasConsent() {
+    return localStorage.getItem(COOKIE_CONSENT_KEY) !== null;
+  }
+
+  function loadCookieConsent() {
+    const saved = localStorage.getItem(COOKIE_CONSENT_KEY);
+    if (saved) {
+      try {
+        cookieState = JSON.parse(saved);
+        applyConsentToGTM();
+        updateToggleStates();
+        
+        // Load GTM if consent exists
+        if (cookieState.analytics || cookieState.marketing || cookieState.functionality) {
+          loadGTM();
+        }
+      } catch (e) {
+        console.error('Error parsing cookie consent:', e);
+      }
+    }
+  }
+
+  function saveConsent() {
+    cookieState.timestamp = new Date().toISOString();
+    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(cookieState));
+    
+    // Set cookie for server-side access
+    const expires = new Date(Date.now() + COOKIE_EXPIRY_DAYS * 864e5).toUTCString();
+    document.cookie = 'verifitech_consent=' + encodeURIComponent(JSON.stringify(cookieState)) + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+
+  function applyConsentToGTM() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': cookieState.marketing ? 'granted' : 'denied',
+        'analytics_storage': cookieState.analytics ? 'granted' : 'denied',
+        'ad_user_data': cookieState.marketing ? 'granted' : 'denied',
+        'ad_personalization': cookieState.marketing ? 'granted' : 'denied',
+        'functionality_storage': cookieState.functionality ? 'granted' : 'denied',
+        'personalization_storage': cookieState.functionality ? 'granted' : 'denied',
+        'security_storage': 'granted'
+      });
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'cookie_consent_update',
+        'cookie_consent': cookieState
+      });
+
+      console.log('Cookie consent applied:', cookieState);
+    }
+  }
+
+  // ==========================================
+  // UI FUNCTIONS
+  // ==========================================
+
+  function openCookieBanner() {
+    document.getElementById('cookieOverlay').classList.add('active');
+    document.getElementById('cookieBanner').classList.add('active');
+    document.getElementById('cookieSimpleView').style.display = 'block';
+    document.getElementById('cookiePreferences').classList.remove('expanded');
+  }
+
+  function closeCookieBanner() {
+    document.getElementById('cookieOverlay').classList.remove('active');
+    document.getElementById('cookieBanner').classList.remove('active');
+  }
+
+  function showCookiePreferences() {
+    document.getElementById('cookieSimpleView').style.display = 'none';
+    document.getElementById('cookiePreferences').classList.add('expanded');
+    updateToggleStates();
+  }
+
+  function hideCookiePreferences() {
+    document.getElementById('cookiePreferences').classList.remove('expanded');
+    setTimeout(() => {
+      document.getElementById('cookieSimpleView').style.display = 'block';
+    }, 200);
+  }
+
+  // ==========================================
+  // CONSENT ACTIONS
+  // ==========================================
+
+  function acceptAllCookies() {
+    cookieState = {
+      necessary: true,
+      analytics: true,
+      marketing: true,
+      functionality: true,
+      timestamp: new Date().toISOString()
+    };
+    
+    saveConsent();
+    applyConsentToGTM();
+    loadGTM(); // Load GTM now that we have consent
+    closeCookieBanner();
+    showCookieNotification('All cookies accepted. Thank you!');
+  }
+
+  function saveCookiePreferences() {
+    saveConsent();
+    applyConsentToGTM();
+    
+    // Load GTM if any tracking consent given
+    if (cookieState.analytics || cookieState.marketing || cookieState.functionality) {
+      loadGTM();
+    }
+    
+    closeCookieBanner();
+    showCookieNotification('Cookie preferences saved!');
+  }
+
+  // ==========================================
+  // TOGGLE FUNCTIONS
+  // ==========================================
+
+  function toggleCookieCategory(category) {
+    const checkbox = document.getElementById('checkbox-' + category);
+    const toggle = document.getElementById('toggle-' + category);
+    
+    checkbox.checked = !checkbox.checked;
+    toggle.classList.toggle('active', checkbox.checked);
+    cookieState[category] = checkbox.checked;
+  }
+
+  function updateToggleStates() {
+    ['analytics', 'marketing', 'functionality'].forEach(cat => {
+      const checkbox = document.getElementById('checkbox-' + cat);
+      const toggle = document.getElementById('toggle-' + cat);
+      
+      if (checkbox && toggle) {
+        checkbox.checked = cookieState[cat];
+        toggle.classList.toggle('active', cookieState[cat]);
+      }
+    });
+  }
+
+  // ==========================================
+  // NOTIFICATION
+  // ==========================================
+
+  function showCookieNotification(message) {
+    const notif = document.createElement('div');
+    notif.style.cssText = `
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172a;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: 500;
+      z-index: 10002;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s ease;
+    `;
+    notif.textContent = message;
+    document.body.appendChild(notif);
+    
+    setTimeout(() => {
+      notif.style.animation = 'slideDown 0.3s ease';
+      setTimeout(() => notif.remove(), 300);
+    }, 3000);
+  }
+
+  // ==========================================
+  // RESET & DEBUG
+  // ==========================================
+
+  function resetCookieConsent() {
+    localStorage.removeItem(COOKIE_CONSENT_KEY);
+    document.cookie = 'verifitech_consent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    location.reload();
+  }
+
+  function checkCookies() {
+    console.log('%c🍪 COOKIE CHECK', 'font-size:16px;font-weight:bold;color:#1ac2c1');
+    console.log('GTM Loaded:', window.gtmLoaded || false);
+    console.log('localStorage:', localStorage.getItem('verifitech_cookie_consent'));
+    console.log('Cookie:', document.cookie.match(/verifitech_consent=([^;]+)/)?.[0] || 'Not set');
+    console.log('Consent State:', cookieState);
+    console.log('dataLayer events:', dataLayer.length);
+  }
+
+  // Expose to console
+  window.reset
+ Consent = resetCookieConsent;
+  window.checkCookies = checkCookies;
+</script>
+    <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="./checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="./checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="./checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="./checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="./company/aboutus.html">About Us</a></li>
+              <li><a href="./company/partnership.html">Partnership</a></li>
+              <li><a href="./company/careers.html">Careers</a></li>
+              <li><a href="./Contact/talk to sales.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="./affilate/affilate.html">Affiliate</a></li>
+              <li><a href="./resources/blog.html">Blog</a></li>
+              <li><a href="./resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="./products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="./products/pm.html">psychometric</a></li>
+              <li><a href="./products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/verifitech/" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <!-- <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a> -->
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="./privacy-separator">|</span>  
+            <a href="./Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button 
+    <a 
+      href="#" 
+      id="whatsappFloat"
+      class="whatsapp-float" 
+      title="Chat with us on WhatsApp"
+      onclick="openWhatsApp(event)"
+    >
+      <i class="bi bi-whatsapp"></i>
+      <span class="float-tooltip">How can we help?</span>
+    </a>  -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Initialize Bootstrap dropdowns
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize all dropdowns
+        var dropdownElementList = [].slice.call(
+          document.querySelectorAll(".dropdown-toggle")
+        );
+        var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+          return new bootstrap.Dropdown(dropdownToggleEl);
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector(".navbar");
+        if (navbar) {
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+              navbar.classList.add("scrolled");
+            } else {
+              navbar.classList.remove("scrolled");
+            }
+          });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+          root: null,
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+
+              // Animate counters
+              if (entry.target.querySelector(".stat-number")) {
+                const counters = entry.target.querySelectorAll(".stat-number");
+                counters.forEach((counter) => {
+                  const target = parseInt(counter.getAttribute("data-target"));
+                  const duration = 2000;
+                  const step = target / (duration / 16);
+                  let current = 0;
+
+                  const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                      counter.textContent = target.toLocaleString();
+                      clearInterval(timer);
+                    } else {
+                      counter.textContent =
+                        Math.floor(current).toLocaleString();
+                    }
+                  }, 16);
+                });
+              }
+
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+
+        // Observe stats section specifically
+        const statsSection = document.querySelector(".stats-bar");
+        if (statsSection) observer.observe(statsSection);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href && href !== "#") {
+              e.preventDefault();
+              const target = document.querySelector(href);
+              if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                  top: offsetTop,
+                  behavior: "smooth",
+                });
+              }
+            }
+          });
+        });
+      });
+
+  // 1. Form Switching Logic
+  function switchForm(type) {
+    const businessForm = document.getElementById('businessForm');
+    const candidateForm = document.getElementById('candidateForm');
+    
+    if (type === 'business') {
+      businessForm.style.display = 'block';
+      candidateForm.style.display = 'none';
+    } else {
+      businessForm.style.display = 'none';
+      candidateForm.style.display = 'block';
+    }
+  }
+
+  // 2. Validation Logic
+  function validateForm(formType) {
+    let isValid = true;
+    
+    // Define required fields for each type
+    const fields = ['fullName', 'email', 'phone', 'lookingFor'];
+    
+    // Candidates don't always have a company field visible, 
+    // but if we added it, we'd add it here. 
+    // For business, we might want to validate 'company' if it exists.
+    if(formType === 'business') {
+      fields.push('company');
+    }
+
+    fields.forEach(field => {
+      const input = document.getElementById(formType + '_' + field);
+      const error = document.getElementById(formType + '_' + field + '_error');
+      
+      if (!input.value.trim()) {
+        if (error) error.style.display = 'block';
+        isValid = false;
+      } else {
+        if (error) error.style.display = 'none';
+      }
+    });
+
+    // Email specific validation
+    const emailInput = document.getElementById(formType + '_email');
+    const emailError = document.getElementById(formType + '_email_error');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (emailInput.value && !emailRegex.test(emailInput.value)) {
+      if (emailError) {
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.style.display = 'block';
+      }
+      isValid = false;
+    }
+
+    // Privacy Checkbox
+    const privacyCheckbox = document.getElementById('privacy_' + formType);
+    if (!privacyCheckbox.checked) {
+      alert('Please agree to the Privacy Policy and Terms of Use');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  // 3. Handle Submission (BACKEND INTEGRATION)
+  async function handleFormSubmit(event, formType) {
+    event.preventDefault();
+    
+    // Validate
+    if (!validateForm(formType)) {
+      return false;
+    }
+
+    // Show Loader
+    showLoader();
+
+    const form = document.getElementById(formType + 'FormElement');
+    const formData = new FormData(form);
+    
+    // Convert FormData to JSON object for backend
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+    
+    // Add explicit userType for backend logic
+    data.userType = formType;
+
+    try {
+      // CHANGE: Point to your Node.js Backend
+      // If backend is on same domain, just use relative path.
+      // If running locally on port 3000, use full URL.
+      const response = await fetch('https://backend-vtech.onrender.com/api/submit-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      hideLoader();
+
+      if (result.success) {
+        // Get name for modal
+        const userName = data.fullName ? data.fullName.split(' ')[0] : 'there';
+        showThankYouModal(userName);
+        
+        // Reset form
+        form.reset();
+      } else {
+        alert('Error: ' + result.message);
+      }
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      hideLoader();
+      alert('There was an error submitting the form. Please try again.');
+    }
+
+    return false;
+  }
+
+  // 4. Helper: Get User Name
+  function getUserName(formType) {
+    const fullName = document.getElementById(formType + '_fullName').value;
+    return fullName ? fullName.split(' ')[0] : 'there';
+  }
+
+  // 5. Helper: Real-time validation clearing
+  document.querySelectorAll('input, select, textarea').forEach(input => {
+    input.addEventListener('input', function() {
+      const errorId = this.id + '_error';
+      const errorElement = document.getElementById(errorId);
+      if (errorElement) {
+        errorElement.style.display = 'none';
+      }
+    });
+  });
+
+  // Ensure load state is correct
+  document.addEventListener('DOMContentLoaded', () => {
+      // Check current radio button state
+      const businessRadio = document.getElementById('business');
+      const candidateRadio = document.getElementById('candidate');
+      
+      if(businessRadio.checked) switchForm('business');
+      if(candidateRadio.checked) switchForm('candidate');
+  });
+      // WhatsApp Functionality
+      const whatsappConfig = {
+        phoneNumber: '+919176663777',
+        defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+        pageContext: true
+      };
+
+      function openWhatsApp(event) {
+        event.preventDefault();
+        
+        const pageTitle = document.title;
+        const currentUrl = window.location.href;
+        
+        let message = whatsappConfig.defaultMessage;
+        
+        if (whatsappConfig.pageContext && pageTitle) {
+          message += `\n\nI am currently viewing: ${pageTitle}`;
+        }
+        
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+        
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+          window.location.href = whatsappUrl;
+          setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+          }, 1000);
+        } else {
+          window.open(whatsappUrl, '_blank');
+        }
+      }
+
+      // --- GSAP 3D Testimonial Slider Logic ---
+      document.addEventListener("DOMContentLoaded", function() {
+        const carousel = document.getElementById('testimonialCarousel');
+        const wrapper = document.getElementById('testimonialWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('sliderDots');
+        
+        // Data for testimonials
+        const testimonials = [
+          {
+            quote: "Verifitech reduced our verification turnaround from 2 weeks to 24 hours. Their API integration with our Workday HRMS was seamless, and the accuracy is unmatched.",
+            author: "Priya Kumar",
+            role: "VP Human Resources, TechCorp Global",
+            initials: "PK",
+            color: "linear-gradient(135deg, var(--primary), var(--primary-dark))"
+          },
+          {
+            quote: "The depth of their criminal record checks and court verification processes gives us complete confidence in our hiring decisions. Highly recommended for BFSI sector.",
+            author: "Rajesh Sharma",
+            role: "Chief Compliance Officer, FinBank Ltd",
+            initials: "RS",
+            color: "linear-gradient(135deg, #3b82f6, #1d4ed8)"
+          },
+          {
+            quote: "Their pan-India Field executive network verified addresses in tier-3 cities where others failed. Real-time tracking dashboard is a game changer.",
+            author: "Anita Patel",
+            role: "Head of TA, RetailMax India",
+            initials: "AP",
+            color: "linear-gradient(135deg, #f59e0b, #d97706)"
+          },
+          {
+            quote: "ISO 27001 certification and their data privacy standards were crucial for our GDPR compliance. Excellent support team and robust platform.",
+            author: "Michael Chen",
+            role: "Global Security Director, CloudFirst",
+            initials: "MK",
+            color: "linear-gradient(135deg, #ec4899, #be185d)"
+          }
+        ];
+
+        let currentIndex = 0;
+        let autoPlayInterval;
+        const total = testimonials.length;
+        let isDragging = false;
+        let startX = 0;
+
+        // Generate Cards
+        testimonials.forEach((t, i) => {
+          const card = document.createElement('div');
+          card.className = 'testimonial-card-large';
+          card.innerHTML = `
+            <div class="quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="testimonial-text">"${t.quote}"</p>
+            <div class="testimonial-author-row">
+              <div class="author-img" style="background: ${t.color}">${t.initials}</div>
+              <div class="author-details">
+                <h6>${t.author}</h6>
+                <span>${t.role}</span>
+              </div>
+            </div>
+          `;
+          carousel.appendChild(card);
+          
+          // Generate Dots
+          const dot = document.createElement('div');
+          dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        });
+
+        const cards = document.querySelectorAll('.testimonial-card-large');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function updateCards() {
+          cards.forEach((card, i) => {
+            const offset = i - currentIndex;
+            const absOffset = Math.abs(offset);
+            
+            // Calculate 3D transforms
+            let translateX = offset * 60; // % based spacing
+            let translateZ = -absOffset * 150;
+            let rotateY = offset * -15;
+            let scale = 1 - (absOffset * 0.15);
+            let opacity = 1 - (absOffset * 0.3);
+            let zIndex = total - absOffset;
+
+            // Limit the visible cards
+            if (absOffset > 2) {
+              opacity = 0;
+              scale = 0.5;
+              
+            }
+
+            gsap.to(card, {
+              duration: 0.6,
+              xPercent: translateX,
+              z: translateZ,
+              rotateY: rotateY,
+              scale: scale,
+              opacity: opacity,
+              zIndex: zIndex,
+              ease: "power2.out"
+            });
+          });
+
+          // Update dots
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+          });
+        }
+
+        function goToSlide(index) {
+          currentIndex = index;
+          if (currentIndex < 0) currentIndex = total - 1;
+          if (currentIndex >= total) currentIndex = 0;
+          updateCards();
+          resetAutoPlay();
+        }
+
+        function nextSlide() {
+          goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+          goToSlide(currentIndex - 1);
+        }
+
+        // Auto Play
+        function startAutoPlay() {
+          autoPlayInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetAutoPlay() {
+          clearInterval(autoPlayInterval);
+          startAutoPlay();
+        }
+
+        // Event Listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Drag/Swipe Support
+        wrapper.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.pageX;
+          clearInterval(autoPlayInterval);
+        });
+
+        wrapper.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+        });
+
+        wrapper.addEventListener('mouseup', (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          const diff = startX - e.pageX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+          } else {
+            startAutoPlay();
+          }
+        });
+
+        wrapper.addEventListener('mouseleave', () => {
+          if (isDragging) {
+            isDragging = false;
+            startAutoPlay();
+          }
+        });
+
+        // Touch support
+        wrapper.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].pageX;
+          clearInterval(autoPlayInterval);
+        });
+
+        wrapper.addEventListener('touchend', (e) => {
+          const diff = startX - e.changedTouches[0].pageX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+          } else {
+            startAutoPlay();
+          }
+        });
+
+        // Initialize
+        updateCards();
+        startAutoPlay();
+      });
+
+      // Infinite Counter Animation for Stats Section
+      (function() {
+        const counters = document.querySelectorAll('.stat-number');
+        const animationDuration = 2000; // 2 seconds to count up
+        const pauseDuration = 3000; // 3 seconds pause before restart
+        let isAnimating = false;
+
+        function animateCounter(element, target, duration) {
+          return new Promise((resolve) => {
+            const startTime = performance.now();
+            const startValue = 0;
+            
+            element.classList.add('counting');
+            
+            function update(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              
+              // Easing function (ease-out-quart)
+              const easeOut = 1 - Math.pow(1 - progress, 4);
+              
+              const current = Math.floor(easeOut * target);
+              element.textContent = current.toLocaleString();
+              
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              } else {
+                element.textContent = target.toLocaleString();
+                element.classList.remove('counting');
+                resolve();
+              }
+            }
+            
+            requestAnimationFrame(update);
+          });
+        }
+
+        async function runInfiniteAnimation() {
+          if (isAnimating) return;
+          isAnimating = true;
+          
+          // Animate all counters simultaneously
+          const promises = Array.from(counters).map(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            return animateCounter(counter, target, animationDuration);
+          });
+          
+          await Promise.all(promises);
+          
+          // Pause before restarting
+          setTimeout(() => {
+            isAnimating = false;
+            runInfiniteAnimation();
+          }, pauseDuration);
+        }
+
+        // Start animation when section is visible
+        const statsSection = document.querySelector('.stats-bar');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              runInfiniteAnimation();
+            }
+          });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+          observer.observe(statsSection);
+        }
+
+        // Create floating particles
+        function createParticle() {
+          const particle = document.createElement('div');
+          particle.className = 'stat-particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.bottom = '0';
+          particle.style.animationDelay = Math.random() * 2 + 's';
+          particle.style.animationDuration = (3 + Math.random() * 2) + 's';
+          
+          statsSection.appendChild(particle);
+          
+          setTimeout(() => particle.remove(), 5000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 800);
+      })();
+
+
+      // Mobile Dropdown Navigation Fix
+  document.addEventListener('DOMContentLoaded', function() {
+    const navbarCollapse = document.getElementById('navbarNav');
+    const dropdownToggles = document.querySelectorAll('.navbar .dropdown-toggle');
+    
+    // Handle mobile dropdown behavior
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        // Only handle mobile view
+        if (window.innerWidth < 992) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const dropdownMenu = this.nextElementSibling;
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          
+          // Close other open dropdowns
+          dropdownToggles.forEach(otherToggle => {
+            if (otherToggle !== this) {
+              otherToggle.setAttribute('aria-expanded', 'false');
+              const otherMenu = otherToggle.nextElementSibling;
+              if (otherMenu) {
+                otherMenu.classList.remove('show');
+              }
+            }
+          });
+          
+          // Toggle current dropdown
+          this.setAttribute('aria-expanded', !isExpanded);
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('show');
+          }
+        }
+      });
+    });
+
+    // Close mobile menu when clicking a link (except dropdown toggles)
+    document.querySelectorAll('.navbar-collapse a:not(.dropdown-toggle)').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth < 992) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) {
+            bsCollapse.hide();
+          }
+        }
+      });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 992) {
+        // Reset mobile-specific states when returning to desktop
+        dropdownToggles.forEach(toggle => {
+          toggle.setAttribute('aria-expanded', 'false');
+          const menu = toggle.nextElementSibling;
+          if (menu) {
+            menu.classList.remove('show');
+          }
+        });
+      }
+    });
+  });
+  // ==========================================
+// CONFIGURATION - FIXED URLS
+
+// ==========================================
+
+// ==========================================
+// CONFIGURATION
+// ==========================================
+  // ==========================================
+const API_BASE_URL= window.location.origin;
+
+// Define email addresses for each department
+const departmentEmails = {
+  'service': 'kovendan16@gmail.com',
+  'career': 'hr@verifitech.com',
+  'support': 'support@verifitech.com'
+};
+
+// ==========================================
+// DATA STORAGE
+// ==========================================
+let chatData = {
+  firstName: '',
+  email: '',
+  phone: '',
+  company: '',
+  department: '',
+  serviceType: '',
+  issueDescription: '',
+  recipientEmail: '' 
+};
+
+let currentStep = 'welcome';
+let selectedDept = '';
+let selectedService = '';
+let isSubmitting = false;
+let isOpenedOnce = false;
+
+// ==========================================
+// CHAT TOGGLE
+// ==========================================
+function toggleChat() {
+  const container = document.getElementById('chatContainer');
+  const icon = document.getElementById('chatIcon');
+  
+  container.classList.toggle('active');
+  
+  if (container.classList.contains('active')) {
+    icon.style.display = 'none';
+    if (!isOpenedOnce) {
+      setTimeout(() => {
+        showDepartments();
+      }, 500);
+      isOpenedOnce = true;
+    }
+  } else {
+    icon.style.display = 'flex';
+  }
+}
+
+// ==========================================
+// UTILITY FUNCTIONS
+// ==========================================
+function showTyping() {
+  const chatBody = document.getElementById('chatBody');
+  const typing = document.createElement('div');
+  typing.className = 'message typing-indicator';
+  typing.id = 'typing';
+  typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  chatBody.appendChild(typing);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function removeTyping() {
+  const typing = document.getElementById('typing');
+  if (typing) typing.remove();
+}
+
+function addMessage(text, isUser = false) {
+  const chatBody = document.getElementById('chatBody');
+  const msg = document.createElement('div');
+  msg.className = isUser ? 'message user-message' : 'message';
+  
+  if (isUser) {
+    msg.innerHTML = `<div class="message-content"><div class="message-text">${text}</div></div>`;
+  } else {
+    msg.innerHTML = `<div class="message-avatar">V</div><div class="message-content"><div class="message-text">${text}</div></div>`;
+  }
+  
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function enableInput(placeholder) {
+  const input = document.getElementById('messageInput');
+  const btn = document.getElementById('sendBtn');
+  if (input) {
+    input.disabled = false;
+    input.placeholder = placeholder || 'Type a message...';
+    input.focus();
+  }
+  if (btn) btn.disabled = false;
+}
+
+function disableInput() {
+  const input = document.getElementById('messageInput');
+  const btn = document.getElementById('sendBtn');
+  if (input) {
+    input.disabled = true;
+    input.placeholder = 'Select an option above...';
+  }
+  if (btn) btn.disabled = true;
+}
+
+// ==========================================
+// DEPARTMENT SELECTION (START)
+// ==========================================
+function showDepartments() {
+  currentStep = 'departments';
+  selectedDept = '';
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      const chatBody = document.getElementById('chatBody');
+      const msg = document.createElement('div');
+      msg.className = 'message';
+      msg.innerHTML = `
+        <div class="message-avatar">V</div>
+        <div class="message-content">
+          <div class="message-text">
+            How can we help you? Select a department:
+            <div class="department-grid">
+              <button class="dept-card" onclick="selectDepartment('service')">
+                <div class="dept-icon">🛠️</div>
+                <div class="dept-name">Service</div>
+                <div class="dept-desc">BGV & verification services</div>
+              </button>
+              <button class="dept-card" onclick="selectDepartment('career')">
+                <div class="dept-icon">💼</div>
+                <div class="dept-name">Career</div>
+                <div class="dept-desc">Job opportunities</div>
+              </button>
+              <button class="dept-card" onclick="selectDepartment('support')">
+                <div class="dept-icon">🎧</div>
+                <div class="dept-name">Support</div>
+                <div class="dept-desc">Customer support</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+      disableInput();
+    }, 800);
+  }, 300);
+}
+
+function selectDepartment(dept) {
+  selectedDept = dept;
+  chatData.department = dept;
+  
+  // Set the recipient email based on the selected department
+  chatData.recipientEmail = departmentEmails[dept] || 'info@verifitech.com';
+
+  addMessage(dept.charAt(0).toUpperCase() + dept.slice(1), true);
+  
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      
+      if (dept === 'service') {
+        showBGVOptions();
+      } else {
+        // ---------------------------------------------------------
+        // CHANGE: Direct call to showReachOut for Career/Support
+        // ---------------------------------------------------------
+        showReachOut(dept);
+      }
+    }, 800);
+  }, 300);
+}
+
+// ==========================================
+// SERVICE FLOW
+// ==========================================
+function showBGVOptions() {
+  const chatBody = document.getElementById('chatBody');
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content">
+      <div class="message-text">
+        Select a BGV service:
+        <div class="bgv-options">
+          <button class="bgv-btn" onclick="prepareServiceRequest('Employee Background Check')">👤 Employee Background Check</button>
+          <button class="bgv-btn" onclick="prepareServiceRequest('Tenant Verification')">🏠 Tenant Verification</button>
+          <button class="bgv-btn" onclick="prepareServiceRequest('Criminal Record Check')">🔍 Criminal Record Check</button>
+          <button class="bgv-btn" onclick="prepareServiceRequest('Education Verification')">🎓 Education Verification</button>
+          <button class="bgv-btn" onclick="prepareServiceRequest('Employment History')">💼 Employment History Check</button>
+          <button class="bgv-btn" onclick="prepareServiceRequest('Other')">📝 Other Service</button>
+        </div>
+        <button class="back-btn" onclick="showDepartments()">← Back</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function prepareServiceRequest(serviceType) {
+  selectedService = serviceType;
+  chatData.serviceType = serviceType;
+  addMessage(serviceType, true);
+  
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      
+      if (serviceType === 'Other') {
+        showCustomServiceInput();
+      } else {
+        startDataCollection();
+      }
+    }, 800);
+  }, 300);
+}
+
+function showCustomServiceInput() {
+  const chatBody = document.getElementById('chatBody');
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content">
+      <div class="message-text">
+        Please describe the service you need:
+        <textarea class="issue-input" id="customService" rows="3" placeholder="Describe the service you need..."></textarea>
+        <button class="action-btn" onclick="confirmCustomService()">Continue</button>
+        <button class="back-btn" onclick="showBGVOptions()">← Back</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function confirmCustomService() {
+  const customText = document.getElementById('customService').value.trim();
+  if (!customText) {
+    alert('Please describe the service you need.');
+    return;
+  }
+  selectedService = 'Other: ' + customText;
+  chatData.serviceType = selectedService;
+  startDataCollection();
+}
+
+// ==========================================
+// CAREER & SUPPORT FLOW (UPDATED)
+// ==========================================
+function showReachOut(dept) {
+  const chatBody = document.getElementById('chatBody');
+  
+  // ---------------------------------------------------------
+  // CHANGE: Handle Support Immediately (Skip CTA)
+  // ---------------------------------------------------------
+  if (dept === 'support') {
+    showSupportInput();
+    return;
+  }
+  
+  // ---------------------------------------------------------
+  // CHANGE: Handle Career with CTA
+  // ---------------------------------------------------------
+  let actionButtons = '';
+  
+  if (dept === 'career') {
+    actionButtons = `
+      <div style="margin-top:12px;">
+        <button class="action-btn" onclick="handleCareerAction()">
+          🚀 View Openings & Apply
+        </button>
+      </div>
+    `;
+  }
+
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content">
+      <div class="message-text">
+        You've selected <strong>${dept.charAt(0).toUpperCase() + dept.slice(1)}</strong> department.
+        ${actionButtons}
+        <button class="back-btn" onclick="showDepartments()">← Back</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// ---------------------------------------------------------
+// FUNCTION: Handles the specific Career CTA click
+// ---------------------------------------------------------
+function handleCareerAction() {
+  // 1. Add user feedback to chat
+  addMessage('View Openings & Apply', true);
+  
+  // 2. Open the career page in a new tab
+  window.open('https://verifitech.com/careers', '_blank');
+  
+  // 3. Proceed to data collection (simulating an application)
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage("Great choice! To help our HR team connect with you regarding a role, please provide a few details.");
+      setTimeout(() => askForFirstName(), 800);
+    }, 800);
+  }, 500);
+}
+
+function showSupportInput() {
+  const chatBody = document.getElementById('chatBody');
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content">
+      <div class="message-text">
+        Please describe your issue:
+        <textarea class="issue-input" id="issueText" rows="3" placeholder="Type your issue here..."></textarea>
+        <button class="action-btn" onclick="prepareSupportTicket()">Continue</button>
+        <button class="back-btn" onclick="showDepartments()">← Back</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function prepareSupportTicket() {
+  const issueText = document.getElementById('issueText').value.trim();
+  if (!issueText) {
+    alert('Please describe your issue first.');
+    return;
+  }
+  selectedService = 'Support Issue: ' + issueText;
+  chatData.serviceType = 'Support Request';
+  chatData.issueDescription = issueText;
+  startDataCollection();
+}
+
+// ==========================================
+// DATA COLLECTION FLOW
+// ==========================================
+function startDataCollection() {
+  // If not coming from the specific career handler, show generic message
+  if (selectedDept !== 'career') {
+      addMessage("Great! I'll need a few details to proceed.");
+  }
+  
+  setTimeout(() => {
+    askForFirstName();
+  }, selectedDept === 'career' ? 500 : 1000);
+}
+
+function askForFirstName() {
+  currentStep = 'firstName';
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage('Please provide your <strong>Name</strong>.');
+      enableInput('Enter your name...');
+    }, 800);
+  }, 300);
+}
+
+function askForEmail() {
+  currentStep = 'email';
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage('Thanks! Now your <strong>Email Address</strong>?');
+      enableInput('Enter your email...');
+    }, 800);
+  }, 300);
+}
+
+function askForNumber() {
+  currentStep = 'number';
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage('Please provide your <strong>Contact Number</strong> (with country code).');
+      enableInput('e.g., +91 9876543210...');
+    }, 800);
+  }, 300);
+}
+
+function askForCompany() {
+  currentStep = 'company';
+  setTimeout(() => {
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMessage('Finally, your <strong>Company Name</strong>?');
+      enableInput('Enter company name...');
+    }, 800);
+  }, 300);
+}
+
+// ==========================================
+// FINAL CONFIRMATION & SUBMIT
+// ==========================================
+function showFinalConfirmation() {
+  currentStep = 'finalConfirm';
+  
+  const chatBody = document.getElementById('chatBody');
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  
+  let serviceDisplay = chatData.serviceType;
+  if (chatData.issueDescription) {
+    serviceDisplay += `<br><small style="color:#666">Details: ${chatData.issueDescription}</small>`;
+  }
+  
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content" style="max-width: 90%;">
+      <div class="message-text">
+        <div class="final-confirm-box">
+          <h4>📋 Review Your Request</h4>
+          <div class="confirmation-box">
+            <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">${chatData.firstName}</span></div>
+            <div class="detail-row"><span class="detail-label">Email:</span><span class="detail-value">${chatData.email}</span></div>
+            <div class="detail-row"><span class="detail-label">Contact:</span><span class="detail-value">${chatData.phone}</span></div>
+            <div class="detail-row"><span class="detail-label">Company:</span><span class="detail-value">${chatData.company}</span></div>
+            <div class="detail-row"><span class="detail-label">Department:</span><span class="detail-value text-capitalize">${chatData.department}</span></div>
+            <div class="detail-row"><span class="detail-label">Service:</span><span class="detail-value">${serviceDisplay}</span></div>
+          </div>
+          <button class="send-final-btn" id="sendRequestBtn" onclick="submitToBackend()">
+            ✅ Send Request
+          </button>
+        </div>
+        <button class="back-btn" onclick="resetChat()">← Start Over</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  disableInput();
+}
+
+// ==========================================
+// SUBMIT TO BACKEND (FIXED LOGIC)
+// ==========================================
+async function submitToBackend() {
+  if (isSubmitting) return;
+  
+  const btn = document.getElementById('sendRequestBtn');
+  isSubmitting = true;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Sending...';
+  
+  const url = `${API_BASE_URL}/api/submit-request`;
+  
+  // FIX 1: Add timestamp to prevent caching
+  const timestampedUrl = `${url}?t=${new Date().getTime()}`;
+
+  console.log('Submitting to:', timestampedUrl);
+  console.log('Data:', chatData);
+  
+  try {
+    // FIX 2: Explicit Fetch Options
+    const response = await fetch(timestampedUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Cache-Control': 'no-cache'
+      },
+      body: JSON.stringify(chatData)
+    });
+    
+    console.log('Response status:', response.status);
+    
+    // FIX 3: Handle Non-JSON Responses
+    const contentType = response.headers.get('content-type');
+    
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Non-JSON response:', text.substring(0, 500));
+      throw new Error(`Server returned ${response.status} ${response.statusText}. Please check server logs.`);
+    }
+    
+    const result = await response.json();
+    console.log('Response:', result);
+    
+    if (result.success) {
+      showSuccessMessage(result.data);
+    } else {
+      throw new Error(result.message || 'Failed to send request');
+    }
+    
+  } catch (error) {
+    console.error('Submission Error:', error);
+    showFallbackMessage(error.message);
+  } finally {
+    isSubmitting = false;
+  }
+}
+
+// ==========================================
+// SUCCESS MESSAGE
+// ==========================================
+function showSuccessMessage(data) {
+  const chatBody = document.getElementById('chatBody');
+  
+  let successContent = '';
+  if (selectedDept === 'service') {
+    successContent = `
+      <div class="success-msg">
+        <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+        <strong>Service Request Submitted!</strong><br><br>
+        <strong>Name:</strong> ${chatData.firstName}<br>
+        <strong>Email:</strong> ${chatData.email}<br>
+        <strong>Contact:</strong> ${chatData.phone}<br>
+        <strong>Company:</strong> ${chatData.company}<br>
+        <strong>Service:</strong> ${chatData.serviceType}<br>
+        <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
+        <span style="font-size: 13px;">Our team will contact you within 24 hours.</span>
+      </div>
+    `;
+  } else if (selectedDept === 'support') {
+    successContent = `
+      <div class="success-msg">
+        <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+        <strong>Support Ticket Created!</strong><br><br>
+        <strong>Ticket ID:</strong> #SUP-${Date.now().toString().slice(-6)}<br>
+        <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
+        <span style="font-size: 13px;">Our support team will reach out shortly.</span>
+      </div>
+    `;
+  } else if (selectedDept === 'career') {
+    successContent = `
+      <div class="success-msg">
+        <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+        <strong>Interest Registered!</strong><br><br>
+        <strong>Name:</strong> ${chatData.firstName}<br>
+        <strong>Email:</strong> ${chatData.email}<br>
+        <strong>Phone:</strong> ${chatData.phone}<br>
+        <strong>Company:</strong> ${chatData.company}<br>
+        <strong>Sent to:</strong> ${chatData.recipientEmail}<br><br>
+        <span style="font-size: 13px;">Thanks for your interest in joining Verifitech! Our HR team will review your details.</span>
+      </div>
+    `;
+  }
+  
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content">
+      <div class="message-text">
+        ${successContent}
+        <button class="action-btn" onclick="resetChat()" style="margin-top: 15px;">🔄 New Request</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// ==========================================
+// FALLBACK ERROR HANDLING
+// ==========================================
+function showFallbackMessage(errorMsg) {
+  const btn = document.getElementById('sendRequestBtn');
+  if (btn) {
+    btn.disabled = false;
+    btn.innerHTML = '✅ Send Request';
+  }
+  
+  const chatBody = document.getElementById('chatBody');
+  
+  // Prepare mailto link with data
+  const subject = encodeURIComponent(`New ${chatData.department} Request from ${chatData.firstName}`);
+  const body = encodeURIComponent(
+    `Name: ${chatData.firstName}\n` +
+    `Email: ${chatData.email}\n` +
+    `Phone: ${chatData.phone}\n` +
+    `Company: ${chatData.company}\n` +
+    `Department: ${chatData.department}\n` +
+    `Service: ${chatData.serviceType}\n` +
+    `Description: ${chatData.issueDescription || 'N/A'}`
+  );
+  const mailtoLink = `mailto:${chatData.recipientEmail}?subject=${subject}&body=${body}`;
+
+  const msg = document.createElement('div');
+  msg.className = 'message';
+  msg.innerHTML = `
+    <div class="message-avatar">V</div>
+    <div class="message-content">
+      <div class="message-text">
+        <div style="background: #f8d7da; color: #721c24; padding: 12px; border-radius: 8px; border-left: 4px solid #dc3545; margin-bottom: 10px;">
+          ❌ <strong>Connection Error:</strong> ${errorMsg}
+        </div>
+        <p style="font-size: 13px; color: #555; margin-bottom: 10px;">
+          Our server might be waking up. You can manually send this request via email:
+        </p>
+        <a href="${mailtoLink}" class="action-btn" style="display:inline-block; text-decoration:none; text-align:center;">
+          ✉️ Email Request to ${chatData.recipientEmail}
+        </a>
+        <br><br>
+        <button class="back-btn" onclick="submitToBackend()">🔄 Retry Connection</button>
+      </div>
+    </div>
+  `;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// ==========================================
+// RESET CHAT
+// ==========================================
+function resetChat() {
+  chatData = {
+    firstName: '',
+    email: '',
+    phone: '',
+    company: '',
+    department: '',
+    serviceType: '',
+    issueDescription: '',
+    recipientEmail: ''
+  };
+  currentStep = 'welcome';
+  selectedDept = '';
+  selectedService = '';
+  isSubmitting = false;
+  isOpenedOnce = false;
+  
+  const chatBody = document.getElementById('chatBody');
+  chatBody.innerHTML = `
+    <div class="message" id="welcomeMessage">
+      <div class="message-avatar">V</div>
+      <div class="message-content">
+        <div class="message-text">
+          👋 Hi there! I'm <strong>Veri</strong>, your AI assistant from Verifitech.
+        </div>
+      </div>
+    </div>
+  `;
+  
+  disableInput();
+  toggleChat(); 
+}
+
+// ==========================================
+// INPUT HANDLING
+// ==========================================
+function handleSend() {
+  const input = document.getElementById('messageInput');
+  const value = input.value.trim();
+  if (!value) return;
+
+  addMessage(value, true);
+  input.value = '';
+
+  setTimeout(() => {
+    processUserInput(value);
+  }, 300);
+}
+
+// Enter key support
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('messageInput');
+  if (input) {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') handleSend();
+    });
+  }
+});
+
+function processUserInput(value) {
+  switch(currentStep) {
+    case 'firstName':
+      chatData.firstName = value;
+      askForEmail();
+      break;
+    case 'email':
+      if (value.includes('@') && value.includes('.')) {
+        chatData.email = value;
+        askForNumber();
+      } else {
+        addMessage('❌ Please enter a valid email address.');
+        enableInput('Enter valid email...');
+      }
+      break;
+    case 'number':
+      chatData.phone = value;
+      askForCompany();
+      break;
+    case 'company':
+      chatData.company = value;
+      showFinalConfirmation();
+      break;
+  }
+}
+
+// Add spinner animation style (Dynamically added to ensure it exists)
+const style = document.createElement('style');
+style.textContent = `
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
+  
+  </script>
+  </body>
+</html>
