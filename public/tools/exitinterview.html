@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,253 +53,237 @@
 /* ========================================= */
 /* NAVIGATION CSS FIX                        */
 /* ========================================= */
-
-/* 1. Navbar Base */
-.navbar {
-    padding: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+    /* Ensure navbar has proper z-index */
+  .navbar {
+    z-index: 1050; /* Higher than most content */
+  }
+  
+  /* Fix dropdown z-index to appear above 
+      content */
+  .dropdown-menu {
+    z-index: 1060; /* Higher than navbar */
+    position: absolute; /* Ensure proper positioning */
+  }
+  
+  /* Ensure dropdown items are clickable and visible */
+  .dropdown-item {
+    position: relative;
+    z-index: 1061;
+  }
+  
+  /* Fix for hero section overlapping */
+  .industry-hero {
+    position: relative;
+    z-index: 1; /* Lower than navbar */
+  }
+  
+  /* Ensure navbar collapse has proper background when expanded on mobile */
+  .navbar-collapse {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    height: 80px;
-    z-index: 1050; /* Ensures nav stays on top */
-}
-
-.navbar.scrolled {
-    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-}
-
-/* 2. Brand Logo */
-.navbar-brand img {
-    height: 48px; /* Fixed height for logo */
-    width: auto;
-}
-
-/* 3. Navigation Links */
-.nav-link {
-    font-weight: 600;
-    color: var(--navy);
-    margin: 0 0.5rem;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    padding: 2rem 0.5rem !important; /* Vertical padding for click area */
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.nav-link:hover {
-    color: var(--primary);
-}
-
-/* Dropdown Arrow Animation */
-.dropdown-arrow {
-    transition: transform 0.2s ease;
-    font-size: 0.7rem;
-    margin-left: 2px;
-}
-.nav-item.show .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-/* 4. Dropdown Menus (Standard) */
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     border-radius: 12px;
     padding: 1rem;
-    margin-top: 0; /* Flush with nav */
-    min-width: 220px;
-    border-top: 3px solid var(--primary);
-    z-index: 1100;
-}
-
-.dropdown-item {
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--navy);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.dropdown-item:hover {
-    background: var(--primary-light);
-    color: var(--primary);
-    transform: translateX(5px);
-}
-
-.dropdown-item i {
-    font-size: 1.1rem;
-    color: var(--primary);
-    width: 20px; /* Aligns icons */
-    text-align: center;
-}
-
-/* 5. MEGA MENU (Solutions) */
-.dropdown-menu.mega-menu {
-    min-width: 600px; /* Wide enough for 2 columns */
-    width: 600px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1.5rem;
-}
-
-.mega-menu .row {
-    margin: 0;
-}
-
-.mega-menu .col-md-6 {
-    padding: 0 1rem;
-}
-
-.dropdown-header {
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--primary);
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-}
-
-/* 6. Right Side Buttons Container */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-left: 1rem;
-}
-
-/* 7. Button Styles */
-.btn-login {
-    background: transparent;
-    color: var(--navy);
-    border: 2px solid var(--primary);
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.btn-login:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-1px);
-}
-
-.btn-sales {
-    background: var(--primary);
-    color: white !important;
-    border: none;
-    padding: 0.6rem 1.5rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-    text-decoration: none;
-}
-
-.btn-sales:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-}
-
-/* 8. Country Selector */
-.country-selector {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    border: 1px solid #e2e8f0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--navy);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.country-selector:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-/* 9. Mobile Responsive Styles */
-@media (max-width: 991.98px) {
-    .navbar {
-        height: auto;
-        padding: 0.5rem 0;
-    }
-    
-    .navbar-brand img {
-        height: 40px;
-    }
-
-    /* Collapsible Menu Container */
+    margin-top: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (min-width: 992px) {
     .navbar-collapse {
-        background: white;
-        padding: 1rem;
-        margin-top: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        max-height: 80vh;
-        overflow-y: auto;
-        border: 1px solid #f1f5f9;
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+      margin-top: 0;
+      box-shadow: none;
     }
+  }
 
-    .nav-link {
-        padding: 1rem 0 !important;
-        border-bottom: 1px solid #f1f5f9;
-    }
-
-    /* Mega Menu becomes standard vertical menu on mobile */
-    .dropdown-menu.mega-menu {
-        min-width: 100%;
-        width: 100%;
-        transform: translateX(0);
-        left: 0;
-        position: relative;
-        border: none;
-        box-shadow: none;
+      /* Navigation */
+     .navbar {
         padding: 0;
-        margin-top: 0.5rem;
-        background: #f8fafc;
-    }
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 100px;
+      }
 
-    .dropdown-menu {
-        padding: 0.5rem;
-    }
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
 
-    /* Stack buttons vertically on mobile */
-    .nav-actions {
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--dark);
+        letter-spacing: -0.5px;
+        display: flex;
         flex-direction: column;
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 2px solid #f1f5f9;
-        gap: 1rem;
-        align-items: stretch; /* Full width buttons */
-    }
+        line-height: 1.1;
+        transition: color 0.3s;
+      }
+      .navbar-brand img {
+        height: 100px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
 
-    .btn-login, .btn-sales {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-    }
-    
-    .country-selector {
-        width: 100%;
-        justify-content: center;
-    }
-}
+      .navbar-brand span {
+        color: var(--primary);
+      }
+
+      .brand-tagline {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        position: relative;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      /* Dropdown Styling with Teal Accents */
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-divider {
+        margin: 0.8rem 0;
+        opacity: 0.1;
+      }
+
+      /* CTA Button Style - Talk to Sales */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important; /* Teal color - adjust to your exact teal shade */
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important; /* Teal box shadow */
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
+
+      /* Country Selector */
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .country-selector i {
+        font-size: 1.2rem;
+      }
+
+
+
        .trial-hero {
            padding: 140px 0 100px;
            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 30%, #ccfbf1 70%, #e0f7f7 100%);
@@ -1579,23 +1564,14 @@
 
    <!-- Navigation -->
   <!-- Navigation -->
+   !-- ==================== NAVBAR ==================== -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
-          <img
-            src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
-            alt="Verifitech"
-            width="200 px"
-            height="60%"
-          />
+        <a class="navbar-brand" href="../index.html">
+          <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" width="200 px" height="60%" />
         </a>
 
-        <button
-          class="navbar-toggler border-0 shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -1603,88 +1579,32 @@
           <ul class="navbar-nav mx-auto">
             <!-- SOLUTIONS Dropdown -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link "
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Solutions <span class="dropdown-arrow">▾</span>
               </a>
               <div class="dropdown-menu mega-menu">
                 <div class="row">
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Verification Services</h6>
-                    <a href="../checks/lp-id verification.html" class="dropdown-item"
-                      ><i class="bi bi-person-badge"></i> ID Verification</a
-                    >
-                    <a
-                      href="../checks/lp-ADRESS VERIFICATION.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-geo-alt"></i> Address Verification</a
-                    >
-                    <a href="../checks/lp-employment.html" class="dropdown-item"
-                      ><i class="bi bi-briefcase"></i> Employment
-                      Verification</a
-                    >
-                    <a
-                      href="../checks/lp-education check.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-mortarboard"></i> Education
-                      Verification</a
-                    >
-                    <a
-                      href="../checks/LP-court verification.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-shield-exclamation"></i> Court Record
-                      Verification</a
-                    >
-                    <a href="../checks/lp-refernce.html" class="dropdown-item"
-                      ><i class="bi bi-people"></i> Reference Check</a
-                    >
-                    <a href="../checks/DIN-verification.html" class="dropdown-item">
-                        <i class="fa-regular fa-id-card"></i> DIN Verification</a>
-
-                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
-                      ><i class="fa-regular fa-user"></i> Directorship</a
-                    >
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
+                    <a href="../checks/lp-ADRESS VERIFICATION.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
+                    <a href="../checks/lp-employment.html" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
+                    <a href="../checks/lp-education check.html" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
+                    <a href="../checks/LP-court verification.html" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a>
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
                   </div>
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Specialized Checks</h6>
-                    <a href="../checks/global check.html" class="dropdown-item"
-                      ><i class="bi bi-globe"></i> Global Database
-                      Verification</a
-                    >
-                    <a href="../checks/lp-credit check.html" class="dropdown-item"
-                      ><i class="bi bi-credit-card"></i> Credit Check</a
-                    >
-                    <a
-                      href="../checks/lp-gap verification.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-calendar-x"></i> Gap Check</a
-                    >
-                    <a
-                      href="../checks/lp-socialmeidaverification.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-share"></i> Social Media Verification</a
-                    >
-                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
-                      ><i class="bi bi-shield-check"></i> Police Clearance</a
-                    >
-                    <a href="../checks/lp-drug test.html" class="dropdown-item"
-                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
-                    >
-                    <a class="dropdown-item" href="../checks/vendor.html"
-                      ><i class="fa-solid fa-magnifying-glass"></i>
-                       Vendor
-                      Digillencs</a
-                    >
-
-                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
-                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
-                    >
-
+                    <a href="../checks/global check.html" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
+                    <a href="../checks/lp-gap verification.html" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
+                    <a href="../checks/lp-socialmeidaverification.html" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a>
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
+                    <a class="dropdown-item" href="../checks/vendor.html"><i class="fa-solid fa-magnifying-glass"></i> Vendor Digillencs</a>
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a>
                   </div>
                 </div>
               </div>
@@ -1692,304 +1612,94 @@
 
             <!-- Products Dropdown -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link "
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Products <span class="dropdown-arrow">▾</span>
               </a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="./products/exitinterview.html"
-                    ><i class="bi bi-box-arrow-right"></i> Exit
-                    interviews</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="./products/pm.html"
-                    ><i class="bi bi-graph-up"></i> Psychometric</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../products/exitinterview.html"><i class="bi bi-box-arrow-right"></i> Exit interviews</a></li>
+                <li><a class="dropdown-item" href="../products/pm.html"><i class="bi bi-graph-up"></i> Psychometric</a></li>
               </ul>
             </li>
 
             <!-- INDUSTRY Dropdown -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link "
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Industry <span class="dropdown-arrow">▾</span>
               </a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="./industries/lp-banks.html"
-                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="./industries/lpi-healthcare.html"
-                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="./industries/lpi-education.html"
-                    ><i class="bi bi-book"></i> Education</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="./industries/lpi-Manfacturing.html"
-                    ><i class="bi bi-building-gear"></i> Manufacturing</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./industries/lpi-IT-ITES.html"
-                    ><i class="bi bi-laptop"></i> IT/ITeS</a
-                  >
-                </li>
-                <!--<li>
-                  <a class="dropdown-item" href="./industries/lp-banks.html"
-                    ><i class="bi bi-shield-plus"></i> Insurance</a
-                  >
-                </li> -->
-                <a class="dropdown-item" href="./industries/LP-FMCG.html"
-                    ><i class="bi bi-box"></i> FMCG</a
-                  >
-                </li>
-            <li>
-                <a class="dropdown-item" href="./industries/Logistics.html"
-                    ><i class="bi bi-truck"></i> Logistics</a
-                  >
-                </li>
-       
-            <li>
-                <a class="dropdown-item" href="./industries/Realestate & Constructation.html"
-                    ><i class="bi bi-house"></i>
-                          Realestate & Construcataion</a
-                  >
-                </li>
-       
-            
-            <li>
-                <a class="dropdown-item" href="./industries/Retail & E-commerce.html"
-                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
-                  
-                </li>
-       
-            
-            <li>
-                  <a
-                    class="dropdown-item"
-                    href="./industries/lpi-travel industries.html"
-                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./industries/lpi-staffing.html"
-                    ><i class="bi bi-person-workspace"></i> Staffing and
-                    Recruitment</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./industries/lpi-telecom.html"
-                    ><i class="bi bi-broadcast"></i> Telecom</a
-                  >
-                </li>
-             <!--  <li>
-                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
-                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
-                  >
-                </li> -->
+                <li><a class="dropdown-item" href="../industries/lp-banks.html"><i class="bi bi-bank"></i> Banking & Financial Services</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-healthcare.html"><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-education.html"><i class="bi bi-book"></i> Education</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-Manfacturing.html"><i class="bi bi-building-gear"></i> Manufacturing</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-IT-ITES.html"><i class="bi bi-laptop"></i> IT/ITeS</a></li>
+                <li><a class="dropdown-item" href="../industries/LP-FMCG.html"><i class="bi bi-box"></i> FMCG</a></li>
+                <li><a class="dropdown-item" href="../industries/Logistics.html"><i class="bi bi-truck"></i> Logistics</a></li>
+                <li><a class="dropdown-item" href="../industries/Realestate & Constructation.html"><i class="bi bi-house"></i> Realestate & Construcataion</a></li>
+                <li><a class="dropdown-item" href="../industries/Retail & E-commerce.html"><i class="bi bi-shop"></i> Retail & E-commerce</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-travel industries.html"><i class="bi bi-airplane"></i> Travel and Hospitality</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-staffing.html"><i class="bi bi-person-workspace"></i> Staffing and Recruitment</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-telecom.html"><i class="bi bi-broadcast"></i> Telecom</a></li>
               </ul>
             </li>
 
             <!-- RESOURCES Dropdown -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link "
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Resources <span class="dropdown-arrow">▾</span>
               </a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="./resources/blog.html"
-                    ><i class="bi bi-journal-text"></i> Blogs</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./resources/whitepapers.html"
-                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./resources/casestudy.html"
-                    ><i class="bi bi-star"></i> Case Study</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./resources/webinar.html"
-                    ><i class="bi bi-camera-video"></i> Webinar</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../products/api.html">
-                    <i class="bi bi-plug"></i> API
-                  </a>
-                </li>
+                <li><a class="dropdown-item" href="../resources/blog.html"><i class="bi bi-journal-text"></i> Blogs</a></li>
+                <li><a class="dropdown-item" href="../resources/whitepapers.html"><i class="bi bi-file-earmark-text"></i> Whitepapers</a></li>
+                <li><a class="dropdown-item" href="../resources/casestudy.html"><i class="bi bi-star"></i> Case Study</a></li>
+                <li><a class="dropdown-item" href="../resources/webinar.html"><i class="bi bi-camera-video"></i> Webinar</a></li>
+                <li><a class="dropdown-item" href="../products/api.html"><i class="bi bi-plug"></i> API</a></li>
               </ul>
             </li>
 
             <!-- COMPANY Dropdown -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Company <span class="dropdown-arrow">▾</span>
               </a>
               <ul class="dropdown-menu">
-                  
-                <li>
-                  <a class="dropdown-item" href="./company/partnership.html"
-                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./company/aboutus.html"
-                    ><i class="bi bi-info-circle"></i> About Us</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="./company/careers.html"
-                    ><i class="bi bi-briefcase"></i> Careers</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../company/partnership.html"><i class="bi bi-hand-thumbs-up"></i> Partnership</a></li>
+                <li><a class="dropdown-item" href="../company/aboutus.html"><i class="bi bi-info-circle"></i> About Us</a></li>
+                <li><a class="dropdown-item" href="../company/careers.html"><i class="bi bi-briefcase"></i> Careers</a></li>
               </ul>
             </li>
 
-      <!-- HELP CENTER Dropdown -->
-<li class="nav-item dropdown">
-  <a
-    class="nav-link "
-    href="#"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Help Center <span class="dropdown-arrow">▾</span>
-  </a>
-  <ul class="dropdown-menu">
-    <li>
-      <a class="dropdown-item" href="./helpcenter/customer.html"
-        ><i class="bi bi-building"></i> For Customers</a
-      >
-    </li>
-    <li>
-      <a class="dropdown-item" href="./helpcenter/partner.html"
-        ><i class="bi bi-people"></i> For Partners</a
-      >
-    </li>
-    <li>
-      <a class="dropdown-item" href="./affilate/affilate.html"
-        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
-      </a>
-    </li>
-  </ul>
-</li>
+            <!-- HELP CENTER Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Help Center <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../helpcenter/customer.html"><i class="bi bi-building"></i> For Customers</a></li>
+                <li><a class="dropdown-item" href="../helpcenter/partner.html"><i class="bi bi-people"></i> For Partners</a></li>
+                <li><a class="dropdown-item" href="../affilate/affilate.html"><i class="bi bi-link-45deg"></i> Affiliate Marketing</a></li>
+              </ul>
+            </li>
+          </ul>
+
           <div class="d-flex align-items-center">
-            <a href="https://web.verifitech.com/" target="blank" class="btn btn-login">Login</a>
+            <a href="https://web.verifitech.com/" target="blank" style="color:#222; text-decoration:none;" >Login</a>
           </div>
 
           <div class="d-flex align-items-center">
-            <a href="./contact/contact.html" class="btn btn-sales"
-              >Talk to Sales</a
-            >
+            <a href="../contact/contact.html" class="btn btn-sales">Talk to Sales</a>
 
             <div class="dropdown">
-              <div
-                class="country-selector dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <div class="country-selector dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="country-flag" id="current-flag">🇮🇳</span>
                 <span id="current-country">India</span>
-                <span class="dropdown-arrow">▾</span> 
+                <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
               </div>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                style="min-width: 180px"
-              >
-                <li>
-                  <a
-                    href="./countries/usa.html"
-                    class="dropdown-item country-option"
-                    data-country="USA"
-                    data-flag="🇺🇸"
-                  >
-                    <span class="country-flag">🇺🇸</span> USA
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item country-option"
-                    href="./countries/UAE.html"
-                    data-country="UAE"
-                    data-flag="🇦🇪"
-                  >
-                    <span class="country-flag">🇦🇪</span> UAE
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item country-option"
-                    href="./countries/aus.html"
-                    data-country="Australia"
-                    data-flag="🇦🇺"
-                  >
-                    <span class="country-flag">🇦🇺</span> Australia
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item country-option"
-                    href="./countries/uk.html"
-                    data-country="UK"
-                    data-flag="🇬🇧"
-                  >
-                    <span class="country-flag">🇬🇧</span> UK
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item country-option"
-                    href="./countries/sigapore.html"
-                    data-country="Singapore"
-                    data-flag="🇸🇬"
-                  >
-                    <span class="country-flag">🇸🇬</span> Singapore
-                  </a>
-                </li>
+              <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                <li><a href="../countries/usa.html" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸"><span class="country-flag">🇺🇸</span> USA</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/UAE.html" data-country="UAE" data-flag="🇦🇪"><span class="country-flag">🇦🇪</span> UAE</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/aus.html" data-country="Australia" data-flag="🇦🇺"><span class="country-flag">🇦🇺</span> Australia</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/uk.html" data-country="UK" data-flag="🇬🇧"><span class="country-flag">🇬🇧</span> UK</a></li>
+                <li><a class="dropdown-item country-option" href="../countries/sigapore.html" data-country="Singapore" data-flag="🇸🇬"><span class="country-flag">🇸🇬</span> Singapore</a></li>
               </ul>
             </div>
           </div>
