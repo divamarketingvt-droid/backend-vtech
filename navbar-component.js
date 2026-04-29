@@ -17,10 +17,6 @@ class VerifitechNavbar extends HTMLElement {
         /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
-        /* Import Bootstrap Icons (Simulated via CSS variables or rely on main page, 
-           but for components, we usually rely on main page CSS or inline SVGs. 
-           I will map your classes here.) */
-        
         :host {
           display: block;
           width: 100%;
@@ -32,7 +28,7 @@ class VerifitechNavbar extends HTMLElement {
           --gray: #64748b;
         }
 
-        /* --- YOUR NAVBAR CSS --- */
+        /* --- NAVBAR CONTAINER --- */
         .navbar {
           padding: 0;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,7 +36,7 @@ class VerifitechNavbar extends HTMLElement {
           backdrop-filter: blur(12px);
           border-bottom: 1px solid rgba(0, 0, 0, 0.05);
           height: 100px;
-          position: fixed; /* Keeps it fixed as per your original design */
+          position: fixed;
           top: 0;
           left: 0;
           width: 100%;
@@ -55,7 +51,7 @@ class VerifitechNavbar extends HTMLElement {
 
         .container {
           width: 100%;
-          max-width: 1140px; /* Standard Bootstrap container width */
+          max-width: 1140px;
           margin: 0 auto;
           padding: 0 15px;
           display: flex;
@@ -70,10 +66,19 @@ class VerifitechNavbar extends HTMLElement {
           object-fit: contain;
         }
 
+        /* --- COLLAPSE SECTION (THE FIX IS HERE) --- */
         .navbar-collapse {
-          /* Mobile menu styles handled by media query below */
+          /* FIX: Added display: flex to align Links vs Buttons */
+          display: flex; 
+          
           flex-grow: 1;
           align-items: center;
+          
+          /* FIX: Added space-between to push Links Left, Buttons Right */
+          justify-content: space-between; 
+          
+          /* Add spacing between Logo and Menu */
+          margin-left: 3rem; 
         }
 
         .navbar-nav {
@@ -81,7 +86,7 @@ class VerifitechNavbar extends HTMLElement {
           list-style: none;
           margin: 0;
           padding: 0;
-          gap: 1rem;
+          gap: 0.5rem; /* Adjusted gap for tighter packing if needed */
         }
 
         .nav-item { position: relative; }
@@ -96,6 +101,7 @@ class VerifitechNavbar extends HTMLElement {
           gap: 4px;
           padding: 10px 0;
           cursor: pointer;
+          white-space: nowrap;
         }
 
         .nav-link:hover { color: var(--primary); }
@@ -114,7 +120,7 @@ class VerifitechNavbar extends HTMLElement {
           padding: 1rem;
           min-width: 280px;
           border-top: 3px solid var(--primary);
-          display: none; /* Hidden by default */
+          display: none;
           z-index: 1060;
         }
         
@@ -147,7 +153,11 @@ class VerifitechNavbar extends HTMLElement {
         .dropdown-item i { color: var(--primary); }
 
         /* Right Side Buttons */
-        .d-flex { display: flex; align-items: center; gap: 1rem; }
+        .d-flex { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+        }
         
         .btn-sales {
           background: var(--primary);
@@ -188,8 +198,9 @@ class VerifitechNavbar extends HTMLElement {
         /* Mobile Responsiveness */
         @media (max-width: 991px) {
           .navbar-toggler { display: block; }
+          
           .navbar-collapse {
-            display: none;
+            display: none; /* Hidden by default on mobile */
             position: absolute;
             top: 100px;
             left: 0;
@@ -197,12 +208,20 @@ class VerifitechNavbar extends HTMLElement {
             background: rgba(255, 255, 255, 0.98);
             padding: 1rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            flex-direction: column;
+            flex-direction: column; /* Stack on mobile */
             align-items: flex-start;
+            margin-left: 0; /* Reset margin for mobile */
           }
+          
           .navbar-collapse.show { display: flex; }
-          .navbar-nav { flex-direction: column; width: 100%; }
+          
+          .navbar-nav { 
+              flex-direction: column; 
+              width: 100%; 
+          }
+          
           .nav-link { width: 100%; justify-content: space-between; }
+          
           .dropdown-menu { 
             position: static; 
             box-shadow: none; 
@@ -210,9 +229,16 @@ class VerifitechNavbar extends HTMLElement {
             width: 100%; 
             display: none; 
           }
+          
           .dropdown-menu.show { display: block; }
           .dropdown-menu.mega-menu { min-width: 100%; }
-          .d-flex { flex-direction: column; align-items: flex-start; margin-top: 1rem; width: 100%; }
+          
+          .d-flex { 
+              flex-direction: column; 
+              align-items: flex-start; 
+              margin-top: 1rem; 
+              width: 100%; 
+          }
         }
       </style>
 
@@ -394,14 +420,11 @@ class VerifitechNavbar extends HTMLElement {
 
         const menu = parent.querySelector(':scope > .dropdown-menu');
         if (menu) {
-            // Check if mobile
             const isMobile = window.innerWidth < 992;
 
             if (isMobile) {
-                // Mobile behavior: toggle visibility
                 menu.classList.toggle('show');
             } else {
-                // Desktop behavior: toggle visibility
                 // Close others first (optional)
                 this.shadowRoot.querySelectorAll('.dropdown-menu').forEach(m => {
                     if(m !== menu) m.classList.remove('show');
@@ -418,7 +441,6 @@ class VerifitechNavbar extends HTMLElement {
             this.shadowRoot.querySelectorAll('.dropdown-menu.show').forEach(menu => {
                 menu.classList.remove('show');
             });
-            // Close mobile menu if clicking outside
             if(collapse) collapse.classList.remove('show');
         }
     });
