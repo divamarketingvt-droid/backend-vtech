@@ -17,6 +17,10 @@ class VerifitechNavbar extends HTMLElement {
         /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
+        /* Import Bootstrap Icons */
+        @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
         :host {
           display: block;
           width: 100%;
@@ -35,7 +39,7 @@ class VerifitechNavbar extends HTMLElement {
           background: rgba(255, 255, 255, 0.98);
           backdrop-filter: blur(12px);
           border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-          height: 100px;
+          height: 80px; /* Reduced height slightly for better fit */
           position: fixed;
           top: 0;
           left: 0;
@@ -47,6 +51,7 @@ class VerifitechNavbar extends HTMLElement {
         
         .navbar.scrolled {
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+          height: 70px; /* Shrink on scroll */
         }
 
         .container {
@@ -60,24 +65,18 @@ class VerifitechNavbar extends HTMLElement {
         }
 
         .navbar-brand img {
-          height: 60px;
+          height: 50px;
           width: auto;
           max-width: 200px;
           object-fit: contain;
         }
 
-        /* --- COLLAPSE SECTION (THE FIX IS HERE) --- */
+        /* --- COLLAPSE SECTION --- */
         .navbar-collapse {
-          /* FIX: Added display: flex to align Links vs Buttons */
           display: flex; 
-          
           flex-grow: 1;
           align-items: center;
-          
-          /* FIX: Added space-between to push Links Left, Buttons Right */
           justify-content: space-between; 
-          
-          /* Add spacing between Logo and Menu */
           margin-left: 3rem; 
         }
 
@@ -86,7 +85,7 @@ class VerifitechNavbar extends HTMLElement {
           list-style: none;
           margin: 0;
           padding: 0;
-          gap: 0.5rem; /* Adjusted gap for tighter packing if needed */
+          gap: 0.5rem; 
         }
 
         .nav-item { position: relative; }
@@ -193,51 +192,85 @@ class VerifitechNavbar extends HTMLElement {
           border: none;
           font-size: 1.5rem;
           cursor: pointer;
+          color: var(--navy);
         }
 
-        /* Mobile Responsiveness */
+        /* --- Mobile Responsiveness --- */
         @media (max-width: 991px) {
           .navbar-toggler { display: block; }
           
           .navbar-collapse {
-            display: none; /* Hidden by default on mobile */
+            display: none; 
             position: absolute;
-            top: 100px;
+            top: 80px; /* Align with navbar height */
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 1rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            flex-direction: column; /* Stack on mobile */
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            
+            /* FIX: Use ROW layout for mobile as requested */
+            flex-direction: row; 
+            
+            /* Allow items to wrap to next line if screen is too small, but keep them in rows */
+            flex-wrap: wrap; 
+            
             align-items: flex-start;
-            margin-left: 0; /* Reset margin for mobile */
+            margin-left: 0; 
+            gap: 1.5rem; /* Space between links and buttons */
           }
           
-          .navbar-collapse.show { display: flex; }
+          .navbar-collapse.show { 
+              display: flex; 
+          }
           
           .navbar-nav { 
-              flex-direction: column; 
-              width: 100%; 
+              /* Keep nav items horizontal or wrap them */
+              flex-direction: row; 
+              flex-wrap: wrap;
+              width: auto; 
           }
           
-          .nav-link { width: 100%; justify-content: space-between; }
+          .nav-link { 
+              width: auto; 
+              justify-content: flex-start; 
+              padding: 0.5rem;
+          }
           
+          /* Dropdowns on mobile */
           .dropdown-menu { 
-            position: static; 
-            box-shadow: none; 
-            background: rgba(26, 194, 193, 0.03); 
-            width: 100%; 
+            position: absolute; 
+            top: 100%;
+            left: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+            background: white; 
+            width: max-content; 
+            min-width: 200px;
             display: none; 
           }
           
           .dropdown-menu.show { display: block; }
-          .dropdown-menu.mega-menu { min-width: 100%; }
+          .dropdown-menu.mega-menu { 
+              min-width: 90vw; 
+              left: 50%;
+              transform: translateX(-50%); /* Center mega menu */
+          }
           
-          .d-flex { 
+          /* Fix for Mega menu columns on mobile */
+          .dropdown-menu.mega-menu > div {
               flex-direction: column; 
-              align-items: flex-start; 
-              margin-top: 1rem; 
-              width: 100%; 
+          }
+          .dropdown-menu.mega-menu > div > div {
+              min-width: 100%; 
+          }
+
+          /* Right side buttons container */
+          .d-flex { 
+              flex-direction: row; /* Keep buttons in a row */
+              align-items: center; 
+              margin-top: 0; 
+              width: auto; 
+              margin-left: auto; /* Push buttons to the far right if space permits, or let them wrap */
           }
         }
       </style>
@@ -246,7 +279,8 @@ class VerifitechNavbar extends HTMLElement {
       <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
-                <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech">
+                <!-- Using a placeholder logo if the SVG link breaks, or your provided link -->
+                <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" onerror="this.src='https://via.placeholder.com/150x50?text=Verifitech'">
             </a>
 
             <button class="navbar-toggler">
@@ -402,7 +436,8 @@ class VerifitechNavbar extends HTMLElement {
     const collapse = this.shadowRoot.querySelector('.navbar-collapse');
     
     if(toggler) {
-        toggler.addEventListener('click', () => {
+        toggler.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent closing immediately
             collapse.classList.toggle('show');
         });
     }
@@ -420,28 +455,25 @@ class VerifitechNavbar extends HTMLElement {
 
         const menu = parent.querySelector(':scope > .dropdown-menu');
         if (menu) {
-            const isMobile = window.innerWidth < 992;
-
-            if (isMobile) {
-                menu.classList.toggle('show');
-            } else {
-                // Close others first (optional)
-                this.shadowRoot.querySelectorAll('.dropdown-menu').forEach(m => {
-                    if(m !== menu) m.classList.remove('show');
-                });
-                menu.classList.toggle('show');
-            }
+            // Close others first
+            this.shadowRoot.querySelectorAll('.dropdown-menu').forEach(m => {
+                if(m !== menu) m.classList.remove('show');
+            });
+            menu.classList.toggle('show');
         }
       });
     });
 
     // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
+        // Check if click is inside the shadow DOM
         if (!this.shadowRoot.contains(e.target)) {
             this.shadowRoot.querySelectorAll('.dropdown-menu.show').forEach(menu => {
                 menu.classList.remove('show');
             });
-            if(collapse) collapse.classList.remove('show');
+            // Optional: Close collapse menu when clicking outside? 
+            // Usually better to keep it open unless toggler is clicked, or escape key is pressed.
+            // collapse.classList.remove('show'); 
         }
     });
   }
