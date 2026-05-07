@@ -188,6 +188,13 @@ app.post("/api/submit-trial", async (req, res) => {
     });
   }
 
+  // ✅ FIX: handle different frontend field names
+  const name =
+    leadData?.name ||
+    leadData?.firstName ||
+    leadData?.fullName ||
+    "Unknown";
+
   try {
     const checksHtml =
       selectedChecks?.length
@@ -198,10 +205,10 @@ app.post("/api/submit-trial", async (req, res) => {
       from: `"Verifitech Website" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
       replyTo: leadData.email,
-      subject: `New Trial Lead: ${leadData.name}`,
+      subject: `New Trial Lead: ${name}`,
       html: `
         <h2>New Trial Request</h2>
-        <p><b>Name:</b> ${leadData.name}</p>
+        <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${leadData.email}</p>
         <p><b>Phone:</b> ${leadData.phone || "N/A"}</p>
         <p><b>Company:</b> ${leadData.company || "N/A"}</p>
@@ -212,11 +219,18 @@ app.post("/api/submit-trial", async (req, res) => {
 
     verifiedEmails.delete(leadData.email);
 
-    res.json({ success: true, message: "Trial submitted" });
+    res.json({
+      success: true,
+      message: "Trial submitted"
+    });
 
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: "Submission failed" });
+
+    res.status(500).json({
+      success: false,
+      message: "Submission failed"
+    });
   }
 });
 
