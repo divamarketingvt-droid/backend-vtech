@@ -193,11 +193,7 @@ app.post("/api/submit-trial", async (req, res) => {
       selectedChecks?.length
         ? selectedChecks.map(c => `<li>${JSON.stringify(c)}</li>`).join("")
         : "<li>None selected</li>";
-const name =
-  leadData?.name ||
-  leadData?.firstName ||
-  leadData?.fullName ||
-  "Unknown";
+
     await transporter.sendMail({
       from: `"Verifitech Website" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
