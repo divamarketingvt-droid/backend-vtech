@@ -35,21 +35,8 @@ const ZOHO_CONFIG = {
    MIDDLEWARE
 ========================================== */
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:5000",
-  "http://127.0.0.1:3000",
-  "http://127.0.0.1:5000",
-  "http://127.0.0.1:5500",
-  "http://localhost:5500",
-  "https://violet-wasp-111896.hostingersite.com",
-  "https://backend-vtech.onrender.com"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    callback(null, true); // allow all temporarily
-  },
+  origin: true,
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
@@ -61,11 +48,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
    STATIC FILES
 ========================================== */
 
+/* IMPORTANT FIX:
+   This alone serves:
+   /            -> public/index.html
+   /index.html  -> public/index.html
+   /style.css   -> public/style.css
+   /script.js   -> public/script.js
+*/
 app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
 
 /* ==========================================
    HELPERS
@@ -115,11 +105,19 @@ app.post("/api/send-otp", async (req, res) => {
   try {
     const { email } = req.body;
 
-    if (!email)
-      return res.status(400).json({ success: false, message: "Email required" });
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Email required"
+      });
+    }
 
-    if (!isBusinessEmail(email))
-      return res.status(400).json({ success: false, message: "Use business email" });
+    if (!isBusinessEmail(email)) {
+      return res.status(400).json({
+        success: false,
+        message: "Use business email"
+      });
+    }
 
     const otp = generateOTP();
 
@@ -135,11 +133,17 @@ app.post("/api/send-otp", async (req, res) => {
       html: `<h2>Your OTP: ${otp}</h2>`
     });
 
-    res.json({ success: true, message: "OTP sent" });
+    res.json({
+      success: true,
+      message: "OTP sent"
+    });
 
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: "OTP failed" });
+    res.status(500).json({
+      success: false,
+      message: "OTP failed"
+    });
   }
 });
 
@@ -149,19 +153,34 @@ app.post("/api/verify-otp", (req, res) => {
 
   const data = otpStore.get(email);
 
-  if (!data)
-    return res.status(400).json({ success: false, message: "OTP not found" });
+  if (!data) {
+    return res.status(400).json({
+      success: false,
+      message: "OTP not found"
+    });
+  }
 
-  if (Date.now() > data.expiresAt)
-    return res.status(400).json({ success: false, message: "OTP expired" });
+  if (Date.now() > data.expiresAt) {
+    return res.status(400).json({
+      success: false,
+      message: "OTP expired"
+    });
+  }
 
-  if (data.otp !== otp)
-    return res.status(400).json({ success: false, message: "Invalid OTP" });
+  if (data.otp !== otp) {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid OTP"
+    });
+  }
 
   otpStore.delete(email);
   verifiedEmails.add(email);
 
-  res.json({ success: true, message: "Verified" });
+  res.json({
+    success: true,
+    message: "Verified"
+  });
 });
 
 /* CHAT REQUEST */
@@ -252,12 +271,8 @@ app.post("/api/submit-contact", async (req, res) => {
   }
 });
 
-/* FALLBACK */
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
 /* START */
 app.listen(PORT, () => {
   console.log(`🚀 Server running on PORT ${PORT}`);
 });
+```
