@@ -58,17 +58,23 @@ transporter.verify((err) => {
   else console.log("✅ SMTP READY");
 });
 
+/* ==========================================
+   MEMORY STORE (OTP)
+========================================== */
+
 const otpStore = new Map();
 const verifiedEmails = new Set();
 
 /* ==========================================
-   BUSINESS EMAIL CHECK
+   HELPERS
 ========================================== */
 
-function isBusinessEmail(email) {
-  if (!email) return false;
+function generateOTP() {
+  return Math.floor(1000 + Math.random() * 9000).toString();
+}
 
-  const blockedDomains = [
+function isBusinessEmail(email) {
+  const blocked = [
     "gmail.com",
     "yahoo.com",
     "hotmail.com",
@@ -76,78 +82,37 @@ function isBusinessEmail(email) {
     "icloud.com"
   ];
 
-  const domain = email.split("@")[1];
-
-  return domain
-    ? !blockedDomains.includes(domain.toLowerCase())
-    : false;
+  const domain = email?.split("@")[1];
+  return domain ? !blocked.includes(domain.toLowerCase()) : false;
 }
 
 /* ==========================================
-   OTP GENERATOR
-========================================== */
-
-function generateOTP() {
-  return Math.floor(1000 + Math.random() * 9000).toString();
-}
-
-/* ==========================================
-   MAIL CONFIG
-========================================== */
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-  socketTimeout: 30000
-});
-
-/* CHECK SMTP */
-transporter.verify((error, success) => {
-  if (error) {
-    console.log("❌ SMTP ERROR:", error.message);
-  } else {
-    console.log("✅ SMTP READY");
-  }
-});
-
-/* ==========================================
-   ROUTES
+   HEALTH CHECK
 ========================================== */
 
 app.get("/api/health", (req, res) => {
-  res.json({
-    success: true,
-    message: "Server running"
-  });
+  res.json({ success: true, message: "Server running" });
 });
 
 /* ==========================================
-   SEND OTP
+   1. SEND OTP
 ========================================== */
 
 app.post("/api/send-otp", async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ success: false, message: "Email required" });
+  }
+
+  if (!isBusinessEmail(email)) {
+    return res.status(400).json({
+      success: false,
+      message: "Please use business email only"
+    });
+  }
+
   try {
-    const { email } = req.body;
-
-    if (!email) {
-      return res.status(400).json({
-        success: false,
-        message: "Email required"
-      });
-    }
-
-    if (!isBusinessEmail(email)) {
-      return res.status(400).json({
-        success: false,
-        message: "Use business email only"
-      });
-    }
-
     const otp = generateOTP();
 
     otpStore.set(email, {
@@ -155,154 +120,103 @@ app.post("/api/send-otp", async (req, res) => {
       expiresAt: Date.now() + 5 * 60 * 1000
     });
 
-    const info = await transporter.sendMail({
-      from: `"OTP Verification" <${EMAIL_USER}>`,
+    verifiedEmails.delete(email);
+
+    await transporter.sendMail({
+      from: `"Verifitech OTP" <${EMAIL_USER}>`,
       to: email,
       subject: "Your OTP Code",
       html: `
-        <h2>Email Verification</h2>
-        <p>Your OTP is:</p>
-        <h1>${otp}</h1>
-        <p>Valid for 5 minutes.</p>
+        <div style="text-align:center;font-family:Arial">
+          <h2>Email Verification</h2>
+          <p>Your OTP is:</p>
+          <h1 style="letter-spacing:6px">${otp}</h1>
+          <p>Valid for 5 minutes</p>
+        </div>
       `
     });
 
-    console.log("✅ OTP SENT:", info.messageId);
+    console.log("✅ OTP SENT:", email);
 
-    return res.status(200).json({
-      success: true,
-      message: "OTP sent successfully"
-    });
+    res.json({ success: true, message: "OTP sent" });
 
   } catch (err) {
-    console.log("❌ OTP ERROR:", err.message);
-
-    return res.status(500).json({
-      success: false,
-      message: err.message
-    });
+    console.error(err);
+    res.status(500).json({ success: false, message: "OTP failed" });
   }
 });
 
 /* ==========================================
-   VERIFY OTP
+   2. VERIFY OTP
 ========================================== */
 
 app.post("/api/verify-otp", (req, res) => {
-  try {
-    const { email, otp } = req.body;
+  const { email, otp } = req.body;
 
-    const data = otpStore.get(email);
+  const data = otpStore.get(email);
 
-    if (!data) {
-      return res.status(400).json({
-        success: false,
-        message: "OTP not found"
-      });
-    }
+  if (!data) {
+    return res.status(400).json({ success: false, message: "OTP not found" });
+  }
 
-    if (Date.now() > data.expiresAt) {
-      otpStore.delete(email);
-
-      return res.status(400).json({
-        success: false,
-        message: "OTP expired"
-      });
-    }
-
-    if (data.otp !== otp) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid OTP"
-      });
-    }
-
+  if (Date.now() > data.expiresAt) {
     otpStore.delete(email);
-    verifiedEmails.add(email);
-
-    return res.status(200).json({
-      success: true,
-      message: "Email verified successfully"
-    });
-
-  } catch (err) {
-    console.log("❌ VERIFY ERROR:", err.message);
-
-    return res.status(500).json({
-      success: false,
-      message: "Verification failed"
-    });
+    return res.status(400).json({ success: false, message: "OTP expired" });
   }
-});
 
-/*
-   4. CHAT REQUEST
-========================================== */
-
-app.post("/api/submit-request", async (req, res) => {
-  try {
-    const {
-      firstName,
-      email,
-      phone,
-      company,
-      department,
-      serviceType,
-      issueDescription
-    } = req.body;
-
-    const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
-
-    await transporter.sendMail({
-      from: `"Website" <${EMAIL_USER}>`,
-      to: ADMIN_EMAIL,
-      cc: ccEmail,
-      replyTo: email,
-      subject: `New Request - ${firstName}`,
-      html: `
-        <h2>New Request</h2>
-        <p>Name: ${firstName}</p>
-        <p>Email: ${email}</p>
-        <p>Phone: ${phone || ""}</p>
-        <p>Company: ${company || ""}</p>
-        <p>Service: ${serviceType || ""}</p>
-        <p>Message: ${issueDescription || ""}</p>
-      `
-    });
-
-    res.json({ success: true, message: "Submitted" });
-
-  } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+  if (data.otp !== otp) {
+    return res.status(400).json({ success: false, message: "Invalid OTP" });
   }
+
+  otpStore.delete(email);
+  verifiedEmails.add(email);
+
+  res.json({ success: true, message: "Email verified" });
 });
 
 /* ==========================================
-   5. CONTACT FORM
+   3. SUBMIT TRIAL (OTP PROTECTED)
 ========================================== */
 
-app.post("/api/submit-contact", async (req, res) => {
+app.post("/api/submit-trial", async (req, res) => {
+  const { leadData, selectedChecks } = req.body;
+
+  if (!leadData?.email || !verifiedEmails.has(leadData.email)) {
+    return res.status(403).json({
+      success: false,
+      message: "Email not verified"
+    });
+  }
+
   try {
-    const { fullName, email, phone, message } = req.body;
+    const checksHtml =
+      selectedChecks?.length
+        ? selectedChecks.map(c => `<li>${JSON.stringify(c)}</li>`).join("")
+        : "<li>None selected</li>";
 
     await transporter.sendMail({
-      from: `"Contact" <${EMAIL_USER}>`,
+      from: `"Verifitech Website" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
-      replyTo: email,
-      subject: `Contact - ${fullName}`,
+      replyTo: leadData.email,
+      subject: `New Trial Lead: ${leadData.name}`,
       html: `
-        <h2>Contact Form</h2>
-        <p>Name: ${fullName}</p>
-        <p>Email: ${email}</p>
-        <p>Phone: ${phone || ""}</p>
-        <p>Message: ${message || ""}</p>
+        <h2>New Trial Request</h2>
+        <p><b>Name:</b> ${leadData.name}</p>
+        <p><b>Email:</b> ${leadData.email}</p>
+        <p><b>Phone:</b> ${leadData.phone || "N/A"}</p>
+        <p><b>Company:</b> ${leadData.company || "N/A"}</p>
+        <h3>Services</h3>
+        <ul>${checksHtml}</ul>
       `
     });
 
-    res.json({ success: true, message: "Contact sent" });
+    verifiedEmails.delete(leadData.email);
+
+    res.json({ success: true, message: "Trial submitted" });
 
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: "Submission failed" });
   }
 });
 
