@@ -193,7 +193,11 @@ app.post("/api/submit-trial", async (req, res) => {
       selectedChecks?.length
         ? selectedChecks.map(c => `<li>${JSON.stringify(c)}</li>`).join("")
         : "<li>None selected</li>";
-
+const name =
+  leadData?.name ||
+  leadData?.firstName ||
+  leadData?.fullName ||
+  "Unknown";
     await transporter.sendMail({
       from: `"Verifitech Website" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
@@ -201,7 +205,7 @@ app.post("/api/submit-trial", async (req, res) => {
       subject: `New Trial Lead: ${leadData.name}`,
       html: `
         <h2>New Trial Request</h2>
-        <p><b>Name:</b> ${leadData.name}</p>
+        <p><b>Name:</b> ${name}</p>
         <p><b>Email:</b> ${leadData.email}</p>
         <p><b>Phone:</b> ${leadData.phone || "N/A"}</p>
         <p><b>Company:</b> ${leadData.company || "N/A"}</p>
