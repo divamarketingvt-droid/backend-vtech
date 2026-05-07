@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const axios = require("axios");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,14 +36,10 @@ app.use(cors({
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/* ==========================================
-   STATIC WEBSITE
-========================================== */
-
 app.use(express.static(path.join(__dirname, "public")));
 
 /* ==========================================
-   MAIL CONFIG
+   MAIL TRANSPORTER
 ========================================== */
 
 const transporter = nodemailer.createTransport({
@@ -56,34 +53,179 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 30000
 });
 
-/* CHECK SMTP ON START */
-transporter.verify((error, success) => {
-  if (error) {
-    console.log("❌ SMTP ERROR:", error.message);
-  } else {
-    console.log("✅ SMTP READY");
-  }
+transporter.verify((err) => {
+  if (err) console.log("❌ SMTP ERROR:", err.message);
+  else console.log("✅ SMTP READY");
 });
+
+/* ==========================================
+   MEMORY STORE (OTP)
+========================================== */
+
+const otpStore = new Map();
+const verifiedEmails = new Set();
+
+/* ==========================================
+   HELPERS
+========================================== */
+
+function generateOTP() {
+  return Math.floor(1000 + Math.random() * 9000).toString();
+}
+
+function isBusinessEmail(email) {
+  const blocked = [
+    "gmail.com",
+    "yahoo.com",
+    "hotmail.com",
+    "outlook.com",
+    "icloud.com"
+  ];
+
+  const domain = email?.split("@")[1];
+  return domain ? !blocked.includes(domain.toLowerCase()) : false;
+}
 
 /* ==========================================
    HEALTH CHECK
 ========================================== */
 
 app.get("/api/health", (req, res) => {
-  res.json({
-    success: true,
-    message: "Server running"
-  });
+  res.json({ success: true, message: "Server running" });
 });
 
 /* ==========================================
-   CHAT REQUEST
+   1. SEND OTP
+========================================== */
+
+app.post("/api/send-otp", async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ success: false, message: "Email required" });
+  }
+
+  if (!isBusinessEmail(email)) {
+    return res.status(400).json({
+      success: false,
+      message: "Please use business email only"
+    });
+  }
+
+  try {
+    const otp = generateOTP();
+
+    otpStore.set(email, {
+      otp,
+      expiresAt: Date.now() + 5 * 60 * 1000
+    });
+
+    verifiedEmails.delete(email);
+
+    await transporter.sendMail({
+      from: `"Verifitech OTP" <${EMAIL_USER}>`,
+      to: email,
+      subject: "Your OTP Code",
+      html: `
+        <div style="text-align:center;font-family:Arial">
+          <h2>Email Verification</h2>
+          <p>Your OTP is:</p>
+          <h1 style="letter-spacing:6px">${otp}</h1>
+          <p>Valid for 5 minutes</p>
+        </div>
+      `
+    });
+
+    console.log("✅ OTP SENT:", email);
+
+    res.json({ success: true, message: "OTP sent" });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "OTP failed" });
+  }
+});
+
+/* ==========================================
+   2. VERIFY OTP
+========================================== */
+
+app.post("/api/verify-otp", (req, res) => {
+  const { email, otp } = req.body;
+
+  const data = otpStore.get(email);
+
+  if (!data) {
+    return res.status(400).json({ success: false, message: "OTP not found" });
+  }
+
+  if (Date.now() > data.expiresAt) {
+    otpStore.delete(email);
+    return res.status(400).json({ success: false, message: "OTP expired" });
+  }
+
+  if (data.otp !== otp) {
+    return res.status(400).json({ success: false, message: "Invalid OTP" });
+  }
+
+  otpStore.delete(email);
+  verifiedEmails.add(email);
+
+  res.json({ success: true, message: "Email verified" });
+});
+
+/* ==========================================
+   3. SUBMIT TRIAL (OTP PROTECTED)
+========================================== */
+
+app.post("/api/submit-trial", async (req, res) => {
+  const { leadData, selectedChecks } = req.body;
+
+  if (!leadData?.email || !verifiedEmails.has(leadData.email)) {
+    return res.status(403).json({
+      success: false,
+      message: "Email not verified"
+    });
+  }
+
+  try {
+    const checksHtml =
+      selectedChecks?.length
+        ? selectedChecks.map(c => `<li>${JSON.stringify(c)}</li>`).join("")
+        : "<li>None selected</li>";
+
+    await transporter.sendMail({
+      from: `"Verifitech Website" <${EMAIL_USER}>`,
+      to: ADMIN_EMAIL,
+      replyTo: leadData.email,
+      subject: `New Trial Lead: ${leadData.name}`,
+      html: `
+        <h2>New Trial Request</h2>
+        <p><b>Name:</b> ${leadData.name}</p>
+        <p><b>Email:</b> ${leadData.email}</p>
+        <p><b>Phone:</b> ${leadData.phone || "N/A"}</p>
+        <p><b>Company:</b> ${leadData.company || "N/A"}</p>
+        <h3>Services</h3>
+        <ul>${checksHtml}</ul>
+      `
+    });
+
+    verifiedEmails.delete(leadData.email);
+
+    res.json({ success: true, message: "Trial submitted" });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Submission failed" });
+  }
+});
+
+/* ==========================================
+   4. CHAT REQUEST
 ========================================== */
 
 app.post("/api/submit-request", async (req, res) => {
   try {
-    console.log("📥 Chat Request:", req.body);
-
     const {
       firstName,
       email,
@@ -94,101 +236,58 @@ app.post("/api/submit-request", async (req, res) => {
       issueDescription
     } = req.body;
 
-    if (!firstName || !email) {
-      return res.status(400).json({
-        success: false,
-        message: "Name and email required"
-      });
-    }
+    const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
 
-    const ccEmail =
-      DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
-
-    const info = await transporter.sendMail({
-      from: `"Verifitech Website" <${EMAIL_USER}>`,
+    await transporter.sendMail({
+      from: `"Website" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
       cc: ccEmail,
       replyTo: email,
       subject: `New Request - ${firstName}`,
       html: `
-        <h2>New Website Request</h2>
-        <p><strong>Name:</strong> ${firstName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || ""}</p>
-        <p><strong>Company:</strong> ${company || ""}</p>
-        <p><strong>Department:</strong> ${department || ""}</p>
-        <p><strong>Service:</strong> ${serviceType || ""}</p>
-        <p><strong>Description:</strong> ${issueDescription || ""}</p>
+        <h2>New Request</h2>
+        <p>Name: ${firstName}</p>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone || ""}</p>
+        <p>Company: ${company || ""}</p>
+        <p>Service: ${serviceType || ""}</p>
+        <p>Message: ${issueDescription || ""}</p>
       `
     });
 
-    console.log("✅ MAIL SENT:", info.messageId);
-
-    return res.status(200).json({
-      success: true,
-      message: "Submitted successfully"
-    });
+    res.json({ success: true, message: "Submitted" });
 
   } catch (err) {
-    console.log("❌ CHAT ERROR:", err.message);
-
-    return res.status(500).json({
-      success: false,
-      message: err.message
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
 /* ==========================================
-   CONTACT FORM
+   5. CONTACT FORM
 ========================================== */
 
 app.post("/api/submit-contact", async (req, res) => {
   try {
-    console.log("📥 Contact Form:", req.body);
+    const { fullName, email, phone, message } = req.body;
 
-    const {
-      fullName,
-      email,
-      phone,
-      message
-    } = req.body;
-
-    if (!fullName || !email) {
-      return res.status(400).json({
-        success: false,
-        message: "Name and email required"
-      });
-    }
-
-    const info = await transporter.sendMail({
-      from: `"Website Contact" <${EMAIL_USER}>`,
+    await transporter.sendMail({
+      from: `"Contact" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
       replyTo: email,
-      subject: `New Contact - ${fullName}`,
+      subject: `Contact - ${fullName}`,
       html: `
-        <h2>New Contact Form</h2>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || ""}</p>
-        <p><strong>Message:</strong> ${message || ""}</p>
+        <h2>Contact Form</h2>
+        <p>Name: ${fullName}</p>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone || ""}</p>
+        <p>Message: ${message || ""}</p>
       `
     });
 
-    console.log("✅ CONTACT MAIL SENT:", info.messageId);
-
-    return res.status(200).json({
-      success: true,
-      message: "Contact submitted"
-    });
+    res.json({ success: true, message: "Contact sent" });
 
   } catch (err) {
-    console.log("❌ CONTACT ERROR:", err.message);
-
-    return res.status(500).json({
-      success: false,
-      message: err.message
-    });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
@@ -197,5 +296,5 @@ app.post("/api/submit-contact", async (req, res) => {
 ========================================== */
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on PORT ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
