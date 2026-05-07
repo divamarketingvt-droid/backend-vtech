@@ -188,13 +188,6 @@ app.post("/api/submit-trial", async (req, res) => {
     });
   }
 
-  // ✅ FIX: handle different frontend field names
-  const name =
-    leadData?.name ||
-    leadData?.firstName ||
-    leadData?.fullName ||
-    "Unknown";
-
   try {
     const checksHtml =
       selectedChecks?.length
@@ -205,10 +198,10 @@ app.post("/api/submit-trial", async (req, res) => {
       from: `"Verifitech Website" <${EMAIL_USER}>`,
       to: ADMIN_EMAIL,
       replyTo: leadData.email,
-      subject: `New Trial Lead: ${name}`,
+      subject: `New Trial Lead: ${leadData.name}`,
       html: `
         <h2>New Trial Request</h2>
-        <p><b>Name:</b> ${name}</p>
+        <p><b>Name:</b> ${leadData.name}</p>
         <p><b>Email:</b> ${leadData.email}</p>
         <p><b>Phone:</b> ${leadData.phone || "N/A"}</p>
         <p><b>Company:</b> ${leadData.company || "N/A"}</p>
@@ -219,18 +212,82 @@ app.post("/api/submit-trial", async (req, res) => {
 
     verifiedEmails.delete(leadData.email);
 
-    res.json({
-      success: true,
-      message: "Trial submitted"
-    });
+    res.json({ success: true, message: "Trial submitted" });
 
   } catch (err) {
     console.error(err);
+    res.status(500).json({ success: false, message: "Submission failed" });
+  }
+});
 
-    res.status(500).json({
-      success: false,
-      message: "Submission failed"
+/* ==========================================
+   4. CHAT REQUEST
+========================================== */
+
+app.post("/api/submit-request", async (req, res) => {
+  try {
+    const {
+      firstName,
+      email,
+      phone,
+      company,
+      department,
+      serviceType,
+      issueDescription
+    } = req.body;
+
+    const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
+
+    await transporter.sendMail({
+      from: `"Website" <${EMAIL_USER}>`,
+      to: ADMIN_EMAIL,
+      cc: ccEmail,
+      replyTo: email,
+      subject: `New Request - ${firstName}`,
+      html: `
+        <h2>New Request</h2>
+        <p>Name: ${firstName}</p>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone || ""}</p>
+        <p>Company: ${company || ""}</p>
+        <p>Service: ${serviceType || ""}</p>
+        <p>Message: ${issueDescription || ""}</p>
+      `
     });
+
+    res.json({ success: true, message: "Submitted" });
+
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+/* ==========================================
+   5. CONTACT FORM
+========================================== */
+
+app.post("/api/submit-contact", async (req, res) => {
+  try {
+    const { fullName, email, phone, message } = req.body;
+
+    await transporter.sendMail({
+      from: `"Contact" <${EMAIL_USER}>`,
+      to: ADMIN_EMAIL,
+      replyTo: email,
+      subject: `Contact - ${fullName}`,
+      html: `
+        <h2>Contact Form</h2>
+        <p>Name: ${fullName}</p>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone || ""}</p>
+        <p>Message: ${message || ""}</p>
+      `
+    });
+
+    res.json({ success: true, message: "Contact sent" });
+
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
