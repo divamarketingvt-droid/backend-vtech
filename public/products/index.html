@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      SecureDocs | Intelligent Document Management System
+    </title>
+    <meta
+      name="description"
+      content="Manage, share, and secure your documents with SecureDocs. The intelligent platform for digital transformation and compliance."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        /* BRAND COLORS */
+        --primary: #17aead;       /* Teal */
+        --primary-dark: #128a84;  
+        --primary-light: #defcf6; /* Light Aqua - Requested Hero BG */
+        --secondary: #0f172a;     
+        --accent: #0f766e;        
+        
+        /* UI Colors */
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --bg-white: #ffffff;
+        --bg-light-gray: #f8fafc;
+        
+        /* Gradients */
+        --gradient-main: linear-gradient(135deg, #17aead 0%, #0f766e 100%);
+        --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --shadow-teal: 0 4px 14px 0 rgba(23, 174, 173, 0.25);
+        
+        /* Transitions */
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        background-color: var(--bg-white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        color: var(--secondary);
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+      }
+
+      .text-gradient {
+        background: var(--gradient-main);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* =========================================
+         BUTTONS
+         ========================================= */
+      .btn {
+        border-radius: 8px;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        transition: var(--transition);
+      }
+
+      .btn-primary-custom {
+        background: #17aead; 
+        color: white;
+        border: none;
+        box-shadow: var(--shadow-teal);
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px 0 rgba(23, 174, 173, 0.3);
+        color: white;
+      }
+
+      .btn-outline-custom {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-outline-custom:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .btn-lg-custom {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+      }
+
+      /* =========================================
+         NAVBAR
+         ========================================= */
+      .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .navbar.scrolled {
+        padding: 0.75rem 0;
+        box-shadow: var(--shadow-md);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .navbar-brand i {
+        color: var(--primary);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--text-muted);
+        margin: 0 0.5rem;
+        font-size: 0.95rem;
+        transition: var(--transition);
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: var(--primary);
+      }
+
+      .mobile-menu-btn {
+        border: none;
+        background: none;
+        font-size: 1.5rem;
+        color: var(--secondary);
+      }
+
+      /* =========================================
+         HERO SECTION
+         ========================================= */
+      .hero-section {
+        background-color: #defcf6; /* Requested Color */
+        padding: 8rem 0 6rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Subtle white blobs to blend with light BG */
+      .hero-blob-1 {
+        position: absolute;
+        top: -10%;
+        right: -5%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 1;
+      }
+      
+      .hero-blob-2 {
+        position: absolute;
+        bottom: -10%;
+        left: -5%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: white;
+        color: var(--primary);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--secondary); 
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: #334155; 
+        margin-bottom: 2.5rem;
+        max-width: 550px;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(23, 174, 173, 0.3);
+        padding-top: 2rem;
+      }
+
+      .stat-item h3 {
+        font-size: 2rem;
+        color: var(--primary); 
+        margin-bottom: 0;
+      }
+      
+      .stat-item p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0;
+      }
+
+      /* HERO VISUAL - DMS Dashboard */
+      .hero-visual-container {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .dashboard-main {
+        background: white;
+        border-radius: 20px;
+        box-shadow: var(--shadow-xl);
+        width: 100%;
+        max-width: 550px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(0,0,0,0.05);
+        overflow: hidden;
+        animation: float-dashboard 6s ease-in-out infinite;
+      }
+
+      @keyframes float-dashboard {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+      }
+
+      /* Dashboard Header */
+      .dash-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .dash-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+      
+      .dash-brand-icon {
+        width: 30px;
+        height: 30px;
+        background: var(--primary);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+      }
+
+      .dash-date {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      /* Dashboard Grid */
+      .dash-body {
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        height: 100%;
+      }
+
+      /* EVENT CARD (Upload) */
+      .dash-card-event {
+        grid-column: span 2;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid var(--primary);
+        border-radius: 12px;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: pulse-border 2s infinite;
+      }
+
+      @keyframes pulse-border {
+        0% { box-shadow: 0 0 0 0 rgba(23, 174, 173, 0.1); }
+        70% { box-shadow: 0 0 0 6px rgba(23, 174, 173, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(23, 174, 173, 0); }
+      }
+
+      .event-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .event-badge {
+        background: var(--primary);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .event-info h5 {
+        font-size: 0.95rem;
+        margin: 0;
+        color: var(--secondary);
+      }
+
+      .event-info span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .event-icon-file {
+        width: 40px;
+        height: 40px;
+        background: #e0f2fe;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+      }
+
+      .btn-dash-action {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      /* STATS CARD */
+      .dash-card-stats {
+        background: white;
+        border: 1px solid #f1f5f9;
+        border-radius: 12px;
+        padding: 1.25rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .stat-value {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-trend {
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .trend-up { color: #16a34a; }
+      .trend-down { color: #dc2626; }
+
+      /* PIPELINE CARD */
+      .dash-card-pipeline {
+        background: white;
+        border: 1px solid #f1f5f9;
+        border-radius: 12px;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .pipe-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .pipe-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .pipe-bar-bg {
+        flex: 1;
+        height: 8px;
+        background: #f1f5f9;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .pipe-bar-fill {
+        height: 100%;
+        border-radius: 4px;
+      }
+
+      /* =========================================
+         LOGOS SECTION
+         ========================================= */
+      .logos-section {
+        padding: 3rem 0;
+        background: var(--bg-white);
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .logo-text {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 2rem;
+      }
+
+      .logo-row {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+        opacity: 0.6;
+      }
+
+      .logo-item {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        transition: var(--transition);
+      }
+
+      .logo-item:hover {
+        color: var(--primary);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* =========================================
+         FEATURES SECTION
+         ========================================= */
+      .section-padding {
+        padding: 6rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: rgba(23, 174, 173, 0.1);
+        color: var(--primary);
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        border: 1px solid #f1f5f9;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(23, 174, 173, 0.2);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light); 
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary); 
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .feature-card:hover .feature-icon {
+        background: var(--primary);
+        color: white;
+      }
+
+      .feature-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 0;
+      }
+
+      /* =========================================
+         SHOWCASE / TABS SECTION
+         ========================================= */
+      .showcase-section {
+        background: var(--bg-light-gray);
+      }
+
+      .nav-pills-custom .nav-link {
+        color: var(--text-muted);
+        border-radius: 50px;
+        padding: 0.75rem 1.5rem;
+        margin: 0 0.5rem;
+        font-weight: 500;
+        background: white;
+        border: 1px solid #e2e8f0;
+      }
+
+      .nav-pills-custom .nav-link.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .showcase-content {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        margin-top: 3rem;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      
+      .showcase-img-placeholder {
+        width: 80%;
+        height: 300px;
+        background: #f1f5f9;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94a3b8;
+        font-size: 1.2rem;
+        border: 2px dashed #cbd5e1;
+      }
+
+      .showcase-text {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      /* =========================================
+         PRICING SECTION
+         ========================================= */
+      .pricing-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--primary);
+      }
+
+      .pricing-card.popular {
+        border: 2px solid var(--primary);
+        box-shadow: 0 0 0 4px rgba(23, 174, 173, 0.1);
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .price {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--secondary);
+        margin: 1.5rem 0;
+      }
+      
+      .price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-muted);
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+      }
+
+      .features-list li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .features-list li i {
+        color: var(--primary); 
+        font-size: 1.1rem;
+      }
+
+      /* =========================================
+         TESTIMONIALS
+         ========================================= */
+      .testimonial-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 16px;
+        border: 1px solid #f1f5f9;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .testimonial-text {
+        font-size: 1.1rem;
+        color: var(--text-main);
+        font-style: italic;
+        margin-bottom: 2rem;
+      }
+
+      .author-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .author-img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: #e2e8f0;
+        overflow: hidden;
+      }
+      
+      .author-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* =========================================
+         CTA SECTION
+         ========================================= */
+      .cta-section {
+        background: var(--gradient-dark);
+        color: white;
+        padding: 6rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+      
+      .cta-subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 600px;
+        margin: 0 auto 2.5rem;
+      }
+
+      /* =========================================
+         FOOTER
+         ========================================= */
+      .footer {
+        background: var(--bg-light-gray);
+        padding: 5rem 0 2rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .footer-brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      .footer-desc {
+        color: var(--text-muted);
+        max-width: 300px;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-heading {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: var(--transition);
+        font-size: 0.95rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+        padding-left: 5px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        border: 1px solid #e2e8f0;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .footer-bottom {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e2e8f0;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      /* =========================================
+         ANIMATIONS
+         ========================================= */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* =========================================
+         RESPONSIVE
+         ========================================= */
+      @media (max-width: 991px) {
+        .hero-title { font-size: 2.5rem; }
+        .hero-stats { flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+        .hero-visual-container { height: 500px; margin-top: 3rem; }
+        .pricing-card.popular { transform: scale(1.02); }
+        .pricing-card.popular:hover { transform: scale(1.02) translateY(-5px); }
+        
+        /* Responsive cards for visual */
+        .dashboard-main {
+            width: 100%;
+            max-width: 100%;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .hero-section { padding: 6rem 0 3rem; text-align: center; }
+        .hero-subtitle { margin-left: auto; margin-right: auto; }
+        .hero-stats { align-items: center; }
+        .nav-pills-custom .nav-link { margin: 0.25rem; padding: 0.5rem 1rem; font-size: 0.9rem; }
+        .cta-title { font-size: 2rem; }
+        .section-title { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fa-solid fa-folder-open"></i> SecureDocs
+        </a>
+        <button class="mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#features">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+            <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-outline-custom">Login</a>
+            <a href="#pricing" class="btn btn-primary-custom">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <!-- Background Blobs -->
+      <div class="hero-blob-1"></div>
+      <div class="hero-blob-2"></div>
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content reveal">
+            <div class="hero-badge">🚀 New: AI-Powered OCR</div>
+            <h1 class="hero-title">Document Management <br><span class="text-gradient">Simplified & Secure</span></h1>
+            <p class="hero-subtitle">
+              Store, share, and collaborate on files effortlessly. Automate workflows and ensure compliance with our cloud-based platform.
+            </p>
+            <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+              <a href="#pricing" class="btn btn-primary-custom btn-lg-custom">Start Free Trial</a>
+              <a href="#features" class="btn btn-outline-custom btn-lg-custom"><i class="bi bi-play-circle me-2"></i> Watch Demo</a>
+            </div>
+
+            <div class="hero-stats d-none d-md-flex">
+              <div class="stat-item">
+                <h3 data-target="500">0+</h3>
+                <p>TB Stored</p>
+              </div>
+              <div class="stat-item">
+                <h3 data-target="10">0M+</h3>
+                <p>Files Scanned</p>
+              </div>
+              <div class="stat-item">
+                <h3 data-target="99">0%</h3>
+                <p>Uptime</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6 reveal">
+            <div class="hero-visual-container">
+              
+              <!-- MAIN DMS DASHBOARD -->
+              <div class="dashboard-main">
+                
+                <!-- Dashboard Header -->
+                <div class="dash-header">
+                  <div class="dash-brand">
+                    <div class="dash-brand-icon"><i class="fa-solid fa-folder-open"></i></div>
+                    <span>CloudDocs</span>
+                  </div>
+                  <div class="dash-date">Oct 24, 2023</div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dash-body">
+                  
+                  <!-- TOP ROW: NEW UPLOAD EVENT -->
+                  <div class="dash-card-event">
+                    <div class="event-left">
+                      <span class="event-badge">Upload Complete</span>
+                      <div class="event-info">
+                        <h5>Q4_Financial_Report.pdf</h5>
+                        <span>Just now • Finance Dept</span>
+                      </div>
+                    </div>
+                    <div class="event-icon-file">
+                      <i class="fa-solid fa-file-pdf" style="font-size: 1.2rem;"></i>
+                    </div>
+                    <button class="btn-dash-action">View</button>
+                  </div>
+
+                  <!-- BOTTOM LEFT: STORAGE STATS -->
+                  <div class="dash-card-stats">
+                    <div class="stat-label">
+                      <span>Storage Used</span>
+                      <i class="bi bi-cloud-check"></i>
+                    </div>
+                    <div class="stat-value">2.4 TB</div>
+                    <div class="stat-trend trend-up">
+                      <i class="bi bi-arrow-up-right"></i> +12% this month
+                    </div>
+                  </div>
+
+                  <!-- BOTTOM RIGHT: WORKFLOW STATUS -->
+                  <div class="dash-card-pipeline">
+                    <div class="pipe-title">
+                      <span>Document Status</span>
+                      <i class="bi bi-three-dots" style="font-size: 1.2rem;"></i>
+                    </div>
+                    
+                    <div class="pipe-bar-container">
+                      <span>Approved</span>
+                      <div class="pipe-bar-bg">
+                        <div class="pipe-bar-fill" style="width: 75%; background: var(--primary);"></div>
+                      </div>
+                      <span>75%</span>
+                    </div>
+
+                    <div class="pipe-bar-container">
+                      <span>Pending</span>
+                      <div class="pipe-bar-bg">
+                        <div class="pipe-bar-fill" style="width: 15%; background: #f59e0b;"></div>
+                      </div>
+                      <span>15%</span>
+                    </div>
+
+                    <div class="pipe-bar-container">
+                      <span>Rejected</span>
+                      <div class="pipe-bar-bg">
+                        <div class="pipe-bar-fill" style="width: 5%; background: #ef4444;"></div>
+                      </div>
+                      <span>5%</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="logos-section">
+      <div class="container">
+        <p class="logo-text">Trusted by modern enterprises</p>
+        <div class="logo-row">
+          <div class="logo-item">CloudNet</div>
+          <div class="logo-item">LegalZoom</div>
+          <div class="logo-item">FinCorp</div>
+          <div class="logo-item">MediSafe</div>
+          <div class="logo-item">LogiTech</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Features</span>
+          <h2 class="section-title">Everything you need to manage files</h2>
+          <p class="text-muted">From capture to archiving, our platform handles the entire document lifecycle with military-grade security.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Feature 1 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card h-100">
+              <div class="feature-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+              <h4>Secure Cloud Storage</h4>
+              <p>Store unlimited documents with bank-grade encryption. Access files from anywhere, on any device, instantly.</p>
+            </div>
+          </div>
+          <!-- Feature 2 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card h-100">
+              <div class="feature-icon"><i class="bi bi-search"></i></div>
+              <h4>Smart OCR Search</h4>
+              <p>Find any file in seconds. Our AI reads text inside images and scanned PDFs automatically.</p>
+            </div>
+          </div>
+          <!-- Feature 3 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card h-100">
+              <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
+              <h4>Real-time Collaboration</h4>
+              <p>Share files securely with external teams. Set permissions, track views, and manage versions effortlessly.</p>
+            </div>
+          </div>
+          <!-- Feature 4 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card h-100">
+              <div class="feature-icon"><i class="bi bi-vector-pen"></i></div>
+              <h4>eSignatures</h4>
+              <p>Send contracts for signature digitally. Legally binding, fast, and paperless workflows.</p>
+            </div>
+          </div>
+          <!-- Feature 5 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card h-100">
+              <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+              <h4>Version Control</h4>
+              <p>Never lose work again. Automatic version history lets you restore or compare previous file edits.</p>
+            </div>
+          </div>
+          <!-- Feature 6 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="feature-card h-100">
+              <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+              <h4>Compliance & Audit</h4>
+              <p>Automate compliance rules. Full audit logs track who accessed, edited, or shared files.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Showcase (Tabs) -->
+    <section id="solutions" class="section-padding showcase-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Solutions</span>
+          <h2 class="section-title">Built for every industry</h2>
+        </div>
+
+        <div class="row justify-content-center mb-5 reveal">
+          <div class="col-lg-10">
+            <ul class="nav nav-pills nav-pills-custom justify-content-center" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-legal-tab" data-bs-toggle="pill" data-bs-target="#pills-legal" type="button">Legal Teams</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-hr-tab" data-bs-toggle="pill" data-bs-target="#pills-hr" type="button">HR & Admin</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-it-tab" data-bs-toggle="pill" data-bs-target="#pills-it" type="button">IT Managers</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tab-content" id="pills-tabContent">
+          <!-- Legal -->
+          <div class="tab-pane fade show active" id="pills-legal" role="tabpanel">
+            <div class="row align-items-center">
+              <div class="col-lg-6 reveal">
+                <h3>Secure Client Files</h3>
+                <p class="text-muted mt-3 mb-4">
+                  Manage contracts, case files, and evidence with unshakeable security. Client portals for easy sharing.
+                </p>
+                <ul class="features-list">
+                  <li><i class="bi bi-check-circle-fill"></i> Role-based Access</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Watermarking</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Expiring Links</li>
+                </ul>
+                <a href="#" class="btn btn-primary-custom mt-3">For Legal Teams</a>
+              </div>
+              <div class="col-lg-6 reveal">
+                <div class="showcase-content">
+                   <div class="showcase-img-placeholder">
+                     <i class="bi bi-file-earmark-lock me-2"></i> Secure Vault Interface
+                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HR -->
+          <div class="tab-pane fade" id="pills-hr" role="tabpanel">
+            <div class="row align-items-center">
+              <div class="col-lg-6 reveal">
+                <h3>Employee Records</h3>
+                <p class="text-muted mt-3 mb-4">
+                  Centralize onboarding docs, NDAs, and certifications. Automate reminders for expiring documents.
+                </p>
+                <ul class="features-list">
+                  <li><i class="bi bi-check-circle-fill"></i> Automated Workflows</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Digital Signatures</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Self-Service Portal</li>
+                </ul>
+                <a href="#" class="btn btn-primary-custom mt-3">For HR Admin</a>
+              </div>
+              <div class="col-lg-6 reveal">
+                <div class="showcase-content">
+                  <div class="showcase-img-placeholder">
+                    <i class="bi bi-person-badge me-2"></i> Employee Folder View
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- IT -->
+          <div class="tab-pane fade" id="pills-it" role="tabpanel">
+            <div class="row align-items-center">
+              <div class="col-lg-6 reveal">
+                <h3>Admin & Compliance</h3>
+                <p class="text-muted mt-3 mb-4">
+                  Full control over user permissions. Integrate with Active Directory and set retention policies.
+                </p>
+                <ul class="features-list">
+                  <li><i class="bi bi-check-circle-fill"></i> SSO Integration</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Audit Trails</li>
+                  <li><i class="bi bi-check-circle-fill"></i> API Access</li>
+                </ul>
+                <a href="#" class="btn btn-primary-custom mt-3">For IT Managers</a>
+              </div>
+              <div class="col-lg-6 reveal">
+                <div class="showcase-content">
+                  <div class="showcase-img-placeholder">
+                    <i class="bi bi-shield-check me-2"></i> Security Dashboard
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Pricing</span>
+          <h2 class="section-title">Simple pricing for teams of all sizes</h2>
+          <p class="text-muted">Start small, scale as you grow. No hidden fees.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center align-items-center">
+          <!-- Starter -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="pricing-card">
+              <h5>Starter</h5>
+              <p class="text-muted">For individuals & small teams</p>
+              <div class="price">$12<span>/mo</span></div>
+              <p class="small text-muted">Up to 5 Users</p>
+              <a href="#" class="btn btn-outline-custom w-100">Start Free Trial</a>
+              
+              <ul class="features-list">
+                <li><i class="bi bi-check"></i> 10 GB Storage</li>
+                <li><i class="bi bi-check"></i> Basic Search</li>
+                <li><i class="bi bi-check"></i> Email Support</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Growth (Popular) -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="pricing-card popular">
+              <div class="popular-badge">Most Popular</div>
+              <h5>Business</h5>
+              <p class="text-muted">For growing organizations</p>
+              <div class="price">$39<span>/mo</span></div>
+              <p class="small text-muted">Up to 50 Users</p>
+              <a href="#" class="btn btn-primary-custom w-100">Start Free Trial</a>
+              
+              <ul class="features-list">
+                <li><i class="bi bi-check"></i> 1 TB Storage</li>
+                <li><i class="bi bi-check"></i> OCR & Smart Search</li>
+                <li><i class="bi bi-check"></i> eSignatures</li>
+                <li><i class="bi bi-check"></i> Priority Support</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="pricing-card">
+              <h5>Enterprise</h5>
+              <p class="text-muted">For large corporations</p>
+              <div class="price">Custom</div>
+              <p class="small text-muted">Unlimited Users</p>
+              <a href="#" class="btn btn-outline-custom w-100">Contact Sales</a>
+              
+              <ul class="features-list">
+                <li><i class="bi bi-check"></i> Unlimited Storage</li>
+                <li><i class="bi bi-check"></i> Custom Integrations</li>
+                <li><i class="bi bi-check"></i> Dedicated Account Manager</li>
+                <li><i class="bi bi-check"></i> SLA Guarantee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Testimonials</span>
+          <h2 class="section-title">Loved by compliance officers</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="testimonial-card h-100">
+              <div class="mb-3 text-warning">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="testimonial-text">"The platform saved our legal team 20 hours a week on document retrieval. The OCR search is a lifesaver."</p>
+              <div class="author-info">
+                <div class="author-img">
+                  <img src="https://picsum.photos/seed/legal1/100/100" alt="Avatar">
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0">Sarah Jenkins</h6>
+                  <small class="text-muted">Legal Director, LawFirm</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="testimonial-card h-100">
+              <div class="mb-3 text-warning">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="testimonial-text">"The client portal is fantastic. We can share sensitive contracts securely without worrying about email security."</p>
+              <div class="author-info">
+                <div class="author-img">
+                  <img src="https://picsum.photos/seed/consultant1/100/100" alt="Avatar">
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0">Mark Stevenson</h6>
+                  <small class="text-muted">Partner, Stevenson & Co</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="testimonial-card h-100">
+              <div class="mb-3 text-warning">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+              </div>
+              <p class="testimonial-text">"Integration with our existing cloud storage was seamless. Highly recommended for IT teams."</p>
+              <div class="author-info">
+                <div class="author-img">
+                  <img src="https://picsum.photos/seed/itadmin1/100/100" alt="Avatar">
+                </div>
+                <div>
+                  <h6 class="fw-bold mb-0">Emily Chen</h6>
+                  <small class="text-muted">CTO, StartUp Inc.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container reveal">
+        <h2 class="cta-title">Ready to go paperless?</h2>
+        <p class="cta-subtitle">Join 500+ companies modernizing their document workflows. Start your 14-day free trial today.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="#" class="btn btn-light btn-lg px-5 fw-bold" style="color: var(--primary);">Start Free Trial</a>
+          <a href="#" class="btn btn-outline-light btn-lg px-5">Book a Demo</a>
+        </div>
+        <div class="mt-4 text-white-50 small">
+          <i class="bi bi-check-circle me-1"></i> No credit card required &nbsp;
+          <i class="bi bi-check-circle me-1"></i> Cancel anytime
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <a href="#" class="footer-brand"><i class="fa-solid fa-folder-open"></i> SecureDocs</a>
+            <p class="footer-desc">
+              The intelligent document management system designed to help you organize, secure, and collaborate on your most important files.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-heading">Product</h5>
+            <ul class="footer-links">
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Security</a></li>
+              <li><a href="#">Updates</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <h5 class="footer-heading">Contact Us</h5>
+            <ul class="footer-links">
+              <li><i class="bi bi-geo-alt me-2"></i> 123 Tech Park, Innovation City</li>
+              <li><i class="bi bi-envelope me-2"></i> hello@company.com</li>
+              <li><i class="bi bi-telephone me-2"></i> +1 (555) 123-4567</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 DMS Solutions. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar Scroll Effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for Reveal Animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            
+            // Specific logic for counters
+            const counters = entry.target.querySelectorAll('.stat-item h3');
+            if (counters.length > 0) {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const suffix = counter.innerText.replace(/[0-9]/g, ''); 
+                    const duration = 2000; 
+                    const increment = target / (duration / 16);
+                    
+                    let current = 0;
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current) + suffix;
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target + suffix;
+                        }
+                    };
+                    updateCounter();
+                });
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
