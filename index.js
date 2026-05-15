@@ -19,7 +19,7 @@ const ADMIN_EMAIL = "connect@verifitech.com";
 const DEPARTMENT_EMAILS = {
   service: "connect@verifitech.com",
   career: "hr@verifitech.com",
-  support: "csb.2@verifitech.email",csb.2@verifitech.email",csb.3@verifitech.email",
+  support: "csb.2@verifitech.email",
   default: ADMIN_EMAIL
 };
 
