@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 3000;
    CONFIG
 ========================================== */
 
-const EMAIL_USER = "kovendan16@gmail.com";
-const EMAIL_PASS = "bopv udhz zhnv cxzb";
-const ADMIN_EMAIL = "kovendan16@gmail.com";
+const EMAIL_USER = "connect@verifitech.com";
+const EMAIL_PASS = "kxpm kiwh onav otge";
+const ADMIN_EMAIL = "connect@verifitech.com";
 
 const DEPARTMENT_EMAILS = {
   service: "kovendan16@gmail.com",
