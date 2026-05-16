@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-  <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -60,51 +59,51 @@
       html {
         scroll-behavior: smooth;
       }
-        /* Ensure navbar has proper z-index */
-  .navbar {
-    z-index: 1050; /* Higher than most content */
-  }
-  
-  /* Fix dropdown z-index to appear above hero content */
-  .dropdown-menu {
-    z-index: 1060; /* Higher than navbar */
-    position: absolute; /* Ensure proper positioning */
-  }
-  
-  /* Ensure dropdown items are clickable and visible */
-  .dropdown-item {
-    position: relative;
-    z-index: 1061;
-  }
-  
-  /* Fix for hero section overlapping */
-  .industry-hero {
-    position: relative;
-    z-index: 1; /* Lower than navbar */
-  }
-  
-  /* Ensure navbar collapse has proper background when expanded on mobile */
-  .navbar-collapse {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    border-radius: 12px;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-  }
-  
-  @media (min-width: 992px) {
-    .navbar-collapse {
-      background: transparent;
-      backdrop-filter: none;
-      padding: 0;
-      margin-top: 0;
-      box-shadow: none;
-    }
-  }
+      /* Ensure navbar has proper z-index */
+      .navbar {
+        z-index: 1050; /* Higher than most content */
+      }
+
+      /* Fix dropdown z-index to appear above hero content */
+      .dropdown-menu {
+        z-index: 1060; /* Higher than navbar */
+        position: absolute; /* Ensure proper positioning */
+      }
+
+      /* Ensure dropdown items are clickable and visible */
+      .dropdown-item {
+        position: relative;
+        z-index: 1061;
+      }
+
+      /* Fix for hero section overlapping */
+      .industry-hero {
+        position: relative;
+        z-index: 1; /* Lower than navbar */
+      }
+
+      /* Ensure navbar collapse has proper background when expanded on mobile */
+      .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (min-width: 992px) {
+        .navbar-collapse {
+          background: transparent;
+          backdrop-filter: none;
+          padding: 0;
+          margin-top: 0;
+          box-shadow: none;
+        }
+      }
 
       /* Navigation - Identical to previous pages */
-    .navbar {
+      .navbar {
         padding: 0;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         background: rgba(255, 255, 255, 0.98);
@@ -242,9 +241,9 @@
       }
       .btn-login {
         background-color: #ffffff !important;
-        color: #00bfa5 !important; /* Teal color - adjust to your exact teal shade */
+        color: #00bfa5 !important;
         border: 1px solid #00bfa5 !important;
-        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important; /* Teal box shadow */
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
         padding: 8px 24px;
         border-radius: 6px;
         font-weight: 500;
@@ -259,7 +258,6 @@
         box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
         transform: translateY(-1px);
       }
-
 
       /* Country Selector */
       .country-selector {
@@ -285,7 +283,6 @@
       .country-selector i {
         font-size: 1.2rem;
       }
-
 
       /* Partnership Hero Section */
       .partnership-hero {
@@ -346,6 +343,60 @@
         line-height: 1.6;
       }
 
+      /* ============================================
+         RIGHT COLUMN ALIGNMENT FIX
+         ============================================ */
+      
+      /* Container for right side elements */
+      .right-hero-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; /* Space between logos and stats */
+      }
+
+      /* Compact Trust Section for Right Side */
+      .trust-sidebar {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      }
+
+      .trust-sidebar .trust-title {
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 1.2rem;
+        font-weight: 600;
+      }
+
+      .trust-sidebar .logo-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        opacity: 0.7;
+      }
+
+      .trust-sidebar .logo-item {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--navy);
+      
+        transition: all 0.3s;
+      }
+
+      .trust-sidebar .logo-item:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: scale(1.05);
+      }
+
       /* Stats Grid */
       .stats-grid-hero {
         display: grid;
@@ -360,6 +411,11 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         border: 1px solid rgba(26, 194, 193, 0.2);
         text-align: center;
+        transition: transform 0.3s ease;
+      }
+      
+      .stat-box:hover {
+          transform: translateY(-5px);
       }
 
       .stat-box .number {
@@ -376,8 +432,8 @@
         color: var(--gray);
         font-weight: 600;
       }
-
-      /* Section Headers - Same as previous pages */
+      
+      /* Section Headers */
       .section-header {
         margin-bottom: 3rem;
       }
@@ -489,8 +545,9 @@
         color: var(--primary);
         font-size: 1.1rem;
       }
+
 /* ============================================
-   TRUST SECTION
+   TRUST SECTION (Global)
    ============================================ */
 
 .trust-section {
@@ -499,39 +556,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.trust-title {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--gray);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-
-.logo-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  flex-wrap: wrap;
-  opacity: 0.5;
-}
-
-.logo-item {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--navy);
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: all 0.3s;
-}
-
-.logo-item:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-}
-      /* Benefits Grid Section */
+/* Benefits Grid Section */
       .benefits-grid-section {
         padding: 100px 0;
         background: white;
@@ -593,32 +618,41 @@
         margin: 0;
       }
 
-      /* Partner Logos Section */
+      /* ============================================
+         PARTNER LOGOS SECTION (THE BROKEN ONE - NOW FIXED)
+         ============================================ */
+         
       .logos-section {
         padding: 80px 0;
         background: var(--light-gray);
+        overflow: hidden;
       }
 
-      .logo-grid {
+      .logos-section .logo-row {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 3rem; /* Wider gap for the wide section */
         flex-wrap: wrap;
-        gap: 3rem;
-        opacity: 0.6;
+        opacity: 1;
+        width: 100%;
       }
 
-      .partner-logo {
-        font-size: 1.5rem;
+      .logos-section .logo-item {
+        font-size: 1.5rem; /* Larger font for visibility */
         font-weight: 700;
         color: var(--gray);
         filter: grayscale(100%);
+        opacity: 0.8;
         transition: all 0.3s ease;
+        text-decoration: none;
       }
 
-      .partner-logo:hover {
+      .logos-section .logo-item:hover {
         filter: grayscale(0%);
         color: var(--primary);
+        transform: scale(1.05);
+        opacity: 1;
       }
 
       /* Testimonials Section */
@@ -757,7 +791,7 @@
         margin: 0;
       }
 
-      /* CTA Section - Same as previous pages */
+      /* CTA Section */
       .cta-section {
         padding: 100px 0;
         background: var(--light-gray);
@@ -796,7 +830,7 @@
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
       }
 
-      /* Animations - Same as previous pages */
+      /* Animations */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -847,6 +881,426 @@
 
         .cta-box {
           padding: 3rem 2rem;
+        }
+      }
+      
+      /* Footer Styles */
+      .footer {
+        background:#f8fafc;
+        color: var(--dark);
+        padding: 80px 0 40px;
+      }
+
+      .footer-brand {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        display: block;
+        color: var(--dark);
+        text-decoration: none;
+      }
+
+      .footer-brand span {
+        color: var(--primary);
+      }
+
+      .footer-desc {
+        color: var(--gray);
+        margin-bottom: 2rem;
+        max-width: 300px;
+        line-height: 1.8;
+      }
+
+      .footer h5 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        font-size: 1.1rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: var(--gray);
+        text-decoration: none;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .footer-bottom {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid #cbd5e1;
+        text-align: center;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        color: white;
+      }
+
+      /* Compliance Badges */
+      .compliance-badges {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .comp-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(15, 23, 42, 0.1);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: var(--dark);
+        border: 1px solid rgba(15, 23, 42, 0.2);
+      }
+
+      /* ============================================
+         NEWSLETTER FOOTER SECTION
+         ============================================ */
+
+      .newsletter-footer-section {
+        background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 50px;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .newsletter-footer-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .newsletter-icon-footer {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        flex-shrink: 0;
+        box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+      }
+
+      .newsletter-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.25rem;
+      }
+
+      .newsletter-subtitle {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .newsletter-form-footer {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .input-group-wrapper {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 10px;
+        align-items: flex-start;
+      }
+
+      .zf-tempContDiv {
+        flex: 1;
+        position: relative;
+        margin: 0;
+        padding: 0;
+      }
+
+      .newsletter-input {
+        width: 100%;
+        padding: 14px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: var(--dark);
+        background: white;
+        transition: all 0.3s ease;
+        min-width: 0;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+      }
+
+      .newsletter-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+      }
+
+      .newsletter-input::placeholder {
+        color: #94a3b8;
+      }
+
+      .zf-errorMessage {
+        color: #ef4444;
+        font-size: 0.85rem;
+        margin-top: 6px;
+        margin-bottom: 0;
+        display: none;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+      }
+
+      .zf-errorMessage::before {
+        content: '\F332';
+        font-family: 'bootstrap-icons';
+        font-size: 0.8rem;
+      }
+
+      .newsletter-btn {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+        font-family: 'Inter', sans-serif;
+        height: fit-content;
+      }
+
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      .newsletter-btn i {
+        transition: transform 0.3s ease;
+      }
+
+      .newsletter-btn:hover i {
+        transform: translateX(4px);
+      }
+
+      .newsletter-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .newsletter-disclaimer {
+        color: var(--gray);
+        font-size: 0.85rem;
+        margin: 8px 0 0 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .newsletter-disclaimer i {
+        color: var(--primary);
+      }
+
+      .zf-error {
+        border-color: #ef4444 !important;
+        background-color: #fef2f2 !important;
+      }
+
+      .zf-success {
+        border-color: #10b981 !important;
+        background-color: #f0fdf4 !important;
+      }
+
+      .footer-main-content {
+        margin-top: 20px;
+      }
+
+      .privacy-row {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        text-align: center;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .privacy-link {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .privacy-link:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+      }
+
+      .privacy-separator {
+        margin: 0 10px;
+        color: #cbd5e1;
+      }
+
+      .footer-logo {
+        width: 180px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .footer-description {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 280px;
+        color: var(--gray);
+      }
+
+      .footer-heading {
+        color: #1a1a1a;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+      }
+
+      .copyright 
+      {
+        font-size: 14px;
+        margin: 0;
+        color: var(--gray);
+      }
+
+      .social-icon:hover {
+        background: var(--primary) !important;
+        color: white !important;
+        transform: translateY(-3px);
+      }
+      
+      .footer-links a:hover {
+        color: var(--primary) !important;
+        transform: translateX(5px);
+      }
+      
+      .privacy-link:hover {
+        color: var(--primary-dark) !important;
+        text-decoration: underline;
+      }
+      
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+      
+      .newsletter-btn:hover i {
+        transform: translateX(4px);
+      }
+      
+      @media (max-width: 991px) {
+        .whatsapp-float {
+          width: 55px;
+          height: 55px;
+          bottom: 20px;
+          right: 20px;
+        }
+        
+        .whatsapp-float i {
+          font-size: 1.5rem;
+        }
+        
+        .float-tooltip {
+          display: none;
+        }
+        
+        .newsletter-footer-section {
+          padding: 30px;
+          text-align: center;
+        }
+        
+        .newsletter-footer-section .d-flex {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .newsletter-icon-footer {
+          margin: 0 auto;
+        }
+        
+        .input-group-wrapper {
+          flex-direction: column;
+        }
+        
+        .newsletter-btn {
+          width: 100%;
+          justify-content: center;
+        }
+        
+        .social-links {
+          justify-content: center;
+          margin-top: 20px;
+        }
+        
+        .copyright {
+          text-align: center;
         }
       }
     </style>
@@ -1036,11 +1490,6 @@
                     ><i class="bi bi-laptop"></i> IT/ITeS</a
                   >
                 </li>
-                <!--<li>
-                  <a class="dropdown-item" href="./industries/lp-banks.html"
-                    ><i class="bi bi-shield-plus"></i> Insurance</a
-                  >
-                </li> -->
                 <a class="dropdown-item" href="../industries/LP-FMCG.html"
                     ><i class="bi bi-box"></i> FMCG</a
                   >
@@ -1084,11 +1533,6 @@
                     ><i class="bi bi-broadcast"></i> Telecom</a
                   >
                 </li>
-             <!--  <li>
-                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
-                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
-                  >
-                </li> -->
               </ul>
             </li>
 
@@ -1267,15 +1711,6 @@
                     <span class="country-flag">🇸🇬</span> Singapore
                   </a>
                 </li>
-                <!--<li>
-                  <a
-                    class="dropdown-item country-option"
-                    href="../index.html"
-                    data-country="India"
-                    data-flag="🇮🇳"
-                  >
-                    <span class="country-flag">🇮🇳</span> India
-                  </a>-->
                 </li>
               </ul>
             </div>
@@ -1283,10 +1718,12 @@
         </div>
       </div>
     </nav>
+    
     <!-- Hero Section -->
     <section class="partnership-hero">
       <div class="container">
         <div class="row align-items-center">
+          <!-- Left Column: Text -->
           <div class="col-lg-6 reveal">
             <div class="partnership-badge">
               <i class="bi bi-handshake"></i>
@@ -1299,71 +1736,47 @@
               consultant, we provide the tools and support to expand your
               business.
             </p>
-            <!--<div class="d-flex gap-3 flex-wrap">
-              <a href="#partner-types" class="btn btn-primary-custom btn-lg">
-                Explore Partnerships <i class="bi bi-arrow-right"></i>
-              </a>
-              <a
-                href="#"
-                class="btn btn-outline-dark btn-lg"
-                style="
-                  border-radius: 50px;
-                  padding: 1rem 2rem;
-                  font-weight: 600;
-                  border-width: 2px;
-                "
-              >
-                Download Partner Deck
-              </a>
-            </div>-->
           </div>
-           <!-- Trust Logos -->
-    <section class="trust-section">
-      <div class="container">
-        <div class="trust-title">Trusted by 500+ Enterprises</div>
-        <!-- <div class="logo-row">
-          <div class="logo-item">TCS</div>
-          <div class="logo-item">Infosys</div>
-          <div class="logo-item">Wipro</div>
-          <div class="logo-item">HDFC Bank</div>
-          <div class="logo-item">Amazon</div>
-          <div class="logo-item">Flipkart</div>
-          <div class="logo-item">Deloitte</div>
-          <div class="logo-item">EY</div>
-        </div> -->
-         <div class="logo-row">
-          <div class="logo-item">Bluestar</div>
-          <div class="logo-item">Paytm</div>
-          <div class="logo-item">Viewgol</div>
-          <div class="logo-item">Indium </div>
-          <div class="logo-item">GUVI</div>
-          <div class="logo-item">DSG -Group</div>
-          <div class="logo-item">Infinite research</div>
-        
-</div>
-      </div>
-    </section>
-
-
-          <!-- Stats -->
+          
+          <!-- Right Column: Trust Logos & Stats -->
           <div class="col-lg-6 reveal">
-            <div class="stats-grid-hero">
-              <div class="stat-box">
-                <span class="number">200+</span>
-                <div class="label">Active Partners</div>
+            <div class="right-hero-panel">
+              
+              <!-- Trust Logos (Moved here) -->
+              <div class="trust-sidebar">
+                <div class="trust-title" style="color:#222;">Our Partners</div>
+                <div class="logo-row">
+                  <div class="logo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpM6pxwj2K-56v5YDYc28fNThSbDtd1TmH-5E2TMvq&s" style="width:80px;"></div>
+                  <div class="logo-item"><img src="https://mintsolutions.ae/assets/images/logo-black.png" style="width:180px; "></div>
+               <div class="logo-item"><img src="data:image/png;base64,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" style="width:200px;"></div>
+                  
+                 <div class="logo-item"><img src-="data:image/png;base64,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"> </div>
+                 <!-- <div class="logo-item">GUVI</div>
+                  <div class="logo-item">DSG -Group</div>
+                  <div class="logo-item">Infinite research</div>  -->
+                </div>
               </div>
-              <div class="stat-box">
-                <span class="number">45</span>
-                <div class="label">Countries</div>
+
+              <!-- Stats Grid -->
+              <div class="stats-grid-hero">
+                <div class="stat-box">
+                  <span class="number">200+</span>
+                  <div class="label">Active Partners</div>
+                </div>
+                <div class="stat-box">
+                  <span class="number">45</span>
+                  <div class="label">Countries</div>
+                </div>
+                <div class="stat-box">
+                  <span class="number">35%</span>
+                  <div class="label">Partner Revenue</div>
+                </div>
+                <div class="stat-box">
+                  <span class="number">24/7</span>
+                  <div class="label">Partner Support</div>
+                </div>
               </div>
-              <div class="stat-box">
-                <span class="number">35%</span>
-                <div class="label">Partner Revenue</div>
-              </div>
-              <div class="stat-box">
-                <span class="number">24/7</span>
-                <div class="label">Partner Support</div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -1578,7 +1991,7 @@
       </div>
     </section>
 
-    <!-- Partner Logos -->
+    <!-- Partner Logos Section (FIXED) 
     <section class="logos-section">
       <div class="container">
         <div class="text-center mb-5 reveal">
@@ -1586,15 +1999,14 @@
             Trusted by leading technology and consulting firms
           </p>
         </div>
-         <div class="logo-row">
+        <div class="logo-row">
           <div class="logo-item">Mint Solution</div>
           <div class="logo-item">Zoho</div>
           <div class="logo-item">IFIVE TECH</div>
           <div class="logo-item">Smart Flow</div>
-          
-</div>
+        </div>
       </div>
-    </section>
+    </section>-->
 
     <!-- Partner Testimonials -->
     <section class="testimonials-section" id="testimonials">
@@ -1729,38 +2141,6 @@
       </div>
     </section>
 
-    <!-- CTA Section 
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-box reveal">
-          <div
-            class="partnership-badge justify-content-center mb-3"
-            style="display: inline-flex"
-          >
-            <i class="bi bi-rocket"></i> Start Today
-          </div>
-          <h2 class="section-title mb-3">Ready to Partner?</h2>
-          <p class="text-muted mb-4" style="font-size: 1.1rem">
-            Join 200+ partners already growing with Verifitech. Let's build
-            something great together.
-          </p>
-          <a href="#" class="btn btn-primary-custom btn-lg">
-            <i class="bi bi-handshake"></i> Apply Now
-          </a>
-          <p class="mt-3 mb-0 text-muted small">
-            Questions? Contact our partner team at
-            <a
-              href="mailto:partners@verifitech.com"
-              style="color: var(--primary); font-weight: 600"
-              >partners@verifitech.com</a
-            >
-          </p>
-        </div>
-      </div>
-    </section>-->
-
-    <!-- Footer - Identical to previous pages -->
- 
     <!-- Footer -->
    <footer class="footer">
       <div class="container">
@@ -1926,6 +2306,7 @@
         </div>
       </div>
     </footer>
+
 <!-- Floating WhatsApp Button -->
 <!-- Floating WhatsApp Button -->
 <a 
@@ -1939,7 +2320,6 @@
   <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
   <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
 </a>
-
 
 <style>
   .whatsapp-float:hover {
@@ -1964,425 +2344,6 @@
     border-bottom: 5px solid transparent;
     border-left: 5px solid #333;
   }
-  
-  .social-icon:hover {
-    background: var(--primary) !important;
-    color: white !important;
-    transform: translateY(-3px);
-  }
-  
-  .footer-links a:hover {
-    color: var(--primary) !important;
-    transform: translateX(5px);
-  }
-  
-  .privacy-link:hover {
-    color: var(--primary-dark) !important;
-    text-decoration: underline;
-  }
-  
-  .newsletter-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-  }
-  
-  .newsletter-btn:hover i {
-    transform: translateX(4px);
-  }
-  
-  @media (max-width: 991px) {
-    .whatsapp-float {
-      width: 55px;
-      height: 55px;
-      bottom: 20px;
-      right: 20px;
-    }
-    
-    .whatsapp-float i {
-      font-size: 1.5rem;
-    }
-    
-    .float-tooltip {
-      display: none;
-    }
-    
-    .newsletter-footer-section {
-      padding: 30px;
-      text-align: center;
-    }
-    
-    .newsletter-footer-section .d-flex {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .newsletter-icon-footer {
-      margin: 0 auto;
-    }
-    
-    .input-group-wrapper {
-      flex-direction: column;
-    }
-    
-    .newsletter-btn {
-      width: 100%;
-      justify-content: center;
-    }
-    
-    .social-links {
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .copyright {
-      text-align: center;
-    }
-  }
-
-  .footer {
-  background:#f8fafc;
-  color: var(--dark);
-  padding: 80px 0 40px;
-}
-
-.footer-brand {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  display: block;
-  color: var(--dark);
-  text-decoration: none;
-}
-
-.footer-brand span {
-  color: var(--primary);
-}
-
-.footer-desc {
-  color: var(--gray);
-  margin-bottom: 2rem;
-  max-width: 300px;
-  line-height: 1.8;
-}
-
-.footer h5 {
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: var(--dark);
-  font-size: 1.1rem;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin-bottom: 1rem;
-}
-
-.footer-links a {
-  color: var(--gray);
-  text-decoration: none;
-  transition: all 0.3s;
-  display: inline-block;
-}
-
-.footer-links a:hover {
-  color: var(--primary);
-  transform: translateX(5px);
-}
-
-.footer-bottom {
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid #cbd5e1;
-  text-align: center;
-  color: var(--gray);
-  font-size: 0.9rem;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.social-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(15, 23, 42, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--dark);
-  transition: all 0.3s;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  background: var(--primary);
-  transform: translateY(-3px);
-  color: white;
-}
-
-/* Compliance Badges */
-.compliance-badges {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.comp-badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: rgba(15, 23, 42, 0.1);
-  border-radius: 8px;
-  font-size: 0.85rem;
-  color: var(--dark);
-  border: 1px solid rgba(15, 23, 42, 0.2);
-}
-
-/* ============================================
-   NEWSLETTER FOOTER SECTION
-   ============================================ */
-
-.newsletter-footer-section {
-  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 50px;
-  border: 1px solid rgba(26, 194, 193, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.newsletter-footer-section::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.newsletter-icon-footer {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.8rem;
-  flex-shrink: 0;
-  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
-}
-
-.newsletter-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 0.25rem;
-}
-
-.newsletter-subtitle {
-  color: var(--gray);
-  font-size: 0.95rem;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.newsletter-form-footer {
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-.input-group-wrapper {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 10px;
-  align-items: flex-start;
-}
-
-.zf-tempContDiv {
-  flex: 1;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.newsletter-input {
-  width: 100%;
-  padding: 14px 20px;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  font-size: 1rem;
-  color: var(--dark);
-  background: white;
-  transition: all 0.3s ease;
-  min-width: 0;
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-}
-
-.newsletter-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
-}
-
-.newsletter-input::placeholder {
-  color: #94a3b8;
-}
-
-.zf-errorMessage {
-  color: #ef4444;
-  font-size: 0.85rem;
-  margin-top: 6px;
-  margin-bottom: 0;
-  display: none;
-  align-items: center;
-  gap: 4px;
-  font-weight: 500;
-}
-
-.zf-errorMessage::before {
-  content: '\F332';
-  font-family: 'bootstrap-icons';
-  font-size: 0.8rem;
-}
-
-.newsletter-btn {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-  font-family: 'Inter', sans-serif;
-  height: fit-content;
-}
-
-.newsletter-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-}
-
-.newsletter-btn i {
-  transition: transform 0.3s ease;
-}
-
-.newsletter-btn:hover i {
-  transform: translateX(4px);
-}
-
-.newsletter-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.newsletter-disclaimer {
-  color: var(--gray);
-  font-size: 0.85rem;
-  margin: 8px 0 0 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.newsletter-disclaimer i {
-  color: var(--primary);
-}
-
-.zf-error {
-  border-color: #ef4444 !important;
-  background-color: #fef2f2 !important;
-}
-
-.zf-success {
-  border-color: #10b981 !important;
-  background-color: #f0fdf4 !important;
-}
-
-.footer-main-content {
-  margin-top: 20px;
-}
-
-.privacy-row {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #e2e8f0;
-  text-align: center;
-  color: var(--gray);
-  font-size: 0.9rem;
-}
-
-.privacy-link {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color 0.3s;
-}checks
-
-.privacy-link:hover {
-  color: var(--primary-dark);
-  text-decoration: underline;
-}
-
-.privacy-separator {
-  margin: 0 10px;
-  color: #cbd5e1;
-}
-
-.footer-logo {
-  width: 180px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.footer-description {
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 280px;
-  color: var(--gray);
-}
-
-.footer-heading {
-  color: #1a1a1a;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.social-links {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-}
-
-.copyright 
-{
-  font-size: 14px;
-  margin: 0;
-  color: var(--gray);
-}
 </style>
    
     <!-- Scripts - Identical to previous pages -->
