@@ -68,24 +68,20 @@
          Z-INDEX FIXES - KEEP THESE AT TOP
          ============================================ */
 
-      /* Ensure navbar has proper z-index */
       .navbar {
         z-index: 1050;
       }
 
-      /* Fix dropdown z-index to appear above hero content */
       .dropdown-menu {
         z-index: 1060;
         position: absolute;
       }
 
-      /* Ensure dropdown items are clickable and visible */
       .dropdown-item {
         position: relative;
         z-index: 1061;
       }
 
-      /* Fix for hero section overlapping */
       .sales-hero {
         position: relative;
         z-index: 1;
@@ -108,7 +104,6 @@
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
       }
 
-      /* Mobile navbar collapse background */
       .navbar-collapse {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(12px);
@@ -176,10 +171,6 @@
         color: var(--primary);
       }
 
-      /* ============================================
-         DROPDOWN MENU STYLES
-         ============================================ */
-
       .dropdown-menu {
         border: none;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
@@ -239,7 +230,6 @@
          BUTTON STYLES
          ============================================ */
 
-      /* CTA Button - Talk to Sales */
       .btn-sales {
         background: var(--primary);
         color: white !important;
@@ -260,7 +250,6 @@
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
       }
 
-      /* Login Button */
       .btn-login {
         background-color: #ffffff !important;
         color: #00bfa5 !important;
@@ -280,10 +269,6 @@
         box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
         transform: translateY(-1px);
       }
-
-      /* ============================================
-         COUNTRY SELECTOR - WHITE ARROW REMOVED
-         ============================================ */
 
       .country-selector {
         display: flex;
@@ -305,14 +290,12 @@
         color: var(--primary);
       }
 
-      /* Remove Bootstrap's default white arrow from country selector */
       .country-selector.dropdown-toggle::after {
         display: none !important;
         content: none !important;
         border: none !important;
       }
 
-      /* Style the custom chevron icon */
       .country-selector i.bi-chevron-down {
         font-size: 0.7rem;
         color: var(--navy);
@@ -323,7 +306,6 @@
         color: var(--primary);
       }
 
-      /* Rotate chevron when dropdown is open */
       .country-selector[aria-expanded="true"] i.bi-chevron-down {
         transform: rotate(180deg);
       }
@@ -950,6 +932,96 @@
         50% { transform: scale(1.1); }
         100% { transform: scale(1); opacity: 1; }
       }
+      
+      /* Custom Popup Styles */
+      .custom-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        z-index: 10000;
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .custom-overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .custom-popup {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        transform: scale(0.9);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .custom-overlay.active .custom-popup {
+        transform: scale(1);
+      }
+
+      .popup-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--primary);
+        font-size: 2.5rem;
+      }
+
+      .popup-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+
+      .popup-message {
+        color: var(--gray);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .popup-message span {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .btn-close-popup {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.8rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-close-popup:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
 
       @media (max-width: 991px) {
         .sales-hero h1 {
@@ -989,6 +1061,10 @@
         
         .user-type-group {
           flex-direction: column;
+        }
+        
+        .custom-popup {
+            padding: 2rem;
         }
       }
     </style>
@@ -1408,18 +1484,6 @@
               >
                 Schedule Demo <i class="bi bi-arrow-right"></i>
               </a>
-              <!--<a
-                href="tel:+918506804541"
-                class="btn btn-outline-dark btn-lg"
-                style="
-                  padding: 1rem 2rem;
-                  border-radius: 50px;
-                  font-weight: 600;
-                  border-width: 2px;
-                "
-              >
-                <i class="bi bi-telephone me-2"></i>Call Now
-              </a>-->
             </div>
           </div>
 
@@ -1682,13 +1746,15 @@
                 </form>
               </div>
 
-              <!-- Candidate Form (Zoho) - Hidden by default -->
+              <!-- NEW Candidate Form (Zoho) - Hidden by default -->
               <div id="candidateForm" class="zf-templateWidth" style="display: none;">
                 <form 
                   name='form_candidate' 
                   id='candidateFormElement' 
-                  action="https://forms.zohopublic.in/verifitech/form/Candidate/formperma/nHl1gfzcIvm2GigdPys4YdODCjlOjHsKIIxc0uZO1-g/htmlRecords/submit" 
+                  action="https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AAu_pxyF_x894Jj90mWKsHv6Hxj0dBzqM11f4Zhz1bQ/htmlRecords/submit" 
                   method="POST" 
+                  accept-charset="UTF-8" 
+                  enctype="multipart/form-data" 
                   onsubmit="return handleFormSubmit(event, 'candidate');"
                 >
                   <input type="hidden" name="zf_referrer_name" value="">
@@ -1703,70 +1769,57 @@
                             <label class="zf-labelName">Date <em class="zf-important">*</em></label>
                             <div class="zf-tempContDiv">
                               <span>
-                                <!-- type="hidden" ensures it is not visible in UI -->
-                                <input type="hidden" name="Date" id="candidate_Date" checktype="c4" value="" maxlength="25" oninput="formatDate(this)" />
+                                <input type="hidden" name="Date" id="candidate_Date" checktype="c4" value="" maxlength="25" />
                               </span>
                               <p id="Date_candidate_error" class="zf-errorMessage" style="display: none;">Invalid value</p>
                             </div>
                         </div>
 
-                        <div class="zf-form-row">
-                          <div class="zf-tempFrmWrapper zf-large">
-                            <label class="zf-labelName">Full Name <em class="zf-important">*</em></label>
+                        <!-- Name Wrapper (First and Last) -->
+                        <div class="zf-tempFrmWrapper zf-name zf-namelarge">
+                            <label class="zf-labelName"> Name <em class="zf-important"> *</em> </label>
+                            <div class="zf-tempContDiv zf-twoType">
+                                <div class="zf-nameWrapper" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <!-- First Name -->
+                                    <span style="flex:1; min-width: 200px;"> 
+                                        <input type="text" maxlength="255" name="Name_First" id="candidate_Name_First" fieldType=7 placeholder="First Name" required/>
+                                    </span>
+                                    <!-- Last Name -->
+                                    <span style="flex:1; min-width: 200px;"> 
+                                        <input type="text" maxlength="255" name="Name_Last" id="candidate_Name_Last" fieldType=7 placeholder="Last Name" required/>
+                                    </span>
+                                    <div class="zf-clearBoth"></div>
+                                </div>
+                                <p id="Name_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                            </div>
+                            <div class="zf-clearBoth"></div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName"> Email Address <em class="zf-important"> *</em> </label>
                             <div class="zf-tempContDiv">
-                              <span>
-                                <input type="text" name="SingleLine" id="candidate_SingleLine" checktype="c1" value="" maxlength="255" fieldType=1 placeholder="John Doe" required />
-                              </span>
-                              <p id="SingleLine_candidate_error" class="zf-errorMessage" style="display: none;">Please enter your full name</p>
+                                <span> 
+                                    <input type="text" name="Email" id="candidate_Email" checktype="c5" value="" maxlength="255" fieldType=9 placeholder="john.doe@email.com" required /> 
+                                </span>
+                                <p id="Email_candidate_error" class="zf-errorMessage" style="display: none;">Invalid value</p>
                             </div>
-                          </div>
-                          
-                          <div class="zf-tempFrmWrapper zf-large">
-                            <label class="zf-labelName">Email Address <em class="zf-important">*</em></label>
-                            <div class="zf-tempContDiv">
-                              <span>
-                                <input type="email" name="Email" id="candidate_Email" checktype="c5" value="" maxlength="255" fieldType=9 placeholder="john.doe@email.com" required />
-                              </span>
-                              <p id="Email_candidate_error" class="zf-errorMessage" style="display: none;">Please enter a valid email</p>
-                            </div>
-                          </div>
+                            <div class="zf-clearBoth"></div>
                         </div>
 
-                        <div class="zf-tempFrmWrapper zf-large">
-                          <label class="zf-labelName">Phone Number <em class="zf-important">*</em></label>
-                          <div class="zf-tempContDiv zf-phonefld">
-                            <div class="zf-phwrapper zf-phNumber">
-                              <span>
-                                <input type="tel" name="PhoneNumber_countrycode" id="candidate_PhoneNumber" maxlength="20" checktype="c7" value="" placeholder="+91 98765 43210" required />
-                              </span>
+                        <!-- Phone -->
+                        <div class="zf-tempFrmWrapper zf- zf-large">
+                            <label class="zf-labelName"> Phone Number <em class="zf-important"> *</em> </label>
+                            <div class="zf-tempContDiv zf-phonefld">
+                                <div class="zf-phwrapper zf-phNumber">
+                                    <span> 
+                                        <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled=false fieldType="11" id="candidate_PhoneNumber_countrycode" valType="number" phoneFormatType="1" placeholder="+91 98765 43210" required /> 
+                                    </span>
+                                    <div class="zf-clearBoth"></div>
+                                </div>
+                                <p id="PhoneNumber_candidate_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
                             </div>
-                            <p id="PhoneNumber_candidate_error" class="zf-errorMessage" style="display:none;">Please enter your phone number</p>
-                          </div>
-                        </div>
-
-                        <div class="zf-tempFrmWrapper zf-large">
-                          <label class="zf-labelName">Verification Type <em class="zf-important">*</em></label>
-                          <div class="zf-tempContDiv">
-                            <select class="zf-form-sBox" name="Dropdown1" id="candidate_Dropdown1" checktype="c1" required>
-                              <option selected disabled value="">Select verification type...</option>
-                              <option value="Employment Verification">Employment Verification</option>
-                              <option value="Education Verification">Education Verification</option>
-                              <option value="Address Verification">Address Verification</option>
-                              <option value="Identity Verification">Identity Verification</option>
-                              <option value="Criminal Record Check">Criminal Record Check</option>
-                              <option value="Reference Check">Reference Check</option>
-                            </select>
-                            <p id="Dropdown1_candidate_error" class="zf-errorMessage" style="display:none;">Please select an option</p>
-                          </div>
-                        </div>
-
-                        <div class="zf-tempFrmWrapper zf-large">
-                          <label class="zf-labelName">Message (Optional)</label>
-                          <div class="zf-tempContDiv">
-                            <span>
-                              <textarea name="MultiLine" id="candidate_MultiLine" checktype="c1" maxlength="65535" placeholder="Tell us about your requirements..." rows="3"></textarea>
-                            </span>
-                          </div>
+                            <div class="zf-clearBoth"></div>
                         </div>
                       </ul>
                     </div>
@@ -1789,7 +1842,7 @@
                     <ul class="zf-fmFooter">
                       <li>
                         <button type="submit" class="zf-submitColor" id="candidateSubmitBtn">
-                          <span class="btn-text">Submit Request</span>
+                          <span class="btn-text">Submit Details</span>
                           <i class="bi bi-arrow-right"></i>
                         </button>
                       </li>
@@ -1862,10 +1915,6 @@
               </p>
 
               <div class="support-detail">
-<!--                 <i class="bi bi-telephone"></i> -->
-<!--                 <a href="tel:+918506804441">+91-850-680-4441</a> -->
-              </div>
-              <div class="support-detail">
                 <i class="bi bi-envelope"></i>
                 <a href="mailto:bgvsupport@verifitech.com"
                   >connect@verifitech.com</a
@@ -1888,10 +1937,6 @@
                 Job seekers and candidates undergoing background verification.
               </p>
 
-              <div class="support-detail">
-<!--                 <i class="bi bi-telephone"></i>
-                <a href="tel:+919240255060">+91-924 025 5060</a> -->
-              </div>
               <div class="support-detail">
                 <i class="bi bi-envelope"></i>
                 <a href="mailto:candidate.support@verifitech.com"
@@ -1962,7 +2007,6 @@
               <p class="mb-2"><strong>Headquarters</strong></p>
               <p class="mb-0">Chennai, Tamil Nadu</p>
               <p class="mb-0">Bengaluru, Karnataka</p>
-<!--               <p class="mb-0">Pune, Maharashtra</p> -->
             </div>
           </div>
 
@@ -2238,6 +2282,20 @@
   }
 </style>
 
+    <!-- Custom Thank You Popup -->
+    <div id="customThankYouPopup" class="custom-overlay">
+      <div class="custom-popup">
+        <div class="popup-icon-wrapper">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <h3 class="popup-title">Thank You!</h3>
+        <p class="popup-message">
+          Ms. <span id="popupUserName">User</span>, our team will contact you within 24 hours.
+        </p>
+        <button class="btn-close-popup" onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
     <!-- Form Loader Overlay -->
     <div id="formLoader" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px); z-index: 9999; justify-content: center; align-items: center; flex-direction: column;">
       <div style="position: relative; width: 80px; height: 80px;">
@@ -2316,43 +2374,110 @@
         document.getElementById('formLoader').style.display = 'none';
       }
 
-      // Handle form submission
+      // Popup Functions
+      function showPopup(userName) {
+        const popup = document.getElementById('customThankYouPopup');
+        const nameSpan = document.getElementById('popupUserName');
+        
+        if (userName) {
+          nameSpan.textContent = userName;
+        } else {
+          nameSpan.textContent = "User";
+        }
+        
+        popup.classList.add('active');
+      }
+
+      function closePopup() {
+        const popup = document.getElementById('customThankYouPopup');
+        popup.classList.remove('active');
+        
+        // Optional: Reset forms after closing
+        document.getElementById('businessFormElement').reset();
+        document.getElementById('candidateFormElement').reset();
+        document.getElementById('businessForm').style.display = 'block';
+        document.getElementById('candidateForm').style.display = 'none';
+        document.querySelector('input[name="userType"][value="business"]').checked = true;
+      }
+
+      // Close popup when clicking outside
+      document.getElementById('customThankYouPopup').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closePopup();
+        }
+      });
+
+      // Handle form submission with AJAX and Popup
       function handleFormSubmit(event, formType) {
+        event.preventDefault(); // Prevent default submission
+
+        const form = event.target;
+        
         // 1. Validate the form inputs
         if (!validateForm(formType)) {
-          // If validation fails, stop the submission immediately
-          event.preventDefault(); 
           return false;
         }
 
-        // 2. Show loader to indicate processing
+        // 2. Capture Name for Popup
+        let userName = "";
+        if (formType === 'business') {
+            const nameInput = document.getElementById('business_SingleLine');
+            userName = nameInput ? nameInput.value : "";
+        } else {
+            const firstName = document.getElementById('candidate_Name_First');
+            const lastName = document.getElementById('candidate_Name_Last');
+            if (firstName && lastName) {
+                userName = firstName.value + " " + lastName.value;
+            } else if (firstName) {
+                userName = firstName.value;
+            }
+        }
+
+        // 3. Show loader
         showLoader();
 
-        // 3. Allow the HTML form to submit naturally after a short delay
-        // We use setTimeout to let the loader render before the page potentially unloads or changes
-        setTimeout(() => {
-            // Hide loader just before the form submits (or leaves page)
+        // 4. Submit via AJAX (Fetch API)
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: form.method,
+          body: formData,
+          mode: 'no-cors' // Important for Zoho Public Forms to avoid CORS errors
+        })
+        .then(() => {
+            // Since mode is 'no-cors', we assume success if no network error occurs
             hideLoader();
-        }, 1500); 
+            showPopup(userName);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            hideLoader();
+            alert("There was an error submitting the form. Please try again.");
+        });
 
-        // Return true to allow the HTML <form action="..." method="POST"> to execute
-        // We removed target="_blank" from the HTML so it submits in this window.
-        // We removed the Modal trigger, so it just submits.
-        return true;
+        return false;
       }
 
       // Validate form
       function validateForm(formType) {
         let isValid = true;
-        const fields = formType === 'business' 
-          ? ['SingleLine', 'Email', 'PhoneNumber', 'SingleLine1', 'Dropdown1']
-          : ['SingleLine', 'Email', 'PhoneNumber', 'Dropdown1'];
+        
+        // Define fields based on form type
+        let fields = [];
+        
+        if (formType === 'business') {
+          fields = ['SingleLine', 'Email', 'PhoneNumber', 'SingleLine1', 'Dropdown1'];
+        } else {
+          // NEW Candidate Validation Fields (Applied Role and Lead Status removed)
+          fields = ['Date', 'Name_First', 'Name_Last', 'Email', 'PhoneNumber_countrycode'];
+        }
         
         fields.forEach(field => {
           const input = document.getElementById(formType + '_' + field);
+          
           const error = document.getElementById(field + (formType === 'candidate' ? '_candidate_error' : '_error'));
           
-          if (!input.value || input.value === '') {
+          if (input && (!input.value || input.value === '')) {
             if (error) error.style.display = 'block';
             isValid = false;
           } else {
@@ -2365,7 +2490,7 @@
         const emailError = document.getElementById('Email' + (formType === 'candidate' ? '_candidate_error' : '_error'));
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
-        if (emailInput.value && !emailRegex.test(emailInput.value)) {
+        if (emailInput && emailInput.value && !emailRegex.test(emailInput.value)) {
           if (emailError) {
             emailError.textContent = 'Please enter a valid email address';
             emailError.style.display = 'block';
@@ -2375,7 +2500,7 @@
 
         // Privacy checkbox validation
         const privacyCheckbox = document.getElementById('privacy_' + formType);
-        if (!privacyCheckbox.checked) {
+        if (privacyCheckbox && !privacyCheckbox.checked) {
           alert('Please agree to the Privacy Policy and Terms of Use');
           isValid = false;
         }
@@ -2386,9 +2511,19 @@
       // Real-time validation - hide error on input
       document.querySelectorAll('input, select, textarea').forEach(input => {
         input.addEventListener('input', function() {
-          const errorId = this.id.replace(/^(business|candidate)_/, '') + '_error';
-          const errorElement = document.getElementById(errorId) || 
-                              document.getElementById(errorId.replace('_error', '_candidate_error'));
+          let baseId = this.id.replace(/^(business|candidate)_/, '');
+          
+          if (this.name === 'PhoneNumber_countrycode') baseId = 'PhoneNumber';
+
+          let errorId = baseId + '_error';
+          
+          // Special handling for candidate Name error ID which is 'Name_error' for both fields
+          if (this.id === 'candidate_Name_First' || this.id === 'candidate_Name_Last') {
+             errorId = 'Name_error';
+          }
+
+          const errorElement = document.getElementById(errorId);
+          
           if (errorElement) {
             errorElement.style.display = 'none';
           }
@@ -2396,32 +2531,25 @@
       });
       
       // --- AUTO-FORMAT DATE SCRIPT ---
-      // This script converts numbers (25102023) to Text Format (25-Oct-2023)
-      // And populates the hidden date field automatically on load.
-      
       window.addEventListener('load', function() {
         setDefaultDate();
       });
 
       function setDefaultDate() {
         const today = new Date();
-        // Months array for MMM format (e.g., Jan, Feb)
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         
         const day = String(today.getDate()).padStart(2, '0');
-        const month = months[today.getMonth()]; // Get short month name
+        const month = months[today.getMonth()]; 
         const year = today.getFullYear();
         
-        // Format: dd-MMM-yyyy
         const formattedDate = day + "-" + month + "-" + year;
         
-        // Set date for Business Form (Hidden Input)
         const businessDateInput = document.getElementById('business_Date');
         if (businessDateInput) {
             businessDateInput.value = formattedDate;
         }
 
-        // Set date for Candidate Form (Hidden Input)
         const candidateDateInput = document.getElementById('candidate_Date');
         if (candidateDateInput) {
             candidateDateInput.value = formattedDate;
@@ -2429,8 +2557,6 @@
       }
 
       function formatDate(input) {
-        // Since input is now hidden, this function is only kept for compatibility
-        // It won't be triggered by user typing, but the logic remains if needed programmatically.
         var v = input.value.replace(/\D/g, '');
         
         if (v.length >= 8) {
