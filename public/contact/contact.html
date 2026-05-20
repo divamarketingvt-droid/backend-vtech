@@ -2356,6 +2356,13 @@
         const businessForm = document.getElementById('businessForm');
         const candidateForm = document.getElementById('candidateForm');
         
+        // Clear previous validation errors when switching
+        document.querySelectorAll('.zf-errorMessage').forEach(el => el.style.display = 'none');
+        
+        // Reset forms to clear input data
+        document.getElementById('businessFormElement').reset();
+        document.getElementById('candidateFormElement').reset();
+
         if (type === 'business') {
           businessForm.style.display = 'block';
           candidateForm.style.display = 'none';
@@ -2458,6 +2465,18 @@
         return false;
       }
 
+      // List of free/personal email domains to block
+      const freeEmailDomains = [
+        'gmail.com', 'yahoo.com', 'yahoo.co.in', 'yahoo.co.uk', 'yahoo.in', 
+        'hotmail.com', 'outlook.com', 'live.com', 'msn.com',
+        'rediffmail.com', 'rediff.com',
+        'protonmail.com', 'proton.me',
+        'aol.com', 'icloud.com', 'me.com', 'mac.com',
+        'mail.com', 'gmx.com', 'gmx.net', 'yandex.com', 'yandex.ru', 
+        'zoho.com', 'rocketmail.com', 'sbcglobal.net', 'att.net', 'verizon.net',
+        'comcast.net', 'bellsouth.net', 'charter.net', 'cox.net'
+      ];
+
       // Validate form
       function validateForm(formType) {
         let isValid = true;
@@ -2468,10 +2487,11 @@
         if (formType === 'business') {
           fields = ['SingleLine', 'Email', 'PhoneNumber', 'SingleLine1', 'Dropdown1'];
         } else {
-          // NEW Candidate Validation Fields (Applied Role and Lead Status removed)
+          // Candidate Validation Fields
           fields = ['Date', 'Name_First', 'Name_Last', 'Email', 'PhoneNumber_countrycode'];
         }
         
+        // 1. Check Required Fields
         fields.forEach(field => {
           const input = document.getElementById(formType + '_' + field);
           
@@ -2485,17 +2505,42 @@
           }
         });
 
-        // Email validation
+        // 2. Email Validation
         const emailInput = document.getElementById(formType + '_Email');
         const emailError = document.getElementById('Email' + (formType === 'candidate' ? '_candidate_error' : '_error'));
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
-        if (emailInput && emailInput.value && !emailRegex.test(emailInput.value)) {
-          if (emailError) {
-            emailError.textContent = 'Please enter a valid email address';
-            emailError.style.display = 'block';
+        let isEmailValid = true;
+
+        if (emailInput && emailInput.value) {
+          // Check Format
+          if (!emailRegex.test(emailInput.value)) {
+            if (emailError) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.style.display = 'block';
+            }
+            isValid = false;
+            isEmailValid = false;
+          } 
+          // Check Domain Restrictions for Business Form
+          else if (formType === 'business' && isEmailValid) {
+            const emailValue = emailInput.value.trim().toLowerCase();
+            const domain = emailValue.split('@')[1];
+
+            if (freeEmailDomains.includes(domain)) {
+                if (emailError) {
+                    emailError.textContent = 'Please enter a business email. Personal emails (e.g., Gmail, Yahoo) are not accepted.';
+                    emailError.style.display = 'block';
+                }
+                isValid = false;
+            } else {
+                if (emailError) emailError.style.display = 'none';
+            }
+          } 
+          // Candidate Form - just clear error if format is valid
+          else {
+             if (emailError) emailError.style.display = 'none';
           }
-          isValid = false;
         }
 
         // Privacy checkbox validation
