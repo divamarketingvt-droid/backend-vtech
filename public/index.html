@@ -128,6 +128,75 @@ body {
       margin-top: 0;
       box-shadow: none;
     }
+  }* Fix: prevent heading text from collapsing on narrow cards */
+  .industry-card h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .industry-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Ensure card has minimum height so content doesn't squash */
+  .industry-card {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.2rem;
+  }
+
+  /* Ensure the section-title and section-desc never collapse */
+  .section-title {
+    min-height: auto !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    word-break: normal !important;
+  }
+
+  .section-desc {
+    min-height: auto !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    word-break: normal !important;
+  }
+
+  /* Extra safeguard for the heading container */
+  .industries-section .section-header,
+  .industries-section .text-center {
+    overflow: visible !important;
+  }
+
+  @media (max-width: 767px) {
+    .industry-card {
+      min-height: 170px;
+      padding: 1.5rem 1rem;
+    }
+
+    .industry-card h5 {
+      font-size: 0.9rem;
+    }
+
+    .industry-card p {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .industries-section .section-title {
+      font-size: 1.8rem !important;
+    }
   }
 
       /* Navigation */
