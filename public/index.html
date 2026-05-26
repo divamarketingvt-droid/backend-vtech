@@ -794,7 +794,7 @@ body {
 /* ============================================
    INDUSTRY CARDS
    ============================================ */
-./* Industry Cards Grid Fix */
+/* Industry Cards Grid Fix */
 .industries-section .row {
   display: flex;
   flex-direction: column;
@@ -802,6 +802,9 @@ body {
 
 .industries-section .row > [class*="col-"] {
   display: flex;
+  flex-direction: column; /* Stacks the card content vertically */
+  width: 100%;            /* Forces each column to take a full row */
+  max-width: 100%;        /* Overrides Bootstrap's default column sizing */
 }
 
 .industry-card {
