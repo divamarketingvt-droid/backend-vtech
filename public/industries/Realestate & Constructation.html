@@ -943,23 +943,118 @@
         padding: 2rem;
       }
 
-      /* Regulatory Section */
+      /* ============================================
+           NEW REGULATORY SECTION DESIGN
+           ============================================ */
       .regulatory-section {
         padding: 100px 0;
-        background: white;
+        background: #f0fdfa; /* Very light teal background */
+        position: relative;
+        overflow: hidden;
       }
 
-      .compliance-badge {
-        display: inline-flex;
+      .regulatory-bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        background-image: radial-gradient(#1ac2c1 1px, transparent 1px);
+        background-size: 30px 30px;
+        z-index: 0;
+      }
+
+      .reg-content-wrapper {
+        position: relative;
+        z-index: 2;
+      }
+
+      .reg-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem;
+        height: 100%;
+        border: 1px solid rgba(26, 194, 193, 0.15);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .reg-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(26, 194, 193, 0.15);
+        border-color: var(--primary);
+      }
+
+      .reg-icon-box {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-light), #ffffff);
+        border-radius: 20px;
+        display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.5rem;
-        background: rgba(26, 194, 193, 0.1);
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
         border: 2px solid rgba(26, 194, 193, 0.2);
-        border-radius: 50px;
-        font-weight: 700;
-        color: var(--primary-dark);
+        transition: all 0.3s ease;
+      }
+
+      .reg-card:hover .reg-icon-box {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .reg-title {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--navy);
         margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+      }
+
+      .reg-code-badge {
+        display: inline-block;
+        background: var(--navy);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+      }
+
+      .reg-desc {
+        color: var(--gray);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .reg-features {
+        margin-top: auto;
+        width: 100%;
+      }
+
+      .reg-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0.8rem;
+        font-size: 0.95rem;
+        color: var(--navy);
+        font-weight: 500;
+      }
+
+      .reg-feature-item i {
+        color: var(--primary);
+        font-size: 1.1rem;
       }
 
       /* Contact Section */
@@ -2612,96 +2707,95 @@
       </div>
     </section>
 
-    <!-- Regulatory Section -->
-    <!-- Regulatory Section -->
+    <!-- NEW REDESIGNED Regulatory Section -->
     <section class="regulatory-section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 reveal">
-            <div class="section-subtitle" style="background: transparent">
-              <i class="fas fa-a-check-circle"></i> Compliance
+      <div class="regulatory-bg-pattern"></div>
+      <div class="container reg-content-wrapper">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="fas fa-check-circle"></i> Compliance Standards
             </div>
-            <h2 class="section-title">OSHA, DOT & State Board Compliant</h2>
-            <p class="section-desc">
-              Our verification processes adhere to Occupational Safety and
+            <h2 class="section-title">Certified & Compliant</h2>
+            <p class="section-desc mx-auto">
+              Our verification processes strictly adhere to Occupational Safety and
               Health Administration (OSHA) training requirements, Department of
-              Transportation (DOT) regulations for commercial drivers, and state
-              contractor licensing board standards.
+              Transportation (DOT) regulations, and state licensing board standards.
             </p>
+          </div>
+        </div>
 
-            <div class="mt-4">
-              <div class="d-flex align-items-start gap-3 mb-3">
-                <div class="flex-shrink-0">
-                  <i
-                    class="fa-regular fa-file-lines text-primary fs-4 mb-2 d-block"
-                  ></i>
-                </div>
-                <div>
-                  <h5 class="mb-1">OSHA Standards</h5>
-                  <p class="text-muted mb-0">
-                    29 CFR 1926 construction standards, training documentation,
-                    and competent person verification for job site safety
-                    compliance
-                  </p>
-                </div>
+        <div class="row g-4">
+          <!-- OSHA Card -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="reg-card">
+              <div class="reg-icon-box">
+                <i class="fas fa-hard-hat"></i>
               </div>
-              <div class="d-flex align-items-start gap-3 mb-3">
-                <div class="flex-shrink-0">
-                  <i class="bi bi-truck text-primary fs-4"></i>
+              <h3 class="reg-title">OSHA Standards</h3>
+              <span class="reg-code-badge">29 CFR 1926</span>
+              <p class="reg-desc">
+                Verification of training documentation, competent person designation, and strict adherence to job site safety compliance protocols.
+              </p>
+              <div class="reg-features">
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Training Documentation
                 </div>
-                <div>
-                  <h5 class="mb-1">DOT Regulations</h5>
-                  <p class="text-muted mb-0">
-                    FMCSA compliance for commercial drivers, medical examiner
-                    certification, and drug testing program management
-                  </p>
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Competent Person Verify
                 </div>
-              </div>
-              <div class="d-flex align-items-start gap-3">
-                <div class="flex-shrink-0">
-                  <i class="bi bi-award text-primary fs-4"></i>
-                </div>
-                <div>
-                  <h5 class="mb-1">State Licensing</h5>
-                  <p class="text-muted mb-0">
-                    Contractor board verification, continuing education
-                    tracking, and reciprocity checks for multi-state operations
-                  </p>
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> 10 & 30 Hour Cards
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 reveal">
-            <div class="bg-light p-5 rounded-4">
-              <div class="row g-4">
-                <div class="col-6">
-                  <div class="p-3 bg-white rounded-3 shadow-sm text-center">
-                    <!-- <i class="bi bi-truck text-primary fs-1 mb-2 d-block"></i> -->
-                    <!--<i class="fa-regular fa-file-lines text-primary fs-1 mb-2 d-block"></i> -->
-                    <div class="fw-bold">OSHA</div>
-                    <small class="text-muted">29 CFR 1926</small>
-                  </div>
+
+          <!-- DOT Card -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="reg-card">
+              <div class="reg-icon-box">
+                <i class="fas fa-truck-moving"></i>
+              </div>
+              <h3 class="reg-title">DOT Regulations</h3>
+              <span class="reg-code-badge">FMCSA Compliant</span>
+              <p class="reg-desc">
+                Full FMCSA compliance for commercial drivers, including medical examiner certification and comprehensive drug testing programs.
+              </p>
+              <div class="reg-features">
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Medical Cert Verify
                 </div>
-                <div class="col-6">
-                  <div class="p-3 bg-white rounded-3 shadow-sm text-center">
-                    <!--<i class="bi bi-truck text-primary fs-1 mb-2 d-block"></i>-->
-                    <div class="fw-bold">DOT</div>
-                    <small class="text-muted">FMCSA</small>
-                  </div>
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Drug Test Programs
                 </div>
-                <div class="col-6">
-                  <div class="p-3 bg-white rounded-3 shadow-sm text-center">
-                    <!--<i class="bi bi-building text-primary fs-1 mb-2 d-block"></i>-->
-                    <div class="fw-bold">State</div>
-                    <small class="text-muted">Licensed</small>
-                  </div>
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Driver Qualification Files
                 </div>
-                <div class="col-6">
-                  <div class="p-3 bg-white rounded-3 shadow-sm text-center">
-                    <!-- <i class="bi bi-award text-primary fs-1 mb-2 d-block"></i>-->
-                    <div class="fw-bold">NCCCO</div>
-                    <small class="text-muted">Certified</small>
-                  </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- State Licensing Card -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="reg-card">
+              <div class="reg-icon-box">
+                <i class="fas fa-award"></i>
+              </div>
+              <h3 class="reg-title">State Licensing</h3>
+              <span class="reg-code-badge">Board Regulated</span>
+              <p class="reg-desc">
+                Direct verification with contractor licensing boards, continuing education tracking, and reciprocity checks for multi-state operations.
+              </p>
+              <div class="reg-features">
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Board Verification
+                </div>
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> CE Tracking
+                </div>
+                <div class="reg-feature-item">
+                  <i class="fas fa-check"></i> Multi-State Reciprocity
                 </div>
               </div>
             </div>
@@ -3535,7 +3629,6 @@
             });
           }
         });
-      });
     </script>
   </body>
 </html>
