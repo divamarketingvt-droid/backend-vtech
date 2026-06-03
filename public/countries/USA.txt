@@ -1,0 +1,3920 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US Background Screening Services | FCRA Compliant Employment Checks</title>
+    <meta
+      name="description"
+      content="Secure, fast, and FCRA-compliant US background screening services including criminal checks, employment verification, education checks, drug screening, and E-Verify solutions."
+    />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Verifitech",
+      "url": "https://wp.verifitech.com",
+      "logo": "https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "US Background Screening",
+      "provider": {
+        "@type": "Organization",
+        "name": "Verifitech"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Employment Background Screening?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Employment background screening is the process of verifying a candidate's identity, employment history, education, criminal records and work eligibility before hiring. Employers use background screening to reduce hiring risks, maintain workplace safety, and make more informed hiring decisions. Depending on the role and industry, screening may include criminal background checks, employment verification, education verification, reference checks, drug testing, identity verification and credit history checks. A compliant background screening process helps organizations hire with greater confidence while supporting legal and regulatory requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Does an FCRA-Compliant Background Screening Include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An FCRA-compliant background screening follows the requirements and other applicable employment laws. Typically, an FCRA-compliant screening includes: Candidate consent and authorization, Clear disclosure before screening, Criminal background checks, Employment and education verification, Identity verification, Adverse action procedures when required, Secure handling of candidate information. Employers must ensure screening is conducted fairly, transparently, and in compliance with federal and state employment regulations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Long Does Employment Verification Take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Employment verification timelines can vary depending on employer responsiveness and record availability. In most cases: Instant to 24 Hours for database or automated checks, 1-3 Business Days for standard employment verification, 3-5 Business Days for complex or international verifications. Delays may occur if previous employers are difficult to contact or require manual confirmation. Faster turnaround times are often possible with digital verification workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Criminal Background Checks Are Available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The type of criminal background checks available depends on job requirements. Common criminal screening options include: County Criminal Record Search, State Criminal Record Search, Federal Criminal Background Checks, National Criminal Database Search, Sex Offender Registry Checks, Global Watchlist Screening, Sanctions and Compliance Checks. Many employers combine multiple searches for a more comprehensive hiring risk assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is E-Verify Mandatory for Employers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "E-Verify requirements vary by employer type and state law. While E-Verify is not mandatory for all private employers nationwide, it may be required for: Federal contractors and subcontractors, Employers operating in certain states, Organizations with government contracts, Industries subject to specific compliance requirements. Many employers voluntarily use E-Verify to confirm work authorization and support compliant hiring practices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Is Form I-9?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Form I-9 (Employment Eligibility Verification) is a federal document used to confirm that an employee is authorized to work in the United States. Employers must complete Form I-9 for every employee hired in the US. The process includes: Section 1 - Employee identity and work authorization information, Section 2 - Employer review of identity and employment eligibility documents, Section 3 - Reverification or rehire updates when required. Proper I-9 management helps employers maintain compliance and prepare for potential audits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How Does Drug Testing Work in Pre-Employment Screening?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pre-employment drug testing helps employers maintain safer workplaces and meet industry compliance requirements. The process typically includes: Candidate authorization, Lab appointment scheduling, Sample collection (urine, saliva, hair, or blood depending on requirements), Laboratory testing and review, Secure reporting of results. Drug testing policies vary based on state laws, employer policies, and industry regulations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can You Screen International Candidates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. International candidate screening can include: Global employment verification, International education verification, Identity verification, Criminal record screening (where legally available), Professional credential verification, Work authorization checks. International background screening is especially useful for organizations hiring remote employees, visa holders, expatriates, or globally mobile talent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do You Support Staffing Agencies and High-Volume Hiring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Background screening solutions can be customized for staffing agencies, recruitment firms, and organizations with high-volume hiring needs. Support typically includes: Fast turnaround times, Bulk candidate processing, ATS and HRMS integrations, Scalable workflows, Compliance-ready reporting, Dedicated account management. This helps staffing teams reduce delays and accelerate candidate onboarding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Industries Require Background Screening?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Background screening is commonly used across industries where trust, safety, compliance, and risk reduction are important. Industries that frequently require screening include: Healthcare - Patient safety, credential verification, and regulatory compliance, Financial Services - Fraud prevention and financial responsibility checks, Information Technology (IT) - Identity verification and secure workforce hiring, Staffing & Recruitment - Rapid onboarding and workforce reliability, Transportation & Logistics - Motor vehicle records (MVR) and driver screening, Hospitality - Customer safety and workforce trust, Manufacturing - Workplace safety and operational risk management, Government & Federal Contractors - Compliance-driven employment verification."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary: #1ac2c1;
+        --primary-dark: #16a8a7;
+        --primary-light: #e0f7f7;
+        --dark: #0f172a;
+        --navy: #1e293b;
+        --gray: #64748b;
+        --light-gray: #f8fafc;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+     
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile navbar collapse background */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 100px;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+/* CTA Button - Talk to Sales */
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+/* Login Button */
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR - WHITE ARROW REMOVED
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Remove Bootstrap's default white arrow from country selector */
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Style the custom chevron icon */
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+/* Rotate chevron when dropdown is open */
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+      /* USA Hero Section - EXACT SAME STRUCTURE */
+      .usa-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #eff6ff 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .usa-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .usa-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+
+      .usa-hero h1 {
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+
+      .usa-hero .lead {
+        font-size: 1.35rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+
+      /* Stats Visual - EXACT SAME AS OTHER COUNTRIES */
+      .usa-stats-visual {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .map-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .usa-map-outline {
+        width: 400px;
+        height: 250px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light) 0%,
+          rgba(26, 194, 193, 0.1) 100%
+        );
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border: 2px solid var(--primary);
+        box-shadow: 0 20px 50px rgba(26, 194, 193, 0.15);
+      }
+
+      .usa-map-outline i {
+        font-size: 5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .usa-map-outline span {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .stat-card {
+        position: absolute;
+        background: white;
+        padding: 1.2rem 1.8rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        animation: float 3s ease-in-out infinite;
+        border: 1px solid #e2e8f0;
+      }
+
+      .stat-card:nth-child(2) {
+        top: 10%;
+        left: 0;
+        animation-delay: 0s;
+      }
+
+      .stat-card:nth-child(3) {
+        top: 10%;
+        right: 0;
+        animation-delay: 0.5s;
+      }
+
+      .stat-card:nth-child(4) {
+        bottom: 10%;
+        left: -20px;
+        animation-delay: 1s;
+      }
+
+      .stat-card:nth-child(5) {
+        bottom: 10%;
+        right: -20px;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-light);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+
+      .stat-text h4 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin: 0;
+        line-height: 1;
+      }
+
+      .stat-text p {
+        font-size: 0.85rem;
+        color: var(--gray);
+        margin: 0;
+        margin-top: 4px;
+      }
+
+      /* Section Headers */
+      .section-header {
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 700px;
+        line-height: 1.7;
+      }
+
+      /* Compliance Section */
+      .compliance-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .compliance-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .compliance-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .compliance-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .compliance-card:hover .compliance-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .compliance-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .compliance-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .compliance-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #dcfce7;
+        color: #166534;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Migration Section - EXACT SAME AS USA/UK/UAE */
+      .migration-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .migration-section::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.08) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .migration-visual {
+        position: relative;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .globe-container {
+        position: relative;
+        width: 350px;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .globe-ring {
+        position: absolute;
+        border: 2px dashed rgba(26, 194, 193, 0.3);
+        border-radius: 50%;
+        animation: rotate 30s linear infinite;
+      }
+
+      .globe-ring:nth-child(1) {
+        width: 350px;
+        height: 350px;
+        animation-duration: 30s;
+      }
+
+      .globe-ring:nth-child(2) {
+        width: 250px;
+        height: 250px;
+        animation-duration: 20s;
+        animation-direction: reverse;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .globe-center {
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 50px rgba(26, 194, 193, 0.2);
+        z-index: 5;
+        border: 4px solid var(--primary-light);
+      }
+
+      .globe-center i {
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .globe-center span {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        text-align: center;
+      }
+
+      .migration-node {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 3px solid white;
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+
+      .migration-node:hover {
+        transform: scale(1.1);
+        border-color: var(--primary);
+      }
+
+      .migration-node i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 2px;
+      }
+
+      .migration-node span {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      /* Positioning nodes around the globe */
+      .migration-node:nth-child(4) {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .migration-node:nth-child(5) {
+        top: 15%;
+        right: 5%;
+      }
+      .migration-node:nth-child(6) {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+      .migration-node:nth-child(7) {
+        bottom: 15%;
+        right: 5%;
+      }
+      .migration-node:nth-child(8) {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .migration-node:nth-child(9) {
+        bottom: 15%;
+        left: 5%;
+      }
+      .migration-node:nth-child(10) {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .migration-node:nth-child(11) {
+        top: 15%;
+        left: 5%;
+      }
+
+      .migration-stat-card {
+        position: absolute;
+        background: white;
+        padding: 1rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        animation: float 3s ease-in-out infinite;
+        border: 1px solid #e2e8f0;
+      }
+
+      .migration-stat-card.top-right {
+        top: 5%;
+        right: -20px;
+        animation-delay: 0.5s;
+      }
+
+      .migration-stat-card.bottom-left {
+        bottom: 5%;
+        left: -20px;
+        animation-delay: 1s;
+      }
+
+      .migration-feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .migration-feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .migration-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .migration-feature-card:hover .migration-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .migration-feature-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .migration-feature-card p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .visa-tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* E-Verify Section - Dark Theme (Matching Other Country Special Sections) */
+      .everify-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .everify-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .everify-section .section-title {
+        color: white;
+      }
+
+      .everify-section .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .everify-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .everify-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+        border-color: var(--primary);
+      }
+
+      .everify-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--primary);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .everify-card:hover .everify-icon {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
+      }
+
+      .everify-card h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .everify-card p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .everify-feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .everify-feature i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-top: 2px;
+      }
+
+      .everify-feature h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 0.25rem;
+      }
+
+      .everify-feature p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      .everify-tag {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: rgba(26, 194, 193, 0.15);
+        color: var(--primary);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .service-card {
+        background: var(--light-gray);
+        border-radius: 20px;
+        padding: 2.5rem;
+        height: 100%;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .service-card:hover {
+        background: white;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .service-icon {
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .service-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .service-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .service-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--navy);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .service-list li i {
+        color: var(--primary);
+        font-size: 1rem;
+      }
+
+      /* Industries Grid */
+      .industries-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .industry-item {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+      }
+
+      .industry-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .industry-item i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .industry-item h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .industry-item p {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin: 0;
+      }
+
+      /* Trust Section - Dark Theme */
+      .trust-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .trust-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .trust-section .section-title {
+        color: white;
+      }
+
+      .trust-section .section-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .trust-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .trust-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .trust-stat {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .trust-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .trust-desc {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+      }
+
+      /* Process Section */
+      .process-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .process-step {
+        text-align: center;
+        position: relative;
+        padding: 2rem;
+      }
+
+      .process-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -50%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), transparent);
+        z-index: 0;
+      }
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-light);
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin: 0 auto 1.5rem;
+        position: relative;
+        z-index: 2;
+        background: white;
+      }
+
+      .process-step h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+
+      .process-step p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+        text-align: center;
+      }
+
+      .cta-box {
+        background: white;
+        border-radius: 24px;
+        padding: 4rem;
+        max-width: 900px;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      }
+
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .faq-accordion .accordion-item {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      }
+
+      .faq-accordion .accordion-button {
+        padding: 1.5rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--dark);
+        background: white;
+        border: none;
+        box-shadow: none;
+      }
+
+      .faq-accordion .accordion-button:not(.collapsed) {
+        color: var(--primary);
+        background: white;
+        box-shadow: none;
+      }
+
+      .faq-accordion .accordion-button:focus {
+        box-shadow: none;
+        border-color: transparent;
+      }
+
+      .faq-accordion .accordion-button::after {
+        background-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .faq-accordion .accordion-body {
+        padding: 0 2rem 1.5rem;
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .faq-accordion .accordion-body ul {
+        padding-left: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .faq-accordion .accordion-body li {
+        margin-bottom: 0.3rem;
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .usa-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .usa-stats-visual {
+          height: 400px;
+          margin-top: 3rem;
+        }
+
+        .stat-card {
+          position: relative;
+          margin-bottom: 1rem;
+          animation: none;
+          width: 100%;
+        }
+
+        .usa-map-outline {
+          display: none;
+        }
+
+        .migration-visual {
+          height: 400px;
+          margin-top: 3rem;
+        }
+
+        .globe-container {
+          width: 280px;
+          height: 280px;
+        }
+
+        .globe-ring:nth-child(1) {
+          width: 280px;
+          height: 280px;
+        }
+
+        .globe-ring:nth-child(2) {
+          width: 200px;
+          height: 200px;
+        }
+
+        .migration-node {
+          width: 55px;
+          height: 55px;
+        }
+
+        .migration-node i {
+          font-size: 1.2rem;
+        }
+
+        .migration-node span {
+          font-size: 0.55rem;
+        }
+
+        .migration-stat-card {
+          position: relative;
+          margin-bottom: 1rem;
+          animation: none;
+        }
+
+        .process-step:not(:last-child)::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .usa-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .usa-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .cta-box {
+          padding: 3rem 2rem;
+        }
+
+        .stat-card {
+          position: static;
+          margin-bottom: 1rem;
+        }
+
+        .migration-visual {
+          height: auto;
+          padding: 2rem 0;
+        }
+
+        .migration-stat-card.top-right,
+        .migration-stat-card.bottom-left {
+          position: static;
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img
+            src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Solutions <span class="dropdown-arrow">▾</span>
+              </a>
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    >
+                    <a
+                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    >
+                    <a href="../checks/lp-employment.html" class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/lp-education check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    >
+                    <a
+                      href="../checks/LP-court verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    >
+                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    >
+                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    >
+
+                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    >
+                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    >
+                    <a
+                      href="../checks/lp-gap verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    >
+                    <a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    >
+                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    >
+                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    >
+                    <a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i>
+                       Vendor
+                      Digillencs</a
+                    >
+
+                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport Verification</a
+                    >
+
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/products-exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit
+                    interviews</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Industry <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-Manfacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <!--<<li>
+                  <a class="dropdown-item" href="./industries/lp-banks.html"
+                    ><i class="bi bi-shield-plus"></i> Insurance</a
+                  >
+                </li> -->
+                <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+            <li>
+                <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+       
+            <li>
+                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                    ><i class="bi bi-house"></i>
+                          Realestate & Construcataion</a
+                  >
+                </li>
+       
+            
+            <li>
+                <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i>Retail & E-commerce </a>
+                  
+                </li>
+       
+            
+            <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+             <!--  <li>
+                  <a class="dropdown-item" href="./industries/LP-FMCG.html"
+                    ><i class="bi bi-box-seam"></i> FMCG/FMCD</a
+                  >
+                </li> -->
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link "
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Resources <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar.html"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Company <span class="dropdown-arrow">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                  
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+      <!-- HELP CENTER Dropdown -->
+<li class="nav-item dropdown">
+  <a
+    class="nav-link "
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Help Center <span class="dropdown-arrow">▾</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="../helpcenter/customer.html"
+        ><i class="bi bi-building"></i> For Customers</a
+      >
+    </li>
+    <li>
+      <a class="dropdown-item" href="../helpcenter/partner.html"
+        ><i class="bi bi-people"></i> For Partners</a
+      >
+    </li>
+    <!--<<li>
+      <a class="dropdown-item" href="../affilate/affilate.html"
+        ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+      </a>
+    </li>-->
+  </ul>
+</li>
+          <div class="d-flex align-items-center">
+            <a href="https://web.verifitech.com/" target="blank" class="btn-login" style="text-decoration:none; color:black;"> Login</a>
+
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact.html" class="btn btn-sales"
+              >Talk to Sales</a
+            >
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇺🇸</span>
+                <span id="current-country">USA</span>
+                <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i>
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+              <!--  <li>
+                  <a
+                    href="../countries/usa.html"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li> -->
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./UAE.html"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./aus.html"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./uk.html"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="./singapore.html"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item country-option"
+                    href="../index.html"
+                    data-country="India"
+                    data-flag="🇮🇳"
+                  >
+                    <span class="country-flag">🇮🇳</span> India
+                  </a>
+                </li>
+                
+                        <li>
+                                <a class="dropdown-item country-option" href="../countries/Ireland.html" data-country="India" data-flag="🇮🇪">
+                                    <span class="country-flag">🇮🇪</span> Ireland
+                                </a>
+                            </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- USA Hero Section -->
+    <section class="usa-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 reveal">
+            <div class="usa-badge">
+              <i class="bi bi-shield-check"></i>
+              FCRA Compliant Solutions
+            </div>
+            <h1>Trusted US Background Screening Services for Faster, Smarter Hiring</h1>
+            <p class="lead">
+              Hire with confidence using compliant, accurate, and fast background screening solutions tailored for US and migration employers. We help business to reduce hiring risks while staying compliant with federal and state regulations.
+            </p>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#services" class="btn btn-primary-custom btn-lg">
+                Get Started <i class="bi bi-arrow-right"></i>
+              </a>
+              <a
+                href="../contact/contact.html"
+                class="btn btn-outline-dark btn-lg"
+                style="
+                  border-radius: 50px;
+                  padding: 1rem 2rem;
+                  font-weight: 600;
+                  border-width: 2px;
+                "
+              >
+                <i class="bi bi-chat-dots"></i> Talk to an Expert
+              </a>
+            </div>
+            <div class="mt-4 d-flex align-items-center gap-3">
+              <div class="d-flex">
+                <div
+                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    margin-right: -10px;
+                    border: 2px solid white;
+                    z-index: 3;
+                  "
+                >
+                  <i class="bi bi-check-lg text-success"></i>
+                </div>
+                <div
+                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    margin-right: -10px;
+                    border: 2px solid white;
+                    z-index: 2;
+                  "
+                >
+                  <i class="bi bi-check-lg text-success"></i>
+                </div>
+                <div
+                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                  style="
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid white;
+                    z-index: 1;
+                  "
+                >
+                  <i class="bi bi-check-lg text-success"></i>
+                </div>
+              </div>
+              <p class="mb-0 small text-muted">
+                Trusted by Fortune 500 companies & SMEs
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side - Stats Visual -->
+          <div class="col-lg-6 reveal">
+            <div class="usa-stats-visual">
+              <div class="map-container">
+                <div class="usa-map-outline">
+                  <i class="bi bi-map"></i>
+                  <span>50 States Covered</span>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-building"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>95%</h4>
+                    <p>Employers Screen</p>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>24-48hr</h4>
+                    <p>Average Turnaround</p>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>FCRA</h4>
+                    <p>Fully Compliant</p>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="bi bi-database"></i>
+                  </div>
+                  <div class="stat-text">
+                    <h4>500M+</h4>
+                    <p>Records Searched</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance-section" id="compliance">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-shield-lock"></i> Regulatory Compliance
+          </div>
+          <h2 class="section-title">Stay Compliant with Federal & State Background Screening Laws</h2>
+          <p class="section-desc mx-auto">
+            Hiring in the United States requires more than background check, it requires compliance, transparency, and accuracy.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h3>FCRA-Compliant</h3>
+              <p>
+                Stay aligned with federal hiring regulations through legally compliant background screening workflows, consent management, and adverse support.
+              </p>
+              <span class="compliance-badge">Federal Mandate</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-map"></i>
+              </div>
+              <h3>State by State Compliance</h3>
+              <p>
+                Different states have different rules. We help employers navigate screening restrictions and hiring laws.
+              </p>
+              <span class="compliance-badge">State & Local</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h3>Fair & Bias-Free Screening</h3>
+              <p>
+                Promote the hiring practices with transparent and standardised screening processes.
+              </p>
+              <span class="compliance-badge">EEOC Aligned</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                 <i class="bi bi-capsule"></i>
+              </div>
+              <h3>Drug Screening Support</h3>
+              <p>
+                Enable safer workplaces with screening solutions to role-specific requirements and employer policies.
+              </p>
+              <span class="compliance-badge">DOT & Non-DOT</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <h3>Credit & Financial Checks</h3>
+              <p>
+                Assess financial responsibility for regulated, finance-sensitive, or leadership roles where applicable.
+              </p>
+              <span class="compliance-badge">Restricted States</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="compliance-card">
+              <div class="compliance-icon">
+                <i class="bi bi-robot"></i>
+              </div>
+              <h3>AI-Enabled Screening Support</h3>
+              <p>
+                Speed up manual processes while maintaining accuracy, security, and compliance standards.
+              </p>
+              <span class="compliance-badge">EEOC Aligned</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Migration Section -->
+    <section class="migration-section" id="migration">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 reveal">
+            <div class="section-header">
+              <div class="section-subtitle">
+                <i class="bi bi-globe"></i> Global Workforce
+              </div>
+              <h2 class="section-title">
+                Screening for America's Diverse Workforce
+              </h2>
+              <p class="section-desc">
+                In US the workforce is increasingly from global with millions of employees coming from various countries. Hiring the international talent requires more standard screening —it demands compliant, accurate, and globally connected screening solutions. We help employers confidently screen for visa holders, foreign nationals, refugees, asylum seekers, and multinational candidates to supporting I-9 compliance, E-Verify requirements, and hiring practices under federal anti-discrimination laws.
+              </p>
+            </div>
+
+            <div class="row g-3 mt-4">
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">International Education Verification</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Global Employment Verification</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Identity & Address Validation</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Document Authentication Support</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Multilingual Coordination</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span class="fw-semibold small">Migration-Friendly Screening Process</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 reveal">
+            <div class="migration-visual">
+              <div class="globe-container">
+                <div class="globe-ring"></div>
+                <div class="globe-ring"></div>
+                <div class="globe-center">
+                  <i class="bi bi-people-fill"></i>
+                  <span>47M+ Foreign-Born Residents</span>
+                </div>
+
+                <!-- Migration nodes representing key origins -->
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Mexico</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>India</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>China</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Philippines</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>El Salvador</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Vietnam</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Cuba</span>
+                </div>
+                <div class="migration-node">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <span>Dominican Rep.</span>
+                </div>
+              </div>
+
+              <div class="migration-stat-card top-right">
+                <div class="stat-icon">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+                <div class="stat-text">
+                  <h4>28%</h4>
+                  <p>Of the US Workforce</p>
+                </div>
+              </div>
+
+              <div class="migration-stat-card bottom-left">
+                <div class="stat-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="stat-text">
+                  <h4>200+</h4>
+                  <p>Countries Covered</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-5">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-passport"></i>
+              </div>
+              <h3>Visa & Immigration Status Verification</h3>
+              <p>
+                Ensure employment eligibility with compliant processes for visa holders, work-authorized candidates and immigrant employees. We support hiring workflows aligned with E-Verify, I-9 documentation, and federal employment regulations helping employers reduce compliance risks without hiring practices.
+              </p>
+              <span class="visa-tag">H-1B, L-1, OPT, Green Card</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-globe-americas"></i>
+              </div>
+              <h3>International Verification</h3>
+              <p>
+                Verify international education, employment history and professional credentials through trusted verification networks across 200+ countries. Our multilingual capabilities expertise to help the employers to make informed hiring decisions with greater confidence.
+              </p>
+              <span class="visa-tag">200+ Countries</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-shield-exclamation"></i>
+              </div>
+              <h3>Refugee & Asylee Screening</h3>
+              <p>
+                Support and compliant hiring for refugees with specialized screening approaches with limited documentation histories. Our process prioritises the compliance, sensitivity and anti-discrimination standards while helping employers to manage workforce risk.
+              </p>
+              <span class="visa-tag">Specialized Protocols</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="migration-feature-card">
+              <div class="migration-icon">
+                <i class="bi bi-translate"></i>
+              </div>
+              <h3>Multilingual Candidate Support</h3>
+              <p>
+                Improve the experience through multilingual screening support, translated authorization forms and certified document translation. We help employers simplify onboarding for international hires while reducing communication barriers.
+              </p>
+              <span class="visa-tag">40+ Languages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- E-Verify Section - Dark Theme -->
+    <section class="everify-section" id="everify">
+      <div class="container">
+        <div class="section-header text-center reveal mb-5">
+          <div
+            class="section-subtitle justify-content-center"
+            style="background: rgba(255, 255, 255, 0.1); color: white"
+          >
+            <i class="bi bi-shield-check"></i> Federal Verification
+          </div>
+          <h2 class="section-title mb-3">E-Verify & I-9 Compliance Solutions</h2>
+          <p class="section-desc mx-auto">
+            Ensure the compliant hiring with secure and efficient employment eligibility verification solutions for US employers. Our E-Verify and Form I-9 management help to confirm the work authorization, simplify onboarding and maintain compliance with the federal employment regulations.
+          </p>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card">
+              <div class="everify-icon">
+                <i class="bi bi-person-check"></i>
+              </div>
+              <h3>Real-Time Employment Verification</h3>
+              <p>
+                Quickly confirm employee work authorization through DHS and SSA verification systems, help to reduce onboarding delays while maintaining compliant hiring workflows.
+              </p>
+              <span class="everify-tag">Instant Verification</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card">
+              <div class="everify-icon">
+                <i class="bi bi-exclamation-triangle"></i>
+              </div>
+              <h3>Tentative Nonconfirmation (TNC) Support</h3>
+              <p>
+                Manage Tentative Non confirmation (TNC) cases through structured workflows that prioritise employee rights, required notifications, and resolution tracking in accordance with federal guidelines.
+              </p>
+              <span class="everify-tag">TNC Management</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card">
+              <div class="everify-icon">
+                <i class="bi bi-building"></i>
+              </div>
+              <h3>Federal Contractor Compliance</h3>
+              <p>
+                Support regulated hiring requirements with FAR and E-Verify compliance solutions designed for federal contractors and subcontractors operating in regulated industries.
+              </p>
+              <span class="everify-tag">FAR Compliant</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card">
+              <div class="everify-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h3>I-9 Management</h3>
+              <p>
+                Digitize and simplify the Form I-9 completion, Section 2 and 3 workflows, re-verification tracking, and remote employee onboarding while maintaining secure documentation practices.
+              </p>
+              <span class="everify-tag">Digital Workflow</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card text-center">
+              <div class="everify-icon" style="margin: 0 auto 1rem auto;">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <h3>Digital I-9 Workflow</h3>
+              <p>
+                Streamlined electronic I-9 processing with smart form validation and error detection
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card text-center">
+              <div class="everify-icon" style="margin: 0 auto 1rem auto;">
+                <i class="bi bi-camera"></i>
+              </div>
+              <h3>Photo Matching Verification</h3>
+              <p>
+                Strengthen identity verification with photo matching technology that compares employee identity documents against authorized government verification systems
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card text-center">
+              <div class="everify-icon" style="margin: 0 auto 1rem auto;">
+                <i class="bi bi-journal-check"></i>
+              </div>
+              <h3>Audit Trails & Documentation</h3>
+              <p>
+                Maintain audit-ready records and secure reporting workflows for internal compliance, federal reviews and employment verification documentation requirements
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="everify-card text-center">
+              <div class="everify-icon" style="margin: 0 auto 1rem auto;">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h3>Anti-Discrimination Compliance</h3>
+              <p>
+                Support fair hiring practices through IRCA-compliant verification processes, helping employers to reduce risks related on citizenship status discrimination
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-grid-3x3-gap"></i> Our Services
+          </div>
+          <h2 class="section-title">Comprehensive US Background Screening Solutions</h2>
+          <p class="section-desc mx-auto">
+            Build a safer and more reliable workforce with tailored screening designed specially for US hiring requirements.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-search-heart"></i>
+              </div>
+              <h3>Criminal Background Checks</h3>
+              <p>
+                Search county, state, federal, and national criminal databases to support the safer hiring decisions.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> County Criminal Search
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> State Repository Checks
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Federal Criminal Records
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> National Criminal Database
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <h3>Employment Verification</h3>
+              <p>
+                Validate the candidate employment history, job titles, and tenure to reduce resume fraud.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Employment Verification
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Job Title Confirmation
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Tenure Validation
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Gap Analysis
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-mortarboard"></i>
+              </div>
+              <h3>Education Verification</h3>
+              <p>
+                Confirm the educational qualifications with the certifications from accredited institutions.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Degree Verification
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Institution Accreditation
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Enrollment Dates
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Professional Credentials
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-capsule"></i>
+              </div>
+              <h3>Drug & Health Screening</h3>
+              <p>
+                Promote workplace safety with pre-employment and periodic testing programs.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> 5-Panel & 10-Panel Tests
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> DOT Compliance</li>
+                <li><i class="bi bi-check-circle-fill"></i> Rapid Results</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Medical Review Officer
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-credit-card-2-front"></i>
+              </div>
+              <h3>Credit Checks</h3>
+              <p>
+                Assess financial reliability for finance, compliance, and leadership roles.
+              </p>
+              <ul class="service-list">
+                <li><i class="bi bi-check-circle-fill"></i> Credit Reports</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Bankruptcy Search
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Liens & Judgments
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Employment Credit
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-car-front"></i>
+              </div>
+              <h3>Driving & Motor Vehicle Records (MVR)</h3>
+              <p>
+                Verify the driving records for logistics, transportation, and fleet-based roles.
+              </p>
+              <ul class="service-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Commercial Driver Checks
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> DOT Compliance</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> CDIS Integration
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Continuous Monitoring
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 reveal offset-lg-4">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-globe-americas"></i>
+              </div>
+              <h3>Global Database Screening</h3>
+              <p>
+                Conduct international screening for globally mobile talent.
+              </p>
+              <ul class="service-list">
+                <li><i class="bi bi-check-circle-fill"></i> 200+ Countries</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> International Criminal
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Global Watchlists
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Work Authorization
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section" id="industries">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-briefcase"></i> Industries Served
+          </div>
+          <h2 class="section-title">Trusted Background Screening Across Key US Industries</h2>
+          <p class="section-desc mx-auto">
+            Every industry faces unique hiring risks. Our tailored screening programs are designed to meet sector-specific hiring and compliance requirements.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-heart-pulse"></i>
+              <h3>Healthcare</h3>
+              <p>
+                Protect patients and maintain regulatory standards through thorough workforce screening.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-bank"></i>
+              <h3>Financial Services</h3>
+              <p>
+                Reduce fraud risks with deeper financial and compliance-focused verifications.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-truck"></i>
+              <h3>Transportation & Logistics</h3>
+              <p>
+                Hire safer drivers through MVR checks and safety-focused screening.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-laptop"></i>
+              <h3>Technology</h3>
+              <p>
+                Scale hiring quickly while protecting intellectual property and organizational trust.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-shop"></i>
+              <h3>Hospitality</h3>
+              <p>
+                Ensure safer guest experiences through workforce verification.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-building-gear"></i>
+              <h3>Manufacturing</h3>
+              <p>
+                Maintain workplace safety and operational reliability.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-person-workspace"></i>
+              <h3>Staffing & Recruitment</h3>
+              <p>Speed up placements with faster verification turnaround times.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="industry-item">
+              <i class="bi bi-shield-shaded"></i>
+              <h3>Government Contractors</h3>
+              <p>Support regulated hiring environments with compliant screening practices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div
+            class="section-subtitle justify-content-center"
+            style="background: rgba(255, 255, 255, 0.1); color: white"
+          >
+            <i class="bi bi-award"></i> Why Employers Choose Us
+          </div>
+          <h2 class="section-title">Trusted by Employers Nationwide</h2>
+          <p class="section-desc mx-auto">
+            Organizations across the United States trust our screening solutions to make confident hiring decisions. We combine speed, compliance, and accuracy to support safer hiring outcomes.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">Millions</div>
+              <div class="trust-label">Records Screened</div>
+              <p class="trust-desc">
+                Millions of background records processed with precision and compliance
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">99.9%</div>
+              <div class="trust-label">Data Accuracy Commitment</div>
+              <p class="trust-desc">
+                Industry-leading accuracy with primary source verification on all checks
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">24/7</div>
+              <div class="trust-label">Customer Support</div>
+              <p class="trust-desc">
+                Round-the-clock support from US-based compliance experts
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">50</div>
+              <div class="trust-label">States Covered</div>
+              <p class="trust-desc">
+                Fast turnaround across all 50 states with local compliance expertise
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-list-check"></i> How It Works
+          </div>
+          <h2 class="section-title">A Simple, Compliant Hiring Process</h2>
+          <p class="section-desc mx-auto">
+            Streamlined screening that protects both your company and candidates' rights
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Submit Candidate Information</h3>
+              <p>
+                Initiate background screening securely through our platform or integrated workflow.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Consent & Verification</h3>
+              <p>
+                Candidates complete the authorization and identity verification in compliance FCRA guidelines.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>Screening & Review</h3>
+              <p>
+                Our team conducts background verification through the trusted and compliant sources.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 reveal">
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>Receive Clear Reports</h3>
+              <p>
+                Access detailed, actionable reports that support faster hiring decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div
+            class="usa-badge justify-content-center mb-3"
+            style="display: inline-flex"
+          >
+            <i class="bi bi-stars"></i> Start Screening Today
+          </div>
+          <h2 class="section-title mb-3">Ready to Build a Safer Hiring Process?</h2>
+          <p class="text-muted mb-4" style="font-size: 1.1rem">
+            Whether you are hiring at scale or filling critical roles, our US background screening solutions help reduce hiring risks while ensuring the compliance and candidate trust.
+          </p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="../contact/contact.html" class="btn btn-primary-custom btn-lg">
+              <i class="bi bi-calendar-check"></i> Schedule a Consultation
+            </a>
+            <a
+              href="#"
+              class="btn btn-outline-dark btn-lg"
+              style="
+                border-radius: 50px;
+                padding: 1rem 2.5rem;
+                font-weight: 600;
+                border-width: 2px;
+              "
+            >
+              <i class="bi bi-play-circle"></i> Request a Demo
+            </a>
+          </div>
+          <p class="mt-4 mb-0 text-muted small">
+            Questions about FCRA compliance or global workforce screening? Speak
+            to our US compliance experts at
+            <a
+              href="tel:+18001234567"
+              style="color: var(--primary); font-weight: 600"
+              >1-800-123-4567</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-question-circle"></i> FAQs
+          </div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc mx-auto">
+            Get answers to common questions about our US background screening services
+          </p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="accordion faq-accordion reveal" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                    What is Employment Background Screening?
+                  </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Employment background screening is the process of verifying a candidate's identity, employment history, education, criminal records and work eligibility before hiring. Employers use background screening to reduce hiring risks, maintain workplace safety, and make more informed hiring decisions. Depending on the role and industry, screening may include criminal background checks, employment verification, education verification, reference checks, drug testing, identity verification and credit history checks. A compliant background screening process helps organizations hire with greater confidence while supporting legal and regulatory requirements.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                    What Does an FCRA-Compliant Background Screening Include?
+                  </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    An FCRA-compliant background screening follows the requirements and other applicable employment laws. Typically, an FCRA-compliant screening includes:
+                    <ul>
+                      <li>Candidate consent and authorization</li>
+                      <li>Clear disclosure before screening</li>
+                      <li>Criminal background checks</li>
+                      <li>Employment and education verification</li>
+                      <li>Identity verification</li>
+                      <li>Adverse action procedures when required</li>
+                      <li>Secure handling of candidate information</li>
+                    </ul>
+                    Employers must ensure screening is conducted fairly, transparently, and in compliance with federal and state employment regulations.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                    How Long Does Employment Verification Take?
+                  </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Employment verification timelines can vary depending on employer responsiveness and record availability. In most cases:
+                    <ul>
+                      <li><strong>Instant to 24 Hours</strong> → Database or automated checks</li>
+                      <li><strong>1-3 Business Days</strong> → Standard employment verification</li>
+                      <li><strong>3-5 Business Days</strong> → Complex or international verifications</li>
+                    </ul>
+                    Delays may occur if previous employers are difficult to contact or require manual confirmation. Faster turnaround times are often possible with digital verification workflows.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                    What Criminal Background Checks Are Available?
+                  </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    The type of criminal background checks available depends on job requirements. Common criminal screening options include:
+                    <ul>
+                      <li>County Criminal Record Search</li>
+                      <li>State Criminal Record Search</li>
+                      <li>Federal Criminal Background Checks</li>
+                      <li>National Criminal Database Search</li>
+                      <li>Sex Offender Registry Checks</li>
+                      <li>Global Watchlist Screening</li>
+                      <li>Sanctions and Compliance Checks</li>
+                    </ul>
+                    Many employers combine multiple searches for a more comprehensive hiring risk assessment.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                    Is E-Verify Mandatory for Employers?
+                  </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    E-Verify requirements vary by employer type and state law. While E-Verify is not mandatory for all private employers nationwide, it may be required for:
+                    <ul>
+                      <li>Federal contractors and subcontractors</li>
+                      <li>Employers operating in certain states</li>
+                      <li>Organizations with government contracts</li>
+                      <li>Industries subject to specific compliance requirements</li>
+                    </ul>
+                    Many employers voluntarily use E-Verify to confirm work authorization and support compliant hiring practices.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                    What Is Form I-9?
+                  </button>
+                </h2>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Form I-9 (Employment Eligibility Verification) is a federal document used to confirm that an employee is authorized to work in the United States. Employers must complete Form I-9 for every employee hired in the US. The process includes:
+                    <ul>
+                      <li><strong>Section 1</strong> - Employee identity and work authorization information</li>
+                      <li><strong>Section 2</strong> - Employer review of identity and employment eligibility documents</li>
+                      <li><strong>Section 3</strong> - Reverification or rehire updates when required</li>
+                    </ul>
+                    Proper I-9 management helps employers maintain compliance and prepare for potential audits.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                    How Does Drug Testing Work in Pre-Employment Screening?
+                  </button>
+                </h2>
+                <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Pre-employment drug testing helps employers maintain safer workplaces and meet industry compliance requirements. The process typically includes:
+                    <ul>
+                      <li>Candidate authorization</li>
+                      <li>Lab appointment scheduling</li>
+                      <li>Sample collection (urine, saliva, hair, or blood depending on requirements)</li>
+                      <li>Laboratory testing and review</li>
+                      <li>Secure reporting of results</li>
+                    </ul>
+                    Drug testing policies vary based on state laws, employer policies, and industry regulations.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                    Can You Screen International Candidates?
+                  </button>
+                </h2>
+                <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Yes. International candidate screening can include:
+                    <ul>
+                      <li>Global employment verification</li>
+                      <li>International education verification</li>
+                      <li>Identity verification</li>
+                      <li>Criminal record screening (where legally available)</li>
+                      <li>Professional credential verification</li>
+                      <li>Work authorization checks</li>
+                    </ul>
+                    International background screening is especially useful for organizations hiring remote employees, visa holders, expatriates, or globally mobile talent.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                    Do You Support Staffing Agencies and High-Volume Hiring?
+                  </button>
+                </h2>
+                <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Yes. Background screening solutions can be customized for staffing agencies, recruitment firms, and organizations with high-volume hiring needs. Support typically includes:
+                    <ul>
+                      <li>Fast turnaround times</li>
+                      <li>Bulk candidate processing</li>
+                      <li>ATS and HRMS integrations</li>
+                      <li>Scalable workflows</li>
+                      <li>Compliance-ready reporting</li>
+                      <li>Dedicated account management</li>
+                    </ul>
+                    This helps staffing teams reduce delays and accelerate candidate onboarding.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                    Which Industries Require Background Screening?
+                  </button>
+                </h2>
+                <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    Background screening is commonly used across industries where trust, safety, compliance, and risk reduction are important. Industries that frequently require screening include:
+                    <ul>
+                      <li><strong>Healthcare</strong> - Patient safety, credential verification, and regulatory compliance</li>
+                      <li><strong>Financial Services</strong> - Fraud prevention and financial responsibility checks</li>
+                      <li><strong>Information Technology (IT)</strong> - Identity verification and secure workforce hiring</li>
+                      <li><strong>Staffing & Recruitment</strong> - Rapid onboarding and workforce reliability</li>
+                      <li><strong>Transportation & Logistics</strong> - Motor vehicle records (MVR) and driver screening</li>
+                      <li><strong>Hospitality</strong> - Customer safety and workforce trust</li>
+                      <li><strong>Manufacturing</strong> - Workplace safety and operational risk management</li>
+                      <li><strong>Government & Federal Contractors</strong> - Compliance-driven employment verification</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="footer">
+      <div class="container">
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../contact/contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
+            <ul class="footer-links">
+              <li>
+                <a href="../products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                 reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/verifitech/" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <!-- <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a> -->
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="./privacy-separator">|</span>  
+            <a href="./Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp Button -->
+<a 
+  href="#" 
+  id="whatsappFloat"
+  class="whatsapp-float" 
+  title="Chat with us on WhatsApp"
+  onclick="openWhatsApp(event)"
+  style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
+>
+  <i class="bi bi-whatsapp" style="font-size: 1.8rem;"></i>
+  <span class="float-tooltip" style="position: absolute; right: 70px; background: #333; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; pointer-events: none;">How can we help?</span>
+</a>
+
+
+<style>
+  .whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: white;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+  }
+  
+  .whatsapp-float:hover .float-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+  
+  .float-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #333;
+  }
+  
+  .social-icon:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+  }
+  
+  .footer-links a:hover {
+    color: var(--primary) !important;
+    transform: translateX(5px);
+  }
+  
+  .privacy-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline;
+  }
+  
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+  }
+  
+  .newsletter-btn:hover i {
+    transform: translateX(4px);
+  }
+  
+  @media (max-width: 991px) {
+    .whatsapp-float {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    
+    .float-tooltip {
+      display: none;
+    }
+    
+    .newsletter-footer-section {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .newsletter-footer-section .d-flex {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .newsletter-icon-footer {
+      margin: 0 auto;
+    }
+    
+    .input-group-wrapper {
+      flex-direction: column;
+    }
+    
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+    }
+  }
+
+     .footer {
+  background:#f8fafc;
+  color: var(--dark);
+  padding: 80px 0 40px;
+}
+
+.footer-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.footer-brand span {
+  color: var(--primary);
+}
+
+.footer-desc {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.8;
+}
+
+.footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd5e1;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* Compliance Badges */
+.compliance-badges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.comp-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
+
+/* ============================================
+   NEWSLETTER FOOTER SECTION
+   ============================================ */
+
+.newsletter-footer-section {
+  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-footer-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.newsletter-icon-footer {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+}
+
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.newsletter-subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.newsletter-form-footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.input-group-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.zf-tempContDiv {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--dark);
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
+
+.zf-errorMessage {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.zf-errorMessage::before {
+  content: '\F332';
+  font-family: 'bootstrap-icons';
+  font-size: 0.8rem;
+}
+
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  font-family: 'Inter', sans-serif;
+  height: fit-content;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+.newsletter-btn i {
+  transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover i {
+  transform: translateX(4px);
+}
+
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.newsletter-disclaimer {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.newsletter-disclaimer i {
+  color: var(--primary);
+}
+
+.zf-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.zf-success {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.footer-main-content {
+  margin-top: 20px;
+}
+
+.privacy-row {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.privacy-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}checks
+
+.privacy-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.privacy-separator {
+  margin: 0 10px;
+  color: #cbd5e1;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--gray);
+}
+
+.footer-heading {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.copyright 
+{
+  font-size: 14px;
+  margin: 0;
+  color: var(--gray);
+}
+</style>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // WhatsApp Functionality
+  const whatsappConfig = {
+    phoneNumber: '+919176663777',
+    defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
+    pageContext: true
+  };
+
+  function openWhatsApp(event) {
+    event.preventDefault();
+    
+    const pageTitle = document.title;
+    const currentUrl = window.location.href;
+    
+    let message = whatsappConfig.defaultMessage;
+    
+    if (whatsappConfig.pageContext && pageTitle) {
+      message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+     
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 100;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
