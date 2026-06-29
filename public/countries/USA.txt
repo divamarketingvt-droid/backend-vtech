@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,9 +8,76 @@
     <meta
       name="description"
       content="Secure, fast, and FCRA-compliant US background screening services including criminal checks, employment verification, education checks, drug screening, and E-Verify solutions."
-    />
+    /><link rel="canonical" href="https://verifitech.com/us/background-screening" />
+    <link rel="alternate" hreflang="en-us" href="https://verifitech.com/us/background-
+screening" /><link rel="alternate" hreflang="en-gb"
+href="https://verifitech.com/uk/background-screening" /><link rel="alternate"
+hreflang="en-ae" href="https://verifitech.com/ae/background-screening" /><link
+rel="alternate" hreflang="en-au" href="https://verifitech.com/au/background-screening"
+/><link rel="alternate" hreflang="en-sg" href="https://verifitech.com/sg/background-
+screening" /><link rel="alternate" hreflang="en-ie"
+ 
+href="https://verifitech.com/ie/background-screening" /><link rel="alternate"
+hreflang="en-in" href="https://verifitech.com/index" /><link rel="alternate" hreflang="x-
+default" href="https://verifitech.com/index" />
+ <meta property="og:title" content="FCRA-Compliant Background Screening Services in
+the USA | Verifitech" /><meta property="og:description" content="Run background
+checks across all 50 US states — criminal, employment, E-Verify, I-9, and drug screening.
+24–48hr turnaround." /><meta property="og:url"
+content="https://verifitech.com/us/background-screening" /><meta property="og:type"
+content="website" /><meta property="og:image"
+content="https://verifitech.com/assets/us-og-image.jpg" /><meta name="twitter:card"
+content="summary_large_image" /><meta name="twitter:title" content="FCRA-
+Compliant Background Screening in the USA | Verifitech" />
+ 
 
     <!-- Schema Markup -->
+    <meta property="og:title" content="FCRA-Compliant Background Screening Services in
+the USA | Verifitech" /><meta property="og:description" content="Run background
+checks across all 50 US states — criminal, employment, E-Verify, I-9, and drug screening.
+24–48hr turnaround." /><meta property="og:url"
+content="https://verifitech.com/us/background-screening" /><meta property="og:type"
+content="website" /><meta property="og:image"
+content="https://verifitech.com/assets/us-og-image.jpg" /><meta name="twitter:card"
+content="summary_large_image" /><meta name="twitter:title" content="FCRA-
+Compliant Background Screening in the USA | Verifitech" />
+    <script type="application/ld+json">{  "@context": "https://schema.org",  "@type":
+"FAQPage",  "mainEntity": [    {      "@type": "Question",      "name": "What is employment
+background screening?",      "acceptedAnswer": {        "@type": "Answer",        "text":
+"Employment background screening is the process of verifying a candidate's identity,
+employment history, education, criminal records, and work eligibility before hiring. It
+helps employers reduce hiring risks and maintain workplace safety."      }    },    {      
+"@type": "Question",      "name": "Is E-Verify mandatory for US employers?",      
+"acceptedAnswer": {        "@type": "Answer",        "text": "E-Verify is not mandatory for all
+US private employers, but it is required for federal contractors, subcontractors, and
+employers in states including Arizona, Mississippi, and Alabama. Many employers use it
+voluntarily to confirm work authorization under DHS and SSA guidelines."      }    },    {      
+"@type": "Question",      "name": "How long does employment verification take?",      
+"acceptedAnswer": {        "@type": "Answer",        "text": "Database checks take instant to
+24 hours. Standard employment verification takes 1 to 3 business days. Complex or
+international verifications take 3 to 5 business days."      }    },    {      "@type": "Question",      
+"name": "What is Form I-9?",      "acceptedAnswer": {        "@type": "Answer",        "text":
+"Form I-9 is a federal document required for every employee hired in the US. It confirms
+the employee is authorized to work in the United States. Employers must complete it for
+all new hires and retain it for audit purposes."      }    },    {      "@type": "Question",      
+"name": "What criminal background checks are available?",      "acceptedAnswer": {        
+"@type": "Answer",        "text": "Available criminal background checks include county
+criminal record search, state criminal record search, federal criminal background
+checks, national criminal database search, sex offender registry checks, global
+watchlist screening, and sanctions and compliance checks."      }    },    {      "@type":
+"Question",      "name": "Can you screen international candidates?",      "acceptedAnswer":
+{        "@type": "Answer",        "text": "Yes. International candidate screening includes
+global employment verification, international education verification, identity verification,
+criminal record screening where legally available, professional credential verification,
+and work authorization checks across 200 plus countries."      }    }  ]}</script>
+    <script type="application/ld+json">{  "@context": "https://schema.org",  "@type":
+"BreadcrumbList",  "itemListElement": [    {      "@type": "ListItem",      "position": 1,      
+"name": "Home",      "item": "https://verifitech.com"    },    {      "@type": "ListItem",      
+"position": 2,      "name": "Countries",      "item": "https://verifitech.com/countries/"    },    {      
+"@type": "ListItem",      "position": 3,      "name": "USA Background Screening",      "item":
+"https://verifitech.com/countries/usa.html"    }  ]}</script>
+ 
+   
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1673,8 +1741,7 @@ html {
                     >
                     <a class="dropdown-item" href="../checks/vendor.html"
                       ><i class="fa-solid fa-magnifying-glass"></i>
-                       Vendor
-                      Digillencs</a
+                      Vendor Due DiligencePolice Clearnce</a
                     >
 
                     <a href="../checks/lp-passport verification.html" class="dropdown-item"
@@ -1779,14 +1846,14 @@ html {
                   >
                 </li>
        
-            
+           
             <li>
                 <a class="dropdown-item" href="../industries/Retail & E-commerce.html"
                     ><i class="bi bi-shop"></i>Retail & E-commerce </a>
-                  
+                 
                 </li>
        
-            
+           
             <li>
                   <a
                     class="dropdown-item"
@@ -1865,7 +1932,7 @@ html {
                 Company <span class="dropdown-arrow">▾</span>
               </a>
               <ul class="dropdown-menu">
-                  
+                 
                 <li>
                   <a class="dropdown-item" href="../company/partnership.html"
                     ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
@@ -2000,7 +2067,7 @@ html {
                     <span class="country-flag">🇮🇳</span> India
                   </a>
                 </li>
-                
+               
                         <li>
                                 <a class="dropdown-item country-option" href="../countries/Ireland.html" data-country="India" data-flag="🇮🇪">
                                     <span class="country-flag">🇮🇪</span> Ireland
@@ -2022,9 +2089,12 @@ html {
               <i class="bi bi-shield-check"></i>
               FCRA Compliant Solutions
             </div>
-            <h1>Trusted US Background Screening Services for Faster, Smarter Hiring</h1>
+            <h1>FCRA-Compliant Background Screening Services in the USA | Verifitech </h1>
             <p class="lead">
-              Hire with confidence using compliant, accurate, and fast background screening solutions tailored for US and migration employers. We help business to reduce hiring risks while staying compliant with federal and state regulations.
+             FCRA-compliant background checks across all 50 US states —
+criminal records, employment and education verification, E-Verify, I-9, and drug
+screening. 24–48hr turnaround. Get a free demo.
+ 
             </p>
             <div class="d-flex gap-3 flex-wrap">
               <a href="#services" class="btn btn-primary-custom btn-lg">
@@ -2250,7 +2320,12 @@ html {
                 Screening for America's Diverse Workforce
               </h2>
               <p class="section-desc">
-                In US the workforce is increasingly from global with millions of employees coming from various countries. Hiring the international talent requires more standard screening —it demands compliant, accurate, and globally connected screening solutions. We help employers confidently screen for visa holders, foreign nationals, refugees, asylum seekers, and multinational candidates to supporting I-9 compliance, E-Verify requirements, and hiring practices under federal anti-discrimination laws.
+               he US workforce is one of the most globally diverse in the world — with
+over 47 million foreign-born workers representing 28% of the total labor force. Hiring
+international talent demands more than a standard background check. It requires
+compliance with E-Verify, I-9, and federal anti-discrimination laws, plus the ability to
+verify credentials from over 200 countries.
+
               </p>
             </div>
 
@@ -2420,9 +2495,12 @@ html {
           >
             <i class="bi bi-shield-check"></i> Federal Verification
           </div>
-          <h2 class="section-title mb-3">E-Verify & I-9 Compliance Solutions</h2>
+          <h2 class="section-title mb-3"> E-Verify and Form I-9 Compliance for US Employers </h2>
           <p class="section-desc mx-auto">
-            Ensure the compliant hiring with secure and efficient employment eligibility verification solutions for US employers. Our E-Verify and Form I-9 management help to confirm the work authorization, simplify onboarding and maintain compliance with the federal employment regulations.
+           Confirm work authorization, simplify Form I-9 completion, and maintain
+full compliance with federal employment eligibility requirements — from initial
+verification to re-verification and audit readiness.
+
           </p>
         </div>
 
@@ -2827,8 +2905,9 @@ html {
         <div class="row g-4">
           <div class="col-md-6 col-lg-3 reveal">
             <div class="trust-card">
-              <div class="trust-stat">Millions</div>
-              <div class="trust-label">Records Screened</div>
+              <div class="trust-stat">500M+</div>
+              <div class="trust-label">Background records searched across our database network
+Primary source</div>
               <p class="trust-desc">
                 Millions of background records processed with precision and compliance
               </p>
@@ -3213,29 +3292,29 @@ html {
             </div>
             <div class="col-lg-6">
               <!-- Zoho Form Integration -->
-              <form 
-                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+              <form
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit'
                 name='form'
                 method='POST'
                 onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
-                accept-charset='UTF-8' 
-                enctype='multipart/form-data' 
+                accept-charset='UTF-8'
+                enctype='multipart/form-data'
                 id='form'
                 class="newsletter-form-footer"
               >
                 <input type="hidden" name="zf_referrer_name" value="">
                 <input type="hidden" name="zf_redirect_url" value="">
                 <input type="hidden" name="zc_gad" value="">
-                
+               
                 <div class="input-group-wrapper">
                   <div class="zf-tempContDiv">
-                    <input 
-                      type="text" 
-                      name="Email" 
-                      checktype="c5" 
-                      value="" 
-                      maxlength="255" 
-                      fieldType="9" 
+                    <input
+                      type="text"
+                      name="Email"
+                      checktype="c5"
+                      value=""
+                      maxlength="255"
+                      fieldType="9"
                       placeholder="Enter your work email"
                       class="newsletter-input"
                       id="Email"
@@ -3253,7 +3332,7 @@ html {
             </div>
           </div>
         </div>
-        
+       
         <div class="row footer-main-content">
           <!-- Logo & Description Column -->
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
@@ -3329,7 +3408,7 @@ html {
           <div class="row align-items-center">
             <div class="col-md-6">
               <p class="copyright">
-                © 2026 Verifitech Solutions Private Limited. All rights
+                © 2026 Verifitech  Private Limited. All rights
                  reserved.
               </p>
             </div>
@@ -3345,7 +3424,7 @@ html {
               </div>
             </div>
           </div>
-          
+         
           <!-- Privacy Policy Row -->
           <div class="privacy-row">
             <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
@@ -3362,10 +3441,10 @@ html {
 
 <!-- Floating WhatsApp Button -->
 <!-- Floating WhatsApp Button -->
-<a 
-  href="#" 
+<a
+  href="#"
   id="whatsappFloat"
-  class="whatsapp-float" 
+  class="whatsapp-float"
   title="Chat with us on WhatsApp"
   onclick="openWhatsApp(event)"
   style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 9999; transition: all 0.3s ease; border: 3px solid rgba(255, 255, 255, 0.3); cursor: pointer;"
@@ -3381,13 +3460,13 @@ html {
     color: white;
     box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
   }
-  
+ 
   .whatsapp-float:hover .float-tooltip {
     opacity: 1;
     visibility: visible;
     right: 75px;
   }
-  
+ 
   .float-tooltip::after {
     content: '';
     position: absolute;
@@ -3398,32 +3477,32 @@ html {
     border-bottom: 5px solid transparent;
     border-left: 5px solid #333;
   }
-  
+ 
   .social-icon:hover {
     background: var(--primary) !important;
     color: white !important;
     transform: translateY(-3px);
   }
-  
+ 
   .footer-links a:hover {
     color: var(--primary) !important;
     transform: translateX(5px);
   }
-  
+ 
   .privacy-link:hover {
     color: var(--primary-dark) !important;
     text-decoration: underline;
   }
-  
+ 
   .newsletter-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
   }
-  
+ 
   .newsletter-btn:hover i {
     transform: translateX(4px);
   }
-  
+ 
   @media (max-width: 991px) {
     .whatsapp-float {
       width: 55px;
@@ -3431,43 +3510,43 @@ html {
       bottom: 20px;
       right: 20px;
     }
-    
+   
     .whatsapp-float i {
       font-size: 1.5rem;
     }
-    
+   
     .float-tooltip {
       display: none;
     }
-    
+   
     .newsletter-footer-section {
       padding: 30px;
       text-align: center;
     }
-    
+   
     .newsletter-footer-section .d-flex {
       flex-direction: column;
       text-align: center;
     }
-    
+   
     .newsletter-icon-footer {
       margin: 0 auto;
     }
-    
+   
     .input-group-wrapper {
       flex-direction: column;
     }
-    
+   
     .newsletter-btn {
       width: 100%;
       justify-content: center;
     }
-    
+   
     .social-links {
       justify-content: center;
       margin-top: 20px;
     }
-    
+   
     .copyright {
       text-align: center;
     }
@@ -3811,7 +3890,7 @@ html {
   gap: 15px;
 }
 
-.copyright 
+.copyright
 {
   font-size: 14px;
   margin: 0;
@@ -3831,19 +3910,19 @@ html {
 
   function openWhatsApp(event) {
     event.preventDefault();
-    
+   
     const pageTitle = document.title;
     const currentUrl = window.location.href;
-    
+   
     let message = whatsappConfig.defaultMessage;
-    
+   
     if (whatsappConfig.pageContext && pageTitle) {
       message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
     }
-    
+   
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
-    
+   
     window.open(whatsappUrl, '_blank');
   }
       // Navbar scroll effect
