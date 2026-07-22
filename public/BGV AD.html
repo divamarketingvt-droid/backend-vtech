@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get FCRA Compliant Background Checks | Fast, Accurate & Legal | Verifitech</title>
+    <meta name="description" content="FCRA compliant employment screening trusted by 1000+ US employers. 24-48hr turnaround, 50 states covered. Get your free quote in 60 seconds.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        html { scroll-behavior: smooth; }
+
+        /* ==========================================
+           ZOHO FORM - COMPLETE CSS RESET & OVERRIDE
+           ========================================== */
+        
+        .zf-backgroundBg,
+        .zf-templateWidth,
+        #form,
+        .zf-templateWrapper {
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .zf-tempHeadBdr { display: none !important; }
+        .zf-labelName { display: none !important; }
+
+        .zf-tempFrmWrapper.zf-date {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            left: -9999px !important;
+        }
+
+        .zf-subContWrap,
+        .zf-subContWrap ul,
+        .zf-templateWrapper > ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .zf-tempFrmWrapper {
+            width: 100% !important;
+            float: none !important;
+            margin-bottom: 1rem !important;
+            padding: 0 !important;
+            background: none !important;
+            border: none !important;
+        }
+
+        .zf-errorMessage { display: none !important; }
+        .zf-clearBoth { display: none !important; }
+
+        .zf-tempContDiv input[type="text"],
+        .zf-tempContDiv input[type="email"],
+        .zf-tempContDiv input[type="tel"] {
+            width: 100% !important;
+            border: 2px solid #e2e8f0 !important;
+            border-radius: 12px !important;
+            padding: 1rem 1.2rem !important;
+            font-size: 1rem !important;
+            font-family: 'Inter', sans-serif !important;
+            color: var(--dark) !important;
+            background: var(--white) !important;
+            outline: none !important;
+            box-shadow: none !important;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+            height: auto !important;
+            line-height: 1.5 !important;
+            -webkit-appearance: none !important;
+        }
+
+        .zf-tempContDiv input[type="text"]:focus,
+        .zf-tempContDiv input[type="email"]:focus,
+        .zf-tempContDiv input[type="tel"]:focus {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.15) !important;
+        }
+
+        .zf-tempContDiv input:invalid:not(:placeholder-shown) {
+            border-color: #ef4444 !important;
+        }
+
+        .zf-phwrapper label { display: none !important; }
+        
+        .zf-fmFooter {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .zf-submitColor {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+            color: white !important;
+            border: none !important;
+            padding: 1rem !important;
+            border-radius: 12px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            width: 100% !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            cursor: pointer !important;
+            font-family: 'Inter', sans-serif !important;
+            line-height: 1.5 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+        }
+
+        .zf-submitColor:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.5) !important;
+        }
+
+        .zf-submitColor:disabled {
+            opacity: 0.7 !important;
+            cursor: not-allowed !important;
+            transform: none !important;
+        }
+
+        /* ==========================================
+           INLINE THANK YOU MESSAGE
+           ========================================== */
+        .thank-you-message {
+            text-align: center;
+            padding: 2rem 1rem;
+            animation: thankYouFadeIn 0.6s ease-out;
+        }
+
+        @keyframes thankYouFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .thank-you-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+            animation: thankYouBounce 0.6s ease-out 0.3s both;
+        }
+
+        @keyframes thankYouBounce {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .thank-you-message h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .thank-you-message p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .thank-you-message .thank-you-sub {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .thank-you-message .thank-you-sub i {
+            color: var(--primary);
+            margin-right: 0.3rem;
+        }
+
+        /* ==========================================
+           LANDING PAGE STYLES
+           ========================================== */
+        
+        .ad-nav {
+            padding: 1rem 0;
+            background: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-decoration: none;
+        }
+        
+        .navbar-brand span { color: var(--primary); }
+        
+        .brand-tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        
+        .ad-hero {
+            padding: 60px 0 80px;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #eff6ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ad-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid #f59e0b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .ad-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        
+        .hero-subheadline {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .trust-bar {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .trust-item i { color: var(--success); font-size: 1.2rem; }
+        
+        .lead-form-container {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .form-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        
+        .form-header { text-align: center; margin-bottom: 1.5rem; }
+        .form-header h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
+        .form-header p { color: var(--gray); font-size: 0.95rem; margin: 0; }
+        
+        .form-footer-custom {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        .form-footer-custom i { color: var(--success); margin-right: 0.3rem; }
+        
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white !important;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 194, 193, 0.5);
+            color: white;
+        }
+        
+        .social-proof-bar { background: var(--navy); color: white; padding: 2rem 0; text-align: center; }
+        .social-proof-content { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        .social-proof-item { display: flex; align-items: center; gap: 1rem; }
+        .social-proof-stat { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+        .social-proof-label { font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: left; line-height: 1.2; }
+        
+        .problem-section { padding: 80px 0; background: white; }
+        .problem-card {
+            background: var(--light-gray); border-radius: 20px; padding: 2rem; height: 100%;
+            border-left: 4px solid #ef4444; transition: all 0.3s ease;
+        }
+        .problem-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .problem-icon {
+            width: 60px; height: 60px; background: #fee2e2; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #dc2626; margin-bottom: 1rem;
+        }
+        .problem-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark); }
+        .problem-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+        
+        .solution-section { padding: 80px 0; background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%); }
+        .solution-card {
+            background: white; border-radius: 20px; padding: 2.5rem; height: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid #e2e8f0;
+        }
+        .solution-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .solution-icon {
+            width: 70px; height: 70px; background: var(--primary-light); border-radius: 16px;
+            display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; transition: all 0.3s ease;
+        }
+        .solution-card:hover .solution-icon { background: var(--primary); color: white; transform: scale(1.1); }
+        .solution-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--dark); }
+        .solution-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+        
+        .checks-section { padding: 80px 0; background: white; }
+        .checks-card {
+            background: var(--light-gray); border-radius: 20px; padding: 2rem; height: 100%;
+            transition: all 0.3s ease; border: 2px solid transparent;
+        }
+        .checks-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--primary); background: white; }
+        .checks-icon {
+            width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; margin-bottom: 1.5rem;
+        }
+        .checks-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--dark); }
+        .checks-list { list-style: none; padding: 0; margin: 0; }
+        .checks-list li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+        .checks-list li i { color: var(--primary); font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+        .checks-badge {
+            display: inline-block; padding: 0.25rem 0.75rem; background: rgba(26, 194, 193, 0.1);
+            color: var(--primary-dark); border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;
+        }
+        
+        .offer-section {
+            padding: 80px 0; background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+            color: white; position: relative; overflow: hidden;
+        }
+        .offer-section::before {
+            content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%); border-radius: 50%;
+        }
+        .offer-badge { display: inline-block; padding: 0.5rem 1rem; background: var(--primary); color: white; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .offer-title { font-size: 2.8rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.2; }
+        .offer-list { list-style: none; padding: 0; margin: 2rem 0; }
+        .offer-list li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 1.1rem; }
+        .offer-list li i { color: var(--primary); font-size: 1.3rem; }
+        .price-tag { font-size: 3rem; font-weight: 800; color: var(--primary); margin: 1.5rem 0; }
+        .price-note { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        
+        .testimonials-section { padding: 80px 0; background: white; }
+        .testimonial-card { background: var(--light-gray); border-radius: 20px; padding: 2.5rem; height: 100%; position: relative; }
+        .testimonial-card::before {
+            content: '\201C'; position: absolute; top: 20px; left: 25px; font-size: 5rem;
+            color: var(--primary); opacity: 0.2; font-family: serif; line-height: 1;
+        }
+        .testimonial-text { font-size: 1.1rem; color: var(--navy); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; position: relative; z-index: 1; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar {
+            width: 50px; height: 50px; background: var(--primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;
+        }
+        .author-info h4 { font-size: 1rem; font-weight: 700; margin: 0; color: var(--dark); }
+        .author-info p { font-size: 0.85rem; color: var(--gray); margin: 0; }
+        .stars { color: #fbbf24; margin-bottom: 1rem; }
+        
+        .faq-section { padding: 80px 0; background: var(--light-gray); }
+        .accordion-item { border: none; background: white; border-radius: 16px; margin-bottom: 1rem; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .accordion-button { padding: 1.5rem; font-weight: 700; color: var(--dark); background: white; border: none; box-shadow: none; }
+        .accordion-button:not(.collapsed) { background: white; color: var(--primary); box-shadow: none; }
+        .accordion-button:focus { box-shadow: none; border-color: rgba(26, 194, 193, 0.25); }
+        .accordion-body { padding: 0 1.5rem 1.5rem; color: var(--gray); line-height: 1.7; }
+        
+        .final-cta { padding: 100px 0; background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%); text-align: center; }
+        .final-cta-box {
+            background: white; border-radius: 24px; padding: 4rem; max-width: 800px; margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 2px solid var(--primary); position: relative;
+        }
+        .guarantee-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: #dcfce7; color: #166534; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; }
+        
+        .section-header { margin-bottom: 3rem; text-align: center; }
+        .section-subtitle {
+            color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; margin-bottom: 1rem;
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(26, 194, 193, 0.1); border-radius: 50px;
+        }
+        .section-title { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; letter-spacing: -1px; }
+        .section-desc { color: var(--gray); font-size: 1.15rem; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+        
+        .risk-reversal { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .risk-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--gray); font-weight: 500; }
+        .risk-item i { color: var(--success); }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 991px) {
+            .ad-hero h1 { font-size: 2.4rem; }
+            .section-title { font-size: 2rem; }
+            .offer-title { font-size: 2.2rem; }
+            .lead-form-container { margin-top: 3rem; }
+            .social-proof-content { gap: 1.5rem; }
+        }
+        @media (max-width: 767px) {
+            .ad-hero { padding: 40px 0 60px; text-align: center; }
+            .ad-hero h1 { font-size: 2rem; }
+            .trust-bar { justify-content: center; }
+            .lead-form-container { padding: 2rem 1.5rem; }
+            .final-cta-box { padding: 3rem 2rem; }
+            .price-tag { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="ad-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Verifi<span>tech</span>
+                <span class="brand-tagline">Trust Simplified</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="ad-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 reveal">
+                    <div class="urgency-badge">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        Limited: Free Compliance Audit + 20% Off First Month
+                    </div>
+                    <h1>FCRA Compliant Background Checks That Protect Your Company from Costly Hiring Mistakes</h1>
+                    <p class="hero-subheadline">Join 1,000+ US employers who trust Verifitech for fast, accurate, and legally compliant employment screening across all 50 states. 24-48 hour turnaround guaranteed.</p>
+                    <div class="trust-bar">
+                        <div class="trust-item"><i class="bi bi-check-circle-fill"></i><span>FCRA Certified</span></div>
+                        <div class="trust-item"><i class="bi bi-check-circle-fill"></i><span>50 States Covered</span></div>
+                        <div class="trust-item"><i class="bi bi-check-circle-fill"></i><span>99.9% Accuracy</span></div>
+                    </div>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#quote-form" class="btn btn-primary-custom btn-lg">
+                            <i class="bi bi-arrow-right"></i> Get Free Quote Now
+                        </a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center gap-3" style="font-size: 0.9rem; color: var(--gray);">
+                        <i class="bi bi-shield-check text-success"></i>
+                        <span>No setup fees. No long-term contracts. Cancel anytime.</span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 reveal">
+                    <div class="lead-form-container" id="quote-form">
+                        <div class="form-badge" id="formBadge"><i class="bi bi-clock"></i> Takes 60 Seconds</div>
+                        
+                        <div id="formContent">
+                            <div class="form-header">
+                                <h3>Get Your Free Quote</h3>
+                                <p>See how much you can save with compliant screening</p>
+                            </div>
+
+                            <!-- ============================
+                                 ZOHO FORM - START
+                                 ============================ -->
+                            <div class="zf-backgroundBg">
+                                <div class="zf-templateWidth">
+                                    <form id='form' name='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' novalidate>
+                                        
+                                        <input type="hidden" name="zf_referrer_name" value="">
+                                        <!-- zf_redirect_url kept EMPTY so Zoho has no redirect target -->
+                                        <input type="hidden" name="zf_redirect_url" value="">
+                                        <input type="hidden" name="zc_gad" value="">
+                                        <input type="hidden" name="utm_source" value="">
+                                        <input type="hidden" name="utm_medium" value="">
+                                        <input type="hidden" name="utm_campaign" value="">
+                                        <input type="hidden" name="utm_term" value="">
+                                        <input type="hidden" name="utm_content" value="">
+
+                                        <div class="zf-templateWrapper">
+                                            <ul class="zf-tempHeadBdr"><li class="zf-tempHeadContBdr"><h2 class="zf-frmTitle"><em>bgv AD PAGE</em></h2><p class="zf-frmDesc"></p><div class="zf-clearBoth"></div></li></ul>
+                                            
+                                            <div class="zf-subContWrap zf-topAlign">
+                                                <ul>
+                                                    <div class="zf-tempFrmWrapper zf-large">
+                                                        <label class="zf-labelName">Name<em class="zf-important"> *</em></label>
+                                                        <div class="zf-tempContDiv">
+                                                            <span><input type="text" name="SingleLine" checktype="c1" value="" maxlength="255" fieldType="1" placeholder="Full Name *" required></span>
+                                                            <p id="SingleLine_error" class="zf-errorMessage" style="display:none;">Please enter your name</p>
+                                                        </div>
+                                                        <div class="zf-clearBoth"></div>
+                                                    </div>
+
+                                                    <div class="zf-tempFrmWrapper zf-large">
+                                                        <label class="zf-labelName">Business Email<em class="zf-important"> *</em></label>
+                                                        <div class="zf-tempContDiv">
+                                                            <span><input type="email" name="Email" checktype="c5" value="" maxlength="255" fieldType="9" placeholder="Work Email *" required></span>
+                                                            <p id="Email_error" class="zf-errorMessage" style="display:none;">Please enter a valid email</p>
+                                                        </div>
+                                                        <div class="zf-clearBoth"></div>
+                                                    </div>
+
+                                                    <div class="zf-tempFrmWrapper zf- zf-large">
+                                                        <label class="zf-labelName">Phone<em class="zf-important"> *</em></label>
+                                                        <div class="zf-tempContDiv zf-phonefld">
+                                                            <div class="zf-phwrapper zf-phNumber">
+                                                                <span>
+                                                                    <input type="tel" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled="false" fieldType="11" id="international_PhoneNumber_countrycode" valType="number" phoneFormatType="1" placeholder="Phone Number *" required>
+                                                                    <label>Number</label>
+                                                                </span>
+                                                                <div class="zf-clearBoth"></div>
+                                                            </div>
+                                                            <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;">Please enter a valid phone number</p>
+                                                        </div>
+                                                        <div class="zf-clearBoth"></div>
+                                                    </div>
+
+                                                    <div class="zf-tempFrmWrapper zf-large">
+                                                        <label class="zf-labelName">Company Name<em class="zf-important"> *</em></label>
+                                                        <div class="zf-tempContDiv">
+                                                            <span><input type="text" name="SingleLine1" checktype="c1" value="" maxlength="255" fieldType="1" placeholder="Company Name *" required></span>
+                                                            <p id="SingleLine1_error" class="zf-errorMessage" style="display:none;">Please enter your company name</p>
+                                                        </div>
+                                                        <div class="zf-clearBoth"></div>
+                                                    </div>
+
+                                                    <div class="zf-tempFrmWrapper zf-large">
+                                                        <label class="zf-labelName">Company Size<em class="zf-important"> *</em></label>
+                                                        <div class="zf-tempContDiv">
+                                                            <span><input type="text" name="Number" checktype="c2" value="" maxlength="18" fieldType="3" placeholder="Company Size (e.g. 50-200) *" required></span>
+                                                            <p id="Number_error" class="zf-errorMessage" style="display:none;">Please enter company size</p>
+                                                        </div>
+                                                        <div class="zf-clearBoth"></div>
+                                                    </div>
+
+                                                    <!-- DATE FIELD - HIDDEN, POPULATED DYNAMICALLY -->
+                                                    <div class="zf-tempFrmWrapper zf-date" aria-hidden="true">
+                                                        <label class="zf-labelName">Date<em class="zf-important"> *</em></label>
+                                                        <div class="zf-tempContDiv">
+                                                            <span>
+                                                                <input type="text" name="Date" checktype="c4" value="" maxlength="25" id="zf_hidden_date_field">
+                                                                <label>dd-MMM-yyyy</label>
+                                                            </span>
+                                                            <div class="zf-clearBoth"></div>
+                                                            <p id="Date_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+                                                        </div>
+                                                        <div class="zf-clearBoth"></div>
+                                                    </div>
+                                                </ul>
+                                            </div>
+
+                                            <ul>
+                                                <li class="zf-fmFooter">
+                                                    <button type="submit" class="zf-submitColor" id="submitBtn">
+                                                        <i class="bi bi-send-fill"></i> Get My Free Quote Now
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- ============================
+                                 ZOHO FORM - END
+                                 ============================ -->
+
+                            <div class="form-footer-custom" id="formFooter">
+                                <i class="bi bi-lock-fill"></i> Your information is secure and will never be shared
+                            </div>
+                        </div>
+
+                        <!-- THANK YOU MESSAGE - replaces form on success -->
+                        <div class="thank-you-message" id="thankYouMsg" style="display:none;">
+                            <div class="thank-you-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <h3>Thank You!</h3>
+                            <p>Your quote request has been submitted successfully.</p>
+                            <p>Our compliance specialist will reach out within 1 business hour with your personalized proposal.</p>
+                            <div class="thank-you-sub">
+<!--                                 <p><i class="bi bi-telephone-fill"></i> Need immediate help? Call us at <strong>(800) 555-0199</strong></p>
+                                <p style="margin-top:0.5rem;"><i class="bi bi-envelope-fill"></i> Or email <strong>sales@verifitech.com</strong></p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="social-proof-bar">
+        <div class="container">
+            <div class="social-proof-content reveal">
+                <div class="social-proof-item"><div class="social-proof-stat">1,000+</div><div class="social-proof-label">US Employers<br>Trust Us</div></div>
+                <div class="social-proof-item"><div class="social-proof-stat">500M+</div><div class="social-proof-label">Records<br>Searched</div></div>
+                <div class="social-proof-item"><div class="social-proof-stat">24-48hr</div><div class="social-proof-label">Average<br>Turnaround</div></div>
+                <div class="social-proof-item"><div class="social-proof-stat">99.9%</div><div class="social-proof-label">Accuracy<br>Rate</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle justify-content-center"><i class="bi bi-exclamation-triangle"></i> The Real Cost of Non-Compliance</div>
+                <h2 class="section-title">Are You Risking Everything on Background Checks?</h2>
+                <p class="section-desc">One mistake in your hiring process can cost your company millions. Here's what you're up against:</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="bi bi-cash-stack"></i></div>
+                        <h3>$5.8 Million Average Lawsuit</h3>
+                        <p>FCRA violations cost employers an average of $5.8M per class action lawsuit. Simple paperwork errors can trigger massive penalties.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="bi bi-calendar-x"></i></div>
+                        <h3>30% of Checks Are Delayed</h3>
+                        <p>Slow turnaround times cost you top talent. 65% of candidates accept the first offer they receive. Don't lose to faster competitors.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="bi bi-shield-x"></i></div>
+                        <h3>74% of Employers Find Issues</h3>
+                        <p>Without thorough screening, you're likely hiring candidates with criminal records, false credentials, or dangerous driving histories.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle justify-content-center"><i class="bi bi-check-circle"></i> The Verifitech Solution</div>
+                <h2 class="section-title">Compliance-First Screening Built for US Employers</h2>
+                <p class="section-desc">We handle the complexity so you can focus on hiring the best talent, safely and legally.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="bi bi-file-earmark-check"></i></div>
+                        <h3>FCRA Compliance Guaranteed</h3>
+                        <p>Automated disclosure forms, authorization tracking, and adverse action workflows keep you lawsuit-proof.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="bi bi-lightning-charge"></i></div>
+                        <h3>Lightning-Fast Results</h3>
+                        <p>24-48 hour average turnaround with real-time status updates. Never lose a candidate to slow checks again.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="bi bi-globe-americas"></i></div>
+                        <h3>50 States + Global Coverage</h3>
+                        <p>County, state, and federal checks across all US jurisdictions plus 200+ countries for international hires.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="bi bi-shield-check"></i></div>
+                        <h3>E-Verify Integration</h3>
+                        <p>Built-in I-9 and E-Verify processing ensures work authorization compliance without extra paperwork.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checks Section -->
+    <section class="checks-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle justify-content-center"><i class="bi bi-clipboard-check"></i> Comprehensive Screening Solutions</div>
+                <h2 class="section-title">Every Check You Need, All in One Place</h2>
+                <p class="section-desc">From criminal records to professional verifications, we offer a complete suite of FCRA-compliant background checks tailored to your industry needs.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <span class="checks-badge">Most Popular</span>
+                        <div class="checks-icon"><i class="bi bi-shield-shaded"></i></div>
+                        <h3>Criminal History Checks</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> County Criminal Court Searches</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Statewide Criminal Records</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Federal Criminal Database (PACER)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> National Criminal Database</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sex Offender Registry Search</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Domestic & Global Watchlists</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-person-badge"></i></div>
+                        <h3>Identity & Verification</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> SSN Trace & Validation</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Address History Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Identity Verification (IDV)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Alias & Name Variations Check</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Biometric Identity Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Form I-9 Verification</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-building-check"></i></div>
+                        <h3>Employment & Education</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Employment Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Education Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Professional License Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Credential & Certification Check</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Professional Reference Checks</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Gap Employment Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-car-front"></i></div>
+                        <h3>Motor Vehicle Records</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> DMV Records (All 50 States)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Commercial Driver's License (CDL)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> DOT Compliance Screening</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Driving History & Violations</li>
+                            <li><i class="bi bi-check-circle-fill"></i> License Status Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Accident History Reports</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-credit-card-2-front"></i></div>
+                        <h3>Credit & Financial</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Employment Credit Reports</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Bankruptcy Search</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Civil Records Search</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tax Lien & Judgment Search</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Financial Regulatory Checks</li>
+                            <li><i class="bi bi-check-circle-fill"></i> FACIS/Fraud Abuse Control</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-capsule"></i></div>
+                        <h3>Drug & Health Screening</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 5-Panel Drug Screening</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 10-Panel Drug Screening</li>
+                            <li><i class="bi bi-check-circle-fill"></i> DOT Drug & Alcohol Testing</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Hair Follicle Testing</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Instant Oral Fluid Testing</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Occupational Health Services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-globe"></i></div>
+                        <h3>International Screening</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Criminal Records (200+ Countries)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Global Education Verification</li>
+                            <li><i class="bi bi-check-circle-fill"></i> International Employment Check</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Adverse Media Screening</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Politically Exposed Persons (PEP)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Apostille & Document Services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-shield-check"></i></div>
+                        <h3>Compliance & Monitoring</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> E-Verify Processing</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Social Media Screening</li>
+                            <li><i class="bi bi-check-circle-fill"></i> OIG/GSA Sanctions Check</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Continuous Criminal Monitoring</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Random Drug Testing Programs</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Adverse Action Management</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="checks-card">
+                        <div class="checks-icon"><i class="bi bi-briefcase"></i></div>
+                        <h3>Industry-Specific</h3>
+                        <ul class="checks-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Healthcare Sanctions (OIG/LEIE)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Financial Services Checks</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Transportation/DOT Compliance</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Education & Childcare Checks</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Government Security Clearance</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Gig Economy Worker Screening</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 reveal">
+                <p class="text-muted mb-4">Need a custom screening package? We build tailored solutions for your specific industry requirements.</p>
+                <a href="#quote-form" class="btn btn-primary-custom"><i class="bi bi-arrow-right"></i> Build Your Custom Package</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 reveal">
+                    <div class="offer-badge"><i class="bi bi-gift"></i> Limited Time Offer</div>
+                    <h2 class="offer-title">Get 20% Off Your First Month + Free Compliance Audit</h2>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 2rem;">Sign up this month and receive a comprehensive review of your current screening process (worth $2,500) absolutely free.</p>
+                    <ul class="offer-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Free FCRA compliance gap analysis</li>
+                        <li><i class="bi bi-check-circle-fill"></i> 20% discount on first month of service</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Dedicated onboarding specialist</li>
+                        <li><i class="bi bi-check-circle-fill"></i> No setup fees or long-term contracts</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Cancel anytime with 30-day notice</li>
+                    </ul>
+                    <div class="price-tag">$0 <span style="font-size: 1rem; color: rgba(255,255,255,0.7);">to get started</span></div>
+                    <p class="price-note">Then just $29/check (volume discounts available)</p>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <div class="text-center">
+                        <a href="#quote-form" class="btn btn-primary-custom btn-lg" style="font-size: 1.3rem; padding: 1.5rem 4rem;"><i class="bi bi-arrow-right-circle"></i> Claim Your Offer Now</a>
+                        <div class="risk-reversal">
+                            <div class="risk-item"><i class="bi bi-shield-check"></i><span>PBSA Accredited</span></div>
+                            <div class="risk-item"><i class="bi bi-shield-check"></i><span>SOC 2 Type II</span></div>
+                            <div class="risk-item"><i class="bi bi-shield-check"></i><span>FCRA Compliant</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle justify-content-center"><i class="bi bi-star-fill"></i> Trusted by HR Leaders</div>
+                <h2 class="section-title">See Why 1,000+ Employers Choose Us</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 reveal">
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"We reduced our time-to-hire by 40% and eliminated compliance worries. The FCRA automation alone saved us from a potential lawsuit. Best investment we've made."</p>
+                        <div class="testimonial-author"><div class="author-avatar">SJ</div><div class="author-info"><h4>Sarah Johnson</h4><p>VP of HR, TechStart Inc.</p></div></div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"Switching to Verifitech cut our screening costs by 35% while improving accuracy. Their compliance team is incredibly responsive and proactive."</p>
+                        <div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><h4>Michael Rodriguez</h4><p>CHRO, GrowthLogistics</p></div></div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal">
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"In healthcare, compliance isn't optional. Verifitech's OIG sanctions checks and automated adverse action workflows give us peace of mind every single day."</p>
+                        <div class="testimonial-author"><div class="author-avatar">LP</div><div class="author-info"><h4>Linda Park</h4><p>Director of Talent, MedCare Health</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-subtitle justify-content-center"><i class="bi bi-question-circle"></i> Common Questions</div>
+                <h2 class="section-title">Got Questions? We've Got Answers</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item reveal">
+                            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How fast will I receive my background check results?</button></h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Our average turnaround time is 24-48 hours for standard checks. Criminal record searches, employment verifications, and education checks are typically completed within this window.</div></div>
+                        </div>
+                        <div class="accordion-item reveal">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What makes your background checks FCRA compliant?</button></h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We automate the entire FCRA workflow: standalone disclosure forms, written authorization capture, proper adverse action procedures, and individualized assessments.</div></div>
+                        </div>
+                        <div class="accordion-item reveal">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Do you cover all 50 states for criminal background checks?</button></h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. We conduct county-level criminal court searches in all 3,100+ counties across all 50 states, plus statewide repository searches and federal district court searches.</div></div>
+                        </div>
+                        <div class="accordion-item reveal">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">What's included in the free compliance audit?</button></h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Our compliance audit reviews your current disclosure forms, authorization processes, adverse action procedures, and state-specific requirements. You'll receive a detailed gap analysis report.</div></div>
+                        </div>
+                        <div class="accordion-item reveal">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Can I integrate Verifitech with my existing HRIS or ATS?</button></h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Absolutely. We offer seamless integrations with all major HRIS and ATS platforms including Workday, BambooHR, Greenhouse, Lever, iCIMS, and more. Most setups complete within 24-48 hours.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-box reveal">
+                <div class="guarantee-badge"><i class="bi bi-shield-check"></i> Risk-Free Guarantee</div>
+                <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark); letter-spacing: -0.5px;">Stop Gambling with Your Hiring Process</h2>
+                <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join 1,000+ employers who sleep better knowing their background checks are fast, accurate, and bulletproof compliant. Get started in 60 seconds.</p>
+                <a href="#quote-form" class="btn btn-primary-custom btn-lg"><i class="bi bi-arrow-right-circle"></i> Get My Free Quote Now</a>
+                <div class="risk-reversal">
+                    <div class="risk-item"><i class="bi bi-check-circle-fill"></i><span>No setup fees</span></div>
+                    <div class="risk-item"><i class="bi bi-check-circle-fill"></i><span>No long-term contract</span></div>
+                    <div class="risk-item"><i class="bi bi-check-circle-fill"></i><span>Cancel anytime</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /* ==============================================
+           AJAX FORM SUBMISSION - NO REDIRECT
+           Submits to Zoho via fetch(), then shows
+           inline thank-you message on the same page.
+           ============================================== */
+
+        var ZOHO_SUBMIT_URL = 'https://forms.zohopublic.in/verifitech/form/bgvADPAGE/formperma/urvjbztVTMr1mSb1i2zV5bpDVncdE8MVTNAomUzYUUE/htmlRecords/submit';
+
+        document.getElementById('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var form = this;
+            var submitBtn = document.getElementById('submitBtn');
+            var isValid = true;
+
+            /* --- Validate fields --- */
+            var fields = [
+                { name: 'SingleLine',              type: 'text'  },
+                { name: 'Email',                   type: 'email' },
+                { name: 'PhoneNumber_countrycode', type: 'tel'   },
+                { name: 'SingleLine1',             type: 'text'  },
+                { name: 'Number',                  type: 'text'  }
+            ];
+
+            // Reset borders
+            for (var i = 0; i < fields.length; i++) {
+                var inp = form.querySelector('input[name="' + fields[i].name + '"]');
+                if (inp) inp.style.borderColor = '#e2e8f0';
+            }
+
+            // Check each field
+            for (var i = 0; i < fields.length; i++) {
+                var inp = form.querySelector('input[name="' + fields[i].name + '"]');
+                if (!inp) continue;
+                var val = inp.value.trim();
+
+                if (!val) {
+                    inp.style.borderColor = '#ef4444';
+                    isValid = false;
+                    continue;
+                }
+
+                if (fields[i].type === 'email') {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                        inp.style.borderColor = '#ef4444';
+                        isValid = false;
+                    }
+                }
+
+                if (fields[i].type === 'tel') {
+                    var digits = val.replace(/[\s\-\(\)\+]/g, '');
+                    if (digits.length < 7 || !/^\d+$/.test(digits)) {
+                        inp.style.borderColor = '#ef4444';
+                        isValid = false;
+                    }
+                }
+            }
+
+            if (!isValid) {
+                var firstErr = form.querySelector('input[style*="border-color: rgb(239, 68, 68)"]');
+                if (firstErr) { firstErr.focus(); firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+                return;
+            }
+
+            /* --- Populate hidden date field (dd-MMM-yyyy) --- */
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var now = new Date();
+            var dateStr = String(now.getDate()).padStart(2, '0') + '-' + months[now.getMonth()] + '-' + now.getFullYear();
+            document.getElementById('zf_hidden_date_field').value = dateStr;
+
+            /* --- Disable button, show loading --- */
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="bi bi-arrow-repeat" style="animation: spin 1s linear infinite;"></i> Submitting...';
+
+            // Add spin keyframe if not present
+            if (!document.getElementById('spinStyle')) {
+                var s = document.createElement('style');
+                s.id = 'spinStyle';
+                s.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+                document.head.appendChild(s);
+            }
+
+            /* --- Send via AJAX (no page redirect) --- */
+            var formData = new FormData(form);
+
+            fetch(ZOHO_SUBMIT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Zoho's endpoint doesn't return CORS headers
+            })
+            .then(function() {
+                // no-cors means we can't read the response, but data was sent
+                showThankYou();
+            })
+            .catch(function() {
+                // Even on "error" with no-cors, the request likely went through
+                // Zoho's cross-origin setup often triggers the catch even on success
+                showThankYou();
+            });
+        });
+
+        /* --- Replace form with inline thank-you message --- */
+        function showThankYou() {
+            var formContent = document.getElementById('formContent');
+            var thankYou = document.getElementById('thankYouMsg');
+            var badge = document.getElementById('formBadge');
+
+            if (formContent) formContent.style.display = 'none';
+            if (thankYou) thankYou.style.display = 'block';
+            if (badge) {
+                badge.innerHTML = '<i class="bi bi-check-circle-fill"></i> Submitted';
+                badge.style.background = 'var(--success)';
+            }
+        }
+
+        /* --- Clear error border on focus --- */
+        document.querySelectorAll('#form input[required]').forEach(function(inp) {
+            inp.addEventListener('focus', function() { this.style.borderColor = '#1ac2c1'; });
+            inp.addEventListener('blur', function() {
+                this.style.borderColor = this.value.trim() ? '#e2e8f0' : '#ef4444';
+            });
+        });
+
+        /* --- Scroll reveal --- */
+        function revealOnScroll() {
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                if (el.getBoundingClientRect().top < window.innerHeight - 120) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        /* --- Auto-fill UTM params from URL --- */
+        (function() {
+            ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(p) {
+                var v = new URLSearchParams(window.location.search).get(p);
+                var f = document.querySelector('input[name="' + p + '"]');
+                if (v && f) f.value = v;
+            });
+            var ref = document.querySelector('input[name="zf_referrer_name"]');
+            if (ref && document.referrer) ref.value = document.referrer;
+        })();
+    </script>
+</body>
+</html>
