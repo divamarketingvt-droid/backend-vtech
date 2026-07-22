@@ -221,31 +221,33 @@
            ========================================== */
         
         .ad-nav {
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             background: white;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
         .navbar-brand {
-            font-weight: 800;
-            font-size: 1.8rem;
-            color: var(--dark);
-            letter-spacing: -0.5px;
             display: flex;
             flex-direction: column;
-            line-height: 1.1;
+            align-items: flex-start;
             text-decoration: none;
+            gap: 2px;
+        }
+
+        .navbar-brand img {
+            height: 90px;
+            width: auto;
+            display: block;
         }
         
-        .navbar-brand span { color: var(--primary); }
-        
         .brand-tagline {
-            font-size: 0.65rem;
-            font-weight: 500;
+            font-size: 0.6rem;
+            font-weight: 600;
             color: var(--gray);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 2px;
+            margin-top: -2px;
+            padding-left: 2px;
         }
         
         .ad-hero {
@@ -344,6 +346,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             white-space: nowrap;
+            transition: background 0.3s ease;
         }
         
         .form-header { text-align: center; margin-bottom: 1.5rem; }
@@ -508,15 +511,16 @@
             .lead-form-container { padding: 2rem 1.5rem; }
             .final-cta-box { padding: 3rem 2rem; }
             .price-tag { font-size: 2.5rem; }
+            .navbar-brand img { height: 36px; }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation with Logo -->
     <nav class="ad-nav">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                Verifi<span>tech</span>
-                <span class="brand-tagline">Trust Simplified</span>
+            <a class="navbar-brand" href="verifitech.com">
+                <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech Logo">
             </a>
         </div>
     </nav>
@@ -557,15 +561,11 @@
                                 <p>See how much you can save with compliant screening</p>
                             </div>
 
-                            <!-- ============================
-                                 ZOHO FORM - START
-                                 ============================ -->
                             <div class="zf-backgroundBg">
                                 <div class="zf-templateWidth">
                                     <form id='form' name='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' novalidate>
                                         
                                         <input type="hidden" name="zf_referrer_name" value="">
-                                        <!-- zf_redirect_url kept EMPTY so Zoho has no redirect target -->
                                         <input type="hidden" name="zf_redirect_url" value="">
                                         <input type="hidden" name="zc_gad" value="">
                                         <input type="hidden" name="utm_source" value="">
@@ -630,7 +630,6 @@
                                                         <div class="zf-clearBoth"></div>
                                                     </div>
 
-                                                    <!-- DATE FIELD - HIDDEN, POPULATED DYNAMICALLY -->
                                                     <div class="zf-tempFrmWrapper zf-date" aria-hidden="true">
                                                         <label class="zf-labelName">Date<em class="zf-important"> *</em></label>
                                                         <div class="zf-tempContDiv">
@@ -657,16 +656,12 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- ============================
-                                 ZOHO FORM - END
-                                 ============================ -->
 
                             <div class="form-footer-custom" id="formFooter">
                                 <i class="bi bi-lock-fill"></i> Your information is secure and will never be shared
                             </div>
                         </div>
 
-                        <!-- THANK YOU MESSAGE - replaces form on success -->
                         <div class="thank-you-message" id="thankYouMsg" style="display:none;">
                             <div class="thank-you-icon">
                                 <i class="bi bi-check-lg"></i>
@@ -676,8 +671,8 @@
                             <p>Our compliance specialist will reach out within 1 business hour with your personalized proposal.</p>
                             <div class="thank-you-sub">
 <!--                                 <p><i class="bi bi-telephone-fill"></i> Need immediate help? Call us at <strong>(800) 555-0199</strong></p>
-                                <p style="margin-top:0.5rem;"><i class="bi bi-envelope-fill"></i> Or email <strong>sales@verifitech.com</strong></p> -->
-                            </div>
+                                <p style="margin-top:0.5rem;"><i class="bi bi-envelope-fill"></i> Or email <strong>sales@verifitech.com</strong></p>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -1037,12 +1032,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        /* ==============================================
-           AJAX FORM SUBMISSION - NO REDIRECT
-           Submits to Zoho via fetch(), then shows
-           inline thank-you message on the same page.
-           ============================================== */
-
         var ZOHO_SUBMIT_URL = 'https://forms.zohopublic.in/verifitech/form/bgvADPAGE/formperma/urvjbztVTMr1mSb1i2zV5bpDVncdE8MVTNAomUzYUUE/htmlRecords/submit';
 
         document.getElementById('form').addEventListener('submit', function(e) {
@@ -1052,7 +1041,6 @@
             var submitBtn = document.getElementById('submitBtn');
             var isValid = true;
 
-            /* --- Validate fields --- */
             var fields = [
                 { name: 'SingleLine',              type: 'text'  },
                 { name: 'Email',                   type: 'email' },
@@ -1061,13 +1049,11 @@
                 { name: 'Number',                  type: 'text'  }
             ];
 
-            // Reset borders
             for (var i = 0; i < fields.length; i++) {
                 var inp = form.querySelector('input[name="' + fields[i].name + '"]');
                 if (inp) inp.style.borderColor = '#e2e8f0';
             }
 
-            // Check each field
             for (var i = 0; i < fields.length; i++) {
                 var inp = form.querySelector('input[name="' + fields[i].name + '"]');
                 if (!inp) continue;
@@ -1101,17 +1087,14 @@
                 return;
             }
 
-            /* --- Populate hidden date field (dd-MMM-yyyy) --- */
             var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
             var now = new Date();
             var dateStr = String(now.getDate()).padStart(2, '0') + '-' + months[now.getMonth()] + '-' + now.getFullYear();
             document.getElementById('zf_hidden_date_field').value = dateStr;
 
-            /* --- Disable button, show loading --- */
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="bi bi-arrow-repeat" style="animation: spin 1s linear infinite;"></i> Submitting...';
 
-            // Add spin keyframe if not present
             if (!document.getElementById('spinStyle')) {
                 var s = document.createElement('style');
                 s.id = 'spinStyle';
@@ -1119,26 +1102,17 @@
                 document.head.appendChild(s);
             }
 
-            /* --- Send via AJAX (no page redirect) --- */
             var formData = new FormData(form);
 
             fetch(ZOHO_SUBMIT_URL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Zoho's endpoint doesn't return CORS headers
+                mode: 'no-cors'
             })
-            .then(function() {
-                // no-cors means we can't read the response, but data was sent
-                showThankYou();
-            })
-            .catch(function() {
-                // Even on "error" with no-cors, the request likely went through
-                // Zoho's cross-origin setup often triggers the catch even on success
-                showThankYou();
-            });
+            .then(function() { showThankYou(); })
+            .catch(function() { showThankYou(); });
         });
 
-        /* --- Replace form with inline thank-you message --- */
         function showThankYou() {
             var formContent = document.getElementById('formContent');
             var thankYou = document.getElementById('thankYouMsg');
@@ -1152,7 +1126,6 @@
             }
         }
 
-        /* --- Clear error border on focus --- */
         document.querySelectorAll('#form input[required]').forEach(function(inp) {
             inp.addEventListener('focus', function() { this.style.borderColor = '#1ac2c1'; });
             inp.addEventListener('blur', function() {
@@ -1160,7 +1133,6 @@
             });
         });
 
-        /* --- Scroll reveal --- */
         function revealOnScroll() {
             document.querySelectorAll('.reveal').forEach(function(el) {
                 if (el.getBoundingClientRect().top < window.innerHeight - 120) {
@@ -1171,7 +1143,6 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        /* --- Auto-fill UTM params from URL --- */
         (function() {
             ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(p) {
                 var v = new URLSearchParams(window.location.search).get(p);
