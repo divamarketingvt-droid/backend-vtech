@@ -397,7 +397,7 @@ class VerifitechNavbar extends HTMLElement {
                 <!-- Right Side Buttons -->
                 <div class="d-flex">
                     <a href="https://web.verifitech.com/" target="_blank" style="text-decoration: none; color: black;">Login</a>
-                    <a href="./contact/contact.html" class="btn-sales">Talk to Sales</a>
+                    <a href="./contact/contact.html" class="btn-sales">Contact</a>
 
                     <!-- Country Selector -->
                     <div class="dropdown">
