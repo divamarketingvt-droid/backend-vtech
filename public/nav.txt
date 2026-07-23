@@ -308,7 +308,7 @@
                 <!-- Right Side -->
                 <div class="d-flex align-items-center">
                     <a href="#" class="login-link">Login</a>
-                    <a href="#" class="btn-sales">Talk to Sales</a>
+                    <a href="#" class="btn-sales">Contact</a>
 
                     <!-- Country Selector -->
                     <div class="dropdown">
