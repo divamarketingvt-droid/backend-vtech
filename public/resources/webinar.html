@@ -1,15 +1,32 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webinar: Future of Background Verification | Verifitech</title>
-    <meta name="description" content="Join industry leaders for an exclusive webinar on AI-powered verification strategies, compliance automation, and risk reduction. Register now." />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta
+      name="description"
+      content="Join industry leaders for an exclusive webinar on AI-powered verification strategies, compliance automation, and risk reduction. Register now."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       :root {
         --primary: #1ac2c1;
@@ -27,147 +44,1258 @@
         --error: #ef4444;
         --error-bg: rgba(239, 68, 68, 0.06);
       }
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font-family: "Inter", sans-serif; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
-      html { scroll-behavior: smooth; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
-      .navbar { z-index: 1050; padding: 0; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); height: 80px; }
-      .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
-      .navbar-brand img { height: 80px; width: 200px; object-fit: contain; display: block; }
-      .nav-link { font-weight: 600; color: var(--navy); margin: 0 0.6rem; font-size: 0.9rem; transition: all 0.3s ease; padding: 2rem 0.5rem !important; display: flex; align-items: center; gap: 4px; }
-      .nav-link:hover { color: var(--primary); }
-      .dropdown-menu { z-index: 1060; position: absolute; border: none; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border-radius: 12px; padding: 1rem; margin-top: 0.5rem; min-width: 280px; border-top: 3px solid var(--primary); }
-      .dropdown-menu.mega-menu { min-width: 600px; padding: 1.5rem; }
-      .dropdown-item { position: relative; z-index: 1061; padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500; color: var(--navy); transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; }
-      .dropdown-item:hover { background: var(--primary-light); color: var(--primary); transform: translateX(5px); }
-      .dropdown-item i { font-size: 1.1rem; color: var(--primary); }
-      .dropdown-header { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 0.5rem; padding: 0.5rem 1rem; }
-      .btn-sales { background: var(--primary); color: white !important; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; white-space: nowrap; margin-left: 1rem; box-shadow: 0 4px 15px rgba(26,194,193,0.3); }
-      .btn-sales:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.4); }
-      .country-selector { display: flex; align-items: center; gap: 6px; padding: 0.5rem; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 0.85rem; font-weight: 600; color: var(--navy); cursor: pointer; transition: all 0.3s ease; margin-left: 1rem; }
-      .country-selector:hover { border-color: var(--primary); color: var(--primary); }
-      .navbar-collapse { background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); border-radius: 12px; padding: 1rem; margin-top: 0.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-      @media (min-width: 992px) { .navbar-collapse { background: transparent; backdrop-filter: none; padding: 0; margin-top: 0; box-shadow: none; } }
+      .navbar {
+        z-index: 1050;
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+      .navbar-brand img {
+        height: 80px;
+        width: 200px;
+        object-fit: contain;
+        display: block;
+      }
+      .nav-link {
+        font-weight: 600;
+        color: var(--navy);
+        margin: 0 0.6rem;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        padding: 2rem 0.5rem !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .nav-link:hover {
+        color: var(--primary);
+      }
+      .dropdown-menu {
+        z-index: 1060;
+        position: absolute;
+        border: none;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        min-width: 280px;
+        border-top: 3px solid var(--primary);
+      }
+      .dropdown-menu.mega-menu {
+        min-width: 600px;
+        padding: 1.5rem;
+      }
+      .dropdown-item {
+        position: relative;
+        z-index: 1061;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--navy);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .dropdown-item:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+      .dropdown-item i {
+        font-size: 1.1rem;
+        color: var(--primary);
+      }
+      .dropdown-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+      .country-selector {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--navy);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 1rem;
+      }
+      .country-selector:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+      @media (min-width: 992px) {
+        .navbar-collapse {
+          background: transparent;
+          backdrop-filter: none;
+          padding: 0;
+          margin-top: 0;
+          box-shadow: none;
+        }
+      }
 
-      .webinar-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%); position: relative; overflow: hidden; }
-      .webinar-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,194,193,0.1) 0%, transparent 70%); border-radius: 50%; }
-      .webinar-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(26,194,193,0.1); color: var(--primary-dark); border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(26,194,193,0.2); }
-      .webinar-hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--dark); letter-spacing: -1.5px; }
-      .webinar-description { font-size: 1.25rem; color: var(--gray); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.6; }
-      .countdown-container { display: flex; gap: 1rem; margin-bottom: 2rem; }
-      .countdown-box { background: white; padding: 1rem; border-radius: 12px; text-align: center; min-width: 80px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid rgba(26,194,193,0.2); }
-      .countdown-box .number { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; display: block; }
-      .countdown-box .label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; font-weight: 600; margin-top: 0.25rem; }
+      .webinar-hero {
+        padding: 140px 0 100px;
+        background: linear-gradient(
+          135deg,
+          #f0fdfa 0%,
+          #ffffff 50%,
+          #ccfbf1 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .webinar-hero::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .webinar-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.2rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-dark);
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+      .webinar-hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        letter-spacing: -1.5px;
+      }
+      .webinar-description {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+      }
+      .countdown-container {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .countdown-box {
+        background: white;
+        padding: 1rem;
+        border-radius: 12px;
+        text-align: center;
+        min-width: 80px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(26, 194, 193, 0.2);
+      }
+      .countdown-box .number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+        line-height: 1;
+        display: block;
+      }
+      .countdown-box .label {
+        font-size: 0.75rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 0.25rem;
+      }
 
-      .registration-card { background: white; border-radius: 24px; box-shadow: 0 25px 60px rgba(0,0,0,0.1); border: 1px solid var(--border); position: relative; z-index: 2; overflow: hidden; display: flex; flex-direction: column; }
-      .registration-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 40%, #14b8a6 70%, var(--primary) 100%); z-index: 10; }
-      .form-card-header { padding: 2rem 2rem 0.75rem; flex-shrink: 0; }
-      .form-card-header h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--dark); letter-spacing: -0.3px; }
-      .form-card-header .subtitle { color: var(--gray); font-size: 0.9rem; margin-bottom: 0; line-height: 1.5; }
-/* ===== FIX: Remove bullet from ALL ul elements inside the form wrapper ===== */
-.zf-templateWrapper ul,
-.zf-templateWrapper ul li {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-      .zf-templateWidth, .zf-templateWrapper, .zf-tempHeadBdr, .zf-tempHeadContBdr, .zf-frmTitle, .zf-frmDesc, .zf-subContWrap, .zf-topAlign, .zf-fmFooter { padding: 0 !important; margin: 0 !important; background: none !important; border: none !important; }
-      .zf-templateWidth { max-width: 100% !important; width: 100% !important; }
-      .zf-tempHeadBdr { display: none !important; }
-      #form { padding: 0 !important; margin: 0 !important; }
-      .zf-tempFrmWrapper { margin-bottom: 0.85rem !important; padding: 0 !important; float: none !important; width: 100% !important; clear: both !important; }
-      .zf-tempFrmWrapper.zf-large { width: 100% !important; }
-      .zf-clearBoth { height: 0 !important; margin: 0 !important; padding: 0 !important; clear: both !important; line-height: 0 !important; font-size: 0 !important; display: block !important; }
-      .zf-labelName { display: block !important; font-family: "Inter", sans-serif !important; font-size: 0.82rem !important; font-weight: 600 !important; color: var(--navy) !important; margin-bottom: 0.4rem !important; padding: 0 !important; line-height: 1.4 !important; letter-spacing: 0.01em !important; width: 100% !important; float: none !important; }
-      .zf-important { color: var(--error) !important; font-style: normal !important; font-size: 0.85rem !important; margin-left: 2px !important; font-weight: 600 !important; }
-      .zf-tempContDiv { width: 100% !important; padding: 0 !important; margin: 0 !important; float: none !important; }
-      .zf-tempContDiv span { display: block !important; width: 100% !important; }
-      .zf-tempContDiv input[type="text"], .zf-tempContDiv input[type="email"], .zf-tempContDiv input[type="tel"] { font-family: "Inter", sans-serif !important; font-size: 0.92rem !important; font-weight: 400 !important; color: var(--dark) !important; background: var(--white) !important; border: 2px solid var(--border) !important; border-radius: 12px !important; padding: 0.82rem 1rem !important; height: auto !important; min-height: 50px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; outline: none !important; transition: border-color 0.25s ease, box-shadow 0.25s ease !important; box-shadow: none !important; -webkit-appearance: none !important; appearance: none !important; display: block !important; float: none !important; line-height: 1.5 !important; }
-      .zf-tempContDiv input[type="text"]:focus, .zf-tempContDiv input[type="email"]:focus, .zf-tempContDiv input[type="tel"]:focus { border-color: var(--primary) !important; box-shadow: 0 0 0 4px var(--primary-glow) !important; background: var(--white) !important; }
-      .zf-tempContDiv input::placeholder { color: var(--gray-light) !important; font-weight: 400 !important; font-size: 0.88rem !important; opacity: 1 !important; }
-      .zf-phonefld { padding: 0 !important; margin: 0 !important; }
-      .zf-phwrapper { padding: 0 !important; margin: 0 !important; border: none !important; }
-      .zf-phwrapper.zf-phNumber input { font-family: "Inter", sans-serif !important; font-size: 0.92rem !important; font-weight: 400 !important; color: var(--dark) !important; background: var(--white) !important; border: 2px solid var(--border) !important; border-radius: 12px !important; padding: 0.82rem 1rem !important; height: auto !important; min-height: 50px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; outline: none !important; transition: border-color 0.25s ease, box-shadow 0.25s ease !important; box-shadow: none !important; -webkit-appearance: none !important; appearance: none !important; display: block !important; }
-      .zf-phwrapper.zf-phNumber input:focus { border-color: var(--primary) !important; box-shadow: 0 0 0 4px var(--primary-glow) !important; }
-      .zf-phwrapper label { display: none !important; }
-      .zf-errorMessage { font-family: "Inter", sans-serif !important; font-size: 0.78rem !important; color: var(--error) !important; margin-top: 0.35rem !important; padding: 0 !important; font-weight: 500 !important; line-height: 1.4 !important; display: none !important; background: none !important; border: none !important; }
-      .zf-errorMessage.zf-showError { display: block !important; padding: 0.35rem 0.75rem !important; background: var(--error-bg) !important; border-radius: 8px !important; border-left: 3px solid var(--error) !important; margin-top: 0.4rem !important; }
-      .zf-input-error { border-color: var(--error) !important; box-shadow: 0 0 0 3px rgba(239,68,68,0.08) !important; }
-      .zf-fmFooter { padding: 0 !important; margin: 0 !important; border: none !important; background: none !important; }
-      .zf-fmFooter li { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-      .zf-submitColor { font-family: "Inter", sans-serif !important; font-size: 1.05rem !important; font-weight: 700 !important; color: var(--white) !important; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important; border: none !important; border-radius: 12px !important; padding: 0.95rem 2rem !important; width: 100% !important; height: auto !important; min-height: 54px !important; cursor: pointer !important; transition: all 0.3s ease !important; box-shadow: 0 4px 18px rgba(26,194,193,0.35) !important; text-transform: none !important; letter-spacing: 0.01em !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; position: relative; overflow: hidden; }
-      .zf-submitColor:hover { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%) !important; transform: translateY(-2px) !important; box-shadow: 0 8px 28px rgba(26,194,193,0.45) !important; }
-      .zf-submitColor:active { transform: translateY(0) !important; box-shadow: 0 2px 10px rgba(26,194,193,0.3) !important; }
-      .zf-submitColor.zf-submitting { pointer-events: none !important; opacity: 0.85 !important; }
-      .zf-submitColor.zf-submitting::before { content: ""; width: 20px; height: 20px; border: 2.5px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: zf-spin 0.6s linear infinite; margin-right: 8px; }
-      @keyframes zf-spin { to { transform: rotate(360deg); } }
-      input[type="hidden"] { display: none !important; }
-      .zf-subContWrap ul, .zf-subContWrap ul > div { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-      .form-card-body { padding: 0.5rem 2rem 1rem; flex: 1; flex-shrink: 0; }
+      .registration-card {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .registration-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary) 0%,
+          var(--primary-dark) 40%,
+          #14b8a6 70%,
+          var(--primary) 100%
+        );
+        z-index: 10;
+      }
+      .form-card-header {
+        padding: 2rem 2rem 0.75rem;
+        flex-shrink: 0;
+      }
+      .form-card-header h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.35rem;
+        color: var(--dark);
+        letter-spacing: -0.3px;
+      }
+      .form-card-header .subtitle {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+      /* ===== FIX: Remove bullet from ALL ul elements inside the form wrapper ===== */
+      .zf-templateWrapper ul,
+      .zf-templateWrapper ul li {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .zf-templateWidth,
+      .zf-templateWrapper,
+      .zf-tempHeadBdr,
+      .zf-tempHeadContBdr,
+      .zf-frmTitle,
+      .zf-frmDesc,
+      .zf-subContWrap,
+      .zf-topAlign,
+      .zf-fmFooter {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: none !important;
+        border: none !important;
+      }
+      .zf-templateWidth {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      .zf-tempHeadBdr {
+        display: none !important;
+      }
+      #form {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .zf-tempFrmWrapper {
+        margin-bottom: 0.85rem !important;
+        padding: 0 !important;
+        float: none !important;
+        width: 100% !important;
+        clear: both !important;
+      }
+      .zf-tempFrmWrapper.zf-large {
+        width: 100% !important;
+      }
+      .zf-clearBoth {
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        clear: both !important;
+        line-height: 0 !important;
+        font-size: 0 !important;
+        display: block !important;
+      }
+      .zf-labelName {
+        display: block !important;
+        font-family: "Inter", sans-serif !important;
+        font-size: 0.82rem !important;
+        font-weight: 600 !important;
+        color: var(--navy) !important;
+        margin-bottom: 0.4rem !important;
+        padding: 0 !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0.01em !important;
+        width: 100% !important;
+        float: none !important;
+      }
+      .zf-important {
+        color: var(--error) !important;
+        font-style: normal !important;
+        font-size: 0.85rem !important;
+        margin-left: 2px !important;
+        font-weight: 600 !important;
+      }
+      .zf-tempContDiv {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none !important;
+      }
+      .zf-tempContDiv span {
+        display: block !important;
+        width: 100% !important;
+      }
+      .zf-tempContDiv input[type="text"],
+      .zf-tempContDiv input[type="email"],
+      .zf-tempContDiv input[type="tel"] {
+        font-family: "Inter", sans-serif !important;
+        font-size: 0.92rem !important;
+        font-weight: 400 !important;
+        color: var(--dark) !important;
+        background: var(--white) !important;
+        border: 2px solid var(--border) !important;
+        border-radius: 12px !important;
+        padding: 0.82rem 1rem !important;
+        height: auto !important;
+        min-height: 50px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        outline: none !important;
+        transition:
+          border-color 0.25s ease,
+          box-shadow 0.25s ease !important;
+        box-shadow: none !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        display: block !important;
+        float: none !important;
+        line-height: 1.5 !important;
+      }
+      .zf-tempContDiv input[type="text"]:focus,
+      .zf-tempContDiv input[type="email"]:focus,
+      .zf-tempContDiv input[type="tel"]:focus {
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 4px var(--primary-glow) !important;
+        background: var(--white) !important;
+      }
+      .zf-tempContDiv input::placeholder {
+        color: var(--gray-light) !important;
+        font-weight: 400 !important;
+        font-size: 0.88rem !important;
+        opacity: 1 !important;
+      }
+      .zf-phonefld {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .zf-phwrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+      }
+      .zf-phwrapper.zf-phNumber input {
+        font-family: "Inter", sans-serif !important;
+        font-size: 0.92rem !important;
+        font-weight: 400 !important;
+        color: var(--dark) !important;
+        background: var(--white) !important;
+        border: 2px solid var(--border) !important;
+        border-radius: 12px !important;
+        padding: 0.82rem 1rem !important;
+        height: auto !important;
+        min-height: 50px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        outline: none !important;
+        transition:
+          border-color 0.25s ease,
+          box-shadow 0.25s ease !important;
+        box-shadow: none !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        display: block !important;
+      }
+      .zf-phwrapper.zf-phNumber input:focus {
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 4px var(--primary-glow) !important;
+      }
+      .zf-phwrapper label {
+        display: none !important;
+      }
+      .zf-errorMessage {
+        font-family: "Inter", sans-serif !important;
+        font-size: 0.78rem !important;
+        color: var(--error) !important;
+        margin-top: 0.35rem !important;
+        padding: 0 !important;
+        font-weight: 500 !important;
+        line-height: 1.4 !important;
+        display: none !important;
+        background: none !important;
+        border: none !important;
+      }
+      .zf-errorMessage.zf-showError {
+        display: block !important;
+        padding: 0.35rem 0.75rem !important;
+        background: var(--error-bg) !important;
+        border-radius: 8px !important;
+        border-left: 3px solid var(--error) !important;
+        margin-top: 0.4rem !important;
+      }
+      .zf-input-error {
+        border-color: var(--error) !important;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08) !important;
+      }
+      .zf-fmFooter {
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        background: none !important;
+      }
+      .zf-fmFooter li {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .zf-submitColor {
+        font-family: "Inter", sans-serif !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        color: var(--white) !important;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        ) !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.95rem 2rem !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 54px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 18px rgba(26, 194, 193, 0.35) !important;
+        text-transform: none !important;
+        letter-spacing: 0.01em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        position: relative;
+        overflow: hidden;
+      }
+      .zf-submitColor:hover {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark) 0%,
+          var(--primary-darker) 100%
+        ) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 28px rgba(26, 194, 193, 0.45) !important;
+      }
+      .zf-submitColor:active {
+        transform: translateY(0) !important;
+        box-shadow: 0 2px 10px rgba(26, 194, 193, 0.3) !important;
+      }
+      .zf-submitColor.zf-submitting {
+        pointer-events: none !important;
+        opacity: 0.85 !important;
+      }
+      .zf-submitColor.zf-submitting::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border: 2.5px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: zf-spin 0.6s linear infinite;
+        margin-right: 8px;
+      }
+      @keyframes zf-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      input[type="hidden"] {
+        display: none !important;
+      }
+      .zf-subContWrap ul,
+      .zf-subContWrap ul > div {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .form-card-body {
+        padding: 0.5rem 2rem 1rem;
+        flex: 1;
+        flex-shrink: 0;
+      }
 
       /* ===== SUCCESS POPUP MODAL ===== */
-      .zf-success-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,23,42,0.5); backdrop-filter: blur(6px); z-index: 9999; align-items: center; justify-content: center; padding: 1.5rem; }
-      .zf-success-backdrop.zf-visible { display: flex; animation: zf-backdropIn 0.3s ease; }
-      @keyframes zf-backdropIn { from { opacity: 0; } to { opacity: 1; } }
-      .zf-success-modal { background: white; border-radius: 24px; padding: 3rem 2.5rem 2.5rem; max-width: 420px; width: 100%; text-align: center; position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.15); animation: zf-modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1); }
-      @keyframes zf-modalIn { from { opacity: 0; transform: scale(0.85) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-      .zf-modal-check { width: 88px; height: 88px; border-radius: 50%; background: var(--primary-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; position: relative; }
-      .zf-modal-check::after { content: ""; position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--primary); animation: zf-pulseRing 1.5s ease-out infinite; }
-      @keyframes zf-pulseRing { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.4); opacity: 0; } }
-      .zf-modal-check i { font-size: 2.5rem; color: var(--primary); animation: zf-checkPop 0.4s 0.2s cubic-bezier(0.34,1.56,0.64,1) both; }
-      @keyframes zf-checkPop { from { transform: scale(0); } to { transform: scale(1); } }
-      .zf-success-modal h4 { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 0.6rem; letter-spacing: -0.3px; }
-      .zf-success-modal p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.75rem; max-width: 320px; margin-left: auto; margin-right: auto; }
-      .zf-modal-confetti { position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px; pointer-events: none; overflow: hidden; border-radius: 20px; }
-      .zf-confetti-dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; opacity: 0; animation: zf-confettiFall 1.2s ease-out forwards; }
-      @keyframes zf-confettiFall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 1; } 100% { transform: translateY(400px) rotate(360deg); opacity: 0; } }
-      .zf-modal-close { background: var(--primary); color: white; border: none; border-radius: 12px; padding: 0.85rem 2.5rem; font-family: "Inter", sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,194,193,0.3); }
-      .zf-modal-close:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,194,193,0.4); }
+      .zf-success-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 23, 42, 0.5);
+        backdrop-filter: blur(6px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      .zf-success-backdrop.zf-visible {
+        display: flex;
+        animation: zf-backdropIn 0.3s ease;
+      }
+      @keyframes zf-backdropIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .zf-success-modal {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem 2.5rem 2.5rem;
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        animation: zf-modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes zf-modalIn {
+        from {
+          opacity: 0;
+          transform: scale(0.85) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      .zf-modal-check {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: var(--primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        position: relative;
+      }
+      .zf-modal-check::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        animation: zf-pulseRing 1.5s ease-out infinite;
+      }
+      @keyframes zf-pulseRing {
+        0% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(1.4);
+          opacity: 0;
+        }
+      }
+      .zf-modal-check i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        animation: zf-checkPop 0.4s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+      @keyframes zf-checkPop {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .zf-success-modal h4 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 0.6rem;
+        letter-spacing: -0.3px;
+      }
+      .zf-success-modal p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.75rem;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .zf-modal-confetti {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        pointer-events: none;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+      .zf-confetti-dot {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        opacity: 0;
+        animation: zf-confettiFall 1.2s ease-out forwards;
+      }
+      @keyframes zf-confettiFall {
+        0% {
+          transform: translateY(-20px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(400px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+      .zf-modal-close {
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 0.85rem 2.5rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+      .zf-modal-close:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(26, 194, 193, 0.4);
+      }
 
-      .form-card-footer { padding: 0.75rem 2rem 1.75rem; flex-shrink: 0; }
-      .security-note { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.82rem; color: var(--gray); }
-      .security-note i { color: var(--primary); font-size: 0.95rem; }
+      .form-card-footer {
+        padding: 0.75rem 2rem 1.75rem;
+        flex-shrink: 0;
+      }
+      .security-note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 0.82rem;
+        color: var(--gray);
+      }
+      .security-note i {
+        color: var(--primary);
+        font-size: 0.95rem;
+      }
 
-      .section-header { margin-bottom: 3rem; }
-      .section-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(26,194,193,0.1); border-radius: 50px; }
-      .section-title { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; letter-spacing: -1px; }
-      .section-desc { color: var(--gray); font-size: 1.15rem; max-width: 700px; line-height: 1.7; }
-      .learning-section { padding: 100px 0; background: var(--bg-light); }
-      .outcome-card { background: white; padding: 2rem; border-radius: 20px; border: 1px solid var(--border); height: 100%; transition: all 0.3s ease; }
-      .outcome-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--primary); }
-      .outcome-icon { width: 60px; height: 60px; background: var(--primary-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: var(--primary); margin-bottom: 1.25rem; }
-      .outcome-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark); }
-      .outcome-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin: 0; }
-      .cta-section { padding: 100px 0; background: var(--bg-light); text-align: center; }
-      .cta-box { background: white; border-radius: 24px; padding: 4rem; max-width: 800px; margin: 0 auto; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 1px solid var(--border); }
-      .btn-primary-custom { background: var(--primary) !important; color: white !important; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,194,193,0.35); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-      .btn-primary-custom:hover { background: var(--primary-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.45); }
-      .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-      .reveal.active { opacity: 1; transform: translateY(0); }
+      .section-header {
+        margin-bottom: 3rem;
+      }
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(26, 194, 193, 0.1);
+        border-radius: 50px;
+      }
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        letter-spacing: -1px;
+      }
+      .section-desc {
+        color: var(--gray);
+        font-size: 1.15rem;
+        max-width: 700px;
+        line-height: 1.7;
+      }
+      .learning-section {
+        padding: 100px 0;
+        background: var(--bg-light);
+      }
+      .outcome-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+      .outcome-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary);
+      }
+      .outcome-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        color: var(--primary);
+        margin-bottom: 1.25rem;
+      }
+      .outcome-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--dark);
+      }
+      .outcome-card p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .cta-section {
+        padding: 100px 0;
+        background: var(--bg-light);
+        text-align: center;
+      }
+      .cta-box {
+        background: white;
+        border-radius: 24px;
+        padding: 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--border);
+      }
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-      @media (max-width: 991px) { .webinar-hero h1 { font-size: 2.8rem; } .section-title { font-size: 2.2rem; } .registration-card { margin-top: 3rem; } }
-      @media (max-width: 767px) { .webinar-hero { padding: 120px 0 60px; text-align: center; } .webinar-hero h1 { font-size: 2.2rem; } .countdown-container { justify-content: center; } .cta-box { padding: 3rem 2rem; } .form-card-header { padding: 1.5rem 1.5rem 0.5rem; } .form-card-body { padding: 0.25rem 1.5rem 0.75rem; } .form-card-footer { padding: 0.5rem 1.5rem 1.5rem; } .zf-success-modal { padding: 2.5rem 1.5rem 2rem; } }
+      @media (max-width: 991px) {
+        .webinar-hero h1 {
+          font-size: 2.8rem;
+        }
+        .section-title {
+          font-size: 2.2rem;
+        }
+        .registration-card {
+          margin-top: 3rem;
+        }
+      }
+      @media (max-width: 767px) {
+        .webinar-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+        .webinar-hero h1 {
+          font-size: 2.2rem;
+        }
+        .countdown-container {
+          justify-content: center;
+        }
+        .cta-box {
+          padding: 3rem 2rem;
+        }
+        .form-card-header {
+          padding: 1.5rem 1.5rem 0.5rem;
+        }
+        .form-card-body {
+          padding: 0.25rem 1.5rem 0.75rem;
+        }
+        .form-card-footer {
+          padding: 0.5rem 1.5rem 1.5rem;
+        }
+        .zf-success-modal {
+          padding: 2.5rem 1.5rem 2rem;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="../index.html"><img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" width="200 px" height="60%" /></a>
-        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand" href="../index.html"
+          ><img
+            src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="200 px"
+            height="60%"
+        /></a>
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions <span class="dropdown-arrow">&#x25BE;</span></a>
-              <div class="dropdown-menu mega-menu"><div class="row"><div class="col-md-6"><h6 class="dropdown-header">Verification Services</h6><a href="../checks/lp-id verification.html" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a><a href="../checks/lp-ADRESS VERIFICATION.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a><a href="../checks/lp-employment.html" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a><a href="../checks/lp-education check.html" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a><a href="../checks/LP-court verification.html" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a><a href="../checks/lp-refernce.html" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a><a href="../checks/DIN-verification.html" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a><a href="../checks/LP-Directorship check.html" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a></div><div class="col-md-6"><h6 class="dropdown-header">Specialized Checks</h6><a href="../checks/global check.html" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a><a href="../checks/lp-credit check.html" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a><a href="../checks/lp-gap verification.html" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a><a href="../checks/lp-socialmeidaverification.html" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a><a href="../checks/lp-police clearnce.html" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a><a href="../checks/lp-drug test.html" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a><a class="dropdown-item" href="../checks/vendor.html"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a><a href="../checks/lp-passport verification.html" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a></div></div></div></li>
-            <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products <span class="dropdown-arrow">&#x25BE;</span></a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../products/exitinterview.html"><i class="bi bi-box-arrow-right"></i> Exit Interviews</a></li><li><a class="dropdown-item" href="../products/pm.html"><i class="bi bi-graph-up"></i> Psychometric</a></li></ul></li>
-            <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Industry <span class="dropdown-arrow">&#x25BE;</span></a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../industries/lp-banks.html"><i class="bi bi-bank"></i> Banking & Financial Services</a></li><li><a class="dropdown-item" href="../industries/lpi-healthcare.html"><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a></li><li><a class="dropdown-item" href="../industries/lpi-education.html"><i class="bi bi-book"></i> Education</a></li><li><a class="dropdown-item" href="../industries/lpi-Manfacturing.html"><i class="bi bi-building-gear"></i> Manufacturing</a></li><li><a class="dropdown-item" href="../industries/lpi-IT-ITES.html"><i class="bi bi-laptop"></i> IT/ITeS</a></li><li><a class="dropdown-item" href="../industries/LP-FMCG.html"><i class="bi bi-box"></i> FMCG</a></li><li><a class="dropdown-item" href="../industries/Logistics.html"><i class="bi bi-truck"></i> Logistics</a></li><li><a class="dropdown-item" href="../industries/Realestate & Constructation.html"><i class="bi bi-house"></i> Real Estate & Construction</a></li><li><a class="dropdown-item" href="../industries/Retail & E-commerce.html"><i class="bi bi-shop"></i> Retail & E-commerce</a></li><li><a class="dropdown-item" href="../industries/lpi-travel industries.html"><i class="bi bi-airplane"></i> Travel and Hospitality</a></li><li><a class="dropdown-item" href="../industries/lpi-staffing.html"><i class="bi bi-person-workspace"></i> Staffing and Recruitment</a></li><li><a class="dropdown-item" href="../industries/lpi-telecom.html"><i class="bi bi-broadcast"></i> Telecom</a></li></ul></li>
-            <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources <span class="dropdown-arrow">&#x25BE;</span></a><ul class="dropdown-menu"><li><a class="dropdown-item" href="./blog.html"><i class="bi bi-journal-text"></i> Blogs</a></li><li><a class="dropdown-item" href="./whitepapers.html"><i class="bi bi-file-earmark-text"></i> Whitepapers</a></li><li><a class="dropdown-item" href="./casestudy.html"><i class="bi bi-star"></i> Case Study</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-camera-video"></i> Webinar</a></li><li><a class="dropdown-item" href="../products/api.html"><i class="bi bi-plug"></i> API</a></li></ul></li>
-            <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company <span class="dropdown-arrow">&#x25BE;</span></a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../company/partnership.html"><i class="bi bi-hand-thumbs-up"></i> Partnership</a></li><li><a class="dropdown-item" href="../company/aboutus.html"><i class="bi bi-info-circle"></i> About Us</a></li><li><a class="dropdown-item" href="../company/careers.html"><i class="bi bi-briefcase"></i> Careers</a></li></ul></li>
-            <li class="nav-item dropdown"><a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Help Center <span class="dropdown-arrow">&#x25BE;</span></a><ul class="dropdown-menu"><li><a class="dropdown-item" href="../helpcenter/partner.html"><i class="bi bi-people"></i> For Partners</a></li><li><a class="dropdown-item" href="../affilate/affilate.html"><i class="bi bi-link-45deg"></i> Affiliate Marketing</a></li></ul></li>
-            <div class="d-flex align-items-center"><a href="https://web.verifitech.com/" target="blank" style="color:black;text-decoration:none;">Login</a></div>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Solutions <span class="dropdown-arrow">&#x25BE;</span></a
+              >
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <a
+                      href="../checks/lp-id-verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-person-badge"></i> ID Verification</a
+                    ><a
+                      href="../checks/lp-address-verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-geo-alt"></i> Address Verification</a
+                    ><a
+                      href="../checks/lp-employment.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-briefcase"></i> Employment
+                      Verification</a
+                    ><a
+                      href="../checks/lp-education-check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-mortarboard"></i> Education
+                      Verification</a
+                    ><a
+                      href="../checks/LP-court-verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification</a
+                    ><a href="../checks/lp-reference.html" class="dropdown-item"
+                      ><i class="bi bi-people"></i> Reference Check</a
+                    ><a
+                      href="../checks/DIN verification.html"
+                      class="dropdown-item"
+                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
+                    ><a
+                      href="../checks/LP-Directorship-check.html"
+                      class="dropdown-item"
+                      ><i class="fa-regular fa-user"></i> Directorship</a
+                    >
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <a href="../checks/global-check.html" class="dropdown-item"
+                      ><i class="bi bi-globe"></i> Global Database
+                      Verification</a
+                    ><a
+                      href="../checks/lp-credit-check.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-credit-card"></i> Credit Check</a
+                    ><a
+                      href="../checks/lp-gap-verification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-calendar-x"></i> Gap Check</a
+                    ><a
+                      href="../checks/lp-socialmeidaverification.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-share"></i> Social Media Verification</a
+                    ><a
+                      href="../checks/lp-police-clearnce.html"
+                      class="dropdown-item"
+                      ><i class="bi bi-shield-check"></i> Police Clearance</a
+                    ><a href="../checks/lp-drug-test.html" class="dropdown-item"
+                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
+                    ><a class="dropdown-item" href="../checks/vendor.html"
+                      ><i class="fa-solid fa-magnifying-glass"></i> Vendor Due
+                      Diligence</a
+                    ><a
+                      href="../checks/lp-passport-verification.html"
+                      class="dropdown-item"
+                      ><i class="fa-solid fa-passport"></i> Passport
+                      Verification</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Products <span class="dropdown-arrow">&#x25BE;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview.html"
+                    ><i class="bi bi-box-arrow-right"></i> Exit Interviews</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/pm.html"
+                    ><i class="bi bi-graph-up"></i> Psychometric</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Industry <span class="dropdown-arrow">&#x25BE;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/lp-banks.html"
+                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-healthcare.html"
+                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-education.html"
+                    ><i class="bi bi-book"></i> Education</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-manufacturing.html"
+                    ><i class="bi bi-building-gear"></i> Manufacturing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-IT-ITES.html"
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/LP-FMCG.html"
+                    ><i class="bi bi-box"></i> FMCG</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/Logistics.html"
+                    ><i class="bi bi-truck"></i> Logistics</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Realestate-Constructation.html"
+                    ><i class="bi bi-house"></i> Real Estate & Construction</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Retail & E-commerce.html"
+                    ><i class="bi bi-shop"></i> Retail & E-commerce</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-travel-industries.html"
+                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/lpi-staffing.html"
+                    ><i class="bi bi-person-workspace"></i> Staffing and
+                    Recruitment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/lpi-telecom.html"
+                    ><i class="bi bi-broadcast"></i> Telecom</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Resources <span class="dropdown-arrow">&#x25BE;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./blog.html"
+                    ><i class="bi bi-journal-text"></i> Blogs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./whitepapers.html"
+                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./casestudy.html"
+                    ><i class="bi bi-star"></i> Case Study</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-camera-video"></i> Webinar</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../products/api.html"
+                    ><i class="bi bi-plug"></i> API</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Company <span class="dropdown-arrow">&#x25BE;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../company/partnership.html"
+                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus.html"
+                    ><i class="bi bi-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers.html"
+                    ><i class="bi bi-briefcase"></i> Careers</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Help Center <span class="dropdown-arrow">&#x25BE;</span></a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/partner.html"
+                    ><i class="bi bi-people"></i> For Partners</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../affilate/affilate.html"
+                    ><i class="bi bi-link-45deg"></i> Affiliate Marketing</a
+                  >
+                </li>
+              </ul>
+            </li>
             <div class="d-flex align-items-center">
-              <a href="../contact/contact.html" class="btn btn-sales">Talk to Sales</a>
-              <div class="dropdown"><div class="country-selector dropdown" data-bs-toggle="dropdown" aria-expanded="false"><span class="country-flag" id="current-flag">&#x1F1EE;&#x1F1F3;</span><span id="current-country">India</span><i class="bi bi-chevron-down ms-1" style="font-size:0.7rem"></i></div><ul class="dropdown-menu dropdown-menu-end" style="min-width:180px"><li><a href="../countries/usa.html" class="dropdown-item country-option" data-country="USA" data-flag="&#x1F1FA;&#x1F1F8;"><span class="country-flag">&#x1F1FA;&#x1F1F8;</span> USA</a></li><li><a class="dropdown-item country-option" href="../countries/UAE.html" data-country="UAE" data-flag="&#x1F1E6;&#x1F1EA;"><span class="country-flag">&#x1F1E6;&#x1F1EA;</span> UAE</a></li><li><a class="dropdown-item country-option" href="../countries/aus.html" data-country="Australia" data-flag="&#x1F1E6;&#x1F1FA;"><span class="country-flag">&#x1F1E6;&#x1F1FA;</span> Australia</a></li><li><a class="dropdown-item country-option" href="../countries/uk.html" data-country="UK" data-flag="&#x1F1EC;&#x1F1E7;"><span class="country-flag">&#x1F1EC;&#x1F1E7;</span> UK</a></li><li><a class="dropdown-item country-option" href="../countries/sigapore.html" data-country="Singapore" data-flag="&#x1F1F8;&#x1F1EC;"><span class="country-flag">&#x1F1F8;&#x1F1EC;</span> Singapore</a></li></ul></div>
+              <a
+                href="https://web.verifitech.com/"
+                target="blank"
+                style="color: black; text-decoration: none"
+                >Login</a
+              >
+            </div>
+            <div class="d-flex align-items-center">
+              <a href="../contact/contact.html" class="btn btn-sales"
+                >Talk to Sales</a
+              >
+              <div class="dropdown">
+                <div
+                  class="country-selector dropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="country-flag" id="current-flag"
+                    >&#x1F1EE;&#x1F1F3;</span
+                  ><span id="current-country">India</span
+                  ><i
+                    class="bi bi-chevron-down ms-1"
+                    style="font-size: 0.7rem"
+                  ></i>
+                </div>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  style="min-width: 180px"
+                >
+                  <li>
+                    <a
+                      href="../countries/usa.html"
+                      class="dropdown-item country-option"
+                      data-country="USA"
+                      data-flag="&#x1F1FA;&#x1F1F8;"
+                      ><span class="country-flag">&#x1F1FA;&#x1F1F8;</span>
+                      USA</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/UAE.html"
+                      data-country="UAE"
+                      data-flag="&#x1F1E6;&#x1F1EA;"
+                      ><span class="country-flag">&#x1F1E6;&#x1F1EA;</span>
+                      UAE</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/aus.html"
+                      data-country="Australia"
+                      data-flag="&#x1F1E6;&#x1F1FA;"
+                      ><span class="country-flag">&#x1F1E6;&#x1F1FA;</span>
+                      Australia</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/uk.html"
+                      data-country="UK"
+                      data-flag="&#x1F1EC;&#x1F1E7;"
+                      ><span class="country-flag">&#x1F1EC;&#x1F1E7;</span>
+                      UK</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/sigapore.html"
+                      data-country="Singapore"
+                      data-flag="&#x1F1F8;&#x1F1EC;"
+                      ><span class="country-flag">&#x1F1F8;&#x1F1EC;</span>
+                      Singapore</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
           </ul>
         </div>
@@ -180,7 +1308,10 @@
         <div class="zf-modal-confetti" id="zfConfetti"></div>
         <div class="zf-modal-check"><i class="bi bi-check-lg"></i></div>
         <h4>You're Registered!</h4>
-        <p>Check your email for the webinar link and calendar invite. We look forward to seeing you there.</p>
+        <p>
+          Check your email for the webinar link and calendar invite. We look
+          forward to seeing you there.
+        </p>
         <button class="zf-modal-close" onclick="zfClosePopup()">Got it</button>
       </div>
     </div>
@@ -190,19 +1321,46 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7 reveal">
-            <div class="webinar-badge"><i class="bi bi-camera-video"></i> Live Webinar</div>
+            <div class="webinar-badge">
+              <i class="bi bi-camera-video"></i> Live Webinar
+            </div>
             <h1>The Future of Background Verification: AI & Compliance 2026</h1>
-            <p class="webinar-description">Discover how leading enterprises are leveraging AI-powered verification to reduce hiring risks by 80%, ensure global compliance, and cut turnaround times from weeks to hours.</p>
+            <p class="webinar-description">
+              Discover how leading enterprises are leveraging AI-powered
+              verification to reduce hiring risks by 80%, ensure global
+              compliance, and cut turnaround times from weeks to hours.
+            </p>
             <div class="countdown-container">
-              <div class="countdown-box"><span class="number" id="days">13</span><div class="label">Days</div></div>
-              <div class="countdown-box"><span class="number" id="hours">04</span><div class="label">Hours</div></div>
-              <div class="countdown-box"><span class="number" id="minutes">32</span><div class="label">Mins</div></div>
-              <div class="countdown-box"><span class="number" id="seconds">18</span><div class="label">Secs</div></div>
+              <div class="countdown-box">
+                <span class="number" id="days">13</span>
+                <div class="label">Days</div>
+              </div>
+              <div class="countdown-box">
+                <span class="number" id="hours">04</span>
+                <div class="label">Hours</div>
+              </div>
+              <div class="countdown-box">
+                <span class="number" id="minutes">32</span>
+                <div class="label">Mins</div>
+              </div>
+              <div class="countdown-box">
+                <span class="number" id="seconds">18</span>
+                <div class="label">Secs</div>
+              </div>
             </div>
             <div class="d-flex gap-3 flex-wrap">
-              <div class="d-flex align-items-center gap-2 text-muted small"><i class="bi bi-check-circle-fill text-success"></i><span>Free Registration</span></div>
-              <div class="d-flex align-items-center gap-2 text-muted small"><i class="bi bi-check-circle-fill text-success"></i><span>Certificate of Attendance</span></div>
-              <div class="d-flex align-items-center gap-2 text-muted small"><i class="bi bi-check-circle-fill text-success"></i><span>Recording Access</span></div>
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <i class="bi bi-check-circle-fill text-success"></i
+                ><span>Free Registration</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <i class="bi bi-check-circle-fill text-success"></i
+                ><span>Certificate of Attendance</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <i class="bi bi-check-circle-fill text-success"></i
+                ><span>Recording Access</span>
+              </div>
             </div>
           </div>
 
@@ -210,35 +1368,175 @@
             <div class="registration-card">
               <div class="form-card-header">
                 <h3>Reserve Your Spot</h3>
-                <p class="subtitle">Limited to 500 attendees. Register now to secure your seat.</p>
+                <p class="subtitle">
+                  Limited to 500 attendees. Register now to secure your seat.
+                </p>
               </div>
               <div class="form-card-body">
                 <div class="zf-templateWidth">
-                  <form id="form" name="form" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-                    <input type="hidden" name="zf_referrer_name" value="">
-                    <input type="hidden" name="zf_redirect_url" value="">
-                    <input type="hidden" name="zc_gad" value="">
-                    <input type="hidden" name="utm_source" value="">
-                    <input type="hidden" name="utm_medium" value="">
-                    <input type="hidden" name="utm_campaign" value="">
-                    <input type="hidden" name="utm_term" value="">
-                    <input type="hidden" name="utm_content" value="">
+                  <form
+                    id="form"
+                    name="form"
+                    method="POST"
+                    accept-charset="UTF-8"
+                    enctype="multipart/form-data"
+                  >
+                    <input type="hidden" name="zf_referrer_name" value="" />
+                    <input type="hidden" name="zf_redirect_url" value="" />
+                    <input type="hidden" name="zc_gad" value="" />
+                    <input type="hidden" name="utm_source" value="" />
+                    <input type="hidden" name="utm_medium" value="" />
+                    <input type="hidden" name="utm_campaign" value="" />
+                    <input type="hidden" name="utm_term" value="" />
+                    <input type="hidden" name="utm_content" value="" />
                     <input type="hidden" name="Date" id="zfAutoDate" value="" />
                     <div class="zf-templateWrapper">
-                      <div class="zf-subContWrap zf-topAlign"><ul>
-                        <div class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">Name <em class="zf-important">*</em></label><div class="zf-tempContDiv"><span><input type="text" name="SingleLine" checktype="c1" value="" maxlength="255" fieldType="1" placeholder="Enter your full name" /></span><p id="SingleLine_error" class="zf-errorMessage">Please enter your name</p></div><div class="zf-clearBoth"></div></div>
-                        <div class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">Business Email <em class="zf-important">*</em></label><div class="zf-tempContDiv"><span><input type="text" name="Email" checktype="c5" value="" maxlength="255" fieldType="9" placeholder="you@company.com" /></span><p id="Email_error" class="zf-errorMessage">Please enter a valid business email</p></div><div class="zf-clearBoth"></div></div>
-                        <div class="zf-tempFrmWrapper zf- zf-large"><label class="zf-labelName">Phone <em class="zf-important">*</em></label><div class="zf-tempContDiv zf-phonefld"><div class="zf-phwrapper zf-phNumber"><span><input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled="false" fieldType="11" id="international_PhoneNumber_countrycode" valType="number" phoneFormatType="1" placeholder="Enter your phone number" /><label>Number</label></span><div class="zf-clearBoth"></div></div><p id="PhoneNumber_error" class="zf-errorMessage">Please enter a valid phone number</p></div><div class="zf-clearBoth"></div></div>
-                        <div class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">Company Name <em class="zf-important">*</em></label><div class="zf-tempContDiv"><span><input type="text" name="SingleLine1" checktype="c1" value="" maxlength="255" fieldType="1" placeholder="Enter your company name" /></span><p id="SingleLine1_error" class="zf-errorMessage">Please enter your company name</p></div><div class="zf-clearBoth"></div></div>
-                        <div class="zf-tempFrmWrapper zf-large"><label class="zf-labelName">Job Role <em class="zf-important">*</em></label><div class="zf-tempContDiv"><span><input type="text" name="SingleLine3" checktype="c1" value="" maxlength="255" fieldType="1" placeholder="e.g. HR Manager, CHRO, TA Lead" /></span><p id="SingleLine3_error" class="zf-errorMessage">Please enter your job role</p></div><div class="zf-clearBoth"></div></div>
-                      </ul></div>
-                      <ul><li class="zf-fmFooter"><button type="button" class="zf-submitColor" id="zfSubmitBtn" onclick="zfHandleSubmit()"><i class="bi bi-check-lg" style="font-size:1.1rem;"></i> Register Now</button></li></ul>
+                      <div class="zf-subContWrap zf-topAlign">
+                        <ul>
+                          <div class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName"
+                              >Name <em class="zf-important">*</em></label
+                            >
+                            <div class="zf-tempContDiv">
+                              <span
+                                ><input
+                                  type="text"
+                                  name="SingleLine"
+                                  checktype="c1"
+                                  value=""
+                                  maxlength="255"
+                                  fieldType="1"
+                                  placeholder="Enter your full name"
+                              /></span>
+                              <p id="SingleLine_error" class="zf-errorMessage">
+                                Please enter your name
+                              </p>
+                            </div>
+                            <div class="zf-clearBoth"></div>
+                          </div>
+                          <div class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName"
+                              >Business Email
+                              <em class="zf-important">*</em></label
+                            >
+                            <div class="zf-tempContDiv">
+                              <span
+                                ><input
+                                  type="text"
+                                  name="Email"
+                                  checktype="c5"
+                                  value=""
+                                  maxlength="255"
+                                  fieldType="9"
+                                  placeholder="you@company.com"
+                              /></span>
+                              <p id="Email_error" class="zf-errorMessage">
+                                Please enter a valid business email
+                              </p>
+                            </div>
+                            <div class="zf-clearBoth"></div>
+                          </div>
+                          <div class="zf-tempFrmWrapper zf- zf-large">
+                            <label class="zf-labelName"
+                              >Phone <em class="zf-important">*</em></label
+                            >
+                            <div class="zf-tempContDiv zf-phonefld">
+                              <div class="zf-phwrapper zf-phNumber">
+                                <span
+                                  ><input
+                                    type="text"
+                                    compname="PhoneNumber"
+                                    name="PhoneNumber_countrycode"
+                                    maxlength="20"
+                                    checktype="c7"
+                                    value=""
+                                    phoneFormat="1"
+                                    isCountryCodeEnabled="false"
+                                    fieldType="11"
+                                    id="international_PhoneNumber_countrycode"
+                                    valType="number"
+                                    phoneFormatType="1"
+                                    placeholder="Enter your phone number"
+                                  /><label>Number</label></span
+                                >
+                                <div class="zf-clearBoth"></div>
+                              </div>
+                              <p id="PhoneNumber_error" class="zf-errorMessage">
+                                Please enter a valid phone number
+                              </p>
+                            </div>
+                            <div class="zf-clearBoth"></div>
+                          </div>
+                          <div class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName"
+                              >Company Name
+                              <em class="zf-important">*</em></label
+                            >
+                            <div class="zf-tempContDiv">
+                              <span
+                                ><input
+                                  type="text"
+                                  name="SingleLine1"
+                                  checktype="c1"
+                                  value=""
+                                  maxlength="255"
+                                  fieldType="1"
+                                  placeholder="Enter your company name"
+                              /></span>
+                              <p id="SingleLine1_error" class="zf-errorMessage">
+                                Please enter your company name
+                              </p>
+                            </div>
+                            <div class="zf-clearBoth"></div>
+                          </div>
+                          <div class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName"
+                              >Job Role <em class="zf-important">*</em></label
+                            >
+                            <div class="zf-tempContDiv">
+                              <span
+                                ><input
+                                  type="text"
+                                  name="SingleLine3"
+                                  checktype="c1"
+                                  value=""
+                                  maxlength="255"
+                                  fieldType="1"
+                                  placeholder="e.g. HR Manager, CHRO, TA Lead"
+                              /></span>
+                              <p id="SingleLine3_error" class="zf-errorMessage">
+                                Please enter your job role
+                              </p>
+                            </div>
+                            <div class="zf-clearBoth"></div>
+                          </div>
+                        </ul>
+                      </div>
+                      <ul>
+                        <li class="zf-fmFooter">
+                          <button
+                            type="button"
+                            class="zf-submitColor"
+                            id="zfSubmitBtn"
+                            onclick="zfHandleSubmit()"
+                          >
+                            <i
+                              class="bi bi-check-lg"
+                              style="font-size: 1.1rem"
+                            ></i>
+                            Register Now
+                          </button>
+                        </li>
+                      </ul>
                     </div>
                   </form>
                 </div>
               </div>
               <div class="form-card-footer">
-                <div class="security-note"><i class="bi bi-shield-lock"></i><span>Your data is secure and will never be shared</span></div>
+                <div class="security-note">
+                  <i class="bi bi-shield-lock"></i
+                  ><span>Your data is secure and will never be shared</span>
+                </div>
               </div>
             </div>
           </div>
@@ -250,17 +1548,84 @@
     <section class="learning-section" id="outcomes">
       <div class="container">
         <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center"><i class="bi bi-lightbulb"></i> Key Takeaways</div>
+          <div class="section-subtitle justify-content-center">
+            <i class="bi bi-lightbulb"></i> Key Takeaways
+          </div>
           <h2 class="section-title">What You'll Learn</h2>
-          <p class="section-desc mx-auto">Actionable insights to transform your verification and compliance strategy</p>
+          <p class="section-desc mx-auto">
+            Actionable insights to transform your verification and compliance
+            strategy
+          </p>
         </div>
         <div class="row g-4">
-          <div class="col-md-6 col-lg-4 reveal"><div class="outcome-card"><div class="outcome-icon"><i class="bi bi-robot"></i></div><h3>AI-Powered Automation</h3><p>Learn how to implement machine learning algorithms that reduce manual verification effort by 85% while improving accuracy to 99.9%.</p></div></div>
-          <div class="col-md-6 col-lg-4 reveal"><div class="outcome-card"><div class="outcome-icon"><i class="bi bi-globe"></i></div><h3>Global Compliance Framework</h3><p>Navigate complex international regulations including GDPR, FCRA, and local employment laws across 25+ countries seamlessly.</p></div></div>
-          <div class="col-md-6 col-lg-4 reveal"><div class="outcome-card"><div class="outcome-icon"><i class="bi bi-shield-check"></i></div><h3>Risk Mitigation Strategies</h3><p>Discover frameworks used by Fortune 500 companies to identify high-risk candidates before onboarding and prevent data breaches.</p></div></div>
-          <div class="col-md-6 col-lg-4 reveal"><div class="outcome-card"><div class="outcome-icon"><i class="bi bi-lightning-charge"></i></div><h3>Speed Optimization</h3><p>Techniques to reduce background check turnaround from industry standard 5-7 days to under 24 hours without compromising thoroughness.</p></div></div>
-          <div class="col-md-6 col-lg-4 reveal"><div class="outcome-card"><div class="outcome-icon"><i class="bi bi-people"></i></div><h3>Vendor Management</h3><p>Best practices for evaluating verification partners, managing SLAs, and building a resilient screening ecosystem.</p></div></div>
-          <div class="col-md-6 col-lg-4 reveal"><div class="outcome-card"><div class="outcome-icon"><i class="bi bi-graph-up-arrow"></i></div><h3>ROI Measurement</h3><p>How to calculate the true cost of bad hires and demonstrate quantifiable ROI from your verification investments to leadership.</p></div></div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon"><i class="bi bi-robot"></i></div>
+              <h3>AI-Powered Automation</h3>
+              <p>
+                Learn how to implement machine learning algorithms that reduce
+                manual verification effort by 85% while improving accuracy to
+                99.9%.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon"><i class="bi bi-globe"></i></div>
+              <h3>Global Compliance Framework</h3>
+              <p>
+                Navigate complex international regulations including GDPR, FCRA,
+                and local employment laws across 25+ countries seamlessly.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon"><i class="bi bi-shield-check"></i></div>
+              <h3>Risk Mitigation Strategies</h3>
+              <p>
+                Discover frameworks used by Fortune 500 companies to identify
+                high-risk candidates before onboarding and prevent data
+                breaches.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h3>Speed Optimization</h3>
+              <p>
+                Techniques to reduce background check turnaround from industry
+                standard 5-7 days to under 24 hours without compromising
+                thoroughness.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon"><i class="bi bi-people"></i></div>
+              <h3>Vendor Management</h3>
+              <p>
+                Best practices for evaluating verification partners, managing
+                SLAs, and building a resilient screening ecosystem.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="outcome-card">
+              <div class="outcome-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h3>ROI Measurement</h3>
+              <p>
+                How to calculate the true cost of bad hires and Demonstrate
+                quantifiable ROI from your verification investments to
+                leadership.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -269,126 +1634,370 @@
     <section class="cta-section">
       <div class="container reveal">
         <div class="cta-box">
-          <div class="section-subtitle justify-content-center mb-3"><i class="bi bi-calendar-check"></i> Don't Miss Out</div>
-          <h2 class="section-title mb-3">Ready to Transform Your Verification Strategy?</h2>
-          <p class="section-desc mx-auto mb-4">Join hundreds of HR leaders and compliance professionals who have already registered.</p>
-          <a href="#register" class="btn-primary-custom"><i class="bi bi-arrow-up-circle"></i> Register Now</a>
+          <div class="section-subtitle justify-content-center mb-3">
+            <i class="bi bi-calendar-check"></i> Don't Miss Out
+          </div>
+          <h2 class="section-title mb-3">
+            Ready to Transform Your Verification Strategy?
+          </h2>
+          <p class="section-desc mx-auto mb-4">
+            Join hundreds of HR leaders and compliance professionals who have
+            already registered.
+          </p>
+          <a href="#register" class="btn-primary-custom"
+            ><i class="bi bi-arrow-up-circle"></i> Register Now</a
+          >
         </div>
       </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
-    /* Auto-fill date */
-    (function() {
-      var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-      var now = new Date();
-      var f = document.getElementById("zfAutoDate");
-      if (f) f.value = String(now.getDate()).padStart(2,"0") + "-" + months[now.getMonth()] + "-" + now.getFullYear();
-    })();
+      /* Auto-fill date */
+      (function () {
+        var months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        var now = new Date();
+        var f = document.getElementById("zfAutoDate");
+        if (f)
+          f.value =
+            String(now.getDate()).padStart(2, "0") +
+            "-" +
+            months[now.getMonth()] +
+            "-" +
+            now.getFullYear();
+      })();
 
-    /* Zoho validation setup (required but date excluded) */
-    function zf_SetDateAndMonthRegexBasedOnDateFormate(d) {
-      var m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],dr="",mr="",yr="(\\d{4})";
-      if(d.indexOf("dd")>-1)dr="(0?[1-9]|[12][0-9]|3[01])";else if(d.indexOf("MM")>-1)dr="(0?[1-9]|1[012])";
-      if(d.indexOf("MMM")>-1)mr="("+m.join("|")+")";else if(d.indexOf("MM")>-1)mr="(0?[1-9]|1[012])";
-      var p=d.split("-"),rx="",myr="";
-      for(var i=0;i<p.length;i++){if(p[i]==="dd")rx+=dr;else if(p[i]==="MMM"||p[i]==="MM")rx+=mr;else if(p[i]==="yyyy")rx+=yr;if(i<p.length-1)rx+="[\\-\\/\\.]";}
-      for(var k=0;k<p.length;k++){if(p[k]!=="dd"){if(p[k]==="MMM"||p[k]==="MM")myr+=mr;else if(p[k]==="yyyy")myr+=yr;if(k<p.length-1&&p[k+1]!=="dd")myr+="[\\-\\/\\.]";}}
-      return[rx,myr];
-    }
-    var dateAndMonthRegexFormateArray=zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
-    var zf_DateRegex=new RegExp("^"+dateAndMonthRegexFormateArray[0]+"$");
-    var zf_MonthYearRegex=new RegExp("^"+dateAndMonthRegexFormateArray[1]+"$");
-    var zf_MandArray=["SingleLine","Email","PhoneNumber_countrycode","SingleLine1","SingleLine3"];
-    var zf_FieldArray=["SingleLine","Email","PhoneNumber_countrycode","SingleLine1","SingleLine3"];
-    var isSalesIQIntegrationEnabled=false,salesIQFieldsArray=[];
+      /* Zoho validation setup (required but date excluded) */
+      function zf_SetDateAndMonthRegexBasedOnDateFormate(d) {
+        var m = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          dr = "",
+          mr = "",
+          yr = "(\\d{4})";
+        if (d.indexOf("dd") > -1) dr = "(0?[1-9]|[12][0-9]|3[01])";
+        else if (d.indexOf("MM") > -1) dr = "(0?[1-9]|1[012])";
+        if (d.indexOf("MMM") > -1) mr = "(" + m.join("|") + ")";
+        else if (d.indexOf("MM") > -1) mr = "(0?[1-9]|1[012])";
+        var p = d.split("-"),
+          rx = "",
+          myr = "";
+        for (var i = 0; i < p.length; i++) {
+          if (p[i] === "dd") rx += dr;
+          else if (p[i] === "MMM" || p[i] === "MM") rx += mr;
+          else if (p[i] === "yyyy") rx += yr;
+          if (i < p.length - 1) rx += "[\\-\\/\\.]";
+        }
+        for (var k = 0; k < p.length; k++) {
+          if (p[k] !== "dd") {
+            if (p[k] === "MMM" || p[k] === "MM") myr += mr;
+            else if (p[k] === "yyyy") myr += yr;
+            if (k < p.length - 1 && p[k + 1] !== "dd") myr += "[\\-\\/\\.]";
+          }
+        }
+        return [rx, myr];
+      }
+      var dateAndMonthRegexFormateArray =
+        zf_SetDateAndMonthRegexBasedOnDateFormate("dd-MMM-yyyy");
+      var zf_DateRegex = new RegExp(
+        "^" + dateAndMonthRegexFormateArray[0] + "$",
+      );
+      var zf_MonthYearRegex = new RegExp(
+        "^" + dateAndMonthRegexFormateArray[1] + "$",
+      );
+      var zf_MandArray = [
+        "SingleLine",
+        "Email",
+        "PhoneNumber_countrycode",
+        "SingleLine1",
+        "SingleLine3",
+      ];
+      var zf_FieldArray = [
+        "SingleLine",
+        "Email",
+        "PhoneNumber_countrycode",
+        "SingleLine1",
+        "SingleLine3",
+      ];
+      var isSalesIQIntegrationEnabled = false,
+        salesIQFieldsArray = [];
 
-    function zf_ShowError(id,msg){var e=document.getElementById(id+"_error"),i=document.getElementsByName(id)[0];if(e){e.textContent=msg||"Invalid value";e.style.display="block";e.className="zf-errorMessage zf-showError";}if(i)i.classList.add("zf-input-error");}
-    function zf_ClearError(id){var e=document.getElementById(id+"_error"),i=document.getElementsByName(id)[0];if(e){e.style.display="none";e.className="zf-errorMessage";}if(i)i.classList.remove("zf-input-error");}
-    function zf_ClearAllErrors(){for(var i=0;i<zf_FieldArray.length;i++)zf_ClearError(zf_FieldArray[i]);}
-    function zf_ValidateField(id,ct){var i=document.getElementsByName(id)[0];if(!i)return true;var v=i.value.trim();if(zf_MandArray.indexOf(id)>-1&&v===""){zf_ShowError(id,"This field is required");return false;}if(v===""){zf_ClearError(id);return true;}switch(ct){case"c1":if(v.length<1){zf_ShowError(id,"Please enter a valid value");return false;}break;case"c5":if(!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(v)){zf_ShowError(id,"Please enter a valid email address");return false;}break;case"c7":if(!/^\d{7,15}$/.test(v.replace(/[\s\-\+\(\)]/g,""))){zf_ShowError(id,"Please enter a valid phone number");return false;}break;}zf_ClearError(id);return true;}
+      function zf_ShowError(id, msg) {
+        var e = document.getElementById(id + "_error"),
+          i = document.getElementsByName(id)[0];
+        if (e) {
+          e.textContent = msg || "Invalid value";
+          e.style.display = "block";
+          e.className = "zf-errorMessage zf-showError";
+        }
+        if (i) i.classList.add("zf-input-error");
+      }
+      function zf_ClearError(id) {
+        var e = document.getElementById(id + "_error"),
+          i = document.getElementsByName(id)[0];
+        if (e) {
+          e.style.display = "none";
+          e.className = "zf-errorMessage";
+        }
+        if (i) i.classList.remove("zf-input-error");
+      }
+      function zf_ClearAllErrors() {
+        for (var i = 0; i < zf_FieldArray.length; i++)
+          zf_ClearError(zf_FieldArray[i]);
+      }
+      function zf_ValidateField(id, ct) {
+        var i = document.getElementsByName(id)[0];
+        if (!i) return true;
+        var v = i.value.trim();
+        if (zf_MandArray.indexOf(id) > -1 && v === "") {
+          zf_ShowError(id, "This field is required");
+          return false;
+        }
+        if (v === "") {
+          zf_ClearError(id);
+          return true;
+        }
+        switch (ct) {
+          case "c1":
+            if (v.length < 1) {
+              zf_ShowError(id, "Please enter a valid value");
+              return false;
+            }
+            break;
+          case "c5":
+            if (!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(v)) {
+              zf_ShowError(id, "Please enter a valid email address");
+              return false;
+            }
+            break;
+          case "c7":
+            if (!/^\d{7,15}$/.test(v.replace(/[\s\-\+\(\)]/g, ""))) {
+              zf_ShowError(id, "Please enter a valid phone number");
+              return false;
+            }
+            break;
+        }
+        zf_ClearError(id);
+        return true;
+      }
 
-    /* Confetti */
-    function zfSpawnConfetti(){var c=document.getElementById("zfConfetti");if(!c)return;c.innerHTML="";var colors=["#1ac2c1","#16a8a7","#14b8a6","#0d9488","#99f6e4","#5eead4"];for(var i=0;i<30;i++){var d=document.createElement("div");d.className="zf-confetti-dot";d.style.left=Math.random()*100+"%";d.style.top="-10px";d.style.background=colors[Math.floor(Math.random()*colors.length)];d.style.width=(4+Math.random()*6)+"px";d.style.height=d.style.width;d.style.animationDelay=(Math.random()*0.6)+"s";d.style.animationDuration=(0.8+Math.random()*0.8)+"s";c.appendChild(d);}}
+      /* Confetti */
+      function zfSpawnConfetti() {
+        var c = document.getElementById("zfConfetti");
+        if (!c) return;
+        c.innerHTML = "";
+        var colors = [
+          "#1ac2c1",
+          "#16a8a7",
+          "#14b8a6",
+          "#0d9488",
+          "#99f6e4",
+          "#5eead4",
+        ];
+        for (var i = 0; i < 30; i++) {
+          var d = document.createElement("div");
+          d.className = "zf-confetti-dot";
+          d.style.left = Math.random() * 100 + "%";
+          d.style.top = "-10px";
+          d.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+          d.style.width = 4 + Math.random() * 6 + "px";
+          d.style.height = d.style.width;
+          d.style.animationDelay = Math.random() * 0.6 + "s";
+          d.style.animationDuration = 0.8 + Math.random() * 0.8 + "s";
+          c.appendChild(d);
+        }
+      }
 
-    /* Close popup */
-    function zfClosePopup(){var p=document.getElementById("zfSuccessPopup");if(p)p.classList.remove("zf-visible");var f=document.getElementById("form");if(f){var ins=f.querySelectorAll("input[type='text']");for(var i=0;i<ins.length;i++)ins[i].value="";}zf_ClearAllErrors();}
-    document.addEventListener("click",function(e){if(e.target.id==="zfSuccessPopup")zfClosePopup();});
-    document.addEventListener("keydown",function(e){if(e.key==="Escape")zfClosePopup();});
+      /* Close popup */
+      function zfClosePopup() {
+        var p = document.getElementById("zfSuccessPopup");
+        if (p) p.classList.remove("zf-visible");
+        var f = document.getElementById("form");
+        if (f) {
+          var ins = f.querySelectorAll("input[type='text']");
+          for (var i = 0; i < ins.length; i++) ins[i].value = "";
+        }
+        zf_ClearAllErrors();
+      }
+      document.addEventListener("click", function (e) {
+        if (e.target.id === "zfSuccessPopup") zfClosePopup();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") zfClosePopup();
+      });
 
-    /* ============================================================
+      /* ============================================================
        AJAX SUBMIT — this is the key fix
        Instead of letting the form navigate away, we send data
        via fetch() in the background, then show the popup.
        ============================================================ */
-    function zfHandleSubmit() {
-      zf_ClearAllErrors();
-      var isValid = true;
-      var checkTypeMap = {};
-      var inputs = document.getElementById("form").getElementsByTagName("input");
-      for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].getAttribute("checktype")) checkTypeMap[inputs[i].name] = inputs[i].getAttribute("checktype");
-      }
-      for (var j = 0; j < zf_FieldArray.length; j++) {
-        if (!zf_ValidateField(zf_FieldArray[j], checkTypeMap[zf_FieldArray[j]] || "c1")) isValid = false;
-      }
-      if (!isValid) {
-        var fe = document.querySelector(".zf-showError");
-        if (fe) fe.scrollIntoView({ behavior: "smooth", block: "center" });
-        return;
-      }
-
-      // Loading state
-      var btn = document.getElementById("zfSubmitBtn");
-      if (btn) { btn.classList.add("zf-submitting"); btn.disabled = true; }
-
-      // Collect form data
-      var form = document.getElementById("form");
-      var formData = new FormData(form);
-
-      // Send via AJAX — no page redirect
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors" // Zoho cross-origin, we can't read response but data is sent
-      }).then(function() {
-        // Success — show popup regardless of response readability
-        if (btn) { btn.classList.remove("zf-submitting"); btn.disabled = false; }
-        zfSpawnConfetti();
-        document.getElementById("zfSuccessPopup").classList.add("zf-visible");
-      }).catch(function() {
-        // Even on CORS error, data was likely sent — show popup
-        if (btn) { btn.classList.remove("zf-submitting"); btn.disabled = false; }
-        zfSpawnConfetti();
-        document.getElementById("zfSuccessPopup").classList.add("zf-visible");
-      });
-    }
-
-    // Real-time validation
-    document.addEventListener("DOMContentLoaded", function() {
-      var inputs = document.getElementById("form").getElementsByTagName("input");
-      for (var i = 0; i < inputs.length; i++) {
-        var inp = inputs[i];
-        if (inp.type !== "hidden" && inp.name) {
-          (function(fn) {
-            var ct = document.querySelector('input[name="' + fn + '"]');
-            var ck = ct ? ct.getAttribute("checktype") : "c1";
-            inp.addEventListener("blur", function() { zf_ValidateField(fn, ck); });
-            inp.addEventListener("focus", function() { zf_ClearError(fn); });
-          })(inp.name);
+      function zfHandleSubmit() {
+        zf_ClearAllErrors();
+        var isValid = true;
+        var checkTypeMap = {};
+        var inputs = document
+          .getElementById("form")
+          .getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+          if (inputs[i].getAttribute("checktype"))
+            checkTypeMap[inputs[i].name] = inputs[i].getAttribute("checktype");
         }
-      }
-    });
+        for (var j = 0; j < zf_FieldArray.length; j++) {
+          if (
+            !zf_ValidateField(
+              zf_FieldArray[j],
+              checkTypeMap[zf_FieldArray[j]] || "c1",
+            )
+          )
+            isValid = false;
+        }
+        if (!isValid) {
+          var fe = document.querySelector(".zf-showError");
+          if (fe) fe.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
 
-    /* Page scripts */
-    window.addEventListener("scroll", function() { var n = document.querySelector(".navbar"); if (window.scrollY > 50) n.classList.add("scrolled"); else n.classList.remove("scrolled"); });
-    var revealElements = document.querySelectorAll(".reveal");
-    function checkReveal() { revealElements.forEach(function(el) { if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add("active"); }); }
-    window.addEventListener("scroll", checkReveal);
-    window.addEventListener("load", checkReveal);
-    (function() { var t = new Date(); t.setDate(t.getDate()+13); t.setHours(t.getHours()+4); t.setMinutes(t.getMinutes()+32); function tick() { var d=t-new Date(); if(d<=0){document.getElementById("days").textContent="00";document.getElementById("hours").textContent="00";document.getElementById("minutes").textContent="00";document.getElementById("seconds").textContent="00";return;} document.getElementById("days").textContent=String(Math.floor(d/86400000)).padStart(2,"0"); document.getElementById("hours").textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,"0"); document.getElementById("minutes").textContent=String(Math.floor((d%3600000)/60000)).padStart(2,"0"); document.getElementById("seconds").textContent=String(Math.floor((d%60000)/1000)).padStart(2,"0"); } tick(); setInterval(tick,1000); })();
-    document.querySelectorAll(".country-option").forEach(function(o) { o.addEventListener("click", function() { document.getElementById("current-flag").textContent=this.getAttribute("data-flag"); document.getElementById("current-country").textContent=this.getAttribute("data-country"); }); });
+        // Loading state
+        var btn = document.getElementById("zfSubmitBtn");
+        if (btn) {
+          btn.classList.add("zf-submitting");
+          btn.disabled = true;
+        }
+
+        // Collect form data
+        var form = document.getElementById("form");
+        var formData = new FormData(form);
+
+        // Send via AJAX — no page redirect
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors", // Zoho cross-origin, we can't read response but data is sent
+        })
+          .then(function () {
+            // Success — show popup regardless of response readability
+            if (btn) {
+              btn.classList.remove("zf-submitting");
+              btn.disabled = false;
+            }
+            zfSpawnConfetti();
+            document
+              .getElementById("zfSuccessPopup")
+              .classList.add("zf-visible");
+          })
+          .catch(function () {
+            // Even on CORS error, data was likely sent — show popup
+            if (btn) {
+              btn.classList.remove("zf-submitting");
+              btn.disabled = false;
+            }
+            zfSpawnConfetti();
+            document
+              .getElementById("zfSuccessPopup")
+              .classList.add("zf-visible");
+          });
+      }
+
+      // Real-time validation
+      document.addEventListener("DOMContentLoaded", function () {
+        var inputs = document
+          .getElementById("form")
+          .getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+          var inp = inputs[i];
+          if (inp.type !== "hidden" && inp.name) {
+            (function (fn) {
+              var ct = document.querySelector('input[name="' + fn + '"]');
+              var ck = ct ? ct.getAttribute("checktype") : "c1";
+              inp.addEventListener("blur", function () {
+                zf_ValidateField(fn, ck);
+              });
+              inp.addEventListener("focus", function () {
+                zf_ClearError(fn);
+              });
+            })(inp.name);
+          }
+        }
+      });
+
+      /* Page scripts */
+      window.addEventListener("scroll", function () {
+        var n = document.querySelector(".navbar");
+        if (window.scrollY > 50) n.classList.add("scrolled");
+        else n.classList.remove("scrolled");
+      });
+      var revealElements = document.querySelectorAll(".reveal");
+      function checkReveal() {
+        revealElements.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight - 80)
+            el.classList.add("active");
+        });
+      }
+      window.addEventListener("scroll", checkReveal);
+      window.addEventListener("load", checkReveal);
+      (function () {
+        var t = new Date();
+        t.setDate(t.getDate() + 13);
+        t.setHours(t.getHours() + 4);
+        t.setMinutes(t.getMinutes() + 32);
+        function tick() {
+          var d = t - new Date();
+          if (d <= 0) {
+            document.getElementById("days").textContent = "00";
+            document.getElementById("hours").textContent = "00";
+            document.getElementById("minutes").textContent = "00";
+            document.getElementById("seconds").textContent = "00";
+            return;
+          }
+          document.getElementById("days").textContent = String(
+            Math.floor(d / 86400000),
+          ).padStart(2, "0");
+          document.getElementById("hours").textContent = String(
+            Math.floor((d % 86400000) / 3600000),
+          ).padStart(2, "0");
+          document.getElementById("minutes").textContent = String(
+            Math.floor((d % 3600000) / 60000),
+          ).padStart(2, "0");
+          document.getElementById("seconds").textContent = String(
+            Math.floor((d % 60000) / 1000),
+          ).padStart(2, "0");
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
+      document.querySelectorAll(".country-option").forEach(function (o) {
+        o.addEventListener("click", function () {
+          document.getElementById("current-flag").textContent =
+            this.getAttribute("data-flag");
+          document.getElementById("current-country").textContent =
+            this.getAttribute("data-country");
+        });
+      });
     </script>
   </body>
 </html>

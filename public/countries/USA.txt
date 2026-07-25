@@ -1679,11 +1679,11 @@ html {
                 <div class="row">
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Verification Services</h6>
-                    <a href="../checks/lp-id verification.html" class="dropdown-item"
+                    <a href="../checks/lp-id-verification.html" class="dropdown-item"
                       ><i class="bi bi-person-badge"></i> ID Verification</a
                     >
                     <a
-                      href="../checks/lp-ADRESS VERIFICATION.html"
+                      href="../checks/lp-address-verification.html"
                       class="dropdown-item"
                       ><i class="bi bi-geo-alt"></i> Address Verification</a
                     >
@@ -1692,39 +1692,39 @@ html {
                       Verification</a
                     >
                     <a
-                      href="../checks/lp-education check.html"
+                      href="../checks/lp-education-check.html"
                       class="dropdown-item"
                       ><i class="bi bi-mortarboard"></i> Education
                       Verification</a
                     >
                     <a
-                      href="../checks/LP-court verification.html"
+                      href="../checks/LP-court-verification.html"
                       class="dropdown-item"
                       ><i class="bi bi-shield-exclamation"></i> Court Record
                       Verification</a
                     >
-                    <a href="../checks/lp-refernce.html" class="dropdown-item"
+                    <a href="../checks/lp-reference.html" class="dropdown-item"
                       ><i class="bi bi-people"></i> Reference Check</a
                     >
-                    <a href="../checks/DIN-verification.html" class="dropdown-item"
+                    <a href="../checks/DIN verification.html" class="dropdown-item"
                       ><i class="fa-regular fa-id-card"></i> DIN Verification</a
                     >
 
-                    <a href="../checks/LP-Directorship check.html" class="dropdown-item"
+                    <a href="../checks/LP-Directorship-check.html" class="dropdown-item"
                       ><i class="fa-regular fa-user"></i> Directorship</a
                     >
                   </div>
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Specialized Checks</h6>
-                    <a href="../checks/global check.html" class="dropdown-item"
+                    <a href="../checks/global-check.html" class="dropdown-item"
                       ><i class="bi bi-globe"></i> Global Database
                       Verification</a
                     >
-                    <a href="../checks/lp-credit check.html" class="dropdown-item"
+                    <a href="../checks/lp-credit-check.html" class="dropdown-item"
                       ><i class="bi bi-credit-card"></i> Credit Check</a
                     >
                     <a
-                      href="../checks/lp-gap verification.html"
+                      href="../checks/lp-gap-verification.html"
                       class="dropdown-item"
                       ><i class="bi bi-calendar-x"></i> Gap Check</a
                     >
@@ -1733,10 +1733,10 @@ html {
                       class="dropdown-item"
                       ><i class="bi bi-share"></i> Social Media Verification</a
                     >
-                    <a href="../checks/lp-police clearnce.html" class="dropdown-item"
+                    <a href="../checks/lp-police-clearnce.html" class="dropdown-item"
                       ><i class="bi bi-shield-check"></i> Police Clearance</a
                     >
-                    <a href="../checks/lp-drug test.html" class="dropdown-item"
+                    <a href="../checks/lp-drug-test.html" class="dropdown-item"
                       ><i class="bi bi-capsule"></i> Drug Test Screening</a
                     >
                     <a class="dropdown-item" href="../checks/vendor.html"
@@ -1744,7 +1744,7 @@ html {
                       Vendor Due DiligencePolice Clearnce</a
                     >
 
-                    <a href="../checks/lp-passport verification.html" class="dropdown-item"
+                    <a href="../checks/lp-passport-verification.html" class="dropdown-item"
                       ><i class="fa-solid fa-passport"></i> Passport Verification</a
                     >
 
@@ -1815,7 +1815,7 @@ html {
                 <li>
                   <a
                     class="dropdown-item"
-                    href="../industries/lpi-Manfacturing.html"
+                    href="../industries/lpi-manufacturing.html"
                     ><i class="bi bi-building-gear"></i> Manufacturing</a
                   >
                 </li>
@@ -1840,7 +1840,7 @@ html {
                 </li>
        
             <li>
-                <a class="dropdown-item" href="../industries/Realestate & Constructation.html"
+                <a class="dropdown-item" href="../industries/Realestate-Constructation.html"
                     ><i class="bi bi-house"></i>
                           Realestate & Construcataion</a
                   >
@@ -1857,7 +1857,7 @@ html {
             <li>
                   <a
                     class="dropdown-item"
-                    href="../industries/lpi-travel industries.html"
+                    href="../industries/lpi-travel-industries.html"
                     ><i class="bi bi-airplane"></i> Travel and Hospitality</a
                   >
                 </li>
@@ -2093,7 +2093,7 @@ html {
             <p class="lead">
              FCRA-compliant background checks across all 50 US states —
 criminal records, employment and education verification, E-Verify, I-9, and drug
-screening. 24–48hr turnaround. Get a free demo.
+screening. 24–48hr turnaround. Get a free Demo.
  
             </p>
             <div class="d-flex gap-3 flex-wrap">
@@ -3338,7 +3338,7 @@ Primary source</div>
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="footer-brand">
               <img
-                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
                 alt="Verifitech"
                 class="footer-logo"
               />
@@ -3359,11 +3359,11 @@ Primary source</div>
                   <a href="../checks/lp-employment.html">Employment Check</a>
                 </li>
                 <li>
-                  <a href="../checks/lp-education check.html">Education Verification</a>
+                  <a href="../checks/lp-education-check.html">Education Verification</a>
                 </li>
-                <li><a href="../checks/lp-refernce.html">Reference Checks</a></li>
+                <li><a href="../checks/lp-reference.html">Reference Checks</a></li>
                 <li>
-                  <a href="../checks/lp-gap verification.html">Gap Analysis</a>
+                  <a href="../checks/lp-gap-verification.html">Gap Analysis</a>
                 </li>
               </ul>
             </div>
