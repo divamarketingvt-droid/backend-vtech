@@ -43,6 +43,96 @@
       /* ============================================
          NAVBAR
          ============================================ */
+
+      /* ============================================
+   INDIVIDUAL CARD NAVIGATION BUTTON
+   ============================================ */
+.card-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: var(--primary);
+  background: var(--primary-light);
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.card-nav-btn:hover::before {
+  left: 0;
+}
+
+.card-nav-btn:hover {
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.card-nav-btn span,
+.card-nav-btn i {
+  position: relative;
+  z-index: 1;
+}
+
+.card-nav-btn i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.card-nav-btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Smaller variant for compact cards */
+.card-nav-btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+}
+
+.card-nav-btn-sm i {
+  font-size: 0.75rem;
+}
+
+/* Push button to bottom inside flex-column cards */
+.service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card .card-nav-btn {
+  margin-top: auto;
+}
+
+.industry-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.industry-item .card-nav-btn-sm {
+  margin-top: auto;
+}
       .navbar {
         padding: 0;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
