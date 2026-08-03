@@ -43,52 +43,51 @@
       /* ============================================
          NAVBAR
          ============================================ */
-
-     
-      /* ============================================
+/* ============================================
    INDIVIDUAL CARD NAVIGATION BUTTON
    ============================================ */
 .card-nav-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.6rem 1.5rem;
-  border-radius: 8px;
+  gap: 6px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   text-decoration: none;
   color: var(--primary);
-  background: transparent;
-  border: 2px solid var(--primary);
+  background: var(--primary-light);
+  border: none;
   transition: all 0.3s ease;
   margin-top: 1.2rem;
+  letter-spacing: 0.2px;
 }
 
 .card-nav-btn:hover {
   background: var(--primary);
   color: white;
-  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  box-shadow: 0 3px 12px rgba(26, 194, 193, 0.25);
 }
 
 .card-nav-btn i {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   transition: transform 0.3s ease;
 }
 
 .card-nav-btn:hover i {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 /* Smaller variant for industry cards */
 .card-nav-btn-sm {
-  padding: 0.45rem 1rem;
-  font-size: 0.8rem;
-  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  border-radius: 5px;
   margin-top: 0.8rem;
 }
 
 .card-nav-btn-sm i {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 
 /* Push button to bottom inside flex-column cards */
