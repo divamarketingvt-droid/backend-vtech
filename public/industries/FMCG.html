@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retail & E-Commerce Background Verification | Store Staff Screening | Verifitech</title>
-    <meta name="description" content="Specialized background verification for Retail & E-Commerce industry. Store staff screening, warehouse vetting, delivery driver checks, PCI DSS compliance, and loss prevention for retailers and online marketplaces.">
+    <title>FMCG Background Verification | Supply Chain Screening & Retail Compliance | Verifitech</title>
+    <meta name="description" content="Specialized background verification for FMCG industry. Supply chain worker screening, warehouse safety compliance, driver verification, retail loss prevention, and food safety certification tracking for manufacturers and distributors.">
     
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,15 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Free CDN -->
-    <link 
-      rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer" 
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    
     <style>
         :root {
             --primary: #1ac2c1;
@@ -46,16 +44,47 @@
             overflow-x: hidden;
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
-        .navbar {
+         html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Z-INDEX FIXES - KEEP THESE AT TOP
+   ============================================ */
+
+/* Ensure navbar has proper z-index */
+.navbar {
+  z-index: 1050;
+}
+
+/* Fix dropdown z-index to appear above hero content */
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+/* Ensure dropdown items are clickable and visible */
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+/* Fix for hero section overlapping */
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+.navbar {
   padding: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  height: 80px;
+  height: 100px;
 }
 
 .navbar.scrolled {
@@ -193,7 +222,7 @@
    BUTTON STYLES
    ============================================ */
 
-/* CTA Button - Talk to Sales */
+/* CTA Button - Contact */
 .btn-sales {
   background: var(--primary);
   color: white !important;
@@ -228,12 +257,12 @@
   margin: 12px;
 }
 
-.btn-login:hover {
+/*.btn-login:hover {
   background-color: #00bfa5 !important;
   color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
   transform: translateY(-1px);
-}
+} */
 
 /* ============================================
    COUNTRY SELECTOR - WHITE ARROW REMOVED
@@ -367,7 +396,7 @@
             box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
         }
         
-        /* Enhanced Hero Illustration - Retail Theme */
+        /* Enhanced Hero Illustration - FMCG Theme */
         .hero-illustration {
             position: relative;
             height: 550px;
@@ -437,7 +466,7 @@
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
-        /* Satellite Nodes - Retail Icons */
+        /* Satellite Nodes - FMCG Icons */
         .satellite-node {
             position: absolute;
             width: 70px;
@@ -495,13 +524,13 @@
             animation: floatNode 4s ease-in-out infinite 0.8s;
         }
         
-        /* Retail Icon Colors */
-        .satellite-node.node-1 i { color: #ea580c; } /* Store - Retail/Orange */
-        .satellite-node.node-2 i { color: #2563eb; } /* Cart - E-Commerce/Blue */
-        .satellite-node.node-3 i { color: #dc2626; } /* Box - Warehouse/Red */
-        .satellite-node.node-4 i { color: #7c3aed; } /* Truck - Delivery/Purple */
-        .satellite-node.node-5 i { color: #059669; } /* Credit Card - Payment/Green */
-        .satellite-node.node-6 i { color: #0891b2; } /* Shield - Security/Cyan */
+        /* FMCG Icon Colors */
+        .satellite-node.node-1 i { color: #ea580c; } /* Factory - Manufacturing/Orange */
+        .satellite-node.node-2 i { color: #2563eb; } /* Truck - Logistics/Blue */
+        .satellite-node.node-3 i { color: #dc2626; } /* Cart - Retail/Red */
+        .satellite-node.node-4 i { color: #7c3aed; } /* Box - Warehouse/Purple */
+        .satellite-node.node-5 i { color: #059669; } /* Shop - Stores/Green */
+        .satellite-node.node-6 i { color: #0891b2; } /* Shield - Safety/Cyan */
         
         @keyframes floatNode {
             0%, 100% { transform: translateY(0) scale(1); }
@@ -749,7 +778,7 @@
             gap: 0.5rem;
         }
         
-        /* Loss Prevention Highlight Section */
+        /* Supply Chain Highlight Section */
         .cpv-highlight {
             padding: 100px 0;
             background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
@@ -873,113 +902,20 @@
         /* Regulatory Section */
         .regulatory-section {
             padding: 100px 0;
-            background: #f0fdfa; /* Very light teal background */
-            position: relative;
-            overflow: hidden;
-        }
-
-        .regulatory-bg-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.4;
-            background-image: radial-gradient(#1ac2c1 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
-        }
-
-        .reg-content-wrapper {
-            position: relative;
-            z-index: 2;
-        }
-
-        .reg-card {
             background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            height: 100%;
-            border: 1px solid rgba(26, 194, 193, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
         }
-
-        .reg-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(26, 194, 193, 0.15);
-            border-color: var(--primary);
-        }
-
-        .reg-icon-box {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-light), #ffffff);
-            border-radius: 20px;
-            display: flex;
+        
+        .compliance-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(26, 194, 193, 0.1);
             border: 2px solid rgba(26, 194, 193, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .reg-card:hover .reg-icon-box {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .reg-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--navy);
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--primary-dark);
             margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .reg-code-badge {
-            display: inline-block;
-            background: var(--navy);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .reg-desc {
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .reg-features {
-            margin-top: auto;
-            width: 100%;
-        }
-
-        .reg-feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-            color: var(--navy);
-            font-weight: 500;
-        }
-
-        .reg-feature-item i {
-            color: var(--primary);
-            font-size: 1.1rem;
         }
         
         /* Contact Section */
@@ -1194,8 +1130,8 @@
 </head>
 <body>
 
-    
     <!-- Navigation -->
+     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand" href="../index">
@@ -1237,7 +1173,7 @@
                       ><i class="bi bi-person-badge"></i> ID Verification</a
                     >
                     <a
-                      href="../checks/ADRESS-VERIFICATION"
+                      href="../checks/address-verification.html"
                       class="dropdown-item"
                       ><i class="bi bi-geo-alt"></i> Address Verification</a
                     >
@@ -1257,7 +1193,7 @@
                       ><i class="bi bi-shield-exclamation"></i> Court Record
                       Verification</a
                     >
-                    <a href="../checks/refernce" class="dropdown-item"
+                    <a href="../checks/reference" class="dropdown-item"
                       ><i class="bi bi-people"></i> Reference Check</a
                     >
                     <a href="../checks/DIN-verification" class="dropdown-item"
@@ -1270,7 +1206,7 @@
                   </div>
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Specialized Checks</h6>
-                    <a href="../checks/global check" class="dropdown-item"
+                    <a href="../checks/global-check" class="dropdown-item"
                       ><i class="bi bi-globe"></i> Global Database
                       Verification</a
                     >
@@ -1370,13 +1306,13 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="../industries/Manfacturing"
+                    href="../industries/manufacturing"
                     ><i class="bi bi-building-gear"></i> Manufacturing</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="../industries/IT-ITES"
-                    ><i class="bi bi-laptop"></i> IT/ITeS</a
+                    ><i class="bi bi-laptop"></i> IT/ITeS</a../products exitinterview
                   >
                 </li>
                 <!--<li>
@@ -1384,7 +1320,7 @@
                     ><i class="bi bi-shield-plus"></i> Insurance</a
                   >
                 </li> -->
-                <a class="dropdown-item" href="../industries/FMCG"
+                <a class="dropdown-item" href="#"
                     ><i class="bi bi-box"></i> FMCG</a
                   >
                 </li>
@@ -1395,7 +1331,7 @@
                 </li>
        
             <li>
-                <a class="dropdown-item" href="../industries/Realestate & Constructation"
+                <a class="dropdown-item" href="../industries/Realestate-&-constructation"
                     ><i class="bi bi-house"></i>
                           Realestate & Construcataion</a
                   >
@@ -1403,7 +1339,7 @@
        
             
             <li>
-                <a class="dropdown-item" href="#"
+                <a class="dropdown-item" href="../industries/Retail & E-commerce"
                     ><i class="bi bi-shop"></i>Retail & E-commerce </a>
                   
                 </li>
@@ -1536,14 +1472,15 @@
   </ul>
 </li>
           <div class="d-flex align-items-center">
-              <a href="https://web.verifitech.com/" target="blank" class="btn-login">Login</a>
+            <a href="https://web.verifitech.com/" target="blank" class="btn-login" style="text-decoration:none; color:black;"> Login</a>
 
           </div>
 
           <div class="d-flex align-items-center">
             <a href="../contact/contact" class="btn btn-sales"
-              >Talk to Sales</a
+              >Contact</a
             >
+
             <div class="dropdown">
               <div
                 class="country-selector dropdown-toggle"
@@ -1620,7 +1557,11 @@
                   >
                     <span class="country-flag">🇮🇳</span> India
                   </a>-->
-                </li>
+               <li>
+                                <a class="dropdown-item country-option" href="../countries/Ireland" data-country="India" data-flag="🇮🇪">
+                                    <span class="country-flag">🇮🇪</span> Ireland
+                                </a>
+                            </li> 
               </ul>
             </div>
           </div>
@@ -1628,19 +1569,19 @@
       </div>
     </nav>
 
-    <!-- Hero Section - Retail Theme -->
+    <!-- Hero Section - FMCG Theme -->
     <section class="industry-hero">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-badge">
-                        <i class="bi bi-shop"></i>
-                        Retail & E-Commerce Solutions
+                        <i class="bi bi-box-seam"></i>
+                        FMCG Solutions
                     </div>
-                    <h1>Trusted Workforce for Retail Operations</h1>
-                    <p class="lead">Specialized background verification for Brick-and-Mortar Retailers, E-Commerce Giants, and Omnichannel Brands. Store associate screening, warehouse vetting, delivery driver checks, PCI DSS compliance, and loss prevention. Protect inventory, customers, and brand reputation.</p>
+                    <h1>Supply Chain Integrity & Retail Safety</h1>
+                    <p class="lead">Specialized background verification for Consumer Goods, Retail, and Supply Chain operations. Warehouse worker screening, driver verification, food safety certification, loss prevention, and seasonal workforce management for manufacturers, distributors, and retailers.</p>
                     
-                    <a href="../DEMO/demo.html" class="btn btn-primary-custom btn-lg">
+                    <a href="../Demo/Demo.html" class="btn btn-primary-custom btn-lg">
                         Get Started <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -1656,23 +1597,23 @@
                                 <i class="bi bi-shield-fill-check"></i>
                             </div>
                             
-                            <!-- Satellite Nodes - Retail Icons -->
-                            <div class="satellite-node node-1" title="Physical Stores">
-                                <i class="bi bi-shop"></i>
+                            <!-- Satellite Nodes - FMCG Icons -->
+                            <div class="satellite-node node-1" title="Manufacturing & Production">
+                                <i class="bi bi-building"></i>
                             </div>
-                            <div class="satellite-node node-2" title="E-Commerce">
-                                <i class="bi bi-cart3"></i>
-                            </div>
-                            <div class="satellite-node node-3" title="Warehouse Operations">
-                                <i class="bi bi-box-seam"></i>
-                            </div>
-                            <div class="satellite-node node-4" title="Last Mile Delivery">
+                            <div class="satellite-node node-2" title="Logistics & Distribution">
                                 <i class="bi bi-truck"></i>
                             </div>
-                            <div class="satellite-node node-5" title="Payment Security">
-                                <i class="bi bi-credit-card"></i>
+                            <div class="satellite-node node-3" title="Retail Operations">
+                                <i class="bi bi-cart3"></i>
                             </div>
-                            <div class="satellite-node node-6" title="Loss Prevention">
+                            <div class="satellite-node node-4" title="Warehouse Management">
+                                <i class="bi bi-box-seam"></i>
+                            </div>
+                            <div class="satellite-node node-5" title="Retail Stores">
+                                <i class="bi bi-shop"></i>
+                            </div>
+                            <div class="satellite-node node-6" title="Product Safety">
                                 <i class="bi bi-shield-check"></i>
                             </div>
                             
@@ -1683,8 +1624,8 @@
                                         <i class="bi bi-shield-fill-check"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">PCI DSS Ready</div>
-                                        <small class="text-muted" style="font-size: 0.75rem;">Payment Security</small>
+                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">FDA Compliant</div>
+                                        <small class="text-muted" style="font-size: 0.75rem;">Food Safety Ready</small>
                                     </div>
                                 </div>
                                 <div class="mini-stat">
@@ -1692,8 +1633,8 @@
                                         <i class="bi bi-award-fill"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Loss Prevention</div>
-                                        <small class="text-muted" style="font-size: 0.75rem;">Shrinkage Control</small>
+                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">DOT Certified</div>
+                                        <small class="text-muted" style="font-size: 0.75rem;">Fleet Verified</small>
                                     </div>
                                 </div>
                             </div>
@@ -1704,8 +1645,8 @@
                                         <i class="bi bi-people-fill"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Staff Verified</div>
-                                        <small class="text-muted" style="font-size: 0.75rem;">500K+ Associates</small>
+                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Workers Verified</div>
+                                        <small class="text-muted" style="font-size: 0.75rem;">100K+ Supply Chain</small>
                                     </div>
                                 </div>
                                 <div class="mini-stat">
@@ -1713,7 +1654,7 @@
                                         <i class="bi bi-lightning-charge-fill"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Same-Day Hire</div>
+                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">24hr Turnaround</div>
                                         <small class="text-muted" style="font-size: 0.75rem;">Seasonal Scaling</small>
                                     </div>
                                 </div>
@@ -1733,7 +1674,7 @@
                     <div class="section-subtitle justify-content-center">
                         <i class="bi bi-exclamation-triangle"></i> Industry Challenges
                     </div>
-                    <h2 class="section-title">Why Retail Needs Specialized Screening</h2>
+                    <h2 class="section-title">Why FMCG Needs Specialized Screening</h2>
                 </div>
             </div>
             
@@ -1741,28 +1682,28 @@
                 <div class="col-md-4 reveal">
                     <div class="challenge-card">
                         <div class="challenge-icon">
-                            <i class="bi bi-cash-coin"></i>
+                            <i class="bi bi-people-fill"></i>
                         </div>
-                        <h4>High Shrinkage & Theft</h4>
-                        <p class="text-muted">Retail experiences $100B+ in annual losses from employee theft, shoplifting, and organized retail crime. Cash handling, inventory access, and customer data require rigorous vetting to minimize internal and external fraud risks.</p>
+                        <h4>High-Volume Hiring</h4>
+                        <p class="text-muted">Seasonal peaks and rapid scaling require fast, accurate background checks. Process thousands of warehouse pickers, delivery drivers, and retail associates without compromising safety standards or compliance requirements.</p>
                     </div>
                 </div>
                 <div class="col-md-4 reveal">
                     <div class="challenge-card">
                         <div class="challenge-icon">
-                            <i class="bi bi-credit-card"></i>
+                            <i class="bi bi-box-seam"></i>
                         </div>
-                        <h4>Payment Data Security</h4>
-                        <p class="text-muted">PCI DSS compliance mandates strict background checks for employees handling credit card data. Data breaches cost retailers millions in fines and reputation damage. Verify trustworthiness before granting system access.</p>
+                        <h4>Supply Chain Security</h4>
+                        <p class="text-muted">From manufacturing plants to last-mile delivery, employees handle valuable inventory and sensitive customer data. Comprehensive screening prevents theft, shrinkage, and data breaches across the entire distribution network.</p>
                     </div>
                 </div>
                 <div class="col-md-4 reveal">
                     <div class="challenge-card">
                         <div class="challenge-icon">
-                            <i class="bi bi-calendar-event"></i>
+                            <i class="bi bi-egg-fried"></i>
                         </div>
-                        <h4>Seasonal Hiring Surges</h4>
-                        <p class="text-muted">Holiday and peak seasons require rapid scaling—sometimes hiring thousands in weeks. Fast, accurate screening prevents bad hires while maintaining compliance. Balance speed with thoroughness during critical periods.</p>
+                        <h4>Food Safety & FSMA</h4>
+                        <p class="text-muted">Food manufacturers and handlers must comply with FDA Food Safety Modernization Act. Verify food handler certifications, allergen training, and sanitary transport credentials to prevent contamination and recalls.</p>
                     </div>
                 </div>
             </div>
@@ -1777,8 +1718,8 @@
                     <div class="section-subtitle justify-content-center">
                         <i class="bi bi-grid-3x3-gap"></i> Solutions
                     </div>
-                    <h2 class="section-title">Retail Workforce Verification Suite</h2>
-                    <p class="section-desc mx-auto">Comprehensive screening for store associates, warehouse staff, delivery drivers, and corporate teams.</p>
+                    <h2 class="section-title">FMCG Workforce Verification Suite</h2>
+                    <p class="section-desc mx-auto">End-to-end screening for manufacturing, warehousing, distribution, and retail operations.</p>
                 </div>
             </div>
             
@@ -1787,23 +1728,11 @@
                     <div class="solution-item">
                         <div class="solution-header">
                             <div class="solution-icon-sm">
-                                <i class="bi bi-shop"></i>
+                                <i class="bi bi-building"></i>
                             </div>
-                            <h3 class="solution-title">Store Associate Vetting</h3>
+                            <h3 class="solution-title">Manufacturing Plants</h3>
                         </div>
-                        <p class="solution-desc">Fast turnaround screening for cashiers, sales associates, and store managers. Includes criminal history, credit checks for cash handling, reference verification, and employment eligibility—optimized for high-volume seasonal hiring.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="solution-item">
-                        <div class="solution-header">
-                            <div class="solution-icon-sm">
-                                <i class="bi bi-box-seam"></i>
-                            </div>
-                            <h3 class="solution-title">Warehouse & Fulfillment</h3>
-                        </div>
-                        <p class="solution-desc">Distribution center screening for pickers, packers, forklift operators, and inventory managers. Verify employment history, substance testing, equipment certifications, and safety records for high-risk logistics environments.</p>
+                        <p class="solution-desc">Production line workers, machine operators, and plant supervisors. Verify employment history, safety training records, GMP compliance, and machinery certifications for high-speed manufacturing environments.</p>
                     </div>
                 </div>
                 
@@ -1813,9 +1742,9 @@
                             <div class="solution-icon-sm">
                                 <i class="bi bi-truck"></i>
                             </div>
-                            <h3 class="solution-title">Last Mile Delivery</h3>
+                            <h3 class="solution-title">Distribution & Fleet</h3>
                         </div>
-                        <p class="solution-desc">Driver screening for delivery fleets, gig workers, and courier partners. MVR checks, driving history, vehicle inspections, and continuous monitoring. Protect your brand when drivers wear your uniform at customer doorsteps.</p>
+                        <p class="solution-desc">CDL drivers, delivery personnel, and logistics coordinators. DOT compliance, MVR monitoring, CSA score tracking, and drug testing for commercial fleets and last-mile delivery operations.</p>
                     </div>
                 </div>
                 
@@ -1823,11 +1752,11 @@
                     <div class="solution-item">
                         <div class="solution-header">
                             <div class="solution-icon-sm">
-                                <i class="bi bi-headset"></i>
+                                <i class="bi bi-box-seam"></i>
                             </div>
-                            <h3 class="solution-title">Customer Service</h3>
+                            <h3 class="solution-title">Warehouse Operations</h3>
                         </div>
-                        <p class="solution-desc">Call center and support team screening for remote and in-house agents. Identity verification, criminal checks, and credit history for employees handling payment disputes, returns, and sensitive customer data.</p>
+                        <p class="solution-desc">Forklift operators, pickers, packers, and inventory managers. Certify OSHA compliance, equipment licenses, and safety training. Prevent workplace accidents and inventory shrinkage through thorough vetting.</p>
                     </div>
                 </div>
                 
@@ -1835,11 +1764,11 @@
                     <div class="solution-item">
                         <div class="solution-header">
                             <div class="solution-icon-sm">
-                                <i class="bi bi-shield-lock"></i>
+                                <i class="bi bi-shop"></i>
                             </div>
-                            <h3 class="solution-title">Loss Prevention Teams</h3>
+                            <h3 class="solution-title">Retail & Stores</h3>
                         </div>
-                        <p class="solution-desc">Specialized vetting for LP investigators, security guards, and asset protection managers. Enhanced criminal searches, civil records checks, and integrity testing for personnel tasked with reducing shrinkage and fraud.</p>
+                        <p class="solution-desc">Store associates, cashiers, and loss prevention teams. Criminal background checks, credit history for cash handling roles, and customer service verification to protect brand reputation and reduce theft.</p>
                     </div>
                 </div>
                 
@@ -1847,11 +1776,23 @@
                     <div class="solution-item">
                         <div class="solution-header">
                             <div class="solution-icon-sm">
-                                <i class="bi bi-laptop"></i>
+                                <i class="bi bi-egg-fried"></i>
                             </div>
-                            <h3 class="solution-title">Corporate & IT Access</h3>
+                            <h3 class="solution-title">Food Safety Compliance</h3>
                         </div>
-                        <p class="solution-desc">Headquarters staff, e-commerce developers, and IT administrators with access to customer databases and payment systems. Deep background checks, education verification, and social media screening for privileged access roles.</p>
+                        <p class="solution-desc">Food handler permits, allergen awareness training, HACCP certification tracking, and sanitary transport verification. Ensure FSMA compliance and prevent foodborne illness outbreaks.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="solution-item">
+                        <div class="solution-header">
+                            <div class="solution-icon-sm">
+                                <i class="bi bi-calendar-check"></i>
+                            </div>
+                            <h3 class="solution-title">Seasonal Scaling</h3>
+                        </div>
+                        <p class="solution-desc">Rapid background check processing for holiday seasons, promotional events, and peak demand periods. Automated workflows and bulk processing capabilities for high-volume hiring surges.</p>
                     </div>
                 </div>
             </div>
@@ -1866,30 +1807,74 @@
                     <div class="section-subtitle justify-content-center">
                         <i class="bi bi-shield-check"></i> Verification Suite
                     </div>
-                    <h2 class="section-title">Complete Retail Checks</h2>
-                    <p class="section-desc mx-auto">Industry-specific verification for customer-facing operations and supply chain security.</p>
+                    <h2 class="section-title">Complete FMCG Checks</h2>
+                    <p class="section-desc mx-auto">Industry-specific verification for manufacturing safety, supply chain integrity, and retail loss prevention.</p>
                 </div>
             </div>
             
             <div class="row g-4">
-                <!-- Store Operations -->
+                <!-- Manufacturing & Safety -->
                 <div class="col-md-6 col-lg-4 reveal">
                     <div class="verification-card">
                         <div class="verification-header">
                             <div class="verification-icon-sm">
-                                <i class="bi bi-shop"></i>
+                                <i class="bi bi-building"></i>
                             </div>
-                            <h3 class="verification-title">Store Operations</h3>
+                            <h3 class="verification-title">Manufacturing & Safety</h3>
                         </div>
                         <ul class="verification-list">
-                            <li><i class="bi bi-check2 text-primary"></i> Criminal Background Check</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Credit History Review</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Employment Verification</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Education Confirmation</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Reference Checks</li>
-                            <li><i class="bi bi-check2 text-primary"></i> SSN Trace & Validation</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Global Watchlist Search</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Sex Offender Registry</li>
+                            <li><i class="bi bi-check2 text-primary"></i> OSHA 10/30 Hour Cards</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Forklift Operator Cert</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Lockout/Tagout Training</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Machine Guarding</li>
+                            <li><i class="bi bi-check2 text-primary"></i> PPE Compliance</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Confined Space Entry</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Hazmat Handling</li>
+                            <li><i class="bi bi-check2 text-primary"></i> First Aid/CPR</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Food Safety & Quality -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="verification-card">
+                        <div class="verification-header">
+                            <div class="verification-icon-sm">
+                                <i class="bi bi-egg-fried"></i>
+                            </div>
+                            <h3 class="verification-title">Food Safety & Quality</h3>
+                        </div>
+                        <ul class="verification-list">
+                            <li><i class="bi bi-check2 text-primary"></i> Food Handler Permits</li>
+                            <li><i class="bi bi-check2 text-primary"></i> HACCP Certification</li>
+                            <li><i class="bi bi-check2 text-primary"></i> SQF/ BRC Standards</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Allergen Training</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Sanitary Transport</li>
+                            <li><i class="bi bi-check2 text-primary"></i> GMP Compliance</li>
+                            <li><i class="bi bi-check2 text-primary"></i> FSMA Qualified Individual</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Temperature Control</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Transportation & Fleet -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="verification-card">
+                        <div class="verification-header">
+                            <div class="verification-icon-sm">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <h3 class="verification-title">Transportation & Fleet</h3>
+                        </div>
+                        <ul class="verification-list">
+                            <li><i class="bi bi-check2 text-primary"></i> CDL License Verify</li>
+                            <li><i class="bi bi-check2 text-primary"></i> DOT Medical Cards</li>
+                            <li><i class="bi bi-check2 text-primary"></i> MVR Monitoring</li>
+                            <li><i class="bi bi-check2 text-primary"></i> CSA Score Tracking</li>
+                            <li><i class="bi bi-check2 text-primary"></i> DOT Drug Testing</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Hazmat Endorsement</li>
+                            <li><i class="bi bi-check2 text-primary"></i> TWIC Card Verify</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Driver Qualification</li>
                         </ul>
                     </div>
                 </div>
@@ -1904,102 +1889,58 @@
                             <h3 class="verification-title">Warehouse & Logistics</h3>
                         </div>
                         <ul class="verification-list">
-                            <li><i class="bi bi-check2 text-primary"></i> Forklift Certification Verify</li>
-                            <li><i class="bi bi-check2 text-primary"></i> OSHA Safety Training</li>
-                            <li><i class="bi bi-check2 text-primary"></i> DOT Drug Testing</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Workers Comp History</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Physical Ability Tests</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Equipment Operation</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Hazmat Certification</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Previous Employer Safety</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Forklift Certification</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Order Picker License</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Reach Truck Operation</li>
+                            <li><i class="bi bi-check2 text-primary"></i> RF Scanner Training</li>
+                            <li><i class="bi bi-check2 text-primary"></i> WMS Experience</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Inventory Management</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Shipping/Receiving</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Quality Control</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Delivery & Fleet -->
+                <!-- Retail & Loss Prevention -->
                 <div class="col-md-6 col-lg-4 reveal">
                     <div class="verification-card">
                         <div class="verification-header">
                             <div class="verification-icon-sm">
-                                <i class="bi bi-truck"></i>
+                                <i class="bi bi-shop"></i>
                             </div>
-                            <h3 class="verification-title">Delivery & Fleet</h3>
+                            <h3 class="verification-title">Retail & Loss Prevention</h3>
                         </div>
                         <ul class="verification-list">
-                            <li><i class="bi bi-check2 text-primary"></i> MVR - Motor Vehicle Rpt</li>
-                            <li><i class="bi bi-check2 text-primary"></i> CDL License Verification</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Pre-employment Drug Test</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Continuous MVR Monitoring</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Accident History (3yr)</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Insurance Verification</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Vehicle Inspection Records</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Gig Worker Onboarding</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Cash Handling History</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Credit Check (Retail)</li>
+                            <li><i class="bi bi-check2 text-primary"></i> POS System Knowledge</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Customer Service Exp</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Loss Prevention Cert</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Alcohol/Tobacco Sales</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Age Verification</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Store Opening/Closing</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Payment & Data Security -->
+                <!-- Criminal & Identity -->
                 <div class="col-md-6 col-lg-4 reveal">
                     <div class="verification-card">
                         <div class="verification-header">
                             <div class="verification-icon-sm">
-                                <i class="bi bi-credit-card"></i>
+                                <i class="bi bi-fingerprint"></i>
                             </div>
-                            <h3 class="verification-title">Payment & Data Security</h3>
+                            <h3 class="verification-title">Criminal & Identity</h3>
                         </div>
                         <ul class="verification-list">
-                            <li><i class="bi bi-check2 text-primary"></i> PCI DSS Background Checks</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Credit History (Financial)</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Civil Court Records</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Bankruptcy Search</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Liens & Judgments</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Identity Verification</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Social Media Screening</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Professional References</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Loss Prevention -->
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="verification-card">
-                        <div class="verification-header">
-                            <div class="verification-icon-sm">
-                                <i class="bi bi-shield-lock"></i>
-                            </div>
-                            <h3 class="verification-title">Loss Prevention</h3>
-                        </div>
-                        <ul class="verification-list">
-                            <li><i class="bi bi-check2 text-primary"></i> Enhanced Criminal Search</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Civil Litigation Check</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Integrity Assessment</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Previous LP Experience</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Polygraph (where legal)</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Credit History Analysis</li>
+                            <li><i class="bi bi-check2 text-primary"></i> National Criminal Search</li>
+                            <li><i class="bi bi-check2 text-primary"></i> County Criminal Records</li>
                             <li><i class="bi bi-check2 text-primary"></i> Federal Criminal Search</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Continuous Monitoring</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Corporate & E-Commerce -->
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="verification-card">
-                        <div class="verification-header">
-                            <div class="verification-icon-sm">
-                                <i class="bi bi-laptop"></i>
-                            </div>
-                            <h3 class="verification-title">Corporate & E-Commerce</h3>
-                        </div>
-                        <ul class="verification-list">
-                            <li><i class="bi bi-check2 text-primary"></i> Degree Verification</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Professional License Check</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Employment History (10yr)</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Social Media Screening</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Executive Background</li>
-                            <li><i class="bi bi-check2 text-primary"></i> International Checks</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Drug & Health Screening</li>
-                            <li><i class="bi bi-check2 text-primary"></i> Behavioral Assessments</li>
+                            <li><i class="bi bi-check2 text-primary"></i> SSN Trace & Validation</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Sex Offender Registry</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Global Watchlist</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Employment Verification</li>
+                            <li><i class="bi bi-check2 text-primary"></i> Education Verification</li>
                         </ul>
                     </div>
                 </div>
@@ -2007,40 +1948,40 @@
         </div>
     </section>
 
-    <!-- Loss Prevention Highlight Section -->
-    <section class="cpv-highlight" id="loss-prevention">
+    <!-- Supply Chain Highlight Section -->
+    <section class="cpv-highlight" id="supply-chain">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0 reveal">
                     <div class="compliance-badge">
-                        <i class="bi bi-shield-lock"></i> Loss Prevention Program
+                        <i class="bi bi-box-seam"></i> Supply Chain Security
                     </div>
-                    <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem;">Shrinkage Reduction & Asset Protection</h2>
-                    <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">Comprehensive screening for loss prevention teams, security personnel, and high-risk positions. Identify candidates with integrity issues before they access cash, inventory, or sensitive areas. Reduce internal theft and organized retail crime infiltration.</p>
+                    <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem;">End-to-End Visibility & Trust</h2>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">Comprehensive verification across your entire supply chain ecosystem. From raw material suppliers to retail shelf stockers, ensure every touchpoint meets your security and compliance standards. Prevent cargo theft, inventory shrinkage, and contamination risks.</p>
                     
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="d-flex align-items-center gap-3">
                                 <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                                <span>Integrity Testing</span>
+                                <span>Supplier Vetting</span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="d-flex align-items-center gap-3">
                                 <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                                <span>Civil Records Check</span>
+                                <span>3PL Screening</span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="d-flex align-items-center gap-3">
                                 <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                                <span>Continuous Monitoring</span>
+                                <span>Temp Worker Checks</span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="d-flex align-items-center gap-3">
                                 <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                                <span>LP Experience Verify</span>
+                                <span>Vendor Compliance</span>
                             </div>
                         </div>
                     </div>
@@ -2048,9 +1989,9 @@
                 <div class="col-lg-6 reveal">
                     <div class="cpv-visual">
                         <div class="location-network">
+                            <div class="map-pin"><i class="bi bi-building"></i></div>
+                            <div class="map-pin"><i class="bi bi-truck"></i></div>
                             <div class="map-pin"><i class="bi bi-shop"></i></div>
-                            <div class="map-pin"><i class="bi bi-shield"></i></div>
-                            <div class="map-pin"><i class="bi bi-box-seam"></i></div>
                             <div class="cpv-center">
                                 <i class="bi bi-geo-alt-fill"></i>
                             </div>
@@ -2069,7 +2010,7 @@
                     <div class="section-subtitle justify-content-center">
                         <i class="bi bi-briefcase"></i> Use Cases
                     </div>
-                    <h2 class="section-title">Trusted by Retail Leaders</h2>
+                    <h2 class="section-title">Trusted by FMCG Leaders</h2>
                 </div>
             </div>
             
@@ -2078,35 +2019,16 @@
                     <div class="use-case-card">
                         <div class="use-case-header">
                             <div class="use-case-icon-lg">
-                                <i class="bi bi-shop"></i>
+                                <i class="bi bi-building"></i>
                             </div>
-                            <h3>Brick & Mortar</h3>
+                            <h3>CPG Manufacturers</h3>
                         </div>
                         <div class="use-case-body">
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Big box retailers</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Specialty stores</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Grocery chains</li>
-                                <li><i class="bi bi-check2 text-primary me-2"></i>Franchise networks</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 reveal">
-                    <div class="use-case-card">
-                        <div class="use-case-header">
-                            <div class="use-case-icon-lg">
-                                <i class="bi bi-cart3"></i>
-                            </div>
-                            <h3>E-Commerce</h3>
-                        </div>
-                        <div class="use-case-body">
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Online marketplaces</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>DTC brands</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>3PL providers</li>
-                                <li><i class="bi bi-check2 text-primary me-2"></i>Dark store operations</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Production line staff</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Quality control</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Plant supervisors</li>
+                                <li><i class="bi bi-check2 text-primary me-2"></i>Maintenance crews</li>
                             </ul>
                         </div>
                     </div>
@@ -2118,14 +2040,33 @@
                             <div class="use-case-icon-lg">
                                 <i class="bi bi-truck"></i>
                             </div>
-                            <h3>Omnichannel</h3>
+                            <h3>3PL & Distributors</h3>
                         </div>
                         <div class="use-case-body">
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Buy online pickup</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Same-day delivery</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Curbside pickup</li>
-                                <li><i class="bi bi-check2 text-primary me-2"></i>Ship from store</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>CDL drivers</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Warehouse staff</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Fleet managers</li>
+                                <li><i class="bi bi-check2 text-primary me-2"></i>Route planners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 reveal">
+                    <div class="use-case-card">
+                        <div class="use-case-header">
+                            <div class="use-case-icon-lg">
+                                <i class="bi bi-shop"></i>
+                            </div>
+                            <h3>Retail Chains</h3>
+                        </div>
+                        <div class="use-case-body">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Store associates</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Loss prevention</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Regional managers</li>
+                                <li><i class="bi bi-check2 text-primary me-2"></i>Seasonal hires</li>
                             </ul>
                         </div>
                     </div>
@@ -2134,93 +2075,71 @@
         </div>
     </section>
 
-    <!-- NEW REDESIGNED Regulatory Section -->
+    <!-- Regulatory Section -->
     <section class="regulatory-section">
-        <div class="regulatory-bg-pattern"></div>
-        <div class="container reg-content-wrapper">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center reveal">
-                    <div class="section-subtitle justify-content-center">
-                        <i class="fas fa-check-circle"></i> Compliance Standards
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 reveal">
+                    <div class="section-subtitle">
+                        <i class="bi bi-shield-check"></i> Compliance
                     </div>
-                    <h2 class="section-title">Certified & Compliant</h2>
-                    <p class="section-desc mx-auto">
-                        Our verification processes strictly adhere to Payment Card Industry Data Security Standard (PCI DSS) requirements, Fair Credit Reporting Act (FCRA) regulations, and Equal Employment Opportunity Commission (EEOC) guidelines.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <!-- PCI DSS Card -->
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="reg-card">
-                        <div class="reg-icon-box">
-                            <i class="fas fa-credit-card"></i>
+                    <h2 class="section-title">FDA, DOT & OSHA Compliant</h2>
+                    <p class="section-desc">Our verification processes adhere to Food and Drug Administration (FDA) food safety regulations, Department of Transportation (DOT) commercial driving standards, and Occupational Safety and Health Administration (OSHA) workplace safety requirements.</p>
+                    
+                    <div class="mt-4">
+                        <div class="d-flex align-items-start gap-3 mb-3">
+                            <i class="bi bi-egg-fried text-primary fs-4"></i>
+                            <div>
+                                <h5 class="mb-1">FDA Food Safety</h5>
+                                <p class="text-muted mb-0">FSMA compliance, food handler certification, and sanitary transport verification for food manufacturers and distributors</p>
+                            </div>
                         </div>
-                        <h3 class="reg-title">PCI DSS Standards</h3>
-                        <span class="reg-code-badge">Level 1 Ready</span>
-                        <p class="reg-desc">
-                            Background check requirements for personnel with access to cardholder data environments and payment processing systems.
-                        </p>
-                        <div class="reg-features">
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Cardholder Data Access
+                        <div class="d-flex align-items-start gap-3 mb-3">
+                            <i class="bi bi-truck text-primary fs-4"></i>
+                            <div>
+                                <h5 class="mb-1">DOT Transportation</h5>
+                                <p class="text-muted mb-0">Commercial driver qualification, drug testing programs, and motor vehicle record monitoring for fleet compliance</p>
                             </div>
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Payment System Verify
-                            </div>
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Data Breach Protection
+                        </div>
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-hard-hat text-primary fs-4"></i>
+                            <div>
+                                <h5 class="mb-1">OSHA Workplace Safety</h5>
+                                <p class="text-muted mb-0">Forklift operator certification, warehouse safety training, and manufacturing hazard compliance documentation</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- FCRA Card -->
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="reg-card">
-                        <div class="reg-icon-box">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <h3 class="reg-title">FCRA Regulations</h3>
-                        <span class="reg-code-badge">Compliant</span>
-                        <p class="reg-desc">
-                            Adverse action procedures, disclosure requirements, and consumer rights protection for credit and background reports.
-                        </p>
-                        <div class="reg-features">
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Adverse Action Procedures
+                <div class="col-lg-6 reveal">
+                    <div class="bg-light p-5 rounded-4">
+                        <div class="row g-4 text-center">
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 shadow-sm">
+                                    <i class="bi bi-egg-fried text-primary fs-1 mb-2"></i>
+                                    <div class="fw-bold">FDA</div>
+                                    <small class="text-muted">Food Safety</small>
+                                </div>
                             </div>
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Disclosure Requirements
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 shadow-sm">
+                                    <i class="bi bi-truck text-primary fs-1 mb-2"></i>
+                                    <div class="fw-bold">DOT</div>
+                                    <small class="text-muted">Transport</small>
+                                </div>
                             </div>
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Consumer Rights Protection
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 shadow-sm">
+                                    <i class="bi bi-hard-hat text-primary fs-1 mb-2"></i>
+                                    <div class="fw-bold">OSHA</div>
+                                    <small class="text-muted">Safety</small>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EEOC Card -->
-                <div class="col-lg-4 col-md-6 reveal">
-                    <div class="reg-card">
-                        <div class="reg-icon-box">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="reg-title">EEOC Guidelines</h3>
-                        <span class="reg-code-badge">Guidelines</span>
-                        <p class="reg-desc">
-                            Fair chance hiring practices, individualized assessments, and ban-the-box compliance for retail workforce equity.
-                        </p>
-                        <div class="reg-features">
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Fair Chance Hiring
-                            </div>
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Individualized Assessment
-                            </div>
-                            <div class="reg-feature-item">
-                                <i class="fas fa-check"></i> Ban-the-Box Compliance
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 shadow-sm">
+                                    <i class="bi bi-award text-primary fs-1 mb-2"></i>
+                                    <div class="fw-bold">SQF/BRC</div>
+                                    <small class="text-muted">Quality</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2228,6 +2147,109 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Section 
+    <section class="contact-section" id="contact">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0 reveal">
+                    <h2>Secure Your Supply Chain</h2>
+                    <p class="lead">Get in touch with our FMCG specialists to implement comprehensive workforce verification for manufacturing, warehousing, distribution, and retail operations.</p>
+                    
+                    <div class="mt-5">
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Food safety compliance audit</span>
+                        </div>
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Fleet driver screening setup</span>
+                        </div>
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Seasonal hiring workflows</span>
+                        </div>
+                        <div class="contact-feature">
+                            <div class="contact-feature-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <span>Enterprise pricing discussion</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                        <p class="text-white-50 mb-3">Or reach us directly:</p>
+                        <p class="mb-2"><i class="bi bi-envelope me-2 text-primary"></i> fmcg@verifitech.com</p>
+                        <p><i class="bi bi-telephone me-2 text-primary"></i> +1 800-FMCG-SEC</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 reveal">
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest! Our FMCG team will contact you within 24 hours.');">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name *" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Work Email *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control" placeholder="Phone Number *" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Company Name *" required>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select" required>
+                                    <option value="" disabled selected>Company Type *</option>
+                                    <option>CPG Manufacturer</option>
+                                    <option>Food & Beverage Producer</option>
+                                    <option>3PL/Distributor</option>
+                                    <option>Retail Chain</option>
+                                    <option>Warehouse Operator</option>
+                                </select>
+                            </div>
+                        </div>
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Interested Solution *</option>
+                            <option>Manufacturing Screening</option>
+                            <option>Warehouse & Logistics</option>
+                            <option>Fleet & Driver Mgmt</option>
+                            <option>Retail Loss Prevention</option>
+                            <option>Complete FMCG Suite</option>
+                        </select>
+                        <textarea class="form-control" rows="3" placeholder="Tell us about your workforce requirements (Optional)"></textarea>
+                        
+                        <div class="form-check mt-3 mb-4">
+                            <input class="form-check-input" type="checkbox" required>
+                            <label class="form-check-label">
+                                I agree to the <a href="#">Privacy Policy</a> and consent to being contacted regarding Verifitech services.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">
+                            Submit Request <i class="bi bi-arrow-right ms-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    
     
     <!-- Footer -->
    <footer class="footer">
@@ -2294,7 +2316,7 @@
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="footer-brand">
               <img
-                src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
                 alt="Verifitech"
                 class="footer-logo"
               />
@@ -2317,7 +2339,7 @@
                 <li>
                   <a href="../checks/education-check">Education Verification</a>
                 </li>
-                <li><a href="../checks/refernce">Reference Checks</a></li>
+                <li><a href="../checks/reference">Reference Checks</a></li>
                 <li>
                   <a href="../checks/gap-verification">Gap Analysis</a>
                 </li>
@@ -2394,6 +2416,7 @@
         </div>
       </div>
     </footer>
+
 
 <!-- Floating WhatsApp Button -->
 <a 
@@ -2507,7 +2530,7 @@
     }
   }
 
-    .footer {
+   .footer {
   background:#f8fafc;
   color: var(--dark);
   padding: 80px 0 40px;
@@ -2852,6 +2875,7 @@
   color: var(--gray);
 }
 </style>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -2879,6 +2903,31 @@
     
     window.open(whatsappUrl, '_blank');
   }
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+     
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');

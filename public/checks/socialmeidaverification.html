@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
     <title>
-      MOM & PDPA Compliant Screening | Verifitech
+      Social Media Verification | Digital Footprint Screening | Verifitech
     </title>
     <meta
       name="description"
-      content="MOM approved employment screening and PDPA compliant background checks. Trusted by 600+ Singapore employers. COMPASS framework verification and Work Pass compliance."
+      content="AI-powered social media screening to identify toxic behavior, compliance risks, and cultural fit. Analyze digital footprints across LinkedIn, Facebook, Twitter, Instagram with sentiment analysis and brand protection."
     />
 
     <!-- Bootstrap 5 -->
@@ -44,8 +43,6 @@
         --gray: #64748b;
         --light-gray: #f8fafc;
         --white: #ffffff;
-        --gold: #d4af37;
-        --red: #ef4444;
       }
 
       * {
@@ -61,6 +58,7 @@
         overflow-x: hidden;
       }
 
+   
 
 html {
   scroll-behavior: smooth;
@@ -334,216 +332,264 @@ html {
   font-size: 1.2rem;
   line-height: 1;
 }
-      /* Singapore Hero Section */
-      .singapore-hero {
-        padding: 140px 0 100px;
-        background: linear-gradient(
-          135deg,
-          #f0fdfa 0%,
-          #ffffff 50%,
-          #fef2f2 100%
-        );
-        position: relative;
-        overflow: hidden;
-      }
+      /* Hero Visual */
+      .solution-hero {
+      padding: 140px 0 100px;
+      background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
 
-      .singapore-hero::before {
-        content: "";
-        position: absolute;
-        top: -20%;
-        right: -10%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-      }
+    .solution-hero::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
 
-      .singapore-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 0.6rem 1.2rem;
-        background: rgba(26, 194, 193, 0.1);
-        color: var(--primary-dark);
-        border-radius: 50px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        border: 1px solid rgba(26, 194, 193, 0.2);
-      }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.6rem 1.2rem;
+      background: rgba(26, 194, 193, 0.1);
+      color: var(--primary-dark);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(26, 194, 193, 0.2);
+    }
 
-      .singapore-hero h1 {
-        font-size: 3.8rem;
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        color: var(--dark);
-        letter-spacing: -1.5px;
-      }
+    .solution-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      letter-spacing: -1.5px;
+    }
 
-      .singapore-hero .lead {
-        font-size: 1.35rem;
-        color: var(--gray);
-        max-width: 600px;
-        margin-bottom: 2.5rem;
-        line-height: 1.6;
-      }
+    .solution-hero .lead {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      max-width: 540px;
+    }
 
-      /* Stats Visual - Lion City Theme */
-      .singapore-stats-visual {
-        position: relative;
-        height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .btn-primary-custom {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+    }
 
-      .singapore-container {
-        position: relative;
-        width: 400px;
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    .btn-primary-custom:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      color: white;
+    }
 
-      .singapore-center {
-        width: 160px;
-        height: 160px;
-        background: white;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 20px 50px rgba(26, 194, 193, 0.2);
-        z-index: 5;
-        border: 4px solid var(--primary-light);
-        position: relative;
-      }
+    .trust-badge {
+      margin-top: 3rem;
+    }
 
-      .singapore-center i {
-        font-size: 3rem;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
+    .trust-badge p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
 
-      .singapore-center span {
-        font-size: 0.9rem;
-        font-weight: 700;
-        color: var(--dark);
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo-item {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+
+    /* Hero Visual - Floating Cards */
+    .hero-visual {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .card-1 {
+      top: 0;
+      right: 0;
+      width: 360px;
+      animation-delay: 0s;
+      z-index: 2;
+    }
+
+    .card-2 {
+      bottom: 20px;
+      left: 0;
+      width: 280px;
+      animation-delay: 1.5s;
+      z-index: 1;
+    }
+
+    .verification-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .verification-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .verif-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .status-badge {
+      margin-left: auto;
+      padding: 0.35rem 0.75rem;
+      background: rgba(26, 194, 193, 0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .solution-hero {
+        padding: 120px 0 60px;
         text-align: center;
       }
 
-      .region-node {
-        position: absolute;
-        width: 85px;
-        height: 85px;
-        background: white;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: 3px solid white;
-        transition: all 0.3s ease;
-        z-index: 10;
-        cursor: pointer;
+      .solution-hero h1 {
+        font-size: 2.5rem;
       }
 
-      .region-node:hover {
-        transform: scale(1.1);
-        border-color: var(--primary);
+      .solution-hero .lead {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .region-node i {
-        font-size: 1.5rem;
-        color: var(--primary);
-        margin-bottom: 2px;
+      .hero-visual {
+        margin-top: 3rem;
+        height: 450px;
       }
 
-      .region-node span {
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: var(--dark);
-        text-align: center;
-        line-height: 1.2;
+      .floating-card {
+        width: 300px !important;
       }
 
-      /* Positioning regions in a circle */
-      .region-node:nth-child(2) {
-        top: 0;
+      .card-1 {
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .card-2 {
         left: 50%;
         transform: translateX(-50%);
-      }
-      .region-node:nth-child(3) {
-        top: 15%;
-        right: 5%;
-      }
-      .region-node:nth-child(4) {
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-      }
-      .region-node:nth-child(5) {
-        bottom: 15%;
-        right: 5%;
-      }
-      .region-node:nth-child(6) {
         bottom: 0;
+      }
+
+      .logo-row {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .solution-hero h1 {
+        font-size: 2rem;
+      }
+
+      .floating-card {
+        width: 90% !important;
+        max-width: 320px;
+      }
+
+      .card-1, .card-2 {
         left: 50%;
+        right: auto;
         transform: translateX(-50%);
       }
-      .region-node:nth-child(7) {
-        bottom: 15%;
-        left: 5%;
-      }
-      .region-node:nth-child(8) {
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
+
+      .card-1 {
+        top: 20px;
       }
 
-      .stat-card {
+      .card-2 {
+        bottom: 20px;
+      }
+    }
+
+      .floating-card {
         position: absolute;
         background: white;
-        padding: 1.2rem 1.8rem;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        animation: float 3s ease-in-out infinite;
-        border: 1px solid #e2e8f0;
-      }
-
-      .stat-card:nth-child(9) {
-        top: 5%;
-        left: -20px;
-        animation-delay: 0s;
-      }
-
-      .stat-card:nth-child(10) {
-        top: 5%;
-        right: -20px;
-        animation-delay: 0.5s;
-      }
-
-      .stat-card:nth-child(11) {
-        bottom: 5%;
-        left: -20px;
-        animation-delay: 1s;
-      }
-
-      .stat-card:nth-child(12) {
-        bottom: 5%;
-        right: -20px;
-        animation-delay: 1.5s;
+        border-radius: 24px;
+        padding: 1.5rem;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        animation: float 6s ease-in-out infinite;
       }
 
       @keyframes float {
@@ -552,40 +598,65 @@ html {
           transform: translateY(0px);
         }
         50% {
-          transform: translateY(-10px);
+          transform: translateY(-20px);
         }
       }
 
-      .stat-icon {
-        width: 50px;
-        height: 50px;
-        background: var(--primary-light);
+      .card-1 {
+        top: 0;
+        right: 0;
+        width: 340px;
+        animation-delay: 0s;
+      }
+
+      .card-2 {
+        top: 200px;
+        left: 0;
+        width: 300px;
+        animation-delay: 1.5s;
+      }
+
+      .verification-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .verification-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .verif-icon {
+        width: 44px;
+        height: 44px;
         border-radius: 12px;
+        background: var(--primary-light);
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--primary);
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
 
-      .stat-text h4 {
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: var(--dark);
-        margin: 0;
-        line-height: 1;
+      .status-badge {
+        margin-left: auto;
+        padding: 0.35rem 0.75rem;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary);
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
       }
 
-      .stat-text p {
-        font-size: 0.85rem;
-        color: var(--gray);
-        margin: 0;
-        margin-top: 4px;
-      }
-
-      /* Section Headers */
-      .section-header {
-        margin-bottom: 3rem;
+      /* How it Works */
+      .how-it-works {
+        padding: 100px 0;
+        background: white;
       }
 
       .section-subtitle {
@@ -604,7 +675,7 @@ html {
       }
 
       .section-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         font-weight: 800;
         color: var(--dark);
         margin-bottom: 1rem;
@@ -615,486 +686,512 @@ html {
       .section-desc {
         color: var(--gray);
         font-size: 1.15rem;
-        max-width: 700px;
+        max-width: 600px;
         line-height: 1.7;
       }
 
-      /* Compliance Section */
-      .compliance-section {
-        padding: 100px 0;
-        background: var(--light-gray);
-      }
-
-      .compliance-card {
+      .step-card {
         background: white;
+        border-radius: 24px;
         padding: 2.5rem;
-        border-radius: 20px;
-        border: 1px solid #e2e8f0;
         height: 100%;
-        transition: all 0.3s ease;
+        border: 2px solid #e2e8f0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
       }
 
-      .compliance-card:hover {
+      .step-card:hover {
+        border-color: var(--primary);
         transform: translateY(-8px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-        border-color: var(--primary);
-      }
-
-      .compliance-icon {
-        width: 80px;
-        height: 80px;
-        background: var(--primary-light);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .compliance-card:hover .compliance-icon {
-        background: var(--primary);
-        color: white;
-        transform: scale(1.1);
-      }
-
-      .compliance-card h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        color: var(--dark);
-      }
-
-      .compliance-card p {
-        color: var(--gray);
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      .compliance-badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        background: #dcfce7;
-        color: #166534;
-        border-radius: 50px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        margin-top: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .compliance-badge.mom {
-        background: #dbeafe;
-        color: #1e40af;
-      }
-
-      .compliance-badge.pdpa {
-        background: #fef3c7;
-        color: #92400e;
-      }
-
-      /* COMPASS Section - NEW */
-      .compass-section {
-        padding: 100px 0;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
-        color: white;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .compass-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 60%
-        );
-        border-radius: 50%;
-      }
-
-      .compass-section .section-title {
-        color: white;
-      }
-
-      .compass-section .section-desc {
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .compass-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 2rem;
-        height: 100%;
-        transition: all 0.3s ease;
-      }
-
-      .compass-card:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-5px);
-        border-color: var(--primary);
-      }
-
-      .compass-icon {
-        width: 70px;
-        height: 70px;
-        background: var(--primary);
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: white;
-        margin-bottom: 1.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .compass-card:hover .compass-icon {
-        transform: scale(1.1);
-        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.3);
-      }
-
-      .compass-card h3 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: white;
-      }
-
-      .compass-card p {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      .compass-feature {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .compass-feature i {
-        font-size: 1.5rem;
-        color: var(--primary);
-        margin-top: 2px;
-      }
-
-      .compass-feature h4 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: white;
-        margin-bottom: 0.25rem;
-      }
-
-      .compass-feature p {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        margin: 0;
-      }
-
-      /* Services Section */
-      .services-section {
-        padding: 100px 0;
-        background: white;
-      }
-
-      .service-card {
-        background: var(--light-gray);
-        border-radius: 20px;
-        padding: 2.5rem;
-        height: 100%;
-        transition: all 0.3s ease;
-        border: 1px solid transparent;
-      }
-
-      .service-card:hover {
-        background: white;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border-color: var(--primary);
-        transform: translateY(-5px);
-      }
-
-      .service-icon {
-        width: 70px;
-        height: 70px;
-        background: white;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-      }
-
-      .service-card:hover .service-icon {
-        background: var(--primary);
-        color: white;
-        transform: scale(1.1);
-      }
-
-      .service-card h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--dark);
-      }
-
-      .service-card p {
-        color: var(--gray);
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-      }
-
-      .service-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .service-list li {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--navy);
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-      }
-
-      .service-list li i {
-        color: var(--primary);
-        font-size: 1rem;
-      }
-
-      /* Industries Grid */
-      .industries-section {
-        padding: 100px 0;
-        background: var(--light-gray);
-      }
-
-      .industry-item {
-        background: white;
-        border-radius: 16px;
-        padding: 2rem;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 1px solid #e2e8f0;
-        height: 100%;
-      }
-
-      .industry-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border-color: var(--primary);
-      }
-
-      .industry-item i {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: var(--primary);
-      }
-
-      .industry-item h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: var(--dark);
-      }
-
-      .industry-item p {
-        font-size: 0.9rem;
-        color: var(--gray);
-        margin: 0;
-      }
-
-      /* Trust Section */
-      .trust-section {
-        padding: 100px 0;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
-        color: white;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .trust-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 60%
-        );
-        border-radius: 50%;
-      }
-
-      .trust-section .section-title {
-        color: white;
-      }
-
-      .trust-section .section-desc {
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .trust-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 3rem;
-        text-align: center;
-        transition: all 0.3s ease;
-      }
-
-      .trust-card:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-5px);
-      }
-
-      .trust-stat {
-        font-size: 3.5rem;
-        font-weight: 800;
-        color: var(--primary);
-        line-height: 1;
-        margin-bottom: 0.5rem;
-      }
-
-      .trust-label {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: white;
-        margin-bottom: 0.5rem;
-      }
-
-      .trust-desc {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.7);
-        margin: 0;
-      }
-
-      /* Process Section */
-      .process-section {
-        padding: 100px 0;
-        background: white;
-      }
-
-      .process-step {
-        text-align: center;
-        position: relative;
-        padding: 2rem;
-      }
-
-      .process-step:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: -50%;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(to right, var(--primary), transparent);
-        z-index: 0;
+        box-shadow: 0 25px 50px rgba(26, 194, 193, 0.12);
       }
 
       .step-number {
-        width: 80px;
-        height: 80px;
-        background: var(--primary-light);
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--primary-light), white);
         border: 3px solid var(--primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
         font-weight: 800;
+        font-size: 1.4rem;
         color: var(--primary);
-        margin: 0 auto 1.5rem;
-        position: relative;
-        z-index: 2;
-        background: white;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s;
       }
 
-      .process-step h3 {
-        font-size: 1.25rem;
+      .step-card:hover .step-number {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .step-card h4 {
         font-weight: 700;
-        margin-bottom: 0.75rem;
-        color: var(--dark);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
       }
 
-      .process-step p {
+      .step-card p {
         color: var(--gray);
-        font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.7;
         margin: 0;
       }
 
-      /* CTA Section */
-      .cta-section {
-        padding: 100px 0;
-        background: linear-gradient(135deg, #f0fdfa 0%, #fef2f2 100%);
-        text-align: center;
+      .step-connector {
+        position: absolute;
+        top: 45px;
+        right: -25px;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), transparent);
+        opacity: 0.3;
       }
 
-      .cta-box {
+      @media (max-width: 991px) {
+        .step-connector {
+          display: none;
+        }
+      }
+
+      /* Key Highlights */
+      .key-highlights {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .highlight-card {
         background: white;
         border-radius: 24px;
-        padding: 4rem;
-        max-width: 900px;
-        margin: 0 auto;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        padding: 3rem;
+        height: 100%;
         border: 1px solid #e2e8f0;
+        transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
       }
 
-      .cta-box::before {
+      .highlight-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        border-color: var(--primary);
+      }
+
+      .highlight-card::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
+        width: 100%;
         height: 4px;
-        background: linear-gradient(90deg, var(--primary), var(--red));
+        background: var(--primary);
+        transform: scaleX(0);
+        transition: transform 0.4s;
+        transform-origin: left;
       }
 
-      .btn-primary-custom {
+      .highlight-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .highlight-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+        transition: all 0.3s;
+      }
+
+      .highlight-card:hover .highlight-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .highlight-card h3 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .highlight-card p {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .highlight-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+      }
+
+      .highlight-card ul li {
+        padding: 0.6rem 0;
+        color: var(--gray);
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.95rem;
+      }
+
+      .highlight-card ul li::before {
+        content: "✓";
+        color: var(--primary);
+        font-weight: 700;
+        flex-shrink: 0;
+        font-size: 1.1rem;
+      }
+
+      .btn-outline-custom {
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+        padding: 0.75rem 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-outline-custom:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.3);
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .benefit-item {
+        padding: 2.5rem;
+        background: white;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .benefit-item:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(26, 194, 193, 0.1);
+      }
+
+      .benefit-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary-light), white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--primary);
+        font-size: 2rem;
+        border: 2px solid rgba(26, 194, 193, 0.2);
+        transition: all 0.3s;
+      }
+
+      .benefit-item:hover .benefit-icon {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .benefit-item h4 {
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+        color: var(--dark);
+      }
+
+      .benefit-item p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 100px 0;
+        background: var(--light-gray);
+      }
+
+      .accordion-item {
+        border: none;
+        background: white;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+      }
+
+      .accordion-item:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .accordion-button {
+        padding: 1.8rem;
+        font-weight: 700;
+        color: var(--dark);
+        background: white;
+        border: none;
+        font-size: 1.1rem;
+        box-shadow: none !important;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        box-shadow: none;
+      }
+
+      .accordion-button::after {
+        background-size: 1.2rem;
+        transition: all 0.3s;
+      }
+
+      .accordion-body {
+        padding: 0 1.8rem 1.8rem;
+        color: var(--gray);
+        line-height: 1.8;
+        font-size: 1rem;
+      }
+
+      /* Verification Types */
+      .verification-types {
+        padding: 80px 0;
+        background: white;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .type-card {
+        background: white;
+        border-radius: 24px;
+        padding: 3rem;
+        border: 2px solid #e2e8f0;
+        height: 100%;
+        text-align: center;
+        transition: all 0.4s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .type-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(26, 194, 193, 0.1);
+      }
+
+      .type-card.featured {
+        border-color: var(--primary);
+        background: linear-gradient(135deg, var(--primary-light), white);
+      }
+
+      .type-icon {
+        width: 100px;
+        height: 100px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        color: var(--primary);
+        font-size: 3rem;
+        box-shadow: 0 10px 30px rgba(26, 194, 193, 0.2);
+        border: 3px solid var(--primary-light);
+      }
+
+      .type-card h3 {
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+
+      .type-card p {
+        color: var(--gray);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      .badge-featured {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(26, 194, 193, 0.1) 0%,
+          transparent 60%
+        );
+        border-radius: 50%;
+      }
+
+      .contact-section h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .contact-section .lead {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-feature {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-feature-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(26, 194, 193, 0.2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        border: 1px solid rgba(26, 194, 193, 0.3);
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 3rem;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+      }
+
+      .form-control,
+      .form-select {
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--primary);
+        color: white;
+        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .form-select option {
+        background: var(--dark);
+        color: white;
+      }
+
+      .form-check-label {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+      }
+
+      .form-check-label a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .form-check-label a:hover {
+        text-decoration: underline;
+      }
+
+      .form-check-input {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .form-check-input:checked {
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-submit {
         background: var(--primary) !important;
         color: white !important;
         border: none;
-        padding: 1rem 2.5rem;
-        border-radius: 50px;
+        padding: 1rem;
+        border-radius: 12px;
         font-weight: 700;
         font-size: 1.1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
+        width: 100%;
+        margin-top: 1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
       }
 
-      .btn-primary-custom:hover {
+      .btn-submit:hover {
         background: var(--primary-dark) !important;
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
       }
 
       /* Animations */
@@ -1111,75 +1208,67 @@ html {
 
       /* Responsive */
       @media (max-width: 991px) {
-        .singapore-hero h1 {
+        .solution-hero h1 {
           font-size: 2.8rem;
+        }
+
+        .solution-hero .lead {
+          font-size: 1.1rem;
         }
 
         .section-title {
           font-size: 2.2rem;
         }
 
-        .singapore-stats-visual {
-          height: 400px;
+        .hero-visual {
           margin-top: 3rem;
+          height: 400px;
         }
 
-        .stat-card {
-          position: relative;
-          margin-bottom: 1rem;
-          animation: none;
-          width: 100%;
+        .floating-card {
+          width: 280px !important;
         }
 
-        .singapore-container {
-          width: 300px;
-          height: 300px;
-        }
-
-        .region-node {
-          width: 70px;
-          height: 70px;
-        }
-
-        .region-node i {
-          font-size: 1.2rem;
-        }
-
-        .region-node span {
-          font-size: 0.65rem;
-        }
-
-        .process-step:not(:last-child)::after {
+        .card-2 {
           display: none;
+        }
+
+        .contact-form {
+          margin-top: 3rem;
         }
       }
 
       @media (max-width: 767px) {
-        .singapore-hero {
+        .solution-hero {
           padding: 120px 0 60px;
           text-align: center;
         }
 
-        .singapore-hero h1 {
+        .solution-hero h1 {
+          font-size: 2.2rem;
+          letter-spacing: -0.5px;
+        }
+
+        .logo-row {
+          justify-content: center;
+          gap: 2rem;
+        }
+
+        .step-card {
+          margin-bottom: 1.5rem;
+        }
+
+        .contact-section h2 {
           font-size: 2.2rem;
         }
 
-        .cta-box {
-          padding: 3rem 2rem;
-        }
-
-        .stat-card {
-          position: static;
-          margin-bottom: 1rem;
-        }
-
-        .singapore-container {
-          display: none;
+        .contact-form {
+          padding: 2rem;
         }
       }
 
-      .footer {
-  background: #f0fdfa;
+  .footer {
+  background:#f8fafc;
   color: var(--dark);
   padding: 80px 0 40px;
 }
@@ -1525,7 +1614,7 @@ html {
   </head>
   <body>
     
-      <!-- Navigation -->
+       <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand" href="../index">
@@ -1563,73 +1652,73 @@ html {
                 <div class="row">
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Verification Services</h6>
-                    <a href="./id-verification" class="dropdown-item"
+                    <a href="../checks/id-verification" class="dropdown-item"
                       ><i class="bi bi-person-badge"></i> ID Verification</a
                     >
                     <a
-                      href="./address-verification.html"
+                      href="../checks/address-verification.html"
                       class="dropdown-item"
                       ><i class="bi bi-geo-alt"></i> Address Verification</a
                     >
-                    <a href="./employment" class="dropdown-item"
+                    <a href="../checks/employment" class="dropdown-item"
                       ><i class="bi bi-briefcase"></i> Employment
                       Verification</a
                     >
                     <a
-                      href="./education check"
+                      href="../checks/education-check"
                       class="dropdown-item"
                       ><i class="bi bi-mortarboard"></i> Education
                       Verification</a
                     >
                     <a
-                      href="./court-verification"
+                      href="../checks/court-verification"
                       class="dropdown-item"
                       ><i class="bi bi-shield-exclamation"></i> Court Record
                       Verification</a
                     >
-                    <a href="./reference" class="dropdown-item"
+                    <a href="../checks/reference" class="dropdown-item"
                       ><i class="bi bi-people"></i> Reference Check</a
                     >
-                    <a href="./DIN-verification" class="dropdown-item"
+                    <a href="../checks/DIN-verification" class="dropdown-item"
                       ><i class="fa-regular fa-id-card"></i> DIN Verification</a
                     >
 
-                    <a href="./Directorship-check" class="dropdown-item"
+                    <a href="../checks/Directorship check" class="dropdown-item"
                       ><i class="fa-regular fa-user"></i> Directorship</a
                     >
                   </div>
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Specialized Checks</h6>
-                    <a href="./global-check" class="dropdown-item"
+                    <a href="../checks/global-check" class="dropdown-item"
                       ><i class="bi bi-globe"></i> Global Database
                       Verification</a
                     >
-                    <a href="./credit-check" class="dropdown-item"
+                    <a href="../checks/credit-check" class="dropdown-item"
                       ><i class="bi bi-credit-card"></i> Credit Check</a
                     >
                     <a
-                      href="./gap-verification"
+                      href="../checks/gap-verification"
                       class="dropdown-item"
                       ><i class="bi bi-calendar-x"></i> Gap Check</a
                     >
                     <a
-                      href="./socialmeidaverification"
+                      href="../checks/socialmeidaverification"
                       class="dropdown-item"
                       ><i class="bi bi-share"></i> Social Media Verification</a
                     >
-                    <a href="./police-clearnce" class="dropdown-item"
+                    <a href="../checks/police-clearnce" class="dropdown-item"
                       ><i class="bi bi-shield-check"></i> Police Clearance</a
                     >
-                    <a href="./drug-test" class="dropdown-item"
+                    <a href="../checks/drug-test" class="dropdown-item"
                       ><i class="bi bi-capsule"></i> Drug Test Screening</a
                     >
-                    <a class="dropdown-item" href="./vendor"
+                    <a class="dropdown-item" href="../checks/vendor"
                       ><i class="fa-solid fa-magnifying-glass"></i>
                        Vendor
                       Digillencs</a
                     >
 
-                    <a href="./passport-verification" class="dropdown-item"
+                    <a href="../checks/passport-verification" class="dropdown-item"
                       ><i class="fa-solid fa-passport"></i> Passport Verification</a
                     >
 
@@ -1858,11 +1947,11 @@ html {
         ><i class="bi bi-people"></i> For Partners</a
       >
     </li>
-   <!-- <li>
+    <li>
       <a class="dropdown-item" href="../affilate/affilate"
         ><i class="bi bi-link-45deg"></i> Affiliate Marketing
       </a>
-    </li>-->
+    </li>
   </ul>
 </li>
           <div class="d-flex align-items-center">
@@ -1871,10 +1960,10 @@ html {
           </div>
 
           <div class="d-flex align-items-center">
-            <a href="../contact/contact" class="btn btn-sales"
+            <a href="./contact/contact" class="btn btn-sales"
               >Contact</a
             >
-  
+
             <div class="dropdown">
               <div
                 class="country-selector dropdown-toggle"
@@ -1965,159 +2054,106 @@ html {
     </nav>
 
 
-    <!-- Singapore Hero Section -->
-    <section class="singapore-hero">
+    <!-- Hero Section -->
+    <section class="solution-hero">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 reveal">
-            <div class="singapore-badge">
-              <i class="bi bi-shield-check"></i>
-              MOM Approved Provider
+          <div class="col-lg-6">
+            <div class="hero-badge">
+              <i class="bi bi-share-fill"></i>
+              Social Media Verification Solution
             </div>
-            <h1>Employment Screening for Singapore</h1>
+            <h1>
+              Screen Digital Footprints for Toxic Behavior & Compliance Risks.
+            </h1>
             <p class="lead">
-              PDPA compliant background checks and MOM accredited education
-              verification. Trusted by 600+ Singapore employers for Employment
-              Pass, S Pass, and Work Permit applications under the COMPASS
-              framework.
+              AI-powered social media screening across LinkedIn, Facebook,
+              Twitter, and Instagram to detect harassment, discrimination,
+              violence, and brand-damaging content. Ensure cultural fit and
+              mitigate reputational risks before hiring.
             </p>
-            <div class="d-flex gap-3 flex-wrap">
-              <a href="#services" class="btn btn-primary-custom btn-lg">
-                Explore Solutions <i class="bi bi-arrow-right"></i>
-              </a>
-              <a
-                href="../Demo/Demo.html"
-                class="btn btn-outline-dark btn-lg"
-                style="
-                  border-radius: 50px;
-                  padding: 1rem 2rem;
-                  font-weight: 600;
-                  border-width: 2px;
-                "
-              >
-                <i class="bi bi-play-circle"></i> Watch Demo
-              </a>
-            </div>
-            <div class="mt-4 d-flex align-items-center gap-3">
-              <div class="d-flex">
+
+            <a href="../Demo/Demo.html" class="btn btn-primary-custom btn-lg">
+              Get in Touch <i class="bi bi-arrow-right"></i>
+            </a>
+
+            <!-- <div class="trust-badge">
+              <p>Trusted by 2,000+ companies</p>
+              <div class="logo-row">
+                <span class="logo-item">Meta</span>
+                <span class="logo-item">Google</span>
+                <span class="logo-item">Netflix</span>
+                <span class="logo-item">Amazon</span>
+                <span class="logo-item">Adobe</span>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-visual">
+              <div class="floating-card card-1">
                 <div
-                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    margin-right: -10px;
-                    border: 2px solid white;
-                    z-index: 3;
-                  "
+                  class="d-flex justify-content-between align-items-center mb-3"
                 >
-                  <i class="bi bi-check-lg text-success"></i>
+                  <h6 class="mb-0 fw-bold">Social Risk Assessment</h6>
+                  <span class="badge bg-success bg-opacity-10 text-success"
+                    >Low Risk</span
+                  >
                 </div>
-                <div
-                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    margin-right: -10px;
-                    border: 2px solid white;
-                    z-index: 2;
-                  "
-                >
-                  <i class="bi bi-check-lg text-success"></i>
+                <div class="verification-row">
+                  <div class="verif-icon"><i class="bi bi-linkedin"></i></div>
+                  <div>
+                    <div class="fw-semibold">Professional Conduct</div>
+                    <small class="text-muted">LinkedIn Activity</small>
+                  </div>
+                  <span class="status-badge">Compliant</span>
                 </div>
-                <div
-                  class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    border: 2px solid white;
-                    z-index: 1;
-                  "
-                >
-                  <i class="bi bi-check-lg text-success"></i>
+                <div class="verification-row">
+                  <div class="verif-icon"><i class="bi bi-facebook"></i></div>
+                  <div>
+                    <div class="fw-semibold">Content Screening</div>
+                    <small class="text-muted">Hate Speech Check</small>
+                  </div>
+                  <span class="status-badge">Clean</span>
+                </div>
+                <div class="verification-row">
+                  <div class="verif-icon"><i class="bi bi-twitter-x"></i></div>
+                  <div>
+                    <div class="fw-semibold">Public Posts</div>
+                    <small class="text-muted">Last 7 Years</small>
+                  </div>
+                  <span class="status-badge">Clear</span>
                 </div>
               </div>
-              <p class="mb-0 small text-muted">
-                Trusted across CBD, Jurong, Changi & all districts
-              </p>
-            </div>
-          </div>
 
-          <!-- Right Side - Singapore Regions Visual -->
-          <div class="col-lg-6 reveal">
-            <div class="singapore-stats-visual">
-              <div class="singapore-container">
-                <div class="singapore-center">
-                  <i class="bi bi-building-fill"></i>
-                  <span>Lion City<br />Coverage</span>
-                </div>
-
-                <!-- Region nodes -->
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>CBD &<br />Marina</span>
-                </div>
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>Jurong<br />East</span>
-                </div>
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>Tampines<br />& East</span>
-                </div>
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>Woodlands<br />& North</span>
-                </div>
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>Sentosa &<br />South</span>
-                </div>
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>Changi<br />Business</span>
-                </div>
-                <div class="region-node">
-                  <i class="bi bi-building"></i>
-                  <span>One-North<br />& West</span>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-icon">
-                    <i class="bi bi-mortarboard"></i>
+              <div class="floating-card card-2">
+                <div class="text-center">
+                  <div
+                    class="mb-3"
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      background: linear-gradient(
+                        135deg,
+                        var(--primary),
+                        var(--primary-dark)
+                      );
+                      border-radius: 20px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin: 0 auto;
+                      color: white;
+                      font-size: 2rem;
+                    "
+                  >
+                    <i class="bi bi-robot"></i>
                   </div>
-                  <div class="stat-text">
-                    <h4>100%</h4>
-                    <p>MOM Accredited</p>
-                  </div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-icon">
-                    <i class="bi bi-shield-check"></i>
-                  </div>
-                  <div class="stat-text">
-                    <h4>PDPA</h4>
-                    <p>Compliant</p>
-                  </div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-icon">
-                    <i class="bi bi-graph-up-arrow"></i>
-                  </div>
-                  <div class="stat-text">
-                    <h4>40pts</h4>
-                    <p>COMPASS Score</p>
-                  </div>
-                </div>
-
-                <div class="stat-card">
-                  <div class="stat-icon">
-                    <i class="bi bi-globe"></i>
-                  </div>
-                  <div class="stat-text">
-                    <h4>200+</h4>
-                    <p>Countries</p>
+                  <h5 class="fw-bold mb-1">AI Analysis</h5>
+                  <p class="small text-muted mb-2">NLP & Computer Vision</p>
+                  <div class="d-flex justify-content-center gap-2">
+                    <span class="badge bg-light text-dark border">Text</span>
+                    <span class="badge bg-light text-dark border">Images</span>
+                    <span class="badge bg-light text-dark border">Video</span>
                   </div>
                 </div>
               </div>
@@ -2127,505 +2163,350 @@ html {
       </div>
     </section>
 
-    <!-- Compliance Section -->
-    <section class="compliance-section" id="compliance">
+    <!-- Verification Types -->
+    <section class="verification-types">
       <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center">
-            <i class="bi bi-shield-lock"></i> Regulatory Compliance
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-layers"></i> Comprehensive Coverage
+            </div>
+            <h2 class="section-title">Social Media Screening Types</h2>
+            <p class="section-desc mx-auto">
+              Multi-platform digital footprint analysis covering professional
+              networks, public posts, and behavior patterns.
+            </p>
           </div>
-          <h2 class="section-title">MOM & PDPA Compliant</h2>
-          <p class="section-desc mx-auto">
-            Navigate Singapore's strict employment regulations with confidence.
-            Our platform ensures compliance with Ministry of Manpower
-            requirements and Personal Data Protection Act standards.
-          </p>
         </div>
 
         <div class="row g-4">
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="compliance-card">
-              <div class="compliance-icon">
-                <i class="bi bi-mortarboard"></i>
+          <div class="col-md-4">
+            <div class="type-card featured h-100">
+              <span class="badge-featured">MOST POPULAR</span>
+              <div class="type-icon">
+                <i class="bi bi-globe"></i>
               </div>
-              <h3>MOM Education Verification</h3>
+              <h3>Platform Coverage</h3>
               <p>
-                Mandatory verification for Employment Pass applications from
-                MOM-approved background screening providers. Authenticate
-                diplomas and degrees from accredited institutions.
+                Comprehensive screening across major social platforms including
+                LinkedIn, Facebook, Instagram, Twitter/X, YouTube, and TikTok.
               </p>
-              <span class="compliance-badge mom">MOM Mandate</span>
+              <div class="text-start mt-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>LinkedIn professional history</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Facebook & Instagram posts</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Twitter/X historical data</span>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="compliance-card">
-              <div class="compliance-icon">
+          <div class="col-md-4">
+            <div class="type-card h-100">
+              <div class="type-icon">
+                <i class="bi bi-heart-pulse"></i>
+              </div>
+              <h3>Behavior Analysis</h3>
+              <p>
+                AI-powered sentiment analysis to detect toxic behavior,
+                harassment, discrimination, violence, and substance abuse
+                indicators.
+              </p>
+              <div class="text-start mt-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Hate speech detection</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Bullying & harassment flags</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Violence & threats screening</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="type-card h-100">
+              <div class="type-icon">
                 <i class="bi bi-shield-check"></i>
               </div>
-              <h3>PDPA Compliance</h3>
+              <h3>Compliance Screening</h3>
               <p>
-                Full compliance with Singapore's Personal Data Protection Act.
-                Explicit consent protocols, data minimization, and secure
-                handling of candidate information.
+                Identify regulatory risks including insider trading discussions,
+                confidentiality breaches, FCPA violations, and extremist
+                affiliations.
               </p>
-              <span class="compliance-badge pdpa">Privacy Law</span>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="compliance-card">
-              <div class="compliance-icon">
-                <i class="bi bi-graph-up-arrow"></i>
+              <div class="text-start mt-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Confidentiality breaches</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Insider trading indicators</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-check-circle-fill text-primary"></i>
+                  <span>Political extremism checks</span>
+                </div>
               </div>
-              <h3>COMPASS Framework</h3>
-              <p>
-                Complementarity Assessment Framework scoring support. Verify
-                qualifications to help candidates achieve required 40 points for
-                Employment Pass approval.
-              </p>
-              <span class="compliance-badge">EP Scoring</span>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="compliance-card">
-              <div class="compliance-icon">
-                <i class="bi bi-credit-card"></i>
-              </div>
-              <h3>Work Pass Integration</h3>
-              <p>
-                Employment Pass, S Pass, and Work Permit compliant screening.
-                Verify credentials before Work Pass application to prevent
-                rejections and delays.
-              </p>
-              <span class="compliance-badge mom">Work Pass</span>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="compliance-card">
-              <div class="compliance-icon">
-                <i class="bi bi-file-earmark-text"></i>
-              </div>
-              <h3>Employment Act Adherence</h3>
-              <p>
-                Compliant with Singapore Employment Act requirements for fair
-                hiring practices, contract terms, and non-discriminatory
-                screening processes.
-              </p>
-              <span class="compliance-badge">Fair Hiring</span>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="compliance-card">
-              <div class="compliance-icon">
-                <i class="bi bi-people"></i>
-              </div>
-              <h3>FCF Compliance</h3>
-              <p>
-                Fair Consideration Framework support to ensure Singaporeans are
-                considered fairly before hiring foreign professionals on
-                Employment Passes.
-              </p>
-              <span class="compliance-badge">Local First</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COMPASS Section - NEW -->
-    <section class="compass-section" id="compass">
+    <!-- How it Works -->
+    <section class="how-it-works" id="how-it-works">
       <div class="container">
-        <div class="row align-items-center mb-5">
-          <div class="col-lg-6 reveal">
-            <div
-              class="section-subtitle"
-              style="background: rgba(255, 255, 255, 0.1); color: white"
-            >
-              <i class="bi bi-compass"></i> COMPASS Framework
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-arrow-repeat"></i> Process
             </div>
-            <h2 class="section-title mb-3">COMPASS-Ready Verification</h2>
-            <p class="section-desc">
-              Ensure your foreign professionals meet the new Complementarity
-              Assessment Framework (COMPASS) requirements. From September 2023,
-              all Employment Pass candidates must score at least 40 points
-              across six criteria—qualification verification is critical.
+            <h2 class="section-title">How Social Media Verification Works</h2>
+            <p class="section-desc mx-auto">
+              Ethical AI screening with candidate consent and privacy protection
             </p>
-
-            <div class="mt-4">
-              <div class="compass-feature">
-                <i class="bi bi-check-circle-fill"></i>
-                <div>
-                  <h4>C2 Qualification Points</h4>
-                  <p>
-                    Secure top-tier (20 points) or degree-level (10 points)
-                    qualifications with verified proof from MOM-accredited
-                    providers
-                  </p>
-                </div>
-              </div>
-              <div class="compass-feature">
-                <i class="bi bi-check-circle-fill"></i>
-                <div>
-                  <h4>One-Time Verification</h4>
-                  <p>
-                    Verification proof stays in MOM's system for subsequent
-                    employers—streamline future applications
-                  </p>
-                </div>
-              </div>
-              <div class="compass-feature">
-                <i class="bi bi-check-circle-fill"></i>
-                <div>
-                  <h4>Fast Turnaround</h4>
-                  <p>
-                    5-15 working days for most verifications to meet your hiring
-                    timelines and EP application deadlines
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
-
-          <div class="col-lg-6 reveal">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="compass-card">
-                  <div class="compass-icon">
-                    <i class="bi bi-mortarboard"></i>
-                  </div>
-                  <h3>Top-Tier Institutions</h3>
-                  <p>
-                    Verify degrees from top 100 global universities for maximum
-                    COMPASS qualification points
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="compass-card">
-                  <div class="compass-icon">
-                    <i class="bi bi-award"></i>
-                  </div>
-                  <h3>Degree Equivalency</h3>
-                  <p>
-                    Confirm UK bachelor's degree equivalency or higher as
-                    required by MOM standards
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="compass-card">
-                  <div class="compass-icon">
-                    <i class="bi bi-building-check"></i>
-                  </div>
-                  <h3>Institution Accreditation</h3>
-                  <p>
-                    Verify that awarding institutions are recognized and
-                    accredited by relevant authorities
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="compass-card">
-                  <div class="compass-icon">
-                    <i class="bi bi-passport"></i>
-                  </div>
-                  <h3>Identity Matching</h3>
-                  <p>
-                    Cross-verify passport details match educational certificates
-                    to prevent identity fraud
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center">
-            <i class="bi bi-grid-3x3-gap"></i> Our Services
-          </div>
-          <h2 class="section-title">Comprehensive Singapore Screening</h2>
-          <p class="section-desc mx-auto">
-            End-to-end employment verification services tailored for Singapore's
-            multicultural workforce and strict regulatory environment
-          </p>
         </div>
 
         <div class="row g-4">
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="bi bi-mortarboard"></i>
-              </div>
-              <h3>MOM Education Verification</h3>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">1</div>
+              <h4>Consent & Scope</h4>
               <p>
-                Mandatory verification for Employment Pass applications. Verify
-                diplomas, degrees, and professional qualifications from
-                accredited institutions worldwide.
+                Obtain explicit candidate consent and define screening
+                parameters including platforms, lookback period (typically 7
+                years), and specific risk categories to flag.
               </p>
-              <ul class="service-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Degree Verification
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Diploma Authentication
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Institution
-                  Accreditation
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> COMPASS Score Support
-                </li>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">2</div>
+              <h4>Data Collection</h4>
+              <p>
+                Automated scanning of publicly available posts, comments,
+                images, and videos across identified platforms using secure,
+                read-only APIs.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">3</div>
+              <h4>AI Content Analysis</h4>
+              <p>
+                Natural Language Processing (NLP) analyzes text for toxic
+                behavior while computer vision scans images for inappropriate
+                content and symbols.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-connector"></div>
+              <div class="step-number">4</div>
+              <h4>Human Review</h4>
+              <p>
+                Trained analysts review AI-flagged content to eliminate false
+                positives and verify context before reporting.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg reveal">
+            <div class="step-card h-100">
+              <div class="step-number">5</div>
+              <h4>Risk Assessment</h4>
+              <p>
+                Comprehensive report with risk categorization (Low/Medium/High),
+                specific examples, and hiring recommendations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="key-highlights">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="highlight-card h-100">
+              <div class="highlight-icon">
+                <i class="bi bi-robot"></i>
+              </div>
+              <h3>AI-Powered Screening</h3>
+              <p>
+                Advanced machine learning models trained on millions of data
+                points
+              </p>
+              <ul>
+                <li>Multi-language support (Hindi, English, Regional)</li>
+                <li>Context-aware sentiment analysis</li>
+                <li>Image and video content moderation</li>
               </ul>
+              <a href="#contact" class="btn btn-outline-custom"
+                >Get Started →</a
+              >
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="bi bi-passport"></i>
-              </div>
-              <h3>Identity & Document Check</h3>
-              <p>
-                Verify passports, FIN numbers, and identity documents. Essential
-                for Work Pass applications and preventing identity fraud.
-              </p>
-              <ul class="service-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Passport Validation
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> FIN Verification
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Identity Matching
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Document Authenticity
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="bi bi-briefcase"></i>
-              </div>
-              <h3>Employment History</h3>
-              <p>
-                Verify previous employment in Singapore and internationally.
-                Confirm job titles, dates, and reasons for leaving.
-              </p>
-              <ul class="service-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Singapore Employment
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> International
-                  References
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> CPF Contribution
-                  History
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Experience Letters
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon">
+          <div class="col-md-4 reveal">
+            <div class="highlight-card h-100">
+              <div class="highlight-icon">
                 <i class="bi bi-shield-exclamation"></i>
               </div>
-              <h3>Criminal Record Checks</h3>
+              <h3>Toxic Behavior Detection</h3>
               <p>
-                Certificate of Clearance (COC) from Singapore Police Force for
-                local hires and international criminal checks for foreign
-                workers.
+                Identify harassment, discrimination, and workplace violence
+                indicators
               </p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> Singapore COC</li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> International Checks
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Court Record Search
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Global Sanctions
-                </li>
+              <ul>
+                <li>Sexual harassment red flags</li>
+                <li>Gender/Racial discrimination detection</li>
+                <li>Weapon/gang affiliation screening</li>
               </ul>
+              <a href="#contact" class="btn btn-outline-custom"
+                >Get Started →</a
+              >
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="bi bi-credit-card"></i>
+          <div class="col-md-4 reveal">
+            <div class="highlight-card h-100">
+              <div class="highlight-icon">
+                <i class="bi bi-person-check"></i>
               </div>
-              <h3>Financial Screening</h3>
+              <h3>Fake Profile Detection</h3>
               <p>
-                Job-relevant credit checks and bankruptcy searches for finance,
-                banking, and fiduciary roles under MAS guidelines.
+                Verify authenticity of social media accounts to prevent
+                impersonation
               </p>
-              <ul class="service-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Credit Bureau Checks
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Bankruptcy Search
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Litigation Checks
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Role-Based Screening
-                </li>
+              <ul>
+                <li>Account age and activity analysis</li>
+                <li>Cross-platform identity matching</li>
+                <li>Bot and fake follower detection</li>
               </ul>
+              <a href="#contact" class="btn btn-outline-custom"
+                >Get Started →</a
+              >
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="bi bi-capsule"></i>
+    <!-- Benefits -->
+    <section class="benefits-section" id="benefits">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-stars"></i> Advantages
+            </div>
+            <h2 class="section-title">Benefits of Social Media Verification</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="bi bi-shield-exclamation"></i>
               </div>
-              <h3>Medical & Health Screening</h3>
+              <h4>Brand Protection</h4>
               <p>
-                Coordinate Singapore medical examinations for Work Pass
-                applications and role-specific health assessments.
-              </p>
-              <ul class="service-list">
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Work Pass Medical
-                </li>
-                <li><i class="bi bi-check-circle-fill"></i> Drug Testing</li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Health Screening
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill"></i> Vaccination Records
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Industries Section -->
-    <section class="industries-section" id="industries">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center">
-            <i class="bi bi-briefcase"></i> Industries Served
-          </div>
-          <h2 class="section-title">Tailored for Singapore Industries</h2>
-          <p class="section-desc mx-auto">
-            Specialized screening programs for key sectors driving Singapore's
-            economy
-          </p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-bank"></i>
-              <h3>Banking & Finance</h3>
-              <p>
-                MAS compliant screening for banks, fintechs, and financial
-                institutions in the CBD
+                Prevent hiring individuals with public history of hate speech or
+                controversial behavior that could damage company reputation.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-heart-pulse"></i>
-              <h3>Healthcare</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-people"></i></div>
+              <h4>Cultural Fit</h4>
               <p>
-                SMC and MOH compliant screening for doctors, nurses, and
-                healthcare professionals
+                Assess alignment with company values through analysis of public
+                statements, interests, and professional interactions.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-laptop"></i>
-              <h3>Technology</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-briefcase"></i></div>
+              <h4>Compliance</h4>
               <p>
-                Fast-track screening for One-North, Changi Business Park, and
-                CBD tech firms
+                Meet regulatory requirements for sensitive roles in finance,
+                healthcare, and education sectors requiring character
+                verification.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-building"></i>
-              <h3>Construction</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <h4>Fast Turnaround</h4>
               <p>
-                BCA compliant screening for Work Permit holders and skilled
-                trades
+                Digital screening completed in 24-48 hours compared to
+                traditional reference checks taking weeks.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-shop"></i>
-              <h3>Retail & F&B</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-lock"></i></div>
+              <h4>Privacy Compliant</h4>
               <p>
-                High-volume screening for malls, hotels, and restaurants across
-                Singapore
+                FCRA and GDPR compliant screening focusing only on publicly
+                available information with explicit consent.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="fa-solid fa-cart-flatbed"></i>
-              <h3>Maritime</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-graph-up"></i></div>
+              <h4>Risk Scoring</h4>
               <p>
-                MPA compliant screening for port workers and maritime
-                professionals
+                Quantified risk ratings based on severity, recency, and
+                frequency of concerning behavior.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-mortarboard"></i>
-              <h3>Education</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-plug"></i></div>
+              <h4>ATS Integration</h4>
               <p>
-                MOE compliant screening for schools, universities, and
-                enrichment centres
+                Seamless integration with existing HR systems for automated
+                screening workflows.
               </p>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-3 reveal">
-            <div class="industry-item">
-              <i class="bi bi-shield-shaded"></i>
-              <h3>Government</h3>
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="bi bi-file-text"></i></div>
+              <h4>Audit Trail</h4>
               <p>
-                High-level security clearance for public sector and
-                government-linked companies
+                Detailed documentation of all findings with screenshots and URLs
+                for HR review and legal defense.
               </p>
             </div>
           </div>
@@ -2633,169 +2514,374 @@ html {
       </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="trust-section">
+    <!-- FAQs -->
+    <section class="faq-section">
       <div class="container">
-        <div class="section-header text-center reveal">
-          <div
-            class="section-subtitle justify-content-center"
-            style="background: rgba(255, 255, 255, 0.1); color: white"
-          >
-            <i class="bi bi-award"></i> Why Singapore Employers Choose Us
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center reveal">
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-question-circle"></i> FAQ
+            </div>
+            <h2 class="section-title">FAQs — Social Media Verification</h2>
           </div>
-          <h2 class="section-title">Trusted Across the Lion City</h2>
-          <p class="section-desc mx-auto">
-            Join hundreds of Singapore employers who rely on Verifitech for
-            MOM-compliant, efficient screening
-          </p>
         </div>
 
-        <div class="row g-4">
-          <div class="col-md-4 reveal">
-            <div class="trust-card">
-              <div class="trust-stat">600+</div>
-              <div class="trust-label">Singapore Employers</div>
-              <p class="trust-desc">
-                Trusted by SMEs, MNCs, and government agencies across all
-                business districts
-              </p>
-            </div>
-          </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 reveal">
+            <div class="accordion" id="socialFAQ">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    Is social media screening legal and compliant with privacy
+                    laws?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#socialFAQ"
+                >
+                  <div class="accordion-body">
+                    Yes, when conducted properly. We only analyze publicly
+                    available information (posts, comments, images that are
+                    visible to the general public) and never hack private
+                    accounts or use fake profiles to bypass privacy settings. We
+                    obtain explicit written consent from candidates before
+                    screening, complying with FCRA (Fair Credit Reporting Act)
+                    guidelines and GDPR requirements. Our process is designed to
+                    avoid discrimination by focusing on job-relevant behaviors
+                    (harassment, violence, confidentiality breaches) rather than
+                    protected characteristics (religion, sexual orientation,
+                    political affiliation) unless directly relevant to the role
+                    or company values.
+                  </div>
+                </div>
+              </div>
 
-          <div class="col-md-4 reveal">
-            <div class="trust-card">
-              <div class="trust-stat">200+</div>
-              <div class="trust-label">Countries Verified</div>
-              <p class="trust-desc">
-                Global reach to verify qualifications from India, China,
-                Philippines, Malaysia, and beyond
-              </p>
-            </div>
-          </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    Which social media platforms do you check?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#socialFAQ"
+                >
+                  <div class="accordion-body">
+                    Our standard screening covers the "Big Four" platforms:
+                    LinkedIn, Facebook, Instagram, and Twitter/X. Additionally,
+                    we can screen YouTube (for public comments and uploads),
+                    TikTok, Reddit, and regional platforms like ShareChat or Koo
+                    based on your requirements. We focus on platforms where
+                    professional conduct and public behavior intersect. We do
+                    not check private messaging apps (WhatsApp, Telegram) unless
+                    specifically requested and legally authorized. The screening
+                    depth can be customized based on role
+                    sensitivity—entry-level roles might get basic screening
+                    while C-suite or client-facing roles receive comprehensive
+                    analysis across all platforms.
+                  </div>
+                </div>
+              </div>
 
-          <div class="col-md-4 reveal">
-            <div class="trust-card">
-              <div class="trust-stat">5-15</div>
-              <div class="trust-label">Days Turnaround</div>
-              <p class="trust-desc">
-                Fast verification to meet tight Employment Pass application
-                deadlines
-              </p>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    What if a candidate has deleted their social media accounts
+                    or content?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#socialFAQ"
+                >
+                  <div class="accordion-body">
+                    We maintain historical data partnerships with web archiving
+                    services that allow us to access deleted content that was
+                    publicly posted within the last 7 years. However, if an
+                    account was deleted long ago or was always private, we
+                    report "Insufficient Public Data" rather than a clean bill.
+                    We also flag "account scrubbing" behavior—mass deletion of
+                    content just before job applications—as a potential yellow
+                    flag requiring discussion with the candidate. Our AI can
+                    detect gaps in posting history that suggest deletion. For
+                    critical roles, we recommend combining social media checks
+                    with traditional reference verification to compensate for
+                    digitally invisible candidates.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    How do you handle false positives or context-specific
+                    content?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#socialFAQ"
+                >
+                  <div class="accordion-body">
+                    Every AI flag is reviewed by trained human analysts before
+                    inclusion in the final report. We understand context
+                    matters—a historical quote from a movie, academic discussion
+                    of violence, or advocacy for social justice might trigger AI
+                    but be completely benign. Our analysts review the original
+                    post, thread context, date, and surrounding conversation
+                    before confirming a flag. We also categorize severity:
+                    "Explicit Threat" vs. "Questionable Humor" vs. "Political
+                    Opinion." Candidates are given the opportunity to explain
+                    flagged content through our "Right to Context" process,
+                    where they can provide clarifying information that we append
+                    to the report as an addendum.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    Can social media screening be used for existing employees?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#socialFAQ"
+                >
+                  <div class="accordion-body">
+                    Yes, but with additional legal safeguards. For existing
+                    employees, continuous monitoring or periodic re-screening
+                    must be disclosed in employment contracts and employee
+                    handbooks. We recommend annual or bi-annual rescreening for
+                    high-risk roles (finance, executives, public-facing
+                    positions). The process differs from pre-employment
+                    screening in that we focus on new content posted since
+                    hiring rather than historical review. Any adverse findings
+                    should be handled through HR policy frameworks rather than
+                    immediate termination, giving employees opportunity to
+                    explain or correct behavior. We provide anonymous aggregate
+                    reporting for existing workforce risk assessment without
+                    individual targeting unless specific red flags (violence, IP
+                    theft) are detected.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    How do you protect candidate data and ensure GDPR
+                    compliance?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#socialFAQ"
+                >
+                  <div class="accordion-body">
+                    All scraped social media data is encrypted using AES-256 and
+                    stored on Indian servers (for domestic candidates) or EU
+                    servers (for GDPR-covered candidates) for a maximum of 90
+                    days post-verification, after which it is permanently
+                    deleted. We operate on a "collection limitation"
+                    principle—only collecting data relevant to risk assessment
+                    rather than entire profiles. Candidates have the right to
+                    request their data, request deletion (where not legally
+                    required for retention), and dispute findings. We never
+                    share social media findings with third parties or sell data
+                    to advertisers. Our algorithms are regularly audited for
+                    bias to ensure we don't disproportionately flag content from
+                    specific Demographic groups.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process-section">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center">
-            <i class="bi bi-list-check"></i> How It Works
-          </div>
-          <h2 class="section-title">MOM Compliant Process</h2>
-          <p class="section-desc mx-auto">
-            Streamlined screening that respects Singapore employment laws and
-            candidate rights under PDPA
-          </p>
-        </div>
+    <!-- Contact Section -->
+    <!-- <section class="contact-section" id="contact">
+  <1!--   <div class="container position-relative">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+            <h2>Ready to Explore Verifitech for your business?</h2>
+            <p class="lead">
+              Get in touch with our solutions team to discuss your social media
+              verification needs and customized pricing.
+            </p>
 
-        <div class="row g-4">
-          <div class="col-md-3 reveal">
-            <div class="process-step">
-              <div class="step-number">1</div>
-              <h3>PDPA Consent</h3>
-              <p>
-                Obtain explicit written consent explaining data collection, use,
-                and retention as per PDPA requirements
-              </p>
+            <div class="mt-5">
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Assess team's verification needs</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Learn products & benefits</span>
+              </div>
+              <div class="contact-feature">
+                <div class="contact-feature-icon">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <span>Discuss enterprise pricing</span>
+              </div>
             </div>
-          </div>
 
-          <div class="col-md-3 reveal">
-            <div class="process-step">
-              <div class="step-number">2</div>
-              <h3>MOM Verification</h3>
-              <p>
-                Conduct education and identity verification through MOM-approved
-                channels for Work Pass compliance
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-3 reveal">
-            <div class="process-step">
-              <div class="step-number">3</div>
-              <h3>COMPASS Support</h3>
-              <p>
-                Provide verification proof to support candidate's
-                Complementarity Assessment Framework scoring
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-3 reveal">
-            <div class="process-step">
-              <div class="step-number">4</div>
-              <h3>EP Application</h3>
-              <p>
-                Submit verified documents to MOM's Work Pass system for seamless
-                Employment Pass processing
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-box reveal">
-          <div
-            class="singapore-badge justify-content-center mb-3"
-            style="display: inline-flex"
-          >
-            <i class="bi bi-stars"></i> Start Screening Today
-          </div>
-          <h2 class="section-title mb-3">Ready for MOM-Compliant Screening?</h2>
-          <p class="text-muted mb-4" style="font-size: 1.1rem">
-            Join 600+ Singapore employers who trust Verifitech for
-            MOM-accredited background checks and COMPASS-ready verification.
-          </p>
-          <div class="d-flex gap-3 justify-content-center flex-wrap">
-            <a href="#" class="btn btn-primary-custom btn-lg">
-              <i class="bi bi-calendar-check"></i> Schedule Demo
-            </a>
-            <a
-              href="#"
-              class="btn btn-outline-dark btn-lg"
-              style="
-                border-radius: 50px;
-                padding: 1rem 2.5rem;
-                font-weight: 600;
-                border-width: 2px;
-              "
+            <div
+              class="mt-5 pt-4"
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1)"
             >
-              <i class="bi bi-telephone"></i> Call Sales
-            </a>
+              <p class="text-white-50 mb-3">Or reach us directly:</p>
+              <p class="mb-2">
+                <i class="bi bi-envelope me-2 text-primary"></i>
+                sales@verifitech.com
+              </p>
+              <p>
+                <i class="bi bi-telephone me-2 text-primary"></i> +91
+                1800-123-4567
+              </p>
+            </div>
           </div>
-          <p class="mt-4 mb-0 text-muted small">
-            Questions about MOM compliance? Speak to our Singapore-based experts
-            at
-            <a
-              href="tel:+6531234567"
-              style="color: var(--primary); font-weight: 600"
-              >+65 3123 4567</a
+
+          <div class="col-lg-6 reveal">
+            <form
+              class="contact-form"
+              onsubmit="event.preventDefault(); alert('Thank you for your interest! Our team will contact you within 24 hours.');"
             >
-          </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Work Email *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="Phone Number *"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company Name *"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <select class="form-select" required>
+                    <option value="" disabled selected>Company Size *</option>
+                    <option>1-50 employees</option>
+                    <option>51-200 employees</option>
+                    <option>201-1000 employees</option>
+                    <option>1000+ employees</option>
+                  </select>
+                </div>
+              </div>
+              <select class="form-select" required>
+                <option value="" disabled selected>
+                  Interested Solution *
+                </option>
+                <option selected>Social Media Verification</option>
+                <option>Digital Footprint Analysis</option>
+                <option>Brand Protection Screening</option>
+                <option>Complete BGV Suite</option>
+              </select>
+              <textarea
+                class="form-control"
+                rows="3"
+                placeholder="Tell us about your requirements (Optional)"
+              ></textarea>
+
+              <div class="form-check mt-3 mb-4">
+                <input class="form-check-input" type="checkbox" required />
+                <label class="form-check-label">
+                  I agree to the <a href="#">Privacy Policy</a> and consent to
+                  being contacted regarding Verifitech services.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-submit">
+                Submit Request <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </section>
-    
+    </section> -->
+
     <!-- Footer -->
-    <footer class="footer">
+
+     <footer class="footer">
       <div class="container">
         <!-- Newsletter Section with Zoho Form -->
         <div class="newsletter-footer-section">
@@ -2929,7 +3015,7 @@ html {
           <div class="row align-items-center">
             <div class="col-md-6">
               <p class="copyright">
-                © 2026 Verifitech Solutions Private Limited. All rights
+                © 2026 Verifitech  Private Limited. All rights
                 reserved.
               </p>
             </div>
@@ -2960,6 +3046,7 @@ html {
     </footer>
 
 
+    <!-- Floating WhatsApp Button -->
 <!-- Floating WhatsApp Button -->
 <a 
   href="#" 
@@ -3070,10 +3157,10 @@ html {
     .copyright {
       text-align: center;
     }
-  }
+  } 
 
   .footer {
-  background:#f8fafc;
+  background: #f0fdfa;
   color: var(--dark);
   padding: 80px 0 40px;
 }
@@ -3372,7 +3459,7 @@ html {
   color: var(--primary);
   text-decoration: none;
   transition: color 0.3s;
-}checks
+}
 
 .privacy-link:hover {
   color: var(--primary-dark);
@@ -3383,7 +3470,7 @@ html {
   margin: 0 10px;
   color: #cbd5e1;
 }
-checks
+
 .footer-logo {
   width: 180px;
   height: auto;
@@ -3415,13 +3502,12 @@ checks
   margin: 0;
   color: var(--gray);
 }
-</style>
-   
+  </style>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // WhatsApp Functionality
+       // WhatsApp Functionality
   const whatsappConfig = {
     phoneNumber: '+919176663777',
     defaultMessage: 'Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.',
@@ -3498,16 +3584,14 @@ checks
         }
       });
 
-      // Intersection Observer for animations
-   
-
+    
       // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute("href"));
           if (target) {
-            const offsetTop = target.offsetTop - 100;
+            const offsetTop = target.offsetTop - 80;
             window.scrollTo({
               top: offsetTop,
               behavior: "smooth",

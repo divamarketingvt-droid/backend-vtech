@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Transport & Logistics Background Verification | Driver Screening & DOT
-      Compliance | Verifitech
+      Telecom Background Verification | Field Tech Screening & FCC Compliance |
+      Verifitech
     </title>
     <meta
       name="description"
-      content="Specialized background verification for Transport & Logistics industry. CDL driver vetting, DOT compliance, fleet safety, warehouse screening, and supply chain security for carriers, 3PLs, and freight operators."
+      content="Specialized background verification for Telecom industry. Tower climber vetting, field technician screening, FCC compliance, security clearance, and network infrastructure protection for carriers and tower companies."
     />
 
     <!-- Bootstrap 5 -->
@@ -27,7 +27,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       :root {
         --primary: #1ac2c1;
@@ -57,20 +63,30 @@
         scroll-behavior: smooth;
       }
 
-      /* Navigation */
+      /* Ensure navbar has proper z-index */
       .navbar {
-        padding: 0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        height: 100px;
+        z-index: 1050;
       }
 
-      .navbar.scrolled {
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      /* Fix dropdown z-index to appear above hero content */
+      .dropdown-menu {
+        z-index: 1060;
+        position: absolute;
       }
 
+      /* Ensure dropdown items are clickable and visible */
+      .dropdown-item {
+        position: relative;
+        z-index: 1061;
+      }
+
+      /* Fix for hero section overlapping */
+      .industry-hero {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Ensure navbar collapse has proper background when expanded on mobile */
       .navbar-collapse {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(12px);
@@ -90,6 +106,20 @@
         }
       }
 
+      /* Navigation */
+      .navbar {
+        padding: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        height: 80px;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      }
+
       .navbar-brand {
         font-weight: 800;
         font-size: 1.8rem;
@@ -100,7 +130,6 @@
         line-height: 1.1;
         transition: color 0.3s;
       }
-
       .navbar-brand img {
         height: 100px;
         width: 200px;
@@ -138,7 +167,7 @@
         color: var(--primary);
       }
 
-      /* DROPDOWN MENU STYLES */
+      /* Dropdown Styling with Teal Accents */
       .dropdown-menu {
         border: none;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
@@ -194,7 +223,7 @@
         opacity: 0.1;
       }
 
-      /* BUTTON STYLES */
+      /* CTA Button Style - Contact */
       .btn-sales {
         background: var(--primary);
         color: white !important;
@@ -214,7 +243,6 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
       }
-
       .btn-login {
         background-color: #ffffff !important;
         color: #00bfa5 !important;
@@ -235,7 +263,7 @@
         transform: translateY(-1px);
       }
 
-      /* COUNTRY SELECTOR */
+      /* Country Selector */
       .country-selector {
         display: flex;
         align-items: center;
@@ -256,27 +284,7 @@
         color: var(--primary);
       }
 
-      .country-selector.dropdown-toggle::after {
-        display: none !important;
-        content: none !important;
-        border: none !important;
-      }
-
-      .country-selector i.bi-chevron-down {
-        font-size: 0.7rem;
-        color: var(--navy);
-        transition: transform 0.3s ease;
-      }
-
-      .country-selector:hover i.bi-chevron-down {
-        color: var(--primary);
-      }
-
-      .country-selector[aria-expanded="true"] i.bi-chevron-down {
-        transform: rotate(180deg);
-      }
-
-      .country-flag {
+      .country-selector i {
         font-size: 1.2rem;
       }
 
@@ -377,7 +385,7 @@
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
       }
 
-      /* Enhanced Hero Illustration */
+      /* Enhanced Hero Illustration - Telecom Theme */
       .hero-illustration {
         position: relative;
         height: 550px;
@@ -392,6 +400,7 @@
         height: 100%;
       }
 
+      /* Central Shield Hub */
       .central-shield {
         position: absolute;
         top: 50%;
@@ -427,6 +436,7 @@
         }
       }
 
+      /* Orbital Rings */
       .orbit-ring {
         position: absolute;
         top: 50%;
@@ -460,6 +470,7 @@
         }
       }
 
+      /* Satellite Nodes - Telecom Icons */
       .satellite-node {
         position: absolute;
         width: 70px;
@@ -517,24 +528,25 @@
         animation: floatNode 4s ease-in-out infinite 0.8s;
       }
 
+      /* Telecom Icon Colors */
       .satellite-node.node-1 i {
         color: #ea580c;
-      }
+      } /* Tower - Infrastructure/Orange */
       .satellite-node.node-2 i {
         color: #2563eb;
-      }
+      } /* Wifi - Connectivity/Blue */
       .satellite-node.node-3 i {
         color: #dc2626;
-      }
+      } /* Tools - Field Tech/Red */
       .satellite-node.node-4 i {
         color: #7c3aed;
-      }
+      } /* Globe - Network/Purple */
       .satellite-node.node-5 i {
         color: #059669;
-      }
+      } /* Phone - Mobile/Green */
       .satellite-node.node-6 i {
         color: #0891b2;
-      }
+      } /* Shield - Security/Cyan */
 
       @keyframes floatNode {
         0%,
@@ -546,6 +558,7 @@
         }
       }
 
+      /* Floating Data Cards */
       .data-float-card {
         position: absolute;
         background: rgba(255, 255, 255, 0.95);
@@ -555,13 +568,6 @@
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(26, 194, 193, 0.2);
         z-index: 20;
-      }
-
-      .data-float-card.card-top {
-        top: -20px;
-        right: 20px;
-        width: 200px;
-        animation: floatCard 5s ease-in-out infinite;
       }
 
       .data-float-card.card-bottom {
@@ -727,7 +733,7 @@
         margin: 0;
       }
 
-      /* Verification Suite */
+      /* Verification Suite - Card Style */
       .verification-suite {
         padding: 100px 0;
         background: white;
@@ -791,7 +797,7 @@
         gap: 0.5rem;
       }
 
-      /* Fleet Safety Highlight Section */
+      /* Tower Safety Highlight Section */
       .cpv-highlight {
         padding: 100px 0;
         background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
@@ -841,12 +847,8 @@
         justify-content: center;
         color: white;
         font-size: 1.5rem;
-        animation: bounce 2s ease-in-out infinite;
         box-shadow: 0 10px 30px rgba(26, 194, 193, 0.4);
-      }
-
-      .map-pin i {
-        transform: rotate(45deg);
+        animation: bounce 2s infinite;
       }
 
       .map-pin:nth-child(1) {
@@ -937,573 +939,192 @@
         padding: 2rem;
       }
 
-      /* ============================================
-           REGULATORY SECTION - REDESIGNED
-           ============================================ */
-      .regulatory-section {
-        padding: 120px 0 100px;
-        background: linear-gradient(
-          160deg,
-          #0c1222 0%,
-          #131b2e 30%,
-          #0f172a 60%,
-          #0a101e 100%
-        );
-        color: white;
+      /* --- NEW REGULATORY SECTION STYLES --- */
+      .regulatory-section-new {
+        padding: 100px 0;
+        background: #f8fafc;
         position: relative;
         overflow: hidden;
       }
 
-      /* Decorative Background Elements */
-      .reg-deco-grid {
+      /* Subtle Pattern Background */
+      .regulatory-section-new::before {
+        content: "";
         position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(26, 194, 193, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(26, 194, 193, 0.03) 1px, transparent 1px);
-        background-size: 60px 60px;
-        pointer-events: none;
-      }
-
-      .reg-deco-circle {
-        position: absolute;
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      .reg-deco-circle-1 {
-        width: 500px;
-        height: 500px;
-        top: -150px;
-        right: -100px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.08) 0%,
-          transparent 70%
-        );
-        animation: regPulse 8s ease-in-out infinite;
-      }
-
-      .reg-deco-circle-2 {
-        width: 400px;
-        height: 400px;
-        bottom: -100px;
-        left: -80px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.06) 0%,
-          transparent 70%
-        );
-        animation: regPulse 8s ease-in-out infinite 4s;
-      }
-
-      @keyframes regPulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 0.6;
-        }
-        50% {
-          transform: scale(1.15);
-          opacity: 1;
-        }
-      }
-
-      .reg-deco-dot {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background: var(--primary);
-        border-radius: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+        background-size: 30px 30px;
         opacity: 0.3;
-        pointer-events: none;
-        animation: regDotBlink 3s ease-in-out infinite;
+        z-index: 0;
       }
 
-      .reg-deco-dot-1 {
-        top: 20%;
-        left: 8%;
-        animation-delay: 0s;
-      }
-      .reg-deco-dot-2 {
-        top: 60%;
-        right: 12%;
-        animation-delay: 1s;
-      }
-      .reg-deco-dot-3 {
-        bottom: 15%;
-        left: 35%;
-        animation-delay: 2s;
+      .reg-content-wrapper {
+        position: relative;
+        z-index: 1;
       }
 
-      @keyframes regDotBlink {
-        0%,
-        100% {
-          opacity: 0.15;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.5;
-          transform: scale(1.8);
-        }
+      .reg-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem auto;
       }
 
-      /* Section Header */
-      .reg-section-badge {
+      .reg-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.6rem;
-        padding: 0.6rem 1.4rem;
+        gap: 8px;
+        padding: 8px 16px;
         background: rgba(26, 194, 193, 0.1);
-        border: 1px solid rgba(26, 194, 193, 0.25);
+        color: var(--primary-dark);
         border-radius: 50px;
-        color: var(--primary);
         font-weight: 700;
         font-size: 0.85rem;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(26, 194, 193, 0.2);
       }
 
-      .reg-section-title {
-        font-size: 3rem;
+      .reg-title {
+        font-size: 2.5rem;
         font-weight: 800;
-        color: white;
-        margin-bottom: 1.2rem;
-        line-height: 1.15;
-        letter-spacing: -1px;
+        color: var(--dark);
+        margin-bottom: 1rem;
       }
 
-      .reg-section-desc {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 1.15rem;
-        max-width: 650px;
-        margin: 0 auto;
+      .reg-desc {
+        color: var(--gray);
+        font-size: 1.1rem;
         line-height: 1.7;
       }
 
-      /* Compliance Cards */
-      .reg-card {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 24px;
-        padding: 2.5rem 2rem 2rem;
+      .compliance-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
         overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(10px);
       }
 
-      .reg-card:hover {
-        background: rgba(255, 255, 255, 0.07);
-        border-color: rgba(26, 194, 193, 0.4);
-        transform: translateY(-8px);
-        box-shadow:
-          0 30px 60px rgba(0, 0, 0, 0.4),
-          0 0 40px rgba(26, 194, 193, 0.08);
-      }
-
-      /* Card Glow Effect */
-      .reg-card-glow {
+      .compliance-card::before {
+        content: "";
         position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle at 50% 50%,
-          rgba(26, 194, 193, 0.06) 0%,
-          transparent 50%
-        );
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: var(--primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
       }
 
-      .reg-card:hover .reg-card-glow {
+      .compliance-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(26, 194, 193, 0.15);
+        border-color: transparent;
+      }
+
+      .compliance-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .comp-icon-box {
+        width: 80px;
+        height: 80px;
+        background: #f0f9ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .compliance-card:hover .comp-icon-box {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .comp-card-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+
+      .comp-card-text {
+        color: var(--gray);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+
+      .comp-features-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+        text-align: left;
+        width: 100%;
+      }
+
+      .comp-features-list li {
+        padding: 6px 0;
+        font-size: 0.9rem;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .comp-features-list li i {
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+
+      .trust-badges-row {
+        margin-top: 4rem;
+        text-align: center;
+        padding-top: 3rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .trust-badge-item {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 2rem;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+
+      .trust-badge-item:hover {
         opacity: 1;
       }
 
-      /* Featured Card */
-      .reg-card-featured {
-        border-color: rgba(26, 194, 193, 0.25);
-        background: rgba(26, 194, 193, 0.05);
+      .trust-icon {
+        font-size: 2.5rem;
+        color: var(--navy);
       }
 
-      .reg-card-featured:hover {
-        border-color: rgba(26, 194, 193, 0.5);
-        box-shadow:
-          0 30px 60px rgba(0, 0, 0, 0.4),
-          0 0 60px rgba(26, 194, 193, 0.12);
-      }
-
-      .reg-card-featured-badge {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        padding: 0.3rem 0.9rem;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-dark)
-        );
-        color: white;
-        border-radius: 50px;
-        font-size: 0.7rem;
+      .trust-label {
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      /* Card Icon */
-      .reg-card-icon-wrap {
-        position: relative;
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .reg-card-icon-ring {
-        position: absolute;
-        inset: 0;
-        border: 2px solid rgba(26, 194, 193, 0.2);
-        border-radius: 50%;
-        animation: regRingRotate 10s linear infinite;
-        border-top-color: var(--primary);
-        border-right-color: var(--primary);
-      }
-
-      @keyframes regRingRotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .reg-card-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.15),
-          rgba(26, 194, 193, 0.05)
-        );
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary);
-        font-size: 1.8rem;
-        position: relative;
-        z-index: 2;
-        border: 1px solid rgba(26, 194, 193, 0.2);
-        transition: all 0.4s ease;
-      }
-
-      .reg-card:hover .reg-card-icon {
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.25),
-          rgba(26, 194, 193, 0.1)
-        );
-        transform: scale(1.1);
-        box-shadow: 0 0 30px rgba(26, 194, 193, 0.3);
-      }
-
-      /* Card Text */
-      .reg-card-title {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: white;
-        text-align: center;
-        margin-bottom: 0.75rem;
-      }
-
-      .reg-card-desc {
-        color: rgba(255, 255, 255, 0.5);
-        text-align: center;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-      }
-
-      /* Card List */
-      .reg-card-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 1.5rem 0;
-      }
-
-      .reg-card-list li {
-        padding: 0.55rem 0;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--dark);
         font-size: 0.9rem;
-        display: flex;
-        align-items: flex-start;
-        gap: 0.75rem;
-        line-height: 1.5;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        transition: color 0.3s ease;
-      }
-
-      .reg-card-list li:last-child {
-        border-bottom: none;
-      }
-
-      .reg-card:hover .reg-card-list li {
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      .reg-list-bullet {
-        width: 8px;
-        height: 8px;
-        min-width: 8px;
-        background: var(--primary);
-        border-radius: 50%;
-        margin-top: 7px;
-        box-shadow: 0 0 8px rgba(26, 194, 193, 0.5);
-        transition: all 0.3s ease;
-      }
-
-      .reg-card:hover .reg-list-bullet {
-        box-shadow: 0 0 14px rgba(26, 194, 193, 0.8);
-        transform: scale(1.3);
-      }
-
-      /* Card Tag */
-      .reg-card-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1.2rem;
-        background: rgba(26, 194, 193, 0.1);
-        border: 1px solid rgba(26, 194, 193, 0.2);
-        border-radius: 50px;
-        color: var(--primary);
-        font-size: 0.8rem;
-        font-weight: 700;
-        width: fit-content;
-        margin: 0 auto;
-        transition: all 0.3s ease;
-      }
-
-      .reg-card:hover .reg-card-tag {
-        background: rgba(26, 194, 193, 0.15);
-        border-color: rgba(26, 194, 193, 0.35);
-      }
-
-      /* Trust Bar */
-      .reg-trust-bar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 20px;
-        padding: 2rem 1.5rem;
-        backdrop-filter: blur(10px);
-        flex-wrap: wrap;
-      }
-
-      .reg-trust-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 0 2rem;
-        text-align: left;
-        transition: transform 0.3s ease;
-      }
-
-      .reg-trust-item:hover {
-        transform: translateY(-2px);
-      }
-
-      .reg-trust-icon {
-        width: 52px;
-        height: 52px;
-        background: rgba(26, 194, 193, 0.1);
-        border: 1px solid rgba(26, 194, 193, 0.2);
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary);
-        font-size: 1.5rem;
-        flex-shrink: 0;
-        transition: all 0.3s ease;
-      }
-
-      .reg-trust-item:hover .reg-trust-icon {
-        background: rgba(26, 194, 193, 0.18);
-        box-shadow: 0 0 20px rgba(26, 194, 193, 0.2);
-      }
-
-      .reg-trust-value {
-        font-size: 1.15rem;
-        font-weight: 800;
-        color: white;
-        letter-spacing: 0.5px;
-      }
-
-      .reg-trust-label {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.45);
-        line-height: 1.3;
-      }
-
-      .reg-trust-divider {
-        width: 1px;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.08);
-        flex-shrink: 0;
-      }
-
-      /* Contact Section */
-      .contact-section {
-        padding: 100px 0;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
-        color: white;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 60%
-        );
-        border-radius: 50%;
-      }
-
-      .contact-section h2 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-
-      .contact-section .lead {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.25rem;
-        margin-bottom: 3rem;
-      }
-
-      .contact-feature {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .contact-feature-icon {
-        width: 50px;
-        height: 50px;
-        background: rgba(26, 194, 193, 0.2);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary);
-        font-size: 1.5rem;
-        flex-shrink: 0;
-        border: 1px solid rgba(26, 194, 193, 0.3);
-      }
-
-      .contact-form {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 3rem;
-        border-radius: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        position: relative;
-        z-index: 2;
-      }
-
-      .form-control,
-      .form-select {
-        padding: 1rem 1.2rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
-        margin-bottom: 1.2rem;
-        font-size: 1rem;
-        transition: all 0.3s;
-      }
-
-      .form-control:focus,
-      .form-select:focus {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: var(--primary);
-        color: white;
-        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.2);
-      }
-
-      .form-control::placeholder {
-        color: rgba(255, 255, 255, 0.4);
-      }
-
-      .form-select option {
-        background: var(--dark);
-        color: white;
-      }
-
-      .form-check-label {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.9rem;
-      }
-
-      .form-check-label a {
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .form-check-input {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        border-color: rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .form-check-input:checked {
-        background-color: var(--primary);
-        border-color: var(--primary);
-      }
-
-      .btn-submit {
-        background: var(--primary) !important;
-        color: white !important;
-        border: none;
-        padding: 1rem;
-        border-radius: 12px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        width: 100%;
-        margin-top: 1rem;
-        transition: all 0.3s;
-        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-      }
-
-      .btn-submit:hover {
-        background: var(--primary-dark) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
       }
 
       /* Animations */
@@ -1518,11 +1139,79 @@
         transform: translateY(0);
       }
 
-      /* ============================================
-           FOOTER STYLES
-           ============================================ */
+      /* Responsive */
+      @media (max-width: 991px) {
+        .industry-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-illustration {
+          height: 450px;
+          margin-top: 3rem;
+        }
+
+        .data-float-card {
+          display: none;
+        }
+
+        .reg-title {
+          font-size: 2rem;
+        }
+
+        .trust-badge-item {
+          margin: 1rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .industry-hero {
+          padding: 120px 0 60px;
+          text-align: center;
+        }
+
+        .industry-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .satellite-node {
+          width: 50px;
+          height: 50px;
+          font-size: 1.3rem;
+        }
+
+        .central-shield {
+          width: 140px;
+          height: 140px;
+          font-size: 3rem;
+        }
+
+        .orbit-ring.ring-1 {
+          width: 280px;
+          height: 280px;
+        }
+
+        .orbit-ring.ring-2 {
+          width: 220px;
+          height: 220px;
+        }
+
+        .compliance-card {
+          padding: 1.5rem;
+        }
+
+        .comp-icon-box {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+      }
+
       .footer {
-        background: #f8fafc;
+        background: #f6f8fa;
         color: var(--dark);
         padding: 80px 0 40px;
       }
@@ -1540,24 +1229,18 @@
         color: var(--primary);
       }
 
-      .footer-logo {
-        width: 180px;
-        height: auto;
-        margin-bottom: 20px;
-      }
-
-      .footer-description {
-        font-size: 14px;
-        line-height: 1.6;
-        max-width: 280px;
+      .footer-desc {
         color: var(--gray);
+        margin-bottom: 2rem;
+        max-width: 300px;
+        line-height: 1.8;
       }
 
-      .footer-heading {
-        color: #1a1a1a;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 20px;
+      .footer h5 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        font-size: 1.1rem;
       }
 
       .footer-links {
@@ -1590,10 +1273,10 @@
         font-size: 0.9rem;
       }
 
-      .social-links {
+      .social-icons {
         display: flex;
-        justify-content: flex-end;
-        gap: 15px;
+        gap: 1rem;
+        margin-top: 2rem;
       }
 
       .social-icon {
@@ -1610,43 +1293,11 @@
       }
 
       .social-icon:hover {
-        background: var(--primary) !important;
+        background: var(--primary);
         transform: translateY(-3px);
-        color: white !important;
+        color: white;
       }
 
-      .copyright {
-        font-size: 14px;
-        margin: 0;
-        color: var(--gray);
-      }
-
-      .privacy-row {
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid #e2e8f0;
-        text-align: center;
-        color: var(--gray);
-        font-size: 0.9rem;
-      }
-
-      .privacy-link {
-        color: var(--primary);
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .privacy-link:hover {
-        color: var(--primary-dark);
-        text-decoration: underline;
-      }
-
-      .privacy-separator {
-        margin: 0 10px;
-        color: #cbd5e1;
-      }
-
-      /* Compliance Badges */
       .compliance-badges {
         display: flex;
         gap: 1.5rem;
@@ -1667,8 +1318,9 @@
       }
 
       /* ============================================
-           NEWSLETTER FOOTER SECTION
-           ============================================ */
+         NEWSLETTER FOOTER SECTION
+         ============================================ */
+
       .newsletter-footer-section {
         background: linear-gradient(
           135deg,
@@ -1786,6 +1438,12 @@
         font-weight: 500;
       }
 
+      .zf-errorMessage::before {
+        content: "\F332";
+        font-family: "bootstrap-icons";
+        font-size: 0.8rem;
+      }
+
       .newsletter-btn {
         background: linear-gradient(
           135deg,
@@ -1854,19 +1512,61 @@
         margin-top: 20px;
       }
 
-      .newsletter-header-content {
+      .privacy-row {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        text-align: center;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .privacy-link {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .privacy-link:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+      }
+
+      .privacy-separator {
+        margin: 0 10px;
+        color: #cbd5e1;
+      }
+
+      .footer-logo {
+        width: 180px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .footer-description {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 280px;
+        color: var(--gray);
+      }
+
+      .footer-heading {
+        color: #1a1a1a;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .social-links {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        justify-content: flex-end;
+        gap: 15px;
       }
 
-      .newsletter-text-content {
-        flex: 1;
-      }
-
-      /* WhatsApp Float */
-      .whatsapp-float {
-        transition: all 0.3s ease;
+      .copyright {
+        font-size: 14px;
+        margin: 0;
+        color: var(--gray);
       }
 
       .whatsapp-float:hover {
@@ -1892,59 +1592,45 @@
         border-left: 5px solid #333;
       }
 
-      /* Responsive */
+      .social-icon:hover {
+        background: var(--primary) !important;
+        color: white !important;
+        transform: translateY(-3px);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary) !important;
+        transform: translateX(5px);
+      }
+
+      .privacy-link:hover {
+        color: var(--primary-dark) !important;
+        text-decoration: underline;
+      }
+
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      .newsletter-btn:hover i {
+        transform: translateX(4px);
+      }
+
       @media (max-width: 991px) {
-        .industry-hero h1 {
-          font-size: 2.8rem;
-        }
-
-        .section-title {
-          font-size: 2.2rem;
-        }
-
-        .hero-illustration {
-          height: 450px;
-          margin-top: 3rem;
-        }
-
-        .data-float-card {
-          display: none;
-        }
-
-        .contact-section h2 {
-          font-size: 2.2rem;
-        }
-
-        .contact-form {
-          padding: 2rem;
-          margin-top: 2rem;
-        }
-
-        .regulatory-section {
-          padding: 80px 0 60px;
-        }
-
-        .reg-section-title {
-          font-size: 2.2rem;
-        }
-
-        .reg-card {
-          padding: 2rem 1.5rem 1.5rem;
-        }
-
         .whatsapp-float {
-          width: 55px !important;
-          height: 55px !important;
-          bottom: 20px !important;
-          right: 20px !important;
+          width: 55px;
+          height: 55px;
+          bottom: 20px;
+          right: 20px;
         }
 
         .whatsapp-float i {
-          font-size: 1.5rem !important;
+          font-size: 1.5rem;
         }
 
         .float-tooltip {
-          display: none !important;
+          display: none;
         }
 
         .newsletter-footer-section {
@@ -1952,7 +1638,7 @@
           text-align: center;
         }
 
-        .newsletter-footer-section .row > .col-lg-6 .d-flex {
+        .newsletter-footer-section .d-flex {
           flex-direction: column;
           text-align: center;
         }
@@ -1977,68 +1663,6 @@
 
         .copyright {
           text-align: center;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .industry-hero {
-          padding: 120px 0 60px;
-          text-align: center;
-        }
-
-        .industry-hero h1 {
-          font-size: 2.2rem;
-        }
-
-        .satellite-node {
-          width: 50px;
-          height: 50px;
-          font-size: 1.3rem;
-        }
-
-        .central-shield {
-          width: 140px;
-          height: 140px;
-          font-size: 3rem;
-        }
-
-        .orbit-ring.ring-1 {
-          width: 280px;
-          height: 280px;
-        }
-
-        .orbit-ring.ring-2 {
-          width: 220px;
-          height: 220px;
-        }
-
-        .reg-section-title {
-          font-size: 1.9rem;
-        }
-
-        .reg-section-desc {
-          font-size: 1rem;
-        }
-
-        .reg-trust-bar {
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1.5rem;
-        }
-
-        .reg-trust-divider {
-          width: 80px;
-          height: 1px;
-        }
-
-        .reg-trust-item {
-          padding: 0.5rem 0;
-          text-align: center;
-          justify-content: center;
-        }
-
-        .reg-card-list li {
-          font-size: 0.85rem;
         }
       }
     </style>
@@ -2110,6 +1734,7 @@
                     <a href="../checks/DIN-verification" class="dropdown-item"
                       ><i class="fa-regular fa-id-card"></i> DIN Verification</a
                     >
+
                     <a
                       href="../checks/Directorship check"
                       class="dropdown-item"
@@ -2141,10 +1766,11 @@
                     <a href="../checks/drug-test" class="dropdown-item"
                       ><i class="bi bi-capsule"></i> Drug Test Screening</a
                     >
-                    <a href="../checks/vendor" class="dropdown-item"
+                    <a class="dropdown-item" href="../checks/vendor"
                       ><i class="fa-solid fa-magnifying-glass"></i> Vendor
-                      Diligence</a
+                      Digillencs</a
                     >
+
                     <a
                       href="../checks/passport-verification"
                       class="dropdown-item"
@@ -2170,7 +1796,7 @@
               <ul class="dropdown-menu">
                 <li>
                   <a class="dropdown-item" href="../products/exitinterview"
-                    ><i class="bi bi-box-arrow-right"></i> Exit Interviews</a
+                    ><i class="bi bi-box-arrow-right"></i> Exit interviews</a
                   >
                 </li>
                 <li>
@@ -2226,7 +1852,7 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#"
+                  <a class="dropdown-item" href="../industries/Logistics"
                     ><i class="bi bi-truck"></i> Logistics</a
                   >
                 </li>
@@ -2234,15 +1860,15 @@
                   <a
                     class="dropdown-item"
                     href="../industries/Realestate-&-constructation"
-                    ><i class="bi bi-house"></i> Real Estate & Construction</a
+                    ><i class="bi bi-house"></i> Realestate & Construcataion</a
                   >
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
                     href="../industries/Retail & E-commerce"
-                    ><i class="bi bi-shop"></i> Retail & E-commerce</a
-                  >
+                    ><i class="bi bi-shop"></i>Retail & E-commerce
+                  </a>
                 </li>
                 <li>
                   <a
@@ -2258,7 +1884,7 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="../industries/telecom"
+                  <a class="dropdown-item" href="#"
                     ><i class="bi bi-broadcast"></i> Telecom</a
                   >
                 </li>
@@ -2298,9 +1924,9 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="../products/api"
-                    ><i class="bi bi-plug"></i> API</a
-                  >
+                  <a class="dropdown-item" href="../products/api">
+                    <i class="bi bi-plug"></i> API
+                  </a>
                 </li>
               </ul>
             </li>
@@ -2357,118 +1983,118 @@
                     ><i class="bi bi-people"></i> For Partners</a
                   >
                 </li>
-                <!-- <li><a class="dropdown-item" href="../affilate/affilate"><i class="bi bi-link-45deg"></i> Affiliate Marketing</a></li> -->
+                <li>
+                  <a class="dropdown-item" href="../affilate/affilate"
+                    ><i class="bi bi-link-45deg"></i> Affiliate Marketing
+                  </a>
+                </li>
               </ul>
             </li>
-          </ul>
-
-          <div class="d-flex align-items-center">
-            <a
-              href="https://web.verifitech.com/"
-              target="blank"
-              class="btn-login"
-              >Login</a
-            >
-          </div>
-
-          <div class="d-flex align-items-center">
-            <a href="../contact/contact" class="btn btn-sales">Contact</a>
-
-            <div class="dropdown">
-              <div
-                class="country-selector dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+            <div class="d-flex align-items-center">
+              <a
+                href="https://web.verifitech.com/"
+                target="blank"
+                class="btn-login"
+                >Login</a
               >
-                <span class="country-flag" id="current-flag">🇮🇳</span>
-                <span id="current-country">India</span>
-                <i
-                  class="bi bi-chevron-down ms-1"
-                  style="font-size: 0.7rem"
-                ></i>
-              </div>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                style="min-width: 180px"
-              >
-                <li>
-                  <a
-                    href="../countries/usa"
-                    class="dropdown-item country-option"
-                    data-country="USA"
-                    data-flag="🇺🇸"
-                    ><span class="country-flag">🇺🇸</span> USA</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/UAE"
-                    class="dropdown-item country-option"
-                    data-country="UAE"
-                    data-flag="🇦🇪"
-                    ><span class="country-flag">🇦🇪</span> UAE</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/aus"
-                    class="dropdown-item country-option"
-                    data-country="Australia"
-                    data-flag="🇦🇺"
-                    ><span class="country-flag">🇦🇺</span> Australia</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/uk"
-                    class="dropdown-item country-option"
-                    data-country="UK"
-                    data-flag="🇬🇧"
-                    ><span class="country-flag">🇬🇧</span> UK</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/singapore"
-                    class="dropdown-item country-option"
-                    data-country="Singapore"
-                    data-flag="🇸🇬"
-                    ><span class="country-flag">🇸🇬</span> Singapore</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="./countries/india"
-                    class="dropdown-item country-option"
-                    data-country="India"
-                    data-flag="🇮🇳"
-                    ><span class="country-flag">🇮🇳</span> India</a
-                  >
-                </li>
-              </ul>
             </div>
-          </div>
+
+            <div class="d-flex align-items-center">
+              <a href="../contact/contact" class="btn btn-sales"
+                >Contact</a
+              >
+              <div class="dropdown">
+                <div
+                  class="country-selector dropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="country-flag" id="current-flag">🇮🇳</span>
+                  <span id="current-country">India</span>
+                  <i
+                    class="bi bi-chevron-down ms-1"
+                    style="font-size: 0.7rem"
+                  ></i>
+                </div>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  style="min-width: 180px"
+                >
+                  <li>
+                    <a
+                      href="../countries/usa"
+                      class="dropdown-item country-option"
+                      data-country="USA"
+                      data-flag="🇺🇸"
+                    >
+                      <span class="country-flag">🇺🇸</span> USA
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/UAE"
+                      data-country="UAE"
+                      data-flag="🇦🇪"
+                    >
+                      <span class="country-flag">🇦🇪</span> UAE
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/aus"
+                      data-country="Australia"
+                      data-flag="🇦🇺"
+                    >
+                      <span class="country-flag">🇦🇺</span> Australia
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/uk"
+                      data-country="UK"
+                      data-flag="🇬🇧"
+                    >
+                      <span class="country-flag">🇬🇧</span> UK
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item country-option"
+                      href="../countries/singapore"
+                      data-country="Singapore"
+                      data-flag="🇸🇬"
+                    >
+                      <span class="country-flag">🇸🇬</span> Singapore
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Telecom Theme -->
     <section class="industry-hero">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="hero-badge">
-              <i class="bi bi-truck"></i>
-              Transport & Logistics Solutions
+              <i class="bi bi-broadcast"></i>
+              Telecom Solutions
             </div>
-            <h1>Keep Your Fleet Moving Safely</h1>
+            <h1>Network Security & Field Safety Compliance</h1>
             <p class="lead">
-              Specialized background verification for Trucking Companies, 3PL
-              Providers, Freight Carriers, and Logistics Operators. CDL driver
-              vetting, DOT compliance, CSA score monitoring, warehouse
-              screening, and supply chain security. Ensure qualified drivers and
-              compliant operations across your network.
+              Specialized background verification for Carriers, Tower Companies,
+              and ISPs. Tower climber vetting, RF safety certification, FCC
+              compliance, security clearance, and infrastructure protection.
+              Ensure CISA standards and field technician safety.
             </p>
+
             <a href="../Demo/Demo.html" class="btn btn-primary-custom btn-lg">
               Get Started <i class="bi bi-arrow-right"></i>
             </a>
@@ -2476,63 +2102,63 @@
           <div class="col-lg-6">
             <div class="hero-illustration">
               <div class="banking-ecosystem">
+                <!-- Orbital Rings -->
                 <div class="orbit-ring ring-1"></div>
                 <div class="orbit-ring ring-2"></div>
+
+                <!-- Central Shield Hub -->
                 <div class="central-shield">
                   <i class="bi bi-shield-fill-check"></i>
                 </div>
+
+                <!-- Satellite Nodes - Telecom Icons -->
                 <div
                   class="satellite-node node-1"
-                  title="Trucking & Ground Transport"
+                  title="Cell Tower Infrastructure"
                 >
-                  <i class="bi bi-truck-front"></i>
+                  <i class="bi bi-broadcast-pin"></i>
+                </div>
+                <div class="satellite-node node-2" title="Network Connectivity">
+                  <i class="bi bi-wifi"></i>
+                </div>
+                <div class="satellite-node node-3" title="Field Technicians">
+                  <i class="bi bi-tools"></i>
+                </div>
+                <div class="satellite-node node-4" title="Global Network">
+                  <i class="bi bi-globe"></i>
                 </div>
                 <div
-                  class="satellite-node node-2"
-                  title="Warehousing & Distribution"
+                  class="satellite-node node-5"
+                  title="Mobile Communications"
                 >
-                  <i class="bi bi-box-seam"></i>
+                  <i class="bi bi-phone"></i>
                 </div>
-                <div class="satellite-node node-3" title="Air Freight">
-                  <i class="bi bi-airplane"></i>
-                </div>
-                <div class="satellite-node node-5" title="Rail Transport">
-                  <i class="bi bi-train-front"></i>
-                </div>
-                <div
-                  class="satellite-node node-6"
-                  title="Security & Compliance"
-                >
+                <div class="satellite-node node-6" title="Cyber Security">
                   <i class="bi bi-shield-check"></i>
                 </div>
-                <div class="data-float-card card-top">
-                  <div class="mini-stat">
-                    <div class="mini-icon">
-                      <i class="bi bi-shield-fill-check"></i>
-                    </div>
-                    <div>
-                      <div class="fw-bold text-dark" style="font-size: 0.9rem">
-                        DOT Compliant
-                      </div>
-                      <small class="text-muted" style="font-size: 0.75rem"
-                        >FMCSA Ready</small
-                      >
-                    </div>
-                  </div>
-                  <div class="mini-stat">
-                    <div class="mini-icon">
-                      <i class="bi bi-award-fill"></i>
-                    </div>
-                    <div>
-                      <div class="fw-bold text-dark" style="font-size: 0.9rem">
-                        CDL Verified
-                      </div>
-                      <small class="text-muted" style="font-size: 0.75rem"
-                        >50 States</small
-                      >
-                    </div>
-                  </div>
-                </div>
+
+                <!-- Floating Data Cards
+                            <div class="data-float-card card-top">
+                                <div class="mini-stat">
+                                    <div class="mini-icon">
+                                        <i class="bi bi-shield-fill-check"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">CISA Compliant</div>
+                                        <small class="text-muted" style="font-size: 0.75rem;">Critical Infrastructure</small>
+                                    </div>
+                                </div>
+                                <div class="mini-stat">
+                                    <div class="mini-icon">
+                                        <i class="bi bi-award-fill"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">FCC Licensed</div>
+                                        <small class="text-muted" style="font-size: 0.75rem;">Regulatory Ready</small>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
                 <div class="data-float-card card-bottom">
                   <div class="mini-stat">
                     <div class="mini-icon">
@@ -2540,10 +2166,10 @@
                     </div>
                     <div>
                       <div class="fw-bold text-dark" style="font-size: 0.9rem">
-                        Drivers Screened
+                        Techs Verified
                       </div>
                       <small class="text-muted" style="font-size: 0.75rem"
-                        >200K+ CDL Holders</small
+                        >50,000+ Field Staff</small
                       >
                     </div>
                   </div>
@@ -2553,10 +2179,10 @@
                     </div>
                     <div>
                       <div class="fw-bold text-dark" style="font-size: 0.9rem">
-                        Fast Hire
+                        5G Ready
                       </div>
                       <small class="text-muted" style="font-size: 0.75rem"
-                        >Driver Shortage Ready</small
+                        >Next Gen Networks</small
                       >
                     </div>
                   </div>
@@ -2577,46 +2203,51 @@
               <i class="bi bi-exclamation-triangle"></i> Industry Challenges
             </div>
             <h2 class="section-title">
-              Why Transport Needs Specialized Screening
+              Why Telecom Needs Specialized Screening
             </h2>
           </div>
         </div>
+
         <div class="row g-4">
           <div class="col-md-4 reveal">
             <div class="challenge-card">
               <div class="challenge-icon">
-                <i class="bi bi-speedometer2"></i>
+                <i class="bi bi-exclamation-triangle-fill"></i>
               </div>
-              <h4>Regulatory Complexity</h4>
+              <h4>High-Risk Field Work</h4>
               <p class="text-muted">
-                DOT, FMCSA, and state regulations create a complex compliance
-                landscape. Violations result in CSA score impacts, fines, and
-                out-of-service orders. Non-compliant drivers put operating
-                authority at risk and expose carriers to nuclear verdicts.
+                Tower climbers face extreme heights, RF radiation exposure, and
+                electrical hazards. Verify climbing certifications, safety
+                training, and medical fitness to prevent fatalities and OSHA
+                violations.
               </p>
             </div>
           </div>
           <div class="col-md-4 reveal">
             <div class="challenge-card">
-              <div class="challenge-icon"><i class="bi bi-people"></i></div>
-              <h4>Driver Shortage Crisis</h4>
+              <div class="challenge-icon">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h4>Critical Infrastructure</h4>
               <p class="text-muted">
-                With 80,000+ driver shortage, carriers face pressure to hire
-                quickly. Fast screening must balance speed with thoroughness.
-                One bad hire can cost $15,000+ in turnover, accidents, or
-                compliance violations. Verify before you hire.
+                Telecom networks are critical infrastructure requiring CISA
+                compliance. Employees access sensitive data centers, central
+                offices, and backbone networks. Security clearance and
+                background depth are essential.
               </p>
             </div>
           </div>
           <div class="col-md-4 reveal">
             <div class="challenge-card">
-              <div class="challenge-icon"><i class="bi bi-box-seam"></i></div>
-              <h4>Cargo & Facility Security</h4>
+              <div class="challenge-icon">
+                <i class="bi bi-car-front"></i>
+              </div>
+              <h4>Fleet & Field Access</h4>
               <p class="text-muted">
-                Warehouse staff and drivers handle high-value cargo, access
-                secure facilities, and cross international borders. Theft,
-                smuggling, and security breaches cost the industry billions.
-                Background checks protect supply chain integrity.
+                Field technicians access customer homes, corporate sites, and
+                restricted areas with company vehicles. MVR checks, driving
+                history, and customer-facing behavior vetting protect brand
+                reputation.
               </p>
             </div>
           </div>
@@ -2632,105 +2263,113 @@
             <div class="section-subtitle justify-content-center">
               <i class="bi bi-grid-3x3-gap"></i> Solutions
             </div>
-            <h2 class="section-title">
-              Logistics Workforce Verification Suite
-            </h2>
+            <h2 class="section-title">Telecom Workforce Verification Suite</h2>
             <p class="section-desc mx-auto">
-              Comprehensive screening for CDL drivers, warehouse staff, freight
-              handlers, and logistics coordinators.
+              Comprehensive screening for tower crews, network engineers, field
+              technicians, and customer service teams.
             </p>
           </div>
         </div>
+
         <div class="row g-4">
           <div class="col-md-6 col-lg-4 reveal">
             <div class="solution-item">
               <div class="solution-header">
-                <div class="solution-icon-sm"><i class="bi bi-truck"></i></div>
-                <h3 class="solution-title">CDL Driver Vetting</h3>
+                <div class="solution-icon-sm">
+                  <i class="bi bi-building"></i>
+                </div>
+                <h3 class="solution-title">Tower Climber Vetting</h3>
               </div>
               <p class="solution-desc">
-                Comprehensive screening for Class A, B, and C commercial
-                drivers. MVR checks, PSP reports, CDLIS verification, DOT
-                medical certification, and employment history. Ensure qualified,
-                compliant drivers before they hit the road.
+                Specialized screening for tower technicians including climbing
+                certification verification (Competent Climber, Rescue), RF
+                safety awareness, medical fitness for duty, and fall protection
+                training records.
               </p>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-4 reveal">
             <div class="solution-item">
               <div class="solution-header">
                 <div class="solution-icon-sm">
-                  <i class="bi bi-speedometer"></i>
+                  <i class="bi bi-shield-check"></i>
                 </div>
-                <h3 class="solution-title">Continuous Monitoring</h3>
+                <h3 class="solution-title">Security Clearance</h3>
               </div>
               <p class="solution-desc">
-                Real-time MVR monitoring, CSA score tracking, and violation
-                alerts. Know immediately when drivers receive tickets, fail drug
-                tests, or have license changes. Proactive compliance management
-                prevents surprises and reduces risk.
+                Pre-employment checks for network operations center (NOC) staff,
+                infrastructure engineers, and data center technicians. Includes
+                credit checks, criminal history, and reference verification for
+                trusted access.
               </p>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-4 reveal">
             <div class="solution-item">
               <div class="solution-header">
                 <div class="solution-icon-sm">
-                  <i class="bi bi-box-seam"></i>
+                  <i class="bi bi-car-front-fill"></i>
                 </div>
-                <h3 class="solution-title">Warehouse & Distribution</h3>
+                <h3 class="solution-title">Fleet Driver Screening</h3>
               </div>
               <p class="solution-desc">
-                Screening for forklift operators, pickers, packers, and
-                distribution managers. Equipment certification verification,
-                safety training records, and criminal background checks for
-                personnel handling inventory and operating machinery.
+                MVR monitoring for installation technicians, service engineers,
+                and sales teams. Continuous driver monitoring, DOT compliance
+                for commercial vehicles, and accident history review for
+                insurance requirements.
               </p>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-4 reveal">
             <div class="solution-item">
               <div class="solution-header">
-                <div class="solution-icon-sm"><i class="bi bi-globe"></i></div>
-                <h3 class="solution-title">Cross-Border & TWIC</h3>
+                <div class="solution-icon-sm">
+                  <i class="bi bi-people"></i>
+                </div>
+                <h3 class="solution-title">Customer-Facing Roles</h3>
               </div>
               <p class="solution-desc">
-                Specialized screening for port workers, hazmat haulers, and
-                international drivers. TWIC card verification, hazmat
-                endorsement checks, FAST card validation, and customs compliance
-                for secure supply chain operations.
+                Retail store staff, call center agents, and in-home installation
+                technicians. Identity verification, criminal background checks,
+                and customer service history validation to protect subscriber
+                trust.
               </p>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-4 reveal">
             <div class="solution-item">
               <div class="solution-header">
                 <div class="solution-icon-sm">
                   <i class="bi bi-capsule"></i>
                 </div>
-                <h3 class="solution-title">DOT Drug Testing</h3>
+                <h3 class="solution-title">Safety & Drug Testing</h3>
               </div>
               <p class="solution-desc">
-                FMCSA-compliant drug and alcohol testing programs.
-                Pre-employment screening, random testing pools, post-accident
-                testing, and return-to-duty programs. Maintain compliance and
-                safety with certified labs and medical review officers.
+                DOT drug testing for CDL drivers, pre-employment screening for
+                tower crews, and random testing programs. Includes post-accident
+                testing and return-to-duty programs for safety-sensitive
+                positions.
               </p>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-4 reveal">
             <div class="solution-item">
               <div class="solution-header">
                 <div class="solution-icon-sm">
-                  <i class="bi bi-clipboard-check"></i>
+                  <i class="bi bi-globe"></i>
                 </div>
-                <h3 class="solution-title">Owner-Operator Verification</h3>
+                <h3 class="solution-title">Contractor Management</h3>
               </div>
               <p class="solution-desc">
-                Independent contractor screening for lease operators and fleet
-                owners. Verify operating authority, insurance coverage, safety
-                ratings, and equipment compliance. Protect your brokerage from
-                co-employment and liability issues.
+                Third-party verification for subcontractors, tower maintenance
+                crews, and network construction teams. Ensure W-9 compliance,
+                insurance verification, and safety certification tracking for
+                outsourced labor.
               </p>
             </div>
           </div>
@@ -2746,95 +2385,111 @@
             <div class="section-subtitle justify-content-center">
               <i class="bi bi-shield-check"></i> Verification Suite
             </div>
-            <h2 class="section-title">Complete Transport Checks</h2>
+            <h2 class="section-title">Complete Telecom Checks</h2>
             <p class="section-desc mx-auto">
-              Industry-specific verification for DOT compliance and supply chain
-              security.
+              Industry-specific verification for infrastructure security and
+              field operations safety.
             </p>
           </div>
         </div>
+
         <div class="row g-4">
+          <!-- Tower & Technical -->
           <div class="col-md-6 col-lg-4 reveal">
             <div class="verification-card">
               <div class="verification-header">
                 <div class="verification-icon-sm">
-                  <i class="bi bi-truck"></i>
+                  <i class="fa-solid fa-tower-observation"></i>
                 </div>
-                <h3 class="verification-title">Driver Qualification</h3>
+                <h3 class="verification-title">Tower & Technical</h3>
               </div>
               <ul class="verification-list">
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> CDLIS License Verify
+                  <i class="bi bi-check2 text-primary"></i> Competent Climber
+                  Cert
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> MVR - All States
+                  <i class="bi bi-check2 text-primary"></i> Tower Rescue
+                  Training
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> PSP Driver History
+                  <i class="bi bi-check2 text-primary"></i> RF
+                  Awareness/Education
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> DOT Medical Card
+                  <i class="bi bi-check2 text-primary"></i> Fall Protection
+                  Training
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Employment Verif
-                  (3yr)
+                  <i class="bi bi-check2 text-primary"></i>
+                  Anritsu/Certification
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Road Test
-                  Certificate
+                  <i class="bi bi-check2 text-primary"></i> Fiber Optic Training
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Entry-Level Driver
+                  <i class="bi bi-check2 text-primary"></i> Safety Climb System
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Annual MVR Review
+                  <i class="bi bi-check2 text-primary"></i> Capstan Hoist
+                  Operation
                 </li>
               </ul>
             </div>
           </div>
+
+          <!-- Security & Clearance -->
           <div class="col-md-6 col-lg-4 reveal">
             <div class="verification-card">
               <div class="verification-header">
                 <div class="verification-icon-sm">
-                  <i class="bi bi-shield-check"></i>
+                  <i class="bi bi-scooter"></i>
                 </div>
-                <h3 class="verification-title">Safety & Compliance</h3>
+                <h3 class="verification-title">Vehicle & Fleet</h3>
               </div>
               <ul class="verification-list">
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> MVR - Motor Vehicle
+                  Rpt
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> CDL License
+                  Verification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> DOT Medical
+                  Certification
+                </li>
                 <li>
                   <i class="bi bi-check2 text-primary"></i> CSA Score Monitoring
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> SMS Data Review
+                  <i class="bi bi-check2 text-primary"></i> Accident History
+                  (3yr)
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Violation History
+                  <i class="bi bi-check2 text-primary"></i> Driver Monitoring
+                  Program
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Crash Register Check
+                  <i class="bi bi-check2 text-primary"></i> Insurance
+                  Verification
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Inspection History
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> OOS Order Review
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Safety Performance
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Carrier Affiliation
+                  <i class="bi bi-check2 text-primary"></i> Fleet Safety Records
                 </li>
               </ul>
             </div>
           </div>
+
+          <!-- Drug & Medical -->
           <div class="col-md-6 col-lg-4 reveal">
             <div class="verification-card">
               <div class="verification-header">
                 <div class="verification-icon-sm">
                   <i class="bi bi-capsule"></i>
                 </div>
-                <h3 class="verification-title">Drug & Alcohol</h3>
+                <h3 class="verification-title">Drug & Medical</h3>
               </div>
               <ul class="verification-list">
                 <li>
@@ -2842,103 +2497,75 @@
                   Test
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> FMCSA Clearinghouse
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Random Testing Pool
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Post-Accident
-                  Testing
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Reasonable Suspicion
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Return-to-Duty
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Follow-up Testing
+                  <i class="bi bi-check2 text-primary"></i> Non-DOT Drug
+                  Screening
                 </li>
                 <li>
                   <i class="bi bi-check2 text-primary"></i> Alcohol Testing
                 </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Physical Fitness
+                  Eval
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> RF Medical
+                  Monitoring
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Respirator Fit
+                  Testing
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Audiometric Testing
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Vision Screening
+                </li>
               </ul>
             </div>
           </div>
+
+          <!-- Regulatory Compliance -->
           <div class="col-md-6 col-lg-4 reveal">
             <div class="verification-card">
               <div class="verification-header">
                 <div class="verification-icon-sm">
-                  <i class="bi bi-award"></i>
+                  <i class="bi bi-file-text-fill"></i>
                 </div>
-                <h3 class="verification-title">Endorsements & Special</h3>
+                <h3 class="verification-title">Regulatory</h3>
               </div>
               <ul class="verification-list">
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Hazmat Endorsement
-                  (H)
+                  <i class="bi bi-check2 text-primary"></i> FCC License Verify
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Tanker Endorsement
-                  (N)
+                  <i class="bi bi-check2 text-primary"></i> CISA Requirements
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Doubles/Triples (T)
-                </li>
-                <li><i class="bi bi-check2 text-primary"></i> Passenger (P)</li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> School Bus (S)
+                  <i class="bi bi-check2 text-primary"></i> OSHA 1926 Compliance
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> TWIC Card Verify
+                  <i class="bi bi-check2 text-primary"></i> TIA-1019 Standards
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> FAST Card Check
+                  <i class="bi bi-check2 text-primary"></i> NESC Compliance
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Enhanced Drivers
+                  <i class="bi bi-check2 text-primary"></i> NCCCO Certification
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> Telecommunications
+                  Act
+                </li>
+                <li>
+                  <i class="bi bi-check2 text-primary"></i> State Contractor
+                  Licenses
                 </li>
               </ul>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 reveal">
-            <div class="verification-card">
-              <div class="verification-header">
-                <div class="verification-icon-sm">
-                  <i class="bi bi-box-seam"></i>
-                </div>
-                <h3 class="verification-title">Warehouse & Operations</h3>
-              </div>
-              <ul class="verification-list">
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Forklift
-                  Certification
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> OSHA 10/30 Card
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Equipment Operation
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Criminal Background
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Employment History
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Drug Screening
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Physical Ability
-                </li>
-                <li>
-                  <i class="bi bi-check2 text-primary"></i> Safety Training
-                </li>
-              </ul>
-            </div>
-          </div>
+
+          <!-- Criminal & Identity -->
           <div class="col-md-6 col-lg-4 reveal">
             <div class="verification-card">
               <div class="verification-header">
@@ -2961,7 +2588,8 @@
                   Search
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> SSN Trace & Validate
+                  <i class="bi bi-check2 text-primary"></i> SSN Trace &
+                  Validation
                 </li>
                 <li>
                   <i class="bi bi-check2 text-primary"></i> Sex Offender
@@ -2974,7 +2602,8 @@
                   <i class="bi bi-check2 text-primary"></i> Credit History Check
                 </li>
                 <li>
-                  <i class="bi bi-check2 text-primary"></i> Address History
+                  <i class="bi bi-check2 text-primary"></i> Employment
+                  Verification
                 </li>
               </ul>
             </div>
@@ -2983,18 +2612,18 @@
       </div>
     </section>
 
-    <!-- Fleet Safety Highlight Section -->
-    <section class="cpv-highlight" id="fleet-safety">
+    <!-- Tower Safety Highlight Section -->
+    <section class="cpv-highlight" id="tower">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-5 mb-lg-0 reveal">
             <div class="compliance-badge">
-              <i class="bi bi-speedometer"></i> Fleet Safety Program
+              <i class="bi bi-tower"></i> Tower Safety Program
             </div>
             <h2
               style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem"
             >
-              Continuous Driver Monitoring
+              Climber Certification & Tracking
             </h2>
             <p
               style="
@@ -3004,35 +2633,35 @@
                 margin-bottom: 2rem;
               "
             >
-              Real-time monitoring of your entire driver pool with instant
-              alerts for license changes, violations, and compliance issues.
-              Stay ahead of CSA score impacts and maintain DOT compliance with
-              automated tracking of MVRs, medical certs, and violations across
-              all 50 states.
+              Comprehensive safety verification for tower construction and
+              maintenance crews. Validate Competent Climber certifications,
+              rescue training, medical clearances, and fall protection equipment
+              training. Ensure 100% compliance before site access.
             </p>
+
             <div class="row g-3">
               <div class="col-6">
                 <div class="d-flex align-items-center gap-3">
                   <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                  <span>Real-Time MVR Alerts</span>
+                  <span>Rescue Training Verify</span>
                 </div>
               </div>
               <div class="col-6">
                 <div class="d-flex align-items-center gap-3">
                   <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                  <span>CSA Score Tracking</span>
+                  <span>Medical Fitness</span>
                 </div>
               </div>
               <div class="col-6">
                 <div class="d-flex align-items-center gap-3">
                   <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                  <span>Medical Card Expiry</span>
+                  <span>RF Awareness</span>
                 </div>
               </div>
               <div class="col-6">
                 <div class="d-flex align-items-center gap-3">
                   <i class="bi bi-check-circle-fill text-primary fs-4"></i>
-                  <span>Violation Monitoring</span>
+                  <span>Equipment Training</span>
                 </div>
               </div>
             </div>
@@ -3040,9 +2669,9 @@
           <div class="col-lg-6 reveal">
             <div class="cpv-visual">
               <div class="location-network">
-                <div class="map-pin"><i class="bi bi-truck"></i></div>
+                <div class="map-pin"><i class="bi bi-tower"></i></div>
                 <div class="map-pin"><i class="bi bi-shield"></i></div>
-                <div class="map-pin"><i class="bi bi-box-seam"></i></div>
+                <div class="map-pin"><i class="bi bi-tools"></i></div>
                 <div class="cpv-center">
                   <i class="bi bi-geo-alt-fill"></i>
                 </div>
@@ -3053,205 +2682,214 @@
       </div>
     </section>
 
-    <!-- Regulatory Section - Redesigned -->
-    <section class="regulatory-section">
+    <!-- Use Cases -->
+    <section class="use-cases">
       <div class="container">
-        <!-- Decorative Background Elements -->
-        <div class="reg-deco-grid"></div>
-        <div class="reg-deco-circle reg-deco-circle-1"></div>
-        <div class="reg-deco-circle reg-deco-circle-2"></div>
-        <div class="reg-deco-dot reg-deco-dot-1"></div>
-        <div class="reg-deco-dot reg-deco-dot-2"></div>
-        <div class="reg-deco-dot reg-deco-dot-3"></div>
-
-        <!-- Section Header -->
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center reveal">
-            <div class="reg-section-badge">
-              <i class="bi bi-shield-fill-check"></i>
-              Regulatory Compliance
+            <div class="section-subtitle justify-content-center">
+              <i class="bi bi-briefcase"></i> Use Cases
             </div>
-            <h2 class="reg-section-title">DOT, FMCSA & FCRA Compliant</h2>
-            <p class="reg-section-desc">
-              Our verification processes adhere to Department of Transportation
-              (DOT) regulations, Federal Motor Carrier Safety Administration
-              (FMCSA) requirements, and Fair Credit Reporting Act (FCRA)
-              standards for driver screening.
-            </p>
+            <h2 class="section-title">Trusted by Telecom Leaders</h2>
           </div>
         </div>
 
-        <!-- Compliance Cards Grid -->
-        <div class="row g-4 mb-5">
-          <!-- DOT Card -->
-          <div class="col-lg-4 reveal">
-            <div class="reg-card">
-              <div class="reg-card-glow"></div>
-              <div class="reg-card-icon-wrap">
-                <div class="reg-card-icon-ring"></div>
-                <div class="reg-card-icon">
-                  <i class="bi bi-truck"></i>
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="use-case-card">
+              <div class="use-case-header">
+                <div class="use-case-icon-lg">
+                  <i class="bi bi-broadcast"></i>
                 </div>
+                <h3>Carriers & Operators</h3>
               </div>
-              <h3 class="reg-card-title">DOT Regulations</h3>
-              <p class="reg-card-desc">
-                Full compliance with Department of Transportation regulatory
-                framework for motor carrier operations.
-              </p>
-              <ul class="reg-card-list">
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  49 CFR Part 40 — Drug & Alcohol Testing
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  49 CFR Part 382 — DOT Alcohol & Drug Testing
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  49 CFR Part 391 — Driver Qualification Files
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  49 CFR Part 395 — Hours of Service Compliance
-                </li>
-              </ul>
-              <div class="reg-card-tag">
-                <i class="bi bi-patch-check-fill"></i> 49 CFR Certified
+              <div class="use-case-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Network
+                    engineers
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>NOC
+                    technicians
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Field
+                    operations
+                  </li>
+                  <li>
+                    <i class="bi bi-check2 text-primary me-2"></i>Customer
+                    service
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <!-- FMCSA Card -->
-          <div class="col-lg-4 reveal">
-            <div class="reg-card reg-card-featured">
-              <div class="reg-card-glow"></div>
-              <div class="reg-card-featured-badge">Primary</div>
-              <div class="reg-card-icon-wrap">
-                <div class="reg-card-icon-ring"></div>
-                <div class="reg-card-icon">
-                  <i class="bi bi-shield-check"></i>
+          <div class="col-md-4 reveal">
+            <div class="use-case-card">
+              <div class="use-case-header">
+                <div class="use-case-icon-lg">
+                  <i class="fa-solid fa-tower-cell"></i>
                 </div>
+                <h3>Tower Companies</h3>
               </div>
-              <h3 class="reg-card-title">FMCSA Standards</h3>
-              <p class="reg-card-desc">
-                Aligned with Federal Motor Carrier Safety Administration
-                requirements for carrier safety and driver monitoring.
-              </p>
-              <ul class="reg-card-list">
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  CSA SMS Data Integration & Review
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  PSP (Pre-Employment Screening) Reports
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  FMCSA Drug & Alcohol Clearinghouse
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  Safety Performance Monitoring (BASICs)
-                </li>
-              </ul>
-              <div class="reg-card-tag">
-                <i class="bi bi-patch-check-fill"></i> FMCSA Aligned
+              <div class="use-case-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Climbing crews
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Site auditors
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Maintenance
+                    teams
+                  </li>
+                  <li>
+                    <i class="bi bi-check2 text-primary me-2"></i>Safety
+                    compliance
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <!-- FCRA Card -->
-          <div class="col-lg-4 reveal">
-            <div class="reg-card">
-              <div class="reg-card-glow"></div>
-              <div class="reg-card-icon-wrap">
-                <div class="reg-card-icon-ring"></div>
-                <div class="reg-card-icon">
-                  <i class="bi bi-file-earmark-text"></i>
+          <div class="col-md-4 reveal">
+            <div class="use-case-card">
+              <div class="use-case-header">
+                <div class="use-case-icon-lg">
+                  <i class="bi bi-wifi"></i>
                 </div>
+                <h3>ISP & Cable</h3>
               </div>
-              <h3 class="reg-card-title">FCRA Compliance</h3>
-              <p class="reg-card-desc">
-                Full adherence to Fair Credit Reporting Act requirements for
-                consumer reporting and employment screening.
-              </p>
-              <ul class="reg-card-list">
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  Proper Disclosure & Authorization Forms
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  Adverse Action Procedures (Pre & Post)
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  Consumer Rights & Dispute Resolution
-                </li>
-                <li>
-                  <span class="reg-list-bullet"></span>
-                  Permissible Purpose Documentation
-                </li>
-              </ul>
-              <div class="reg-card-tag">
-                <i class="bi bi-patch-check-fill"></i> FCRA Compliant
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Trust Bar -->
-        <div class="row reveal">
-          <div class="col-12">
-            <div class="reg-trust-bar">
-              <div class="reg-trust-item">
-                <div class="reg-trust-icon">
-                  <i class="bi bi-building-gear"></i>
-                </div>
-                <div>
-                  <div class="reg-trust-value">SAP</div>
-                  <div class="reg-trust-label">
-                    Substance Abuse Professional
-                  </div>
-                </div>
-              </div>
-              <div class="reg-trust-divider"></div>
-              <div class="reg-trust-item">
-                <div class="reg-trust-icon">
-                  <i class="bi bi-shield-lock"></i>
-                </div>
-                <div>
-                  <div class="reg-trust-value">C-TPAT</div>
-                  <div class="reg-trust-label">Customs Trade Partnership</div>
-                </div>
-              </div>
-              <div class="reg-trust-divider"></div>
-              <div class="reg-trust-item">
-                <div class="reg-trust-icon">
-                  <i class="bi bi-clipboard2-check"></i>
-                </div>
-                <div>
-                  <div class="reg-trust-value">NRCME</div>
-                  <div class="reg-trust-label">Certified Medical Examiner</div>
-                </div>
-              </div>
-              <div class="reg-trust-divider"></div>
-              <div class="reg-trust-item">
-                <div class="reg-trust-icon">
-                  <i class="bi bi-piggy-bank"></i>
-                </div>
-                <div>
-                  <div class="reg-trust-value">$0</div>
-                  <div class="reg-trust-label">Compliance Violations</div>
-                </div>
+              <div class="use-case-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Installation
+                    techs
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Service
+                    personnel
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check2 text-primary me-2"></i>Home security
+                  </li>
+                  <li>
+                    <i class="bi bi-check2 text-primary me-2"></i>Fleet drivers
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- NEW REGULATORY SECTION UI -->
+    <section class="regulatory-section-new" id="compliance">
+      <div class="container reg-content-wrapper">
+        <div class="reg-header reveal">
+          <div class="reg-badge">
+            <i class="bi bi-shield-check"></i> Compliance & Trust
+          </div>
+          <h2 class="reg-title">FCC, CISA & OSHA Compliant</h2>
+          <p class="reg-desc">
+            Our verification processes strictly adhere to Federal Communications
+            Commission (FCC) requirements, Cybersecurity and Infrastructure
+            Security Agency (CISA) standards, and OSHA 1926 regulations for
+            critical infrastructure safety.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- FCC Card -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="compliance-card">
+              <div class="comp-icon-box">
+                <i class="bi bi-broadcast"></i>
+              </div>
+              <h3 class="comp-card-title">FCC Standards</h3>
+              <p class="comp-card-text">
+                Compliance with Federal Communications Commission regulations
+                for wireless and broadcast operations.
+              </p>
+              <ul class="comp-features-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Operator Licensing
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> RF Safety Compliance
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Spectrum Regulations
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CISA Card -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="compliance-card">
+              <div class="comp-icon-box">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h3 class="comp-card-title">CISA Standards</h3>
+              <p class="comp-card-text">
+                Adherence to Critical Infrastructure Security standards for
+                communications and data protection.
+              </p>
+              <ul class="comp-features-list">
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Critical Infra Access
+                </li>
+                <li><i class="bi bi-check-circle-fill"></i> Info Security</li>
+                <li><i class="bi bi-check-circle-fill"></i> Risk Assessment</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- OSHA Card -->
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="compliance-card">
+              <div class="comp-icon-box">
+                <i class="fa-regular fa-file"></i>
+              </div>
+              <h3 class="comp-card-title">OSHA 1926 Ready</h3>
+              <p class="comp-card-text">
+                Full compliance with Occupational Safety and Health
+                Administration standards for tower construction.
+              </p>
+              <ul class="comp-features-list">
+                <li><i class="bi bi-check-circle-fill"></i> Fall Protection</li>
+                <li><i class="bi bi-check-circle-fill"></i> Hazard Training</li>
+                <li>
+                  <i class="bi bi-check-circle-fill"></i> Safety Documentation
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges-row reveal">
+          <div class="trust-badge-item">
+            <i class="bi bi-award trust-icon"></i>
+            <span class="trust-label">TIA Standards</span>
+          </div>
+          <div class="trust-badge-item">
+            <i class="bi bi-patch-check trust-icon"></i>
+            <span class="trust-label">NESC Compliant</span>
+          </div>
+          <div class="trust-badge-item">
+            <i class="bi bi-building-exclamation trust-icon"></i>
+            <span class="trust-label">Critical Infra</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END NEW REGULATORY SECTION UI -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -3260,7 +2898,9 @@
         <div class="newsletter-footer-section">
           <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-              <div class="newsletter-header-content">
+              <div
+                class="d-flex align-items-center gap-3 newsletter-header-content"
+              >
                 <div class="newsletter-icon-footer">
                   <i class="bi bi-envelope-open"></i>
                 </div>
@@ -3274,6 +2914,7 @@
               </div>
             </div>
             <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
               <form
                 action="https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit"
                 name="form"
@@ -3287,6 +2928,7 @@
                 <input type="hidden" name="zf_referrer_name" value="" />
                 <input type="hidden" name="zf_redirect_url" value="" />
                 <input type="hidden" name="zc_gad" value="" />
+
                 <div class="input-group-wrapper">
                   <div class="zf-tempContDiv">
                     <input
@@ -3318,6 +2960,7 @@
         </div>
 
         <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
           <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
             <div class="footer-brand">
               <img
@@ -3332,19 +2975,29 @@
               companies.
             </p>
           </div>
+
+          <!-- Solutions Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-            <h5 class="footer-heading">Solutions</h5>
-            <ul class="footer-links">
-              <li><a href="../checks/employment">Employment Check</a></li>
-              <li>
-                <a href="../checks/education-check"
-                  >Education Verification</a
-                >
-              </li>
-              <li><a href="../checks/reference">Reference Checks</a></li>
-              <li><a href="../checks/gap-verification">Gap Analysis</a></li>
-            </ul>
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/employment">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/education-check"
+                    >Education Verification</a
+                  >
+                </li>
+                <li><a href="../checks/reference">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/gap-verification">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
           </div>
+
+          <!-- Company Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
             <h5 class="footer-heading">Company</h5>
             <ul class="footer-links">
@@ -3354,6 +3007,8 @@
               <li><a href="../contact/contact">Contact</a></li>
             </ul>
           </div>
+
+          <!-- Resources Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
             <h5 class="footer-heading">Resources</h5>
             <ul class="footer-links">
@@ -3362,22 +3017,26 @@
               <li><a href="../resources/casestudy">Case Studies</a></li>
             </ul>
           </div>
+
+          <!-- Products Column -->
           <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
             <h5 class="footer-heading">Products</h5>
             <ul class="footer-links">
-              <li><a href="../products/exitinterview">Exit Interview</a></li>
-              <li><a href="../products/pm">Psychometric</a></li>
+              <li>
+                <a href="../products/exitinterview">Exit interview</a>
+              </li>
+              <li><a href="../products/pm">psychometric</a></li>
               <li><a href="../products/api">API</a></li>
             </ul>
           </div>
         </div>
 
+        <!-- Bottom Footer -->
         <div class="footer-bottom">
           <div class="row align-items-center">
             <div class="col-md-6">
               <p class="copyright">
-                © 2026 Verifitech Solutions Private Limited. All rights
-                reserved.
+                © 2026 Verifitech Private Limited. All rights reserved.
               </p>
             </div>
             <div class="col-md-6">
@@ -3406,32 +3065,36 @@
                   target="blank"
                   ><i class="bi bi-instagram"></i
                 ></a>
-                <a href="#" class="social-icon" onclick="openWhatsApp(event)"
+                <a
+                  href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services."
+                  class="social-icon"
+                  onclick="openWhatsApp(event)"
                   ><i class="bi bi-whatsapp"></i
                 ></a>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="privacy-row">
-          <a href="./Privacy policy pages/privacypolicy" class="privacy-link"
-            >Privacy Policy</a
-          >
-          <span class="privacy-separator">|</span>
-          <a href="Privacy policy pages/disclaimer" class="privacy-link"
-            >Disclaimer</a
-          >
-          <span class="privacy-separator">|</span>
-          <a
-            href="./Privacy policy pages/terms and conditions"
-            class="privacy-link"
-            >Terms of Service</a
-          >
-          <span class="privacy-separator">|</span>
-          <a href="./Privacy policy pages/cookiepolicy" class="privacy-link"
-            >Cookies Policy</a
-          >
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy" class="privacy-link"
+              >Privacy Policy</a
+            >
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer" class="privacy-link"
+              >Disclaimer</a
+            >
+            <span class="./privacy-separator">|</span>
+            <a
+              href="./Privacy policy pages/terms and conditions"
+              class="privacy-link"
+              >Terms of Service</a
+            >
+            <span class="privacy-separator">|</span>
+            <a href="./Privacy policy pages/cookiepolicy" class="privacy-link"
+              >Cookies Policy</a
+            >
+          </div>
         </div>
       </div>
     </footer>
@@ -3458,6 +3121,7 @@
         text-decoration: none;
         box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
         z-index: 9999;
+        transition: all 0.3s ease;
         border: 3px solid rgba(255, 255, 255, 0.3);
         cursor: pointer;
       "
@@ -3487,7 +3151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       // WhatsApp Functionality
-      var whatsappConfig = {
+      const whatsappConfig = {
         phoneNumber: "+919176663777",
         defaultMessage:
           "Hi Verifitech Team,\n\nI am interested in your background verification services. Please share more details.",
@@ -3496,25 +3160,24 @@
 
       function openWhatsApp(event) {
         event.preventDefault();
-        var pageTitle = document.title;
-        var currentUrl = window.location.href;
-        var message = whatsappConfig.defaultMessage;
+
+        const pageTitle = document.title;
+        const currentUrl = window.location.href;
+
+        let message = whatsappConfig.defaultMessage;
+
         if (whatsappConfig.pageContext && pageTitle) {
-          message +=
-            "\n\nI am currently viewing: " + pageTitle + "\nURL: " + currentUrl;
+          message += `\n\nI am currently viewing: ${pageTitle}\nURL: ${currentUrl}`;
         }
-        var encodedMessage = encodeURIComponent(message);
-        var whatsappUrl =
-          "https://wa.me/" +
-          whatsappConfig.phoneNumber +
-          "?text=" +
-          encodedMessage;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${whatsappConfig.phoneNumber}?text=${encodedMessage}`;
+
         window.open(whatsappUrl, "_blank");
       }
-
       // Navbar scroll effect
-      window.addEventListener("scroll", function () {
-        var navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
         if (window.scrollY > 50) {
           navbar.classList.add("scrolled");
         } else {
@@ -3523,13 +3186,13 @@
       });
 
       // Intersection Observer for animations
-      var observerOptions = {
+      const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
       };
 
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
             observer.unobserve(entry.target);
@@ -3537,19 +3200,17 @@
         });
       }, observerOptions);
 
-      document.querySelectorAll(".reveal").forEach(function (el) {
-        observer.observe(el);
-      });
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
 
       // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
-          var href = this.getAttribute("href");
-          if (href === "#") return;
           e.preventDefault();
-          var target = document.querySelector(href);
+          const target = document.querySelector(this.getAttribute("href"));
           if (target) {
-            var offsetTop = target.offsetTop - 80;
+            const offsetTop = target.offsetTop - 80;
             window.scrollTo({
               top: offsetTop,
               behavior: "smooth",
