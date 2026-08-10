@@ -4,10 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>US Background Screening Services | FCRA Compliant Employment Checks</title>
+    <title>US Background Screening Services | FCRA-Compliant Checks</title>
     <meta
       name="description"
-      content="Secure, fast, and FCRA-compliant US background screening services including criminal checks, employment verification, education checks, drug screening, and E-Verify solutions."
+      content="FCRA-compliant background checks across all 50 states — criminal, employment, education, E-Verify & drug screening. 24-48hr turnaround."
     /><link rel="canonical" href="https://verifitech.com/us/background-screening" />
     <link rel="alternate" hreflang="en-us" href="https://verifitech.com/us/background-
 screening" /><link rel="alternate" hreflang="en-gb"
