@@ -15,6 +15,10 @@
         --primary: #1ac2c1;
         --primary-dark: #16a8a7;
         --primary-light: #e0f7f7;
+        --primary-lighter: #f0fafb;
+        --primary-border: #b0eded;
+        --primary-deep: #118584;
+        --primary-darkest: #0e6b6a;
         --dark: #0f172a;
         --navy: #1e293b;
         --gray: #64748b;
@@ -29,7 +33,8 @@
       .navbar { z-index: 1050; }
       .dropdown-menu { z-index: 1060; position: absolute; }
       .dropdown-item { position: relative; z-index: 1061; }
-          /* Country Selector */
+
+      /* Country Selector */
       .country-selector {
         display: flex;
         align-items: center;
@@ -44,12 +49,10 @@
         transition: all 0.3s ease;
         margin-left: 1rem;
       }
-
       .country-selector:hover {
         border-color: var(--primary);
         color: var(--primary);
       }
-
       .country-selector i {
         font-size: 1.2rem;
       }
@@ -64,13 +67,13 @@
         font-weight: 500;
         font-size: 0.82rem;
         text-decoration: none;
-        color: #0d9488;
-        background: #f0fdfa;
-        border: 1px solid #ccfbf1;
+        color: var(--primary-deep);
+        background: var(--primary-lighter);
+        border: 1px solid var(--primary-light);
         transition: all 0.25s ease;
         margin-top: 1.2rem;
       }
-      .card-nav-btn:hover { background: #ccfbf1; border-color: #99f6e4; color: #0f766e; }
+      .card-nav-btn:hover { background: var(--primary-light); border-color: var(--primary-border); color: var(--primary-darkest); }
       .card-nav-btn i { font-size: 0.7rem; transition: transform 0.25s ease; }
       .card-nav-btn:hover i { transform: translateX(3px); }
       .card-nav-btn-sm { padding: 0.35rem 0.8rem; font-size: 0.78rem; border-radius: 4px; margin-top: 0.8rem; }
@@ -78,8 +81,8 @@
 
       /* CARD TAGS */
       .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; margin-bottom: 0.5rem; }
-      .card-tag { display: inline-flex; align-items: center; gap: 4px; padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; color: #0f766e; background: #f0fdfa; border: 1px solid #ccfbf1; letter-spacing: 0.3px; white-space: nowrap; }
-      .card-tag i { font-size: 0.6rem; color: #14b8a6; }
+      .card-tag { display: inline-flex; align-items: center; gap: 4px; padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; color: var(--primary-deep); background: var(--primary-lighter); border: 1px solid var(--primary-light); letter-spacing: 0.3px; white-space: nowrap; }
+      .card-tag i { font-size: 0.6rem; color: var(--primary); }
       .card-tag.highlight { color: #92400e; background: #fffbeb; border-color: #fde68a; }
       .card-tag.highlight i { color: #d97706; }
       .card-tag.blue { color: #1e40af; background: #eff6ff; border-color: #bfdbfe; }
@@ -106,16 +109,16 @@
       .dropdown-header { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 0.5rem; padding: 0.5rem 1rem; }
       .btn-sales { background: var(--primary); color: white !important; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; white-space: nowrap; margin-left: 1rem; box-shadow: 0 4px 15px rgba(26,194,193,0.3); text-decoration: none; }
       .btn-sales:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.4); color: white !important; }
-      .btn-login { background-color: #ffffff !important; color: #00bfa5 !important; border: 1px solid #00bfa5 !important; box-shadow: 0 2px 8px rgba(0,191,165,0.3) !important; padding: 8px 24px; border-radius: 6px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; margin: 12px; }
-      .btn-login:hover { background-color: #00bfa5 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(0,191,165,0.4) !important; transform: translateY(-1px); }
+      .btn-login { background-color: #ffffff !important; color: #1ac2c1 !important; border: 1px solid #1ac2c1 !important; box-shadow: 0 2px 8px rgba(26,194,193,0.3) !important; padding: 8px 24px; border-radius: 6px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; margin: 12px; }
+      .btn-login:hover { background-color: #1ac2c1 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(26,194,193,0.4) !important; transform: translateY(-1px); }
 
       /* HERO */
-      .bengaluru-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 40%, #f0fdfa 100%); position: relative; overflow: hidden; }
+      .bengaluru-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 40%, var(--primary-light) 100%); position: relative; overflow: hidden; }
       .bengaluru-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%); border-radius: 50%; }
-      .bengaluru-hero::after { content: ""; position: absolute; bottom: -30%; left: -15%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,194,193,0.06) 0%, transparent 70%); border-radius: 50%; }
-      .bengaluru-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(124,58,237,0.08); color: #6d28d9; border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(124,58,237,0.15); }
+      .bengaluru-hero::after { content: ""; position: absolute; bottom: -30%; left: -15%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,194,193,0.08) 0%, transparent 70%); border-radius: 50%; }
+      .bengaluru-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(26,194,193,0.1); color: var(--primary-deep); border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(26,194,193,0.2); }
       .bengaluru-hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--dark); letter-spacing: -1.5px; }
-      .bengaluru-hero h1 .highlight { background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+      .bengaluru-hero h1 .highlight { color: #1ac2c1; -webkit-text-fill-color: #1ac2c1; }
       .bengaluru-hero .lead { font-size: 1.35rem; color: var(--gray); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.6; }
       .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
       .btn-hero-primary { background: var(--primary) !important; color: white !important; border: none; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,194,193,0.35); display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
@@ -170,7 +173,7 @@
 
       /* MIGRATION */
       .migration-section { padding: 100px 0; background: linear-gradient(135deg, #f5f3ff 0%, #f8fafc 100%); position: relative; overflow: hidden; }
-      .migration-section::before { content: ""; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%); border-radius: 50%; }
+      .migration-section::before { content: ""; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,194,193,0.05) 0%, transparent 70%); border-radius: 50%; }
       .migration-visual { position: relative; height: 500px; display: flex; align-items: center; justify-content: center; }
       .globe-container { position: relative; width: 350px; height: 350px; display: flex; align-items: center; justify-content: center; }
       .globe-ring { position: absolute; border: 2px dashed rgba(26,194,193,0.3); border-radius: 50%; animation: rotate 30s linear infinite; }
@@ -236,7 +239,6 @@
       .industry-item i { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
       .industry-item h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
       .industry-item p { font-size: 0.9rem; color: var(--gray); margin: 0; }
-      .industry-item .card-nav-btn-sm { margin-top: auto; }
 
       /* TRUST */
       .trust-section { padding: 100px 0; background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%); color: white; position: relative; overflow: hidden; }
@@ -258,7 +260,7 @@
       .process-step p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
       /* CTA */
-      .cta-section { padding: 100px 0; background: linear-gradient(135deg, #f5f3ff 0%, #f0fdfa 100%); text-align: center; }
+      .cta-section { padding: 100px 0; background: linear-gradient(135deg, #f5f3ff 0%, var(--primary-light) 100%); text-align: center; }
       .cta-box { background: white; border-radius: 24px; padding: 4rem; max-width: 900px; margin: 0 auto; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; position: relative; overflow: hidden; }
       .cta-box::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent-purple), var(--primary), var(--accent-gold)); }
       .btn-primary-custom { background: var(--primary) !important; color: white !important; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,194,193,0.35); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -430,50 +432,49 @@
           <div class="d-flex align-items-center">
             <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
             <a href="../contact/contact" class="btn-sales">Contact</a>
-             <!-- Country Selector -->
-                    <div class="dropdown">
-                        <div class="country-selector " data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="country-flag" id="current-flag">🇮🇳</span>
-                            <span id="current-country">India</span>
-                            <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
-                        </div>
-                        <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
-                            <li>
-                                <a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
-                                    <span class="country-flag">🇺🇸</span> USA
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/UAE" data-country="UAE" data-flag="🇦🇪">
-                                    <span class="country-flag">🇦🇪</span> UAE
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/aus" data-country="Australia" data-flag="🇦🇺">
-                                    <span class="country-flag">🇦🇺</span> Australia
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/uk" data-country="UK" data-flag="🇬🇧">
-                                    <span class="country-flag">🇬🇧</span> UK
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/singapore" data-country="Singapore" data-flag="🇸🇬">
-                                    <span class="country-flag">🇸🇬</span> Singapore
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/Ireland" data-country="India" data-flag="🇮🇪">
-                                    <span class="country-flag">🇮🇪</span> Ireland
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <!-- Country Selector -->
+            <div class="dropdown">
+              <div class="country-selector" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                <li>
+                  <a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/UAE" data-country="UAE" data-flag="🇦🇪">
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/aus" data-country="Australia" data-flag="🇦🇺">
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/uk" data-country="UK" data-flag="🇬🇧">
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/singapore" data-country="Singapore" data-flag="🇸🇬">
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/Ireland" data-country="India" data-flag="🇮🇪">
+                    <span class="country-flag">🇮🇪</span> Ireland
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      
     </nav>
 
     <!-- HERO -->
@@ -489,13 +490,6 @@
               <a href="#service" class="btn-hero-secondary"><i class="bi bi-grid-3x3-gap"></i> View All Checks</a>
             </div>
             <div class="hero-trust">
-              <!-- <div class="hero-trust-avatars">
-                <img src="https://picsum.photos/seed/blr-a1/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/blr-a2/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/blr-a3/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/blr-a4/72/72.jpg" alt="Client" />
-              </div>
-              <p class="hero-trust-text">Trusted by <strong>900+ employers</strong> across India</p> -->
             </div>
           </div>
           <div class="col-lg-6 reveal">
@@ -602,60 +596,44 @@
                 <div class="globe-ring"></div>
                 <div class="globe-ring"></div>
                 <div class="globe-center"><i class="bi bi-building"></i><span>bengaluru</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>AP</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Telangana</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>TN</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Kerala</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Bihar</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Odisha</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>WB</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>UP</span></div>
-              </div>
-              <div class="migration-stat-card top-right">
-                <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-arrow-left-right"></i></div>
-                <div class="stat-text"><h4 style="font-size:1.4rem;">15+</h4><p>Source States Tracked</p></div>
-              </div>
-              <div class="migration-stat-card bottom-left">
-                <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-check-circle-fill"></i></div>
-                <div class="stat-text"><h4 style="font-size:1.4rem;">48hrs</h4><p>Migrant Check TAT</p></div>
               </div>
             </div>
           </div>
           <div class="col-lg-7 reveal">
-            <span class="section-subtitle"><i class="bi bi-arrow-left-right"></i> Interstate Verification</span>
-            <h2 class="section-title">Migrant Worker Screening Across South &amp; East India</h2>
-            <p class="section-desc mb-4">bengaluru's construction, manufacturing, and gig economy sectors rely heavily on inter-state migrant workers. We verify employment history, criminal records, and identity across multiple state jurisdictions simultaneously.</p>
-            <div class="row g-3">
+            <span class="section-subtitle"><i class="bi bi-globe-americas"></i> Migration Screening</span>
+            <h2 class="section-title">Inter-State &amp; Intra-City Worker Verification</h2>
+            <p class="section-desc">bengaluru attracts millions of migrant workers from across India. Our migration-optimised checks cover origin verification, document authenticity, and contractor compliance — all aligned with the Inter-State Migrant Workmen (Regulation of Employment &amp; Conditions of Service) Act, 1979.</p>
+            <div class="row g-3 mt-3">
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-search"></i></div>
-                  <h3>Multi-State Criminal Check</h3>
-                  <p>Court record verification across candidate's home district, bengaluru courts, and any intermediate work locations.</p>
-                  <span class="visa-tag">Criminal</span>
+                  <div class="migration-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <h3>Origin State Verification</h3>
+                  <p>Police and address verification from the candidate's home state — covering UP, Bihar, West Bengal, Odisha, Assam, Rajasthan, and other major source states for bengaluru's workforce.</p>
+                  <span class="visa-tag">Multi-State</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="migration-feature-card">
+                  <div class="migration-icon"><i class="bi bi-file-earmark-check-fill"></i></div>
+                  <h3>Document Authenticity</h3>
+                  <p>Cross-verification of migration certificates, labour cards, contractor licences, and work permits — ensuring every document presented by inter-state workers is genuine and valid.</p>
+                  <span class="visa-tag">Anti-Fraud</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
                   <div class="migration-icon"><i class="bi bi-person-check-fill"></i></div>
                   <h3>Contractor Due Diligence</h3>
-                  <p>Verify labour contractor licences, registration under ISMW Act, and past compliance history with Karnataka labour department.</p>
-                  <span class="visa-tag">Contractors</span>
+                  <p>Verification of labour contractors and placement agencies supplying migrant workers — including licence validity, past compliance record, and worker welfare history.</p>
+                  <span class="visa-tag">Contractor Check</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-house-check-fill"></i></div>
-                  <h3>Address Verification (Origin)</h3>
-                  <p>Physical address verification at candidate's native place through our network of 500+ field agents across India.</p>
-                  <span class="visa-tag">Address</span>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-transit"></i></div>
-                  <h3>Work History Chain</h3>
-                  <p>Continuous employment trail across states — filling gaps, validating overlap claims, and detecting fabricated experience.</p>
-                  <span class="visa-tag">Employment</span>
+                  <div class="migration-icon"><i class="bi bi-shield-check"></i></div>
+                  <h3>Regulatory Filing Support</h3>
+                  <p>Assistance with maintaining mandated registers, submitting returns under the ISMW Act, and ensuring your bengaluru operations meet all migrant worker documentation requirements.</p>
+                  <span class="visa-tag">Compliance</span>
                 </div>
               </div>
             </div>
@@ -664,27 +642,89 @@
       </div>
     </section>
 
-    <!-- EPFO DARK SECTION -->
-    <section class="wps-section" id="epfo">
+    <!-- WPS DARK SECTION -->
+    <section class="wps-section" id="wps">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 reveal">
-            <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-puzzle"></i> Government Database Integration</span>
-            <h2 class="section-title">EPFO, UAN &amp; Digital India Verification Stack</h2>
-            <p class="section-desc">bengaluru employers need real-time validation against Indian government databases. Our platform integrates directly with EPFO, DigiLocker, UIDAI, and state police portals for instant cross-referencing.</p>
-            <div class="mt-4">
-              <div class="wps-feature"><i class="bi bi-check2-circle"></i><div><h4>EPFO / UAN Validation</h4><p>Verify PF account existence, employment history, and contribution continuity through UAN-based lookup — critical for bengaluru's IT and startup ecosystem.</p></div></div>
-              <div class="wps-feature"><i class="bi bi-check2-circle"></i><div><h4>DigiLocker Integration</h4><p>Pull verified documents directly from candidate's DigiLocker — degree certificates, driving licences, PAN cards, and more, eliminating document fraud.</p></div></div>
-              <div class="wps-feature"><i class="bi bi-check2-circle"></i><div><h4>Aadhaar e-KYC &amp; Demographic Match</h4><p>Offline Aadhaar XML verification with demographic matching — name, DOB, gender, address — ensuring identity authenticity without storing Aadhaar numbers.</p></div></div>
-              <div class="wps-feature"><i class="bi bi-check2-circle"></i><div><h4>PAN &amp; TDS Verification</h4><p>Validate PAN status, link Aadhaar-PAN, and verify TDS filing history for senior hires and financial sector roles in bengaluru.</p></div></div>
+        <div class="section-header text-center reveal">
+          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-cpu-fill"></i> WPS &amp; Digital Integration</span>
+          <h2 class="section-title">Tech-Powered bengaluru Verification</h2>
+          <p class="section-desc mx-auto">Leverage our API-first platform with direct integrations into Aadhaar (UIDAI), EPFO/UAN, DigiLocker, NSDL, state police databases, and university portals — all optimised for bengaluru's verification landscape.</p>
+        </div>
+        <div class="row g-4 mb-5">
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-fingerprint"></i></div>
+              <h3>Aadhaar e-KYC Integration</h3>
+              <p>Instant identity verification through UIDAI's Aadhaar API — supporting OTP, biometric, and offline XML-based authentication for bengaluru candidates.</p>
             </div>
           </div>
-          <div class="col-lg-6 reveal">
-            <div class="row g-4 mt-2">
-              <div class="col-md-6"><div class="wps-card"><div class="wps-icon"><i class="bi bi-piggy-bank"></i></div><h3>EPFO Lookup</h3><p>Real-time UAN verification, PF passbook download, and employment timeline extraction from EPFO database.</p></div></div>
-              <div class="col-md-6"><div class="wps-card"><div class="wps-icon"><i class="bi bi-lock-fill"></i></div><h3>DigiLocker Fetch</h3><p>Direct document pull from DigiLocker API — verified, tamper-proof certificates and IDs for bengaluru candidates.</p></div></div>
-              <div class="col-md-6"><div class="wps-card"><div class="wps-icon"><i class="bi bi-fingerprint"></i></div><h3>UIDAI e-KYC</h3><p>Aadhaar offline XML verification with consent-based OTP authentication and demographic data matching.</p></div></div>
-              <div class="col-md-6"><div class="wps-card"><div class="wps-icon"><i class="bi bi-receipt-cutoff"></i></div><h3>PAN Validation</h3><p>NSDL-based PAN verification, Aadhaar-PAN linking status, and Form 26AS/TDS history for financial roles.</p></div></div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-piggy-bank"></i></div>
+              <h3>EPFO/UAN Validation</h3>
+              <p>Real-time employment history verification via EPFO's API — validating UAN numbers, previous employers, and contribution history for workers in bengaluru.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-lock-fill"></i></div>
+              <h3>DigiLocker Document Fetch</h3>
+              <p>Consent-based retrieval of digitally signed documents from DigiLocker — including degree certificates, driving licences, and vehicle registration for bengaluru residents.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-building-gear"></i></div>
+              <h3>MCA &amp; DIN Lookup</h3>
+              <p>Company and director verification through MCA's master data — essential for bengaluru's thriving startup ecosystem where founder/director background checks are critical.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-shield-exclamation"></i></div>
+              <h3>Court Record API</h3>
+              <p>Automated criminal record checks across bengaluru city courts, Karnataka High Court, and central databases — with real-time case status and disposition tracking.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-plug"></i></div>
+              <h3>REST API &amp; Webhooks</h3>
+              <p>Plug our verification engine directly into your HRMS, ATS, or onboarding platform — with real-time status updates, webhook notifications, and comprehensive documentation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center reveal">
+          <div class="col-lg-6">
+            <div class="wps-feature">
+              <i class="bi bi-lightning-charge-fill"></i>
+              <div>
+                <h4>Instant Checks</h4>
+                <p>Aadhaar, PAN, passport, and DL verification return results in under 10 seconds — no manual intervention needed.</p>
+              </div>
+            </div>
+            <div class="wps-feature">
+              <i class="bi bi-arrow-repeat"></i>
+              <div>
+                <h4>Batch Processing</h4>
+                <p>Upload hundreds of bengaluru candidate records at once — our engine queues, routes, and processes them in parallel for maximum throughput.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="wps-feature">
+              <i class="bi bi-bar-chart-fill"></i>
+              <div>
+                <h4>Real-Time Dashboard</h4>
+                <p>Track every bengaluru check in real-time — with status breakdowns, TAT analytics, exception alerts, and compliance audit trails.</p>
+              </div>
+            </div>
+            <div class="wps-feature">
+              <i class="bi bi-file-earmark-pdf-fill"></i>
+              <div>
+                <h4>Automated Reports</h4>
+                <p>Generate DPDPA-compliant verification reports automatically — ready for your HR records, auditor submissions, and regulatory filings.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -692,174 +732,230 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="services-section" id="services">
+    <section class="services-section" id="service">
       <div class="container">
         <div class="section-header text-center reveal">
           <span class="section-subtitle"><i class="bi bi-grid-3x3-gap-fill"></i> Our Services</span>
-          <h2 class="section-title">bengaluru-Specific Background Verification Services</h2>
-          <p class="section-desc mx-auto">Tailored verification packages for bengaluru's key industries — from Whitefield IT parks to Peenya industrial area and Electronic City tech corridor.</p>
+          <h2 class="section-title">Background Verification Services in bengaluru</h2>
+          <p class="section-desc mx-auto">Comprehensive screening solutions tailored for bengaluru's diverse industries — from IT parks in Whitefield and Electronic City to manufacturing hubs in Peenya and logistics centres in Hosur Road.</p>
         </div>
         <div class="row g-4">
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-person-badge-fill"></i></div>
-              <h3>Identity &amp; Aadhaar Verification</h3>
-              <p>Multi-layer identity verification using Aadhaar e-KYC, PAN validation, voter ID, and passport cross-checks.</p>
+              <h3>ID &amp; Identity Verification</h3>
+              <p>Aadhaar e-KYC, PAN validation, passport verification, and voter ID checks — all compliant with UIDAI and DPDPA guidelines for bengaluru candidates.</p>
               <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Aadhaar XML</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> PAN-NSDL</span>
-                <span class="card-tag blue"><i class="bi bi-check-circle-fill"></i> Voter ID</span>
-                <span class="card-tag highlight"><i class="bi bi-check-circle-fill"></i> Passport</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Aadhaar</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> PAN</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Passport</span>
               </div>
-              <a href="../checks/id-verification" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-briefcase-fill"></i></div>
-              <h3>Employment Verification</h3>
-              <p>Direct HR verification with bengaluru employers, supplemented by EPFO UAN cross-reference for complete work history.</p>
-              <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> HR Direct</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> EPFO UAN</span>
-                <span class="card-tag purple"><i class="bi bi-check-circle-fill"></i> Salary Check</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Relieving Letter</span>
-              </div>
-              <a href="../checks/employment" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-mortarboard-fill"></i></div>
-              <h3>Education Verification</h3>
-              <p>Direct verification with bengaluru's universities — VTU, bengaluru University, IISc — and state/national boards.</p>
-              <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> VTU Belgaum</span>
-                <span class="card-tag blue"><i class="bi bi-check-circle-fill"></i> BU bengaluru</span>
-                <span class="card-tag highlight"><i class="bi bi-check-circle-fill"></i> IISc</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> DigiLocker</span>
-              </div>
-              <a href="../checks/education-check" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-shield-exclamation"></i></div>
-              <h3>Criminal Record Check</h3>
-              <p>Court record verification across bengaluru City Police Commissionerate, BBMP limits, and Karnataka district courts.</p>
-              <div class="card-tags">
-                <span class="card-tag red"><i class="bi bi-check-circle-fill"></i> e-Courts</span>
-                <span class="card-tag red"><i class="bi bi-check-circle-fill"></i> NCRB</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> District Court</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Police Station</span>
-              </div>
-              <a href="../checks/court-verification" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
+              <a href="../checks/id-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-geo-alt-fill"></i></div>
               <h3>Address Verification</h3>
-              <p>Physical doorstep address verification across bengaluru — from Koramangala to Whitefield, Indiranagar to Electronic City — through field agents.</p>
+              <p>Physical and digital address verification across bengaluru — covering BBMP areas, peripheral towns, and inter-state addresses with photographic evidence and GPS coordinates.</p>
               <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Doorstep Visit</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Photo Evidence</span>
-                <span class="card-tag blue"><i class="bi bi-check-circle-fill"></i> GPS Tagged</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Neighbour Check</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Physical Visit</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Digital</span>
+                <span class="card-tag blue"><i class="bi bi-pin-map-fill"></i> GPS Verified</span>
               </div>
-              <a href="../checks/address-verification.html" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
+              <a href="../checks/address-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-briefcase-fill"></i></div>
+              <h3>Employment Verification</h3>
+              <p>Previous employer validation through EPFO/UAN integration, direct HR confirmation, and document cross-check — critical for bengaluru's high job-hopping tech workforce.</p>
+              <div class="card-tags">
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> EPFO/UAN</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> HR Confirm</span>
+                <span class="card-tag highlight"><i class="bi bi-lightning-fill"></i> Fast Track</span>
+              </div>
+              <a href="../checks/employment" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-mortarboard-fill"></i></div>
+              <h3>Education Verification</h3>
+              <p>Degree and certificate attestation from VTU, bengaluru University, Anna University (Tamil Nadu), and other institutions — including DigiLocker integration and registrar confirmation.</p>
+              <div class="card-tags">
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> VTU</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> BU</span>
+                <span class="card-tag purple"><i class="bi bi-cloud-download-fill"></i> DigiLocker</span>
+              </div>
+              <a href="../checks/education-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-shield-exclamation"></i></div>
+              <h3>Criminal Record Check</h3>
+              <p>Comprehensive criminal background verification through bengaluru City Police, Karnataka State Police, NCRB, and court records — covering pending cases, convictions, and acquittals.</p>
+              <div class="card-tags">
+                <span class="card-tag red"><i class="bi bi-exclamation-triangle-fill"></i> Critical</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> NCRB</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Court</span>
+              </div>
+              <a href="../checks/court-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-people-fill"></i></div>
+              <h3>Reference Check</h3>
+              <p>Professional and personal reference validation through structured telephonic interviews — verifying the candidate's claims about skills, behaviour, and work history in bengaluru's competitive market.</p>
+              <div class="card-tags">
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Professional</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Personal</span>
+              </div>
+              <a href="../checks/reference" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-globe2"></i></div>
+              <h3>Global Database Check</h3>
+              <p>International watchlist, sanctions, and adverse media screening — essential for bengaluru's MNCs hiring global talent or processing H-1B/L-1 visa applicants.</p>
+              <div class="card-tags">
+                <span class="card-tag blue"><i class="bi bi-globe-americas"></i> 200+ Countries</span>
+                <span class="card-tag red"><i class="bi bi-shield-fill-exclamation"></i> Watchlist</span>
+              </div>
+              <a href="../checks/global-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-credit-card-fill"></i></div>
-              <h3>Credit &amp; Financial Check</h3>
-              <p>CIBIL score check, loan default screening, and insolvency database verification for financial sector roles in bengaluru.</p>
+              <h3>Credit History Check</h3>
+              <p>CIBIL and credit bureau verification for financial sector roles in bengaluru — checking credit score, loan defaults, and financial delinquency history with candidate consent.</p>
               <div class="card-tags">
-                <span class="card-tag highlight"><i class="bi bi-check-circle-fill"></i> CIBIL Score</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Loan Default</span>
-                <span class="card-tag purple"><i class="bi bi-check-circle-fill"></i> IBBI Search</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> GST Verify</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> CIBIL</span>
+                <span class="card-tag highlight"><i class="bi bi-building-fill"></i> BFSI</span>
               </div>
-              <a href="../checks/credit-check" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
+              <a href="../checks/credit-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-calendar-x-fill"></i></div>
+              <h3>Gap Verification</h3>
+              <p>Employment and education gap analysis — validating reasons for career breaks, unemployment periods, and study gaps for bengaluru's diverse candidate pool.</p>
+              <div class="card-tags">
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Employment Gap</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Education Gap</span>
+              </div>
+              <a href="../checks/gap-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-share-fill"></i></div>
+              <h3>Social Media Screening</h3>
+              <p>Public social media profile analysis across major platforms — identifying potential risks, extremist affiliations, or reputation concerns for bengaluru hires.</p>
+              <div class="card-tags">
+                <span class="card-tag purple"><i class="bi bi-eye-fill"></i> Public Only</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> DPDPA Safe</span>
+              </div>
+              <a href="../checks/socialmeidaverification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-shield-check"></i></div>
+              <h3>Police Clearance Certificate</h3>
+              <p>Facilitation of Police Clearance Certificates from bengaluru City Police Commissioner's office and other Karnataka police jurisdictions — for immigration and employment purposes.</p>
+              <div class="card-tags">
+                <span class="card-tag red"><i class="bi bi-building-fill-gear"></i> BCP</span>
+                <span class="card-tag blue"><i class="bi bi-airplane-fill"></i> Immigration</span>
+              </div>
+              <a href="../checks/police-clearnce" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-capsule"></i></div>
+              <h3>Drug Test Screening</h3>
+              <p>Pre-employment and random drug testing through NABL-accredited laboratories in bengaluru — covering 5-panel, 10-panel, and custom substance panels with chain-of-custody documentation.</p>
+              <div class="card-tags">
+                <span class="card-tag highlight"><i class="bi bi-patch-check-fill"></i> NABL Labs</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> 10-Panel</span>
+              </div>
+              <a href="../checks/drug-test" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
 
     <!-- INDUSTRIES -->
     <section class="industries-section" id="industries">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-building-fill-gear"></i> bengaluru Industries</span>
-          <h2 class="section-title">Serving bengaluru's Key Economic Sectors</h2>
-          <p class="section-desc mx-auto">From the IT corridor along Outer Ring Road to the aerospace hub in Devanahalli and the startup cluster in HSR Layout — we understand each industry's unique verification needs.</p>
+          <span class="section-subtitle"><i class="bi bi-building-fill-gear"></i> Industries We Serve</span>
+          <h2 class="section-title">Trusted Across bengaluru's Key Sectors</h2>
+          <p class="section-desc mx-auto">From the IT corridors of Outer Ring Road to the aerospace hub of Devanahalli, we understand the unique verification needs of every bengaluru industry.</p>
         </div>
         <div class="row g-4">
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-laptop"></i>
-              <h3>IT &amp; ITES</h3>
-              <p>Whitefield, Electronic City</p>
-              <a href="../industries/IT-ITES" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <h3>IT / ITeS</h3>
+              <p>Whitefield, Electronic City, Manyata Tech Park</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-rocket-takeoff-fill"></i>
-              <h3>Startups</h3>
-              <p>HSR Layout, Indiranagar</p>
-              <a href="../industries/IT-ITES" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <i class="bi bi-bank"></i>
+              <h3>Banking &amp; Finance</h3>
+              <p>GB Road, MG Road fintech corridor</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-heart-pulse-fill"></i>
-              <h3>Healthcare</h3>
-              <p>Manipal, Apollo, Narayana</p>
-              <a href="../industries/healthcare" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <i class="bi bi-heart-pulse"></i>
+              <h3>Healthcare &amp; Pharma</h3>
+              <p>Whitefield pharma cluster, Hosur Road hospitals</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-building-gear"></i>
               <h3>Manufacturing</h3>
-              <p>Peenya, KIADB Industrial</p>
-              <a href="../industries/manufacturing" class="card-nav-btn card-nav-btn-sm">Explore </a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 reveal">
-            <div class="industry-item">
-              <i class="bi bi-bank"></i>
-              <h3>BFSI</h3>
-              <p>MG Road, UB City</p>
-              <a href="../industries/banks" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <p>Peenya Industrial Area, KIADB parks</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-truck"></i>
-              <h3>Logistics</h3>
-              <p>Hosur Road, Bommasandra</p>
-              <a href="../industries/Logistics" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <h3>Logistics &amp; Supply Chain</h3>
+              <p>Hosur Road warehousing, ORR logistics hubs</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-shop"></i>
-              <h3>Retail &amp; E-com</h3>
-              <p>Forum Mall, Orion Mall</p>
-              <a href="../industries/Retail & E-commerce" class="card-nav-btn card-nav-btn-sm">Explore</a>
+              <h3>Retail &amp; E-commerce</h3>
+              <p>E-commerce fulfilment centres, retail chains</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-mortarboard-fill"></i>
-              <h3>Education</h3>
-              <p>IISc, IIM-B, Christ Univ</p>
-              <a href="../industries/education" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <i class="bi bi-box"></i>
+              <h3>FMCG</h3>
+              <p>Corporate offices and distribution networks</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6 reveal">
+            <div class="industry-item">
+              <i class="bi bi-house"></i>
+              <h3>Real Estate</h3>
+              <p>Construction sites, property management firms</p>
             </div>
           </div>
         </div>
@@ -870,15 +966,39 @@
     <section class="trust-section" id="trust">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-trophy-fill"></i> Why bengaluru Trusts Us</span>
-          <h2 class="section-title">Proven Track Record in Karnataka</h2>
-          <p class="section-desc mx-auto">Numbers that reflect our commitment to bengaluru's employer community — from Koramangala startups to Whitefield enterprise giants.</p>
+          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-trophy-fill"></i> Why Verifitech</span>
+          <h2 class="section-title">Trusted by 900+ Employers Across India</h2>
+          <p class="section-desc mx-auto">Our bengaluru operations are backed by nationwide infrastructure, cutting-edge technology, and deep regulatory expertise.</p>
         </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal"><div class="trust-card"><div class="trust-stat" data-target="5000000">0</div><div class="trust-label">Verifications Completed</div><p class="trust-desc">Across India with significant bengaluru volume</p></div></div>
-          <div class="col-lg-3 col-md-6 reveal"><div class="trust-card"><div class="trust-stat" data-target="900">0</div><div class="trust-label">Active Clients</div><p class="trust-desc">Including 200+ bengaluru-based companies</p></div></div>
-          <div class="col-lg-3 col-md-6 reveal"><div class="trust-card"><div class="trust-stat">99.2%</div><div class="trust-label">Accuracy Rate</div><p class="trust-desc">Industry-leading verification precision</p></div></div>
-          <div class="col-lg-3 col-md-6 reveal"><div class="trust-card"><div class="trust-stat">3-5</div><div class="trust-label">Days Avg. TAT</div><p class="trust-desc">Fastest turnaround in bengaluru market</p></div></div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="trust-card">
+              <div class="trust-stat" data-target="5000000">5M+</div>
+              <div class="trust-label">Verifications Completed</div>
+              <p class="trust-desc">Across all check types and geographies</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">900+</div>
+              <div class="trust-label">Employer Clients</div>
+              <p class="trust-desc">Including Fortune 500 and Indian unicorns</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">99.2%</div>
+              <div class="trust-label">Accuracy Rate</div>
+              <p class="trust-desc">Industry-leading verification accuracy</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">3-5</div>
+              <div class="trust-label">Days Avg. TAT</div>
+              <p class="trust-desc">For standard employment packages in bengaluru</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -887,15 +1007,39 @@
     <section class="process-section" id="process">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-arrow-repeat"></i> How It Works</span>
+          <span class="section-subtitle"><i class="bi bi-list-ol"></i> How It Works</span>
           <h2 class="section-title">Simple 4-Step Verification Process</h2>
-          <p class="section-desc mx-auto">From candidate onboarding to final report delivery — our bengaluru team manages the entire lifecycle seamlessly.</p>
+          <p class="section-desc mx-auto">From candidate initiation to final report delivery — our bengaluru verification workflow is designed for speed, accuracy, and compliance.</p>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal"><div class="process-step"><div class="step-number">1</div><h3>Submit Candidate</h3><p>Upload candidate details via our portal, API, or integrate with your ATS. Auto-populate fields with Aadhaar/PAN e-KYC.</p></div></div>
-          <div class="col-lg-3 col-md-6 reveal"><div class="process-step"><div class="step-number">2</div><h3>Consent &amp; e-KYC</h3><p>Digital consent capture with DPDPA-compliant disclosure. Aadhaar OTP-based e-KYC completed in under 30 seconds.</p></div></div>
-          <div class="col-lg-3 col-md-6 reveal"><div class="process-step"><div class="step-number">3</div><h3>Multi-Source Verification</h3><p>Parallel checks across government databases, university registries, court records, and field agents — all simultaneously.</p></div></div>
-          <div class="col-lg-3 col-md-6 reveal"><div class="process-step"><div class="step-number">4</div><h3>Report &amp; Decision</h3><p>Comprehensive digital report with risk scoring, red-flag highlights, and clear go/no-go recommendation within 3-5 days.</p></div></div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>Submit Candidate</h3>
+              <p>Upload candidate details via our portal, API, or bulk Excel upload. Select the verification package tailored for your bengaluru hiring needs.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>Consent &amp; Data Capture</h3>
+              <p>DPDPA-compliant digital consent is captured from the candidate. Aadhaar e-KYC and DigiLocker documents are fetched automatically.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>Verification Execution</h3>
+              <p>Our bengaluru team and tech engine execute checks — EPFO API calls, police station visits, university registrar confirmations, and more.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>Report Delivery</h3>
+              <p>Detailed compliance-ready report delivered to your dashboard — with clear pass/fail status, evidence documents, and exception flags.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -904,10 +1048,9 @@
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box reveal">
-          <h2 style="font-size:2.5rem;font-weight:800;color:var(--dark);margin-bottom:1rem;letter-spacing:-1px;">Ready to Screen Your bengaluru Workforce?</h2>
-          <p style="font-size:1.15rem;color:var(--gray);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;">Get a personalised demo of our bengaluru background verification platform. See how 900+ Indian employers trust Verifitech for compliant, fast, and accurate checks.</p>
-          <a href="../contact/contact" class="btn-primary-custom"><i class="bi bi-play-circle"></i> Schedule a Free Demo <i class="bi bi-arrow-right"></i></a>
-          <p style="font-size:0.85rem;color:var(--gray);margin-top:1.5rem;margin-bottom:0;"><i class="bi bi-shield-check" style="color:var(--primary);"></i> No credit card required &nbsp;&middot;&nbsp; 15-minute demo &nbsp;&middot;&nbsp; DPDPA compliant</p>
+          <h2 class="section-title">Ready to Streamline Your bengaluru Background Checks?</h2>
+          <p class="section-desc mx-auto text-center mb-4">Get a personalised demo of our DPDPA-compliant verification platform — see how 900+ employers trust Verifitech for their bengaluru hiring.</p>
+          <a href="../Demo/demo.html" class="btn-primary-custom"><i class="bi bi-play-circle"></i> Request a Free Demo</a>
         </div>
       </div>
     </section>
@@ -915,33 +1058,36 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
+        <!-- Newsletter -->
         <div class="newsletter-footer-section">
           <div class="row align-items-center">
             <div class="col-lg-5 mb-4 mb-lg-0">
-              <div class="d-flex align-items-start gap-3">
-                <div class="newsletter-icon-footer"><i class="bi bi-envelope-paper-fill"></i></div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="newsletter-icon-footer"><i class="bi bi-envelope-fill"></i></div>
                 <div>
-                  <h3 class="newsletter-title">Stay Updated</h3>
-                  <p class="newsletter-subtitle">Get the latest on bengaluru compliance changes, labour law updates, and verification best practices.</p>
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest compliance updates and verification insights.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-7">
               <div class="newsletter-form-footer">
                 <div class="input-group-wrapper">
-                  <div style="flex:1;"><input type="email" class="newsletter-input" placeholder="Enter your work email" id="footerEmail" /></div>
-                  <button class="newsletter-btn" onclick="handleNewsletter()">Subscribe <i class="bi bi-arrow-right"></i></button>
+                  <input type="email" class="newsletter-input" placeholder="Enter your email address" />
+                  <button class="newsletter-btn">Subscribe <i class="bi bi-arrow-right"></i></button>
                 </div>
-                <p class="newsletter-disclaimer"><i class="bi bi-lock-fill"></i> We respect your privacy. Unsubscribe anytime.</p>
+                <p class="newsletter-disclaimer"><i class="bi bi-shield-check-fill"></i> We respect your privacy. Unsubscribe anytime.</p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Footer Main -->
         <div class="footer-main-content">
           <div class="row g-4">
-            <div class="col-lg-4">
+            <div class="col-lg-3 col-md-6">
               <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" />
-              <p class="footer-description">India's trusted background verification platform. Compliant, fast, and accurate screening for employers across bengaluru and Karnataka.</p>
+              <p class="footer-description">India's trusted background verification platform — DPDPA compliant, tech-powered, and built for scale.</p>
               <div class="social-icons">
                 <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                 <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
@@ -949,138 +1095,117 @@
                 <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
               </div>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-2 col-md-6">
               <h5 class="footer-heading">Solutions</h5>
               <ul class="footer-links">
                 <li><a href="../checks/id-verification">ID Verification</a></li>
+                <li><a href="../checks/address-verification">Address Check</a></li>
                 <li><a href="../checks/employment">Employment Check</a></li>
                 <li><a href="../checks/education-check">Education Check</a></li>
-                <li><a href="../checks/court-verification">Criminal Check</a></li>
-                <li><a href="../checks/address-verification">Address Check</a></li>
+                <li><a href="../checks/court-verification">Court Records</a></li>
+                <li><a href="../checks/global-check">Global Database</a></li>
               </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-2 col-md-6">
+              <h5 class="footer-heading">Industries</h5>
+              <ul class="footer-links">
+                <li><a href="../industries/IT-ITES">IT / ITeS</a></li>
+                <li><a href="../industries/banks">Banking &amp; Finance</a></li>
+                <li><a href="../industries/healthcare">Healthcare</a></li>
+                <li><a href="../industries/manufacturing">Manufacturing</a></li>
+                <li><a href="../industries/Logistics">Logistics</a></li>
+                <li><a href="../industries/staffing">Staffing</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
               <h5 class="footer-heading">Company</h5>
               <ul class="footer-links">
                 <li><a href="../company/aboutus">About Us</a></li>
-                <li><a href="../company/partnership">Partnership</a></li>
                 <li><a href="../company/careers">Careers</a></li>
+                <li><a href="../company/partnership">Partnership</a></li>
                 <li><a href="../resources/blog">Blog</a></li>
-                <li><a href="../contact/contact">Contact</a></li>
+                <li><a href="../resources/casestudy">Case Studies</a></li>
+                <li><a href="../contact/contact">Contact Us</a></li>
               </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-3 col-md-6">
               <h5 class="footer-heading">Resources</h5>
               <ul class="footer-links">
                 <li><a href="../resources/whitepapers">Whitepapers</a></li>
-                <li><a href="../resources/casestudy">Case Studies</a></li>
                 <li><a href="../resources/webinar">Webinars</a></li>
-                <li><a href="../products/api">API Docs</a></li>
-                <li><a href="#">Help Center</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2">
-              <h5 class="footer-heading">Locations</h5>
-              <ul class="footer-links">
-               <li><a href="../india/bangalore">Bangalore</a></li>
-                <li><a href="../india/pune">Pune</a></li>
-                <li><a href="../india/hyderabad">Hyderabad</a></li>
-                <li><a href="../india/mumbai">Mumbai</a></li>
-                <li><a href="../india/delhi">Delhi NCR</a></li>
-                <li><a href="../india/chennai">Chennai</a></li>
+                <li><a href="../products/api">API Documentation</a></li>
+                <li><a href="../helpcenter/customer">Help Center</a></li>
+                <li><a href="../helpcenter/partner">Partner Support</a></li>
               </ul>
             </div>
           </div>
         </div>
+
+        <!-- Privacy Row -->
         <div class="privacy-row">
-          <p class="copyright">&copy; 2026 Verifitech. All rights reserved. &nbsp;<a href="#" class="privacy-link">Privacy Policy</a><span class="privacy-separator">|</span><a href="#" class="privacy-link">Terms of Service</a><span class="privacy-separator">|</span><a href="#" class="privacy-link">DPDPA Compliance</a></p>
+          <p class="copyright">&copy; 2025 Verifitech. All rights reserved.
+            <a href="#" class="privacy-link">Privacy Policy</a>
+            <span class="privacy-separator">|</span>
+            <a href="#" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>
+            <a href="#" class="privacy-link">Cookie Policy</a>
+          </p>
         </div>
       </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      window.addEventListener('scroll', function () {
-        var navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
       });
 
-      function revealOnScroll() {
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          if (elementTop < windowHeight - 120) { reveals[i].classList.add('active'); }
-        }
-      }
-      window.addEventListener('scroll', revealOnScroll);
-      window.addEventListener('load', revealOnScroll);
-
-      function animateCounters() {
-        var counters = document.querySelectorAll('.trust-stat[data-target]');
-        for (var i = 0; i < counters.length; i++) {
-          (function(counter) {
-            var target = parseInt(counter.getAttribute('data-target'));
-            var startTime = performance.now();
-            function update(currentTime) {
-              var progress = Math.min((currentTime - startTime) / 2000, 1);
-              var eased = 1 - Math.pow(1 - progress, 3);
-              var current = Math.floor(eased * target);
-              if (target >= 1000000) {
-                counter.textContent = (current / 1000000).toFixed(1) + 'M+';
-              } else {
-                counter.textContent = current.toLocaleString('en-IN') + '+';
-              }
-              if (progress < 1) { requestAnimationFrame(update); }
-            }
-            var observer = new IntersectionObserver(function (entries) {
-              for (var j = 0; j < entries.length; j++) {
-                if (entries[j].isIntersecting) {
-                  requestAnimationFrame(update);
-                  observer.unobserve(entries[j].target);
-                }
-              }
-            }, { threshold: 0.5 });
-            observer.observe(counter);
-          })(counters[i]);
-        }
-      }
-      animateCounters();
-
-      function handleNewsletter() {
-        var input = document.getElementById('footerEmail');
-        var email = input.value.trim();
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          input.style.borderColor = '#ef4444';
-          input.style.backgroundColor = '#fef2f2';
-          input.focus();
-          setTimeout(function () { input.style.borderColor = '#e2e8f0'; input.style.backgroundColor = '#fff'; }, 3000);
-          return;
-        }
-        input.style.borderColor = '#10b981';
-        input.style.backgroundColor = '#f0fdf4';
-        input.value = '';
-        input.placeholder = 'Subscribed successfully!';
-        setTimeout(function () { input.style.borderColor = '#e2e8f0'; input.style.backgroundColor = '#fff'; input.placeholder = 'Enter your work email'; }, 4000);
-      }
-
-      document.getElementById('footerEmail').addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') handleNewsletter();
-      });
-
-      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-          var targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          var target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            var offset = 100;
-            var bodyRect = document.body.getBoundingClientRect().top;
-            var elementRect = target.getBoundingClientRect().top;
-            window.scrollTo({ top: elementTop + bodyRect - offset, behavior: 'smooth' });
+      // Reveal on scroll
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
           }
         });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // Country selector
+      document.querySelectorAll('.country-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+          const flag = this.getAttribute('data-flag');
+          const country = this.getAttribute('data-country');
+          document.getElementById('current-flag').textContent = flag;
+          document.getElementById('current-country').textContent = country;
+        });
+      });
+
+      // Newsletter form
+      document.querySelector('.newsletter-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const input = document.querySelector('.newsletter-input');
+    
+        if (input.value && input.value.includes('@')) {
+          this.innerHTML = '<i class="bi bi-check-circle-fill"></i> Subscribed!';
+          this.style.background = 'linear-gradient(135deg, #16a8a7 0%, #118584 100%)';
+          input.value = '';
+          setTimeout(() => {
+            this.innerHTML = 'Subscribe <i class="bi bi-arrow-right"></i>';
+            this.style.background = '';
+          }, 3000);
+        } else {
+          input.style.borderColor = '#ef4444';
+          input.focus();
+          setTimeout(() => { input.style.borderColor = ''; }, 2000);
+        }
       });
     </script>
   </body>
