@@ -16,6 +16,10 @@
         --primary: #1ac2c1;
         --primary-dark: #16a8a7;
         --primary-light: #e0f7f7;
+        --primary-lighter: #f0fafb;
+        --primary-border: #b0eded;
+        --primary-deep: #118584;
+        --primary-darkest: #0e6b6a;
         --dark: #0f172a;
         --navy: #1e293b;
         --gray: #64748b;
@@ -41,73 +45,99 @@
       .dropdown-item { position: relative; z-index: 1061; }
 
       /* ============================================
+         INDIVIDUAL CARD NAVIGATION BUTTON
+         ============================================ */
+      .card-nav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 0.45rem 1rem;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 0.82rem;
+        text-decoration: none;
+        color: var(--primary-deep);
+        background: var(--primary-lighter);
+        border: 1px solid var(--primary-light);
+        transition: all 0.25s ease;
+        margin-top: 1.2rem;
+      }
+
+      .card-nav-btn:hover {
+        background: var(--primary-light);
+        border-color: var(--primary-border);
+        color: var(--primary-darkest);
+      }
+
+      .card-nav-btn i {
+        font-size: 0.7rem;
+        transition: transform 0.25s ease;
+      }
+
+      .card-nav-btn:hover i {
+        transform: translateX(3px);
+      }
+
+      .card-nav-btn-sm {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.78rem;
+        border-radius: 4px;
+        margin-top: 0.8rem;
+      }
+
+      .card-nav-btn-sm i {
+        font-size: 0.65rem;
+      }
+
+      .service-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .service-card .card-nav-btn {
+        margin-top: auto;
+      }
+
+      .industry-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .industry-item .card-nav-btn-sm {
+        margin-top: auto;
+      }
+
+      /* ============================================
+         INDUSTRY EXPLORE BUTTON (no arrow)
+         ============================================ */
+      .industry-explore-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem 1.2rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.82rem;
+        text-decoration: none;
+        color: var(--primary-deep);
+        background: var(--primary-lighter);
+        border: 1px solid var(--primary-light);
+        transition: all 0.25s ease;
+        margin-top: auto;
+      }
+      .industry-explore-btn:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(26,194,193,0.25);
+      }
+
+      /* ============================================
          NAVBAR
          ============================================ */
-/* ============================================
-   INDIVIDUAL CARD NAVIGATION BUTTON
-   ============================================ */
-.card-nav-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0.45rem 1rem;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 0.82rem;
-  text-decoration: none;
-  color: #0d9488;
-  background: #f0fdfa;
-  border: 1px solid #ccfbf1;
-  transition: all 0.25s ease;
-  margin-top: 1.2rem;
-}
-
-.card-nav-btn:hover {
-  background: #ccfbf1;
-  border-color: #99f6e4;
-  color: #0f766e;
-}
-
-.card-nav-btn i {
-  font-size: 0.7rem;
-  transition: transform 0.25s ease;
-}
-
-.card-nav-btn:hover i {
-  transform: translateX(3px);
-}
-
-/* Smaller variant for industry cards */
-.card-nav-btn-sm {
-  padding: 0.35rem 0.8rem;
-  font-size: 0.78rem;
-  border-radius: 4px;
-  margin-top: 0.8rem;
-}
-
-.card-nav-btn-sm i {
-  font-size: 0.65rem;
-}
-
-/* Push button to bottom inside flex-column cards */
-.service-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.service-card .card-nav-btn {
-  margin-top: auto;
-}
-
-.industry-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.industry-item .card-nav-btn-sm {
-  margin-top: auto;
-}      .navbar {
+      .navbar {
         padding: 0;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         background: rgba(255, 255, 255, 0.98);
@@ -241,9 +271,9 @@
 
       .btn-login {
         background-color: #ffffff !important;
-        color: #00bfa5 !important;
-        border: 1px solid #00bfa5 !important;
-        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+        color: #1ac2c1 !important;
+        border: 1px solid #1ac2c1 !important;
+        box-shadow: 0 2px 8px rgba(26, 194, 193, 0.3) !important;
         padding: 8px 24px;
         border-radius: 6px;
         font-weight: 500;
@@ -253,9 +283,9 @@
       }
 
       .btn-login:hover {
-        background-color: #00bfa5 !important;
+        background-color: #1ac2c1 !important;
         color: #ffffff !important;
-        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        box-shadow: 0 4px 12px rgba(26, 194, 193, 0.4) !important;
         transform: translateY(-1px);
       }
 
@@ -283,7 +313,7 @@
          ============================================ */
       .chennai-hero {
         padding: 140px 0 100px;
-        background: linear-gradient(135deg, #fff7ed 0%, #ffffff 40%, #f0fdfa 100%);
+        background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 40%, var(--primary-lighter) 100%);
         position: relative;
         overflow: hidden;
       }
@@ -295,7 +325,7 @@
         right: -10%;
         width: 600px;
         height: 600px;
-        background: radial-gradient(circle, rgba(255, 153, 51, 0.08) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(26, 194, 193, 0.08) 0%, transparent 70%);
         border-radius: 50%;
       }
 
@@ -315,13 +345,13 @@
         align-items: center;
         gap: 8px;
         padding: 0.6rem 1.2rem;
-        background: rgba(255, 153, 51, 0.1);
-        color: #c2410c;
+        background: rgba(26, 194, 193, 0.1);
+        color: var(--primary-deep);
         border-radius: 50px;
         font-size: 0.95rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
-        border: 1px solid rgba(255, 153, 51, 0.2);
+        border: 1px solid rgba(26, 194, 193, 0.2);
       }
 
       .chennai-hero h1 {
@@ -334,10 +364,8 @@
       }
 
       .chennai-hero h1 .highlight {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--accent-saffron) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #1ac2c1;
+        -webkit-text-fill-color: #1ac2c1;
       }
 
       .chennai-hero .lead {
@@ -425,7 +453,7 @@
         width: 380px;
         height: 380px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 153, 51, 0.08) 100%);
+        background: linear-gradient(135deg, var(--primary-light) 0%, rgba(26, 194, 193, 0.08) 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -463,7 +491,7 @@
       }
 
       .map-ring:nth-child(2) { width: 430px; height: 430px; animation-duration: 40s; }
-      .map-ring:nth-child(3) { width: 480px; height: 480px; animation-duration: 55s; animation-direction: reverse; border-color: rgba(255, 153, 51, 0.15); }
+      .map-ring:nth-child(3) { width: 480px; height: 480px; animation-duration: 55s; animation-direction: reverse; border-color: rgba(26, 194, 193, 0.12); }
 
       @keyframes mapRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
@@ -608,7 +636,7 @@
          ============================================ */
       .migration-section {
         padding: 100px 0;
-        background: linear-gradient(135deg, #fff7ed 0%, #f8fafc 100%);
+        background: linear-gradient(135deg, var(--primary-light) 0%, var(--light-gray) 100%);
         position: relative;
         overflow: hidden;
       }
@@ -620,7 +648,7 @@
         left: -10%;
         width: 500px;
         height: 500px;
-        background: radial-gradient(circle, rgba(255, 153, 51, 0.06) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(26, 194, 193, 0.06) 0%, transparent 70%);
         border-radius: 50%;
       }
 
@@ -932,7 +960,7 @@
       }
 
       .trust-card:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-5px); }
-      .trust-stat { font-size: 3.5rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 0.5rem; }
+      .trust-stat { font-size: 3.5rem; font-size: 800; color: var(--primary); line-height: 1; margin-bottom: 0.5rem; }
       .trust-label { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
       .trust-desc { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); margin: 0; }
 
@@ -979,7 +1007,7 @@
          ============================================ */
       .cta-section {
         padding: 100px 0;
-        background: linear-gradient(135deg, #fff7ed 0%, #f0fdfa 100%);
+        background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-lighter) 100%);
         text-align: center;
       }
 
@@ -1002,7 +1030,7 @@
         left: 0;
         right: 0;
         height: 4px;
-        background: linear-gradient(90deg, var(--accent-saffron), var(--primary), var(--accent-gold));
+        background: linear-gradient(90deg, var(--primary), var(--primary-dark), var(--accent-gold));
       }
 
       .btn-primary-custom {
@@ -1027,32 +1055,6 @@
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
         color: white !important;
       }
-      
-      /* Country Selector */
-      .country-selector {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 0.5rem;
-        border-radius: 6px;
-        border: 1px solid #e2e8f0;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--navy);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-left: 1rem;
-      }
-
-      .country-selector:hover {
-        border-color: var(--primary);
-        color: var(--primary);
-      }
-
-      .country-selector i {
-        font-size: 1.2rem;
-      }
-
 
       /* ============================================
          ANIMATIONS
@@ -1373,45 +1375,45 @@
           <div class="d-flex align-items-center">
             <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
             <a href="../contact/contact" class="btn-sales">Contact</a>
-                               <!-- Country Selector -->
-                    <div class="dropdown">
-                        <div class="country-selector " data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="country-flag" id="current-flag">🇮🇳</span>
-                            <span id="current-country">India</span>
-                            <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
-                        </div>
-                        <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
-                            <li>
-                                <a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
-                                    <span class="country-flag">🇺🇸</span> USA
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/UAE" data-country="UAE" data-flag="🇦🇪">
-                                    <span class="country-flag">🇦🇪</span> UAE
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/aus" data-country="Australia" data-flag="🇦🇺">
-                                    <span class="country-flag">🇦🇺</span> Australia
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/uk" data-country="UK" data-flag="🇬🇧">
-                                    <span class="country-flag">🇬🇧</span> UK
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/singapore" data-country="Singapore" data-flag="🇸🇬">
-                                    <span class="country-flag">🇸🇬</span> Singapore
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/Ireland" data-country="India" data-flag="🇮🇪">
-                                    <span class="country-flag">🇮🇪</span> Ireland
-                                </a>
-                            </li>
-                        </ul>
+            <!-- Country Selector -->
+            <div class="dropdown">
+              <div class="country-selector" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                <li>
+                  <a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/UAE" data-country="UAE" data-flag="🇦🇪">
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/aus" data-country="Australia" data-flag="🇦🇺">
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/uk" data-country="UK" data-flag="🇬🇧">
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/singapore" data-country="Singapore" data-flag="🇸🇬">
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/Ireland" data-country="India" data-flag="🇮🇪">
+                    <span class="country-flag">🇮🇪</span> Ireland
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1419,32 +1421,21 @@
     </nav>
 
     <!-- ============================================
-         CHENNAI HERO SECTION
+         CHENNAI HERO
          ============================================ -->
     <section class="chennai-hero">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 reveal">
-            <div class="chennai-badge">
-              <i class="bi bi-geo-alt-fill"></i> Chennai, Tamil Nadu
-            </div>
+            <div class="chennai-badge"><i class="bi bi-geo-alt-fill"></i> Chennai, Tamil Nadu</div>
             <h1>Background Checks <span class="highlight">Built for Chennai</span> Employers</h1>
-            <p class="lead">Run DPDPA & Tamil Nadu labour law-compliant background verification across Chennai — Aadhaar KYC, EPFO/UAN validation, criminal record checks from Chennai Commissionerate, education attestation from Anna University & state boards, and inter-state migrant worker screening.</p>
+            <p class="lead">Run DPDPA &amp; Tamil Nadu labour law-compliant background verification across Chennai — Aadhaar KYC, EPFO/UAN validation, criminal record checks from Chennai City Police, education attestation from Anna University, and inter-state migrant worker screening.</p>
             <div class="hero-buttons">
               <a href="../Demo/demo.html" class="btn-hero-primary"><i class="bi bi-play-circle"></i> Get a Free Demo</a>
-              <a href="#services" class="btn-hero-secondary"><i class="bi bi-grid-3x3-gap"></i> View All Checks</a>
-<!--             </div>
-            <div class="hero-trust">
-              <div class="hero-trust-avatars">
-                <img src="https://picsum.photos/seed/chennai-avatar1/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/chennai-avatar2/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/chennai-avatar3/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/chennai-avatar4/72/72.jpg" alt="Client" />
-              </div>
-              <p class="hero-trust-text">Trusted by <strong>800+ employers</strong> across India</p> -->
+              <a href="#service" class="btn-hero-secondary"><i class="bi bi-grid-3x3-gap"></i> View All Checks</a>
             </div>
+            <div class="hero-trust"></div>
           </div>
-
           <div class="col-lg-6 reveal">
             <div class="chennai-stats-visual">
               <div class="map-container">
@@ -1455,37 +1446,21 @@
                   <span class="map-label">Chennai</span>
                   <span class="map-sublabel">Capital of Tamil Nadu</span>
                 </div>
-
                 <div class="stat-card">
                   <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
-                  <div class="stat-text">
-                    <h4>5M+</h4>
-                    <p>Workforce Verified</p>
-                  </div>
+                  <div class="stat-text"><h4>4M+</h4><p>Verifications Done</p></div>
                 </div>
-
                 <div class="stat-card">
                   <div class="stat-icon"><i class="bi bi-building-fill"></i></div>
-                  <div class="stat-text">
-                    <h4>800+</h4>
-                    <p>Chennai Employers</p>
-                  </div>
+                  <div class="stat-text"><h4>800+</h4><p>Chennai Employers</p></div>
                 </div>
-
                 <div class="stat-card">
                   <div class="stat-icon"><i class="bi bi-clock-fill"></i></div>
-                  <div class="stat-text">
-                    <h4>3-5 Days</h4>
-                    <p>Avg. Turnaround</p>
-                  </div>
+                  <div class="stat-text"><h4>3-5 Days</h4><p>Avg. Turnaround</p></div>
                 </div>
-
                 <div class="stat-card">
                   <div class="stat-icon"><i class="bi bi-shield-fill-check"></i></div>
-                  <div class="stat-text">
-                    <h4>99.2%</h4>
-                    <p>Accuracy Rate</p>
-                  </div>
+                  <div class="stat-text"><h4>99.1%</h4><p>Accuracy Rate</p></div>
                 </div>
               </div>
             </div>
@@ -1495,16 +1470,15 @@
     </section>
 
     <!-- ============================================
-         COMPLIANCE SECTION
+         COMPLIANCE
          ============================================ -->
     <section class="compliance-section" id="compliance">
       <div class="container">
         <div class="section-header text-center reveal">
           <span class="section-subtitle"><i class="bi bi-patch-check-fill"></i> Regulatory Compliance</span>
-          <h2 class="section-title">DPDPA & Tamil Nadu Labour Law Compliant Checks</h2>
-          <p class="section-desc mx-auto">Every verification we conduct in Chennai adheres to the Digital Personal Data Protection Act 2023, Tamil Nadu Shops & Establishments Act, Inter-State Migrant Workmen Act, and relevant central labour codes.</p>
+          <h2 class="section-title">DPDPA &amp; Tamil Nadu Labour Law Compliant Checks</h2>
+          <p class="section-desc mx-auto">Every verification we conduct in Chennai adheres to the Digital Personal Data Protection Act 2023, Tamil Nadu Shops &amp; Commercial Establishments Act, Inter-State Migrant Workmen Act, and relevant central labour codes.</p>
         </div>
-
         <div class="row g-4">
           <div class="col-lg-4 col-md-6 reveal">
             <div class="compliance-card">
@@ -1514,49 +1488,44 @@
               <span class="compliance-badge">Data Protection</span>
             </div>
           </div>
-
           <div class="col-lg-4 col-md-6 reveal">
             <div class="compliance-card">
               <div class="compliance-icon"><i class="bi bi-file-earmark-ruled"></i></div>
-              <h3>TN Shops & Establishments Act</h3>
+              <h3>TN Shops &amp; Establishments Act</h3>
               <p>Background verification aligned with Tamil Nadu's employment regulations, covering record retention periods, employee consent requirements, and dispute resolution frameworks.</p>
               <span class="compliance-badge">State Law</span>
             </div>
           </div>
-
           <div class="col-lg-4 col-md-6 reveal">
             <div class="compliance-card">
               <div class="compliance-icon"><i class="bi bi-people-fill"></i></div>
               <h3>Inter-State Migrant Workmen Act</h3>
-              <p>Specialised verification for migrant workers in Chennai's manufacturing, construction, and logistics sectors — including origin-state police checks, contractor validation, and registration verification.</p>
+              <p>Specialised verification for migrant workers in Chennai's construction, manufacturing, and logistics sectors — including origin-state police checks and contractor validation.</p>
               <span class="compliance-badge amber">Migrant Workers</span>
             </div>
           </div>
-
           <div class="col-lg-4 col-md-6 reveal">
             <div class="compliance-card">
               <div class="compliance-icon"><i class="bi bi-card-checklist"></i></div>
               <h3>Four Labour Codes Alignment</h3>
-              <p>Our processes map to the Code on Wages, Industrial Relations, Social Security, and Occupational Safety — ensuring your Chennai hiring stays compliant post-2020 labour reforms.</p>
+              <p>Our processes map to the Code on Wages, Industrial Relations, Social Security, and Occupational Safety — ensuring your Chennai hiring stays compliant post-2020 reforms.</p>
               <span class="compliance-badge">Central Codes</span>
             </div>
           </div>
-
           <div class="col-lg-4 col-md-6 reveal">
             <div class="compliance-card">
               <div class="compliance-icon"><i class="bi bi-fingerprint"></i></div>
-              <h3>Aadhaar & UIDAI Guidelines</h3>
+              <h3>Aadhaar &amp; UIDAI Guidelines</h3>
               <p>Aadhaar-based e-KYC performed strictly per UIDAI regulations. Offline verification, XML-based authentication, and consent-driven demographic matching for Chennai candidates.</p>
               <span class="compliance-badge">Identity</span>
             </div>
           </div>
-
           <div class="col-lg-4 col-md-6 reveal">
             <div class="compliance-card">
               <div class="compliance-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
-              <h3>POSH & Workplace Safety</h3>
+              <h3>POSH &amp; Workplace Safety</h3>
               <p>Pre-employment screening that supports your Prevention of Sexual Harassment (POSH) obligations, including past complaint history checks where legally permissible.</p>
-              <span class="compliance-badge amber">Workplace</span>
+              <span class="compliance-badge">Workplace</span>
             </div>
           </div>
         </div>
@@ -1564,7 +1533,7 @@
     </section>
 
     <!-- ============================================
-         INTER-STATE MIGRATION SECTION
+         MIGRATION
          ============================================ -->
     <section class="migration-section" id="migration">
       <div class="container">
@@ -1574,75 +1543,45 @@
               <div class="globe-container">
                 <div class="globe-ring"></div>
                 <div class="globe-ring"></div>
-                <div class="globe-center">
-                  <i class="bi bi-building"></i>
-                  <span>Chennai</span>
-                </div>
-
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>AP</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Telangana</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Karnataka</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Kerala</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Bihar</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>Odisha</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>WB</span></div>
-                <div class="migration-node"><i class="bi bi-geo-alt"></i><span>UP</span></div>
-              </div>
-
-              <div class="migration-stat-card top-right">
-                <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-arrow-left-right"></i></div>
-                <div class="stat-text">
-                  <h4 style="font-size:1.4rem;">15+</h4>
-                  <p>Source States Tracked</p>
-                </div>
-              </div>
-
-              <div class="migration-stat-card bottom-left">
-                <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-check-circle-fill"></i></div>
-                <div class="stat-text">
-                  <h4 style="font-size:1.4rem;">48hrs</h4>
-                  <p>Migrant Check TAT</p>
-                </div>
+                <div class="globe-center"><i class="bi bi-building"></i><span>Chennai</span></div>
               </div>
             </div>
           </div>
-
           <div class="col-lg-7 reveal">
-            <span class="section-subtitle"><i class="bi bi-arrow-left-right"></i> Interstate Verification</span>
-            <h2 class="section-title">Migrant Worker Screening Across South & East India</h2>
-            <p class="section-desc mb-4">Chennai's automotive, construction, and garment industries rely heavily on inter-state migrant workers. We verify employment history, criminal records, and identity across multiple state jurisdictions simultaneously.</p>
-
-            <div class="row g-3">
+            <span class="section-subtitle"><i class="bi bi-globe-americas"></i> Migration Screening</span>
+            <h2 class="section-title">Inter-State &amp; Intra-City Worker Verification</h2>
+            <p class="section-desc">Chennai attracts millions of migrant workers from across India. Our migration-optimised checks cover origin verification, document authenticity, and contractor compliance.</p>
+            <div class="row g-3 mt-3">
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-search"></i></div>
-                  <h3>Multi-State Criminal Check</h3>
-                  <p>Court record verification across candidate's home district, Chennai courts, and any intermediate work locations.</p>
-                  <span class="visa-tag">Criminal</span>
+                  <div class="migration-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                  <h3>Origin State Verification</h3>
+                  <p>Police and address verification from the candidate's home state — covering AP, Karnataka, Kerala, West Bengal, Odisha, and other source states for Chennai's workforce.</p>
+                  <span class="visa-tag">Multi-State</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="migration-feature-card">
+                  <div class="migration-icon"><i class="bi bi-file-earmark-check-fill"></i></div>
+                  <h3>Document Authenticity</h3>
+                  <p>Cross-verification of migration certificates, labour cards, contractor licences, and work permits — ensuring every document is genuine and valid.</p>
+                  <span class="visa-tag">Anti-Fraud</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
                   <div class="migration-icon"><i class="bi bi-person-check-fill"></i></div>
                   <h3>Contractor Due Diligence</h3>
-                  <p>Verify labour contractor licences, registration under ISMW Act, and past compliance history with Tamil Nadu labour department.</p>
-                  <span class="visa-tag">Contractors</span>
+                  <p>Verification of labour contractors and placement agencies supplying migrant workers — including licence validity and compliance record.</p>
+                  <span class="visa-tag">Contractor Check</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-house-check-fill"></i></div>
-                  <h3>Address Verification (Origin)</h3>
-                  <p>Physical address verification at candidate's native place through our network of 500+ field agents across India.</p>
-                  <span class="visa-tag">Address</span>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-building"></i><br></div>
-                  <h3>Work History Chain</h3>
-                  <p>Continuous employment trail across states — filling gaps, validating overlap claims, and detecting fabricated experience.</p>
-                  <span class="visa-tag">Employment</span>
+                  <div class="migration-icon"><i class="bi bi-shield-check"></i></div>
+                  <h3>Regulatory Filing Support</h3>
+                  <p>Assistance with maintaining mandated registers and submitting returns under the ISMW Act for your Chennai operations.</p>
+                  <span class="visa-tag">Compliance</span>
                 </div>
               </div>
             </div>
@@ -1652,77 +1591,89 @@
     </section>
 
     <!-- ============================================
-         EPFO / UAN SECTION - DARK THEME
+         WPS DARK SECTION
          ============================================ -->
-    <section class="wps-section" id="epfo">
+    <section class="wps-section" id="wps">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 reveal">
-            <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-puzzle"></i> Government Database Integration</span>
-            <h2 class="section-title">EPFO, UAN & Digital India Verification Stack</h2>
-            <p class="section-desc">Chennai employers need real-time validation against Indian government databases. Our platform integrates directly with EPFO, DigiLocker, UIDAI, and state police portals for instant cross-referencing.</p>
-
-            <div class="mt-4">
-              <div class="wps-feature">
-                <i class="bi bi-check2-circle"></i>
-                <div>
-                  <h4>EPFO / UAN Validation</h4>
-                  <p>Verify PF account existence, employment history, and contribution continuity through UAN-based lookup — critical for Chennai's IT and manufacturing sectors.</p>
-                </div>
+        <div class="section-header text-center reveal">
+          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-cpu-fill"></i> WPS &amp; Digital Integration</span>
+          <h2 class="section-title">Tech-Powered Chennai Verification</h2>
+          <p class="section-desc mx-auto">Leverage our API-first platform with direct integrations into Aadhaar (UIDAI), EPFO/UAN, DigiLocker, NSDL, state police databases, and university portals — all optimised for Chennai's verification landscape.</p>
+        </div>
+        <div class="row g-4 mb-5">
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-fingerprint"></i></div>
+              <h3>Aadhaar e-KYC Integration</h3>
+              <p>Instant identity verification through UIDAI's Aadhaar API — supporting OTP, biometric, and offline XML-based authentication for Chennai candidates.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-piggy-bank"></i></div>
+              <h3>EPFO/UAN Validation</h3>
+              <p>Real-time employment history verification via EPFO's API — validating UAN numbers, previous employers, and contribution history for workers in Chennai.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-lock-fill"></i></div>
+              <h3>DigiLocker Document Fetch</h3>
+              <p>Consent-based retrieval of digitally signed documents from DigiLocker — including degree certificates, driving licences, and vehicle registration for Chennai residents.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-building-gear"></i></div>
+              <h3>MCA &amp; DIN Lookup</h3>
+              <p>Company and director verification through MCA's master data — essential for Chennai's thriving manufacturing ecosystem where founder/director background checks are critical.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-shield-exclamation"></i></div>
+              <h3>Court Record API</h3>
+              <p>Automated criminal record checks across Chennai city courts, Madras High Court, and central databases — with real-time case status tracking.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="wps-card">
+              <div class="wps-icon"><i class="bi bi-plug"></i></div>
+              <h3>REST API &amp; Webhooks</h3>
+              <p>Plug our verification engine directly into your HRMS, ATS, or onboarding platform — with real-time status updates and webhook notifications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center reveal">
+          <div class="col-lg-6">
+            <div class="wps-feature">
+              <i class="bi bi-lightning-charge-fill"></i>
+              <div>
+                <h4>Instant Checks</h4>
+                <p>Aadhaar, PAN, passport, and DL verification return results in under 10 seconds — no manual intervention needed.</p>
               </div>
-              <div class="wps-feature">
-                <i class="bi bi-check2-circle"></i>
-                <div>
-                  <h4>DigiLocker Integration</h4>
-                  <p>Pull verified documents directly from candidate's DigiLocker — degree certificates, driving licences, PAN cards, and more, eliminating document fraud.</p>
-                </div>
-              </div>
-              <div class="wps-feature">
-                <i class="bi bi-check2-circle"></i>
-                <div>
-                  <h4>Aadhaar e-KYC & Demographic Match</h4>
-                  <p>Offline Aadhaar XML verification with demographic matching — name, DOB, gender, address — ensuring identity authenticity without storing Aadhaar numbers.</p>
-                </div>
-              </div>
-              <div class="wps-feature">
-                <i class="bi bi-check2-circle"></i>
-                <div>
-                  <h4>PAN & TDS Verification</h4>
-                  <p>Validate PAN status, link Aadhaar-PAN, and verify TDS filing history for senior hires and financial sector roles in Chennai.</p>
-                </div>
+            </div>
+            <div class="wps-feature">
+              <i class="bi bi-arrow-repeat"></i>
+              <div>
+                <h4>Batch Processing</h4>
+                <p>Upload hundreds of Chennai candidate records at once — our engine queues, routes, and processes them in parallel.</p>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-6 reveal">
-            <div class="row g-4 mt-2">
-              <div class="col-md-6">
-                <div class="wps-card">
-                  <div class="wps-icon"><i class="bi bi-piggy-bank"></i></div>
-                  <h3>EPFO Lookup</h3>
-                  <p>Real-time UAN verification, PF passbook download, and employment timeline extraction from EPFO database.</p>
-                </div>
+          <div class="col-lg-6">
+            <div class="wps-feature">
+              <i class="bi bi-bar-chart-fill"></i>
+              <div>
+                <h4>Real-Time Dashboard</h4>
+                <p>Track every Chennai check in real-time — with status breakdowns, TAT analytics, and audit trails.</p>
               </div>
-              <div class="col-md-6">
-                <div class="wps-card">
-                  <div class="wps-icon"><i class="bi bi-lock-fill"></i></div>
-                  <h3>DigiLocker Fetch</h3>
-                  <p>Direct document pull from DigiLocker API — verified, tamper-proof certificates and IDs for Chennai candidates.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="wps-card">
-                  <div class="wps-icon"><i class="bi bi-fingerprint"></i></div>
-                  <h3>UIDAI e-KYC</h3>
-                  <p>Aadhaar offline XML verification with consent-based OTP authentication and demographic data matching.</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="wps-card">
-                  <div class="wps-icon"><i class="bi bi-receipt-cutoff"></i></div>
-                  <h3>PAN Validation</h3>
-                  <p>NSDL-based PAN verification, Aadhaar-PAN linking status, and Form 26AS/TDS history for financial roles.</p>
-                </div>
+            </div>
+            <div class="wps-feature">
+              <i class="bi bi-file-earmark-pdf-fill"></i>
+              <div>
+                <h4>Automated Reports</h4>
+                <p>Generate DPDPA-compliant verification reports automatically — ready for HR records and regulatory filings.</p>
               </div>
             </div>
           </div>
@@ -1730,105 +1681,111 @@
       </div>
     </section>
 
-<!-- ============================================
-         SERVICES SECTION
+    <!-- ============================================
+         SERVICES
          ============================================ -->
-    <section class="services-section" id="services">
+    <section class="services-section" id="service">
       <div class="container">
         <div class="section-header text-center reveal">
           <span class="section-subtitle"><i class="bi bi-grid-3x3-gap-fill"></i> Our Services</span>
-          <h2 class="section-title">Chennai-Specific Background Verification Services</h2>
-          <p class="section-desc mx-auto">Tailored verification packages for Chennai's key industries — from Tidel Park IT companies to Sriperumbudur manufacturing plants and Ambattur industrial estate businesses.</p>
+          <h2 class="section-title">Background Verification Services in Chennai</h2>
+          <p class="section-desc mx-auto">Comprehensive screening solutions tailored for Chennai's diverse industries — from IT parks in OMR and TIDEL to manufacturing hubs in Ambattur and logistics centres along GST Road.</p>
         </div>
-
         <div class="row g-4">
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-person-badge-fill"></i></div>
-              <h3>Identity & Aadhaar Verification</h3>
-              <p>Multi-layer identity verification using Aadhaar e-KYC, PAN validation, voter ID, and passport cross-checks.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> Aadhaar Offline XML</li>
-                <li><i class="bi bi-check-circle-fill"></i> PAN-NSDL Validation</li>
-                <li><i class="bi bi-check-circle-fill"></i> Voter ID (ECI) Check</li>
-                <li><i class="bi bi-check-circle-fill"></i> Passport MRZ Verification</li>
-              </ul>
-              <a href="../checks" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
+              <h3>ID &amp; Identity Verification</h3>
+              <p>Aadhaar e-KYC, PAN validation, passport verification, and voter ID checks — all compliant with UIDAI and DPDPA guidelines for Chennai candidates.</p>
+              <a href="../checks/id-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-briefcase-fill"></i></div>
-              <h3>Employment Verification</h3>
-              <p>Direct HR verification with Chennai employers, supplemented by EPFO UAN cross-reference for complete work history.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> HR Direct Contact</li>
-                <li><i class="bi bi-check-circle-fill"></i> EPFO UAN Match</li>
-                <li><i class="bi bi-check-circle-fill"></i> Designation & Salary Confirm</li>
-                <li><i class="bi bi-check-circle-fill"></i> Exit & Relieving Validation</li>
-              </ul>
-              <a href="../checks/employment" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-mortarboard-fill"></i></div>
-              <h3>Education Verification</h3>
-              <p>Direct verification with Chennai's universities — Anna University, Madras University, IIT Madras — and state/national boards.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> Anna University Registry</li>
-                <li><i class="bi bi-check-circle-fill"></i> Madras University Check</li>
-                <li><i class="bi bi-check-circle-fill"></i> TN State Board Validation</li>
-                <li><i class="bi bi-check-circle-fill"></i> DigiLocker Document Pull</li>
-              </ul>
-              <a href="../checks/education-check" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-shield-exclamation"></i></div>
-              <h3>Criminal Record Check</h3>
-              <p>Court record verification across Chennai City Police Commissionerate, Chengalpattu, Kancheepuram, and Thiruvallur districts.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> Chennai Courts (e-Courts)</li>
-                <li><i class="bi bi-check-circle-fill"></i> District Court Search</li>
-                <li><i class="bi bi-check-circle-fill"></i> NCRB Database Check</li>
-                <li><i class="bi bi-check-circle-fill"></i> Police Station Verification</li>
-              </ul>
-              <a href="../checks/court-verification" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-geo-alt-fill"></i></div>
               <h3>Address Verification</h3>
-              <p>Physical doorstep address verification across Chennai — from T. Nagar to Tambaram, Anna Nagar to OMR corridor — through field agents.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> Doorstep Visit</li>
-                <li><i class="bi bi-check-circle-fill"></i> Photo Evidence</li>
-                <li><i class="bi bi-check-circle-fill"></i> Neighbour Confirmation</li>
-                <li><i class="bi bi-check-circle-fill"></i> GPS-Tagged Report</li>
-              </ul>
-              <a href="../checks/address-verification.html" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
+              <p>Physical and digital address verification across Chennai — covering GCC areas, peripheral towns, and inter-state addresses with photographic evidence and GPS coordinates.</p>
+              <a href="../checks/address-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
-
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-briefcase-fill"></i></div>
+              <h3>Employment Verification</h3>
+              <p>Previous employer validation through EPFO/UAN integration, direct HR confirmation, and document cross-check — critical for Chennai's workforce.</p>
+              <a href="../checks/employment" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-mortarboard-fill"></i></div>
+              <h3>Education Verification</h3>
+              <p>Degree and certificate attestation from Anna University, Madras University, and other Tamil Nadu institutions — including DigiLocker integration.</p>
+              <a href="../checks/education-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-shield-exclamation"></i></div>
+              <h3>Criminal Record Check</h3>
+              <p>Comprehensive criminal background verification through Chennai City Police, Tamil Nadu Police, NCRB, and court records.</p>
+              <a href="../checks/court-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-people-fill"></i></div>
+              <h3>Reference Check</h3>
+              <p>Professional and personal reference validation through structured telephonic interviews — verifying the candidate's claims about skills, behaviour, and work history.</p>
+              <a href="../checks/reference" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-globe2"></i></div>
+              <h3>Global Database Check</h3>
+              <p>International watchlist, sanctions, and adverse media screening — essential for Chennai's MNCs hiring global talent.</p>
+              <a href="../checks/global-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-credit-card-fill"></i></div>
-              <h3>Credit & Financial Check</h3>
-              <p>CIBIL score check, loan default screening, and insolvency database verification for financial sector roles in Chennai.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> CIBIL Score Report</li>
-                <li><i class="bi bi-check-circle-fill"></i> Loan Default Check</li>
-                <li><i class="bi bi-check-circle-fill"></i> IBBI Insolvency Search</li>
-                <li><i class="bi bi-check-circle-fill"></i> GST Registration Verify</li>
-              </ul>
-              <a href="../checks/credit-check" class="card-nav-btn">Know More <i class="bi bi-arrow-right"></i></a>
+              <h3>Credit History Check</h3>
+              <p>CIBIL and credit bureau verification for financial sector roles in Chennai — checking credit score and delinquency history.</p>
+              <a href="../checks/credit-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-calendar-x-fill"></i></div>
+              <h3>Gap Verification</h3>
+              <p>Employment and education gap analysis — validating reasons for career breaks and study gaps for Chennai's diverse candidate pool.</p>
+              <a href="../checks/gap-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-share-fill"></i></div>
+              <h3>Social Media Screening</h3>
+              <p>Public social media profile analysis — identifying potential risks and reputation concerns for Chennai hires.</p>
+              <a href="../checks/socialmeidaverification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-shield-check"></i></div>
+              <h3>Police Clearance Certificate</h3>
+              <p>Facilitation of Police Clearance Certificates from Chennai City Police Commissioner's office and other Tamil Nadu jurisdictions.</p>
+              <a href="../checks/police-clearnce" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-capsule"></i></div>
+              <h3>Drug Test Screening</h3>
+              <p>Pre-employment and random drug testing through NABL-accredited laboratories in Chennai — covering 5-panel and 10-panel.</p>
+              <a href="../checks/drug-test" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1836,122 +1793,113 @@
     </section>
 
     <!-- ============================================
-         INDUSTRIES SECTION
+         INDUSTRIES
          ============================================ -->
     <section class="industries-section" id="industries">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-building-fill-gear"></i> Chennai Industries</span>
-          <h2 class="section-title">Serving Chennai's Key Economic Sectors</h2>
-          <p class="section-desc mx-auto">From the IT corridor along OMR to the automotive hub in Oragadam and the healthcare cluster in T. Nagar — we understand each industry's unique verification needs.</p>
+          <span class="section-subtitle"><i class="bi bi-building-fill-gear"></i> Industries We Serve</span>
+          <h2 class="section-title">Trusted Across Chennai's Key Sectors</h2>
+          <p class="section-desc mx-auto">From the IT corridors of OMR to the automotive hub of Oragadam, we understand the unique verification needs of every Chennai industry.</p>
         </div>
-
         <div class="row g-4">
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-laptop"></i>
-              <h3>IT & ITES</h3>
-              <p>Tidel Park, OMR, Guindy</p>
-              <a href="../industries/IT-ITES" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <h3>IT / ITeS</h3>
+              <p>OMR, TIDEL, Guindy</p>
+              <a href="../industries/IT-ITES" class="industry-explore-btn">Explore</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-car-front-fill"></i>
-              <h3>Automotive</h3>
-              <p>Oragadam, Sriperumbudur</p>
-              <a href="../industries/manufacturing" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <i class="bi bi-bank"></i>
+              <h3>Banking &amp; Finance</h3>
+              <p>Mount Road, Nungambakkam</p>
+              <a href="../industries/banks" class="industry-explore-btn">Explore</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-heart-pulse-fill"></i>
-              <h3>Healthcare</h3>
-              <p>Apollo, MIOT, Fortis</p>
-              <a href="../industries/healthcare" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <i class="bi bi-heart-pulse"></i>
+              <h3>Healthcare &amp; Pharma</h3>
+              <p>Chennai medical corridor</p>
+              <a href="../industries/healthcare" class="industry-explore-btn">Explore</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-building-gear"></i>
               <h3>Manufacturing</h3>
-              <p>Ambattur, Thirumudivakkam</p>
-              <a href="../industries/manufacturing" class="card-nav-btn card-nav-btn-sm">Explore </a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 reveal">
-            <div class="industry-item">
-              <i class="bi bi-bank"></i>
-              <h3>BFSI</h3>
-              <p>Nungambakkam, Mount Road</p>
-              <a href="../industries/banks" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <p>Ambattur, Oragadam</p>
+              <a href="../industries/manufacturing" class="industry-explore-btn">Explore</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-truck"></i>
-              <h3>Logistics</h3>
-              <p>Chennai Port, Ennore</p>
-              <a href="../industries/Logistics" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <h3>Logistics &amp; Supply Chain</h3>
+              <p>GST Road, Ennore Port</p>
+              <a href="../industries/Logistics" class="industry-explore-btn">Explore</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-shop"></i>
-              <h3>Retail & E-com</h3>
-              <p>Express Avenue, Phoenix</p>
-              <a href="../industries/Retail & E-commerce" class="card-nav-btn card-nav-btn-sm">Explore</a>
+              <h3>Retail &amp; E-commerce</h3>
+              <p>Anna Salai, T. Nagar</p>
+              <a href="../industries/Retail & E-commerce" class="industry-explore-btn">Explore</a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-mortarboard-fill"></i>
-              <h3>Education</h3>
-              <p>IIT-M, Anna University</p>
-              <a href="../industries/education" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <i class="bi bi-box"></i>
+              <h3>FMCG</h3>
+              <p>Corporate offices</p>
+              <a href="../industries/FMCG" class="industry-explore-btn">Explore</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- ============================================
-         TRUST SECTION
+         TRUST
          ============================================ -->
     <section class="trust-section" id="trust">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-trophy-fill"></i> Why Chennai Trusts Us</span>
-          <h2 class="section-title">Proven Track Record in Tamil Nadu</h2>
-          <p class="section-desc mx-auto">Numbers that reflect our commitment to Chennai's employer community — from startups in Guindy to Fortune 500 companies on OMR.</p>
+          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-trophy-fill"></i> Why Verifitech</span>
+          <h2 class="section-title">Trusted by 800+ Employers Across India</h2>
+          <p class="section-desc mx-auto">Our Chennai operations are backed by nationwide infrastructure, cutting-edge technology, and deep regulatory expertise.</p>
         </div>
-
         <div class="row g-4">
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
-              <div class="trust-stat" data-target="5000000">0</div>
+              <div class="trust-stat">4M+</div>
               <div class="trust-label">Verifications Completed</div>
-              <p class="trust-desc">Across India with significant Chennai volume</p>
+              <p class="trust-desc">Across all check types and geographies</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
-              <div class="trust-stat" data-target="800">0</div>
-              <div class="trust-label">Active Clients</div>
-              <p class="trust-desc">Including 150+ Chennai-based companies</p>
+              <div class="trust-stat">800+</div>
+              <div class="trust-label">Employer Clients</div>
+              <p class="trust-desc">Including Fortune 500 and Indian unicorns</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
-              <div class="trust-stat">99.2%</div>
+              <div class="trust-stat">99.1%</div>
               <div class="trust-label">Accuracy Rate</div>
-              <p class="trust-desc">Industry-leading verification precision</p>
+              <p class="trust-desc">Industry-leading verification accuracy</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
               <div class="trust-stat">3-5</div>
               <div class="trust-label">Days Avg. TAT</div>
-              <p class="trust-desc">Fastest turnaround in Chennai market</p>
+              <p class="trust-desc">For standard employment packages in Chennai</p>
             </div>
           </div>
         </div>
@@ -1959,43 +1907,42 @@
     </section>
 
     <!-- ============================================
-         PROCESS SECTION
+         PROCESS
          ============================================ -->
     <section class="process-section" id="process">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-arrow-repeat"></i> How It Works</span>
+          <span class="section-subtitle"><i class="bi bi-list-ol"></i> How It Works</span>
           <h2 class="section-title">Simple 4-Step Verification Process</h2>
-          <p class="section-desc mx-auto">From candidate onboarding to final report delivery — our Chennai team manages the entire lifecycle seamlessly.</p>
+          <p class="section-desc mx-auto">From candidate initiation to final report delivery — our Chennai verification workflow is designed for speed, accuracy, and compliance.</p>
         </div>
-
-        <div class="row g-4">
+        <div class="row">
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">1</div>
               <h3>Submit Candidate</h3>
-              <p>Upload candidate details via our portal, API, or integrate with your ATS. Auto-populate fields with Aadhaar/PAN e-KYC.</p>
+              <p>Upload candidate details via our portal, API, or bulk Excel upload. Select the verification package tailored for your Chennai hiring needs.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">2</div>
-              <h3>Consent & e-KYC</h3>
-              <p>Digital consent capture with DPDPA-compliant disclosure. Aadhaar OTP-based e-KYC completed in under 30 seconds.</p>
+              <h3>Consent &amp; Data Capture</h3>
+              <p>DPDPA-compliant digital consent is captured from the candidate. Aadhaar e-KYC and DigiLocker documents are fetched automatically.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">3</div>
-              <h3>Multi-Source Verification</h3>
-              <p>Parallel checks across government databases, university registries, court records, and field agents — all simultaneously.</p>
+              <h3>Verification Execution</h3>
+              <p>Our Chennai team and tech engine execute checks — EPFO API calls, police station visits, university registrar confirmations, and more.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">4</div>
-              <h3>Report & Decision</h3>
-              <p>Comprehensive digital report with risk scoring, red-flag highlights, and clear go/no-go recommendation within 3-5 days.</p>
+              <h3>Report Delivery</h3>
+              <p>Detailed compliance-ready report delivered to your dashboard — with clear pass/fail status, evidence documents, and exception flags.</p>
             </div>
           </div>
         </div>
@@ -2003,15 +1950,14 @@
     </section>
 
     <!-- ============================================
-         CTA SECTION
+         CTA
          ============================================ -->
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box reveal">
-          <h2 style="font-size:2.5rem;font-weight:800;color:var(--dark);margin-bottom:1rem;letter-spacing:-1px;">Ready to Screen Your Chennai Workforce?</h2>
-          <p style="font-size:1.15rem;color:var(--gray);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;">Get a personalised demo of our Chennai background verification platform. See how 800+ Indian employers trust Verifitech for compliant, fast, and accurate checks.</p>
-          <a href="../contact/contact" class="btn-primary-custom"><i class="bi bi-play-circle"></i> Schedule a Free Demo <i class="bi bi-arrow-right"></i></a>
-          <p style="font-size:0.85rem;color:var(--gray);margin-top:1.5rem;margin-bottom:0;"><i class="bi bi-shield-check" style="color:var(--primary);"></i> No credit card required &nbsp;·&nbsp; 15-minute demo &nbsp;·&nbsp; DPDPA compliant</p>
+          <h2 class="section-title">Ready to Streamline Your Chennai Background Checks?</h2>
+          <p class="section-desc mx-auto text-center mb-4">Get a personalised demo of our DPDPA-compliant verification platform — see how 800+ employers trust Verifitech for their Chennai hiring.</p>
+          <a href="../Demo/demo.html" class="btn-primary-custom"><i class="bi bi-play-circle"></i> Request a Free Demo</a>
         </div>
       </div>
     </section>
@@ -2021,40 +1967,34 @@
          ============================================ -->
     <footer class="footer">
       <div class="container">
-        <!-- Newsletter -->
         <div class="newsletter-footer-section">
           <div class="row align-items-center">
             <div class="col-lg-5 mb-4 mb-lg-0">
-              <div class="d-flex align-items-start gap-3">
-                <div class="newsletter-icon-footer"><i class="bi bi-envelope-paper-fill"></i></div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="newsletter-icon-footer"><i class="bi bi-envelope-fill"></i></div>
                 <div>
-                  <h3 class="newsletter-title">Stay Updated</h3>
-                  <p class="newsletter-subtitle">Get the latest on Chennai compliance changes, labour law updates, and verification best practices.</p>
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest compliance updates and verification insights.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-7">
               <div class="newsletter-form-footer">
                 <div class="input-group-wrapper">
-                  <div style="flex:1;">
-                    <input type="email" class="newsletter-input" placeholder="Enter your work email" id="footerEmail" />
-                  </div>
-                  <button class="newsletter-btn" onclick="handleNewsletter()">
-                    Subscribe <i class="bi bi-arrow-right"></i>
-                  </button>
+                  <input type="email" class="newsletter-input" placeholder="Enter your email address" />
+                  <button class="newsletter-btn">Subscribe <i class="bi bi-arrow-right"></i></button>
                 </div>
-                <p class="newsletter-disclaimer"><i class="bi bi-lock-fill"></i> We respect your privacy. Unsubscribe anytime.</p>
+                <p class="newsletter-disclaimer"><i class="bi bi-shield-check-fill"></i> We respect your privacy. Unsubscribe anytime.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Footer Main -->
         <div class="footer-main-content">
           <div class="row g-4">
-            <div class="col-lg-4">
+            <div class="col-lg-3 col-md-6">
               <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" />
-              <p class="footer-description">India's trusted background verification platform. Compliant, fast, and accurate screening for employers across Chennai and Tamil Nadu.</p>
+              <p class="footer-description">India's trusted background verification platform — DPDPA compliant, tech-powered, and built for scale.</p>
               <div class="social-icons">
                 <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                 <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
@@ -2062,70 +2002,68 @@
                 <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
               </div>
             </div>
-
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-2 col-md-6">
               <h5 class="footer-heading">Solutions</h5>
               <ul class="footer-links">
                 <li><a href="../checks/id-verification">ID Verification</a></li>
+                <li><a href="../checks/address-verification">Address Check</a></li>
                 <li><a href="../checks/employment">Employment Check</a></li>
                 <li><a href="../checks/education-check">Education Check</a></li>
-                <li><a href="../checks/court-verification">Criminal Check</a></li>
-                <li><a href="../checks/address-verification">Address Check</a></li>
+                <li><a href="../checks/court-verification">Court Records</a></li>
+                <li><a href="../checks/global-check">Global Database</a></li>
               </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-2 col-md-6">
+              <h5 class="footer-heading">Industries</h5>
+              <ul class="footer-links">
+                <li><a href="../industries/IT-ITES">IT / ITeS</a></li>
+                <li><a href="../industries/banks">Banking &amp; Finance</a></li>
+                <li><a href="../industries/healthcare">Healthcare</a></li>
+                <li><a href="../industries/manufacturing">Manufacturing</a></li>
+                <li><a href="../industries/Logistics">Logistics</a></li>
+                <li><a href="../industries/staffing">Staffing</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
               <h5 class="footer-heading">Company</h5>
               <ul class="footer-links">
                 <li><a href="../company/aboutus">About Us</a></li>
-                <li><a href="../company/partnership">Partnership</a></li>
                 <li><a href="../company/careers">Careers</a></li>
+                <li><a href="../company/partnership">Partnership</a></li>
                 <li><a href="../resources/blog">Blog</a></li>
-                <li><a href="../contact/contact">Contact</a></li>
+                <li><a href="../resources/casestudy">Case Studies</a></li>
+                <li><a href="../contact/contact">Contact Us</a></li>
               </ul>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-3 col-md-6">
               <h5 class="footer-heading">Resources</h5>
               <ul class="footer-links">
                 <li><a href="../resources/whitepapers">Whitepapers</a></li>
-                <li><a href="../resources/casestudy">Case Studies</a></li>
                 <li><a href="../resources/webinar">Webinars</a></li>
-                <li><a href="../products/api">API Docs</a></li>
-                <li><a href="#">Help Center</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2">
-              <h5 class="footer-heading">Locations</h5>
-              <ul class="footer-links">
-                <li><a href="../india/bangalore">Bangalore</a></li>
-                <li><a href="../india/pune">Pune</a></li>
-                <li><a href="../india/hyderabad">Hyderabad</a></li>
-                <li><a href="../india/mumbai">Mumbai</a></li>
-                <li><a href="../india/delhi">Delhi NCR</a></li>
-                <li><a href="../india/chennai">Chennai</a></li>
+                <li><a href="../products/api">API Documentation</a></li>
+                <li><a href="../helpcenter/customer">Help Center</a></li>
+                <li><a href="../helpcenter/partner">Partner Support</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <!-- Bottom -->
+
         <div class="privacy-row">
-          <p class="copyright">
-            &copy; 2026 Verifitech. All rights reserved. &nbsp;
+          <p class="copyright">&copy; 2025 Verifitech. All rights reserved.
             <a href="#" class="privacy-link">Privacy Policy</a>
             <span class="privacy-separator">|</span>
             <a href="#" class="privacy-link">Terms of Service</a>
             <span class="privacy-separator">|</span>
-            <a href="#" class="privacy-link">DPDPA Compliance</a>
+            <a href="#" class="privacy-link">Cookie Policy</a>
           </p>
         </div>
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
       // Navbar scroll effect
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
           navbar.classList.add('scrolled');
@@ -2135,115 +2073,44 @@
       });
 
       // Reveal on scroll
-      function revealOnScroll() {
-        const reveals = document.querySelectorAll('.reveal');
-        reveals.forEach(function (el) {
-          const windowHeight = window.innerHeight;
-          const elementTop = el.getBoundingClientRect().top;
-          const revealPoint = 120;
-          if (elementTop < windowHeight - revealPoint) {
-            el.classList.add('active');
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
           }
         });
-      }
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-      window.addEventListener('scroll', revealOnScroll);
-      window.addEventListener('load', revealOnScroll);
+      revealElements.forEach(el => revealObserver.observe(el));
 
-      // Animated counter for trust stats
-      function animateCounters() {
-        const counters = document.querySelectorAll('.trust-stat[data-target]');
-        counters.forEach(function (counter) {
-          const target = parseInt(counter.getAttribute('data-target'));
-          const duration = 2000;
-          const startTime = performance.now();
-
-          function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(eased * target);
-
-            if (target >= 1000000) {
-              counter.textContent = (current / 1000000).toFixed(1) + 'M+';
-            } else if (target >= 1000) {
-              counter.textContent = current.toLocaleString('en-IN') + '+';
-            } else {
-              counter.textContent = current + '+';
-            }
-
-            if (progress < 1) {
-              requestAnimationFrame(updateCounter);
-            }
-          }
-
-          // Use IntersectionObserver to start counting when visible
-          const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                requestAnimationFrame(updateCounter);
-                observer.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.5 });
-
-          observer.observe(counter);
+      // Country selector
+      document.querySelectorAll('.country-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+          const flag = this.getAttribute('data-flag');
+          const country = this.getAttribute('data-country');
+          document.getElementById('current-flag').textContent = flag;
+          document.getElementById('current-country').textContent = country;
         });
-      }
-
-      animateCounters();
-
-      // Newsletter handler
-      function handleNewsletter() {
-        const emailInput = document.getElementById('footerEmail');
-        const email = emailInput.value.trim();
-
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          emailInput.style.borderColor = '#ef4444';
-          emailInput.style.backgroundColor = '#fef2f2';
-          emailInput.focus();
-          setTimeout(function () {
-            emailInput.style.borderColor = '#e2e8f0';
-            emailInput.style.backgroundColor = '#fff';
-          }, 3000);
-          return;
-        }
-
-        // Success feedback
-        emailInput.style.borderColor = '#10b981';
-        emailInput.style.backgroundColor = '#f0fdf4';
-        emailInput.value = '';
-        emailInput.placeholder = 'Subscribed successfully!';
-
-        setTimeout(function () {
-          emailInput.style.borderColor = '#e2e8f0';
-          emailInput.style.backgroundColor = '#fff';
-          emailInput.placeholder = 'Enter your work email';
-        }, 4000);
-      }s
-
-      // Allow Enter key for newsletter
-      document.getElementById('footerEmail').addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') handleNewsletter();
       });
 
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            const offset = 100;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = target.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
-        });
+      // Newsletter form
+      document.querySelector('.newsletter-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const input = document.querySelector('.newsletter-input');
+        if (input.value && input.value.includes('@')) {
+          this.innerHTML = '<i class="bi bi-check-circle-fill"></i> Subscribed!';
+          this.style.background = 'linear-gradient(135deg, #16a8a7 0%, #118584 100%)';
+          input.value = '';
+          setTimeout(() => {
+            this.innerHTML = 'Subscribe <i class="bi bi-arrow-right"></i>';
+            this.style.background = '';
+          }, 3000);
+        } else {
+          input.style.borderColor = '#ef4444';
+          input.focus();
+          setTimeout(() => { input.style.borderColor = ''; }, 2000);
+        }
       });
     </script>
   </body>
