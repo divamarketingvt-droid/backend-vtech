@@ -12,15 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       :root {
-        --primary: #1ac2c1;
-        --primary-dark: #16a8a7;
+        --primary: #1AC2C1;
+        --primary-dark: #15a5a4;
         --primary-light: #e0f7f7;
+        --primary-glow: rgba(26,194,193,0.35);
+        --primary-glow-strong: rgba(26,194,193,0.45);
+        --primary-subtle: rgba(26,194,193,0.1);
+        --primary-border: rgba(26,194,193,0.2);
         --dark: #0f172a;
         --navy: #1e293b;
         --gray: #64748b;
         --light-gray: #f8fafc;
         --white: #ffffff;
-        --accent-teal: #0d9488;
         --accent-purple: #7c3aed;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,17 +34,17 @@
       .dropdown-item { position: relative; z-index: 1061; }
 
       .card-nav-btn {
-        display: inline-flex; align-items: center; gap: 4px; padding: 0.45rem 1rem; border-radius: 4px; font-weight: 500; font-size: 0.82rem; text-decoration: none; color: #0d9488; background: #f0fdfa; border: 1px solid #ccfbf1; transition: all 0.25s ease; margin-top: 1.2rem;
+        display: inline-flex; align-items: center; gap: 4px; padding: 0.45rem 1rem; border-radius: 4px; font-weight: 500; font-size: 0.82rem; text-decoration: none; color: #1AC2C1; background: #e0f7f7; border: 1px solid #b8f0ef; transition: all 0.25s ease; margin-top: 1.2rem;
       }
-      .card-nav-btn:hover { background: #ccfbf1; border-color: #99f6e4; color: #0f766e; }
+      .card-nav-btn:hover { background: #b8f0ef; border-color: #7ae8e7; color: #15a5a4; }
       .card-nav-btn i { font-size: 0.7rem; transition: transform 0.25s ease; }
       .card-nav-btn:hover i { transform: translateX(3px); }
       .card-nav-btn-sm { padding: 0.35rem 0.8rem; font-size: 0.78rem; border-radius: 4px; margin-top: 0.8rem; }
       .card-nav-btn-sm i { font-size: 0.65rem; }
 
       .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; margin-bottom: 0.5rem; }
-      .card-tag { display: inline-flex; align-items: center; gap: 4px; padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; color: #0f766e; background: #f0fdfa; border: 1px solid #ccfbf1; letter-spacing: 0.3px; white-space: nowrap; }
-      .card-tag i { font-size: 0.6rem; color: #14b8a6; }
+      .card-tag { display: inline-flex; align-items: center; gap: 4px; padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; color: #15a5a4; background: #e0f7f7; border: 1px solid #b8f0ef; letter-spacing: 0.3px; white-space: nowrap; }
+      .card-tag i { font-size: 0.6rem; color: #1AC2C1; }
       .card-tag.highlight { color: #92400e; background: #fffbeb; border-color: #fde68a; }
       .card-tag.highlight i { color: #d97706; }
       .card-tag.blue { color: #1e40af; background: #eff6ff; border-color: #bfdbfe; }
@@ -65,21 +68,21 @@
       .dropdown-item:hover { background: var(--primary-light); color: var(--primary); transform: translateX(5px); }
       .dropdown-item i { font-size: 1.1rem; color: var(--primary); }
       .dropdown-header { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 0.5rem; padding: 0.5rem 1rem; }
-      .btn-sales { background: var(--primary); color: white !important; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; white-space: nowrap; margin-left: 1rem; box-shadow: 0 4px 15px rgba(26,194,193,0.3); text-decoration: none; }
-      .btn-sales:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.4); color: white !important; }
-      .btn-login { background-color: #ffffff !important; color: #00bfa5 !important; border: 1px solid #00bfa5 !important; box-shadow: 0 2px 8px rgba(0,191,165,0.3) !important; padding: 8px 24px; border-radius: 6px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; margin: 12px; }
-      .btn-login:hover { background-color: #00bfa5 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(0,191,165,0.4) !important; transform: translateY(-1px); }
+      .btn-sales { background: var(--primary); color: white !important; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; white-space: nowrap; margin-left: 1rem; box-shadow: 0 4px 15px var(--primary-glow); text-decoration: none; }
+      .btn-sales:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow-strong); color: white !important; }
+      .btn-login { background-color: #ffffff !important; color: #1AC2C1 !important; border: 1px solid #1AC2C1 !important; box-shadow: 0 2px 8px rgba(26,194,193,0.3) !important; padding: 8px 24px; border-radius: 6px; font-weight: 500; text-decoration: none; transition: all 0.3s ease; margin: 12px; }
+      .btn-login:hover { background-color: #1AC2C1 !important; color: #ffffff !important; box-shadow: 0 4px 12px rgba(26,194,193,0.4) !important; transform: translateY(-1px); }
 
-      .hyd-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 30%, #ecfdf5 100%); position: relative; overflow: hidden; }
-      .hyd-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%); border-radius: 50%; }
-      .hyd-hero::after { content: ""; position: absolute; bottom: -30%; left: -15%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 70%); border-radius: 50%; }
-      .hyd-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(13,148,136,0.1); color: #0f766e; border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(13,148,136,0.2); }
+      .hyd-hero { padding: 140px 0 100px; background: linear-gradient(135deg, #e0f7f7 0%, #ffffff 30%, #e0f7f7 100%); position: relative; overflow: hidden; }
+      .hyd-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,194,193,0.08) 0%, transparent 70%); border-radius: 50%; }
+      .hyd-hero::after { content: ""; position: absolute; bottom: -30%; left: -15%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,194,193,0.06) 0%, transparent 70%); border-radius: 50%; }
+      .hyd-badge { display: inline-flex; align-items: center; gap: 8px; padding: 0.6rem 1.2rem; background: rgba(26,194,193,0.1); color: #15a5a4; border-radius: 50px; font-size: 0.95rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(26,194,193,0.2); }
       .hyd-hero h1 { font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--dark); letter-spacing: -1.5px; }
-      .hyd-hero h1 .highlight { background: linear-gradient(135deg, #059669 0%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+      .hyd-hero h1 .highlight { background: linear-gradient(135deg, #15a5a4 0%, #1AC2C1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
       .hyd-hero .lead { font-size: 1.35rem; color: var(--gray); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.6; }
       .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-      .btn-hero-primary { background: var(--primary) !important; color: white !important; border: none; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,194,193,0.35); display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
-      .btn-hero-primary:hover { background: var(--primary-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.45); color: white !important; }
+      .btn-hero-primary { background: var(--primary) !important; color: white !important; border: none; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px var(--primary-glow); display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+      .btn-hero-primary:hover { background: var(--primary-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow-strong); color: white !important; }
       .btn-hero-secondary { background: white !important; color: var(--dark) !important; border: 2px solid #e2e8f0 !important; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
       .btn-hero-secondary:hover { border-color: var(--primary) !important; color: var(--primary) !important; transform: translateY(-2px); }
       .hero-trust { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
@@ -91,11 +94,11 @@
 
       .hyd-stats-visual { position: relative; height: 500px; display: flex; align-items: center; justify-content: center; }
       .map-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-      .hyd-map-visual { width: 380px; height: 380px; border-radius: 50%; background: linear-gradient(135deg, #ecfdf5 0%, rgba(13,148,136,0.06) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border: 3px solid #059669; box-shadow: 0 20px 60px rgba(5,150,105,0.12), inset 0 0 80px rgba(5,150,105,0.04); }
-      .hyd-map-visual .map-icon { font-size: 5rem; color: #059669; margin-bottom: 0.5rem; filter: drop-shadow(0 4px 12px rgba(5,150,105,0.3)); }
+      .hyd-map-visual { width: 380px; height: 380px; border-radius: 50%; background: linear-gradient(135deg, #e0f7f7 0%, rgba(26,194,193,0.06) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border: 3px solid #1AC2C1; box-shadow: 0 20px 60px rgba(26,194,193,0.12), inset 0 0 80px rgba(26,194,193,0.04); }
+      .hyd-map-visual .map-icon { font-size: 5rem; color: #1AC2C1; margin-bottom: 0.5rem; filter: drop-shadow(0 4px 12px rgba(26,194,193,0.3)); }
       .hyd-map-visual .map-label { font-size: 1.4rem; font-weight: 800; color: var(--dark); letter-spacing: -0.5px; }
       .hyd-map-visual .map-sublabel { font-size: 0.85rem; color: var(--gray); font-weight: 500; }
-      .map-ring { position: absolute; border: 2px dashed rgba(5,150,105,0.2); border-radius: 50%; animation: mapRotate 40s linear infinite; }
+      .map-ring { position: absolute; border: 2px dashed rgba(26,194,193,0.2); border-radius: 50%; animation: mapRotate 40s linear infinite; }
       .map-ring:nth-child(2) { width: 430px; height: 430px; animation-duration: 40s; }
       .map-ring:nth-child(3) { width: 480px; height: 480px; animation-duration: 55s; animation-direction: reverse; border-color: rgba(26,194,193,0.12); }
       @keyframes mapRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -110,7 +113,7 @@
       .stat-text p { font-size: 0.85rem; color: var(--gray); margin: 0; margin-top: 4px; }
 
       .section-header { margin-bottom: 3rem; }
-      .section-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(26,194,193,0.1); border-radius: 50px; }
+      .section-subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; margin-bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--primary-subtle); border-radius: 50px; }
       .section-title { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; line-height: 1.2; letter-spacing: -1px; }
       .section-desc { color: var(--gray); font-size: 1.15rem; max-width: 700px; line-height: 1.7; }
 
@@ -124,22 +127,22 @@
       .compliance-badge { display: inline-block; padding: 0.25rem 0.75rem; background: #dcfce7; color: #166534; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
       .compliance-badge.amber { background: #fef3c7; color: #92400e; }
       .compliance-badge.purple { background: #f5f3ff; color: #5b21b6; }
-      .compliance-badge.teal { background: #f0fdfa; color: #0f766e; }
+      .compliance-badge.teal { background: #e0f7f7; color: #15a5a4; }
 
-      .migration-section { padding: 100px 0; background: linear-gradient(135deg, #ecfdf5 0%, #f8fafc 100%); position: relative; overflow: hidden; }
-      .migration-section::before { content: ""; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 70%); border-radius: 50%; }
+      .migration-section { padding: 100px 0; background: linear-gradient(135deg, #e0f7f7 0%, #f8fafc 100%); position: relative; overflow: hidden; }
+      .migration-section::before { content: ""; position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,194,193,0.06) 0%, transparent 70%); border-radius: 50%; }
       .migration-visual { position: relative; height: 500px; display: flex; align-items: center; justify-content: center; }
       .globe-container { position: relative; width: 350px; height: 350px; display: flex; align-items: center; justify-content: center; }
-      .globe-ring { position: absolute; border: 2px dashed rgba(5,150,105,0.25); border-radius: 50%; animation: rotate 30s linear infinite; }
+      .globe-ring { position: absolute; border: 2px dashed rgba(26,194,193,0.25); border-radius: 50%; animation: rotate 30s linear infinite; }
       .globe-ring:nth-child(1) { width: 350px; height: 350px; animation-duration: 30s; }
       .globe-ring:nth-child(2) { width: 250px; height: 250px; animation-duration: 20s; animation-direction: reverse; }
       @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      .globe-center { width: 120px; height: 120px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(5,150,105,0.15); z-index: 5; border: 4px solid #ecfdf5; }
-      .globe-center i { font-size: 3rem; color: #059669; margin-bottom: 0.5rem; }
+      .globe-center { width: 120px; height: 120px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(26,194,193,0.15); z-index: 5; border: 4px solid #e0f7f7; }
+      .globe-center i { font-size: 3rem; color: #1AC2C1; margin-bottom: 0.5rem; }
       .globe-center span { font-size: 0.8rem; font-weight: 700; color: var(--dark); text-align: center; }
       .migration-node { position: absolute; width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 3px solid white; transition: all 0.3s ease; z-index: 10; }
-      .migration-node:hover { transform: scale(1.1) !important; border-color: #059669; }
-      .migration-node i { font-size: 1.5rem; color: #059669; margin-bottom: 2px; }
+      .migration-node:hover { transform: scale(1.1) !important; border-color: #1AC2C1; }
+      .migration-node i { font-size: 1.5rem; color: #1AC2C1; margin-bottom: 2px; }
       .migration-node span { font-size: 0.65rem; font-weight: 700; color: var(--dark); }
       .migration-node:nth-child(4) { top: 0; left: 50%; transform: translateX(-50%); }
       .migration-node:nth-child(5) { top: 15%; right: 5%; }
@@ -153,21 +156,21 @@
       .migration-stat-card.top-right { top: 5%; right: -20px; animation-delay: 0.5s; }
       .migration-stat-card.bottom-left { bottom: 5%; left: -20px; animation-delay: 1s; }
       .migration-feature-card { background: white; padding: 2rem; border-radius: 20px; border: 1px solid #e2e8f0; height: 100%; transition: all 0.3s ease; display: flex; flex-direction: column; }
-      .migration-feature-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); border-color: #059669; }
-      .migration-icon { width: 60px; height: 60px; background: #ecfdf5; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #059669; margin-bottom: 1.5rem; transition: all 0.3s ease; }
-      .migration-feature-card:hover .migration-icon { background: #059669; color: white; transform: scale(1.1); }
+      .migration-feature-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); border-color: #1AC2C1; }
+      .migration-icon { width: 60px; height: 60px; background: #e0f7f7; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #1AC2C1; margin-bottom: 1.5rem; transition: all 0.3s ease; }
+      .migration-feature-card:hover .migration-icon { background: #1AC2C1; color: white; transform: scale(1.1); }
       .migration-feature-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark); }
       .migration-feature-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; margin: 0; flex-grow: 1; }
-      .visa-tag { display: inline-block; padding: 0.25rem 0.75rem; background: #ecfdf5; color: #065f46; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+      .visa-tag { display: inline-block; padding: 0.25rem 0.75rem; background: #e0f7f7; color: #15a5a4; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
       .wps-section { padding: 100px 0; background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%); color: white; position: relative; overflow: hidden; }
-      .wps-section::before { content: ""; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(5,150,105,0.08) 0%, transparent 60%); border-radius: 50%; }
+      .wps-section::before { content: ""; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,194,193,0.08) 0%, transparent 60%); border-radius: 50%; }
       .wps-section .section-title { color: white; }
       .wps-section .section-desc { color: rgba(255,255,255,0.7); }
       .wps-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; height: 100%; transition: all 0.3s ease; }
-      .wps-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: #059669; }
-      .wps-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #059669, #047857); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; margin-bottom: 1.5rem; transition: all 0.3s ease; }
-      .wps-card:hover .wps-icon { transform: scale(1.1); box-shadow: 0 10px 30px rgba(5,150,105,0.3); }
+      .wps-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: #1AC2C1; }
+      .wps-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #1AC2C1, #15a5a4); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; margin-bottom: 1.5rem; transition: all 0.3s ease; }
+      .wps-card:hover .wps-icon { transform: scale(1.1); box-shadow: 0 10px 30px rgba(26,194,193,0.3); }
       .wps-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: white; }
       .wps-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
@@ -182,34 +185,34 @@
 
       .industries-section { padding: 100px 0; background: var(--light-gray); }
       .industry-item { background: white; border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid #e2e8f0; height: 100%; display: flex; flex-direction: column; align-items: center; }
-      .industry-item:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #059669; }
-      .industry-item i { font-size: 2.5rem; margin-bottom: 1rem; color: #059669; }
+      .industry-item:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #1AC2C1; }
+      .industry-item i { font-size: 2.5rem; margin-bottom: 1rem; color: #1AC2C1; }
       .industry-item h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
       .industry-item p { font-size: 0.9rem; color: var(--gray); margin: 0; }
       .industry-item .card-nav-btn-sm { margin-top: auto; }
 
       .trust-section { padding: 100px 0; background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%); color: white; position: relative; overflow: hidden; }
-      .trust-section::before { content: ""; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(5,150,105,0.08) 0%, transparent 60%); border-radius: 50%; }
+      .trust-section::before { content: ""; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,194,193,0.08) 0%, transparent 60%); border-radius: 50%; }
       .trust-section .section-title { color: white; }
       .trust-section .section-desc { color: rgba(255,255,255,0.7); }
       .trust-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 3rem; text-align: center; transition: all 0.3s ease; }
-      .trust-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: rgba(5,150,105,0.3); }
-      .trust-stat { font-size: 3.5rem; font-weight: 800; color: #34d399; line-height: 1; margin-bottom: 0.5rem; }
+      .trust-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: rgba(26,194,193,0.3); }
+      .trust-stat { font-size: 3.5rem; font-weight: 800; color: #1AC2C1; line-height: 1; margin-bottom: 0.5rem; }
       .trust-label { font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
       .trust-desc { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0; }
 
       .process-section { padding: 100px 0; background: white; }
       .process-step { text-align: center; position: relative; padding: 2rem; }
-      .process-step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -50%; width: 100%; height: 2px; background: linear-gradient(to right, #059669, transparent); z-index: 0; }
-      .step-number { width: 80px; height: 80px; background: white; border: 3px solid #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; color: #059669; margin: 0 auto 1.5rem; position: relative; z-index: 2; }
+      .process-step:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -50%; width: 100%; height: 2px; background: linear-gradient(to right, #1AC2C1, transparent); z-index: 0; }
+      .step-number { width: 80px; height: 80px; background: white; border: 3px solid #1AC2C1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; color: #1AC2C1; margin: 0 auto 1.5rem; position: relative; z-index: 2; }
       .process-step h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark); }
       .process-step p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
-      .cta-section { padding: 100px 0; background: linear-gradient(135deg, #ecfdf5 0%, #f0fdfa 100%); text-align: center; }
+      .cta-section { padding: 100px 0; background: linear-gradient(135deg, #e0f7f7 0%, #e0f7f7 100%); text-align: center; }
       .cta-box { background: white; border-radius: 24px; padding: 4rem; max-width: 900px; margin: 0 auto; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; position: relative; overflow: hidden; }
-      .cta-box::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #059669, var(--primary), var(--accent-purple)); }
-      .btn-primary-custom { background: var(--primary) !important; color: white !important; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(26,194,193,0.35); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-      .btn-primary-custom:hover { background: var(--primary-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.45); color: white !important; }
+      .cta-box::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #15a5a4, #1AC2C1, var(--accent-purple)); }
+      .btn-primary-custom { background: var(--primary) !important; color: white !important; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px var(--primary-glow); display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+      .btn-primary-custom:hover { background: var(--primary-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow-strong); color: white !important; }
 
       .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
       .reveal.active { opacity: 1; transform: translateY(0); }
@@ -223,22 +226,22 @@
       .social-icons { display: flex; gap: 1rem; margin-top: 2rem; }
       .social-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(15,23,42,0.1); display: flex; align-items: center; justify-content: center; color: var(--dark); transition: all 0.3s; text-decoration: none; }
       .social-icon:hover { background: var(--primary); transform: translateY(-3px); color: white; }
-      .newsletter-footer-section { background: linear-gradient(135deg, rgba(5,150,105,0.08) 0%, rgba(26,194,193,0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(5,150,105,0.15); position: relative; overflow: hidden; }
-      .newsletter-footer-section::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(5,150,105,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-      .newsletter-icon-footer { width: 60px; height: 60px; background: linear-gradient(135deg, #059669 0%, #047857 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(5,150,105,0.3); }
+      .newsletter-footer-section { background: linear-gradient(135deg, rgba(26,194,193,0.08) 0%, rgba(26,194,193,0.05) 100%); border-radius: 20px; padding: 40px; margin-bottom: 50px; border: 1px solid rgba(26,194,193,0.15); position: relative; overflow: hidden; }
+      .newsletter-footer-section::before { content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(26,194,193,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+      .newsletter-icon-footer { width: 60px; height: 60px; background: linear-gradient(135deg, #1AC2C1 0%, #15a5a4 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; flex-shrink: 0; box-shadow: 0 8px 20px rgba(26,194,193,0.3); }
       .newsletter-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; }
       .newsletter-subtitle { color: var(--gray); font-size: 0.95rem; margin: 0; line-height: 1.5; }
       .newsletter-form-footer { width: 100%; position: relative; z-index: 2; }
       .input-group-wrapper { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
       .newsletter-input { width: 100%; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; color: var(--dark); background: white; transition: all 0.3s ease; min-width: 0; font-family: 'Inter', sans-serif; }
-      .newsletter-input:focus { outline: none; border-color: #059669; box-shadow: 0 0 0 4px rgba(5,150,105,0.1); }
+      .newsletter-input:focus { outline: none; border-color: #1AC2C1; box-shadow: 0 0 0 4px rgba(26,194,193,0.1); }
       .newsletter-input::placeholder { color: #94a3b8; }
-      .newsletter-btn { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(5,150,105,0.3); font-family: 'Inter', sans-serif; height: fit-content; }
-      .newsletter-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(5,150,105,0.4); }
+      .newsletter-btn { background: linear-gradient(135deg, #1AC2C1 0%, #15a5a4 100%); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; white-space: nowrap; box-shadow: 0 4px 15px rgba(26,194,193,0.3); font-family: 'Inter', sans-serif; height: fit-content; }
+      .newsletter-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,194,193,0.4); }
       .newsletter-btn i { transition: transform 0.3s ease; }
       .newsletter-btn:hover i { transform: translateX(4px); }
       .newsletter-disclaimer { color: var(--gray); font-size: 0.85rem; margin: 8px 0 0 0; display: flex; align-items: center; gap: 6px; }
-      .newsletter-disclaimer i { color: #059669; }
+      .newsletter-disclaimer i { color: #1AC2C1; }
       .footer-main-content { margin-top: 20px; }
       .footer-logo { width: 180px; height: auto; margin-bottom: 20px; }
       .footer-description { font-size: 14px; line-height: 1.6; max-width: 280px; color: var(--gray); }
@@ -248,7 +251,8 @@
       .privacy-link:hover { color: var(--primary-dark); text-decoration: underline; }
       .privacy-separator { margin: 0 10px; color: #cbd5e1; }
       .copyright { font-size: 14px; margin: 0; color: var(--gray); }
-           /* Country Selector */
+
+      /* Country Selector */
       .country-selector {
         display: flex;
         align-items: center;
@@ -263,12 +267,10 @@
         transition: all 0.3s ease;
         margin-left: 1rem;
       }
-
       .country-selector:hover {
         border-color: var(--primary);
         color: var(--primary);
       }
-
       .country-selector i {
         font-size: 1.2rem;
       }
@@ -398,46 +400,46 @@
           <div class="d-flex align-items-center">
             <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
             <a href="../contact/contact" class="btn-sales">Contact</a>
-                                <!-- Country Selector -->
-                    <div class="dropdown">
-                        <div class="country-selector " data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="country-flag" id="current-flag">🇮🇳</span>
-                            <span id="current-country">India</span>
-                            <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
-                        </div>
-                        <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
-                            <li>
-                                <a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
-                                    <span class="country-flag">🇺🇸</span> USA
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/UAE" data-country="UAE" data-flag="🇦🇪">
-                                    <span class="country-flag">🇦🇪</span> UAE
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/aus" data-country="Australia" data-flag="🇦🇺">
-                                    <span class="country-flag">🇦🇺</span> Australia
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/uk" data-country="UK" data-flag="🇬🇧">
-                                    <span class="country-flag">🇬🇧</span> UK
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/singapore" data-country="Singapore" data-flag="🇸🇬">
-                                    <span class="country-flag">🇸🇬</span> Singapore
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item country-option" href="./countries/Ireland" data-country="India" data-flag="🇮🇪">
-                                    <span class="country-flag">🇮🇪</span> Ireland
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <!-- Country Selector -->
+            <div class="dropdown">
+              <div class="country-selector" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="country-flag" id="current-flag">🇮🇳</span>
+                <span id="current-country">India</span>
+                <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+              </div>
+              <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+                <li>
+                  <a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸">
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/UAE" data-country="UAE" data-flag="🇦🇪">
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/aus" data-country="Australia" data-flag="🇦🇺">
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/uk" data-country="UK" data-flag="🇬🇧">
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/singapore" data-country="Singapore" data-flag="🇸🇬">
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item country-option" href="./countries/Ireland" data-country="India" data-flag="🇮🇪">
+                    <span class="country-flag">🇮🇪</span> Ireland
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -456,13 +458,6 @@
               <a href="#services" class="btn-hero-secondary"><i class="bi bi-grid-3x3-gap"></i> View All Checks</a>
             </div>
             <div class="hero-trust">
-<!--               <div class="hero-trust-avatars">
-                <img src="https://picsum.photos/seed/hyd-a1/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/hyd-a2/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/hyd-a3/72/72.jpg" alt="Client" />
-                <img src="https://picsum.photos/seed/hyd-a4/72/72.jpg" alt="Client" />
-              </div>
-              <p class="hero-trust-text">Trusted by <strong>900+ employers</strong> across India</p> -->
             </div>
           </div>
           <div class="col-lg-6 reveal">
@@ -580,49 +575,49 @@
               </div>
               <div class="migration-stat-card top-right">
                 <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-arrow-left-right"></i></div>
-                <div class="stat-text"><h4 style="font-size:1.4rem;">16+</h4><p>Source States Tracked</p></div>
+                <div class="stat-text"><h4>18+</h4><p>Source States</p></div>
               </div>
               <div class="migration-stat-card bottom-left">
-                <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-check-circle-fill"></i></div>
-                <div class="stat-text"><h4 style="font-size:1.4rem;">48hrs</h4><p>Migrant Check TAT</p></div>
+                <div class="stat-icon" style="width:45px;height:45px;border-radius:10px;font-size:1.2rem;"><i class="bi bi-person-check-fill"></i></div>
+                <div class="stat-text"><h4>50K+</h4><p>Migrant Workers Verified</p></div>
               </div>
             </div>
           </div>
           <div class="col-lg-7 reveal">
-            <span class="section-subtitle"><i class="bi bi-arrow-left-right"></i> Interstate Verification</span>
-            <h2 class="section-title">Migrant Worker Screening Across South &amp; East India</h2>
-            <p class="section-desc mb-4">Hyderabad's construction boom in the ORR corridor, logistics hubs in Sanathnagar &amp; Kukatpally, and gig economy depend heavily on inter-state migrant workers. We verify employment history, criminal records, and identity across multiple state jurisdictions simultaneously.</p>
-            <div class="row g-3">
+            <span class="section-subtitle"><i class="bi bi-arrow-left-right"></i> Migrant Worker Screening</span>
+            <h2 class="section-title">Inter-State Migrant Workmen Act Compliant Verification</h2>
+            <p class="section-desc">Hyderabad's booming construction, logistics, and manufacturing sectors draw workers from 18+ Indian states. Our verification process ensures full compliance with the Inter-State Migrant Workmen (Regulation of Employment and Conditions of Service) Act, 1979.</p>
+            <div class="row g-4 mt-2">
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-search"></i></div>
-                  <h3>Multi-State Criminal Check</h3>
-                  <p>Court record verification across candidate's home district, Hyderabad city courts, Nampally criminal courts, and any intermediate work locations.</p>
-                  <span class="visa-tag">Criminal</span>
+                  <div class="migration-icon"><i class="bi bi-file-earmark-person"></i></div>
+                  <h3>Contractor Licence Validation</h3>
+                  <p>Verify that recruiting contractors hold valid licences from the registering authority under the ISMW Act before deploying workers to Hyderabad.</p>
+                  <span class="visa-tag">ISMW Act</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-person-check-fill"></i></div>
-                  <h3>Contractor Due Diligence</h3>
-                  <p>Verify labour contractor licences, registration under TS FACT Act, and past compliance history with Telangana labour department and Hyderabad collectorate.</p>
-                  <span class="visa-tag">Contractors</span>
+                  <div class="migration-icon"><i class="bi bi-journal-check"></i></div>
+                  <h3>Registration &amp; Pass Verification</h3>
+                  <p>Validate migrant worker registrations and ensure proper employment passes are issued as mandated by Telangana labour authorities.</p>
+                  <span class="visa-tag">TS Labour</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-file-earmark-text"></i></div>
-                  <h3>Origin-State Document Verification</h3>
-                  <p>Validate educational certificates, domicile certificates, and identity documents issued from candidate's home state — critical for the large migrant workforce from AP, Bihar &amp; Odisha.</p>
-                  <span class="visa-tag">Documents</span>
+                  <div class="migration-icon"><i class="bi bi-heart-pulse"></i></div>
+                  <h3>Health &amp; Safety Screening</h3>
+                  <p>Medical fitness certificates, ESIC coverage verification, and ESI dispensary access confirmation for inter-state workers in Hyderabad.</p>
+                  <span class="visa-tag">ESIC</span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="migration-feature-card">
-                  <div class="migration-icon"><i class="bi bi-geo-alt-fill"></i></div>
-                  <h3>Address Trace Across States</h3>
-                  <p>Physical address verification at both current Hyderabad residence and permanent home address — through our network of field agents across 500+ districts in Telangana, AP &amp; beyond.</p>
-                  <span class="visa-tag">Address</span>
+                  <div class="migration-icon"><i class="bi bi-cash-coin"></i></div>
+                  <h3>Wage &amp; Benefit Compliance</h3>
+                  <p>Cross-check that wage payments, journey allowances, and residential provisions meet ISMW Act minimum standards for Hyderabad deployments.</p>
+                  <span class="visa-tag">Wage Code</span>
                 </div>
               </div>
             </div>
@@ -631,55 +626,55 @@
       </div>
     </section>
 
-    <!-- HYDERABAD SPECIAL -->
-    <section class="wps-section" id="hyd-special">
+    <!-- WPS -->
+    <section class="wps-section" id="wps">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle" style="background: rgba(5,150,105,0.15); color: #34d399;"><i class="bi bi-star-fill"></i> Hyderabad-Specific Capabilities</span>
-          <h2 class="section-title">Tailored for Hyderabad's Unique Hiring Landscape</h2>
-          <p class="section-desc mx-auto">Hyderabad's world-class IT corridor in HITEC City, pharmaceutical hub in Genome Valley, and rapidly expanding aerospace &amp; defence manufacturing in Adibatla demand verification that understands local infrastructure — from JNTU-H degree attestation to Nampally court records.</p>
+          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-shield-check"></i> WPS &amp; Security</span>
+          <h2 class="section-title">White Paper Screen &amp; Criminal Verification</h2>
+          <p class="section-desc mx-auto" style="color: rgba(255,255,255,0.7);">Comprehensive criminal background checks sourced directly from Hyderabad City Police, Telangana State Police portals, and national crime databases — fully compliant under DPDPA data-handling norms.</p>
         </div>
         <div class="row g-4">
           <div class="col-lg-4 col-md-6 reveal">
             <div class="wps-card">
-              <div class="wps-icon"><i class="bi bi-mortarboard"></i></div>
-              <h3>JNTU-H, OU &amp; NIT Warangal Verification</h3>
-              <p>Direct liaison with Jawaharlal Nehru Technological University Hyderabad (JNTU-H), Osmania University, NIT Warangal, IIIT Hyderabad, and 400+ affiliated engineering &amp; degree colleges across Telangana.</p>
+              <div class="wps-icon"><i class="bi bi-building-gear"></i></div>
+              <h3>Hyderabad City Police Check</h3>
+              <p>Direct criminal record verification through Hyderabad City Police Commissionerate, covering all police stations under Hyderabad, Cyberabad, and Rachakonda commissionerates.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="wps-card">
-              <div class="wps-icon"><i class="bi bi-capsule"></i></div>
-              <h3>Genome Valley Pharma Hub</h3>
-              <p>Specialised packages for pharmaceutical &amp; biotech employers in Genome Valley and nearby clusters — including CDSCO licence verification, drug regulatory history, and GMP certification checks.</p>
+              <div class="wps-icon"><i class="bi bi-globe2"></i></div>
+              <h3>Telangana State Police Portal</h3>
+              <p>State-wide criminal database search through the Telangana State Police CCTNS portal, covering all 31 districts for any pending cases, convictions, or FIRs.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="wps-card">
-              <div class="wps-icon"><i class="bi bi-laptop"></i></div>
-              <h3>HITEC City &amp; Gachibowli IT Corridor</h3>
-              <p>Rapid-turnaround verification for IT/ITeS companies across HITEC City, Gachibowli, Madhapur, Kondapur, and Financial District — with bulk processing for campus and seasonal hiring drives.</p>
+              <div class="wps-icon"><i class="bi bi-database-check"></i></div>
+              <h3>NCRB &amp; National Database</h3>
+              <p>Verification against the National Crime Records Bureau database and Prisons Information Management System for pan-India criminal history screening.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="wps-card">
-              <div class="wps-icon"><i class="bi bi-shield-exclamation"></i></div>
-              <h3>Hyderabad City Court Records</h3>
-              <p>Digital and physical court record checks across Nampally Criminal Court, City Civil Court, Metropolitan Sessions Court, LB Nagar, Miyapur, and e-Courts portal for pan-India criminal history.</p>
+              <div class="wps-icon"><i class="bi bi-file-earmark-ruled"></i></div>
+              <h3>Court Record Verification</h3>
+              <p>Checks across Hyderabad district courts, Telangana High Court, and relevant tribunals for civil disputes, criminal cases, and ongoing litigation history.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="wps-card">
-              <div class="wps-icon"><i class="bi bi-rocket-takeoff"></i></div>
-              <h3>Aerospace &amp; Defence (Adibatla)</h3>
-              <p>Background verification designed for the Aerospace &amp; Defence manufacturing cluster in Adibatla — including security clearance support, export control compliance, and engineering credential validation.</p>
+              <div class="wps-icon"><i class="bi bi-person-exclamation"></i></div>
+              <h3>Sex Offender Registry Check</h3>
+              <p>Cross-referencing against the National Sex Offender Registry and state-level maintained lists to ensure workplace safety compliance.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="wps-card">
-              <div class="wps-icon"><i class="bi bi-shop"></i></div>
-              <h3>T-Hub &amp; Startup Ecosystem</h3>
-              <p>Fast-track verification for Hyderabad's booming startup ecosystem at T-Hub, WE Hub, and HYSEA member companies — with flexible packages, API-first integration, and founder/director background checks.</p>
+              <div class="wps-icon"><i class="bi bi-geo-alt"></i></div>
+              <h3>Address-Linked Criminal Mapping</h3>
+              <p>Criminal record checks mapped to all addresses a candidate has resided at in the last 5–7 years, covering multiple police jurisdictions across India.</p>
             </div>
           </div>
         </div>
@@ -690,19 +685,19 @@
     <section class="services-section" id="services">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-grid-3x3-gap-fill"></i> Our Services</span>
-          <h2 class="section-title">Background Verification Services in Hyderabad</h2>
-          <p class="section-desc mx-auto">Comprehensive screening solutions designed for Hyderabad's diverse industries — from IT and pharma to aerospace and real estate.</p>
+          <span class="section-subtitle"><i class="bi bi-grid-3x3-gap"></i> Our Services</span>
+          <h2 class="section-title">Complete Background Verification in Hyderabad</h2>
+          <p class="section-desc mx-auto">From Aadhaar e-KYC to NIT Warangal degree attestation — every check is tailored for Hyderabad's unique regulatory and institutional landscape.</p>
         </div>
         <div class="row g-4">
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
-              <div class="service-icon"><i class="bi bi-person-badge"></i></div>
-              <h3>ID &amp; Aadhaar Verification</h3>
-              <p>Aadhaar e-KYC, PAN validation, voter ID, and passport verification for Hyderabad candidates — compliant with UIDAI and DPDPA 2023 consent requirements.</p>
+              <div class="service-icon"><i class="bi bi-fingerprint"></i></div>
+              <h3>Aadhaar e-KYC &amp; Identity</h3>
+              <p>UIDAI-compliant offline Aadhaar verification, XML-based authentication, and demographic matching for candidates in Hyderabad. DPDPA-consent-driven workflows.</p>
               <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Aadhaar XML</span>
-                <span class="card-tag blue"><i class="bi bi-check-circle-fill"></i> PAN 2.0</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> UIDAI</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> DPDPA</span>
               </div>
               <a href="../checks/id-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
@@ -710,23 +705,24 @@
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-geo-alt"></i></div>
-              <h3>Address Verification in Hyderabad</h3>
-              <p>Physical address verification across Hyderabad city, Secunderabad, Kukatpally, Miyapur, Madhapur, Gachibowli, Uppal, LB Nagar, and surrounding Telangana districts through local field agents.</p>
+              <h3>Address Verification</h3>
+              <p>Physical and digital address verification across all Hyderabad zones — GHMC areas, Cyberabad, and Rachakonda. Includes utility bill cross-checks and field visits.</p>
               <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Physical Visit</span>
-                <span class="card-tag highlight"><i class="bi bi-check-circle-fill"></i> 500+ Districts</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> GHMC</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Field Visit</span>
               </div>
-              <a href="../checks/address-verification.html" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+              <a href="../checks/address-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-mortarboard"></i></div>
-              <h3>Education Verification — JNTU-H &amp; Beyond</h3>
-              <p>Degree and marksheet verification from JNTU-H, Osmania University, NIT Warangal, IIIT-H, University of Hyderabad, and 400+ TS-affiliated colleges. Also covers TS Board SSC &amp; Intermediate.</p>
+              <h3>Education Verification</h3>
+              <p>Direct attestation from JNTU Hyderabad, Osmania University, NIT Warangal, University of Hyderabad, and all Telangana state universities and affiliated colleges.</p>
               <div class="card-tags">
-                <span class="card-tag purple"><i class="bi bi-check-circle-fill"></i> JNTU-H Direct</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> TS Board</span>
+                <span class="card-tag highlight"><i class="bi bi-star-fill"></i> JNTU-H</span>
+                <span class="card-tag highlight"><i class="bi bi-star-fill"></i> Osmania</span>
+                <span class="card-tag blue"><i class="bi bi-star-fill"></i> NIT Warangal</span>
               </div>
               <a href="../checks/education-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
@@ -735,10 +731,10 @@
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-briefcase"></i></div>
               <h3>Employment Verification</h3>
-              <p>HR-level employment verification with past employers — covering HITEC City IT companies, pharma units in Genome Valley, and service sector businesses. EPFO/UAN cross-verification included.</p>
+              <p>HR-verified employment history from Hyderabad's top employers in IT corridor (HITEC City, Gachibowli), pharma hubs, and manufacturing zones.</p>
               <div class="card-tags">
-                <span class="card-tag blue"><i class="bi bi-check-circle-fill"></i> EPFO/UAN</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> HR Confirm</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> HITEC City</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Gachibowli</span>
               </div>
               <a href="../checks/employment" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
@@ -746,61 +742,25 @@
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
               <div class="service-icon"><i class="bi bi-shield-exclamation"></i></div>
-              <h3>Criminal &amp; Court Record Check</h3>
-              <p>Digital and physical court record search across Nampally Criminal Court, City Civil Court, Metropolitan Sessions Court, LB Nagar, Miyapur, and e-Courts portal for pan-India criminal history.</p>
+              <h3>Criminal Record Check</h3>
+              <p>Hyderabad City Police, Cyberabad, and Rachakonda commissionerate criminal database verification plus NCRB national database screening.</p>
               <div class="card-tags">
-                <span class="card-tag red"><i class="bi bi-check-circle-fill"></i> e-Courts</span>
-                <span class="card-tag highlight"><i class="bi bi-check-circle-fill"></i> Nampally Courts</span>
+                <span class="card-tag red"><i class="bi bi-exclamation-triangle-fill"></i> Critical</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> NCRB</span>
               </div>
               <a href="../checks/court-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 reveal">
             <div class="service-card">
-              <div class="service-icon"><i class="bi bi-shield-check"></i></div>
-              <h3>Police Clearance Certificate</h3>
-              <p>Facilitate Police Clearance Certificate (PCC) from Hyderabad City Police Commissionerate and Telangana State Police — for immigration, employment, and visa purposes.</p>
-              <div class="card-tags">
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> City Police</span>
-                <span class="card-tag purple"><i class="bi bi-check-circle-fill"></i> TS State Police</span>
-              </div>
-              <a href="../checks/police-clearnce" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
               <div class="service-icon"><i class="bi bi-credit-card"></i></div>
-              <h3>Credit &amp; Financial History Check</h3>
-              <p>CIBIL score check, loan default history, and financial delinquency screening — essential for banking, fintech, and financial services employers in Hyderabad's Financial District and Begumpet.</p>
+              <h3>EPFO / UAN Verification</h3>
+              <p>Validate employment history through EPFO UAN records, cross-referencing PF contributions with declared work experience for Hyderabad-based candidates.</p>
               <div class="card-tags">
-                <span class="card-tag blue"><i class="bi bi-check-circle-fill"></i> CIBIL</span>
-                <span class="card-tag red"><i class="bi bi-check-circle-fill"></i> Defaults</span>
+                <span class="card-tag purple"><i class="bi bi-check-circle-fill"></i> EPFO</span>
+                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> UAN</span>
               </div>
-              <a href="../checks/credit-check" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-calendar-x"></i></div>
-              <h3>Gap Verification</h3>
-              <p>Validate employment and education gaps with documented evidence — critical for IT companies in HITEC City and Gachibowli that require continuous career timelines for overseas client deployments.</p>
-              <div class="card-tags">
-                <span class="card-tag highlight"><i class="bi bi-check-circle-fill"></i> Timeline Audit</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> Evidence-Based</span>
-              </div>
-              <a href="../checks/gap-verification" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <div class="service-icon"><i class="bi bi-capsule"></i></div>
-              <h3>Drug Test Screening</h3>
-              <p>Pre-employment and random drug testing for pharma, manufacturing, and logistics employers in Hyderabad — NABL-accredited labs with sample collection at candidate locations across GHMC limits.</p>
-              <div class="card-tags">
-                <span class="card-tag purple"><i class="bi bi-check-circle-fill"></i> NABL Labs</span>
-                <span class="card-tag"><i class="bi bi-check-circle-fill"></i> On-Site</span>
-              </div>
-              <a href="../checks/drug-test" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+              <a href="../checks/employment" class="card-nav-btn">Learn More <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -811,24 +771,24 @@
     <section class="industries-section" id="industries">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-diagram-3-fill"></i> Industries We Serve</span>
-          <h2 class="section-title">Hyderabad's Key Industries Covered</h2>
-          <p class="section-desc mx-auto">From HITEC City tech parks to Genome Valley pharma hubs, we understand the unique verification needs of each Hyderabad industry vertical.</p>
+          <span class="section-subtitle"><i class="bi bi-building"></i> Industries We Serve</span>
+          <h2 class="section-title">Hyderabad's Key Sectors</h2>
+          <p class="section-desc mx-auto">Tailored background verification solutions for every major industry vertical in the Hyderabad metropolitan region.</p>
         </div>
         <div class="row g-4">
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-laptop"></i>
-              <h3>IT &amp; ITeS</h3>
-              <p>HITEC City, Gachibowli, Financial District</p>
+              <h3>IT / ITeS</h3>
+              <p>HITEC City, Gachibowli</p>
               <a href="../industries/IT-ITES" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-capsule"></i>
-              <h3>Pharma &amp; Biotech</h3>
-              <p>Genome Valley, IDA Pashamylaram</p>
+              <h3>Pharma &amp; Life Sciences</h3>
+              <p>Genome Valley, Hyderabad</p>
               <a href="../industries/healthcare" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
@@ -836,23 +796,31 @@
             <div class="industry-item">
               <i class="bi bi-bank"></i>
               <h3>Banking &amp; BFSI</h3>
-              <p>Financial District, Begumpet</p>
-              <a href="../industries/banks" class="card-nav-btn card-nav-btn-sm">Explore</a>
+              <p>Financial District</p>
+              <a href="../industries/banks" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
-              <i class="bi bi-rocket-takeoff"></i>
-              <h3>Aerospace &amp; Defence</h3>
-              <p>Adibatla, T-Hub</p>
+              <i class="bi bi-building-gear"></i>
+              <h3>Manufacturing</h3>
+              <p>Patancheru, Pharma City</p>
               <a href="../industries/manufacturing" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
+              <i class="bi bi-truck"></i>
+              <h3>Logistics &amp; Supply Chain</h3>
+              <p>ORR Corridor, Warehouse Belt</p>
+              <a href="../industries/Logistics" class="card-nav-btn card-nav-btn-sm">Explore </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-6 reveal">
+            <div class="industry-item">
               <i class="bi bi-shop"></i>
-              <h3>E-Commerce &amp; Retail</h3>
-              <p>City-Wide, Medchal, Patancheru</p>
+              <h3>Retail &amp; E-commerce</h3>
+              <p>Across Hyderabad</p>
               <a href="../industries/Retail & E-commerce" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
@@ -860,23 +828,15 @@
             <div class="industry-item">
               <i class="bi bi-house"></i>
               <h3>Real Estate &amp; Construction</h3>
-              <p>ORR Corridor, Tellapur, Pharma City</p>
-              <a href="../industries/Realestate-&-constructation" class="card-nav-btn card-nav-btn-sm">Explore</a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-6 reveal">
-            <div class="industry-item">
-              <i class="bi bi-truck"></i>
-              <h3>Logistics &amp; Supply Chain</h3>
-              <p>Sanathnagar, Kukatpally, Shamshabad</p>
-              <a href="../industries/Logistics" class="card-nav-btn card-nav-btn-sm">Explore </a>
+              <p>West &amp; North Hyderabad</p>
+              <a href="../industries/Realestate-&-constructation" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-6 reveal">
             <div class="industry-item">
               <i class="bi bi-person-workspace"></i>
               <h3>Staffing &amp; Recruitment</h3>
-              <p>Ameerpet, Madhapur, City-Wide</p>
+              <p>Agencies Across Telangana</p>
               <a href="../industries/staffing" class="card-nav-btn card-nav-btn-sm">Explore </a>
             </div>
           </div>
@@ -888,37 +848,37 @@
     <section class="trust-section" id="trust">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle" style="background: rgba(5,150,105,0.15); color: #34d399;"><i class="bi bi-trophy-fill"></i> Why Verifitech</span>
-          <h2 class="section-title">Hyderabad Employers Trust Verifitech</h2>
-          <p class="section-desc mx-auto">Numbers that reflect our commitment to compliant, accurate, and fast background verification in Hyderabad.</p>
+          <span class="section-subtitle" style="background: rgba(26,194,193,0.15);"><i class="bi bi-trophy"></i> Why Verifitech</span>
+          <h2 class="section-title">Trusted by 900+ Employers Across India</h2>
+          <p class="section-desc mx-auto" style="color: rgba(255,255,255,0.7);">Industry-leading accuracy, turnaround times, and compliance standards make Verifitech the preferred background verification partner for Hyderabad's top organisations.</p>
         </div>
         <div class="row g-4">
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
-              <div class="trust-stat">680+</div>
-              <div class="trust-label">Hyderabad Employers</div>
-              <p class="trust-desc">Companies across HITEC City, Gachibowli, Genome Valley &amp; beyond</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal">
-            <div class="trust-card">
               <div class="trust-stat">99.2%</div>
               <div class="trust-label">Accuracy Rate</div>
-              <p class="trust-desc">Verified through multi-source cross-validation for Hyderabad checks</p>
+              <p class="trust-desc">Highest verification accuracy in the industry with multi-source cross-validation</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
               <div class="trust-stat">3-5</div>
               <div class="trust-label">Days TAT</div>
-              <p class="trust-desc">Average turnaround for standard verification packages in Hyderabad</p>
+              <p class="trust-desc">Fastest turnaround in Hyderabad with local verification network</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="trust-card">
-              <div class="trust-stat">24/7</div>
-              <div class="trust-label">Client Support</div>
-              <p class="trust-desc">Dedicated Hyderabad-based account managers and real-time dashboard</p>
+              <div class="trust-stat">900+</div>
+              <div class="trust-label">Client Companies</div>
+              <p class="trust-desc">Trusted by Fortune 500 companies and leading Indian enterprises</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 reveal">
+            <div class="trust-card">
+              <div class="trust-stat">5M+</div>
+              <div class="trust-label">Verifications Done</div>
+              <p class="trust-desc">Scaled verification infrastructure handling millions of checks annually</p>
             </div>
           </div>
         </div>
@@ -929,37 +889,37 @@
     <section class="process-section" id="process">
       <div class="container">
         <div class="section-header text-center reveal">
-          <span class="section-subtitle"><i class="bi bi-arrow-repeat"></i> How It Works</span>
-          <h2 class="section-title">Hyderabad Background Check Process</h2>
-          <p class="section-desc mx-auto">A streamlined, compliant verification workflow tailored for Hyderabad employers — from candidate onboarding to final report delivery.</p>
+          <span class="section-subtitle"><i class="bi bi-list-ol"></i> How It Works</span>
+          <h2 class="section-title">Simple 4-Step Verification Process</h2>
+          <p class="section-desc mx-auto">From candidate onboarding to final report delivery — our Hyderabad verification process is streamlined, transparent, and fully DPDPA-compliant.</p>
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">1</div>
-              <h3>Candidate Onboard</h3>
-              <p>Candidate receives DPDPA-compliant consent form via SMS, email, or WhatsApp. Data captured in our secure Hyderabad portal with full audit trail.</p>
+              <h3>Candidate Onboarding</h3>
+              <p>Candidate receives a secure link to submit documents and provide DPDPA-compliant digital consent for Hyderabad verification.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">2</div>
-              <h3>Multi-Source Check</h3>
-              <p>Parallel verification initiated — JNTU-H for education, Nampally courts for criminal, EPFO for employment, UIDAI for identity, and field agents for address across GHMC.</p>
+              <h3>Multi-Source Verification</h3>
+              <p>Our system triggers parallel checks — Aadhaar KYC, EPFO validation, police records, university attestation, and employer HR verification.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">3</div>
-              <h3>Quality Review</h3>
-              <p>Every Hyderabad report undergoes two-level QC — automated flagging for discrepancies and manual review by Telangana-specialist analysts.</p>
+              <h3>Quality &amp; Compliance Review</h3>
+              <p>Every check undergoes a multi-level QA process to ensure accuracy, DPDPA compliance, and Telangana labour law adherence.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 reveal">
             <div class="process-step">
               <div class="step-number">4</div>
               <h3>Report Delivery</h3>
-              <p>Compliant BGV report delivered via client dashboard, API integration, or email — with clear pass/fail status, evidence documents, and escalation flags.</p>
+              <p>Detailed verification report delivered via API, dashboard, or email — with clear status indicators and exception flags.</p>
             </div>
           </div>
         </div>
@@ -970,13 +930,9 @@
     <section class="cta-section" id="cta">
       <div class="container">
         <div class="cta-box reveal">
-          <span class="section-subtitle" style="margin-bottom: 1.5rem;"><i class="bi bi-rocket-takeoff-fill"></i> Get Started</span>
-          <h2 class="section-title" style="margin-bottom: 1rem;">Ready to Compliantly Verify Your Hyderabad Workforce?</h2>
-          <p class="section-desc mx-auto" style="margin-bottom: 2rem;">Schedule a free demo and see how Verifitech's Hyderabad-tailored background checks can reduce your hiring risk, speed up onboarding, and keep you fully compliant with DPDPA &amp; Telangana labour laws.</p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="../Demo/demo.html" class="btn-primary-custom"><i class="bi bi-play-circle"></i> Get a Free Demo</a>
-            <a href="../contact/contact" class="btn-hero-secondary"><i class="bi bi-telephone"></i> Talk to Hyderabad Sales</a>
-          </div>
+          <h2 class="section-title">Ready to Compliantly Verify Your Hyderabad Workforce?</h2>
+          <p class="section-desc mx-auto text-center" style="margin-bottom: 2rem;">Get a personalised demo of our DPDPA &amp; Telangana labour law-compliant background verification platform. See how 900+ employers trust Verifitech for their Hyderabad hiring.</p>
+          <a href="../Demo/demo.html" class="btn-primary-custom"><i class="bi bi-play-circle"></i> Get a Free Demo</a>
         </div>
       </div>
     </section>
@@ -987,33 +943,32 @@
         <div class="newsletter-footer-section">
           <div class="row align-items-center">
             <div class="col-lg-5 mb-4 mb-lg-0">
-              <div class="d-flex align-items-center gap-3 mb-2">
-                <div class="newsletter-icon-footer"><i class="bi bi-envelope"></i></div>
+              <div class="d-flex align-items-start gap-3">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-paper"></i>
+                </div>
                 <div>
-                  <h4 class="newsletter-title">Stay Compliant</h4>
-                  <p class="newsletter-subtitle">Get Hyderabad BGV compliance updates &amp; TS labour law alerts</p>
+                  <h3 class="newsletter-title">Stay Updated</h3>
+                  <p class="newsletter-subtitle">Get the latest on compliance updates, verification best practices, and industry insights delivered to your inbox.</p>
                 </div>
               </div>
             </div>
             <div class="col-lg-7">
-              <form class="newsletter-form-footer" onsubmit="handleNewsletterSubmit(event)">
+              <div class="newsletter-form-footer">
                 <div class="input-group-wrapper">
-                  <input type="email" class="newsletter-input" placeholder="Enter your work email" required />
-                  <button type="submit" class="newsletter-btn">Subscribe <i class="bi bi-arrow-right"></i></button>
+                  <input type="email" class="newsletter-input" placeholder="Enter your work email" />
+                  <button class="newsletter-btn" type="button">Subscribe <i class="bi bi-arrow-right"></i></button>
                 </div>
-                <p class="newsletter-disclaimer"><i class="bi bi-shield-check"></i> No spam. Unsubscribe anytime. DPDPA-compliant mailing.</p>
-              </form>
-              <div id="newsletter-success" style="display:none; color: #16a34a; font-weight: 600; margin-top: 10px; align-items: center; gap: 8px;">
-                <i class="bi bi-check-circle-fill"></i> <span>You're subscribed! Check your inbox.</span>
+                <p class="newsletter-disclaimer"><i class="bi bi-shield-check"></i> We respect your privacy. Unsubscribe anytime.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="footer-main-content">
-          <div class="row g-4">
+          <div class="row">
             <div class="col-lg-3 col-md-6">
               <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" />
-              <p class="footer-description">India's leading background verification platform. DPDPA &amp; state labour law compliant. Trusted by 900+ employers.</p>
+              <p class="footer-description">India's most trusted background verification platform. DPDPA compliant, fast turnaround, and 99.2% accuracy.</p>
               <div class="social-icons">
                 <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
                 <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
@@ -1025,10 +980,11 @@
               <h5 class="footer-heading">Solutions</h5>
               <ul class="footer-links">
                 <li><a href="../checks/id-verification">ID Verification</a></li>
-                <li><a href="../checks/employment">Employment Check</a></li>
                 <li><a href="../checks/education-check">Education Check</a></li>
-                <li><a href="../checks/court-verification">Court Records</a></li>
-                <li><a href="../checks/address-verification.html">Address Check</a></li>
+                <li><a href="../checks/employment">Employment Check</a></li>
+                <li><a href="../checks/court-verification">Court Record</a></li>
+                <li><a href="../checks/address-verification">Address Check</a></li>
+                <li><a href="../checks/global-check">Global Database</a></li>
               </ul>
             </div>
             <div class="col-lg-2 col-md-6">
@@ -1037,39 +993,37 @@
                 <li><a href="../company/aboutus">About Us</a></li>
                 <li><a href="../company/careers">Careers</a></li>
                 <li><a href="../company/partnership">Partnership</a></li>
-                <li><a href="../contact/contact">Contact</a></li>
+                <li><a href="../contact/contact">Contact Us</a></li>
+                <li><a href="../resources/blog">Blog</a></li>
               </ul>
             </div>
             <div class="col-lg-2 col-md-6">
               <h5 class="footer-heading">Resources</h5>
               <ul class="footer-links">
-                <li><a href="../resources/blog">Blog</a></li>
                 <li><a href="../resources/whitepapers">Whitepapers</a></li>
                 <li><a href="../resources/casestudy">Case Studies</a></li>
                 <li><a href="../resources/webinar">Webinars</a></li>
+                <li><a href="../products/api">API Docs</a></li>
+                <li><a href="../helpcenter/customer">Help Center</a></li>
               </ul>
             </div>
             <div class="col-lg-3 col-md-6">
-              <h5 class="footer-heading">City Pages</h5>
+              <h5 class="footer-heading">Contact</h5>
               <ul class="footer-links">
-                <li><a href="../india/bangalore">Bangalore</a></li>
-                <li><a href="../india/pune">Pune</a></li>
-                <li><a href="../india/hyderabad">Hyderabad</a></li>
-                <li><a href="../india/mumbai">Mumbai</a></li>
-                <li><a href="../india/delhi">Delhi NCR</a></li>
-                <li><a href="../india/chennai">Chennai</a></li>
+                <li><a href="mailto:info@verifitech.com"><i class="bi bi-envelope me-2"></i>info@verifitech.com</a></li>
+                <li><a href="tel:+914040012345"><i class="bi bi-telephone me-2"></i>+91 40 4001 2345</a></li>
+                <li><a href="#"><i class="bi bi-geo-alt me-2"></i>Hyderabad, Telangana, India</a></li>
               </ul>
             </div>
           </div>
         </div>
         <div class="privacy-row">
-          <p class="copyright">&copy; 2026 Verifitech. All rights reserved. &nbsp;
-            <a href="../privacy-policy" class="privacy-link">Privacy Policy</a>
-            <span class="privacy-separator">|</span>
-            <a href="../terms" class="privacy-link">Terms of Service</a>
-            <span class="privacy-separator">|</span>
-            <a href="../dpdpa-compliance" class="privacy-link">DPDPA Compliance</a>
-          </p>
+          <p class="copyright">&copy; 2025 Verifitech. All rights reserved.</p>
+          <a href="#" class="privacy-link">Privacy Policy</a>
+          <span class="privacy-separator">|</span>
+          <a href="#" class="privacy-link">Terms of Service</a>
+          <span class="privacy-separator">|</span>
+          <a href="#" class="privacy-link">DPDPA Compliance</a>
         </div>
       </div>
     </footer>
@@ -1077,7 +1031,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       // Navbar scroll effect
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
           navbar.classList.add('scrolled');
@@ -1087,77 +1041,34 @@
       });
 
       // Reveal on scroll
-      function revealOnScroll() {
-        const reveals = document.querySelectorAll('.reveal');
-        const windowHeight = window.innerHeight;
-        reveals.forEach(function (el) {
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealOnScroll = function() {
+        revealElements.forEach(function(el) {
+          const windowHeight = window.innerHeight;
           const elementTop = el.getBoundingClientRect().top;
-          if (elementTop < windowHeight - 100) {
+          const revealPoint = 120;
+          if (elementTop < windowHeight - revealPoint) {
             el.classList.add('active');
           }
         });
-      }
+      };
       window.addEventListener('scroll', revealOnScroll);
       window.addEventListener('load', revealOnScroll);
 
-      // Newsletter form
-      function handleNewsletterSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const input = form.querySelector('.newsletter-input');
-        const successMsg = document.getElementById('newsletter-success');
-        if (input.value) {
-          form.style.display = 'none';
-          successMsg.style.display = 'flex';
-          input.value = '';
-        }
-      }
-
-      // Counter animation for trust stats
-      function animateCounters() {
-        const stats = document.querySelectorAll('.trust-stat');
-        stats.forEach(function (stat) {
-          const text = stat.textContent.trim();
-          if (stat.dataset.animated) return;
-
-          const rect = stat.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 50) {
-            stat.dataset.animated = 'true';
-            const originalText = text;
-
-            const match = originalText.match(/^([\d.]+)(.*)/);
-            if (!match) return;
-
-            const target = parseFloat(match[1]);
-            const suffix = match[2];
-            const isFloat = originalText.includes('.');
-            const duration = 2000;
-            const startTime = performance.now();
-
-            function updateCounter(currentTime) {
-              const elapsed = currentTime - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              const eased = 1 - Math.pow(1 - progress, 3);
-              const current = target * eased;
-
-              if (isFloat) {
-                stat.textContent = current.toFixed(1) + suffix;
-              } else {
-                stat.textContent = Math.floor(current) + suffix;
-              }
-
-              if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-              } else {
-                stat.textContent = originalText;
-              }
-            }
-            requestAnimationFrame(updateCounter);
+      // Country selector
+      document.querySelectorAll('.country-option').forEach(function(option) {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          var flag = this.getAttribute('data-flag');
+          var country = this.getAttribute('data-country');
+          document.getElementById('current-flag').textContent = flag;
+          document.getElementById('current-country').textContent = country;
+          var href = this.getAttribute('href');
+          if (href) {
+            window.location.href = href;
           }
         });
-      }
-      window.addEventListener('scroll', animateCounters);
-      window.addEventListener('load', animateCounters);
+      });
     </script>
   </body>
 </html>
