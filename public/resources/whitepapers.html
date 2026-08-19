@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -838,6 +836,7 @@
         margin-bottom: 1.5rem;
         font-size: 0.85rem;
         color: var(--gray);
+        flex-wrap: wrap;
       }
 
       .card-stats span {
@@ -1126,6 +1125,7 @@
         gap: 12px;
         font-size: 0.875rem;
         color: var(--gray);
+        flex-wrap: wrap;
       }
 
       .doc-preview-meta span {
@@ -1959,26 +1959,78 @@
         color: var(--gray);
         margin: 0;
       }
+
+      /* Second row centering for 5-card grid */
+      .grid-second-row {
+        display: flex;
+        justify-content: center;
+      }
+
+      .grid-second-row > [class*="col-"] {
+        max-width: 25%;
+        flex: 0 0 25%;
+      }
+
+      @media (max-width: 1199px) {
+        .grid-second-row > [class*="col-"] {
+          max-width: 33.333%;
+          flex: 0 0 33.333%;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .grid-second-row > [class*="col-"] {
+          max-width: 50%;
+          flex: 0 0 50%;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .grid-second-row > [class*="col-"] {
+          max-width: 100%;
+          flex: 0 0 100%;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- ============================================ -->
-    <!-- HIDDEN PDF DOWNLOAD LINK -->
-    <!-- Place your PDF file in the same folder as this HTML -->
+    <!-- HIDDEN PDF DOWNLOAD LINKS (ALL 5 WHITEPAPERS) -->
+    <!-- Place your PDF files in the same folder as this HTML -->
     <!-- ============================================ -->
-    <a href="Verifitech_Digital_Address_Verification.pdf" 
-       download="Verifitech_Digital_Address_Verification.pdf" 
-       id="pdfDownloadLink" 
+    <a href="Verifitech_Digital_Address_Verification.pdf"
+       download="Verifitech_Digital_Address_Verification.pdf"
+       id="pdfDownloadLink_address"
        style="display:none;"></a>
 
-    <!-- Download Toast Notification -->
+    <a href="ROI_of_Background_Screening.pdf"
+       download="ROI_of_Background_Screening.pdf"
+       id="pdfDownloadLink_roi"
+       style="display:none;"></a>
+
+    <a href="DPDP_Compliance.pdf"
+       download="DPDP_Compliance.pdf"
+       id="pdfDownloadLink_dpdp"
+       style="display:none;"></a>
+
+    <a href="Global_Background_Screening_Whitepaper.pdf"
+       download="Global_Background_Screening_Whitepaper.pdf"
+       id="pdfDownloadLink_global"
+       style="display:none;"></a>
+
+    <a href="KYC_Frauds_India.pdf"
+       download="KYC_Frauds_India.pdf"
+       id="pdfDownloadLink_kyc"
+       style="display:none;"></a>
+
+    <!-- Dynamic Download Toast Notification -->
     <div class="download-toast" id="downloadToast">
       <div class="download-toast-icon">
         <i class="bi bi-file-earmark-pdf-fill"></i>
       </div>
       <div class="download-toast-content">
         <h5>Download Started</h5>
-        <p>Verifitech_Digital_Address_Verification.pdf</p>
+        <p id="toastFileName">Verifitech_Digital_Address_Verification.pdf</p>
       </div>
     </div>
 
@@ -1986,12 +2038,12 @@
     <!-- ZOHO FORM (INTEGRATED & HIDDEN) -->
     <!-- ============================================ -->
     <div class="zf-templateWidth">
-      <form action='https://forms.zohopublic.in/verifitech/form/Whitepaperform/formperma/Ub_-EoRWPRNMIWfkEX8ZBErkFewGjXkS2qq0PbH1ciA/htmlRecords/submit' 
-            name='form' 
-            method='POST' 
-            onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();' 
-            accept-charset='UTF-8' 
-            enctype='multipart/form-data' 
+      <form action='https://forms.zohopublic.in/verifitech/form/Whitepaperform/formperma/Ub_-EoRWPRNMIWfkEX8ZBErkFewGjXkS2qq0PbH1ciA/htmlRecords/submit'
+            name='form'
+            method='POST'
+            onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+            accept-charset='UTF-8'
+            enctype='multipart/form-data'
             id='zohoForm'
             target="zohoIframe">
         <input type="hidden" name="zf_referrer_name" value="">
@@ -2008,7 +2060,127 @@
       <iframe name="zohoIframe" id="zohoIframe" style="display: none;"></iframe>
     </div>
 
-    <!-- Navigation -->
+    <!-- ============================================ -->
+    <!-- DOWNLOAD MODAL (DYNAMIC - HANDLES ALL 5 WHITEPAPERS) -->
+    <!-- ============================================ -->
+    <div class="download-modal" id="downloadModal">
+      <div class="modal-container">
+        <div class="modal-header-custom">
+          <div class="modal-header-icon">
+            <i class="bi bi-file-earmark-pdf-fill"></i>
+          </div>
+          <div class="modal-header-content">
+            <h3 id="modalTitle">Download Whitepaper</h3>
+            <p id="modalSubtitle">Fill in your details to access this document</p>
+          </div>
+          <button class="modal-close-btn" onclick="closeModal()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body-custom">
+          <!-- FORM VIEW -->
+          <div id="modalFormView">
+            <div class="doc-preview-card">
+              <div class="doc-preview-icon">
+                <i class="bi bi-file-earmark-pdf-fill"></i>
+              </div>
+              <div class="doc-preview-info">
+                <h4 id="modalDocTitle">Whitepaper Title</h4>
+                <div class="doc-preview-meta">
+                  <span><i class="bi bi-file-earmark"></i> <span id="modalDocType">PDF</span></span>
+                  <span><i class="bi bi-clock"></i> <span id="modalDocReadTime">8 min read</span></span>
+                  <span><i class="bi bi-calendar3"></i> <span id="modalDocYear">2025</span></span>
+                </div>
+              </div>
+            </div>
+
+            <form id="modalForm" onsubmit="return handleModalSubmit(event)">
+              <div class="modal-form-group">
+                <label>Full Name <span class="required">*</span></label>
+                <div class="modal-input-wrapper">
+                  <input type="text" id="modalName" placeholder="Enter your full name" required>
+                  <i class="bi bi-person"></i>
+                </div>
+              </div>
+
+              <div class="modal-form-group">
+                <label>Work Email <span class="required">*</span></label>
+                <div class="modal-input-wrapper">
+                  <input type="email" id="modalEmail" placeholder="you@company.com" required>
+                  <i class="bi bi-envelope"></i>
+                </div>
+              </div>
+
+              <div class="modal-form-group">
+                <label>Phone Number <span class="required">*</span></label>
+                <div class="modal-input-wrapper">
+                  <input type="tel" id="modalPhone" placeholder="+91 XXXXX XXXXX" required>
+                  <i class="bi bi-telephone"></i>
+                </div>
+              </div>
+
+              <div class="modal-form-group">
+                <label>Company Name <span class="required">*</span></label>
+                <div class="modal-input-wrapper">
+                  <input type="text" id="modalCompany" placeholder="Your organization" required>
+                  <i class="bi bi-building"></i>
+                </div>
+              </div>
+
+              <div class="modal-form-group">
+                <label>Designation</label>
+                <div class="modal-input-wrapper">
+                  <input type="text" id="modalDesignation" placeholder="Your role / title">
+                  <i class="bi bi-briefcase"></i>
+                </div>
+              </div>
+
+              <button type="submit" class="modal-submit-btn" id="modalSubmitBtn">
+                <span class="btn-text">
+                  <i class="bi bi-download"></i>
+                  Download Whitepaper
+                </span>
+                <div class="loader"></div>
+              </button>
+            </form>
+
+            <div class="modal-privacy-note">
+              <i class="bi bi-shield-check"></i>
+              Your information is secure and will not be shared with third parties.
+            </div>
+          </div>
+
+          <!-- SUCCESS VIEW -->
+          <div class="modal-success" id="modalSuccessView">
+            <div class="success-icon-large">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            <h4>Thank You, <span class="user-name-display" id="successUserName">User</span>!</h4>
+            <p class="success-message">Your whitepaper is ready for download. A copy has also been sent to your email.</p>
+            <div class="download-ready-text">
+              <i class="bi bi-file-earmark-pdf-fill"></i>
+              <span id="successDocName">Whitepaper.pdf</span>
+            </div>
+            <br>
+            <button class="download-file-btn" id="successDownloadBtn" onclick="triggerPdfDownload()">
+              <i class="bi bi-download"></i>
+              Download PDF Now
+            </button>
+            <br>
+            <button class="browse-more-btn" onclick="closeModal()">
+              <i class="bi bi-arrow-left"></i>
+              Browse More Whitepapers
+            </button>
+            <div class="email-confirmation">
+              <i class="bi bi-envelope-check"></i>
+              Confirmation sent to <strong id="successEmail">email@example.com</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
@@ -2320,668 +2492,663 @@
     </nav>
     <!-- Hero Section -->
     <section class="whitepaper-hero">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="hero-badge">
-              <i class="bi bi-journal-richtext"></i>
-              Expert Research & Insights
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-badge">
+                        <i class="bi bi-journal-richtext"></i>
+                        Research & Insights
+                    </div>
+                    <h1>Whitepapers &<br>Research <span style="color: var(--primary);">Guides</span></h1>
+                    <p class="lead">Download in-depth whitepapers on background verification, compliance frameworks, hiring risk mitigation, and workforce trust — backed by data and industry expertise.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#whitepapers" class="btn-primary-custom">
+                            <i class="bi bi-download"></i> Browse All Whitepapers
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="document-visual">
+                        <div class="doc-stack">
+                            <div class="doc-card">
+                                <div class="doc-icon"><i class="bi bi-shield-lock"></i></div>
+                                <div class="doc-title">Background Screening ROI</div>
+                                <div class="doc-meta">Strategic Guide · 2025</div>
+                            </div>
+                            <div class="doc-card">
+                                <div class="doc-icon"><i class="bi bi-globe2"></i></div>
+                                <div class="doc-title">Global Hiring Compliance</div>
+                                <div class="doc-meta">Cross-Border Framework</div>
+                            </div>
+                            <div class="doc-card">
+                                <div class="doc-icon"><i class="bi bi-file-earmark-pdf"></i></div>
+                                <div class="doc-title">DPDP Compliance Guide</div>
+                                <div class="doc-meta">Data Privacy · 2026</div>
+                            </div>
+                        </div>
+                        <div class="floating-stat stat-1">
+                            <div class="stat-icon"><i class="bi bi-file-earmark-text"></i></div>
+                            <div class="stat-content">
+                                <div class="number">5</div>
+                                <div class="label">Whitepapers</div>
+                            </div>
+                        </div>
+                        <div class="floating-stat stat-2">
+                            <div class="stat-icon"><i class="bi bi-download"></i></div>
+                            <div class="stat-content">
+                                <div class="number">2K+</div>
+                                <div class="label">Downloads</div>
+                            </div>
+                        </div>
+                        <div class="floating-stat stat-3">
+                            <div class="stat-icon"><i class="bi bi-people"></i></div>
+                            <div class="stat-content">
+                                <div class="number">500+</div>
+                                <div class="label">Organizations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>Whitepapers &<br>Research Reports</h1>
-            <p class="lead">Download in-depth guides on background verification, compliance, KYC, and digital trust. Actionable insights from 17+ years of industry expertise.</p>
-            <a href="#whitepapers" class="btn-primary-custom">
-              <i class="bi bi-grid-3x3-gap-fill"></i>
-              Browse All Papers
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <div class="document-visual">
-              <div class="doc-stack">
-                <div class="doc-card">
-                  <div class="doc-icon"><i class="bi bi-file-earmark-pdf"></i></div>
-                  <div class="doc-title">Digital Address Verification</div>
-                  <div class="doc-meta">PDF &bull; 15 Pages &bull; 2025</div>
-                </div>
-                <div class="doc-card">
-                  <div class="doc-icon"><i class="bi bi-shield-lock"></i></div>
-                  <div class="doc-title">KYC Compliance Guide</div>
-                  <div class="doc-meta">PDF &bull; Coming Soon</div>
-                </div>
-                <div class="doc-card">
-                  <div class="doc-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                  <div class="doc-title">Fraud Prevention Report</div>
-                  <div class="doc-meta">PDF &bull; Coming Soon</div>
-                </div>
-              </div>
-              <div class="floating-stat stat-1">
-                <div class="stat-icon"><i class="bi bi-download"></i></div>
-                <div class="stat-content">
-                  <div class="number">2,500+</div>
-                  <div class="label">Downloads</div>
-                </div>
-              </div>
-              <div class="floating-stat stat-2">
-                <div class="stat-icon"><i class="bi bi-building"></i></div>
-                <div class="stat-content">
-                  <div class="number">500+</div>
-                  <div class="label">Enterprise Users</div>
-                </div>
-              </div>
-              <div class="floating-stat stat-3">
-                <div class="stat-icon"><i class="bi bi-star-fill"></i></div>
-                <div class="stat-content">
-                  <div class="number">4.9/5</div>
-                  <div class="label">Reader Rating</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Featured Whitepaper -->
     <section class="featured-whitepaper">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle"><i class="bi bi-star-fill"></i> Featured Whitepaper</div>
-          <h2 class="section-title">Digital Address Verification for Contactless Customer Onboarding</h2>
-          <p class="section-desc mx-auto">Building Trust, Reducing Fraud, and Accelerating Customer Acquisition in a Digital-First Era.</p>
-        </div>
-        <div class="featured-card reveal">
-          <div class="row g-0">
-            <div class="col-lg-5">
-              <div class="whitepaper-cover">
-                <div class="cover-content">
-                  <div class="cover-icon">
-                    <i class="bi bi-file-earmark-pdf"></i>
-                  </div>
-                  <div class="cover-badge">
-                    <i class="bi bi-patch-check-fill"></i> Verified Research
-                  </div>
-                  <h2>Digital Address Verification</h2>
-                  <p>Comprehensive guide for modern enterprises</p>
-                </div>
-              </div>
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-subtitle"><i class="bi bi-star-fill"></i> Featured Whitepaper</div>
+                <h2 class="section-title">Most Requested This Quarter</h2>
             </div>
-            <div class="col-lg-7">
-              <div class="whitepaper-details">
-                <div class="detail-grid">
-                  <div class="detail-item">
-                    <i class="bi bi-file-earmark-text"></i>
-                    <div>
-                      <div class="label">Format</div>
-                      <div class="value">PDF Document</div>
+            <div class="featured-card">
+                <div class="row g-0">
+                    <div class="col-lg-5">
+                        <div class="whitepaper-cover">
+                            <div class="cover-content">
+                                <div class="cover-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="cover-badge"><i class="bi bi-pin-angle"></i> Featured</div>
+                                <h2>Digital Address Verification for Contactless Onboarding</h2>
+                                <p>A comprehensive guide to modernizing address verification through digital-first approaches.</p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="detail-item">
-                    <i class="bi bi-journal-text"></i>
-                    <div>
-                      <div class="label">Pages</div>
-                      <div class="value">15 Pages</div>
+                    <div class="col-lg-7">
+                        <div class="whitepaper-details">
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <i class="bi bi-file-earmark-pdf"></i>
+                                    <div class="label">Format</div>
+                                    <div class="value">PDF</div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="bi bi-clock-history"></i>
+                                    <div class="label">Read Time</div>
+                                    <div class="value">10 min</div>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="bi bi-calendar3"></i>
+                                    <div class="label">Published</div>
+                                    <div class="value">2025</div>
+                                </div>
+                            </div>
+                            <p style="color: var(--gray); line-height: 1.8; margin-bottom: 2rem;">
+                                Explore how digital address verification is transforming contactless onboarding for banks, fintechs, and enterprises. This whitepaper covers geotagging, OTP-based validation, document authentication, and compliance considerations under Indian regulations — with implementation frameworks and ROI benchmarks.
+                            </p>
+                            <button class="btn-download" style="max-width: 350px;"
+                                    onclick="openModal('address')">
+                                <i class="bi bi-download"></i>
+                                Download PDF
+                            </button>
+                        </div>
                     </div>
-                  </div>
-                  <div class="detail-item">
-                    <i class="bi bi-calendar3"></i>
-                    <div>
-                      <div class="label">Published</div>
-                      <div class="value">2025</div>
-                    </div>
-                  </div>
                 </div>
-                <p style="color: var(--gray); margin-bottom: 1.5rem; line-height: 1.7;">
-                  Explore how Digital Address Verification (DAV) leverages GPS intelligence, document authentication, 
-                  AI-driven risk scoring, and digital footprint analysis to enable contactless customer onboarding. 
-                  Covering Banking, NBFCs, Fintech, Insurance, Telecom, and E-Commerce sectors with actionable 
-                  best practices for fraud prevention and regulatory compliance.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                  <span style="background: var(--primary-light); color: var(--primary-dark); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">KYC & AML</span>
-                  <span style="background: var(--primary-light); color: var(--primary-dark); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Fraud Prevention</span>
-                  <span style="background: var(--primary-light); color: var(--primary-dark); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Digital Onboarding</span>
-                  <span style="background: var(--primary-light); color: var(--primary-dark); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Compliance</span>
-                </div>
-                <!-- THIS BUTTON OPENS THE MODAL AND TRIGGERS PDF DOWNLOAD AFTER FORM -->
-                <button class="btn-download" 
-                        style="max-width: 320px;" 
-                        onclick="openDownloadModal('Digital Address Verification for Contactless Customer Onboarding', 'Verifitech_Digital_Address_Verification.pdf', '15 Pages', 'PDF', '2025')">
-                  <i class="bi bi-download"></i>
-                  Download Whitepaper (PDF)
-                </button>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Categories Bar -->
     <div class="categories-bar" id="whitepapers">
-      <div class="container text-center">
-        <span class="category-pill active" data-category="all">
-          <i class="bi bi-grid-3x3-gap-fill"></i> All Papers
-        </span>
-        <span class="category-pill" data-category="compliance">
-          <i class="bi bi-shield-check"></i> Compliance
-        </span>
-        <span class="category-pill" data-category="industry">
-          <i class="bi bi-building"></i> Industry
-        </span>
-        <span class="category-pill" data-category="technology">
-          <i class="bi bi-cpu"></i> Technology
-        </span>
-        <span class="category-pill" data-category="research">
-          <i class="bi bi-graph-up-arrow"></i> Research
-        </span>
-      </div>
+        <div class="container text-center">
+            <div class="d-flex flex-wrap justify-content-center">
+                <button class="category-pill active" data-category="all" onclick="filterWhitepapers('all', this)">
+                    <i class="bi bi-grid-3x3-gap"></i> All Whitepapers
+                </button>
+                <button class="category-pill" data-category="compliance" onclick="filterWhitepapers('compliance', this)">
+                    <i class="bi bi-shield-check"></i> Compliance
+                </button>
+                <button class="category-pill" data-category="industry" onclick="filterWhitepapers('industry', this)">
+                    <i class="bi bi-building"></i> Industry
+                </button>
+                <button class="category-pill" data-category="technology" onclick="filterWhitepapers('technology', this)">
+                    <i class="bi bi-cpu"></i> Technology
+                </button>
+                <button class="category-pill" data-category="research" onclick="filterWhitepapers('research', this)">
+                    <i class="bi bi-graph-up-arrow"></i> Research
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Whitepaper Grid -->
+    <!-- Whitepaper Grid — ALL 5 CARDS -->
     <section class="whitepaper-grid">
-      <div class="container">
-        <div class="row g-4" id="whitepaperGrid">
-
-          <!-- CARD 1 - HAS PDF FILE - Downloads actual PDF -->
-          <div class="col-lg-4 col-md-6 whitepaper-item" data-category="industry">
-            <div class="whitepaper-card reveal">
-              <div class="card-cover industry">
-                <div class="card-cover-icon"><i class="bi bi-geo-alt"></i></div>
-                <span class="card-meta-badge">Industry Guide</span>
-                <span class="pdf-badge"><i class="bi bi-file-earmark-pdf"></i> PDF</span>
-              </div>
-              <div class="card-content">
-                <h3>Digital Address Verification for Contactless Onboarding</h3>
-                <p>How GPS intelligence, document authentication, and AI-driven verification enable trustworthy remote customer onboarding.</p>
-                <div class="card-stats">
-                  <span><i class="bi bi-file-earmark-text"></i> 15 Pages</span>
-                  <span><i class="bi bi-calendar3"></i> 2025</span>
-                </div>
-                <button class="btn-download" onclick="openDownloadModal('Digital Address Verification', 'Verifitech_Digital_Address_Verification.pdf', '15 Pages', 'PDF', '2025')">
-                  <i class="bi bi-download"></i> Download PDF
-                </button>
-              </div>
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-subtitle"><i class="bi bi-collection-fill"></i> Complete Library</div>
+                <h2 class="section-title">All Whitepapers</h2>
+                <p class="section-desc mx-auto">Deep-dive research papers and strategic guides to help you make informed decisions about background verification, compliance, and workforce trust.</p>
             </div>
-          </div>
+
+            <!-- Row 1: 4 cards -->
+            <div class="row g-4 mb-4" id="whitepaperGridRow1">
+
+                <!-- ============================================ -->
+                <!-- CARD 1: Digital Address Verification (ORIGINAL) -->
+                <!-- ============================================ -->
+                <div class="col-lg-6 col-xl-3 whitepaper-item" data-category="industry">
+                    <div class="whitepaper-card">
+                        <div class="card-cover industry">
+                            <div class="card-cover-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div class="card-meta-badge">Industry Guide</div>
+                            <div class="pdf-badge"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Digital Address Verification for Contactless Onboarding</h3>
+                            <p>Leveraging GPS, geotagging, and document intelligence to enable trusted remote customer onboarding for banks, fintechs, and digital enterprises.</p>
+                            <div class="card-stats">
+                                <span><i class="bi bi-file-text"></i> 15 Pages</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                                <span><i class="bi bi-file-earmark-pdf"></i> PDF</span>
+                            </div>
+                            <button class="btn-download" onclick="openModal('address')">
+                                <i class="bi bi-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- CARD 2: The ROI of Background Screening -->
+                <!-- ============================================ -->
+                <div class="col-lg-6 col-xl-3 whitepaper-item" data-category="research">
+                    <div class="whitepaper-card">
+                        <div class="card-cover research">
+                            <div class="card-cover-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <div class="card-meta-badge">Research</div>
+                            <div class="pdf-badge"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>The ROI of Background Screening</h3>
+                            <p>A strategic guide for HR leaders, compliance teams, and business executives on turning background screening into a measurable driver of hiring confidence and organizational trust.</p>
+                            <div class="card-stats">
+                                <span><i class="bi bi-clock"></i> 8 min</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                                <span><i class="bi bi-file-earmark-pdf"></i> PDF</span>
+                            </div>
+<!--                             <button class="btn-download" onclick="openModal('roi')">
+                                <i class="bi bi-download"></i> Download PDF
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- CARD 3: DPDP Compliance -->
+                <!-- ============================================ -->
+                <div class="col-lg-6 col-xl-3 whitepaper-item" data-category="compliance">
+                    <div class="whitepaper-card">
+                        <div class="card-cover compliance">
+                            <div class="card-cover-icon"><i class="bi bi-shield-lock-fill"></i></div>
+                            <div class="card-meta-badge">Compliance</div>
+                            <div class="pdf-badge"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>DPDP Compliance Whitepaper — 2026 Edition</h3>
+                            <p>A practical guide for organizations handling employee, candidate, customer, and vendor data under India's Digital Personal Data Protection Act, 2023.</p>
+                            <div class="card-stats">
+                                <span><i class="bi bi-clock"></i> 10 min</span>
+                                <span><i class="bi bi-calendar3"></i> 2026</span>
+                                <span><i class="bi bi-file-earmark-pdf"></i> PDF</span>
+                            </div>
+                            <button class="btn-download" onclick="openModal('dpdp')">
+                                <i class="bi bi-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- CARD 4: Global Background Screening -->
+                <!-- ============================================ -->
+                <div class="col-lg-6 col-xl-3 whitepaper-item" data-category="industry">
+                    <div class="whitepaper-card">
+                        <div class="card-cover industry">
+                            <div class="card-cover-icon"><i class="bi bi-globe-americas"></i></div>
+                            <div class="card-meta-badge">Industry</div>
+                            <div class="pdf-badge"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Global Background Screening</h3>
+                            <p>A practical framework for verifying talent across multiple countries, jurisdictions, and regulatory environments — building trust and ensuring compliance in cross-border hiring.</p>
+                            <div class="card-stats">
+                                <span><i class="bi bi-clock"></i> 12 min</span>
+                                <span><i class="bi bi-calendar3"></i> 2025</span>
+                                <span><i class="bi bi-file-earmark-pdf"></i> PDF</span>
+                            </div>
+                           <!-- <button class="btn-download" onclick="openModal('global')">
+                                <i class="bi bi-download"></i> Download PDF
+                            </button>-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 2: 1 card (centered) -->
+            <div class="row g-4 grid-second-row" id="whitepaperGridRow2">
+
+                <!-- ============================================ -->
+                <!-- CARD 5: KYC Frauds in India -->
+                <!-- ============================================ -->
+                <div class="col-lg-6 col-xl-3 whitepaper-item" data-category="technology">
+                    <div class="whitepaper-card">
+                        <div class="card-cover technology">
+                            <div class="card-cover-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                            <div class="card-meta-badge">Technology</div>
+                            <div class="pdf-badge"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3>KYC Frauds in India</h3>
+                            <p>Protecting digital finance through advanced identity verification, background screening & continuous risk monitoring — covering deepfakes, synthetic identities, and emerging fraud vectors.</p>
+                            <div class="card-stats">
+                                <span><i class="bi bi-clock"></i> 10 min</span>
+                                <span><i class="bi bi-calendar3"></i> 2026</span>
+                                <span><i class="bi bi-file-earmark-pdf"></i> PDF</span>
+                            </div>
+                            <button class="btn-download" onclick="openModal('kyc')">
+                                <i class="bi bi-download"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Prop Section -->
+    <section class="value-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-subtitle" style="background: rgba(26, 194, 193, 0.2);"><i class="bi bi-check-circle-fill"></i> Why Download Our Whitepapers</div>
+                <h2 class="section-title" style="color: white;">Research-Backed Insights You Can Act On</h2>
+                <p class="section-desc mx-auto" style="color: rgba(255,255,255,0.7);">Every whitepaper is developed by Verifitech's domain experts, compliance specialists, and research team — designed for actionable decision-making.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="bi bi-search"></i></div>
+                        <h4>Research-Driven</h4>
+                        <p>Insights backed by industry data, regulatory analysis, and real-world implementation experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="bi bi-clipboard-check"></i></div>
+                        <h4>Actionable Frameworks</h4>
+                        <p>Checklists, scorecards, and step-by-step guides you can implement immediately.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="bi bi-puzzle"></i></div>
+                        <h4>Industry Specific</h4>
+                        <p>Tailored guidance for BFSI, IT/ITES, Healthcare, Manufacturing, and emerging sectors.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="bi bi-arrow-repeat"></i></div>
+                        <h4>Regularly Updated</h4>
+                        <p>Content refreshed to reflect evolving regulations, technology trends, and market dynamics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-      <div class="container">
-        <div class="cta-box reveal">
-          <div class="section-subtitle" style="margin-bottom: 1rem;"><i class="bi bi-envelope-fill"></i> Get Notified</div>
-          <h2 class="section-title">New Whitepapers Every Month</h2>
-          <p class="section-desc mx-auto" style="margin-bottom: 2rem;">Be the first to access our latest research, guides, and industry reports. No spam, only actionable insights.</p>
-          <a href="#" class="btn-primary-custom">
-            <i class="bi bi-bell-fill"></i>
-            Subscribe for Updates
-          </a>
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="section-subtitle mx-auto" style="margin-bottom: 1.5rem;"><i class="bi bi-envelope-paper"></i> Stay Updated</div>
+                <h2 class="section-title" style="font-size: 2.2rem;">Get New Whitepapers Delivered to Your Inbox</h2>
+                <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Be the first to access new research, compliance briefings, and industry insights from Verifitech's experts.</p>
+                <a href="./contact-us.html" class="btn-primary-custom">
+                    <i class="bi bi-person-plus"></i> Subscribe to Research Updates
+                </a>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="newsletter-footer-section">
-          <div class="row align-items-center">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-              <div class="d-flex align-items-start gap-3">
-                <div class="newsletter-icon-footer">
-                  <i class="bi bi-envelope-paper"></i>
+        <div class="container">
+            <div class="newsletter-footer-section">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="newsletter-icon-footer">
+                                <i class="bi bi-envelope-paper-fill"></i>
+                            </div>
+                            <div>
+                                <h3 class="newsletter-title">Stay Informed</h3>
+                                <p class="newsletter-subtitle">Get the latest insights on background verification & compliance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="newsletter-form-footer">
+                            <div class="input-group-wrapper">
+                                <div class="zf-tempContDiv" style="display:block;">
+                                    <input type="email" class="newsletter-input" placeholder="Enter your work email" id="footerNewsletterEmail">
+                                    <div class="zf-errorMessage" id="footerNewsletterError"><i class="bi bi-exclamation-circle"></i> Please enter a valid email address.</div>
+                                </div>
+                                <button class="newsletter-btn" onclick="handleFooterNewsletter()">
+                                    Subscribe <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="newsletter-disclaimer">
+                                <i class="bi bi-shield-check"></i>
+                                No spam. Unsubscribe anytime. We respect your privacy.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <h3 class="newsletter-title">Stay Informed</h3>
-                  <p class="newsletter-subtitle">Get the latest verification insights delivered to your inbox.</p>
-                </div>
-              </div>
             </div>
-            <div class="col-lg-7">
-              <div class="newsletter-form-footer">
-                <div class="input-group-wrapper">
-                  <div class="zf-tempContDiv">
-                    <input type="email" class="newsletter-input" placeholder="Enter your work email" />
-                    <div class="zf-errorMessage"></div>
-                  </div>
-                  <button class="newsletter-btn" type="button">
-                    Subscribe <i class="bi bi-arrow-right"></i>
-                  </button>
-                </div>
-                <p class="newsletter-disclaimer">
-                  <i class="bi bi-shield-check"></i>
-                  We respect your privacy. Unsubscribe anytime.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="footer-main-content">
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo" />
-              <p class="footer-description">Trusted background verification and risk intelligence partner for enterprises across India.</p>
-              <div class="compliance-badges">
-                <span class="comp-badge"><i class="bi bi-patch-check-fill" style="color: var(--primary);"></i> ISO Certified</span>
-                <span class="comp-badge"><i class="bi bi-shield-fill-check" style="color: var(--primary);"></i> GDPR Ready</span>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-              <h5 class="footer-heading">Solutions</h5>
-              <ul class="footer-links">
-                <li><a href="#">ID Verification</a></li>
-                <li><a href="#">Address Verification</a></li>
-                <li><a href="#">Employment Check</a></li>
-                <li><a href="#">Education Check</a></li>
-                <li><a href="#">Court Records</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-6">
-              <h5 class="footer-heading">Industries</h5>
-              <ul class="footer-links">
-                <li><a href="#">Banking</a></li>
-                <li><a href="#">Fintech</a></li>
-                <li><a href="#">Insurance</a></li>
-                <li><a href="#">Telecom</a></li>
-                <li><a href="#">E-Commerce</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-6">
-              <h5 class="footer-heading">Resources</h5>
-              <ul class="footer-links">
-                <li><a href="#">Whitepapers</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Help Center</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-md-6">
-              <h5 class="footer-heading">Company</h5>
-              <ul class="footer-links">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Partners</a></li>
-              </ul>
-            </div>
-          </div>
+            <div class="footer-main-content">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo">
+                        <p class="footer-description">India's trusted background verification partner. Enabling organizations to hire with confidence through technology-driven verification solutions.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                        <h5 class="footer-heading">Solutions</h5>
+                        <ul class="footer-links">
+                            <li><a href="./checks/lp-id-verification.html">ID Verification</a></li>
+                            <li><a href="./checks/lp-address-verification.html">Address Verification</a></li>
+                            <li><a href="./checks/lp-employment.html">Employment Check</a></li>
+                            <li><a href="./checks/lp-education-check.html">Education Check</a></li>
+                            <li><a href="./checks/lp-criminal-check.html">Criminal Check</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                        <h5 class="footer-heading">Industries</h5>
+                        <ul class="footer-links">
+                            <li><a href="./industries/lp-it-ites.html">IT / ITES</a></li>
+                            <li><a href="./industries/lp-bfsi.html">BFSI</a></li>
+                            <li><a href="./industries/lp-healthcare.html">Healthcare</a></li>
+                            <li><a href="./industries/lp-manufacturing.html">Manufacturing</a></li>
+                            <li><a href="./industries/lp-ecommerce.html">E-Commerce</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4">
+                        <h5 class="footer-heading">Resources</h5>
+                        <ul class="footer-links">
+                            <li><a href="./whitepapers.html">Whitepapers</a></li>
+                            <li><a href="./blogs.html">Blog</a></li>
+                            <li><a href="./case-studies.html">Case Studies</a></li>
+                            <li><a href="./about-us.html">About Us</a></li>
+                            <li><a href="./contact-us.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2">
+                        <h5 class="footer-heading">Legal</h5>
+                        <ul class="footer-links">
+                            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="./terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="./refund-policy.html">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-          <div class="privacy-row">
-            <p class="copyright">
-              &copy; 2025 Verifitech. All rights reserved.
-              <a href="#" class="privacy-link">Privacy Policy</a>
-              <span class="privacy-separator">|</span>
-              <a href="#" class="privacy-link">Terms of Service</a>
-              <span class="privacy-separator">|</span>
-              <a href="#" class="privacy-link">Cookie Policy</a>
-            </p>
-          </div>
+                <div class="privacy-row">
+                    <p class="copyright">
+                        © 2025 Verifitech India Info Pvt. Ltd. All rights reserved.
+                        <span class="privacy-separator">|</span>
+                        <a href="./privacy-policy.html" class="privacy-link">Privacy Policy</a>
+                        <span class="privacy-separator">|</span>
+                        <a href="./terms-of-service.html" class="privacy-link">Terms</a>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
-
-    <!-- ============================================ -->
-    <!-- DOWNLOAD MODAL WITH PDF DOWNLOAD FUNCTIONALITY -->
-    <!-- ============================================ -->
-    <div class="download-modal" id="downloadModal">
-      <div class="modal-container">
-        <!-- Modal Header -->
-        <div class="modal-header-custom">
-          <div class="modal-header-icon">
-            <i class="bi bi-file-earmark-pdf"></i>
-          </div>
-          <div class="modal-header-content">
-            <h3>Download Whitepaper</h3>
-            <p>Fill in your details to access the document</p>
-          </div>
-          <button class="modal-close-btn" onclick="closeDownloadModal()">
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
-
-        <!-- Modal Body - Form -->
-        <div class="modal-body-custom" id="modalFormSection">
-          <!-- Document Preview -->
-          <div class="doc-preview-card">
-            <div class="doc-preview-icon">
-              <i class="bi bi-file-earmark-pdf"></i>
-            </div>
-            <div class="doc-preview-info">
-              <h4 id="modalDocTitle">Digital Address Verification</h4>
-              <div class="doc-preview-meta">
-                <span><i class="bi bi-file-earmark-text"></i> <span id="modalDocPages">15 Pages</span></span>
-                <span><i class="bi bi-filetype-pdf"></i> <span id="modalDocFormat">PDF</span></span>
-                <span><i class="bi bi-calendar3"></i> <span id="modalDocYear">2025</span></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Form -->
-          <form id="downloadForm" onsubmit="return handleFormSubmit(event)">
-            <div class="modal-form-group">
-              <label>Full Name <span class="required">*</span></label>
-              <div class="modal-input-wrapper">
-                <input type="text" id="modalFullName" placeholder="Enter your full name" required />
-                <i class="bi bi-person"></i>
-              </div>
-            </div>
-
-            <div class="modal-form-group">
-              <label>Business Email <span class="required">*</span></label>
-              <div class="modal-input-wrapper">
-                <input type="email" id="modalEmail" placeholder="you@company.com" required />
-                <i class="bi bi-envelope"></i>
-              </div>
-            </div>
-
-            <div class="modal-form-group">
-              <label>Contact Number <span class="required">*</span></label>
-              <div class="modal-input-wrapper">
-                <input type="tel" id="modalPhone" placeholder="+91 XXXXX XXXXX" required />
-                <i class="bi bi-telephone"></i>
-              </div>
-            </div>
-
-            <div class="modal-form-group">
-              <label>Company Name</label>
-              <div class="modal-input-wrapper">
-                <input type="text" id="modalCompany" placeholder="Your company name" />
-                <i class="bi bi-building"></i>
-              </div>
-            </div>
-
-            <div class="modal-form-group">
-              <label>Job Title</label>
-              <div class="modal-input-wrapper">
-                <input type="text" id="modalJobTitle" placeholder="Your job title" />
-                <i class="bi bi-briefcase"></i>
-              </div>
-            </div>
-
-            <div class="modal-form-group">
-              <label>Country</label>
-              <div class="modal-input-wrapper">
-                <select id="modalCountry">
-                  <option value="">Select country</option>
-                  <option value="India">India</option>
-                  <option value="UAE">UAE</option>
-                  <option value="Singapore">Singapore</option>
-                  <option value="USA">USA</option>
-                  <option value="UK">UK</option>
-                  <option value="Other">Other</option>
-                </select>
-                <i class="bi bi-globe"></i>
-                <span class="select-arrow"><i class="bi bi-chevron-down"></i></span>
-              </div>
-            </div>
-
-            <button type="submit" class="modal-submit-btn" id="modalSubmitBtn">
-              <span class="btn-text">
-                <i class="bi bi-download"></i>
-                Get Download Link
-              </span>
-              <div class="loader"></div>
-            </button>
-          </form>
-
-          <div class="modal-privacy-note">
-            <i class="bi bi-shield-check"></i>
-            Your information is secure. We never share your data.
-          </div>
-        </div>
-
-        <!-- Modal Body - Success State -->
-        <div class="modal-success" id="modalSuccessSection">
-          <div class="success-icon-large">
-            <i class="bi bi-check-lg"></i>
-          </div>
-          <h4>Thank You, <span class="user-name-display" id="successUserName">User</span>!</h4>
-          <p class="success-message">Your whitepaper is ready. Click below to download the PDF file directly to your device.</p>
-          <div class="download-ready-text">
-            <i class="bi bi-file-earmark-pdf-fill"></i>
-            PDF Ready for Download
-          </div>
-          <!-- THIS BUTTON TRIGGERS THE ACTUAL PDF FILE DOWNLOAD -->
-          <button class="download-file-btn" id="actualDownloadBtn" onclick="triggerPDFDownload()">
-            <i class="bi bi-download"></i>
-            Download PDF Now
-          </button>
-          <br>
-          <button class="browse-more-btn" onclick="closeDownloadModal()">
-            <i class="bi bi-arrow-left"></i>
-            Browse More Papers
-          </button>
-          <div class="email-confirmation">
-            <i class="bi bi-envelope-check"></i>
-            A copy has also been sent to your email
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
       // ============================================
-      // PDF DOWNLOAD CONFIGURATION
-      // Store the current PDF filename to download
+      // WHITEPAPER DATA CONFIGURATION (ALL 5)
       // ============================================
-      let currentPDFFile = 'Verifitech_Digital_Address_Verification.pdf';
+      const whitepaperData = {
+        address: {
+          title: "Digital Address Verification for Contactless Onboarding",
+          subtitle: "Industry guide for banking, fintech & digital enterprises",
+          docTitle: "Digital Address Verification for Contactless Onboarding",
+          docType: "PDF · 15 Pages",
+          readTime: "10 min read",
+          year: "2025",
+          pdfFileName: "Verifitech_Digital_Address_Verification.pdf",
+          pdfLinkId: "pdfDownloadLink_address",
+          zohoWhitepaperName: "Digital Address Verification for Contactless Onboarding"
+        },
+        roi: {
+          title: "The ROI of Background Screening",
+          subtitle: "A strategic guide for HR & business leaders",
+          docTitle: "The ROI of Background Screening",
+          docType: "PDF",
+          readTime: "8 min read",
+          year: "2025",
+          pdfFileName: "ROI_of_Background_Screening.pdf",
+          pdfLinkId: "pdfDownloadLink_roi",
+          zohoWhitepaperName: "The ROI of Background Screening"
+        },
+        dpdp: {
+          title: "DPDP Compliance Whitepaper — 2026 Edition",
+          subtitle: "Enterprise compliance briefing for data privacy",
+          docTitle: "DPDP Compliance Whitepaper — 2026 Edition",
+          docType: "PDF",
+          readTime: "10 min read",
+          year: "2026",
+          pdfFileName: "DPDP_Compliance.pdf",
+          pdfLinkId: "pdfDownloadLink_dpdp",
+          zohoWhitepaperName: "DPDP Compliance Whitepaper 2026 Edition"
+        },
+        global: {
+          title: "Global Background Screening",
+          subtitle: "Cross-border hiring guide for HR & compliance teams",
+          docTitle: "Global Background Screening",
+          docType: "PDF",
+          readTime: "12 min read",
+          year: "2025",
+          pdfFileName: "Global_Background_Screening_Whitepaper.pdf",
+          pdfLinkId: "pdfDownloadLink_global",
+          zohoWhitepaperName: "Global Background Screening"
+        },
+        kyc: {
+          title: "KYC Frauds in India",
+          subtitle: "Digital finance security & fraud prevention guide",
+          docTitle: "KYC Frauds in India — Digital Finance Security Series",
+          docType: "PDF",
+          readTime: "10 min read",
+          year: "2026",
+          pdfFileName: "KYC_Frauds_India.pdf",
+          pdfLinkId: "pdfDownloadLink_kyc",
+          zohoWhitepaperName: "KYC Frauds in India"
+        }
+      };
+
+      // Current selected whitepaper key
+      let currentWhitepaper = 'address';
 
       // ============================================
-      // OPEN DOWNLOAD MODAL
-      // Sets document info and shows the form modal
+      // MODAL FUNCTIONS
       // ============================================
-      function openDownloadModal(title, pdfFile, pages, format, year) {
-        // Store the PDF file for later download
-        currentPDFFile = pdfFile;
+      function openModal(whitepaperKey) {
+        currentWhitepaper = whitepaperKey;
+        const data = whitepaperData[whitepaperKey];
 
-        // Update the hidden download link href
-        const downloadLink = document.getElementById('pdfDownloadLink');
-        downloadLink.href = pdfFile;
-        downloadLink.download = pdfFile;
-
-        // Update modal document preview
-        document.getElementById('modalDocTitle').textContent = title;
-        document.getElementById('modalDocPages').textContent = pages;
-        document.getElementById('modalDocFormat').textContent = format;
-        document.getElementById('modalDocYear').textContent = year;
+        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalSubtitle').textContent = data.subtitle;
+        document.getElementById('modalDocTitle').textContent = data.docTitle;
+        document.getElementById('modalDocType').textContent = data.docType;
+        document.getElementById('modalDocReadTime').textContent = data.readTime;
+        document.getElementById('modalDocYear').textContent = data.year;
 
         // Reset to form view
-        document.getElementById('modalFormSection').style.display = 'block';
-        document.getElementById('modalSuccessSection').classList.remove('active');
-        document.getElementById('downloadForm').reset();
-
-        // Reset submit button
-        const submitBtn = document.getElementById('modalSubmitBtn');
-        submitBtn.disabled = false;
-        submitBtn.querySelector('.btn-text').style.display = 'flex';
-        submitBtn.querySelector('.loader').style.display = 'none';
+        document.getElementById('modalFormView').style.display = 'block';
+        document.getElementById('modalSuccessView').classList.remove('active');
+        document.getElementById('modalSuccessView').style.display = 'none';
+        document.getElementById('modalForm').reset();
 
         // Show modal
         document.getElementById('downloadModal').classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
-      // ============================================
-      // CLOSE DOWNLOAD MODAL
-      // ============================================
-      function closeDownloadModal() {
+      function closeModal() {
         document.getElementById('downloadModal').classList.remove('active');
         document.body.style.overflow = '';
       }
 
-      // Close modal on overlay click
+      // Close modal on backdrop click
       document.getElementById('downloadModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-          closeDownloadModal();
-        }
+        if (e.target === this) closeModal();
       });
 
       // Close modal on Escape key
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeDownloadModal();
-        }
+        if (e.key === 'Escape') closeModal();
       });
 
       // ============================================
-      // HANDLE FORM SUBMIT
-      // Validates, submits to Zoho, then shows success
+      // FORM SUBMISSION HANDLER
       // ============================================
-      function handleFormSubmit(e) {
-        e.preventDefault();
+      function handleModalSubmit(event) {
+        event.preventDefault();
 
-        const fullName = document.getElementById('modalFullName').value.trim();
+        const name = document.getElementById('modalName').value.trim();
         const email = document.getElementById('modalEmail').value.trim();
         const phone = document.getElementById('modalPhone').value.trim();
         const company = document.getElementById('modalCompany').value.trim();
-        const jobTitle = document.getElementById('modalJobTitle').value.trim();
-        const country = document.getElementById('modalCountry').value;
+        const designation = document.getElementById('modalDesignation').value.trim();
 
-        // Basic validation
-        if (!fullName || !email || !phone) {
-          return false;
-        }
+        if (!name || !email || !phone || !company) return false;
 
-        // Email format check
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          document.getElementById('modalEmail').style.borderColor = '#ef4444';
-          document.getElementById('modalEmail').focus();
-          return false;
-        } else {
-          document.getElementById('modalEmail').style.borderColor = '#e2e8f0';
-        }
+        const data = whitepaperData[currentWhitepaper];
 
         // Show loading state
         const submitBtn = document.getElementById('modalSubmitBtn');
-        submitBtn.disabled = true;
         submitBtn.querySelector('.btn-text').style.display = 'none';
         submitBtn.querySelector('.loader').style.display = 'block';
+        submitBtn.disabled = true;
 
-        // ============================================
-        // POPULATE AND SUBMIT ZOHO FORM
-        // ============================================
-        const now = new Date();
-        const dateStr = now.toLocaleDateString('en-IN', { 
-          day: '2-digit', month: 'short', year: 'numeric' 
-        });
-
+        // Populate Zoho form fields
+        const today = new Date();
+        const dateStr = today.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
         document.getElementById('zoho_Date').value = dateStr;
-        document.getElementById('zoho_SingleLine').value = fullName;
-        document.getElementById('zoho_Email').value = email;
+        document.getElementById('zoho_SingleLine').value = name;
         document.getElementById('zoho_PhoneNumber_countrycode').value = phone;
+        document.getElementById('zoho_Email').value = email;
         document.getElementById('zoho_SingleLine1').value = company;
-        document.getElementById('zoho_SingleLine2').value = jobTitle;
-        document.getElementById('zoho_SingleLine3').value = country;
+        document.getElementById('zoho_SingleLine2').value = designation || 'Not specified';
+        document.getElementById('zoho_SingleLine3').value = data.zohoWhitepaperName;
 
-        // Submit Zoho form silently via hidden iframe
-        try {
-          document.getElementById('zohoForm').submit();
-        } catch(err) {
-          console.log('Zoho form submission note:', err);
-        }
+        // Submit Zoho form
+        document.getElementById('zohoForm').submit();
 
-        // Show success after brief delay (simulating submission)
+        // Show success after brief delay
         setTimeout(function() {
-          // Show success state with user's name
-          const firstName = fullName.split(' ')[0];
-          document.getElementById('successUserName').textContent = firstName;
-
-          // Switch from form to success view
-          document.getElementById('modalFormSection').style.display = 'none';
-          document.getElementById('modalSuccessSection').classList.add('active');
-
-          // Reset submit button for next time
-          submitBtn.disabled = false;
           submitBtn.querySelector('.btn-text').style.display = 'flex';
           submitBtn.querySelector('.loader').style.display = 'none';
+          submitBtn.disabled = false;
+
+          document.getElementById('modalFormView').style.display = 'none';
+          document.getElementById('modalSuccessView').style.display = 'block';
+          document.getElementById('modalSuccessView').classList.add('active');
+
+          document.getElementById('successUserName').textContent = name.split(' ')[0];
+          document.getElementById('successDocName').textContent = data.pdfFileName;
+          document.getElementById('successEmail').textContent = email;
+
         }, 1500);
 
         return false;
       }
 
       // ============================================
-      // TRIGGER ACTUAL PDF FILE DOWNLOAD
-      // This is the key function - it downloads the PDF
+      // PDF DOWNLOAD TRIGGER
       // ============================================
-      function triggerPDFDownload() {
-        // Update the hidden link with current PDF file
-        const downloadLink = document.getElementById('pdfDownloadLink');
-        downloadLink.href = currentPDFFile;
-        downloadLink.download = currentPDFFile;
+      function triggerPdfDownload() {
+        const data = whitepaperData[currentWhitepaper];
+        const link = document.getElementById(data.pdfLinkId);
 
-        // Trigger the download by programmatically clicking the hidden link
-        downloadLink.click();
+        if (link) {
+          link.click();
 
-        // Show toast notification
-        showDownloadToast(currentPDFFile);
+          // Show toast notification
+          const toast = document.getElementById('downloadToast');
+          document.getElementById('toastFileName').textContent = data.pdfFileName;
+          toast.classList.add('show');
+
+          setTimeout(function() {
+            toast.classList.remove('show');
+          }, 4000);
+        }
       }
 
       // ============================================
-      // DOWNLOAD TOAST NOTIFICATION
-      // Shows a brief confirmation at bottom-right
+      // CATEGORY FILTER (HANDLES BOTH ROWS)
       // ============================================
-      function showDownloadToast(filename) {
-        const toast = document.getElementById('downloadToast');
-        const shortName = filename.replace('.pdf', '');
-        toast.querySelector('.download-toast-content p').textContent = shortName + '.pdf';
-        toast.classList.add('show');
+      function filterWhitepapers(category, btn) {
+        // Update active pill
+        document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
 
-        // Auto-hide after 4 seconds
-        setTimeout(function() {
-          toast.classList.remove('show');
-        }, 4000);
-      }
-
-      // ============================================
-      // CATEGORY FILTER
-      // ============================================
-      document.querySelectorAll('.category-pill').forEach(function(pill) {
-        pill.addEventListener('click', function() {
-          // Update active state
-          document.querySelectorAll('.category-pill').forEach(function(p) {
-            p.classList.remove('active');
-          });
-          this.classList.add('active');
-
-          const category = this.getAttribute('data-category');
-          const items = document.querySelectorAll('.whitepaper-item');
-
-          items.forEach(function(item) {
-            if (category === 'all' || item.getAttribute('data-category') === category) {
-              item.style.display = 'block';
-              item.style.opacity = '0';
-              item.style.transform = 'translateY(20px)';
-              setTimeout(function() {
-                item.style.transition = 'all 0.4s ease';
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-              }, 50);
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // ============================================
-      // SCROLL REVEAL ANIMATION
-      // ============================================
-      function revealOnScroll() {
-        const reveals = document.querySelectorAll('.reveal');
-        reveals.forEach(function(el) {
-          const windowHeight = window.innerHeight;
-          const elementTop = el.getBoundingClientRect().top;
-          const revealPoint = 120;
-          if (elementTop < windowHeight - revealPoint) {
-            el.classList.add('active');
+        // Filter ALL whitepaper items across both rows
+        const items = document.querySelectorAll('.whitepaper-item');
+        items.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = '';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.transition = 'all 0.4s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            item.style.display = 'none';
           }
         });
-      }
 
-      window.addEventListener('scroll', revealOnScroll);
-      window.addEventListener('load', revealOnScroll);
+        // Handle second row visibility for centered layout
+        const row2 = document.getElementById('whitepaperGridRow2');
+        const row2VisibleItems = row2.querySelectorAll('.whitepaper-item:not([style*="display: none"])');
+        if (row2VisibleItems.length === 0) {
+          row2.style.display = 'none';
+        } else {
+          row2.style.display = '';
+        }
+      }
 
       // ============================================
       // NAVBAR SCROLL EFFECT
@@ -2994,6 +3161,55 @@
           navbar.classList.remove('scrolled');
         }
       });
+
+      // ============================================
+      // SCROLL REVEAL ANIMATION
+      // ============================================
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // ============================================
+      // FOOTER NEWSLETTER
+      // ============================================
+      function handleFooterNewsletter() {
+        const emailInput = document.getElementById('footerNewsletterEmail');
+        const errorDiv = document.getElementById('footerNewsletterError');
+        const email = emailInput.value.trim();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email || !emailRegex.test(email)) {
+          emailInput.classList.add('zf-error');
+          emailInput.classList.remove('zf-success');
+          errorDiv.style.display = 'flex';
+          return;
+        }
+
+        emailInput.classList.remove('zf-error');
+        emailInput.classList.add('zf-success');
+        errorDiv.style.display = 'none';
+        emailInput.value = '';
+        emailInput.placeholder = '✓ Subscribed successfully!';
+        setTimeout(() => {
+          emailInput.classList.remove('zf-success');
+          emailInput.placeholder = 'Enter your work email';
+        }, 3000);
+      }
+
+      // ============================================
+      // ZOHO FORM VALIDATION (REQUIRED BY ZOHO)
+      // ============================================
+      function zf_ValidateAndSubmit() {
+        return true;
+      }
     </script>
   </body>
 </html>
