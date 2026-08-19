@@ -1,0 +1,331 @@
+
+    <!-- ============================================
+         OPEN POSITIONS — TWO TAB SECTIONS
+         ============================================ -->
+    <section class="jobs-section" id="openings">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-subtitle">
+            <i class="bi bi-briefcase"></i> Open Positions
+          </div>
+          <h2 class="section-title">
+            Current Openings
+            <span class="jobs-count-badge">12 Open</span>
+          </h2>
+          <p class="section-desc">
+            Find the role that matches your skills and passion. We're hiring
+            across multiple departments and locations.
+          </p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="jobs-tabs reveal">
+          <button class="jobs-tab-btn active" data-tab="tab-recent">
+            <i class="bi bi-lightning"></i>
+            Recent Openings
+            <span class="tab-count">6</span>
+          </button>
+          <button class="jobs-tab-btn" data-tab="tab-more">
+            <i class="bi bi-grid-3x3-gap"></i>
+            More Openings
+            <span class="tab-count">6</span>
+          </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="jobs-tab-content reveal">
+          <!-- ===== TAB 1: Recent Openings — IMAGE-MATCHING STYLE ===== -->
+          <div class="jobs-tab-pane active" id="tab-recent">
+            <div class="tab-section-label">
+              <i class="bi bi-lightning"></i>
+              Recently posted — apply before they fill up
+            </div>
+
+            <!-- Card 1 -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <h3 class="job-listing-title">Zoho Developer Trainee</h3>
+                <div class="job-listing-meta">
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-geo-alt"></i> Chennai
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-clock"></i> Full-time
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-briefcase"></i> 0 - 1 yrs
+                  </span>
+                </div>
+                <span class="job-dept-tag">Engineering</span>
+              </div>
+              <a
+                href="https://erp.verifitech.com/jobs/verifitech_india_info_private_limited___chennai/zoho-developer-trainee"
+                target="blank"
+                class="btn-apply"
+                >View <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <h3 class="job-listing-title">Accounts Trainee</h3>
+                <div class="job-listing-meta">
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-geo-alt"></i> Chennai
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-clock"></i> Full-time
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-briefcase"></i> 0 - 1 yrs
+                  </span>
+                </div>
+                <span class="job-dept-tag">Finance</span>
+              </div>
+              <a
+                href="https://erp.verifitech.com/jobs/verifitech_india_info_private_limited___chennai/accounts-trainee-"
+                target="blank"
+                class="btn-apply"
+                >View <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <h3 class="job-listing-title">
+                  Business Development Executive
+                </h3>
+                <div class="job-listing-meta">
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-geo-alt"></i> Chennai
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-clock"></i> Full-time
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-briefcase"></i> 1 - 3 yrs
+                  </span>
+                </div>
+                <span class="job-dept-tag">Sales</span>
+              </div>
+              <a
+                href="https://erp.verifitech.com/jobs/verifitech_india_info_private_limited___chennai/business-development-field-executive"
+                target="blank"
+                class="btn-apply"
+                >View <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Card 4
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <h3 class="job-listing-title">Telecaller Executive</h3>
+                <div class="job-listing-meta">
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-geo-alt"></i> Chennai
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-clock"></i> Full-time
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-briefcase"></i> 0 - 2 yrs
+                  </span>
+                </div>
+                <span class="job-dept-tag">Sales</span>
+              </div>
+              <a href="#" class="btn-view-job">View <i class="bi bi-arrow-right"></i></a>
+            </div>
+-->
+            <!-- Card 5
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <h3 class="job-listing-title">HR Executive</h3>
+                <div class="job-listing-meta">
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-geo-alt"></i> Chennai
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-clock"></i> Full-time
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-briefcase"></i> 2 - 4 yrs
+                  </span>
+                </div>
+                <span class="job-dept-tag">Human Resources</span>
+              </div>
+              <a href="#" class="btn-view-job">View <i class="bi bi-arrow-right"></i></a>
+            </div>
+-->
+            <!-- Card 6
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <h3 class="job-listing-title">Verification Analyst</h3>
+                <div class="job-listing-meta">
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-geo-alt"></i> Chennai
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-clock"></i> Full-time
+                  </span>
+                  <span class="job-listing-meta-item">
+                    <i class="bi bi-briefcase"></i> 1 - 3 yrs
+                  </span>
+                </div>
+                <span class="job-dept-tag">Operations</span>
+              </div>
+              <a href="#" class="btn-view-job">View <i class="bi bi-arrow-right"></i></a>
+            </div>-->
+
+            <!-- Don't see a role that fits? -->
+            <div class="no-role-cta">
+              <p>Don't see a role that <span>fits?</span></p>
+              <p class="sub-text">
+                We're always looking for talented people. Send us your resume
+                and we'll keep you in mind.
+              </p>
+              <a href="mailto:careers@verifitech.com" class="btn-cta-inline">
+                <i class="bi bi-envelope"></i> Send Your Resume
+              </a>
+            </div>
+          </div>
+
+          <!-- ===== TAB 2: More Openings — NUMBERED STYLE WITH REAL LINKS ===== -->
+          <div class="jobs-tab-pane" id="tab-more">
+            <div class="tab-section-label">
+              <i class="bi bi-grid-3x3-gap"></i>
+              Explore more opportunities across departments
+            </div>
+
+            <!-- Job 1 — Senior Data Engineer -->
+            <div class="job-card">
+              <div class="job-card-left">
+                <div class="job-card-number">01</div>
+                <div class="job-info">
+                  <h3>Senior Data Engineer</h3>
+                  <div class="job-meta">
+                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
+                    <span><i class="bi bi-clock"></i> Full-time</span>
+                    <span><i class="bi bi-briefcase"></i> 4 - 7 yrs</span>
+                  </div>
+                  <span class="job-tag">Engineering</span>
+                </div>
+              </div>
+              <a
+                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060067/Senior-Data-Engineer?source=CareerSite"
+                target="_blank"
+                class="btn-apply"
+                >Apply <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Job 2 — Technical Architect -->
+            <div class="job-card">
+              <div class="job-card-left">
+                <div class="job-card-number">02</div>
+                <div class="job-info">
+                  <h3>Technical Architect</h3>
+                  <div class="job-meta">
+                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
+                    <span><i class="bi bi-clock"></i> Full-time</span>
+                    <span><i class="bi bi-briefcase"></i> 8 - 12 yrs</span>
+                  </div>
+                  <span class="job-tag">Engineering</span>
+                </div>
+              </div>
+              <a
+                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060074/Technical-Architect?source=CareerSite"
+                target="_blank"
+                class="btn-apply"
+                >Apply <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Job 3 — Oracle Apps DBA Support -->
+            <div class="job-card">
+              <div class="job-card-left">
+                <div class="job-card-number">03</div>
+                <div class="job-info">
+                  <h3>Oracle Apps DBA Support</h3>
+                  <div class="job-meta">
+                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
+                    <span><i class="bi bi-clock"></i> Full-time</span>
+                    <span><i class="bi bi-briefcase"></i> 3 - 6 yrs</span>
+                  </div>
+                  <span class="job-tag">Engineering</span>
+                </div>
+              </div>
+              <a
+                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060082/Oracle-Apps-DBA-Support?source=CareerSite"
+                target="_blank"
+                class="btn-apply"
+                >Apply <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Job 4 — Technical Lead / Senior Full Stack Developer -->
+            <div class="job-card">
+              <div class="job-card-left">
+                <div class="job-card-number">04</div>
+                <div class="job-info">
+                  <h3>Technical Lead / Senior Full Stack Developer</h3>
+                  <div class="job-meta">
+                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
+                    <span><i class="bi bi-clock"></i> Full-time</span>
+                    <span><i class="bi bi-briefcase"></i> 5 - 9 yrs</span>
+                  </div>
+                  <span class="job-tag">Engineering</span>
+                </div>
+              </div>
+              <a
+                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060090/Technical-Lead-Senior-Full-Stack-Developer?source=CareerSite"
+                target="_blank"
+                class="btn-apply"
+                >Apply <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Job 5 — Senior Data Engineer (Scraping) -->
+            <div class="job-card">
+              <div class="job-card-left">
+                <div class="job-card-number">05</div>
+                <div class="job-info">
+                  <h3>Senior Data Engineer (Scraping)</h3>
+                  <div class="job-meta">
+                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
+                    <span><i class="bi bi-clock"></i> Full-time</span>
+                    <span><i class="bi bi-briefcase"></i> 3 - 6 yrs</span>
+                  </div>
+                  <span class="job-tag">Engineering</span>
+                </div>
+              </div>
+              <a
+                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060098/Senior-Data-Engineer-Scraping?source=CareerSite"
+                target="_blank"
+                class="btn-apply"
+                >Apply <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Job 6 — Shortened URL (Link 1) -->
+            <div class="job-card">
+              <div class="job-card-left">
+                <div class="job-card-number">06</div>
+                <div class="job-info">
+                  <h3>Zoho Developer</h3>
+                  <div class="job-meta">
+                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
+                    <span><i class="bi bi-clock"></i> Full-time</span>
+                    <span><i class="bi bi-briefcase"></i> 2 - 5 yrs</span>
+                  </div>
+                  <span class="job-tag">Engineering</span>
+                </div>
+              </div>
+              <a
+                href="https://zrec.in/yToBz?source=CareerSite"
+                target="_blank"
+                class="btn-apply"
+                >Apply <i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
