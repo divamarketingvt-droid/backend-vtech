@@ -44,11 +44,7 @@
         --white: #ffffff;
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
       body {
         font-family: "Inter", sans-serif;
@@ -57,28 +53,12 @@
         overflow-x: hidden;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
+      html { scroll-behavior: smooth; }
 
-      .navbar {
-        z-index: 1050;
-      }
-
-      .dropdown-menu {
-        z-index: 1060;
-        position: absolute;
-      }
-
-      .dropdown-item {
-        position: relative;
-        z-index: 1061;
-      }
-
-      .industry-hero {
-        position: relative;
-        z-index: 1;
-      }
+      .navbar { z-index: 1050; }
+      .dropdown-menu { z-index: 1060; position: absolute; }
+      .dropdown-item { position: relative; z-index: 1061; }
+      .industry-hero { position: relative; z-index: 1; }
 
       .navbar-collapse {
         background: rgba(255, 255, 255, 0.98);
@@ -108,9 +88,7 @@
         height: 80px;
       }
 
-      .navbar.scrolled {
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-      }
+      .navbar.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08); }
 
       .navbar-brand {
         font-weight: 800;
@@ -129,9 +107,7 @@
         display: block;
       }
 
-      .navbar-brand span {
-        color: var(--primary);
-      }
+      .navbar-brand span { color: var(--primary); }
 
       .nav-link {
         font-weight: 600;
@@ -146,9 +122,7 @@
         gap: 4px;
       }
 
-      .nav-link:hover {
-        color: var(--primary);
-      }
+      .nav-link:hover { color: var(--primary); }
 
       .dropdown-menu {
         border: none;
@@ -161,10 +135,7 @@
         transition: all 0.3s ease;
       }
 
-      .dropdown-menu.mega-menu {
-        min-width: 600px;
-        padding: 1.5rem;
-      }
+      .dropdown-menu.mega-menu { min-width: 600px; padding: 1.5rem; }
 
       .dropdown-item {
         padding: 0.6rem 1rem;
@@ -212,12 +183,14 @@
         white-space: nowrap;
         margin-left: 1rem;
         box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+        text-decoration: none;
       }
 
       .btn-sales:hover {
         background: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+        color: white !important;
       }
 
       .btn-login {
@@ -260,19 +233,10 @@
         color: var(--primary);
       }
 
-      .country-selector i {
-        font-size: 1.2rem;
-      }
-
-      /* Careers Hero Section */
+      /* Careers Hero */
       .careers-hero {
         padding: 140px 0 100px;
-        background: linear-gradient(
-          135deg,
-          #f0fdfa 0%,
-          #ffffff 50%,
-          #ccfbf1 100%
-        );
+        background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #ccfbf1 100%);
         position: relative;
         overflow: hidden;
       }
@@ -284,11 +248,7 @@
         right: -10%;
         width: 600px;
         height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 70%
-        );
+        background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 70%);
         border-radius: 50%;
       }
 
@@ -353,9 +313,7 @@
         font-weight: 600;
       }
 
-      .section-header {
-        margin-bottom: 3rem;
-      }
+      .section-header { margin-bottom: 3rem; }
 
       .section-subtitle {
         color: var(--primary);
@@ -388,7 +346,7 @@
         line-height: 1.7;
       }
 
-      /* Benefits Section */
+      /* Benefits */
       .benefits-section {
         padding: 100px 0;
         background: var(--light-gray);
@@ -444,11 +402,8 @@
         margin: 0;
       }
 
-      /* Culture Section */
-      .culture-section {
-        padding: 100px 0;
-        background: white;
-      }
+      /* Culture */
+      .culture-section { padding: 100px 0; background: white; }
 
       .culture-grid {
         display: grid;
@@ -471,17 +426,9 @@
         overflow: hidden;
       }
 
-      .culture-item:nth-child(2) {
-        background: var(--primary);
-      }
-
-      .culture-item:nth-child(3) {
-        background: linear-gradient(135deg, #3730a3 0%, #6366f1 100%);
-      }
-
-      .culture-item:nth-child(4) {
-        background: linear-gradient(135deg, #be185d 0%, #ec4899 100%);
-      }
+      .culture-item:nth-child(2) { background: var(--primary); }
+      .culture-item:nth-child(3) { background: linear-gradient(135deg, #3730a3 0%, #6366f1 100%); }
+      .culture-item:nth-child(4) { background: linear-gradient(135deg, #be185d 0%, #ec4899 100%); }
 
       .culture-item:hover {
         transform: scale(1.05);
@@ -489,32 +436,18 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       }
 
-      .culture-item i {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .culture-item h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .culture-item p {
-        font-size: 0.9rem;
-        opacity: 0.9;
-        margin: 0;
-      }
+      .culture-item i { font-size: 2.5rem; margin-bottom: 1rem; }
+      .culture-item h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+      .culture-item p { font-size: 0.9rem; opacity: 0.9; margin: 0; }
 
       /* ============================================
-         JOBS SECTION — TAB-BASED SPLIT
+         JOBS SECTION
          ============================================ */
       .jobs-section {
         padding: 100px 0;
         background: var(--light-gray);
       }
 
-      /* Tab Navigation */
       .jobs-tabs {
         display: flex;
         gap: 0;
@@ -589,7 +522,6 @@
         color: var(--primary-dark);
       }
 
-      /* Tab Content Wrapper */
       .jobs-tab-content {
         background: white;
         border: 1px solid #e2e8f0;
@@ -603,24 +535,14 @@
         animation: tabFadeIn 0.45s ease-out;
       }
 
-      .jobs-tab-pane.active {
-        display: block;
-      }
+      .jobs-tab-pane.active { display: block; }
 
       @keyframes tabFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(12px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      /* ============================================
-         TAB 1 — IMAGE-MATCHING CARD STYLE
-         ============================================ */
+      /* Tab 1 — Card Style */
       .job-listing-card {
         padding: 1.5rem 2rem;
         border-bottom: 1px solid #f1f5f9;
@@ -631,23 +553,14 @@
         transition: all 0.3s ease;
       }
 
-      .job-listing-card:last-of-type {
-        border-bottom: none;
-      }
+      .job-listing-card:last-of-type { border-bottom: none; }
 
       .job-listing-card:hover {
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.03) 0%,
-          rgba(26, 194, 193, 0.07) 100%
-        );
+        background: linear-gradient(135deg, rgba(26, 194, 193, 0.03) 0%, rgba(26, 194, 193, 0.07) 100%);
         padding-left: 2.5rem;
       }
 
-      .job-listing-left {
-        flex: 1;
-        min-width: 0;
-      }
+      .job-listing-left { flex: 1; min-width: 0; }
 
       .job-listing-title {
         font-size: 1.1rem;
@@ -658,9 +571,7 @@
         line-height: 1.3;
       }
 
-      .job-listing-card:hover .job-listing-title {
-        color: var(--primary-dark);
-      }
+      .job-listing-card:hover .job-listing-title { color: var(--primary-dark); }
 
       .job-listing-meta {
         display: flex;
@@ -726,68 +637,9 @@
         transition: transform 0.3s;
       }
 
-      .btn-view-job:hover i {
-        transform: translateX(3px);
-      }
+      .btn-view-job:hover i { transform: translateX(3px); }
 
-      /* Don't see a role — inside tab */
-      .no-role-cta {
-        text-align: center;
-        padding: 2.5rem 2rem;
-        border-top: 1px solid #f1f5f9;
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.02) 0%,
-          rgba(26, 194, 193, 0.04) 100%
-        );
-      }
-
-      .no-role-cta p {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin-bottom: 0.5rem;
-      }
-
-      .no-role-cta p span {
-        color: var(--primary);
-      }
-
-      .no-role-cta .sub-text {
-        font-size: 0.9rem;
-        color: var(--gray);
-        font-weight: 400;
-        margin-bottom: 1.25rem;
-      }
-
-      .btn-cta-inline {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 0.6rem 1.6rem;
-        background: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-family: "Inter", sans-serif;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-      }
-
-      .btn-cta-inline:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-        color: white;
-      }
-
-      /* ============================================
-         TAB 2 — ORIGINAL NUMBERED CARD STYLE
-         ============================================ */
+      /* Tab 2 — Numbered Card Style */
       .job-card {
         padding: 1.75rem 2rem;
         border-bottom: 1px solid #f1f5f9;
@@ -799,16 +651,10 @@
         gap: 1rem;
       }
 
-      .job-card:last-of-type {
-        border-bottom: none;
-      }
+      .job-card:last-of-type { border-bottom: none; }
 
       .job-card:hover {
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.03) 0%,
-          rgba(26, 194, 193, 0.06) 100%
-        );
+        background: linear-gradient(135deg, rgba(26, 194, 193, 0.03) 0%, rgba(26, 194, 193, 0.06) 100%);
         padding-left: 2.5rem;
       }
 
@@ -841,9 +687,7 @@
         min-width: 0;
       }
 
-      .job-info {
-        min-width: 0;
-      }
+      .job-info { min-width: 0; }
 
       .job-info h3 {
         font-size: 1.15rem;
@@ -853,9 +697,7 @@
         transition: color 0.3s;
       }
 
-      .job-card:hover .job-info h3 {
-        color: var(--primary-dark);
-      }
+      .job-card:hover .job-info h3 { color: var(--primary-dark); }
 
       .job-meta {
         display: flex;
@@ -916,11 +758,8 @@
         transition: transform 0.3s;
       }
 
-      .btn-apply:hover i {
-        transform: translateX(3px);
-      }
+      .btn-apply:hover i { transform: translateX(3px); }
 
-      /* Jobs count badge in header */
       .jobs-count-badge {
         display: inline-flex;
         align-items: center;
@@ -935,14 +774,9 @@
         vertical-align: middle;
       }
 
-      /* Tab Section Label */
       .tab-section-label {
         padding: 1rem 2rem;
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.05) 0%,
-          rgba(26, 194, 193, 0.02) 100%
-        );
+        background: linear-gradient(135deg, rgba(26, 194, 193, 0.05) 0%, rgba(26, 194, 193, 0.02) 100%);
         border-bottom: 1px solid #f1f5f9;
         display: flex;
         align-items: center;
@@ -952,11 +786,57 @@
         color: var(--gray);
       }
 
-      .tab-section-label i {
-        color: var(--primary);
+      .tab-section-label i { color: var(--primary); }
+
+      .no-role-cta {
+        text-align: center;
+        padding: 2.5rem 2rem;
+        border-top: 1px solid #f1f5f9;
+        background: linear-gradient(135deg, rgba(26, 194, 193, 0.02) 0%, rgba(26, 194, 193, 0.04) 100%);
       }
 
-      /* Testimonials Section */
+      .no-role-cta p {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 0.5rem;
+      }
+
+      .no-role-cta p span { color: var(--primary); }
+
+      .no-role-cta .sub-text {
+        font-size: 0.9rem;
+        color: var(--gray);
+        font-weight: 400;
+        margin-bottom: 1.25rem;
+      }
+
+      .btn-cta-inline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.6rem 1.6rem;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-cta-inline:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+        color: white;
+      }
+
+      /* Testimonials */
       .testimonials-section {
         padding: 100px 0;
         background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
@@ -972,21 +852,12 @@
         right: -20%;
         width: 600px;
         height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.1) 0%,
-          transparent 60%
-        );
+        background: radial-gradient(circle, rgba(26, 194, 193, 0.1) 0%, transparent 60%);
         border-radius: 50%;
       }
 
-      .testimonials-section .section-title {
-        color: white;
-      }
-
-      .testimonials-section .section-desc {
-        color: rgba(255, 255, 255, 0.7);
-      }
+      .testimonials-section .section-title { color: white; }
+      .testimonials-section .section-desc { color: rgba(255, 255, 255, 0.7); }
 
       .employee-card {
         background: rgba(255, 255, 255, 0.05);
@@ -1037,11 +908,8 @@
         font-size: 0.9rem;
       }
 
-      /* Process Section */
-      .process-section {
-        padding: 100px 0;
-        background: white;
-      }
+      /* Process */
+      .process-section { padding: 100px 0; background: white; }
 
       .process-step {
         text-align: center;
@@ -1063,7 +931,7 @@
       .step-number {
         width: 80px;
         height: 80px;
-        background: var(--primary-light);
+        background: white;
         border: 3px solid var(--primary);
         border-radius: 50%;
         display: flex;
@@ -1075,7 +943,6 @@
         margin: 0 auto 1.5rem;
         position: relative;
         z-index: 2;
-        background: white;
       }
 
       .process-step h3 {
@@ -1092,7 +959,7 @@
         margin: 0;
       }
 
-      /* CTA Section */
+      /* CTA */
       .cta-section {
         padding: 100px 0;
         background: var(--light-gray);
@@ -1131,7 +998,6 @@
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
       }
 
-      /* Animations */
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -1145,104 +1011,33 @@
 
       /* Responsive */
       @media (max-width: 991px) {
-        .careers-hero h1 {
-          font-size: 2.8rem;
-        }
-
-        .section-title {
-          font-size: 2.2rem;
-        }
-
-        .culture-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .process-step:not(:last-child)::after {
-          display: none;
-        }
-
-        .job-card {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .job-card-left {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .job-card-number {
-          margin-right: 0;
-          margin-bottom: 0.5rem;
-        }
-
-        .job-listing-card {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 1rem;
-        }
-
-        .btn-view-job {
-          width: 100%;
-          justify-content: center;
-        }
+        .careers-hero h1 { font-size: 2.8rem; }
+        .section-title { font-size: 2.2rem; }
+        .culture-grid { grid-template-columns: repeat(2, 1fr); }
+        .process-step:not(:last-child)::after { display: none; }
+        .job-card { flex-direction: column; align-items: flex-start; }
+        .job-card-left { flex-direction: column; align-items: flex-start; }
+        .job-card-number { margin-right: 0; margin-bottom: 0.5rem; }
+        .job-listing-card { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        .btn-view-job { width: 100%; justify-content: center; }
       }
 
       @media (max-width: 767px) {
-        .careers-hero {
-          padding: 120px 0 60px;
-          text-align: center;
-        }
-
-        .careers-hero h1 {
-          font-size: 2.2rem;
-        }
-
-        .stats-grid-hero {
-          margin-top: 3rem;
-        }
-
-        .culture-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .cta-box {
-          padding: 3rem 2rem;
-        }
-
-        .jobs-tab-btn {
-          padding: 1rem;
-          font-size: 0.9rem;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .job-card {
-          padding: 1.25rem 1.25rem;
-        }
-
-        .job-listing-card {
-          padding: 1.25rem 1.25rem;
-        }
-
-        .job-meta {
-          gap: 0.75rem;
-        }
-
-        .job-listing-meta {
-          gap: 0.6rem;
-        }
-
-        .btn-apply {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .job-listing-title {
-          font-size: 1rem;
-        }
+        .careers-hero { padding: 120px 0 60px; text-align: center; }
+        .careers-hero h1 { font-size: 2.2rem; }
+        .stats-grid-hero { margin-top: 3rem; }
+        .culture-grid { grid-template-columns: 1fr; }
+        .cta-box { padding: 3rem 2rem; }
+        .jobs-tab-btn { padding: 1rem; font-size: 0.9rem; flex-direction: column; gap: 4px; }
+        .job-card { padding: 1.25rem; }
+        .job-listing-card { padding: 1.25rem; }
+        .job-meta { gap: 0.75rem; }
+        .job-listing-meta { gap: 0.6rem; }
+        .btn-apply { width: 100%; justify-content: center; }
+        .job-listing-title { font-size: 1rem; }
       }
 
+      /* Footer */
       .footer {
         background: #f8fafc;
         color: var(--dark);
@@ -1258,9 +1053,7 @@
         text-decoration: none;
       }
 
-      .footer-brand span {
-        color: var(--primary);
-      }
+      .footer-brand span { color: var(--primary); }
 
       .footer-desc {
         color: var(--gray);
@@ -1276,14 +1069,8 @@
         font-size: 1.1rem;
       }
 
-      .footer-links {
-        list-style: none;
-        padding: 0;
-      }
-
-      .footer-links li {
-        margin-bottom: 1rem;
-      }
+      .footer-links { list-style: none; padding: 0; }
+      .footer-links li { margin-bottom: 1rem; }
 
       .footer-links a {
         color: var(--gray);
@@ -1306,11 +1093,7 @@
         font-size: 0.9rem;
       }
 
-      .social-icons {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
+      .social-icons { display: flex; gap: 1rem; margin-top: 2rem; }
 
       .social-icon {
         width: 44px;
@@ -1331,32 +1114,8 @@
         color: white;
       }
 
-      .compliance-badges {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 2rem;
-        flex-wrap: wrap;
-      }
-
-      .comp-badge {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: rgba(15, 23, 42, 0.1);
-        border-radius: 8px;
-        font-size: 0.85rem;
-        color: var(--dark);
-        border: 1px solid rgba(15, 23, 42, 0.2);
-      }
-
-      /* Newsletter Footer */
       .newsletter-footer-section {
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.1) 0%,
-          rgba(26, 194, 193, 0.05) 100%
-        );
+        background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
         border-radius: 20px;
         padding: 40px;
         margin-bottom: 50px;
@@ -1372,11 +1131,7 @@
         right: -10%;
         width: 300px;
         height: 300px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.15) 0%,
-          transparent 70%
-        );
+        background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
         border-radius: 50%;
         pointer-events: none;
       }
@@ -1384,11 +1139,7 @@
       .newsletter-icon-footer {
         width: 60px;
         height: 60px;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-dark) 100%
-        );
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
         border-radius: 16px;
         display: flex;
         align-items: center;
@@ -1453,9 +1204,7 @@
         box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
       }
 
-      .newsletter-input::placeholder {
-        color: #94a3b8;
-      }
+      .newsletter-input::placeholder { color: #94a3b8; }
 
       .zf-errorMessage {
         color: #ef4444;
@@ -1469,11 +1218,7 @@
       }
 
       .newsletter-btn {
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-dark) 100%
-        );
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
         color: white;
         border: none;
         padding: 14px 28px;
@@ -1496,18 +1241,9 @@
         box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
       }
 
-      .newsletter-btn i {
-        transition: transform 0.3s ease;
-      }
-
-      .newsletter-btn:hover i {
-        transform: translateX(4px);
-      }
-
-      .newsletter-btn:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
+      .newsletter-btn i { transition: transform 0.3s ease; }
+      .newsletter-btn:hover i { transform: translateX(4px); }
+      .newsletter-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
       .newsletter-disclaimer {
         color: var(--gray);
@@ -1518,23 +1254,12 @@
         gap: 6px;
       }
 
-      .newsletter-disclaimer i {
-        color: var(--primary);
-      }
+      .newsletter-disclaimer i { color: var(--primary); }
 
-      .zf-error {
-        border-color: #ef4444 !important;
-        background-color: #fef2f2 !important;
-      }
+      .zf-error { border-color: #ef4444 !important; background-color: #fef2f2 !important; }
+      .zf-success { border-color: #10b981 !important; background-color: #f0fdf4 !important; }
 
-      .zf-success {
-        border-color: #10b981 !important;
-        background-color: #f0fdf4 !important;
-      }
-
-      .footer-main-content {
-        margin-top: 20px;
-      }
+      .footer-main-content { margin-top: 20px; }
 
       .privacy-row {
         margin-top: 20px;
@@ -1556,503 +1281,140 @@
         text-decoration: underline;
       }
 
-      .privacy-separator {
-        margin: 0 10px;
-        color: #cbd5e1;
-      }
+      .privacy-separator { margin: 0 10px; color: #cbd5e1; }
 
-      .footer-logo {
-        width: 180px;
-        height: auto;
-        margin-bottom: 20px;
-      }
-
-      .footer-description {
-        font-size: 14px;
-        line-height: 1.6;
-        max-width: 280px;
-        color: var(--gray);
-      }
-
-      .footer-heading {
-        color: #1a1a1a;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 20px;
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-      }
-
-      .copyright {
-        font-size: 14px;
-        margin: 0;
-        color: var(--gray);
-      }
+      .footer-logo { width: 180px; height: auto; margin-bottom: 20px; }
+      .footer-description { font-size: 14px; line-height: 1.6; max-width: 280px; color: var(--gray); }
+      .footer-heading { color: #1a1a1a; font-size: 16px; font-weight: 600; margin-bottom: 20px; }
+      .social-links { display: flex; justify-content: flex-end; gap: 15px; }
+      .copyright { font-size: 14px; margin: 0; color: var(--gray); }
     </style>
   </head>
   <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand" href="../index">
-          <img
-            src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
-            alt="Verifitech"
-            width="200 px"
-            height="60%"
-          />
+          <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" width="200" height="60%">
         </a>
-
-        <button
-          class="navbar-toggler border-0 shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Solutions <span class="dropdown-arrow">▾</span>
-              </a>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions <span class="dropdown-arrow">▾</span></a>
               <div class="dropdown-menu mega-menu">
                 <div class="row">
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Verification Services</h6>
-                    <a href="../checks/lp-id verification" class="dropdown-item"
-                      ><i class="bi bi-person-badge"></i> ID Verification</a
-                    >
-                    <a
-                      href="../checks/lp-address-verification.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-geo-alt"></i> Address Verification</a
-                    >
-                    <a href="../checks/lp-employment" class="dropdown-item"
-                      ><i class="bi bi-briefcase"></i> Employment
-                      Verification</a
-                    >
-                    <a href="../checks/lp-education check" class="dropdown-item"
-                      ><i class="bi bi-mortarboard"></i> Education
-                      Verification</a
-                    >
-                    <a
-                      href="../checks/LP-court-verification"
-                      class="dropdown-item"
-                      ><i class="bi bi-shield-exclamation"></i> Court Record
-                      Verification</a
-                    >
-                    <a href="../checks/lp-reference" class="dropdown-item"
-                      ><i class="bi bi-people"></i> Reference Check</a
-                    >
-                    <a href="../checks/DIN-verification" class="dropdown-item"
-                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
-                    >
-                    <a
-                      href="../checks/LP-Directorship check"
-                      class="dropdown-item"
-                      ><i class="fa-regular fa-user"></i> Directorship</a
-                    >
+                    <a href="../checks/lp-id-verification.html" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
+                    <a href="../checks/lp-address-verification.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
+                    <a href="../checks/lp-employment.html" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
+                    <a href="../checks/lp-education-check.html" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
                   </div>
                   <div class="col-md-6">
                     <h6 class="dropdown-header">Specialized Checks</h6>
-                    <a href="../checks/global-check" class="dropdown-item"
-                      ><i class="bi bi-globe"></i> Global Database
-                      Verification</a
-                    >
-                    <a href="../checks/lp-credit-check" class="dropdown-item"
-                      ><i class="bi bi-credit-card"></i> Credit Check</a
-                    >
-                    <a
-                      href="../checks/lp-gap-verification"
-                      class="dropdown-item"
-                      ><i class="bi bi-calendar-x"></i> Gap Check</a
-                    >
-                    <a
-                      href="../checks/lp-socialmeidaverification"
-                      class="dropdown-item"
-                      ><i class="bi bi-share"></i> Social Media Verification</a
-                    >
-                    <a href="../checks/lp-police-clearnce" class="dropdown-item"
-                      ><i class="bi bi-shield-check"></i> Police Clearance</a
-                    >
-                    <a href="../checks/lp-drug-test" class="dropdown-item"
-                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
-                    >
-                    <a class="dropdown-item" href="../checks/vendor"
-                      ><i class="fa-solid fa-magnifying-glass"></i> Vendor Due
-                      Diligence</a
-                    >
-                    <a
-                      href="../checks/lp-passport-verification"
-                      class="dropdown-item"
-                      ><i class="fa-solid fa-passport"></i> Passport
-                      Verification</a
-                    >
+                    <a href="../checks/lp-criminal-check.html" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Criminal Record Check</a>
+                    <a href="../checks/lp-court-record.html" class="dropdown-item"><i class="bi bi-building-gear"></i> Court Record Verification</a>
+                    <a href="../checks/lp-drug-test.html" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
+                    <a href="../checks/lp-reference-check.html" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
                   </div>
                 </div>
               </div>
             </li>
-
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Products <span class="dropdown-arrow">▾</span>
-              </a>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products <span class="dropdown-arrow">▾</span></a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../products/exitinterview"
-                    ><i class="bi bi-box-arrow-right"></i> Exit Interviews</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../products/pm"
-                    ><i class="bi bi-graph-up"></i> Psychometric</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../products/exitinterview.html"><i class="bi bi-box-arrow-right"></i> Exit Interviews</a></li>
+                <li><a class="dropdown-item" href="../products/pm.html"><i class="bi bi-graph-up"></i> Psychometric</a></li>
               </ul>
             </li>
-
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Industry <span class="dropdown-arrow">▾</span>
-              </a>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Industry <span class="dropdown-arrow">▾</span></a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../industries/lp-banks"
-                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-healthcare"
-                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-education"
-                    ><i class="bi bi-book"></i> Education</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/lpi-manufacturing"
-                    ><i class="bi bi-building-gear"></i> Manufacturing</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-IT-ITES"
-                    ><i class="bi bi-laptop"></i> IT/ITeS</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/LP-FMCG"
-                    ><i class="bi bi-box"></i> FMCG</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/Logistics"
-                    ><i class="bi bi-truck"></i> Logistics</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/Realestate-&-constructation"
-                    ><i class="bi bi-house"></i> Real Estate & Construction</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/Retail & E-commerce"
-                    ><i class="bi bi-shop"></i> Retail & E-commerce</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/lpi-travel industries"
-                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-staffing"
-                    ><i class="bi bi-person-workspace"></i> Staffing and
-                    Recruitment</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-telecom"
-                    ><i class="bi bi-broadcast"></i> Telecom</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../industries/lp-banks.html"><i class="bi bi-bank"></i> Banking & Financial Services</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-healthcare.html"><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-education.html"><i class="bi bi-book"></i> Education</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-manufacturing.html"><i class="bi bi-building-gear"></i> Manufacturing</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-IT-ITES.html"><i class="bi bi-laptop"></i> IT/ITeS</a></li>
+                <li><a class="dropdown-item" href="../industries/lpi-staffing.html"><i class="bi bi-person-workspace"></i> Staffing and Recruitment</a></li>
               </ul>
             </li>
-
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Resources <span class="dropdown-arrow">▾</span>
-              </a>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources <span class="dropdown-arrow">▾</span></a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../resources/blog"
-                    ><i class="bi bi-journal-text"></i> Blogs</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../resources/whitepapers"
-                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../resources/casestudy"
-                    ><i class="bi bi-star"></i> Case Study</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../resources/webinar"
-                    ><i class="bi bi-camera-video"></i> Webinar</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../products/api"
-                    ><i class="bi bi-plug"></i> API</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../resources/blog.html"><i class="bi bi-journal-text"></i> Blogs</a></li>
+                <li><a class="dropdown-item" href="../resources/whitepapers.html"><i class="bi bi-file-earmark-text"></i> Whitepapers</a></li>
+                <li><a class="dropdown-item" href="../resources/casestudy.html"><i class="bi bi-star"></i> Case Study</a></li>
               </ul>
             </li>
-
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Company <span class="dropdown-arrow">▾</span>
-              </a>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company <span class="dropdown-arrow">▾</span></a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../company/partnership"
-                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../company/aboutus"
-                    ><i class="bi bi-info-circle"></i> About Us</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../company/careers"
-                    ><i class="bi bi-briefcase"></i> Careers</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../company/aboutus.html"><i class="bi bi-info-circle"></i> About Us</a></li>
+                <li><a class="dropdown-item" href="../company/careers.html"><i class="bi bi-briefcase"></i> Careers</a></li>
+                <li><a class="dropdown-item" href="../company/partnership.html"><i class="bi bi-hand-thumbs-up"></i> Partnership</a></li>
               </ul>
             </li>
-
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Help Center <span class="dropdown-arrow">▾</span>
-              </a>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Help Center <span class="dropdown-arrow">▾</span></a>
               <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../helpcenter/customer"
-                    ><i class="bi bi-building"></i> For Customers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../helpcenter/partner"
-                    ><i class="bi bi-people"></i> For Partners</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../affilate/affilate"
-                    ><i class="bi bi-link-45deg"></i> Affiliate Marketing</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="../helpcenter/customer.html"><i class="bi bi-building"></i> For Customers</a></li>
+                <li><a class="dropdown-item" href="../helpcenter/partner.html"><i class="bi bi-people"></i> For Partners</a></li>
               </ul>
             </li>
           </ul>
-
           <div class="d-flex align-items-center">
-            <a
-              href="https://web.verifitech.com/"
-              target="blank"
-              class="btn-login"
-              style="text-decoration: none; color: black"
-            >
-              Login</a
-            >
-          </div>
-
-          <div class="d-flex align-items-center">
-            <a href="../contact/contact" class="btn btn-sales">Contact</a>
-            <div class="dropdown">
-              <div
-                class="country-selector dropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="country-flag" id="current-flag">🇮🇳</span>
-                <span id="current-country">India</span>
-                <i
-                  class="bi bi-chevron-down ms-1"
-                  style="font-size: 0.7rem"
-                ></i>
-              </div>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                style="min-width: 180px"
-              >
-                <li>
-                  <a
-                    href="../countries/usa"
-                    class="dropdown-item country-option"
-                    data-country="USA"
-                    data-flag="🇺🇸"
-                    ><span class="country-flag">🇺🇸</span> USA</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/UAE"
-                    class="dropdown-item country-option"
-                    data-country="UAE"
-                    data-flag="🇦🇪"
-                    ><span class="country-flag">🇦🇪</span> UAE</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/aus"
-                    class="dropdown-item country-option"
-                    data-country="Australia"
-                    data-flag="🇦🇺"
-                    ><span class="country-flag">🇦🇺</span> Australia</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/uk"
-                    class="dropdown-item country-option"
-                    data-country="UK"
-                    data-flag="🇬🇧"
-                    ><span class="country-flag">🇬🇧</span> UK</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/singapore"
-                    class="dropdown-item country-option"
-                    data-country="Singapore"
-                    data-flag="🇸🇬"
-                    ><span class="country-flag">🇸🇬</span> Singapore</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/Ireland"
-                    class="dropdown-item country-option"
-                    data-country="Ireland"
-                    data-flag="🇮🇪"
-                    ><span class="country-flag">🇮🇪</span> Ireland</a
-                  >
-                </li>
-              </ul>
+            <div class="country-selector dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://flagcdn.com/w20/in.png" alt="India" width="20" height="15" style="border-radius:2px; object-fit:cover;">
+              <span>India</span>
+              <i class="bi bi-chevron-down ms-1" style="font-size:0.7rem;"></i>
             </div>
+            <ul class="dropdown-menu dropdown-menu-end" style="min-width:180px;">
+              <li><a class="dropdown-item" href="../countries/usa.html"><img src="https://flagcdn.com/w20/us.png" alt="USA" width="20" height="15" style="border-radius:2px; margin-right:6px;"> USA</a></li>
+              <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/w20/in.png" alt="India" width="20" height="15" style="border-radius:2px; margin-right:6px;"> India</a></li>
+            </ul>
+            <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
+            <a href="../contact/contact.html" class="btn-sales">Contact</a>
           </div>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="careers-hero">
+    <section class="careers-hero industry-hero">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 reveal">
+          <div class="col-lg-7">
             <div class="careers-badge">
-              <i class="bi bi-people"></i>
-              Join Our Team
+              <i class="bi bi-rocket-takeoff"></i>
+              We're Hiring
             </div>
-            <h1>Build Your Career at Verifitech</h1>
-            <p class="lead">
-              Join a team of innovators, problem-solvers, and trust-builders.
-              We're on a mission to simplify verification for millions, and we
-              need exceptional talent to get there.
-            </p>
-            <div class="d-flex gap-3 flex-wrap">
-              <a href="#openings" class="btn btn-primary-custom btn-lg">
-                View Openings <i class="bi bi-briefcase"></i>
-              </a>
-              <a
-                href="#culture"
-                class="btn btn-outline-dark btn-lg"
-                style="
-                  border-radius: 50px;
-                  padding: 1rem 2rem;
-                  font-weight: 600;
-                  border-width: 2px;
-                "
-              >
-                Our Culture
-              </a>
-            </div>
+            <h1>Build the Future of <span style="color: var(--primary);">Trust & Verification</span></h1>
+            <p class="lead">Join Verifitech's engineering team and help shape AI-powered background verification that protects organizations across India and beyond.</p>
+            <a href="#openings" class="btn-primary-custom">
+              <i class="bi bi-briefcase-fill"></i> View Open Positions
+            </a>
           </div>
-
-          <div class="col-lg-6 reveal">
+          <div class="col-lg-5 d-none d-lg-block">
             <div class="stats-grid-hero">
               <div class="stat-box">
+                <span class="number">17+</span>
+                <span class="label">Years of Trust</span>
+              </div>
+              <div class="stat-box">
                 <span class="number">500+</span>
-                <div class="label">Team Members</div>
+                <span class="label">Enterprise Clients</span>
               </div>
               <div class="stat-box">
-                <span class="number">12</span>
-                <div class="label">Nationalities</div>
+                <span class="number">10M+</span>
+                <span class="label">Verifications Done</span>
               </div>
               <div class="stat-box">
-                <span class="number">25%</span>
-                <div class="label">Internal Growth</div>
-              </div>
-              <div class="stat-box">
-                <span class="number">4.8</span>
-                <div class="label">Glassdoor Rating</div>
+                <span class="number">300+</span>
+                <span class="label">Team Members</span>
               </div>
             </div>
           </div>
@@ -2061,480 +1423,250 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits-section" id="benefits">
+    <section class="benefits-section">
       <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center">
-            <i class="bi bi-gift"></i> Why Join Us
-          </div>
-          <h2 class="section-title">Perks & Benefits</h2>
-          <p class="section-desc mx-auto">
-            We take care of our team so they can take care of our mission
-          </p>
+        <div class="section-header text-center">
+          <div class="section-subtitle"><i class="bi bi-gift"></i> Why Verifitech</div>
+          <h2 class="section-title">Benefits & Perks</h2>
+          <p class="section-desc mx-auto">We invest in our people because they are the foundation of everything we build.</p>
         </div>
-
         <div class="row g-4">
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-card">
-              <div class="benefit-icon">
-                <i class="bi bi-currency-dollar"></i>
-              </div>
+              <div class="benefit-icon"><i class="bi bi-currency-rupee"></i></div>
               <h3>Competitive Pay</h3>
-              <p>
-                Market-leading salaries, annual bonuses, and equity options for
-                all full-time employees.
-              </p>
+              <p>Industry-standard compensation with performance-based incentives and annual hikes.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-laptop"></i></div>
+              <h3>Hybrid Work</h3>
+              <p>Flexible work arrangements that balance collaboration with personal productivity.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="bi bi-book"></i></div>
+              <h3>Learning Budget</h3>
+              <p>Annual learning allowance for courses, certifications, conferences, and skill development.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 reveal">
             <div class="benefit-card">
               <div class="benefit-icon"><i class="bi bi-heart-pulse"></i></div>
               <h3>Health & Wellness</h3>
-              <p>
-                Comprehensive health insurance, mental health support, and
-                wellness stipends for gym memberships.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="benefit-card">
-              <div class="benefit-icon"><i class="bi bi-laptop"></i></div>
-              <h3>Flexible Work</h3>
-              <p>
-                Hybrid work model, flexible hours, and work-from-home setup
-                allowance.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="benefit-card">
-              <div class="benefit-icon">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h3>Growth & Development</h3>
-              <p>
-                Learning budget, conference attendance, mentorship programs, and
-                clear career progression paths.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="benefit-card">
-              <div class="benefit-icon">
-                <i class="bi bi-calendar-check"></i>
-              </div>
-              <h3>Time Off</h3>
-              <p>
-                Unlimited PTO policy, parental leave, and company-wide recharge
-                weeks.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="benefit-card">
-              <div class="benefit-icon"><i class="bi bi-egg-fried"></i></div>
-              <h3>Office Perks</h3>
-              <p>
-                Gourmet meals, snacks, game rooms, and pet-friendly offices at
-                all locations.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="benefit-card">
-              <div class="benefit-icon"><i class="bi bi-globe"></i></div>
-              <h3>Global Mobility</h3>
-              <p>
-                Opportunity to work from any of our 5 global offices and
-                relocation support.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 reveal">
-            <div class="benefit-card">
-              <div class="benefit-icon"><i class="bi bi-people-fill"></i></div>
-              <h3>Team Events</h3>
-              <p>
-                Quarterly offsites, hackathons, team lunches, and annual company
-                retreats.
-              </p>
+              <p>Comprehensive health insurance, mental wellness support, and fitness benefits.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Culture Grid -->
-    <section class="culture-section" id="culture">
-      <div class="container-fluid p-0">
+    <!-- Culture Section -->
+    <section class="culture-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-subtitle"><i class="bi bi-people-fill"></i> Life at Verifitech</div>
+          <h2 class="section-title">Our Culture</h2>
+        </div>
         <div class="culture-grid reveal">
           <div class="culture-item">
             <i class="bi bi-lightbulb"></i>
             <h3>Innovation First</h3>
-            <p>We encourage experimentation and learning from failures</p>
+            <p>We encourage curiosity and experiment with new ideas to solve complex problems.</p>
+          </div>
+          <div class="culture-item">
+            <i class="bi bi-hand-thumbs-up"></i>
+            <h3>Collaboration</h3>
+            <p>Teams work cross-functionally, sharing knowledge and supporting each other.</p>
+          </div>
+          <div class="culture-item">
+            <i class="bi bi-graph-up-arrow"></i>
+            <h3>Growth Mindset</h3>
+            <p>Continuous learning and improvement are part of our daily DNA.</p>
           </div>
           <div class="culture-item">
             <i class="bi bi-shield-check"></i>
-            <h3>Integrity Always</h3>
-            <p>Trust is our business, starting with how we treat each other</p>
-          </div>
-          <div class="culture-item">
-            <i class="bi bi-people"></i>
-            <h3>Collaborative</h3>
-            <p>No silos. We win together through open communication</p>
-          </div>
-          <div class="culture-item">
-            <i class="bi bi-rocket"></i>
-            <h3>Impact Driven</h3>
-            <p>Every role directly contributes to our mission</p>
+            <h3>Trust & Integrity</h3>
+            <p>We practice what we preach — trust and transparency guide every decision.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================
-         OPEN POSITIONS — TWO TAB SECTIONS
-         ============================================ -->
+    <!-- ============================================ -->
+    <!-- JOBS SECTION — ONLY 3 OPENINGS -->
+    <!-- ============================================ -->
     <section class="jobs-section" id="openings">
       <div class="container">
-        <div class="section-header reveal">
-          <div class="section-subtitle">
-            <i class="bi bi-briefcase"></i> Open Positions
-          </div>
-          <h2 class="section-title">
-            Current Openings
-            <span class="jobs-count-badge">12 Open</span>
-          </h2>
-          <p class="section-desc">
-            Find the role that matches your skills and passion. We're hiring
-            across multiple departments and locations.
-          </p>
+        <div class="section-header text-center">
+          <div class="section-subtitle"><i class="bi bi-briefcase-fill"></i> Current Openings</div>
+          <h2 class="section-title">Open Positions <span class="jobs-count-badge">3 Jobs</span></h2>
+          <p class="section-desc mx-auto">We're looking for talented engineers to join our core platform team. If you're passionate about scalable systems, data pipelines, and cloud infrastructure — we'd love to hear from you.</p>
         </div>
 
-        <!-- Tab Navigation -->
-        <div class="jobs-tabs reveal">
-          <button class="jobs-tab-btn active" data-tab="tab-recent">
-            <i class="bi bi-lightning"></i>
-            Recent Openings
-            <span class="tab-count">6</span>
+        <!-- Tabs -->
+        <div class="jobs-tabs">
+          <button class="jobs-tab-btn active" onclick="switchJobTab('tab1', this)">
+            <i class="bi bi-grid-3x3-gap"></i> All Openings <span class="tab-count">3</span>
           </button>
-          <button class="jobs-tab-btn" data-tab="tab-more">
-            <i class="bi bi-grid-3x3-gap"></i>
-            More Openings
-            <span class="tab-count">6</span>
+          <button class="jobs-tab-btn" onclick="switchJobTab('tab2', this)">
+            <i class="bi bi-list-ol"></i> Detailed View <span class="tab-count">3</span>
           </button>
         </div>
 
-        <!-- Tab Content -->
-        <div class="jobs-tab-content reveal">
-          <!-- ===== TAB 1: Recent Openings — IMAGE-MATCHING STYLE ===== -->
-          <div class="jobs-tab-pane active" id="tab-recent">
+        <div class="jobs-tab-content">
+
+          <!-- ============================== -->
+          <!-- TAB 1 — Card Style            -->
+          <!-- ============================== -->
+          <div class="jobs-tab-pane active" id="tab1">
+
             <div class="tab-section-label">
-              <i class="bi bi-lightning"></i>
-              Recently posted — apply before they fill up
+              <i class="bi bi-building"></i> Engineering & Infrastructure
             </div>
 
-            <!-- Card 1 -->
+            <!-- JOB 1: Cloud Architect -->
             <div class="job-listing-card">
               <div class="job-listing-left">
-                <h3 class="job-listing-title">Zoho Developer Trainee</h3>
+                <div class="job-listing-title">Cloud Architect</div>
                 <div class="job-listing-meta">
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-geo-alt"></i> Chennai
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-clock"></i> Full-time
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-briefcase"></i> 0 - 1 yrs
-                  </span>
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Chennai / Pune / Hyderabad / Bangalore  </div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 10+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i> On-site</div>
+                </div>
+                <span class="job-dept-tag">Cloud Computer</span>
+              </div>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005378039/Cloud-Architect?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- JOB 2: C++ Software Developer -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <div class="job-listing-title">C++ Software Developer</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i> Chennai</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 5+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i> On-Site</div>
+                </div>
+                <span class="job-dept-tag">Developer</span>
+              </div>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005378026/C-SoftWare-Developer?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- JOB 3: Data Engineer -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <div class="job-listing-title">Data Engineer</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Chennai</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 5+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>On-site/ Hybrid</div>
                 </div>
                 <span class="job-dept-tag">Engineering</span>
               </div>
-              <a
-                href="https://erp.verifitech.com/jobs/verifitech_india_info_private_limited___chennai/zoho-developer-trainee"
-                target="blank"
-                class="btn-apply"
-                >View <i class="bi bi-arrow-right"></i
-              ></a>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005382012/Data-Engineer?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
 
-            <!-- Card 2 -->
-            <div class="job-listing-card">
-              <div class="job-listing-left">
-                <h3 class="job-listing-title">Accounts Trainee</h3>
-                <div class="job-listing-meta">
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-geo-alt"></i> Chennai
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-clock"></i> Full-time
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-briefcase"></i> 0 - 1 yrs
-                  </span>
-                </div>
-                <span class="job-dept-tag">Finance</span>
-              </div>
-              <a
-                href="https://erp.verifitech.com/jobs/verifitech_india_info_private_limited___chennai/accounts-trainee-"
-                target="blank"
-                class="btn-apply"
-                >View <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="job-listing-card">
-              <div class="job-listing-left">
-                <h3 class="job-listing-title">
-                  Business Development Executive
-                </h3>
-                <div class="job-listing-meta">
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-geo-alt"></i> Chennai
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-clock"></i> Full-time
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-briefcase"></i> 1 - 3 yrs
-                  </span>
-                </div>
-                <span class="job-dept-tag">Sales</span>
-              </div>
-              <a
-                href="https://erp.verifitech.com/jobs/verifitech_india_info_private_limited___chennai/business-development-field-executive"
-                target="blank"
-                class="btn-apply"
-                >View <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-
-            <!-- Card 4
-            <div class="job-listing-card">
-              <div class="job-listing-left">
-                <h3 class="job-listing-title">Telecaller Executive</h3>
-                <div class="job-listing-meta">
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-geo-alt"></i> Chennai
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-clock"></i> Full-time
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-briefcase"></i> 0 - 2 yrs
-                  </span>
-                </div>
-                <span class="job-dept-tag">Sales</span>
-              </div>
-              <a href="#" class="btn-view-job">View <i class="bi bi-arrow-right"></i></a>
-            </div>
--->
-            <!-- Card 5
-            <div class="job-listing-card">
-              <div class="job-listing-left">
-                <h3 class="job-listing-title">HR Executive</h3>
-                <div class="job-listing-meta">
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-geo-alt"></i> Chennai
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-clock"></i> Full-time
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-briefcase"></i> 2 - 4 yrs
-                  </span>
-                </div>
-                <span class="job-dept-tag">Human Resources</span>
-              </div>
-              <a href="#" class="btn-view-job">View <i class="bi bi-arrow-right"></i></a>
-            </div>
--->
-            <!-- Card 6
-            <div class="job-listing-card">
-              <div class="job-listing-left">
-                <h3 class="job-listing-title">Verification Analyst</h3>
-                <div class="job-listing-meta">
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-geo-alt"></i> Chennai
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-clock"></i> Full-time
-                  </span>
-                  <span class="job-listing-meta-item">
-                    <i class="bi bi-briefcase"></i> 1 - 3 yrs
-                  </span>
-                </div>
-                <span class="job-dept-tag">Operations</span>
-              </div>
-              <a href="#" class="btn-view-job">View <i class="bi bi-arrow-right"></i></a>
-            </div>-->
-
-            <!-- Don't see a role that fits? -->
+            <!-- Don't see a role -->
             <div class="no-role-cta">
-              <p>Don't see a role that <span>fits?</span></p>
-              <p class="sub-text">
-                We're always looking for talented people. Send us your resume
-                and we'll keep you in mind.
-              </p>
-              <a href="mailto:careers@verifitech.com" class="btn-cta-inline">
+              <p>Don't see a role that fits? <span>Find here !</span></p>
+              <p class="sub-text">We're always looking for exceptional talent. Share your profile and we'll reach out when the right opportunity opens up.</p>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers" class="btn-cta-inline">
                 <i class="bi bi-envelope"></i> Send Your Resume
               </a>
             </div>
           </div>
 
-          <!-- ===== TAB 2: More Openings — NUMBERED STYLE WITH REAL LINKS ===== -->
-          <div class="jobs-tab-pane" id="tab-more">
+          <!-- ============================== -->
+          <!-- TAB 2 — Numbered Card Style   -->
+          <!-- ============================== -->
+          <div class="jobs-tab-pane" id="tab2">
+
             <div class="tab-section-label">
-              <i class="bi bi-grid-3x3-gap"></i>
-              Explore more opportunities across departments
+              <i class="bi bi-building"></i> Engineering & Infrastructure
             </div>
 
-            <!-- Job 1 — Senior Data Engineer -->
+            <!-- JOB 1: Cloud Architect -->
             <div class="job-card">
               <div class="job-card-left">
                 <div class="job-card-number">01</div>
                 <div class="job-info">
-                  <h3>Senior Data Engineer</h3>
+                  <h3>Cloud Architect</h3>
                   <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-time</span>
-                    <span><i class="bi bi-briefcase"></i> 4 - 7 yrs</span>
+                    <span><i class="bi bi-geo-alt"></i> Chennai / Pune / Hyderabad / Bangalore </span>
+                    <span><i class="bi bi-clock"></i> Full-Time</span>
+                    <span><i class="bi bi-briefcase"></i> 10+ Yrs</span>
+                    <span><i class="bi bi-laptop"></i> On-Site</span>
                   </div>
-                  <span class="job-tag">Engineering</span>
+                  <span class="job-tag">Cloud & Computer</span>
                 </div>
               </div>
-              <a
-                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060067/Senior-Data-Engineer?source=CareerSite"
-                target="_blank"
-                class="btn-apply"
-                >Apply <i class="bi bi-arrow-right"></i
-              ></a>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005378039/Cloud-Architect?source=CareerSite" target="_blank" class="btn-apply">
+                Apply Now <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
 
-            <!-- Job 2 — Technical Architect -->
+            <!-- JOB 2: C++ Software Developer -->
             <div class="job-card">
               <div class="job-card-left">
                 <div class="job-card-number">02</div>
                 <div class="job-info">
-                  <h3>Technical Architect</h3>
+                  <h3>C++ Software Developer</h3>
                   <div class="job-meta">
                     <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-time</span>
-                    <span><i class="bi bi-briefcase"></i> 8 - 12 yrs</span>
+                    <span><i class="bi bi-clock"></i> Full-Time</span>
+                    <span><i class="bi bi-briefcase"></i> 5+ Yrs</span>
+                    <span><i class="bi bi-laptop"></i> On-Site</span>
                   </div>
-                  <span class="job-tag">Engineering</span>
+                  <span class="job-tag">Developer</span>
                 </div>
               </div>
-              <a
-                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060074/Technical-Architect?source=CareerSite"
-                target="_blank"
-                class="btn-apply"
-                >Apply <i class="bi bi-arrow-right"></i
-              ></a>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005378026/C-SoftWare-Developer?source=CareerSite" target="_blank" class="btn-apply">
+                Apply Now <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
 
-            <!-- Job 3 — Oracle Apps DBA Support -->
+            <!-- JOB 3: Data Engineer -->
             <div class="job-card">
               <div class="job-card-left">
                 <div class="job-card-number">03</div>
                 <div class="job-info">
-                  <h3>Oracle Apps DBA Support</h3>
+                  <h3>Data Engineer</h3>
                   <div class="job-meta">
                     <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-time</span>
-                    <span><i class="bi bi-briefcase"></i> 3 - 6 yrs</span>
+                    <span><i class="bi bi-clock"></i> Full-Time</span>
+                    <span><i class="bi bi-briefcase"></i> 5+ Yrs</span>
+                    <span><i class="bi bi-laptop"></i> On-Site/Hybrid</span>
                   </div>
                   <span class="job-tag">Engineering</span>
                 </div>
               </div>
-              <a
-                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060082/Oracle-Apps-DBA-Support?source=CareerSite"
-                target="_blank"
-                class="btn-apply"
-                >Apply <i class="bi bi-arrow-right"></i
-              ></a>
+              <a href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005382012/Data-Engineer?source=CareerSite" target="_blank" class="btn-apply">
+                Apply Now <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
 
-            <!-- Job 4 — Technical Lead / Senior Full Stack Developer -->
-            <div class="job-card">
-              <div class="job-card-left">
-                <div class="job-card-number">04</div>
-                <div class="job-info">
-                  <h3>Technical Lead / Senior Full Stack Developer</h3>
-                  <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-time</span>
-                    <span><i class="bi bi-briefcase"></i> 5 - 9 yrs</span>
-                  </div>
-                  <span class="job-tag">Engineering</span>
-                </div>
-              </div>
-              <a
-                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060090/Technical-Lead-Senior-Full-Stack-Developer?source=CareerSite"
-                target="_blank"
-                class="btn-apply"
-                >Apply <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-
-            <!-- Job 5 — Senior Data Engineer (Scraping) -->
-            <div class="job-card">
-              <div class="job-card-left">
-                <div class="job-card-number">05</div>
-                <div class="job-info">
-                  <h3>Senior Data Engineer (Scraping)</h3>
-                  <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-time</span>
-                    <span><i class="bi bi-briefcase"></i> 3 - 6 yrs</span>
-                  </div>
-                  <span class="job-tag">Engineering</span>
-                </div>
-              </div>
-              <a
-                href="https://verifitech.zohorecruit.in/jobs/Careers/62416000005060098/Senior-Data-Engineer-Scraping?source=CareerSite"
-                target="_blank"
-                class="btn-apply"
-                >Apply <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-
-            <!-- Job 6 — Shortened URL (Link 1) -->
-            <div class="job-card">
-              <div class="job-card-left">
-                <div class="job-card-number">06</div>
-                <div class="job-info">
-                  <h3>Zoho Developer</h3>
-                  <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-time</span>
-                    <span><i class="bi bi-briefcase"></i> 2 - 5 yrs</span>
-                  </div>
-                  <span class="job-tag">Engineering</span>
-                </div>
-              </div>
-              <a
-                href="https://zrec.in/yToBz?source=CareerSite"
-                target="_blank"
-                class="btn-apply"
-                >Apply <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-
-            <!-- Don't see a role that fits? -->
+            <!-- Don't see a role -->
             <div class="no-role-cta">
-              <p>Don't see a role that <span>fits?</span></p>
-              <p class="sub-text">
-                We're always looking for talented people. Send us your resume
-                and we'll keep you in mind.
-              </p>
+              <p>Don't see a role that fits? <span>Send us your resume anyway.</span></p>
+              <p class="sub-text">We're always looking for exceptional talent. Share your profile and we'll reach out when the right opportunity opens up.</p>
               <a href="mailto:careers@verifitech.com" class="btn-cta-inline">
                 <i class="bi bi-envelope"></i> Send Your Resume
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -2542,63 +1674,44 @@
     <!-- Testimonials Section -->
     <section class="testimonials-section">
       <div class="container">
-        <div class="section-header text-center reveal">
-          <div
-            class="section-subtitle justify-content-center"
-            style="background: rgba(26, 194, 193, 0.15)"
-          >
-            <i class="bi bi-chat-quote"></i> Employee Stories
-          </div>
+        <div class="section-header text-center">
+          <div class="section-subtitle" style="background: rgba(26,194,193,0.2);"><i class="bi bi-chat-quote-fill"></i> Team Voices</div>
           <h2 class="section-title">Hear From Our Team</h2>
-          <p class="section-desc mx-auto">
-            Real stories from real people who chose Verifitech as their career
-            home
-          </p>
+          <p class="section-desc mx-auto">Real stories from people who build trust technology every day.</p>
         </div>
-
         <div class="row g-4">
           <div class="col-md-4 reveal">
             <div class="employee-card">
-              <p class="employee-quote">
-                "Verifitech gave me the platform to grow from a fresher to
-                leading a team of 15. The trust and autonomy here is unmatched."
-              </p>
+              <p class="employee-quote">"Working at Verifitech gave me the opportunity to build systems that process millions of verifications. The technical challenges here are genuinely exciting."</p>
               <div class="employee-info">
-                <div class="employee-avatar">P</div>
+                <div class="employee-avatar">RK</div>
                 <div class="employee-details">
-                  <h4>Priya Sharma</h4>
-                  <p>Team Lead, Operations</p>
+                  <h4>Rahul K.</h4>
+                  <p>Senior Software Engineer</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4 reveal">
             <div class="employee-card">
-              <p class="employee-quote">
-                "The hybrid work culture and learning budget helped me upskill
-                continuously. I've attended 3 international conferences in 2
-                years!"
-              </p>
+              <p class="employee-quote">"The team culture is collaborative and growth-oriented. I've learned more in 2 years here than in my previous 5 years combined."</p>
               <div class="employee-info">
-                <div class="employee-avatar">R</div>
+                <div class="employee-avatar">PS</div>
                 <div class="employee-details">
-                  <h4>Rahul Krishnan</h4>
-                  <p>Senior Developer, Engineering</p>
+                  <h4>Priya S.</h4>
+                  <p>Data Engineer</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4 reveal">
             <div class="employee-card">
-              <p class="employee-quote">
-                "What I love most is how every idea is heard. I proposed a new
-                verification workflow that's now used across 3 countries."
-              </p>
+              <p class="employee-quote">"What I love most is the impact — our work directly helps organizations make safer hiring decisions. That purpose drives everything we do."</p>
               <div class="employee-info">
-                <div class="employee-avatar">A</div>
+                <div class="employee-avatar">AM</div>
                 <div class="employee-details">
-                  <h4>Ananya Iyer</h4>
-                  <p>Product Manager</p>
+                  <h4>Anand M.</h4>
+                  <p>Cloud Architect</p>
                 </div>
               </div>
             </div>
@@ -2607,59 +1720,41 @@
       </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- Hiring Process Section -->
     <section class="process-section">
       <div class="container">
-        <div class="section-header text-center reveal">
-          <div class="section-subtitle justify-content-center">
-            <i class="bi bi-arrow-repeat"></i> Hiring Process
-          </div>
-          <h2 class="section-title">How We Hire</h2>
-          <p class="section-desc mx-auto">
-            Our hiring process is designed to be transparent, fair, and
-            efficient
-          </p>
+        <div class="section-header text-center">
+          <div class="section-subtitle"><i class="bi bi-signpost-split"></i> How We Hire</div>
+          <h2 class="section-title">Our Hiring Process</h2>
+          <p class="section-desc mx-auto">A streamlined, transparent process designed to be respectful of your time.</p>
         </div>
-
-        <div class="row">
-          <div class="col-md-3 reveal">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal">
             <div class="process-step">
               <div class="step-number">1</div>
-              <h3>Apply Online</h3>
-              <p>
-                Submit your application with your resume and a brief cover
-                letter for the role.
-              </p>
+              <h3>Apply</h3>
+              <p>Submit your application through the role listing. Our team reviews every application.</p>
             </div>
           </div>
-          <div class="col-md-3 reveal">
+          <div class="col-md-6 col-lg-3 reveal">
             <div class="process-step">
               <div class="step-number">2</div>
-              <h3>Screening Call</h3>
-              <p>
-                A quick 15-minute call with our talent team to understand your
-                background and expectations.
-              </p>
+              <h3>Technical Round</h3>
+              <p>A deep-dive into your skills through coding exercises, system design, or case studies.</p>
             </div>
           </div>
-          <div class="col-md-3 reveal">
+          <div class="col-md-6 col-lg-3 reveal">
             <div class="process-step">
               <div class="step-number">3</div>
-              <h3>Technical Round</h3>
-              <p>
-                A deep-dive session with the hiring manager focusing on your
-                skills and problem-solving approach.
-              </p>
+              <h3>Manager Meet</h3>
+              <p>Meet your potential manager and team. Discuss role expectations, culture fit, and growth path.</p>
             </div>
           </div>
-          <div class="col-md-3 reveal">
+          <div class="col-md-6 col-lg-3 reveal">
             <div class="process-step">
               <div class="step-number">4</div>
               <h3>Offer & Onboard</h3>
-              <p>
-                Receive your offer within 48 hours and start your journey with a
-                smooth onboarding experience.
-              </p>
+              <p>Receive your offer and join a structured onboarding program designed for a smooth start.</p>
             </div>
           </div>
         </div>
@@ -2670,534 +1765,158 @@
     <section class="cta-section">
       <div class="container">
         <div class="cta-box reveal">
-          <div
-            class="section-subtitle justify-content-center"
-            style="margin-bottom: 1rem"
-          >
-            <i class="bi bi-envelope-heart"></i> Stay Connected
-          </div>
-          <h2 class="section-title" style="margin-bottom: 1rem">
-            Don't See the Right Role?
-          </h2>
-          <p class="section-desc mx-auto" style="margin-bottom: 2rem">
-            Join our talent community. We'll notify you when a position that
-            matches your profile opens up.
-          </p>
-          <a
-            href="mailto:careers@verifitech.com"
-            class="btn btn-primary-custom"
-          >
-            Join Talent Community <i class="bi bi-arrow-right"></i>
+          <div class="section-subtitle mx-auto" style="margin-bottom:1.5rem;"><i class="bi bi-envelope-paper"></i> Stay Connected</div>
+          <h2 class="section-title" style="font-size:2.2rem;">Don't See the Right Role?</h2>
+          <p style="color:var(--gray); font-size:1.1rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto;">Send us your resume and we'll reach out when a position that matches your skills opens up.</p>
+          <a href="mailto:careers@verifitech.com" class="btn-primary-custom">
+            <i class="bi bi-envelope"></i> Send Your Resume
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <!-- Footer -->
+    <footer class="footer">
       <div class="container">
-        <a class="navbar-brand" href="../index">
-          <img
-            src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
-            alt="Verifitech"
-            width="200 px"
-            height="60%"
-          />
-        </a>
-
-        <button
-          class="navbar-toggler border-0 shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Solutions <span class="dropdown-arrow">▾</span>
-              </a>
-              <div class="dropdown-menu mega-menu">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h6 class="dropdown-header">Verification Services</h6>
-                    <a href="../checks/lp-id verification" class="dropdown-item"
-                      ><i class="bi bi-person-badge"></i> ID Verification</a
-                    >
-                    <a
-                      href="../checks/lp-address-verification.html"
-                      class="dropdown-item"
-                      ><i class="bi bi-geo-alt"></i> Address Verification</a
-                    >
-                    <a href="../checks/lp-employment" class="dropdown-item"
-                      ><i class="bi bi-briefcase"></i> Employment
-                      Verification</a
-                    >
-                    <a href="../checks/lp-education check" class="dropdown-item"
-                      ><i class="bi bi-mortarboard"></i> Education
-                      Verification</a
-                    >
-                    <a
-                      href="../checks/LP-court-verification"
-                      class="dropdown-item"
-                      ><i class="bi bi-shield-exclamation"></i> Court Record
-                      Verification</a
-                    >
-                    <a href="../checks/lp-reference" class="dropdown-item"
-                      ><i class="bi bi-people"></i> Reference Check</a
-                    >
-                    <a href="../checks/DIN-verification" class="dropdown-item"
-                      ><i class="fa-regular fa-id-card"></i> DIN Verification</a
-                    >
-                    <a
-                      href="../checks/LP-Directorship check"
-                      class="dropdown-item"
-                      ><i class="fa-regular fa-user"></i> Directorship</a
-                    >
-                  </div>
-                  <div class="col-md-6">
-                    <h6 class="dropdown-header">Specialized Checks</h6>
-                    <a href="../checks/global-check" class="dropdown-item"
-                      ><i class="bi bi-globe"></i> Global Database
-                      Verification</a
-                    >
-                    <a href="../checks/lp-credit-check" class="dropdown-item"
-                      ><i class="bi bi-credit-card"></i> Credit Check</a
-                    >
-                    <a
-                      href="../checks/lp-gap-verification"
-                      class="dropdown-item"
-                      ><i class="bi bi-calendar-x"></i> Gap Check</a
-                    >
-                    <a
-                      href="../checks/lp-socialmeidaverification"
-                      class="dropdown-item"
-                      ><i class="bi bi-share"></i> Social Media Verification</a
-                    >
-                    <a href="../checks/lp-police-clearnce" class="dropdown-item"
-                      ><i class="bi bi-shield-check"></i> Police Clearance</a
-                    >
-                    <a href="../checks/lp-drug-test" class="dropdown-item"
-                      ><i class="bi bi-capsule"></i> Drug Test Screening</a
-                    >
-                    <a class="dropdown-item" href="../checks/vendor"
-                      ><i class="fa-solid fa-magnifying-glass"></i> Vendor Due
-                      Diligence</a
-                    >
-                    <a
-                      href="../checks/lp-passport-verification"
-                      class="dropdown-item"
-                      ><i class="fa-solid fa-passport"></i> Passport
-                      Verification</a
-                    >
-                  </div>
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="newsletter-icon-footer"><i class="bi bi-envelope-paper-fill"></i></div>
+                <div>
+                  <h3 class="newsletter-title">Stay Informed</h3>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification & compliance.</p>
                 </div>
               </div>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Products <span class="dropdown-arrow">▾</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../products/exitinterview"
-                    ><i class="bi bi-box-arrow-right"></i> Exit Interviews</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../products/pm"
-                    ><i class="bi bi-graph-up"></i> Psychometric</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Industry <span class="dropdown-arrow">▾</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../industries/lp-banks"
-                    ><i class="bi bi-bank"></i> Banking & Financial Services</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-healthcare"
-                    ><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-education"
-                    ><i class="bi bi-book"></i> Education</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/lpi-manufacturing"
-                    ><i class="bi bi-building-gear"></i> Manufacturing</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-IT-ITES"
-                    ><i class="bi bi-laptop"></i> IT/ITeS</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/LP-FMCG"
-                    ><i class="bi bi-box"></i> FMCG</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/Logistics"
-                    ><i class="bi bi-truck"></i> Logistics</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/Realestate-&-constructation"
-                    ><i class="bi bi-house"></i> Real Estate & Construction</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/Retail & E-commerce"
-                    ><i class="bi bi-shop"></i> Retail & E-commerce</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../industries/lpi-travel industries"
-                    ><i class="bi bi-airplane"></i> Travel and Hospitality</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-staffing"
-                    ><i class="bi bi-person-workspace"></i> Staffing and
-                    Recruitment</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../industries/lpi-telecom"
-                    ><i class="bi bi-broadcast"></i> Telecom</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Resources <span class="dropdown-arrow">▾</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../resources/blog"
-                    ><i class="bi bi-journal-text"></i> Blogs</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../resources/whitepapers"
-                    ><i class="bi bi-file-earmark-text"></i> Whitepapers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../resources/casestudy"
-                    ><i class="bi bi-star"></i> Case Study</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../resources/webinar"
-                    ><i class="bi bi-camera-video"></i> Webinar</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../products/api"
-                    ><i class="bi bi-plug"></i> API</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Company <span class="dropdown-arrow">▾</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../company/partnership"
-                    ><i class="bi bi-hand-thumbs-up"></i> Partnership</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../company/aboutus"
-                    ><i class="bi bi-info-circle"></i> About Us</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../company/careers"
-                    ><i class="bi bi-briefcase"></i> Careers</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Help Center <span class="dropdown-arrow">▾</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="../helpcenter/customer"
-                    ><i class="bi bi-building"></i> For Customers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../helpcenter/partner"
-                    ><i class="bi bi-people"></i> For Partners</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../affilate/affilate"
-                    ><i class="bi bi-link-45deg"></i> Affiliate Marketing</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-
-          <div class="d-flex align-items-center">
-            <a
-              href="https://web.verifitech.com/"
-              target="blank"
-              class="btn-login"
-              style="text-decoration: none; color: black"
-            >
-              Login</a
-            >
-          </div>
-
-          <div class="d-flex align-items-center">
-            <a href="../contact/contact" class="btn btn-sales">Contact</a>
-            <div class="dropdown">
-              <div
-                class="country-selector dropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <span class="country-flag" id="current-flag">🇮🇳</span>
-                <span id="current-country">India</span>
-                <i
-                  class="bi bi-chevron-down ms-1"
-                  style="font-size: 0.7rem"
-                ></i>
+            </div>
+            <div class="col-lg-7">
+              <div class="newsletter-form-footer">
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv" style="display:block;">
+                    <input type="email" class="newsletter-input" placeholder="Enter your work email" id="footerNewsletterEmail">
+                    <div class="zf-errorMessage" id="footerNewsletterError"><i class="bi bi-exclamation-circle"></i> Please enter a valid email address.</div>
+                  </div>
+                  <button class="newsletter-btn" onclick="handleFooterNewsletter()">Subscribe <i class="bi bi-arrow-right"></i></button>
+                </div>
+                <div class="newsletter-disclaimer"><i class="bi bi-shield-check"></i> No spam. Unsubscribe anytime. We respect your privacy.</div>
               </div>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                style="min-width: 180px"
-              >
-                <li>
-                  <a
-                    href="../countries/usa"
-                    class="dropdown-item country-option"
-                    data-country="USA"
-                    data-flag="🇺🇸"
-                    ><span class="country-flag">🇺🇸</span> USA</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/UAE"
-                    class="dropdown-item country-option"
-                    data-country="UAE"
-                    data-flag="🇦🇪"
-                    ><span class="country-flag">🇦🇪</span> UAE</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/aus"
-                    class="dropdown-item country-option"
-                    data-country="Australia"
-                    data-flag="🇦🇺"
-                    ><span class="country-flag">🇦🇺</span> Australia</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/uk"
-                    class="dropdown-item country-option"
-                    data-country="UK"
-                    data-flag="🇬🇧"
-                    ><span class="country-flag">🇬🇧</span> UK</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/singapore"
-                    class="dropdown-item country-option"
-                    data-country="Singapore"
-                    data-flag="🇸🇬"
-                    ><span class="country-flag">🇸🇬</span> Singapore</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="../countries/Ireland"
-                    class="dropdown-item country-option"
-                    data-country="Ireland"
-                    data-flag="🇮🇪"
-                    ><span class="country-flag">🇮🇪</span> Ireland</a
-                  >
-                </li>
-              </ul>
             </div>
           </div>
         </div>
+
+        <div class="footer-main-content">
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo">
+              <p class="footer-description">India's trusted background verification partner. Enabling organizations to hire with confidence through technology-driven verification solutions.</p>
+              <div class="social-icons">
+                <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li><a href="../checks/lp-id-verification.html">ID Verification</a></li>
+                <li><a href="../checks/lp-address-verification.html">Address Verification</a></li>
+                <li><a href="../checks/lp-employment.html">Employment Check</a></li>
+                <li><a href="../checks/lp-education-check.html">Education Check</a></li>
+                <li><a href="../checks/lp-criminal-check.html">Criminal Check</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <h5 class="footer-heading">Industries</h5>
+              <ul class="footer-links">
+                <li><a href="../industries/lp-banks.html">BFSI</a></li>
+                <li><a href="../industries/lpi-healthcare.html">Healthcare</a></li>
+                <li><a href="../industries/lpi-IT-ITES.html">IT / ITES</a></li>
+                <li><a href="../industries/lpi-manufacturing.html">Manufacturing</a></li>
+                <li><a href="../industries/lpi-staffing.html">Staffing</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <h5 class="footer-heading">Resources</h5>
+              <ul class="footer-links">
+                <li><a href="../resources/whitepapers.html">Whitepapers</a></li>
+                <li><a href="../resources/blog.html">Blog</a></li>
+                <li><a href="../resources/casestudy.html">Case Studies</a></li>
+                <li><a href="../company/aboutus.html">About Us</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2">
+              <h5 class="footer-heading">Legal</h5>
+              <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Refund Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="privacy-row">
+            <p class="copyright">
+              © 2025 Verifitech India Info Pvt. Ltd. All rights reserved.
+              <span class="privacy-separator">|</span>
+              <a href="#" class="privacy-link">Privacy Policy</a>
+              <span class="privacy-separator">|</span>
+              <a href="#" class="privacy-link">Terms</a>
+            </p>
+          </div>
+        </div>
       </div>
-    </nav>
+    </footer>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // Navbar scroll effect
-      window.addEventListener("scroll", function () {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      // Reveal on scroll
-      const revealElements = document.querySelectorAll(".reveal");
-
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-            }
-          });
-        },
-        { threshold: 0.1 },
-      );
-
-      revealElements.forEach((el) => revealObserver.observe(el));
-
       // Tab switching
-      const tabBtns = document.querySelectorAll(".jobs-tab-btn");
-      const tabPanes = document.querySelectorAll(".jobs-tab-pane");
+      function switchJobTab(tabId, btn) {
+        document.querySelectorAll('.jobs-tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.jobs-tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        btn.classList.add('active');
+      }
 
-      tabBtns.forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const targetTab = this.getAttribute("data-tab");
-
-          tabBtns.forEach((b) => b.classList.remove("active"));
-          this.classList.add("active");
-
-          tabPanes.forEach((pane) => pane.classList.remove("active"));
-          document.getElementById(targetTab).classList.add("active");
-        });
+      // Navbar scroll
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
       });
 
-      // Newsletter form handler
-      function handleNewsletterSubmit(e) {
-        e.preventDefault();
-        const emailInput = document.getElementById("newsletter-email");
-        const errorEl = document.getElementById("newsletter-error");
-        const btn = document.getElementById("newsletter-btn");
-        const email = emailInput.value.trim();
+      // Scroll reveal
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      revealElements.forEach(el => revealObserver.observe(el));
 
-        emailInput.classList.remove("zf-error", "zf-success");
-        errorEl.style.display = "none";
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email) {
-          showNewsletterError("Please enter your email address");
-          return false;
+      // Footer newsletter
+      function handleFooterNewsletter() {
+        const input = document.getElementById('footerNewsletterEmail');
+        const error = document.getElementById('footerNewsletterError');
+        const email = input.value.trim();
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !regex.test(email)) {
+          input.classList.add('zf-error');
+          input.classList.remove('zf-success');
+          error.style.display = 'flex';
+          return;
         }
-        if (!emailRegex.test(email)) {
-          showNewsletterError("Please enter a valid email address");
-          return false;
-        }
-
-        btn.disabled = true;
-        btn.innerHTML = '<i class="bi bi-check-circle"></i> Subscribed!';
-        emailInput.classList.add("zf-success");
-        emailInput.value = "";
-
+        input.classList.remove('zf-error');
+        input.classList.add('zf-success');
+        error.style.display = 'none';
+        input.value = '';
+        input.placeholder = '✓ Subscribed successfully!';
         setTimeout(() => {
-          btn.disabled = false;
-          btn.innerHTML = 'Subscribe <i class="bi bi-arrow-right"></i>';
-          emailInput.classList.remove("zf-success");
+          input.classList.remove('zf-success');
+          input.placeholder = 'Enter your work email';
         }, 3000);
-
-        return false;
       }
-
-      function showNewsletterError(msg) {
-        const errorEl = document.getElementById("newsletter-error");
-        const emailInput = document.getElementById("newsletter-email");
-        errorEl.querySelector("span").textContent = msg;
-        errorEl.style.display = "flex";
-        emailInput.classList.add("zf-error");
-        emailInput.focus();
-      }
-
-      // Country selector
-      document.querySelectorAll(".country-option").forEach((option) => {
-        option.addEventListener("click", function () {
-          const flag = this.getAttribute("data-flag");
-          const country = this.getAttribute("data-country");
-          document.getElementById("current-flag").textContent = flag;
-          document.getElementById("current-country").textContent = country;
-        });
-      });
     </script>
   </body>
 </html>
