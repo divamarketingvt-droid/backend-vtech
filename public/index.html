@@ -185,7 +185,7 @@ body {
 }
 
 .navbar-brand img {
-  height: 60px;
+  height: 55%;
   width: 200px;
   object-fit: contain;
   display: block;
@@ -1718,12 +1718,7 @@ body {
   gap: 16px;
 }
 
-/* .
-      {
-  display: flex;
-  gap: 12px;
-  animation: fadeIn 0.3s ease;
-} */
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -2835,7 +2830,24 @@ body {
   }
 }
     </style>
-  </head>
+  
+<style id="floating-dots-cleanup">
+/* Prevent stray dot/placeholder rendering near the cookie button */
+body::before,
+body::after,
+.cookie-float-icon::before,
+.cookie-float-icon::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Keep only the intended cookie icon and tooltip visible */
+.cookie-float-icon {
+  overflow: visible;
+}
+</style>
+
+</head>
   <body>
      <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -2845,7 +2857,7 @@ body {
             src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
             alt="Verifitech"
             width="200px"
-            height="60px"
+            height="60%"
           />
         </a>
 
@@ -2973,7 +2985,7 @@ body {
           </div>
 
           <div class="d-flex align-items-center">
-            <a href="./contact/contact" class="btn btn-sales">Contact</a>
+            <a href="../contact/contact" class="btn btn-sales">Contact</a>
             <div class="dropdown">
               <div class="country-selector dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="country-flag" id="current-flag">🇮🇳</span>
@@ -6719,5 +6731,35 @@ style.textContent = `
 document.head.appendChild(style);
  
   </script>
-  </body>
+  
+<script id="floating-dots-runtime-cleanup">
+(function () {
+  function removeStrayDots() {
+    document.querySelectorAll("body *").forEach(function (el) {
+      if (el.id === "cookieOverlay" ||
+          el.id === "cookieBanner" ||
+          el.classList.contains("cookie-float-icon")) return;
+
+      if (el.children.length === 0 &&
+          /^[.\u2026\u00B7\s]+$/.test(el.textContent || "") &&
+          (el.textContent || "").trim().length >= 3) {
+        el.remove();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", removeStrayDots);
+  } else {
+    removeStrayDots();
+  }
+
+  new MutationObserver(removeStrayDots).observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+</script>
+
+</body>
 </html>
