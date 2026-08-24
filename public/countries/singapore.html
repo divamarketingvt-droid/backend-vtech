@@ -344,26 +344,49 @@
             color: var(--primary);
         }
        
-        .btn-sales {
-            background: var(--primary);
-            color: white !important;
-            border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            margin-left: 1rem;
-            box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-            text-decoration: none;
-        }
-       
-        .btn-sales:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-        }
+        /* ============================================
+         BUTTON STYLES
+         ============================================ */
+      .btn-sales {
+        background: var(--primary);
+        color: white !important;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin-left: 1rem;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+      }
+
+      .btn-sales:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+      }
+
+      .btn-login {
+        background-color: #ffffff !important;
+        color: #00bfa5 !important;
+        border: 1px solid #00bfa5 !important;
+        box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+        padding: 8px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 12px;
+      }
+
+      .btn-login:hover {
+        background-color: #00bfa5 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+        transform: translateY(-1px);
+      }
+
        
         /* Country Selector - Arrow Removed */
         .country-selector {
@@ -2022,11 +2045,10 @@
     </li>
   </ul>
 </li>
-          <div class="d-flex align-items-center">
+         <div class="d-flex align-items-center">
             <a href="https://web.verifitech.com/" target="blank" class="btn-login"> Login</a>
 
           </div>
-
           <div class="d-flex align-items-center">
             <a href="../contact/contact" class="btn btn-sales"
               >Contact</a
@@ -2037,10 +2059,10 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <span class="country-flag" id="current-flag">🇮🇳</span>
-                <span id="current-country">India</span>
+                <span class="country-flag" id="current-flag">🇸🇬</span>
+                <span id="current-country">Singapore</span>
                 <i
-                  class="bi bi-chevron-down ms-1"
+                  
                   style="font-size: 0.7rem"
                 ></i>
               </div>
@@ -2091,11 +2113,11 @@
                 <li>
                   <a
                     class="dropdown-item country-option"
-                    href="../countries/singapore"
-                    data-country="Singapore"
-                    data-flag="🇸🇬"
+                    href="../countries/india"
+                    data-country="India"
+                    data-flag="🇮🇳"
                   >
-                    <span class="country-flag">🇸🇬</span> Singapore
+                    <span class="country-flag">🇸🇬</span> India
                   </a>
                 </li>
               
