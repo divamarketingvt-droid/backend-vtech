@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verifitech Help Desk</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+        }
+
+        .zoho-helpdesk-wrapper {
+            width: 100%;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .zoho-helpdesk-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .helpdesk-title {
+            margin: 0 0 8px;
+            font-size: 26px;
+            font-weight: 700;
+            color: #172033;
+        }
+
+        .helpdesk-description {
+            margin: 0 0 25px;
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 7px;
+            color: #172033;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .required {
+            color: #e53935;
+            margin-left: 3px;
+        }
+
+        .form-control,
+        .form-select {
+            width: 100%;
+            min-height: 46px;
+            padding: 11px 13px;
+            border: 1px solid #d7dce5;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #172033;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        textarea.form-control {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            min-width: 120px;
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .btn-submit {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-submit:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-reset {
+            background: #eef1f5;
+            color: #172033;
+        }
+
+        .btn-reset:hover {
+            background: #e2e6ec;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .zoho-footer {
+            margin-top: 25px;
+            padding-top: 18px;
+            border-top: 1px solid #edf0f4;
+            text-align: center;
+            color: #8a93a3;
+            font-size: 12px;
+        }
+
+        .zoho-footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            .zoho-helpdesk-wrapper {
+                margin: 10px auto;
+            }
+
+            .zoho-helpdesk-card {
+                padding: 20px 16px;
+                border-radius: 10px;
+            }
+
+            .helpdesk-title {
+                font-size: 22px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <!-- Zoho Desk required library -->
+    <script src="https://static.zohocdn.com/zohodeskstatic/app/js/jqueryandencoder.ef05974972bf3bca1b87.js"></script>
+
+    <script>
+        /*
+        ============================================================
+        ZOHO DESK DEPENDENT FIELD HANDLING
+        ============================================================
+        */
+
+        function trimBoth(str) {
+            return jQuery.trim(str);
+        }
+
+        function getMapDependencyValues(module, key) {
+
+            var element = document.getElementById(
+                "dependent_field_values_" + module
+            );
+
+            if (!element) {
+                return undefined;
+            }
+
+            var dependencyObj = jQuery.parseJSON(
+                element.value
+            );
+
+            if (!dependencyObj) {
+                return undefined;
+            }
+
+            return dependencyObj[key];
+        }
+
+
+        function setAllDependencyFieldsMapping() {
+
+            var moduleElement = document.getElementById("property(module)");
+
+            if (!moduleElement) {
+                return;
+            }
+
+            var module = moduleElement.value;
+
+            var labels = getMapDependencyValues(
+                module,
+                "JSON_MAP_DEP_LABELS"
+            );
+
+            if (!labels) {
+                return;
+            }
+
+            for (var i = 0; i < labels.length; i++) {
+
+                var label = labels[i];
+
+                var field =
+                    document.forms["zsWebToCase_63926000005728001"][label];
+
+                if (field) {
+                    setDependent(field, true);
+                }
+            }
+        }
+
+
+        function setDependent(obj, isLoad) {
+
+            if (!obj) {
+                return;
+            }
+
+            var fieldName =
+                obj.id ||
+                (obj[0] && obj[0].id) ||
+                "";
+
+            if (!fieldName) {
+                return;
+            }
+
+            var module =
+                document.getElementById("property(module)").value;
+
+            var values =
+                getMapDependencyValues(module, "JSON_VALUES");
+
+            var selectValues =
+                getMapDependencyValues(module, "JSON_SELECT_VALUES");
+
+            if (
+                !values ||
+                !values[fieldName] ||
+                !selectValues
+            ) {
+                return;
+            }
+
+            var fields = values[fieldName];
+
+            for (var dependentName in fields) {
+
+                if (!fields.hasOwnProperty(dependentName)) {
+                    continue;
+                }
+
+                var safeName = dependentName
+                    .replace(/\)/g, "_____")
+                    .replace(/\(/g, "____")
+                    .replace(/\./g, "___");
+
+                var dependentField =
+                    document.forms[
+                        "zsWebToCase_63926000005728001"
+                    ][safeName];
+
+                if (
+                    !dependentField ||
+                    !dependentField.options
+                ) {
+                    continue;
+                }
+
+                var selectedValues = [];
+
+                for (
+                    var x = dependentField.options.length - 1;
+                    x >= 0;
+                    x--
+                ) {
+
+                    if (
+                        dependentField.options[x].selected
+                    ) {
+                        selectedValues.push(
+                            dependentField.options[x].value
+                        );
+                    }
+                }
+
+                var currentValue =
+                    trimBoth(obj.value);
+
+                var matched = false;
+
+                var dependencyOptions =
+                    fields[dependentName];
+
+                dependentField.length = 0;
+
+                for (
+                    var parentValue in dependencyOptions
+                ) {
+
+                    if (
+                        !dependencyOptions.hasOwnProperty(
+                            parentValue
+                        )
+                    ) {
+                        continue;
+                    }
+
+                    if (
+                        trimBoth(parentValue) ===
+                        currentValue
+                    ) {
+
+                        matched = true;
+
+                        var childOptions =
+                            dependencyOptions[parentValue];
+
+                        for (
+                            var j = 0;
+                            j < childOptions.length;
+                            j++
+                        ) {
+
+                            var value =
+                                childOptions[j];
+
+                            var option =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            if (value === "-None-") {
+                                option.value = "";
+                            } else {
+                                option.value = value;
+                            }
+
+                            option.text =
+                                value;
+
+                            if (
+                                selectedValues.indexOf(
+                                    option.value
+                                ) !== -1
+                            ) {
+                                option.selected = true;
+                            }
+
+                            dependentField.options.add(
+                                option
+                            );
+                        }
+                    }
+                }
+
+                /*
+                If no dependency matches,
+                show all available values.
+                */
+
+                if (!matched) {
+
+                    var allValues =
+                        selectValues[dependentName];
+
+                    if (allValues) {
+
+                        for (
+                            var k = 0;
+                            k < allValues.length;
+                            k++
+                        ) {
+
+                            var value =
+                                allValues[k];
+
+                            var option =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            option.value =
+                                value === "-None-"
+                                    ? ""
+                                    : value;
+
+                            option.text =
+                                value;
+
+                            dependentField.options.add(
+                                option
+                            );
+                        }
+                    }
+                }
+
+                /*
+                Continue dependency chain.
+                */
+
+                if (!isLoad) {
+                    setDependent(
+                        dependentField,
+                        false
+                    );
+                }
+            }
+        }
+
+
+        /*
+        ============================================================
+        VALIDATION
+        ============================================================
+        */
+
+        var zsWebFormMandatoryFields = [
+            "Subject",
+            "Contact Name",
+            "Email"
+        ];
+
+        var zsFieldsDisplayLabelArray = [
+            "Subject",
+            "Last Name",
+            "Email"
+        ];
+
+
+        function zsValidateMandatoryFields() {
+
+            var form =
+                document.forms[
+                    "zsWebToCase_63926000005728001"
+                ];
+
+            for (
+                var i = 0;
+                i < zsWebFormMandatoryFields.length;
+                i++
+            ) {
+
+                var fieldName =
+                    zsWebFormMandatoryFields[i];
+
+                var displayName =
+                    zsFieldsDisplayLabelArray[i];
+
+                var field =
+                    form[fieldName];
+
+                if (!field) {
+                    continue;
+                }
+
+                var value =
+                    field.value.trim();
+
+                if (!value) {
+
+                    alert(
+                        displayName +
+                        " cannot be empty"
+                    );
+
+                    field.focus();
+
+                    return false;
+                }
+
+                if (
+                    fieldName === "Email"
+                ) {
+
+                    var emailPattern =
+                        /^[\w_][\w\-_.+\'&]*@(?=.{4,256}$)(([\w]+)([\-_]*[\w])*\.)+[a-zA-Z]{2,22}$/;
+
+                    if (
+                        !emailPattern.test(value)
+                    ) {
+
+                        alert(
+                            "Enter a valid email address"
+                        );
+
+                        field.focus();
+
+                        return false;
+                    }
+                }
+            }
+
+            /*
+            Prevent duplicate submission
+            */
+
+            var submitButton =
+                document.getElementById(
+                    "zsSubmitButton_63926000005728001"
+                );
+
+            if (submitButton) {
+                submitButton.disabled = true;
+            }
+
+            return true;
+        }
+
+
+        /*
+        ============================================================
+        RESET FORM
+        ============================================================
+        */
+
+        function zsResetWebForm() {
+
+            var form =
+                document.forms[
+                    "zsWebToCase_63926000005728001"
+                ];
+
+            if (form) {
+                form.reset();
+            }
+
+            var submitButton =
+                document.getElementById(
+                    "zsSubmitButton_63926000005728001"
+                );
+
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+
+            setAllDependencyFieldsMapping();
+        }
+
+
+        /*
+        ============================================================
+        PAGE LOAD
+        ============================================================
+        */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                setAllDependencyFieldsMapping();
+
+                var submitButton =
+                    document.getElementById(
+                        "zsSubmitButton_63926000005728001"
+                    );
+
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+            }
+        );
+
+
+        /*
+        ============================================================
+        BROWSER BACK/FORWARD FIX
+        ============================================================
+        */
+
+        window.addEventListener(
+            "pageshow",
+            function () {
+
+                var submitButton =
+                    document.getElementById(
+                        "zsSubmitButton_63926000005728001"
+                    );
+
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+            }
+        );
+    </script>
+</head>
+
+
+<body>
+
+<div class="zoho-helpdesk-wrapper">
+
+    <div class="zoho-helpdesk-card">
+
+        <h2 class="helpdesk-title">
+            Help Desk
+        </h2>
+
+        <p class="helpdesk-description">
+            Please submit your support request below.
+            Our team will review your request and get back to you.
+        </p>
+
+
+        <!-- =====================================================
+             ZOHO DESK FORM
+        ====================================================== -->
+
+        <form
+            name="zsWebToCase_63926000005728001"
+            id="zsWebToCase_63926000005728001"
+            action="https://desk.zoho.in/support/WebToCase"
+            method="POST"
+            enctype="multipart/form-data"
+            onsubmit="return zsValidateMandatoryFields();"
+        >
+
+            <!-- =================================================
+                 ZOHO REQUIRED HIDDEN VALUES
+            ================================================== -->
+
+            <input
+                type="hidden"
+                name="xnQsjsdp"
+                value="edbsn5699abaf691b26a46a41d84fb2953adc"
+            >
+
+            <input
+                type="hidden"
+                name="xmIwtLD"
+                value="edbsn7c74329bf29d11b21954f26adc41ab0a5eb1e86fdd88f3fe89f248c99d5362d6"
+            >
+
+            <input
+                type="hidden"
+                name="xJdfEaS"
+                value=""
+            >
+
+            <input
+                type="hidden"
+                name="actionType"
+                value="Q2FzZXM="
+            >
+
+            <input
+                type="hidden"
+                id="property(module)"
+                value="Cases"
+            >
+
+            <!-- =================================================
+                 DEPENDENT FIELD CONFIGURATION
+            ================================================== -->
+
+            <input
+                type="hidden"
+                id="dependent_field_values_Cases"
+                value='{
+                    "JSON_VALUES":{
+                        "CASECF12":{
+                            "CASECF11":{
+                                "Not Interested":["Not Reached"],
+                                "Interested":["Reached"]
+                            }
+                        }
+                    },
+                    "JSON_SELECT_VALUES":{
+                        "CASECF11":["Reached","Not Reached"],
+                        "CASECF12":["Interested","Not Interested"]
+                    },
+                    "JSON_MAP_DEP_LABELS":["CASECF12"]
+                }'
+            >
+
+            <input
+                type="hidden"
+                name="returnURL"
+                value="https://verifitech.com/"
+            >
+
+
+            <!-- =================================================
+                 SUBJECT
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Subject
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="Subject"
+                    maxlength="255"
+                    class="form-control"
+                    required
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTACT NAME
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Contact Name
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="Contact Name"
+                    maxlength="120"
+                    class="form-control"
+                    required
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 EMAIL
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Email
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="email"
+                    name="Email"
+                    maxlength="120"
+                    class="form-control"
+                    required
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 SLA DELAY
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Order exceeding committed SLA - why the delay?
+                </label>
+
+                <textarea
+                    name="Order exceeding committed SLA - why the delay?"
+                    maxlength="3000"
+                    class="form-control"
+                ></textarea>
+
+            </div>
+
+
+            <!-- =================================================
+                 CANDIDATE STATUS
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Status of a specific candidate's background check?
+                </label>
+
+                <input
+                    type="text"
+                    name="Status of a specific candidate's background check?"
+                    maxlength="120"
+                    class="form-control"
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 CUSTOMIZE CHECKS
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Customize checks?
+                </label>
+
+                <textarea
+                    name="Customize checks?"
+                    maxlength="3000"
+                    class="form-control"
+                ></textarea>
+
+            </div>
+
+
+            <!-- =================================================
+                 BILLING ISSUE
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Is it an invoice or billing issue?
+                </label>
+
+                <textarea
+                    name="Is it an invoice or billing issue?"
+                    maxlength="3000"
+                    class="form-control"
+                ></textarea>
+
+            </div>
+
+
+            <!-- =================================================
+                 STATUS
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+                    Status
+                </label>
+
+                <select
+                    name="Status"
+                    id="Status"
+                    class="form-select"
+                    onchange="setDependent(this, false)"
+                >
+
+                    <option value="Open">
+                        Open
+                    </option>
+
+                    <option value="On Hold">
+                        On Hold
+                    </option>
+
+                    <option value="Escalated">
+                        Escalated
+                    </option>
+
+                    <option value="Closed">
+                        Closed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- =================================================
+                 BUTTONS
+            ================================================== -->
+
+            <div class="button-row">
+
+                <button
+                    type="submit"
+                    id="zsSubmitButton_63926000005728001"
+                    class="btn btn-submit"
+                >
+                    Submit
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-reset"
+                    onclick="zsResetWebForm()"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
+
+        <div class="zoho-footer">
+
+            Powered by
+            <a
+                href="https://zoho.in/desk"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Zoho Desk
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
