@@ -431,52 +431,7 @@ body {
   font-size: 1.2rem;
 }
       
-      /* ============================================
-   SUPPORT DASHBOARD - CIRCLE ICON
-============================================ */
-
-.support-dashboard-btn {
-  width: 50px;
-  height: 50px;
-  
-
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: linear-gradient(
-    135deg,
-    #14B8A6 0%,
-    #0D9488 100%
-  );
-
-  color: #ffffff !important;
-  text-decoration: none;
-
-  border: 1px solid #14B8A6;
-
-  box-shadow:
-    0 4px 14px rgba(20, 184, 166, 0.25);
-
-  transition: all 0.25s ease;
-}
-
-.support-dashboard-btn i {
-  font-size: 25px;
-  line-height: 1;
-}
-
-.support-dashboard-btn:hover {
-  color: #ffffff !important;
-
-  transform: scale(1.08);
-
-  box-shadow:
-    0 6px 20px rgba(20, 184, 166, 0.40);
-}
+    
 
 /* ============================================
    HERO SECTION
@@ -754,6 +709,8 @@ body {
   opacity: 1;
 
 }
+      
+      
 
 /* ============================================
    SECTION COMMON STYLES
@@ -3098,25 +3055,31 @@ body::after,
       </div>
     </div>
   </div>
-  <!-- SUPPORT DASHBOARD -->
+  
+</nav>        
+    
+  <!-- FLOATING SUPPORT DASHBOARD -->
 <a
   href="./helpcenter/support"
   target="_blank"
-  class="support-dashboard-btn "
+  class="support-dashboard-float"
   aria-label="Support Dashboard"
-  title="Support Dashboard"
-  
 >
   <i class="bi bi-headset"></i>
+  <span class="float-tooltip">Support Dashboard</span>
 </a>
-</nav>        
-    <!-- FLOATING CALL BUTTON -->
-    <a href="tel:+919176663777" class="call-float" aria-label="Call Us">
-      <i class="bi bi-telephone-fill"></i>
-      <span class="float-tooltip">Call Us</span>
-    </a>
 
+<!-- FLOATING CALL BUTTON -->
+<a
+  href="tel:+919176663777"
+  class="call-float"
+  aria-label="Call Us"
+>
+  <i class="bi bi-telephone-fill"></i>
+  <span class="float-tooltip">Call Us</span>
+</a>
 
+  
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
@@ -3511,6 +3474,7 @@ body::after,
           </div>
           <h4>Criminal Record Check</h4>
           <p>
+            
             Court record verification across jurisdictions, police station
             checks, and ongoing criminal database monitoring.
           </p>
@@ -4520,6 +4484,65 @@ body::after,
     opacity: 1;
   }
 
+  
+  /* ============================================
+   FLOATING SUPPORT DASHBOARD
+   ============================================ */
+
+.support-dashboard-float {
+  position: fixed;
+  bottom: 170px;
+  right: 30px;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+
+  color: white !important;
+  text-decoration: none;
+
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 4px 20px rgba(26, 194, 193, 0.4);
+
+  z-index: 9999;
+
+  transition: all 0.3s ease;
+}
+
+/* Headset icon */
+.support-dashboard-float i {
+  font-size: 1.6rem;
+}
+
+/* Hover */
+.support-dashboard-float:hover {
+  transform: scale(1.1);
+  color: white !important;
+  box-shadow: 0 6px 25px rgba(26, 194, 193, 0.6);
+}
+
+/* Tooltip */
+.support-dashboard-float .float-tooltip {
+  right: 70px;
+}
+
+/* Show tooltip */
+.support-dashboard-float:hover .float-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 75px;
+}
 /* ============================================
    FLOATING CALL BUTTON
    ============================================ */
