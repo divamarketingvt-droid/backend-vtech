@@ -3022,9 +3022,96 @@ body::after,
       </ul>
 
       <div class="d-flex align-items-center gap-3">
-        <a href="./helpcenter/support" class="btn-support" title="Support">
+        <!-- <a href="./helpcenter/support" class="btn-support" title="Support">
           <i class="bi bi-headset"></i>
-        </a>
+        </a> -->
+
+
+        {/* FLOATING DESKTOP SUPPORT BUTTON */}
+<a
+  href="./helpcenter/support"
+  onClick={(e) => {
+    e.preventDefault();
+  // Dispatch a custom event — listen for it anywhere in your app
+    window.dispatchEvent(new CustomEvent("open-support", { bubbles: true }));
+  }}
+  style={{
+    position: "fixed",
+    bottom: 28,
+    right: 28,
+    zIndex: 9999,
+    width: 56,
+    height: 56,
+    borderRadius: "50%",
+    background: "linear-gradient(135deg, #14B8A6 0%, #0D9488 100%)",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textDecoration: "none",
+    boxShadow: "0 4px 20px rgba(20,184,166,0.45), 0 0 0 0 rgba(20,184,166,0.3)",
+    animation: "supportPulseTeal 2.5s ease-in-out infinite",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    cursor: "pointer",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "scale(1.1)";
+    e.currentTarget.style.boxShadow = "0 6px 28px rgba(20,184,166,0.55), 0 0 0 8px rgba(20,184,166,0.12)";
+    const tip = e.currentTarget.querySelector(".ds-tip");
+    if (tip) { tip.style.opacity = "1"; tip.style.transform = "translateY(-50%) translateX(0)"; }
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "scale(1)";
+    e.currentTarget.style.boxShadow = "0 4px 20px rgba(20,184,166,0.45), 0 0 0 0 rgba(20,184,166,0.3)";
+    const tip = e.currentTarget.querySelector(".ds-tip");
+    if (tip) { tip.style.opacity = "0"; tip.style.transform = "translateY(-50%) translateX(8px)"; }
+  }}
+  aria-label="Desktop Support"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M9.5 3.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2Zm2.954 1.46a.5.5 0 0 0-.708-.708l-1.414 1.414a.5.5 0 1 0 .708.708l1.414-1.414ZM13.5 6.5h-2a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1ZM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5Zm2.5.5a.5.5 0 0 0 0-1h1a.5.5 0 0 0 0 1h-1Z"/>
+    <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V11Zm7-7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V4Zm0 6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-1ZM5 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H5Z"/>
+  </svg>
+
+  <span
+    className="ds-tip"
+    style={{
+      position: "absolute",
+      right: "calc(100% + 12px)",
+      top: "50%",
+      transform: "translateY(-50%) translateX(8px)",
+      background: "#134E4A",
+      color: "#fff",
+      fontSize: 12,
+      fontWeight: 600,
+      padding: "6px 12px",
+      borderRadius: 8,
+      whiteSpace: "nowrap",
+      opacity: 0,
+      pointerEvents: "none",
+      transition: "opacity 0.2s ease, transform 0.2s ease",
+      boxShadow: "0 4px 12px rgba(0,0,0,0.25)",
+    }}
+  >
+    Desktop Support
+    <span style={{
+      position: "absolute",
+      right: -5,
+      top: "50%",
+      transform: "translateY(-50%) rotate(45deg)",
+      width: 10,
+      height: 10,
+      background: "#134E4A",
+    }} />
+  </span>
+</a>
+
+<style>{`
+  @keyframes supportPulseTeal {
+    0%, 100% { box-shadow: 0 4px 20px rgba(20,184,166,0.45), 0 0 0 0 rgba(20,184,166,0.3); }
+    50% { box-shadow: 0 4px 20px rgba(20,184,166,0.45), 0 0 0 12px rgba(20,184,166,0); }
+  }
+`}</style>
         <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
       </div>
 
