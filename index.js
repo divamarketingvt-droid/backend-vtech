@@ -19,7 +19,7 @@ const ADMIN_EMAIL = "connect@verifitech.com";
 const DEPARTMENT_EMAILS = {
   service: "connect@verifitech.com",
   career: "hr@verifitech.com",
-    support: [
+  support: [
     "csb.1@verifitech.email",
     "csb.2@verifitech.email",
     "csb.3@verifitech.email"
@@ -40,12 +40,16 @@ app.use(cors({
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.static(path.join(__dirname, "public")));
+/* ==========================================
+   STATIC WEBSITE
+========================================== */
+
 app.use(
   express.static(path.join(__dirname, "public"), {
     extensions: ["html"]
   })
 );
+
 /* ==========================================
    MAIL TRANSPORTER
 ========================================== */
@@ -62,8 +66,11 @@ const transporter = nodemailer.createTransport({
 });
 
 transporter.verify((err) => {
-  if (err) console.log("❌ SMTP ERROR:", err.message);
-  else console.log("✅ SMTP READY");
+  if (err) {
+    console.log("❌ SMTP ERROR:", err.message);
+  } else {
+    console.log("✅ SMTP READY");
+  }
 });
 
 /* ==========================================
@@ -91,7 +98,10 @@ function isBusinessEmail(email) {
   ];
 
   const domain = email?.split("@")[1];
-  return domain ? !blocked.includes(domain.toLowerCase()) : false;
+
+  return domain
+    ? !blocked.includes(domain.toLowerCase())
+    : false;
 }
 
 /* ==========================================
@@ -99,7 +109,10 @@ function isBusinessEmail(email) {
 ========================================== */
 
 app.get("/api/health", (req, res) => {
-  res.json({ success: true, message: "Server running" });
+  res.json({
+    success: true,
+    message: "Server running"
+  });
 });
 
 /* ==========================================
@@ -107,10 +120,14 @@ app.get("/api/health", (req, res) => {
 ========================================== */
 
 app.post("/api/send-otp", async (req, res) => {
+
   const { email } = req.body;
 
   if (!email) {
-    return res.status(400).json({ success: false, message: "Email required" });
+    return res.status(400).json({
+      success: false,
+      message: "Email required"
+    });
   }
 
   if (!isBusinessEmail(email)) {
@@ -121,6 +138,7 @@ app.post("/api/send-otp", async (req, res) => {
   }
 
   try {
+
     const otp = generateOTP();
 
     otpStore.set(email, {
@@ -136,21 +154,36 @@ app.post("/api/send-otp", async (req, res) => {
       subject: "Your OTP Code",
       html: `
         <div style="text-align:center;font-family:Arial">
+
           <h2>Email Verification</h2>
+
           <p>Your OTP is:</p>
-          <h1 style="letter-spacing:6px">${otp}</h1>
+
+          <h1 style="letter-spacing:6px">
+            ${otp}
+          </h1>
+
           <p>Valid for 5 minutes</p>
+
         </div>
       `
     });
 
     console.log("✅ OTP SENT:", email);
 
-    res.json({ success: true, message: "OTP sent" });
+    res.json({
+      success: true,
+      message: "OTP sent"
+    });
 
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: "OTP failed" });
+
+    console.error("❌ OTP ERROR:", err);
+
+    res.status(500).json({
+      success: false,
+      message: "OTP failed"
+    });
   }
 });
 
@@ -159,37 +192,58 @@ app.post("/api/send-otp", async (req, res) => {
 ========================================== */
 
 app.post("/api/verify-otp", (req, res) => {
+
   const { email, otp } = req.body;
 
   const data = otpStore.get(email);
 
   if (!data) {
-    return res.status(400).json({ success: false, message: "OTP not found" });
+    return res.status(400).json({
+      success: false,
+      message: "OTP not found"
+    });
   }
 
   if (Date.now() > data.expiresAt) {
+
     otpStore.delete(email);
-    return res.status(400).json({ success: false, message: "OTP expired" });
+
+    return res.status(400).json({
+      success: false,
+      message: "OTP expired"
+    });
   }
 
   if (data.otp !== otp) {
-    return res.status(400).json({ success: false, message: "Invalid OTP" });
+
+    return res.status(400).json({
+      success: false,
+      message: "Invalid OTP"
+    });
   }
 
   otpStore.delete(email);
+
   verifiedEmails.add(email);
 
-  res.json({ success: true, message: "Email verified" });
+  res.json({
+    success: true,
+    message: "Email verified"
+  });
 });
 
 /* ==========================================
-   3. SUBMIT TRIAL (OTP PROTECTED)
+   3. SUBMIT TRIAL
 ========================================== */
 
 app.post("/api/submit-trial", async (req, res) => {
+
   const { leadData, selectedChecks } = req.body;
 
-  if (!leadData?.email || !verifiedEmails.has(leadData.email)) {
+  if (
+    !leadData?.email ||
+    !verifiedEmails.has(leadData.email)
+  ) {
     return res.status(403).json({
       success: false,
       message: "Email not verified"
@@ -197,9 +251,12 @@ app.post("/api/submit-trial", async (req, res) => {
   }
 
   try {
+
     const checksHtml =
       selectedChecks?.length
-        ? selectedChecks.map(c => `<li>${JSON.stringify(c)}</li>`).join("")
+        ? selectedChecks
+            .map(c => `<li>${JSON.stringify(c)}</li>`)
+            .join("")
         : "<li>None selected</li>";
 
     await transporter.sendMail({
@@ -207,24 +264,53 @@ app.post("/api/submit-trial", async (req, res) => {
       to: ADMIN_EMAIL,
       replyTo: leadData.email,
       subject: `New Trial Lead: ${leadData.name}`,
+
       html: `
         <h2>New Trial Request</h2>
-        <p><b>Name:</b> ${leadData.name}</p>
-        <p><b>Email:</b> ${leadData.email}</p>
-        <p><b>Phone:</b> ${leadData.phone || "N/A"}</p>
-        <p><b>Company:</b> ${leadData.company || "N/A"}</p>
+
+        <p>
+          <b>Name:</b>
+          ${leadData.name}
+        </p>
+
+        <p>
+          <b>Email:</b>
+          ${leadData.email}
+        </p>
+
+        <p>
+          <b>Phone:</b>
+          ${leadData.phone || "N/A"}
+        </p>
+
+        <p>
+          <b>Company:</b>
+          ${leadData.company || "N/A"}
+        </p>
+
         <h3>Services</h3>
-        <ul>${checksHtml}</ul>
+
+        <ul>
+          ${checksHtml}
+        </ul>
       `
     });
 
     verifiedEmails.delete(leadData.email);
 
-    res.json({ success: true, message: "Trial submitted" });
+    res.json({
+      success: true,
+      message: "Trial submitted"
+    });
 
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: "Submission failed" });
+
+    console.error("❌ TRIAL ERROR:", err);
+
+    res.status(500).json({
+      success: false,
+      message: "Submission failed"
+    });
   }
 });
 
@@ -233,7 +319,9 @@ app.post("/api/submit-trial", async (req, res) => {
 ========================================== */
 
 app.post("/api/submit-request", async (req, res) => {
+
   try {
+
     const {
       firstName,
       email,
@@ -244,29 +332,52 @@ app.post("/api/submit-request", async (req, res) => {
       issueDescription
     } = req.body;
 
-    const ccEmail = DEPARTMENT_EMAILS[department] || DEPARTMENT_EMAILS.default;
+    const ccEmail =
+      DEPARTMENT_EMAILS[department] ||
+      DEPARTMENT_EMAILS.default;
 
     await transporter.sendMail({
+
       from: `"Website" <${EMAIL_USER}>`,
+
       to: ADMIN_EMAIL,
+
       cc: ccEmail,
+
       replyTo: email,
+
       subject: `New Request - ${firstName}`,
+
       html: `
         <h2>New Request</h2>
+
         <p>Name: ${firstName}</p>
+
         <p>Email: ${email}</p>
+
         <p>Phone: ${phone || ""}</p>
+
         <p>Company: ${company || ""}</p>
+
         <p>Service: ${serviceType || ""}</p>
+
         <p>Message: ${issueDescription || ""}</p>
       `
     });
 
-    res.json({ success: true, message: "Submitted" });
+    res.json({
+      success: true,
+      message: "Submitted"
+    });
 
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+
+    console.error("❌ REQUEST ERROR:", err);
+
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
   }
 });
 
@@ -275,34 +386,123 @@ app.post("/api/submit-request", async (req, res) => {
 ========================================== */
 
 app.post("/api/submit-contact", async (req, res) => {
+
   try {
-    const { fullName, email, phone, message } = req.body;
+
+    const {
+      fullName,
+      email,
+      phone,
+      message
+    } = req.body;
 
     await transporter.sendMail({
+
       from: `"Contact" <${EMAIL_USER}>`,
+
       to: ADMIN_EMAIL,
+
       replyTo: email,
+
       subject: `Contact - ${fullName}`,
+
       html: `
         <h2>Contact Form</h2>
+
         <p>Name: ${fullName}</p>
+
         <p>Email: ${email}</p>
+
         <p>Phone: ${phone || ""}</p>
+
         <p>Message: ${message || ""}</p>
       `
     });
 
-    res.json({ success: true, message: "Contact sent" });
+    res.json({
+      success: true,
+      message: "Contact sent"
+    });
 
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+
+    console.error("❌ CONTACT ERROR:", err);
+
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
   }
 });
+
+
+/* =========================================================
+   CUSTOM 404 ERROR PAGE
+   IMPORTANT: KEEP THIS AFTER ALL YOUR ROUTES
+========================================================= */
+
+app.use((req, res, next) => {
+
+  // API URLs should return JSON
+  if (req.path.startsWith("/api/")) {
+
+    return res.status(404).json({
+      success: false,
+      message: "API endpoint not found"
+    });
+
+  }
+
+  // Normal website URL
+  res.status(404).sendFile(
+    path.join(
+      __dirname,
+      "public",
+      "error-pages",
+      "404.html"
+    )
+  );
+
+});
+
+
+/* =========================================================
+   GLOBAL ERROR HANDLER
+   IMPORTANT: THIS MUST BE THE LAST app.use()
+========================================================= */
+
+app.use((err, req, res, next) => {
+
+  console.error("❌ GLOBAL SERVER ERROR:", err);
+
+  // API request → JSON response
+  if (req.path.startsWith("/api/")) {
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error"
+    });
+
+  }
+
+  // Website request → Custom HTML page
+  res.status(500).sendFile(
+    path.join(
+      __dirname,
+      "public",
+      "500.html"
+    )
+  );
+
+});
+
 
 /* ==========================================
    START SERVER
 ========================================== */
 
 app.listen(PORT, () => {
-  console.log("Server running");
+
+  console.log(`✅ Server running on port ${PORT}`);
+
 });
