@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance | Verifitech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light-gray);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .maintenance-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            background: linear-gradient(160deg, #f0fdfa 0%, #ffffff 40%, #ccfbf1 100%);
+        }
+
+        .maintenance-bg::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: bgPulse 5s ease-in-out infinite;
+        }
+
+        .maintenance-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: bgPulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.15); opacity: 0.9; }
+        }
+
+        .particles-container {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(26, 194, 193, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 194, 193, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .error-container {
+            max-width: 720px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .brand-logo {
+            margin-bottom: 3rem;
+            animation: fadeSlideDown 0.8s ease-out both;
+        }
+
+        .brand-logo .logo-fallback {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .brand-logo .logo-fallback span { color: var(--primary); }
+
+        .error-code {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            animation: fadeSlideDown 0.8s ease-out 0.15s both;
+        }
+
+        .error-code h1 {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -4px;
+            background: linear-gradient(135deg, var(--dark) 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .error-code .code-glow {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: bgPulse 3s ease-in-out infinite;
+        }
+
+        .gear-animation {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            animation: fadeSlideDown 0.8s ease-out 0.3s both;
+        }
+
+        .gear {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary);
+            opacity: 0.9;
+        }
+
+        .gear-main {
+            font-size: 4rem;
+            animation: rotateGear 8s linear infinite;
+            transform-origin: center;
+        }
+
+        .gear-small {
+            font-size: 2rem;
+            top: 8%;
+            right: 5%;
+            left: auto;
+            transform: translate(0, 0);
+            animation: rotateGearReverse 5s linear infinite;
+            opacity: 0.6;
+        }
+
+        .gear-tiny {
+            font-size: 1.3rem;
+            bottom: 10%;
+            left: 5%;
+            top: auto;
+            transform: translate(0, 0);
+            animation: rotateGear 4s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes rotateGear {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes rotateGearReverse {
+            from { transform: translate(0, 0) rotate(360deg); }
+            to { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            animation: fadeSlideDown 0.8s ease-out 0.4s both;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            max-width: 540px;
+            margin: 0 auto 1.5rem;
+            animation: fadeSlideDown 0.8s ease-out 0.55s both;
+        }
+
+        .error-message .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ── Countdown ── */
+        .countdown-section {
+            animation: fadeSlideDown 0.8s ease-out 0.65s both;
+            margin-bottom: 2.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Started At Tag ── */
+        .started-at {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .started-at i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .started-at .start-time {
+            color: var(--dark);
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .countdown-box {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1rem 1.25rem;
+            min-width: 85px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(26, 194, 193, 0.12);
+            border-color: rgba(26, 194, 193, 0.3);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+            margin-bottom: 6px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-box.tick .countdown-number {
+            animation: tickBounce 0.4s ease;
+        }
+
+        @keyframes tickBounce {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-unit {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+        }
+
+        .countdown-separator {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            align-self: flex-start;
+            padding-top: 1rem;
+            animation: separatorBlink 1s step-end infinite;
+        }
+
+        @keyframes separatorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        /* ── Reach Banner ── */
+        .reach-banner {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeSlideUp 0.8s ease-out 0.8s both;
+        }
+
+        .reach-banner::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .reach-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 10%;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(26, 194, 193, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .reach-banner-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.35rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reach-banner-sub {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reach-contacts {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reach-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .reach-chip-phone {
+            background: rgba(26, 194, 193, 0.15);
+            color: var(--primary);
+        }
+
+        .reach-chip-phone:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 194, 193, 0.35);
+        }
+
+        .reach-chip-email {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .reach-chip-email:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .reach-chip i { font-size: 1.1rem; }
+
+        /* ── Progress ── */
+        .progress-section {
+            animation: fadeSlideUp 0.8s ease-out 0.95s both;
+            margin-bottom: 2.5rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .progress-label .status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+        }
+
+        .progress-label .status .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulseDot 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .progress-track {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            width: 0%;
+            animation: progressAnim 4s ease-out 1.2s forwards;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes progressAnim {
+            0% { width: 0%; }
+            100% { width: 72%; }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* ── Retry ── */
+        .action-area {
+            animation: fadeSlideUp 0.8s ease-out 1.1s both;
+        }
+
+        .btn-retry {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 194, 193, 0.35);
+            text-decoration: none;
+        }
+
+        .btn-retry:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(26, 194, 193, 0.45);
+            color: white;
+        }
+
+        .btn-retry:active { transform: translateY(-1px); }
+        .btn-retry .retry-icon { transition: transform 0.5s ease; }
+        .btn-retry:hover .retry-icon { transform: rotate(180deg); }
+        .btn-retry.loading .retry-icon { animation: spin 1s linear infinite; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Footer ── */
+        .footer-bar {
+            position: relative;
+            z-index: 2;
+            padding: 1.25rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            animation: fadeSlideUp 0.8s ease-out 1.3s both;
+        }
+
+        .footer-bar p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .footer-bar a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer-bar a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* ── Toast ── */
+        .toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .custom-toast {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 16px 24px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 300px;
+            max-width: 420px;
+            transform: translateX(120%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .custom-toast.show { transform: translateX(0); }
+
+        .custom-toast .toast-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .custom-toast .toast-text {
+            font-size: 0.9rem;
+            color: var(--dark);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .custom-toast .toast-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 4px;
+            transition: color 0.2s;
+        }
+
+        .custom-toast .toast-close:hover { color: var(--dark); }
+
+        /* ── Keyframes ── */
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 767px) {
+            .error-code h1 { font-size: 5rem; letter-spacing: -2px; }
+            .error-title { font-size: 1.5rem; }
+            .error-message { font-size: 1rem; }
+            .countdown-box { min-width: 70px; padding: 0.75rem 1rem; }
+            .countdown-number { font-size: 1.5rem; }
+            .countdown-separator { font-size: 1.5rem; padding-top: 0.75rem; }
+            .reach-banner { padding: 1.5rem; margin-left: 10px; margin-right: 10px; }
+            .reach-contacts { flex-direction: column; align-items: stretch; }
+            .reach-chip { justify-content: center; }
+            .gear-animation { width: 90px; height: 90px; }
+            .gear-main { font-size: 3rem; }
+            .gear-small { font-size: 1.5rem; }
+            .gear-tiny { font-size: 1rem; }
+            .btn-retry { padding: 12px 28px; font-size: 0.95rem; }
+            .custom-toast { min-width: unset; max-width: calc(100vw - 48px); }
+            .toast-container { right: 16px; left: 16px; }
+            .brand-logo { margin-bottom: 2rem; }
+        }
+
+        @media (max-width: 400px) {
+            .error-code h1 { font-size: 4rem; }
+            .countdown-box { min-width: 60px; padding: 0.6rem 0.75rem; }
+            .countdown-number { font-size: 1.25rem; }
+            .countdown-separator { font-size: 1.2rem; }
+            .started-at { font-size: 0.72rem; padding: 5px 12px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="maintenance-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="particles-container" id="particles"></div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <main class="main-wrapper">
+        <div class="error-container">
+
+            <div class="brand-logo">
+                <a href="/" class="logo-fallback">Verifi<span>tech</span></a>
+            </div>
+
+            <div class="error-code">
+                <div class="code-glow"></div>
+                <h1>503</h1>
+            </div>
+
+            <div class="gear-animation">
+                <i class="bi bi-gear-fill gear gear-main"></i>
+                <i class="bi bi-gear-fill gear gear-small"></i>
+                <i class="bi bi-gear-fill gear gear-tiny"></i>
+            </div>
+
+            <h2 class="error-title">We're Under Maintenance</h2>
+
+            <p class="error-message">
+                Our team is performing scheduled upgrades to deliver you a
+                <span class="highlight">faster & more secure</span> experience.
+                We expect to be back within <span class="highlight">2 hours</span>.
+            </p>
+
+            <!-- Countdown with Start Time -->
+            <div class="countdown-section">
+                <div class="countdown-label">Estimated Time Remaining</div>
+                <div class="started-at" id="startedAtTag">
+                    <i class="bi bi-clock-history"></i>
+                    Started at <span class="start-time" id="startTimeDisplay">--:--</span>
+                </div>
+                <div class="countdown-boxes">
+                    <div class="countdown-box" id="hoursBox">
+                        <div class="countdown-number" id="cdHours">02</div>
+                        <div class="countdown-unit">Hours</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-box" id="minutesBox">
+                        <div class="countdown-number" id="cdMinutes">00</div>
+                        <div class="countdown-unit">Minutes</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-box" id="secondsBox">
+                        <div class="countdown-number" id="cdSeconds">00</div>
+                        <div class="countdown-unit">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reach Us -->
+            <div class="reach-banner">
+                <div class="reach-banner-title">Need Immediate Assistance?</div>
+                <div class="reach-banner-sub">Reach out to us directly — we're here to help</div>
+                <div class="reach-contacts">
+                    <a href="tel:+919176663777" class="reach-chip reach-chip-phone" id="phoneChip">
+                        <i class="bi bi-telephone-fill"></i>
+                        +91 91766 63777
+                    </a>
+                    <a href="mailto:connect@verifitech.com" class="reach-chip reach-chip-email" id="emailChip">
+                        <i class="bi bi-envelope-fill"></i>
+                        connect@verifitech.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-section">
+                <div class="progress-label">
+                    <span>Maintenance Progress</span>
+                    <span class="status">
+                        <span class="pulse-dot"></span>
+                        In Progress
+                    </span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Retry -->
+            <div class="action-area">
+                <button class="btn-retry" id="retryBtn" onclick="handleRetry()">
+                    <i class="bi bi-arrow-clockwise retry-icon"></i>
+                    <span>Check Again</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer-bar">
+        <p>&copy; 2025 <a href="/">Verifitech</a> &mdash; Enterprise Background Verification Solutions</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ╔══════════════════════════════════════════════════════════╗
+        // ║  SET YOUR MAINTENANCE START TIME HERE                  ║
+        // ║  Use IST format: "YYYY-MM-DDTHH:MM:SS+05:30"          ║
+        // ║  Example: "2025-07-10T14:30:00+05:30"  →  2:30 PM IST ║
+        // ║  Leave as null to use current page-load time           ║
+        // ╚══════════════════════════════════════════════════════════╝
+        const MAINTENANCE_START = "2025-07-10T14:30:00+05:30";
+
+        // Duration in milliseconds (2 hours)
+        const MAINTENANCE_DURATION = 2 * 60 * 60 * 1000;
+
+        (function initCountdown() {
+            // Determine start timestamp
+            let startTimestamp;
+            const stored = sessionStorage.getItem('vt_maint_start');
+
+            if (MAINTENANCE_START) {
+                // Use the configured start time
+                startTimestamp = new Date(MAINTENANCE_START).getTime();
+            } else if (stored) {
+                // Fallback: use stored time from first visit
+                startTimestamp = parseInt(stored);
+            } else {
+                // Fallback: use right now
+                startTimestamp = Date.now();
+                sessionStorage.setItem('vt_maint_start', startTimestamp);
+            }
+
+            // Calculate deadline = start + 2 hours
+            const deadline = startTimestamp + MAINTENANCE_DURATION;
+
+            // Display the start time (formatted in IST)
+            const startDate = new Date(startTimestamp);
+            const startTimeStr = startDate.toLocaleTimeString('en-IN', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+                timeZone: 'Asia/Kolkata'
+            });
+            document.getElementById('startTimeDisplay').textContent = startTimeStr;
+
+            const hoursEl = document.getElementById('cdHours');
+            const minutesEl = document.getElementById('cdMinutes');
+            const secondsEl = document.getElementById('cdSeconds');
+            const hoursBox = document.getElementById('hoursBox');
+            const minutesBox = document.getElementById('minutesBox');
+            const secondsBox = document.getElementById('secondsBox');
+
+            let prevH = '', prevM = '', prevS = '';
+            let finished = false;
+
+            function update() {
+                const now = Date.now();
+                let diff = Math.max(0, deadline - now);
+
+                const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+                diff %= 3600000;
+                const m = String(Math.floor(diff / 60000)).padStart(2, '0');
+                diff %= 60000;
+                const s = String(Math.floor(diff / 1000)).padStart(2, '0');
+
+                if (h !== prevH) { hoursEl.textContent = h; tickAnim(hoursBox); prevH = h; }
+                if (m !== prevM) { minutesEl.textContent = m; tickAnim(minutesBox); prevM = m; }
+                if (s !== prevS) { secondsEl.textContent = s; tickAnim(secondsBox); prevS = s; }
+
+                if (deadline - now <= 0 && !finished) {
+                    finished = true;
+                    showToast('Maintenance window elapsed. Try refreshing the page!', 6000);
+                    return;
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            function tickAnim(box) {
+                box.classList.remove('tick');
+                void box.offsetWidth;
+                box.classList.add('tick');
+            }
+
+            setTimeout(update, 1500);
+        })();
+
+        // ── Particles ──
+        (function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.left = Math.random() * 100 + '%';
+                const size = Math.random() * 5 + 3;
+                p.style.width = p.style.height = size + 'px';
+                p.style.animationDuration = (Math.random() * 8 + 6) + 's';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(p);
+            }
+        })();
+
+        // ── Toast ──
+        function showToast(message, duration = 4000) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.classList.add('custom-toast');
+            toast.innerHTML = `
+                <div class="toast-icon"><i class="bi bi-info-circle-fill"></i></div>
+                <div class="toast-text">${message}</div>
+                <button class="toast-close" onclick="this.parentElement.remove()"><i class="bi bi-x"></i></button>
+            `;
+            container.appendChild(toast);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => toast.classList.add('show'));
+            });
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, duration);
+        }
+
+        // ── Retry ──
+        let retryCount = 0;
+        function handleRetry() {
+            const btn = document.getElementById('retryBtn');
+            if (btn.classList.contains('loading')) return;
+            btn.classList.add('loading');
+            btn.querySelector('span').textContent = 'Checking...';
+
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                btn.querySelector('span').textContent = 'Check Again';
+                retryCount++;
+                if (retryCount === 1) {
+                    showToast('Still under maintenance. We\'ll be back within 2 hours!');
+                } else if (retryCount === 2) {
+                    showToast('Almost there! For urgent queries, call <strong>+91 91766 63777</strong>', 5000);
+                } else {
+                    showToast('Need help now? Reach us at <strong>connect@verifitech.com</strong>', 5000);
+                }
+                const fill = document.getElementById('progressFill');
+                fill.style.animation = 'none';
+                fill.offsetHeight;
+                fill.style.animation = 'progressAnim 4s ease-out 0s forwards';
+            }, 2000);
+        }
+
+        // ── Contact chip feedback ──
+        document.getElementById('phoneChip').addEventListener('click', function() {
+            showToast('Opening phone dialer...', 2500);
+        });
+        document.getElementById('emailChip').addEventListener('click', function() {
+            showToast('Opening email client...', 2500);
+        });
+    </script>
+</body>
+</html>
