@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -1842,39 +1843,42 @@
         </div>
       </div>
     </section>
-
-    <!-- ============================================ -->
-    <!-- JOBS SECTION — ONLY 3 OPENINGS -->
-    <!-- ============================================ -->
+  
+  <!-- ============================================
+         JOBS SECTION
+         ============================================ -->
     <section class="jobs-section" id="openings">
       <div class="container">
-        <div class="section-header text-center">
-          <div class="section-subtitle"><i class="bi bi-briefcase-fill"></i> Current Openings</div>
-          <h2 class="section-title">Open Positions <span class="jobs-count-badge">3 Jobs</span></h2>
-          <p class="section-desc mx-auto">We're looking for talented engineers to join our core platform team. If you're passionate about scalable systems, data pipelines, and cloud infrastructure — we'd love to hear from you.</p>
+        <div class="section-header text-center reveal">
+          <div class="section-subtitle">
+            <i class="bi bi-briefcase"></i> Current Openings
+          </div>
+          <h2 class="section-title">All <span style="color: var(--primary);">Openings</span></h2>
+          <p class="section-desc mx-auto">Explore our current openings and find the role that matches your expertise and aspirations.</p>
         </div>
 
         <!-- Tabs -->
-        <div class="jobs-tabs">
-          <button class="jobs-tab-btn active" onclick="switchJobTab('tab1', this)">
-            <i class="bi bi-grid-3x3-gap"></i> New Openings <span class="tab-count">5</span>
+        <div class="jobs-tabs reveal">
+          <button class="jobs-tab-btn active" data-tab="all-openings">
+            Current Openings <span class="tab-count">4</span>
           </button>
-          <button class="jobs-tab-btn" onclick="switchJobTab('tab2', this)">
-            <i class="bi bi-list-ol"></i> Old Openings <span class="tab-count">3</span>
+          <button class="jobs-tab-btn" data-tab="engineering">
+            Openings<span class="tab-count">4</span>
+          </button>
+          <button class="jobs-tab-btn" data-tab="sap-analytics">
+            Old Openings <span class="tab-count">3</span>
           </button>
         </div>
 
-        <div class="jobs-tab-content">
+        <div class="jobs-tab-content reveal">
 
-          <!-- ============================== -->
-          <!-- TAB 1 — Card Style            -->
-          <!-- ============================== -->
-          <div class="jobs-tab-pane active" id="tab1">
-
+          <!-- ===== TAB: All Openings ===== -->
+          <div class="jobs-tab-pane active" id="tab-all-openings">
             <div class="tab-section-label">
-              <i class="bi bi-building"></i> Engineering & Infrastructure
+              <i class="bi bi-grid-3x3-gap"></i> Showing all 4 open positions
             </div>
-            
+
+            <!-- 1. Volante Engineer -->
             <div class="job-listing-card">
               <div class="job-listing-left">
                 <div class="job-listing-title">Volante Engineer</div>
@@ -1882,7 +1886,7 @@
                   <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Noida</div>
                   <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
                   <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 6–11 Years</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH </div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH</div>
                 </div>
                 <span class="job-dept-tag">Engineering</span>
               </div>
@@ -1890,60 +1894,74 @@
                 View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
-            
+
+            <!-- 2. SAP Analytics Cloud (SAC) Consultant / Associate Consultant -->
             <div class="job-listing-card">
               <div class="job-listing-left">
-                <div class="job-listing-title">Salesforce Developer / Administrator</div>
+                <div class="job-listing-title">SAP Analytics Cloud (SAC) Consultant / Associate Consultant</div>
                 <div class="job-listing-meta">
-                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Hyderabad</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Pan India</div>
                   <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 4–8 Years</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>Remote</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 4+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-bar-chart-line"></i> SAP Analytics Cloud</div>
                 </div>
-                <span class="job-dept-tag">Developer</span>
+                <span class="job-dept-tag">Data & Analytics</span>
               </div>
-              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005416093/Salesforce-Developer-Admin?source=CareerSite" target="_blank" class="btn-view-job">
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005428059/SAP-Analytics-Cloud-SAC-Consultant-Associate-Consultant?source=CareerSite" target="_blank" class="btn-view-job">
                 View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
-
-
-            <!-- JOB 1: Business Development Manager/Executive -->
+            <!-- 3. Manager – SAP BW/4HANA / SAP Analytics -->
             <div class="job-listing-card">
               <div class="job-listing-left">
-                <div class="job-listing-title">Business Development Manager/Executive</div>
+                <div class="job-listing-title">Manager – SAP BW/4HANA / SAP Analytics</div>
                 <div class="job-listing-meta">
-                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Chennai / Hyderabad / Bangalore  </div>
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Pan India</div>
                   <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 3-4 Years</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i> fieldwork</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 8–15+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-bar-chart-line"></i> SAP BW/4HANA</div>
                 </div>
-                <span class="job-dept-tag">Business Development Executive</span>
+                <span class="job-dept-tag">SAP</span>
               </div>
-              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005411095/Business-Development-Manager-Executive?source=CareerSite" target="_blank" class="btn-view-job">
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005428011/Manager-%E2%80%93-SAP-BW-4HANA-SAP-Analytics?source=CareerSite" target="_blank" class="btn-view-job">
                 View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
-            <!-- JOB 2: Sales Executive -->
+            <!-- 4. SAP Datasphere Developer – Senior / Manager -->
             <div class="job-listing-card">
               <div class="job-listing-left">
-                <div class="job-listing-title">Sales Executive/ Manager</div>
+                <div class="job-listing-title">SAP Datasphere Developer – Senior / Manager</div>
                 <div class="job-listing-meta">
-                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i> Bengaluru / Hyderabad</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Pan India</div>
                   <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 2-3 Years</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i> Fieldwork</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 4+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-database"></i> SAP Datasphere</div>
                 </div>
-                <span class="job-dept-tag">Sales Executive</span>
+                <span class="job-dept-tag">SAP</span>
               </div>
-              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005411066/Sales-Executive-Manager?source=CareerSite" target="_blank" class="btn-view-job">
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005424008/SAP-Datasphere-Developer-%E2%80%93-Senior-Manger?source=CareerSite" target="_blank" class="btn-view-job">
                 View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
-            <!-- JOB 3: Customer Relationship Manager/Executive -->
+            <div class="no-role-cta">
+              <p>Don't see the <span>right fit?</span></p>
+              <p class="sub-text">Send us your resume and we'll reach out when a matching role opens up.</p>
+              <a href="mailto:careers@verifitech.com" class="btn-cta-inline">
+                <i class="bi bi-envelope"></i> Send Your Resume
+              </a>
+            </div>
+          </div>
+
+          <!-- ===== TAB: job ===== -->
+          <div class="jobs-tab-pane" id="tab-engineering">
+            <div class="tab-section-label">
+              <i class="bi bi-grid-3x3-gap"></i>  open position
+            </div>
+
+            <!-- 1. Customer Relationship Manager/Executive -->
             <div class="job-listing-card">
               <div class="job-listing-left">
                 <div class="job-listing-title">Customer Relationship Manager/Executive</div>
@@ -1951,7 +1969,7 @@
                   <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Hyderabad</div>
                   <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
                   <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 3-4 Years</div>
-                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH & field work</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH & Work</div>
                 </div>
                 <span class="job-dept-tag">Customer Executive</span>
               </div>
@@ -1959,91 +1977,124 @@
                 View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
+            <div class="job-listing-card">
+                 <div class="job-listing-left">
+                <div class="job-listing-title">Sales Executive/ Manager</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Hyderabad / chennai</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 2-3 Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH & Work</div>
+                </div>
+                <span class="job-dept-tag">Sales Executive</span>
+              </div>
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005411066/Sales-Executive-Manager?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+            
+            <div class="job-listing-card">
+                 <div class="job-listing-left">
+                <div class="job-listing-title">Business Development Manager/Executive</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Hyderabad / chennai / Bangalore</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 3-4 Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH & field Work</div>
+                </div>
+                <span class="job-dept-tag">Business Development Executive</span>
+              </div>
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005411095/Business-Development-Manager-Executive?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+            <div class="job-listing-card">
+                 <div class="job-listing-left">
+                <div class="job-listing-title">Salesforce Developer / Administrator</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Hyderabad </div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 4-8 Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-laptop"></i>WFH</div>
+                </div>
+                <span class="job-dept-tag"> Development </span>
+              </div>
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005416093/Salesforce-Developer-Admin?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
 
-            <!-- Don't see a role -->
+
             <div class="no-role-cta">
-              <p>Don't see a role that fits? <span>Find here !</span></p>
-              <p class="sub-text">We're always looking for exceptional talent. Share your profile and we'll reach out when the right opportunity opens up.</p>
-              <a href="https://verifitech.zohorecruit.in/jobs/Careers" class="btn-cta-inline">
-                <i class="bi bi-envelope"></i> Apply here
+              <p>Don't see the <span>right fit?</span></p>
+              <p class="sub-text">Send us your resume and we'll reach out when a matching role opens up.</p>
+              <a href="mailto:careers@verifitech.com" class="btn-cta-inline">
+                <i class="bi bi-envelope"></i> Send Your Resume
               </a>
             </div>
           </div>
 
-          <!-- ============================== -->
-          <!-- TAB 2 — Numbered Card Style   -->
-          <!-- ============================== -->
-          <div class="jobs-tab-pane" id="tab2">
-
+          <!-- ===== TAB: SAP & Analytics ===== -->
+          <div class="jobs-tab-pane" id="tab-sap-analytics">
             <div class="tab-section-label">
-              <i class="bi bi-building"></i> Engineering & Infrastructure
+              <i class="bi bi-grid-3x3-gap"></i> openings
             </div>
 
-            <!-- JOB 1: Cloud Architect -->
-            <div class="job-card">
-              <div class="job-card-left">
-                <div class="job-card-number">01</div>
-                <div class="job-info">
-                  <h3>Cloud Architect</h3>
-                  <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai / Pune / Hyderabad / Bangalore </span>
-                    <span><i class="bi bi-clock"></i> Full-Time</span>
-                    <span><i class="bi bi-briefcase"></i> 10+ Yrs</span>
-                    <span><i class="bi bi-laptop"></i> On-Site</span>
-                  </div>
-                  <span class="job-tag">Cloud & Computer</span>
+            <!-- 2. SAP Analytics Cloud (SAC) Consultant / Associate Consultant -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <div class="job-listing-title"> Cloud Architect</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Pune / Hyderabad / Bangalore</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 10+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-bar-chart-line"></i> On-site</div>
                 </div>
+                <span class="job-dept-tag">Cloud & Computer</span>
               </div>
-              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005378039/Cloud-Architect?source=CareerSite" target="_blank" class="btn-apply">
-                Apply Now <i class="bi bi-arrow-right"></i>
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005428059/SAP-Analytics-Cloud-SAC-Consultant-Associate-Consultant?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
-            <!-- JOB 2: C++ Software Developer -->
-            <div class="job-card">
-              <div class="job-card-left">
-                <div class="job-card-number">02</div>
-                <div class="job-info">
-                  <h3>C++ Software Developer</h3>
-                  <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-Time</span>
-                    <span><i class="bi bi-briefcase"></i> 5+ Yrs</span>
-                    <span><i class="bi bi-laptop"></i> On-Site</span>
-                  </div>
-                  <span class="job-tag">Developer</span>
+            <!-- 3. Manager – SAP BW/4HANA / SAP Analytics -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <div class="job-listing-title">C++ Software Developer</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Chennai</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 5+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-bar-chart-line"></i> On-site</div>
                 </div>
+                <span class="job-dept-tag">Developer</span>
               </div>
-              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005402201/C-SoftWare-Developer?source=CareerSite" target="_blank" class="btn-apply">
-                Apply Now <i class="bi bi-arrow-right"></i>
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005402201/C-SoftWare-Developer?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
-            <!-- JOB 3: Data Engineer -->
-            <div class="job-card">
-              <div class="job-card-left">
-                <div class="job-card-number">03</div>
-                <div class="job-info">
-                  <h3>Data Engineer</h3>
-                  <div class="job-meta">
-                    <span><i class="bi bi-geo-alt"></i> Chennai</span>
-                    <span><i class="bi bi-clock"></i> Full-Time</span>
-                    <span><i class="bi bi-briefcase"></i> 5+ Yrs</span>
-                    <span><i class="bi bi-laptop"></i> On-Site/Hybrid</span>
-                  </div>
-                  <span class="job-tag">Engineering</span>
+            <!-- 4. SAP Datasphere Developer – Senior / Manager -->
+            <div class="job-listing-card">
+              <div class="job-listing-left">
+                <div class="job-listing-title">Data Engineer</div>
+                <div class="job-listing-meta">
+                  <div class="job-listing-meta-item"><i class="bi bi-geo-alt"></i>Chennai</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-clock"></i> Full-Time</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-briefcase"></i> 5+ Years</div>
+                  <div class="job-listing-meta-item"><i class="bi bi-database"></i> Hybrid</div>
                 </div>
+                <span class="job-dept-tag">Engineering</span>
               </div>
-              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005382012/Data-Engineer?source=CareerSite" target="_blank" class="btn-apply">
-                Apply Now <i class="bi bi-arrow-right"></i>
+              <a href="https://verifitech.zohorecruit.in/jobs/Verifitech/62416000005382012/Data-Engineer?source=CareerSite" target="_blank" class="btn-view-job">
+                View Job <i class="bi bi-arrow-right"></i>
               </a>
             </div>
 
-            <!-- Don't see a role -->
             <div class="no-role-cta">
-              <p>Don't see a role that fits? <span>Send us your resume anyway.</span></p>
-              <p class="sub-text">We're always looking for exceptional talent. Share your profile and we'll reach out when the right opportunity opens up.</p>
-              <a href="mailto:careers@verifitech.email" class="btn-cta-inline">
+              <p>Don't see the <span>right fit?</span></p>
+              <p class="sub-text">Send us your resume and we'll reach out when a matching role opens up.</p>
+              <a href="mailto:careers@verifitech.com" class="btn-cta-inline">
                 <i class="bi bi-envelope"></i> Send Your Resume
               </a>
             </div>
@@ -2053,6 +2104,8 @@
       </div>
     </section>
 
+
+   
     <!-- Testimonials Section -->
     <section class="testimonials-section">
       <div class="container">
@@ -2254,13 +2307,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      // Tab switching
-      function switchJobTab(tabId, btn) {
-        document.querySelectorAll('.jobs-tab-pane').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.jobs-tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        btn.classList.add('active');
-      }
+     // Jobs Tab Switching
+      const tabBtns = document.querySelectorAll('.jobs-tab-btn');
+      const tabPanes = document.querySelectorAll('.jobs-tab-pane');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active from all buttons
+          tabBtns.forEach(b => b.classList.remove('active'));
+          // Add active to clicked button
+          btn.classList.add('active');
+
+          // Get tab id
+          const tabId = 'tab-' + btn.dataset.tab;
+
+          // Hide all panes, show target
+          tabPanes.forEach(pane => {
+            pane.classList.remove('active');
+          });
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
 
       // Navbar scroll
       window.addEventListener('scroll', function() {
