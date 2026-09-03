@@ -1,669 +1,732 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <META HTTP-EQUIV='content-type' CONTENT='text/html;
-        charset=UTF-8'>
-        <style> #zohoSupportWebToCase textarea, #zohoSupportWebToCase input[type='text'], #zohoSupportWebToCase input[type='date'], #zohoSupportWebToCase select, .wb_common{
-            width: 280px;
-            }
-            #zohoSupportWebToCase td {
-            padding: 11px 5px;
-            }
-            #zohoSupportWebToCase textarea, #zohoSupportWebToCase input[type='text'], #zohoSupportWebToCase input[type='date'], #zohoSupportWebToCase select{
-            border: 1px solid #ddd;
-            padding: 3px 5px;
-            border-radius: 3px;
-            }
-            #zohoSupportWebToCase select {
-            box-sizing: unset}
-            #zohoSupportWebToCase .wb_selectDate {
-            width: auto}
-            #zohoSupportWebToCase input.wb_cusInput {
-            width: 108px}
-            .wb_FtCon{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin-top: 15px;
-            padding-left: 10px}
-            .wb_logoCon{
-            display: flex;
-            margin-left: 5px}
-            .wb_logo{
-            max-width: 16px;
-            max-height: 16px;
-            }
-            #zohoSupportWebToCase .wb_multi_pick {
-            border: 1px solid #ddd;
-            padding: 3px 5px;
-            border-radius: 3px;
-            width: 280px;
-            height: 95px;
-            overflow-y:auto;
-            }
-            #zohoSupportWebToCase .wb_multi_pick_label {
-            display: block;
-            }
-            #zohoSupportWebToCase .wb_multi_pick_input,  .wb_multi_pick_input_all{
-            vertical-align: middle;
-            margin-right: 5px;
-            }
-            .zsFormClass{
-            background-color:#FFFFFF;
-            width:600px}
-        </style>
-        <style>.zsFontClass{
-            color:#000000;
-            font-family:Arial;
-            font-size:13px}
-        </style>
-        <style>.manfieldbdr{
-            border-left: 1px solid #ff6448!important}
-            .hleft{
-            text-align:left;
-            }
-            input[type=file]::-webkit-file-upload-button{
-            cursor:pointer;
-            }
-            .wtcsepcode{
-            margin:0px 15px;
-            color:#aaa;
-            float:left;
-            }
-            .wtccloudattach{
-            float:left;
-            color:#00a3fe!important;
-            cursor:pointer;
-            text-decoration: none!important;
-            }
-            .wtccloudattach:hover{
-            text-decoration: none!important;
-            }
-            .wtcuploadinput{
-            cursor:pointer;
-            float:left;
-            width:62px;
-            margin-top:-20px;
-            opacity:0;
-            clear:both;
-            }
-            .wtcuploadfile{
-            float:left;
-            color: #00a3fe;
-            }
-            .filenamecls{
-            margin-right:15px;
-            float:left;
-            margin-top:5px;
-            }
-            .clboth{
-            clear:both;
-            }
-            #zsFileBrowseAttachments{
-            clear:both;
-            margin:5px 0px 10px;
-            }
-            .zsFontClass{
-            vertical-align:top;
-            }
-            #tooltip-zc{
-            font: normal 12px Arial, Helvetica, sans-serif;
-            line-height:18px;
-            position:absolute;
-            padding:8px;
-            margin:20px 0 0;
-            background:#fff;
-            border:1px solid #528dd1;
-            -moz-border-radius:5px;
-            -webkit-border-radius:5px;
-            border-radius:5px;
-            color:#eee;
-            -webkit-box-shadow:5px 5px 20px rgba(0,0,0,0.2);
-            -moz-box-shadow:5px 5px 20px rgba(0,0,0,0.2);
-            z-index:10000;
-            color:#777}
-            .wtcmanfield{
-            color:#f00;
-            font-size:16px;
-            position:relative;
-            top:2px;
-            left:1px;
-            }
-            #zsCloudAttachmentIframe{
-            width: 100%;
-            height: 100%;
-            z-index: 99999!important;
-            position: fixed;
-            left: 0px;
-            top:0px;
-            border-style: none;
-            display: none;
-            background-color:#fff;
-            }
-            .wtchelpinfo{
-            background-position: -246px -485px;
-            width:15px;
-            height:15px;
-            display:inline-block;
-            position: relative;
-            top: 2px;
-            background-image: url(https://static.zohocdn.com/zohodeskstatic/app/images/zs-mpro.b6c9cf2347c62390fdcb.pnghttps://static.zohocdn.com/zohodeskstatic/app/images/zs-mpro.b6c9cf2347c62390fdcb.png));
-            }
-            .zsMaxSizeMessage{
-            font-size:13px;
-            }
-        </style>
-        <script src='https://static.zohocdn.com/zohodeskstatic/app/js/jqueryandencoder.ef05974972bf3bca1b87.jshttps://static.zohocdn.com/zohodeskstatic/app/js/jqueryandencoder.ef05974972bf3bca1b87.js)'>
-        </script>
-        <script>window.addEventListener('pageshow', function () {
-            const submitButton = document.getElementById('zsSubmitButton_63926000005728001');
-            if (submitButton) {
-            submitButton.removeAttribute('disabled');
-            }
-            const captchaTextField = document.forms['zsWebToCase_63926000005728001']['zsWebFormCaptchaWord'];
-            if(window.zsRegenerateCaptcha && captchaTextField.value) {
-            captchaTextField.value = '';
-            captchaTextField.focus();
-            zsRegenerateCaptcha();
-            }
-            }
-            );
-            function trimBoth(str){
-            return jQuery.trim(str);
-            }
-            function setAllDependancyFieldsMapping(){
-            var mapDependancyLabels = getMapDependenySelectValues(jQuery("[id='property(module)']").val(), "JSON_MAP_DEP_LABELS");
-            if(mapDependancyLabels){
-            for(var i = 0;
-            i < mapDependancyLabels.length;
-            i++){
-            var label = mapDependancyLabels[i];
-            var obj = document.forms['zsWebToCase_63926000005728001'][label];
-            if(obj){
-            setDependent(obj, true);
-            }
-            }
-            }
-            }
-            function getMapDependenySelectValues(module, key){
-            var dependencyObj = jQuery.parseJSON( jQuery("[id='dependent_field_values_" + module + "']").val() );
-            if(dependencyObj == undefined){
-            return dependencyObj;
-            }
-            return dependencyObj[key];
-            }
-            function setDependent(obj, isload){
-            var name = obj.id || (obj[0] && obj[0].id) || "";
-            var module = jQuery("[id='property(module)']").val();
-            var val = "";
-            var myObject = getMapDependenySelectValues(module, "JSON_VALUES");
-            if(myObject !=undefined){
-            val = myObject[name];
-            }
-            var mySelObject = getMapDependenySelectValues(module, "JSON_SELECT_VALUES");
-            if(val != null && val != "" && val != "null" && mySelObject){
-            var fields = val;
-            for(var i in fields){
-            if (fields.hasOwnProperty(i)){
+<html lang="en">
+<head>
+  <META HTTP-EQUIV='content-type' CONTENT='text/html; charset=UTF-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifitech – Help Desk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src='https://static.zohocdn.com/zohodeskstatic/app/js/jqueryandencoder.ef05974972bf3bca1b87.js'></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1e3a5f;
+      --primary-light: #2a5298;
+      --primary-dark: #0f2440;
+      --accent: #e8792f;
+      --accent-hover: #d4691f;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --text: #1a2332;
+      --text-muted: #64748b;
+      --border: #d1d9e6;
+      --border-focus: #2a5298;
+      --error: #dc2626;
+      --success: #16a34a;
+      --radius: 10px;
+      --shadow: 0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 4px rgba(30, 58, 95, 0.04);
+      --shadow-lg: 0 12px 48px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.06);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    .form-header {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      padding: 48px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+    .form-header::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -10%;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.02);
+      pointer-events: none;
+    }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .header-badge svg { width: 14px; height: 14px; }
+    .form-header h1 {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .form-header p {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      font-weight: 400;
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ── Card ── */
+    .form-card {
+      width: 100%;
+      max-width: 580px;
+      margin: -32px auto 40px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      padding: 40px 36px 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Zoho overrides ── */
+    #zohoSupportWebToCase { width: 100%; }
+    #zohoSupportWebToCase form { margin: 0; }
+    #zohoSupportWebToCase table {
+      width: 100% !important;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: transparent !important;
+    }
+    #zohoSupportWebToCase td {
+      padding: 0 !important;
+      vertical-align: top;
+      border: none !important;
+    }
+    .zsFormClass {
+      width: 100% !important;
+      background: transparent !important;
+    }
+    .zsFontClass {
+      color: var(--text) !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      vertical-align: middle !important;
+    }
+
+    /* Hide the old bold header row */
+    .zsFormClass tr:first-child { display: none; }
+
+    /* ── Field rows ── */
+    .field-row { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .field-row td { display: block !important; width: 100% !important; padding: 0 !important; }
+    .field-row td:first-child { margin-bottom: 6px; }
+
+    .field-label {
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: var(--text) !important;
+      display: flex !important;
+      align-items: center;
+      gap: 4px;
+    }
+    .field-label .required {
+      color: var(--error);
+      font-size: 15px;
+      line-height: 1;
+      margin-left: 1px;
+    }
+
+    /* ── Inputs ── */
+    #zohoSupportWebToCase input[type='text'],
+    #zohoSupportWebToCase input[type='date'],
+    #zohoSupportWebToCase select,
+    #zohoSupportWebToCase textarea {
+      width: 100% !important;
+      max-width: 100% !important;
+      border: 1.5px solid var(--border) !important;
+      padding: 11px 14px !important;
+      border-radius: var(--radius) !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 14px !important;
+      color: var(--text) !important;
+      background: #fafbfd !important;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-appearance: none;
+      appearance: none;
+      height: auto !important;
+    }
+    #zohoSupportWebToCase input[type='text']:focus,
+    #zohoSupportWebToCase input[type='date']:focus,
+    #zohoSupportWebToCase select:focus,
+    #zohoSupportWebToCase textarea:focus {
+      border-color: var(--border-focus) !important;
+      background: #fff !important;
+      box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1) !important;
+    }
+    #zohoSupportWebToCase input[type='text']::placeholder { color: #a0aec0; }
+
+    /* Select arrow */
+    #zohoSupportWebToCase select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 14px center !important;
+      background-size: 16px !important;
+      padding-right: 40px !important;
+      cursor: pointer;
+      box-sizing: border-box !important;
+    }
+
+    /* Remove mandatory red border (we use asterisk instead) */
+    .manfieldbdr { border-left: none !important; }
+
+    /* ── Buttons row ── */
+    .button-row td {
+      padding-top: 8px !important;
+      text-align: left !important;
+      display: flex !important;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-submit,
+    .btn-reset {
+      font-family: 'Inter', sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      border: none !important;
+      border-radius: var(--radius) !important;
+      padding: 12px 32px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      letter-spacing: 0.2px;
+      outline: none !important;
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%) !important;
+      color: #fff !important;
+      box-shadow: 0 2px 8px rgba(30, 58, 95, 0.25) !important;
+    }
+    .btn-submit:hover:not(:disabled) {
+      box-shadow: 0 4px 16px rgba(30, 58, 95, 0.35) !important;
+      transform: translateY(-1px);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled {
+      opacity: 0.6 !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+    }
+
+    .btn-reset {
+      background: transparent !important;
+      color: var(--text-muted) !important;
+      border: 1.5px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    .btn-reset:hover {
+      background: #f8fafc !important;
+      border-color: #b0bec5 !important;
+      color: var(--text) !important;
+    }
+
+    /* ── Footer row ── */
+    .footer-row td {
+      padding: 20px 0 0 !important;
+      text-align: center !important;
+    }
+    .wb_FtCon {
+      justify-content: center !important;
+      margin-top: 0 !important;
+      padding-left: 0 !important;
+      font-size: 12px !important;
+      color: #94a3b8 !important;
+    }
+    .wb_logoCon { margin-left: 4px; }
+    .wb_logo { opacity: 0.5; transition: opacity 0.2s; }
+    .wb_logoCon:hover .wb_logo { opacity: 0.8; }
+
+    /* ── Info bar ── */
+    .info-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f0f6ff;
+      border: 1px solid #d6e4f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      font-size: 12.5px;
+      color: var(--primary);
+      line-height: 1.5;
+    }
+    .info-bar svg { flex-shrink: 0; width: 16px; height: 16px; }
+
+    /* ── Divider ── */
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0 20px;
+      opacity: 0.6;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      color: var(--text-muted) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
+      padding-bottom: 14px !important;
+      display: block !important;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .form-header { padding: 36px 20px 48px; }
+      .form-header h1 { font-size: 24px; }
+      .form-header p { font-size: 14px; }
+      .form-card {
+        margin: -24px 12px 32px;
+        padding: 28px 20px 24px;
+        border-radius: 12px;
+      }
+      .button-row td { flex-direction: column; }
+      .btn-submit, .btn-reset { width: 100%; text-align: center; }
+    }
+
+    /* ── Tooltip (keep Zoho's) ── */
+    #tooltip-zc {
+      font: normal 12px 'Inter', Arial, Helvetica, sans-serif !important;
+      line-height: 18px;
+      position: absolute;
+      padding: 8px 12px;
+      margin: 20px 0 0;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #e2e8f0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      z-index: 10000;
+      max-width: 320px;
+    }
+
+    /* ── Cloud attach (if used) ── */
+    .wtccloudattach { color: var(--primary-light) !important; }
+    .wtcuploadfile { color: var(--primary-light) !important; }
+    .wtcsepcode { color: #cbd5e1 !important; }
+
+    /* ── Multi-pick ── */
+    #zohoSupportWebToCase .wb_multi_pick {
+      border: 1.5px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      padding: 8px 10px !important;
+      background: #fafbfd !important;
+    }
+
+    /* ── File input ── */
+    input[type=file]::-webkit-file-upload-button {
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: var(--text-muted);
+    }
+  </style>
+
+  <!-- ═══════════ ORIGINAL ZOHO SCRIPTS (untouched) ═══════════ -->
+  <script>
+    window.addEventListener('pageshow', function () {
+      const submitButton = document.getElementById('zsSubmitButton_63926000005728001');
+      if (submitButton) { submitButton.removeAttribute('disabled'); }
+      const captchaTextField = document.forms['zsWebToCase_63926000005728001']['zsWebFormCaptchaWord'];
+      if(window.zsRegenerateCaptcha && captchaTextField.value) {
+        captchaTextField.value = '';
+        captchaTextField.focus();
+        zsRegenerateCaptcha();
+      }
+    });
+
+    function trimBoth(str){ return jQuery.trim(str); }
+
+    function setAllDependancyFieldsMapping(){
+      var mapDependancyLabels = getMapDependenySelectValues(jQuery("[id='property(module)']").val(), "JSON_MAP_DEP_LABELS");
+      if(mapDependancyLabels){
+        for(var i = 0; i < mapDependancyLabels.length; i++){
+          var label = mapDependancyLabels[i];
+          var obj = document.forms['zsWebToCase_63926000005728001'][label];
+          if(obj){ setDependent(obj, true); }
+        }
+      }
+    }
+
+    function getMapDependenySelectValues(module, key){
+      var dependencyObj = jQuery.parseJSON( jQuery("[id='dependent_field_values_" + module + "']").val() );
+      if(dependencyObj == undefined){ return dependencyObj; }
+      return dependencyObj[key];
+    }
+
+    function setDependent(obj, isload){
+      var name = obj.id || (obj[0] && obj[0].id) || "";
+      var module = jQuery("[id='property(module)']").val();
+      var val = "";
+      var myObject = getMapDependenySelectValues(module, "JSON_VALUES");
+      if(myObject !=undefined){ val = myObject[name]; }
+      var mySelObject = getMapDependenySelectValues(module, "JSON_SELECT_VALUES");
+      if(val != null && val != "" && val != "null" && mySelObject){
+        var fields = val;
+        for(var i in fields){
+          if (fields.hasOwnProperty(i)){
             var isDependent = false;
             var label = i;
             var values = fields[i];
-            if(label.indexOf(")") > -1){
-            label = label.replace(/\)/g, '_____');
-            }
-            if(label.indexOf("(") > -1){
-            label = label.replace(/\(/g, '____');
-            }
-            if(label.indexOf(".") > -1){
-            label = label.replace(/\./g, '___');
-            }
+            if(label.indexOf(")") > -1){ label = label.replace(/\)/g, '_____'); }
+            if(label.indexOf("(") > -1){ label = label.replace(/\(/g, '____'); }
+            if(label.indexOf(".") > -1){ label = label.replace(/\./g, '___'); }
             var depObj = document.forms['zsWebToCase_63926000005728001'][label];
             if(depObj && depObj.options){
-            var mapValues = "";
-            var selected_val = depObj.value;
-            var depLen = depObj.options.length-1;
-            for (var n = depLen;
-            n >= 0;
-            n--) {
-            if (depObj.options[n].selected){
-            if(mapValues == ""){
-            mapValues = depObj.options[n].value;
+              var mapValues = "";
+              var selected_val = depObj.value;
+              var depLen = depObj.options.length-1;
+              for (var n = depLen; n >= 0; n--) {
+                if (depObj.options[n].selected){
+                  if(mapValues == ""){ mapValues = depObj.options[n].value; }
+                  else{ mapValues = mapValues + ";;;"+depObj.options[n].value; }
+                }
+              }
+              depObj.value = "";
+              var selectValues = mySelObject[label];
+              for(var k in values){
+                var rat = k;
+                if(rat == "-None-"){ rat = ""; }
+                var parentValues = mySelObject[name];
+                if(rat == trimBoth(obj.value)){
+                  isDependent = true;
+                  depObj.length = 0;
+                  var depvalues = values[k];
+                  var depLen = depvalues.length - 1;
+                  for(var j = 0; j <= depLen; j++){
+                    var optionElement = document.createElement("OPTION");
+                    var displayValue = depvalues[j];
+                    var actualValue = displayValue;
+                    if(actualValue == "-None-"){ optionElement.value = ""; displayValue = "-None-"; }
+                    else{ optionElement.value = actualValue; }
+                    optionElement.text = displayValue;
+                    if(mapValues != undefined){
+                      var mapValue = mapValues.split(";;;");
+                      var len = mapValue.length;
+                      for(var p = 0; p < len; p++){
+                        if(actualValue == mapValue[p]){ optionElement.selected = true; }
+                      }
+                    }
+                    depObj.options.add(optionElement);
+                  }
+                }
+              }
+              if(!isDependent){
+                depObj.length = 0;
+                var len = selectValues.length;
+                for(var j = 0; j < len; j++){
+                  var actualValue = selectValues[j];
+                  var optionElement = document.createElement("OPTION");
+                  if(actualValue == "-None-"){ optionElement.value = ""; }
+                  else{ optionElement.value = selectValues[j]; }
+                  optionElement.text = selectValues[j];
+                  depObj.options.add(optionElement);
+                }
+                depObj.value = selected_val;
+              }
+              if(!isload){ setDependent(depObj,false); }
+              var jdepObj = jQuery(depObj);
+              if(jdepObj.hasClass('select2-offscreen')){ jdepObj.select2("val", jdepObj.val()); }
             }
-            else{
-            mapValues = mapValues + ";
-            ;
-            ;
-            "+depObj.options[n].value;
-            }
-            }
-            }
-            depObj.value = "";
-            var selectValues = mySelObject[label];
-            for(var k in values){
-            var rat = k;
-            if(rat == "-None-"){
-            rat = "";
-            }
-            var parentValues = mySelObject[name];
-            if(rat == trimBoth(obj.value)){
-            isDependent = true;
-            depObj.length = 0;
-            var depvalues = values[k];
-            var depLen = depvalues.length - 1;
-            for(var j = 0;
-            j <= depLen;
-            j++){
-            var optionElement = document.createElement("OPTION");
-            var displayValue = depvalues[j];
-            var actualValue = displayValue;
-            if(actualValue == "-None-"){
-            optionElement.value = "";
-            displayValue = "-None-";
-            }
-            else{
-            optionElement.value = actualValue;
-            }
-            optionElement.text = displayValue;
-            if(mapValues != undefined){
-            var mapValue = mapValues.split(";
-            ;
-            ;
-            ");
-            var len = mapValue.length;
-            for(var p = 0;
-            p < len;
-            p++){
-            if(actualValue == mapValue[p]){
-            optionElement.selected = true;
-            }
-            }
-            }
-            depObj.options.add(optionElement);
-            }
-            }
-            }
-            if(!isDependent){
-            depObj.length = 0;
-            var len = selectValues.length;
-            for(var j = 0;
-            j < len;
-            j++){
-            var actualValue = selectValues[j];
-            var optionElement = document.createElement("OPTION");
-            if(actualValue == "-None-"){
-            optionElement.value = "";
-            }
-            else{
-            optionElement.value = selectValues[j];
-            }
-            optionElement.text = selectValues[j];
-            depObj.options.add(optionElement);
-            }
-            depObj.value =  selected_val;
-            }
-            if(!isload){
-            setDependent(depObj,false);
-            }
-            var jdepObj = jQuery(depObj);
-            if(jdepObj.hasClass('select2-offscreen')){
-            jdepObj.select2("val", jdepObj.val());
-            }
-            }
-            }
-            }
-            }
-            }
-            function setSelectAll(id){
-            var parentElement = document.getElementById(id);
-            var hiddenInput = parentElement.querySelector('#hiddenoptions');
-            var selectAllElement = parentElement.querySelector('#selectall' + id);
-            var selectedValues = [];
-            var checkboxes = parentElement.querySelectorAll('.wb_multi_pick_input');
-            checkboxes.forEach(function (cb) {
-            cb.checked = selectAllElement.checked;
-            if (cb.checked && cb.value) {
-            selectedValues.push(cb.value);
-            }
-            }
-            );
-            hiddenInput.value = selectedValues.join(',');
-            }
-            function setMultiSelectOption(id, obj){
-            var parentElement = document.getElementById(id);
-            var hiddenInput = parentElement.querySelector('#hiddenoptions');
-            var selectAllElement = parentElement.querySelector('#selectall' + id);
-            var selectedStr = hiddenInput.value;
-            var selectedValues = selectedStr ? selectedStr.split(',') : [];
-            if(obj.checked && obj.value) {
-            selectedValues.push(obj.value);
-            }
-            else if(!obj.checked && obj.value) {
-            selectedValues.splice(selectedValues.indexOf(obj.value), 1);
-            selectAllElement.checked = false;
-            }
-            else {
-            selectAllElement.checked = false;
-            }
-            hiddenInput.value = selectedValues.join(',');
-            }
-            var zctt = function(){
-            var tt, mw = 400, top = 10, left = 0, doctt = document;
-            var ieb = doctt.all ? true : false;
-            return{
-            showtt: function(cont, wid){
-            if(tt == null){
-            tt = doctt.createElement('div');
-            tt.setAttribute('id', 'tooltip-zc');
-            doctt.body.appendChild(tt);
-            doctt.onmousemove = this.setpos;
-            doctt.onclick = this.hidett;
-            }
-            tt.style.display = 'block';
-            tt.innerHTML = cont;
-            tt.style.width = wid ? wid + 'px' : 'auto';
-            if(!wid && ieb){
-            tt.style.width = tt.offsetWidth;
-            }
-            if(tt.offsetWidth > mw){
-            tt.style.width = mw + 'px'}
-            h = parseInt(tt.offsetHeight) + top;
-            w = parseInt(tt.offsetWidth) + left;
-            }
-            ,hidett: function(){
-            tt.style.display = 'none';
-            }
-            ,setpos: function(e){
-            var u = ieb ? event.clientY + doctt.body.scrollTop : e.pageY;
-            var l = ieb ? event.clientX + doctt.body.scrollLeft : e.pageX;
-            var cw = doctt.body.clientWidth;
-            var ch = doctt.body.clientHeight;
-            if(l < 0){
-            tt.style.left = left + 'px';
-            tt.style.right = '';
-            }
-            else if((l+w+left) > cw){
-            tt.style.left = '';
-            tt.style.right = ((cw-l) + left) + 'px';
-            }
-            else{
-            tt.style.right = '';
-            tt.style.left = (l + left) + 'px';
-            }
-            if(u < 0){
-            tt.style.top = top + 'px';
-            tt.style.bottom = '';
-            }
-            else if((u + h + left) > ch){
-            tt.style.top = '';
-            tt.style.bottom = ((ch - u) + top) + 'px';
-            }
-            else{
-            tt.style.bottom = '';
-            tt.style.top = (u + top) + 'px';
-            }
-            }
-            }
-            ;
-            }
-            ();
-            var zsWebFormMandatoryFields = new Array("Contact Name","Email","Subject");
-            var zsFieldsDisplayLabelArray = new Array("Last Name","Email","Subject");
-            function reformatAllDateFields() {
-            const dateFields = document.querySelectorAll('.dob-field');
-            dateFields.forEach(field => {
-            if (field.value && field.value.includes('-')) {
-            const parts = field.value.split('-');
-            if (parts.length === 3) {
-            const [yyyy, mm, dd] = parts;
-            field.type= 'text';
-            field.value = \`${
-            dd}
-            /${
-            mm}
-            /${
-            yyyy}
-            \`;
-            }
-            }
-            }
-            );
-            }
-            function zsValidateMandatoryFields(){
-            var name = '';
-            var email = '';
-            var isError = 0;
-            for(var index = 0;
-            index < zsWebFormMandatoryFields.length;
-            index++){
-            isError = 0;
-            var fieldObject = document.forms['zsWebToCase_63926000005728001'][zsWebFormMandatoryFields[index]];
-            if(fieldObject){
-            if(((fieldObject.value).replace(/^\s+|\s+$/g, '')).length == 0){
+          }
+        }
+      }
+    }
+
+    function setSelectAll(id){
+      var parentElement = document.getElementById(id);
+      var hiddenInput = parentElement.querySelector('#hiddenoptions');
+      var selectAllElement = parentElement.querySelector('#selectall' + id);
+      var selectedValues = [];
+      var checkboxes = parentElement.querySelectorAll('.wb_multi_pick_input');
+      checkboxes.forEach(function (cb) {
+        cb.checked = selectAllElement.checked;
+        if (cb.checked && cb.value) { selectedValues.push(cb.value); }
+      });
+      hiddenInput.value = selectedValues.join(',');
+    }
+
+    function setMultiSelectOption(id, obj){
+      var parentElement = document.getElementById(id);
+      var hiddenInput = parentElement.querySelector('#hiddenoptions');
+      var selectAllElement = parentElement.querySelector('#selectall' + id);
+      var selectedStr = hiddenInput.value;
+      var selectedValues = selectedStr ? selectedStr.split(',') : [];
+      if(obj.checked && obj.value) { selectedValues.push(obj.value); }
+      else if(!obj.checked && obj.value) { selectedValues.splice(selectedValues.indexOf(obj.value), 1); selectAllElement.checked = false; }
+      else { selectAllElement.checked = false; }
+      hiddenInput.value = selectedValues.join(',');
+    }
+
+    var zctt = function(){
+      var tt, mw = 400, top = 10, left = 0, doctt = document;
+      var ieb = doctt.all ? true : false;
+      return{
+        showtt: function(cont, wid){
+          if(tt == null){ tt = doctt.createElement('div'); tt.setAttribute('id', 'tooltip-zc'); doctt.body.appendChild(tt); doctt.onmousemove = this.setpos; doctt.onclick = this.hidett; }
+          tt.style.display = 'block'; tt.innerHTML = cont; tt.style.width = wid ? wid + 'px' : 'auto';
+          if(!wid && ieb){ tt.style.width = tt.offsetWidth; }
+          if(tt.offsetWidth > mw){ tt.style.width = mw + 'px'; }
+          h = parseInt(tt.offsetHeight) + top; w = parseInt(tt.offsetWidth) + left;
+        },
+        hidett: function(){ tt.style.display = 'none'; },
+        setpos: function(e){
+          var u = ieb ? event.clientY + doctt.body.scrollTop : e.pageY;
+          var l = ieb ? event.clientX + doctt.body.scrollLeft : e.pageX;
+          var cw = doctt.body.clientWidth; var ch = doctt.body.clientHeight;
+          if(l < 0){ tt.style.left = left + 'px'; tt.style.right = ''; }
+          else if((l+w+left) > cw){ tt.style.left = ''; tt.style.right = ((cw-l) + left) + 'px'; }
+          else{ tt.style.right = ''; tt.style.left = (l + left) + 'px'; }
+          if(u < 0){ tt.style.top = top + 'px'; tt.style.bottom = ''; }
+          else if((u + h + left) > ch){ tt.style.top = ''; tt.style.bottom = ((ch - u) + top) + 'px'; }
+          else{ tt.style.bottom = ''; tt.style.top = (u + top) + 'px'; }
+        }
+      };
+    }();
+
+    var zsWebFormMandatoryFields = new Array("Contact Name","Email","Subject");
+    var zsFieldsDisplayLabelArray = new Array("Last Name","Email","Subject");
+
+    function reformatAllDateFields() {
+      const dateFields = document.querySelectorAll('.dob-field');
+      dateFields.forEach(field => {
+        if (field.value && field.value.includes('-')) {
+          const parts = field.value.split('-');
+          if (parts.length === 3) { const [yyyy, mm, dd] = parts; field.type= 'text'; field.value = `${dd}/${mm}/${yyyy}`; }
+        }
+      });
+    }
+
+    function zsValidateMandatoryFields(){
+      var name = ''; var email = ''; var isError = 0;
+      for(var index = 0; index < zsWebFormMandatoryFields.length; index++){
+        isError = 0;
+        var fieldObject = document.forms['zsWebToCase_63926000005728001'][zsWebFormMandatoryFields[index]];
+        if(fieldObject){
+          if(((fieldObject.value).replace(/^\s+|\s+$/g, '')).length == 0){
             alert(zsFieldsDisplayLabelArray[index] +' cannot be empty ');
-            fieldObject.focus();
-            isError = 1;
-            return false;
-            }
-            else{
+            fieldObject.focus(); isError = 1; return false;
+          } else {
             if(fieldObject.name == 'Email'){
-            if(!fieldObject.value.match(/^([\w_][\w\-_.+\'&]\*)@(?=.{
-            4,256}
-            $)(([\w]+)([\-_]\*[\w])\*[\.])+[a-zA-Z]{
-            2,22}
-            $/)){
-            isError = 1;
-            alert('Enter a valid email-Id');
-            fieldObject.focus();
-            return false;
+              if(!fieldObject.value.match(/^([\w_][\w\-_.+\'&]*)@(?=.{4,256}$)(([\w]+)([\-_]*[\w])*[\.])+[a-zA-Z]{2,22}$/)){
+                isError = 1; alert('Enter a valid email-Id'); fieldObject.focus(); return false;
+              }
             }
-            }
-            }
-            if(fieldObject.nodeName == 'SELECT'){
+          }
+          if(fieldObject.nodeName == 'SELECT'){
             if(fieldObject.options[fieldObject.selectedIndex].value == '-None-'){
-            alert(zsFieldsDisplayLabelArray[index] +' cannot be none');
-            fieldObject.focus();
-            isError = 1;
-            return false;
+              alert(zsFieldsDisplayLabelArray[index] +' cannot be none'); fieldObject.focus(); isError = 1; return false;
             }
-            }
-            if(fieldObject.type == 'checkbox'){
-            if (fieldObject.checked == false){
-            alert('Please accept '+zsFieldsDisplayLabelArray[index]);
-            fieldObject.focus();
-            isError = 1;
-            return false;
-            }
-            }
-            }
-            }
-            if(isError == 0){
-            reformatAllDateFields();
-            document.getElementById('zsSubmitButton_63926000005728001').setAttribute('disabled', 'disabled');
-            }
-            }
-            document.addEventListener('readystatechange',function(){
-            if(document.readyState === 'complete' && window.zsRegenerateCaptcha ){
-            zsRegenerateCaptcha();
-            }
-            setAllDependancyFieldsMapping();
-            document.getElementById('zsSubmitButton_63926000005728001').removeAttribute('disabled');
-            }
-            );
-            function zsResetWebForm(webFormId){
-            document.forms['zsWebToCase_'+webFormId].reset();
-            document.getElementById('zsSubmitButton_63926000005728001').removeAttribute('disabled');
-            setAllDependancyFieldsMapping();
-            }
-        </script>
-    </head>
-    <div id='zohoSupportWebToCase' align='center'>
-        <form name='zsWebToCase_63926000005728001' id='zsWebToCase_63926000005728001' action='https://desk.zoho.in/support/WebToCase)' method='POST' onSubmit='return zsValidateMandatoryFields()' enctype='multipart/form-data'>
-            <input type='hidden' name='xnQsjsdp' value='edbsn5699abaf691b26a46a41d84fb2953adc'/>
-            <input type='hidden' name='xmIwtLD' value='edbsn7c74329bf29d11b21954f26adc41ab0a5eb1e86fdd88f3fe89f248c99d5362d6'/>
-            <input type='hidden' name='xJdfEaS' value=''/>
-            <input type='hidden' name='actionType' value='Q2FzZXM='/>
-            <input type="hidden" id="property(module)" value="Cases"/>
-            <input type="hidden" id="dependent_field_values_Cases" value="{
-            &#34;
-            JSON_VALUES&#34;
-            :{
-            &#34;
-            CASECF12&#34;
-            :{
-            &#34;
-            CASECF11&#34;
-            :{
-            &#34;
-            Not Interested&#34;
-            :[&#34;
-            Not Reached&#34;
-            ],&#34;
-            Interested&#34;
-            :[&#34;
-            Reached&#34;
-            ]}
-            }
-            }
-            ,&#34;
-            JSON_SELECT_VALUES&#34;
-            :{
-            &#34;
-            CASECF11&#34;
-            :[&#34;
-            Reached&#34;
-            ,&#34;
-            Not Reached&#34;
-            ],&#34;
-            CASECF12&#34;
-            :[&#34;
-            Interested&#34;
-            ,&#34;
-            Not Interested&#34;
-            ]}
-            ,&#34;
-            JSON_MAP_DEP_LABELS&#34;
-            :[&#34;
-            CASECF12&#34;
-            ]}
-            "/>
-            <input type='hidden' name='returnURL' value='https://verifitech.com/'/https://verifitech.com/'/)>
-            <table border='0' cellspacing='0' class='zsFormClass'>
-                <tr>
-                    <td colspan='2' class='zsFontClass'>
-                        <strong>Help Desk</strong>
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>First Name&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='First Name' value='' />
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Last Name&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='Contact Name' class='manfieldbdr'/>
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Email&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='Email' value='' class='manfieldbdr'/>
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Phone&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='Phone' value='' />
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Designation&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='Designation' value='' />
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Company Name&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='Company Name' value='' />
-                    </td>
-                </tr>
-                <!-- <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Client Id&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='120' name='Client Id' value='' />
-                    </td>
-                </tr> -->
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Support &nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <select name='Support' value=''  onchange="setDependent(this, false)" id='CASECF29'>
-                            <option value='' >-None-</option>
-                            <option value='Candidate Non-Responsive' >Candidate Non-Responsive</option>
-                            <option value='Operations – Verification Desk' >Operations – Verification Desk</option>
-                            <option value='Document Discrepancy' >Document Discrepancy</option>
-                            <option value='Quality / Verification Team' >Quality / Verification Team</option>
-                            <option value='Verification Delay (Employer / Institute / Court)' >Verification Delay (Employer / Institute / Court)</option>
-                            <option value='Report Correction Request' >Report Correction Request</option>
-                            <option value='Quality / QC Team' >Quality / QC Team</option>
-                            <option value='Additional Verification Request' >Additional Verification Request</option>
-                            <option value='Operations – New Request Desk' >Operations – New Request Desk</option>
-                            <option value='Document / Process Clarification' >Document / Process Clarification</option>
-                            <option value='Client Servicing Team' >Client Servicing Team</option>
-                            <option value='SLA / TAT Escalation' >SLA / TAT Escalation</option>
-                            <option value='Account Manager / Escalation Desk' >Account Manager / Escalation Desk</option>
-                            <option value='Billing / Invoice Query' >Billing / Invoice Query</option>
-                            <option value='Finance Team' >Finance Team</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr >
-                    <td nowrap class='zsFontClass ' width='25%' align='left'>Subject&nbsp;
-                        &nbsp;
-                    </td>
-                    <td align='left' width='75%'>
-                        <input type='text' maxlength='255' name='Subject' value='' class='manfieldbdr'/>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='padding: 11px 5px 0px 5px;
-                        ' colspan='2' align='center' width='25%'>
-                        <input type='submit' id="zsSubmitButton_63926000005728001" class='zsFontClass' value='Submit'> &nbsp;
-                        &nbsp;
-                        <input type='button' class='zsFontClass' value='Reset' onclick="zsResetWebForm('63926000005728001')">
-                    </td>
-                </tr>
-                <tr>
-                    <td width='25%' align='left'>
-                    </td>
-                    <td style='padding: 0px 5px;
-                        ' align='left' width='75%'>
-                        <div class='wb_FtCon wb_common'>
-                            <span>powered by  </span>
-                            <a target='_blank' rel='noopener noreferrer' href='https://zoho.in/deskhttps://zoho.in/desk)' class='wb_logoCon'>
-                                <img class='wb_logo' src='https://static.zohocdn.com/zohodeskstatic/app/images/portalLogo.de847024ebc0131731a3.pnghttps://static.zohocdn.com/zohodeskstatic/app/images/portalLogo.de847024ebc0131731a3.png)' />
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </form>
+          }
+          if(fieldObject.type == 'checkbox'){
+            if (fieldObject.checked == false){ alert('Please accept '+zsFieldsDisplayLabelArray[index]); fieldObject.focus(); isError = 1; return false; }
+          }
+        }
+      }
+      if(isError == 0){
+        reformatAllDateFields();
+        document.getElementById('zsSubmitButton_63926000005728001').setAttribute('disabled', 'disabled');
+      }
+    }
+
+    document.addEventListener('readystatechange',function(){
+      if(document.readyState === 'complete' && window.zsRegenerateCaptcha ){ zsRegenerateCaptcha(); }
+      setAllDependancyFieldsMapping();
+      document.getElementById('zsSubmitButton_63926000005728001').removeAttribute('disabled');
+    });
+
+    function zsResetWebForm(webFormId){
+      document.forms['zsWebToCase_'+webFormId].reset();
+      document.getElementById('zsSubmitButton_63926000005728001').removeAttribute('disabled');
+      setAllDependancyFieldsMapping();
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <div class="form-header">
+    <div class="header-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Support Center
     </div>
+    <h1>Help Desk</h1>
+    <p>Fill out the form below and our team will get back to you as soon as possible.</p>
+  </div>
+
+  <!-- ── Form Card ── -->
+  <div class="form-card">
+
+    <div class="info-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      Fields marked with <span style="color:var(--error);font-weight:600;">*</span> are mandatory
+    </div>
+
+    <div id='zohoSupportWebToCase' align='left'>
+      <form name='zsWebToCase_63926000005728001' id='zsWebToCase_63926000005728001' action='https://desk.zoho.in/support/WebToCase' method='POST' onSubmit='return zsValidateMandatoryFields()' enctype='multipart/form-data'>
+
+        <!-- All hidden fields preserved exactly -->
+        <input type='hidden' name='xnQsjsdp' value='edbsn5699abaf691b26a46a41d84fb2953adc'/>
+        <input type='hidden' name='xmIwtLD' value='edbsn7c74329bf29d11b21954f26adc41ab0a5eb1e86fdd88f3fe89f248c99d5362d6'/>
+        <input type='hidden' name='xJdfEaS' value=''/>
+        <input type='hidden' name='actionType' value='Q2FzZXM='/>
+        <input type="hidden" id="property(module)" value="Cases"/>
+        <input type='hidden' id='dependent_field_values_Cases' value="{&#34;JSON_VALUES&#34;:{&#34;CASECF12&#34;:{&#34;CASECF11&#34;:{&#34;Not Interested&#34;:[&#34;Not Reached&#34;],&#34;Interested&#34;:[&#34;Reached&#34;]}}},&#34;JSON_SELECT_VALUES&#34;:{&#34;CASECF11&#34;:[&#34;Reached&#34;,&#34;Not Reached&#34;],&#34;CASECF12&#34;:[&#34;Interested&#34;,&#34;Not Interested&#34;]},&#34;JSON_MAP_DEP_LABELS&#34;:[&#34;CASECF12&#34;]}"/>
+        <input type='hidden' name='returnURL' value='https://verifitech.com/'/>
+
+        <table border='0' cellspacing='0' class='zsFormClass'>
+
+          <!-- Hidden header row (CSS hides it) -->
+          <tr><td colspan='2' class='zsFontClass'><strong>Help Desk</strong></td></tr>
+
+          <!-- ── Contact Details ── -->
+          <tr class="field-row">
+            <td class="zsFontClass field-label">First Name</td>
+            <td><input type='text' maxlength='120' name='First Name' value='' placeholder='Enter first name'/></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Last Name <span class="required">*</span></td>
+            <td><input type='text' maxlength='120' name='Contact Name' class='manfieldbdr' placeholder='Enter last name'/></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Email <span class="required">*</span></td>
+            <td><input type='text' maxlength='120' name='Email' class='manfieldbdr' placeholder='you@company.com'/></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Phone</td>
+            <td><input type='text' maxlength='120' name='Phone' value='' placeholder='+91 98765 43210'/></td>
+          </tr>
+
+          <!-- ── Divider ── -->
+          <tr><td colspan='2'><div class="form-divider"></div></td></tr>
+
+          <!-- ── Organisation Details ── -->
+          <tr><td colspan='2' class='zsFontClass section-label'>Organisation Details</td></tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Designation</td>
+            <td><input type='text' maxlength='120' name='Designation' value='' placeholder='e.g. HR Manager'/></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Company Name</td>
+            <td><input type='text' maxlength='120' name='Company Name' value='' placeholder='Enter company name'/></td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Client Id</td>
+            <td><input type='text' maxlength='120' name='Client Id' value='' placeholder='Enter client ID'/></td>
+          </tr>
+
+          <!-- ── Divider ── -->
+          <tr><td colspan='2'><div class="form-divider"></div></td></tr>
+
+          <!-- ── Support Details ── -->
+          <tr><td colspan='2' class='zsFontClass section-label'>Support Details</td></tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Support</td>
+            <td>
+              <select name='Support' value='' onchange="setDependent(this, false)" id='CASECF29'>
+                <option value=''>Select a category…</option>
+                <option value='Candidate Non-Responsive'>Candidate Non-Responsive</option>
+                <option value='Operations – Verification Desk'>Operations – Verification Desk</option>
+                <option value='Document Discrepancy'>Document Discrepancy</option>
+                <option value='Quality / Verification Team'>Quality / Verification Team</option>
+                <option value='Verification Delay (Employer / Institute / Court)'>Verification Delay (Employer / Institute / Court)</option>
+                <option value='Report Correction Request'>Report Correction Request</option>
+                <option value='Quality / QC Team'>Quality / QC Team</option>
+                <option value='Additional Verification Request'>Additional Verification Request</option>
+                <option value='Operations – New Request Desk'>Operations – New Request Desk</option>
+                <option value='Document / Process Clarification'>Document / Process Clarification</option>
+                <option value='Client Servicing Team'>Client Servicing Team</option>
+                <option value='SLA / TAT Escalation'>SLA / TAT Escalation</option>
+                <option value='Account Manager / Escalation Desk'>Account Manager / Escalation Desk</option>
+                <option value='Billing / Invoice Query'>Billing / Invoice Query</option>
+                <option value='Finance Team'>Finance Team</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr class="field-row">
+            <td class="zsFontClass field-label">Subject <span class="required">*</span></td>
+            <td><input type='text' maxlength='255' name='Subject' class='manfieldbdr' placeholder='Brief description of your issue'/></td>
+          </tr>
+
+          <!-- ── Buttons ── -->
+          <tr class="button-row">
+            <td colspan='2'>
+              <input type='submit' id="zsSubmitButton_63926000005728001" class='zsFontClass btn-submit' value='Submit Ticket'>
+              <input type='button' class='zsFontClass btn-reset' value='Reset' onclick="zsResetWebForm('63926000005728001')">
+            </td>
+          </tr>
+
+          <!-- ── Powered by ── -->
+          <tr class="footer-row">
+            <td colspan='2'>
+              <div class='wb_FtCon wb_common'>
+                <span>powered by</span>
+                <a target='_blank' rel='noopener noreferrer' href='https://zoho.in/desk' class='wb_logoCon'>
+                  <img class='wb_logo' src='https://static.zohocdn.com/zohodeskstatic/app/images/portalLogo.de847024ebc0131731a3.png' alt='Zoho Desk'/>
+                </a>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </form>
+    </div>
+  </div>
+
+</body>
 </html>
