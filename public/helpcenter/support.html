@@ -10,22 +10,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --primary: #1e3a5f;
-      --primary-light: #2a5298;
-      --primary-dark: #0f2440;
-      --accent: #e8792f;
-      --accent-hover: #d4691f;
-      --bg: #f0f4f8;
+      --primary: #1AC2C1;
+      --primary-rgb: 26, 194, 193;
+      --primary-dark: #0e8a89;
+      --primary-darker: #095f5e;
+      --bg: #f4faf9;
       --card-bg: #ffffff;
-      --text: #1a2332;
-      --text-muted: #64748b;
-      --border: #d1d9e6;
-      --border-focus: #2a5298;
+      --text: #1a2e2d;
+      --text-muted: #5a7675;
+      --border: #c4dedd;
+      --border-focus: #1AC2C1;
       --error: #dc2626;
-      --success: #16a34a;
       --radius: 10px;
-      --shadow: 0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 4px rgba(30, 58, 95, 0.04);
-      --shadow-lg: 0 12px 48px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.06);
+      --shadow: 0 4px 24px rgba(26, 194, 193, 0.08), 0 1px 4px rgba(26, 194, 193, 0.04);
+      --shadow-lg: 0 12px 48px rgba(26, 194, 193, 0.12), 0 2px 8px rgba(26, 194, 193, 0.06);
     }
 
     body {
@@ -43,7 +41,7 @@
     /* ── Header ── */
     .form-header {
       width: 100%;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+      background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-dark) 40%, var(--primary) 100%);
       padding: 48px 24px 56px;
       text-align: center;
       position: relative;
@@ -57,7 +55,7 @@
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.05);
       pointer-events: none;
     }
     .form-header::after {
@@ -68,21 +66,21 @@
       width: 350px;
       height: 350px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.03);
       pointer-events: none;
     }
     .header-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.12);
       backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.18);
       padding: 6px 16px;
       border-radius: 50px;
       font-size: 12px;
       font-weight: 500;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 20px;
@@ -97,7 +95,7 @@
       position: relative;
     }
     .form-header p {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.75);
       font-size: 15px;
       font-weight: 400;
       max-width: 440px;
@@ -144,7 +142,6 @@
       vertical-align: middle !important;
     }
 
-    /* Hide the old bold header row */
     .zsFormClass tr:first-child { display: none; }
 
     /* ── Field rows ── */
@@ -180,7 +177,7 @@
       font-family: 'Inter', sans-serif !important;
       font-size: 14px !important;
       color: var(--text) !important;
-      background: #fafbfd !important;
+      background: #f8fcfb !important;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
       outline: none !important;
       box-shadow: none !important;
@@ -194,13 +191,13 @@
     #zohoSupportWebToCase textarea:focus {
       border-color: var(--border-focus) !important;
       background: #fff !important;
-      box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1) !important;
+      box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.12) !important;
     }
-    #zohoSupportWebToCase input[type='text']::placeholder { color: #a0aec0; }
+    #zohoSupportWebToCase input[type='text']::placeholder { color: #93b5b4; }
 
     /* Select arrow */
     #zohoSupportWebToCase select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E") !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235a7675' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E") !important;
       background-repeat: no-repeat !important;
       background-position: right 14px center !important;
       background-size: 16px !important;
@@ -209,7 +206,6 @@
       box-sizing: border-box !important;
     }
 
-    /* Remove mandatory red border (we use asterisk instead) */
     .manfieldbdr { border-left: none !important; }
 
     /* ── Buttons row ── */
@@ -235,12 +231,12 @@
       outline: none !important;
     }
     .btn-submit {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%) !important;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
       color: #fff !important;
-      box-shadow: 0 2px 8px rgba(30, 58, 95, 0.25) !important;
+      box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3) !important;
     }
     .btn-submit:hover:not(:disabled) {
-      box-shadow: 0 4px 16px rgba(30, 58, 95, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.45) !important;
       transform: translateY(-1px);
     }
     .btn-submit:active { transform: translateY(0); }
@@ -257,8 +253,8 @@
       box-shadow: none !important;
     }
     .btn-reset:hover {
-      background: #f8fafc !important;
-      border-color: #b0bec5 !important;
+      background: #f4faf9 !important;
+      border-color: #a3cccB !important;
       color: var(--text) !important;
     }
 
@@ -272,7 +268,7 @@
       margin-top: 0 !important;
       padding-left: 0 !important;
       font-size: 12px !important;
-      color: #94a3b8 !important;
+      color: #94a8a7 !important;
     }
     .wb_logoCon { margin-left: 4px; }
     .wb_logo { opacity: 0.5; transition: opacity 0.2s; }
@@ -283,13 +279,13 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #f0f6ff;
-      border: 1px solid #d6e4f0;
+      background: #eaf7f7;
+      border: 1px solid #c0e8e7;
       border-radius: 8px;
       padding: 10px 14px;
       margin-bottom: 24px;
       font-size: 12.5px;
-      color: var(--primary);
+      color: var(--primary-dark);
       line-height: 1.5;
     }
     .info-bar svg { flex-shrink: 0; width: 16px; height: 16px; }
@@ -327,33 +323,33 @@
       .btn-submit, .btn-reset { width: 100%; text-align: center; }
     }
 
-    /* ── Tooltip (keep Zoho's) ── */
+    /* ── Tooltip ── */
     #tooltip-zc {
       font: normal 12px 'Inter', Arial, Helvetica, sans-serif !important;
       line-height: 18px;
       position: absolute;
       padding: 8px 12px;
       margin: 20px 0 0;
-      background: #1e293b;
-      border: 1px solid #334155;
+      background: #1a2e2d;
+      border: 1px solid #2d4a49;
       border-radius: 8px;
-      color: #e2e8f0;
+      color: #e0efee;
       box-shadow: 0 8px 24px rgba(0,0,0,0.2);
       z-index: 10000;
       max-width: 320px;
     }
 
-    /* ── Cloud attach (if used) ── */
-    .wtccloudattach { color: var(--primary-light) !important; }
-    .wtcuploadfile { color: var(--primary-light) !important; }
-    .wtcsepcode { color: #cbd5e1 !important; }
+    /* ── Cloud attach ── */
+    .wtccloudattach { color: var(--primary) !important; }
+    .wtcuploadfile { color: var(--primary) !important; }
+    .wtcsepcode { color: #b8d4d3 !important; }
 
     /* ── Multi-pick ── */
     #zohoSupportWebToCase .wb_multi_pick {
       border: 1.5px solid var(--border) !important;
       border-radius: var(--radius) !important;
       padding: 8px 10px !important;
-      background: #fafbfd !important;
+      background: #f8fcfb !important;
     }
 
     /* ── File input ── */
@@ -364,7 +360,7 @@
       padding: 6px 14px;
       border-radius: 6px;
       border: 1px solid var(--border);
-      background: #f8fafc;
+      background: #f4faf9;
       color: var(--text-muted);
     }
   </style>
@@ -612,7 +608,6 @@
     <div id='zohoSupportWebToCase' align='left'>
       <form name='zsWebToCase_63926000005728001' id='zsWebToCase_63926000005728001' action='https://desk.zoho.in/support/WebToCase' method='POST' onSubmit='return zsValidateMandatoryFields()' enctype='multipart/form-data'>
 
-        <!-- All hidden fields preserved exactly -->
         <input type='hidden' name='xnQsjsdp' value='edbsn5699abaf691b26a46a41d84fb2953adc'/>
         <input type='hidden' name='xmIwtLD' value='edbsn7c74329bf29d11b21954f26adc41ab0a5eb1e86fdd88f3fe89f248c99d5362d6'/>
         <input type='hidden' name='xJdfEaS' value=''/>
@@ -623,10 +618,8 @@
 
         <table border='0' cellspacing='0' class='zsFormClass'>
 
-          <!-- Hidden header row (CSS hides it) -->
           <tr><td colspan='2' class='zsFontClass'><strong>Help Desk</strong></td></tr>
 
-          <!-- ── Contact Details ── -->
           <tr class="field-row">
             <td class="zsFontClass field-label">First Name</td>
             <td><input type='text' maxlength='120' name='First Name' value='' placeholder='Enter first name'/></td>
@@ -647,10 +640,8 @@
             <td><input type='text' maxlength='120' name='Phone' value='' placeholder='+91 98765 43210'/></td>
           </tr>
 
-          <!-- ── Divider ── -->
           <tr><td colspan='2'><div class="form-divider"></div></td></tr>
 
-          <!-- ── Organisation Details ── -->
           <tr><td colspan='2' class='zsFontClass section-label'>Organisation Details</td></tr>
 
           <tr class="field-row">
@@ -663,15 +654,13 @@
             <td><input type='text' maxlength='120' name='Company Name' value='' placeholder='Enter company name'/></td>
           </tr>
 
-          <tr class="field-row">
+          <!-- <tr class="field-row">
             <td class="zsFontClass field-label">Client Id</td>
             <td><input type='text' maxlength='120' name='Client Id' value='' placeholder='Enter client ID'/></td>
-          </tr>
+          </tr> -->
 
-          <!-- ── Divider ── -->
           <tr><td colspan='2'><div class="form-divider"></div></td></tr>
 
-          <!-- ── Support Details ── -->
           <tr><td colspan='2' class='zsFontClass section-label'>Support Details</td></tr>
 
           <tr class="field-row">
@@ -703,7 +692,6 @@
             <td><input type='text' maxlength='255' name='Subject' class='manfieldbdr' placeholder='Brief description of your issue'/></td>
           </tr>
 
-          <!-- ── Buttons ── -->
           <tr class="button-row">
             <td colspan='2'>
               <input type='submit' id="zsSubmitButton_63926000005728001" class='zsFontClass btn-submit' value='Submit Ticket'>
@@ -711,7 +699,6 @@
             </td>
           </tr>
 
-          <!-- ── Powered by ── -->
           <tr class="footer-row">
             <td colspan='2'>
               <div class='wb_FtCon wb_common'>
