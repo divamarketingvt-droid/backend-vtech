@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Igarashi Motors × Verifitech | Verified Manufacturing Workforce</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="As Igarashi Motors scales production, build a workforce you can trust with Verifitech's verification solutions." />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+    /* ============================================
+       THEME VARIABLES & GLOBAL STYLES
+       ============================================ */
+    :root {
+      --primary: #1ac2c1;
+      --primary-dark: #16a8a7;
+      --primary-light: #e0f7f7;
+      --dark: #0f172a;
+      --navy: #1e293b;
+      --gray: #64748b;
+      --light-gray: #f8fafc;
+      --white: #ffffff;
+      --gradient-start: #f0fdfa;
+      --gradient-end: #ccfbf1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-gray);
+      overflow-x: hidden;
+      color: var(--navy);
+    }
+/* Button - Fixed Visibility */
+      .btn-primary-custom {
+        background: var(--primary) !important;
+        color: white !important;
+        border: none;
+        padding: 0.75rem 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .btn-primary-custom:hover {
+        background: var(--primary-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+        color: white !important;
+      }
+/* ============================================
+   Z-INDEX FIXES
+   ============================================ */
+
+.navbar {
+  z-index: 1050;
+}
+
+.dropdown-menu {
+  z-index: 1060;
+  position: absolute;
+}
+
+.dropdown-item {
+  position: relative;
+  z-index: 1061;
+}
+
+.industry-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   NAVBAR & NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  height: 80px;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+  }
+}
+.btn-support {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--nav-link-color, #333);
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+
+.btn-support:hover {
+  color: #fff;
+  background: var(--primary-color, #2563eb);
+  border-color: var(--primary-color, #2563eb);
+}
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  transition: color 0.3s;
+}
+
+.navbar-brand img {
+  height: 55%;
+  width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0.6rem;
+  position: relative;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 2rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN MENU STYLES
+   ============================================ */
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-width: 280px;
+  border-top: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.mega-menu {
+  min-width: 600px;
+  padding: 1.5rem;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-divider {
+  margin: 0.8rem 0;
+  opacity: 0.1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-primary-custom {
+  background: var(--primary) !important;
+  color: white !important;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-primary-custom:hover {
+  background: var(--primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+  color: white !important;
+}
+
+.btn-outline-custom {
+  border: 2px solid #e2e8f0;
+  color: var(--navy);
+  background: white;
+  padding: 0.75rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-outline-custom:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-sales {
+  background: var(--primary);
+  color: white !important;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+}
+
+.btn-sales:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
+
+.btn-login {
+  background-color: #ffffff !important;
+  color: #00bfa5 !important;
+  border: 1px solid #00bfa5 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 165, 0.3) !important;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 12px;
+}
+
+.btn-login:hover {
+  background-color: #00bfa5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   COUNTRY SELECTOR
+   ============================================ */
+
+.country-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.country-selector:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.country-selector.dropdown-toggle::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+.country-selector i.bi-chevron-down {
+  font-size: 0.7rem;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+}
+
+.country-selector:hover i.bi-chevron-down {
+  color: var(--primary);
+}
+
+.country-selector[aria-expanded="true"] i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.country-flag {
+  font-size: 1.2rem;
+}
+      
+    
+    /* ============================================
+       BUTTON STYLES
+       ============================================ */
+    .btn-primary-custom {
+      background: var(--primary) !important;
+      color: white !important;
+      border: none;
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(26, 194, 193, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .btn-primary-custom:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26, 194, 193, 0.45);
+      color: white !important;
+    }
+
+    /* ============================================
+       NAVBAR
+       ============================================ */
+    .navbar {
+      padding: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      height: 80px;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0 0.6rem;
+      position: relative;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      padding: 2rem 0.5rem !important;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      padding: 140px 0 100px;
+      background: linear-gradient(
+        135deg,
+        var(--gradient-start) 0%,
+        white 50%,
+        var(--gradient-end) 100%
+      );
+      position: relative;
+      overflow: hidden;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(
+        circle,
+        rgba(26, 194, 193, 0.08) 0%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1.5px;
+      color: var(--dark);
+    }
+
+    .hero h1 .highlight {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-icon {
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(26, 194, 193, 0.2);
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       SECTION COMMON
+       ============================================ */
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: rgba(26, 194, 193, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    /* ============================================
+       SERVICES / ROLES GRID
+       ============================================ */
+    .services-grid {
+      background: white;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      height: 100%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+      border-color: transparent;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--primary-light), white);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-size: 2rem;
+      border: 1px solid rgba(26, 194, 193, 0.2);
+      transition: all 0.3s;
+    }
+
+    .service-card:hover .service-icon-wrap {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .service-card h4 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    /* ============================================
+       TABLE STYLE (Verification Matrix)
+       ============================================ */
+    .verification-table-container {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      padding: 2rem;
+    }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .custom-table th {
+      background: var(--light-gray);
+      padding: 1.5rem;
+      text-align: left;
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .custom-table td {
+      padding: 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+
+    .custom-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .custom-table tr:hover td {
+      background: var(--gradient-start);
+    }
+
+    .check-icon {
+      color: var(--primary);
+      margin-right: 5px;
+    }
+
+    /* ============================================
+       PROCESS STEPS
+       ============================================ */
+    .process-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      height: 100%;
+      text-align: center;
+      position: relative;
+      border: 2px solid #e2e8f0;
+      transition: all 0.4s ease;
+    }
+
+    .process-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(26, 194, 193, 0.15);
+    }
+
+    .process-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-light), white);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* ============================================
+       DARK FEATURE SECTION
+       ============================================ */
+    .dark-section {
+      background: var(--dark);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-section .section-title {
+      color: white;
+    }
+
+    .dark-section .section-desc {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .feature-list-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .feature-number {
+      width: 50px;
+      height: 50px;
+      background: rgba(26, 194, 193, 0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      border: 1px solid rgba(26, 194, 193, 0.3);
+    }
+
+    /* ============================================
+       CHAT WIDGET
+       ============================================ */
+    .chat-icon-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(29, 209, 161, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .chat-icon-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 100%;
+      max-width: 380px;
+      height: 550px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .chat-container.active {
+      display: flex;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%);
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .message-content {
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      border-top-left-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      max-width: 85%;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #2c3e50;
+    }
+
+    .user-message {
+      align-self: flex-end;
+    }
+
+    .user-message .message-content {
+      background: #1dd1a1;
+      color: white;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 4px;
+    }
+
+    .dept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .dept-card {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .dept-card:hover {
+      border-color: #1dd1a1;
+      background: #f0fff9;
+    }
+
+    .dept-card i {
+      font-size: 1.2rem;
+      color: #10ac84;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .dept-card span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero-badges { flex-direction: column; gap: 1rem; }
+      .dept-grid { grid-template-columns: 1fr; }
+      .custom-table th, .custom-table td { padding: 1rem 0.5rem; font-size: 0.85rem; }
+    }
+
+    /* Animation Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="../index">
+      <img
+        src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+        alt="Verifitech"
+        width="200px"
+        height="60%"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <!-- SOLUTIONS Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Solutions <span class="dropdown-arrow">▾</span>
+          </a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="dropdown-header">Verification Services</h6>
+                <a href="./checks/id-verification" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
+                <a href="./checks/address-verification.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
+                <a href="./checks/employment" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
+                <a href="./checks/education-check" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
+                <a href="./checks/court-verification" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
+                <a href="./checks/reference" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
+                <a href="./checks/DIN-verification" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a>
+                <a href="./checks/Directorship-check" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
+              </div>
+              <div class="col-md-6">
+                <h6 class="dropdown-header">Specialized Checks</h6>
+                <a href="./checks/global-check" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
+                <a href="./checks/credit-check" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
+                <a href="./checks/gap-verification" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
+                <a href="./checks/socialmeidaverification" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
+                <a href="./checks/police-clearnce" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a>
+                <a href="./checks/drug-test" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
+                <a href="./checks/vendor" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a>
+                <a href="./checks/passport-verification" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Products Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products <span class="dropdown-arrow">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./products/exitinterview"><i class="bi bi-box-arrow-right"></i> Exit Interviews</a></li>
+            <li><a class="dropdown-item" href="./products/pm"><i class="bi bi-graph-up"></i> Psychometric</a></li>
+            <li><a class="dropdown-item" href="./products/HRMS"><i class="bi bi-laptop"></i> HRMS</a></li>
+            <li><a class="dropdown-item" href="./products/DMS"><i class="fa-regular fa-file"></i> DMS</a></li>
+          </ul>
+        </li>
+
+        <!-- INDUSTRY Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Industry <span class="dropdown-arrow">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./industries/banks"><i class="bi bi-bank"></i> Banking & Financial Services</a></li>
+            <li><a class="dropdown-item" href="./industries/healthcare"><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a></li>
+            <li><a class="dropdown-item" href="./industries/education"><i class="bi bi-book"></i> Education</a></li>
+            <li><a class="dropdown-item" href="./industries/manufacturing"><i class="bi bi-building-gear"></i> Manufacturing</a></li>
+            <li><a class="dropdown-item" href="./industries/IT-ITES"><i class="bi bi-laptop"></i> IT/ITeS</a></li>
+            <li><a class="dropdown-item" href="./industries/FMCG"><i class="bi bi-box"></i> FMCG</a></li>
+            <li><a class="dropdown-item" href="./industries/Logistics"><i class="bi bi-truck"></i> Logistics</a></li>
+            <li><a class="dropdown-item" href="./industries/Realestate-&-constructation"><i class="bi bi-house"></i> Real Estate & Construction</a></li>
+            <li><a class="dropdown-item" href="./industries/Retail%20&%20E-commerce"><i class="bi bi-shop"></i> Retail & E-commerce</a></li>
+            <li><a class="dropdown-item" href="./industries/travel-industries"><i class="bi bi-airplane"></i> Travel and Hospitality</a></li>
+            <li><a class="dropdown-item" href="./industries/staffing"><i class="bi bi-person-workspace"></i> Staffing and Recruitment</a></li>
+            <li><a class="dropdown-item" href="./industries/telecom"><i class="bi bi-broadcast"></i> Telecom</a></li>
+          </ul>
+        </li>
+
+        <!-- RESOURCES Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Resources <span class="dropdown-arrow">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./resources/blog"><i class="bi bi-journal-text"></i> Blogs</a></li>
+            <li><a class="dropdown-item" href="./resources/whitepapers"><i class="bi bi-file-earmark-text"></i> Whitepapers</a></li>
+            <li><a class="dropdown-item" href="./resources/casestudy"><i class="bi bi-star"></i> Case Study</a></li>
+            <li><a class="dropdown-item" href="./resources/webinar"><i class="bi bi-camera-video"></i> Webinar</a></li>
+            <li><a class="dropdown-item" href="./products/api"><i class="bi bi-plug"></i> API</a></li>
+          </ul>
+        </li>
+
+        <!-- COMPANY Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Company <span class="dropdown-arrow">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./company/partnership"><i class="bi bi-hand-thumbs-up"></i> Partnership</a></li>
+            <li><a class="dropdown-item" href="./company/aboutus"><i class="bi bi-info-circle"></i> About Us</a></li>
+            <li><a class="dropdown-item" href="./company/careers"><i class="bi bi-briefcase"></i> Careers</a></li>
+          </ul>
+        </li>
+
+        <!-- HELP CENTER Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Help Center <span class="dropdown-arrow">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./helpcenter/customer"><i class="bi bi-building"></i> For Customers</a></li>
+            <li><a class="dropdown-item" href="./helpcenter/partner"><i class="bi bi-people"></i> For Partners</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        <!-- <a href="./helpcenter/support" class="btn-support" title="Support">
+          <i class="bi bi-headset"></i>
+        </a> -->
+      
+
+
+        <a href="https://web.verifitech.com/" target="_blank" class="btn-login">Login</a>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <a href="../contact/contact" class="btn btn-sales">Contact</a>
+        <div class="dropdown">
+          <div class="country-selector dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="country-flag" id="current-flag">🇮🇳</span>
+            <span id="current-country">India</span>
+            <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+            <li><a href="./countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸"><span class="country-flag">🇺🇸</span> USA</a></li>
+            <li><a href="./countries/UAE" class="dropdown-item country-option" data-country="UAE" data-flag="🇦🇪"><span class="country-flag">🇦🇪</span> UAE</a></li>
+            <li><a href="./countries/aus" class="dropdown-item country-option" data-country="Australia" data-flag="🇦🇺"><span class="country-flag">🇦🇺</span> Australia</a></li>
+            <li><a href="./countries/uk" class="dropdown-item country-option" data-country="UK" data-flag="🇬🇧"><span class="country-flag">🇬🇧</span> UK</a></li>
+            <li><a href="./countries/singapore" class="dropdown-item country-option" data-country="Singapore" data-flag="🇸🇬"><span class="country-flag">🇸🇬</span> Singapore</a></li>
+            <li><a href="./countries/Ireland" class="dropdown-item country-option" data-country="Ireland" data-flag="🇮🇪"><span class="country-flag">🇮🇪</span> Ireland</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</nav>        
+    
+    <!-- Hero Section -->
+    <section class="hero" id="igarashi">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content">
+            <span class="section-subtitle">Igarashi Motors India × Verifitech</span>
+            <h1>As Igarashi Motors <span class="highlight">Scales Production,</span> Build a Workforce You Can Trust.</h1>
+            <p class="hero-subtitle">
+              Igarashi Motors India is expanding manufacturing capacity, strengthening its position in automotive safety actuators, and scaling its BLDC business. Behind every production line is a workforce responsible for making it work.
+            </p>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#contact" class="btn btn-primary-custom">
+                <i class="bi bi-shield-check me-2"></i> Verify Before You Hire
+              </a>
+            </div>
+
+            <div class="hero-badges">
+              <div class="badge-item">
+                <div class="badge-icon"><i class="bi bi-gear"></i></div>
+                <div>
+                  <h6>Automotive Safety</h6>
+                  <p style="margin:0; font-size:0.85rem; color:var(--gray)">Actuators & BLDC</p>
+                </div>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon"><i class="bi bi-people"></i></div>
+                <div>
+                  <h6>Diverse Workforce</h6>
+                  <p style="margin:0; font-size:0.85rem; color:var(--gray)">From Shop-floor to R&D</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block">
+            <!-- Abstract Visual Representation -->
+            <div class="position-relative" style="height: 500px;">
+              <div class="position-absolute top-0 end-0 bg-white p-4 rounded-4 shadow-lg" style="width: 300px; animation: float 6s ease-in-out infinite;">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3"><i class="bi bi-person-check text-primary"></i></div>
+                  <div>
+                    <h6 class="mb-0">Candidate Verified</h6>
+                    <small class="text-muted">Production Engineer</small>
+                  </div>
+                </div>
+                <div class="progress" style="height: 6px;">
+                  <div class="progress-bar bg-primary" style="width: 100%"></div>
+                </div>
+              </div>
+
+              <div class="position-absolute top-40 start-20 bg-white p-4 rounded-4 shadow" style="width: 280px; top: 140px; animation: float 6s ease-in-out infinite 1s;">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3"><i class="bi bi-mortarboard-fill text-success"></i></div>
+                  <div>
+                    <h6 class="mb-0">Education Check</h6>
+                    <small class="text-muted">BLDC Electronics</small>
+                  </div>
+                </div>
+                <div class="d-flex gap-1">
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                  <small class="text-muted">Validated</small>
+                </div>
+              </div>
+
+              <div class="position-absolute bottom-0 end-20 bg-dark text-white p-4 rounded-4 shadow" style="width: 320px; bottom: 40px; right: 40px; animation: float 6s ease-in-out infinite 2s;">
+                <h6 class="mb-3">Hiring Confidence</h6>
+                <div class="d-flex justify-content-between mb-2">
+                  <small>HR Productivity</small>
+                  <small>+40%</small>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <small>Risk Reduction</small>
+                  <small>High</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Precision Hiring Section -->
+    <section class="section-padding services-grid" id="solutions">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center section-header reveal">
+            <span class="section-subtitle">Precision Hiring</span>
+            <h2 class="section-title">Your Products Demand Precision. <br>Your Hiring Should Too.</h2>
+            <p class="text-muted section-desc">
+              From micro DC motors to Electronic Parking Brake (EPB) actuators, consistency matters. A resume tells you what a candidate says. Verification establishes what can be validated.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Role 1 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h4>Engineering & R&D</h4>
+              <p class="text-muted">Motor Design • Electronics • Embedded Systems. Verify education and employment credentials for specialized engineering positions.</p>
+            </div>
+          </div>
+          <!-- Role 2 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <i class="bi bi-gear-wide-connected"></i>
+              </div>
+              <h4>Production & Manufacturing</h4>
+              <p class="text-muted">Engineers • Technicians • Assembly Workforce. Support workforce screening before candidates enter critical manufacturing environments.</p>
+            </div>
+          </div>
+          <!-- Role 3 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4>Quality Assurance</h4>
+              <p class="text-muted">QA • QC • Process Quality. Validate professional experience, education, and other relevant background information.</p>
+            </div>
+          </div>
+          <!-- Role 4 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <i class="bi bi-robot"></i>
+              </div>
+              <h4>Process Automation</h4>
+              <p class="text-muted">Controls • Machine Maintenance. Verify the credentials and professional history behind specialized technical roles.</p>
+            </div>
+          </div>
+          <!-- Role 5 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <i class="bi bi-tools"></i>
+              </div>
+              <h4>Technical Operations</h4>
+              <p class="text-muted">Maintenance • Technicians. Ensure technical skills and certifications are verified before operational deployment.</p>
+            </div>
+          </div>
+          <!-- Role 6 -->
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <i class="bi bi-people-fill"></i>
+              </div>
+              <h4>Contract & Shop-Floor</h4>
+              <p class="text-muted">Operators • Flexible Workforce. Apply appropriate background checks to support a more consistent onboarding process.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scaling Section (Dark) -->
+    <section class="section-padding dark-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+            <span class="section-subtitle" style="background: rgba(255,255,255,0.1);">Scalability</span>
+            <h2 class="section-title">Igarashi Motors Is Scaling. <br>Your Verification Should Scale With It.</h2>
+            <p class="section-desc mb-4">
+              A major capacity expansion creates new hiring requirements. More production capacity means more candidates, more verification, and more HR coordination.
+            </p>
+            <p class="text-white-50 mb-5">
+              When a large portion of the workforce is flexible or contract-based, maintaining a consistent verification process becomes critical.
+            </p>
+            
+            <div class="d-flex flex-column gap-4">
+              <div class="feature-list-item">
+                <div class="feature-number">1</div>
+                <div class="feature-content">
+                  <h4>One Process. Different Requirements.</h4>
+                  <p class="text-white-50 m-0">Align verification checks specifically to the role—whether it's an engineer or a shop-floor operator.</p>
+                </div>
+              </div>
+              <div class="feature-list-item">
+                <div class="feature-number">2</div>
+                <div class="feature-content">
+                  <h4>Structured HR Workflow</h4>
+                  <p class="text-white-50 m-0">Organize the process from candidate submission through review, creating a scalable system for high-volume hiring.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal">
+             <!-- Visual for Scaling -->
+             <div class="p-4 rounded-4 bg-white bg-opacity-5 border border-white border-opacity-10">
+               <h5 class="text-white mb-4">Impact of Wrong Hire vs Verified Hire</h5>
+               
+               <div class="mb-4">
+                 <div class="d-flex align-items-center mb-2 text-danger">
+                   <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                   <strong>The Wrong Hire</strong>
+                 </div>
+                 <div class="d-flex gap-2 flex-wrap">
+                   <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25">Hiring</span>
+                   <i class="bi bi-arrow-right small text-white-50"></i>
+                   <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25">Training</span>
+                   <i class="bi bi-arrow-right small text-white-50"></i>
+                   <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25">Production Risk</span>
+                 </div>
+                 <p class="small text-white-50 mt-2">Avoidable operational challenges due to false credentials.</p>
+               </div>
+
+               <div class="p-3 rounded-3 bg-primary bg-opacity-10 border border-primary border-opacity-20">
+                 <div class="d-flex align-items-center mb-2 text-primary">
+                   <i class="bi bi-check-circle-fill me-2"></i>
+                   <strong>A Verified Process</strong>
+                 </div>
+                 <div class="d-flex gap-2 flex-wrap">
+                   <span class="badge bg-primary text-dark">Verify</span>
+                   <i class="bi bi-arrow-right small text-white-50"></i>
+                   <span class="badge bg-primary text-dark">Review</span>
+                   <i class="bi bi-arrow-right small text-white-50"></i>
+                   <span class="badge bg-primary text-dark">Confident Onboard</span>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verification Matrix Table -->
+    <section class="section-padding" style="background: white;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center section-header reveal">
+            <span class="section-subtitle">Role-Based Screening</span>
+            <h2 class="section-title">Verification Built Around <br>Hiring Requirements</h2>
+            <p class="text-muted">Different roles require different levels of screening. Here is how we structure it for Igarashi Motors.</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center reveal">
+          <div class="col-lg-10">
+            <div class="verification-table-container">
+              <div class="table-responsive">
+                <table class="custom-table table table-hover">
+                  <thead>
+                    <tr>
+                      <th style="width: 30%;">Hiring Category</th>
+                      <th style="width: 70%;">Recommended Verification Package</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Engineering & R&D</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Education</span>
+                        <span class="badge bg-light text-dark border me-1">Employment</span>
+                        <span class="badge bg-light text-dark border">Reference</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Production Engineers</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Employment</span>
+                        <span class="badge bg-light text-dark border me-1">Education</span>
+                        <span class="badge bg-light text-dark border">Address</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>QA/QC Professionals</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Education</span>
+                        <span class="badge bg-light text-dark border me-1">Employment</span>
+                        <span class="badge bg-light text-dark border">Reference</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Automation Engineers</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Education</span>
+                        <span class="badge bg-light text-dark border me-1">Employment</span>
+                        <span class="badge bg-light text-dark border">Document</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Technicians</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Employment</span>
+                        <span class="badge bg-light text-dark border me-1">Address</span>
+                        <span class="badge bg-light text-dark border">Document</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Shop-Floor Workforce</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Address</span>
+                        <span class="badge bg-light text-dark border me-1">Criminal</span>
+                        <span class="badge bg-light text-dark border">Employment</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Technical Leadership</strong></td>
+                      <td>
+                        <span class="badge bg-light text-dark border me-1">Employment</span>
+                        <span class="badge bg-light text-dark border me-1">Education</span>
+                        <span class="badge bg-light text-dark border me-1">Reference</span>
+                        <span class="badge bg-light text-dark border">Global Checks</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Offered -->
+    <section class="section-padding services-grid">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center section-header reveal">
+            <span class="section-subtitle">Comprehensive Checks</span>
+            <h2 class="section-title">Verify What Matters Before You Onboard</h2>
+            <p class="text-muted">Access a range of verification services based on your specific hiring requirements.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="d-flex align-items-start p-4 bg-white rounded-4 border">
+              <i class="bi bi-briefcase text-primary fs-3 me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Employment Verification</h6>
+                <p class="small text-muted m-0">Confirm previous employment details and professional history.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="d-flex align-items-start p-4 bg-white rounded-4 border">
+              <i class="bi bi-mortarboard text-primary fs-3 me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Education Verification</h6>
+                <p class="small text-muted m-0">Validate academic qualifications claimed by candidates.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="d-flex align-items-start p-4 bg-white rounded-4 border">
+              <i class="bi bi-shield-fill-exclamation text-primary fs-3 me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Criminal Record Checks</h6>
+                <p class="small text-muted m-0">Support risk screening before onboarding.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="d-flex align-items-start p-4 bg-white rounded-4 border">
+              <i class="bi bi-geo-alt text-primary fs-3 me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Address Verification</h6>
+                <p class="small text-muted m-0">Validate candidate address information digitally or physically.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="d-flex align-items-start p-4 bg-white rounded-4 border">
+              <i class="bi bi-file-earmark-check text-primary fs-3 me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Document Verification</h6>
+                <p class="small text-muted m-0">Check relevant candidate documentation (ID cards, etc).</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="d-flex align-items-start p-4 bg-white rounded-4 border">
+              <i class="bi bi-globe text-primary fs-3 me-3"></i>
+              <div>
+                <h6 class="fw-bold mb-1">Global Database Checks</h6>
+                <p class="small text-muted m-0">Support verification requirements for international hiring.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding" id="process" style="background: var(--light-gray);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center section-header reveal">
+            <span class="section-subtitle">Workflow</span>
+            <h2 class="section-title">From Candidate to Verified Decision</h2>
+          </div>
+        </div>
+
+        <div class="row g-4 position-relative">
+          <!-- Connector Line (Desktop) -->
+          <div class="d-none d-lg-block position-absolute top-50 start-0 end-0" style="height: 2px; background: #e2e8f0; z-index: 0; transform: translateY(-25px);"></div>
+
+          <div class="col-6 col-md-4 reveal">
+            <div class="process-card h-100">
+              <div class="process-number">01</div>
+              <h5>Candidate Details</h5>
+              <p class="small text-muted">Candidate information enters the verification workflow.</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 reveal">
+            <div class="process-card h-100">
+              <div class="process-number">02</div>
+              <h5>Select Checks</h5>
+              <p class="small text-muted">Choose the verification checks relevant to the position.</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 reveal">
+            <div class="process-card h-100">
+              <div class="process-number">03</div>
+              <h5>Verification</h5>
+              <p class="small text-muted">The required information is verified via expert network.</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 reveal">
+            <div class="process-card h-100">
+              <div class="process-number">04</div>
+              <h5>Review</h5>
+              <p class="small text-muted">HR reviews the available verification outcomes.</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 reveal">
+            <div class="process-card h-100">
+              <div class="process-number">05</div>
+              <h5>Decision</h5>
+              <p class="small text-muted">Use verified information for an informed hiring decision.</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 reveal">
+            <div class="process-card h-100" style="background: var(--primary); color: white; border-color: var(--primary);">
+              <div class="process-number" style="background: white; color: var(--primary);">06</div>
+              <h5>Onboard</h5>
+              <p class="small text-white-50">Move the candidate into the workforce with confidence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Verifitech Section -->
+    <section class="section-padding dark-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 reveal">
+           
+          </div>
+          <div class="col-lg-6 offset-lg-1 reveal">
+            <span class="section-subtitle" style="background: rgba(255,255,255,0.1);">Why Verifitech</span>
+            <h2 class="section-title">Built for a Workforce <br>That Doesn't Fit One Profile.</h2>
+            <p class="section-desc mb-5">
+              Igarashi Motors combines a lean permanent workforce with a significant operational workforce. Verifitech helps create a consistent verification framework across these categories.
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                <span class="text-white">Role-Based Screening tailored to responsibilities</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                <span class="text-white">Multiple Verification Services in one ecosystem</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                <span class="text-white">Support for Technical & Operational Hiring</span>
+              </li>
+              <li class="mb-3 d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-primary me-3 fs-4"></i>
+                <span class="text-white">B2B-Focused for ongoing employee verification</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding" id="contact" style="background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%); color: white; text-align: center;">
+      <div class="container reveal">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="display-4 fw-bold mb-4">Let's Build a Verification Process for Igarashi Motors</h2>
+            <p class="lead text-white-50 mb-5">
+              Your workforce is diverse. Your verification strategy should be too. <br>
+              15 minutes. One focused conversation. A stronger foundation for verified hiring.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <button class="btn btn-primary-custom btn-lg px-5 py-3" onclick="toggleChat()">
+                Talk to a Verification Expert
+              </button>
+              <a href="#" class="btn btn-outline-light rounded-pill px-5 py-3">
+                Book a Demo
+              </a>
+            </div>
+            <div class="mt-5 pt-4 border-top border-white border-opacity-10">
+              <p class="small text-white-50">Verifying for:</p>
+              <div class="d-flex flex-wrap justify-content-center gap-3">
+                <span class="badge bg-white bg-opacity-10 text-white p-2">Engineering & R&D</span>
+                <span class="badge bg-white bg-opacity-10 text-white p-2">Manufacturing</span>
+                <span class="badge bg-white bg-opacity-10 text-white p-2">QA & QC</span>
+                <span class="badge bg-white bg-opacity-10 text-white p-2">Shop-Floor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+<!--     <footer class="bg-white py-5 border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <a href="#" class="navbar-brand mb-3 d-block">Verifitech<span>.</span></a>
+            <p class="text-muted small">
+              Verify First. Build Trust.<br>
+              Enterprise background verification solutions designed for the modern manufacturing workforce.
+            </p>
+          </div>
+          <div class="col-md-2 mb-4">
+            <h6 class="fw-bold mb-3">Solutions</h6>
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Employment</a></li>
+              <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Education</a></li>
+              <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Criminal Checks</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 mb-4">
+            <h6 class="fw-bold mb-3">Company</h6>
+            <ul class="list-unstyled text-muted small">
+              <li class="mb-2"><a href="#" class="text-decoration-none text-muted">About Us</a></li>
+              <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Careers</a></li>
+              <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h6 class="fw-bold mb-3">Contact</h6>
+            <p class="text-muted small">support@verifitech.com<br>+91 123 456 7890</p>
+            <div class="d-flex gap-3 mt-3">
+              <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+              <a href="#" class="text-muted"><i class="bi bi-twitter fs-5"></i></a>
+              <a href="#" class="text-muted"><i class="bi bi-facebook fs-5"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4 pt-4 border-top">
+          <div class="col-12 text-center text-muted small">
+            &copy; 2026 Verifitech. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+ -->
+    <!-- Chat Widget -->
+    <button class="chat-icon-btn" onclick="toggleChat()">
+      <i class="bi bi-chat-dots fs-3 text-white"></i>
+    </button>
+
+    <div class="chat-container" id="chatWidget">
+      <div class="chat-header">
+        <div class="d-flex align-items-center">
+          <div class="bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px;">
+            <i class="bi bi-person-fill text-white"></i>
+          </div>
+          <div>
+            <h6 class="mb-0 text-white">Verification Expert</h6>
+            <small class="text-white-50"><i class="bi bi-dot-fill text-success"></i> Online</small>
+          </div>
+        </div>
+        <button class="btn btn-link text-white p-0" onclick="toggleChat()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="d-flex flex-row">
+          <div class="message-content">
+            Hi! I'm here to help build the right verification process for Igarashi Motors. Which department are you hiring for?
+          </div>
+        </div>
+        
+        <!-- Department Selection (Interactive) -->
+        <div class="d-flex flex-row dept-grid">
+          <div class="dept-card" onclick="selectDept(this, 'Engineering')">
+            <i class="bi bi-cpu"></i>
+            <span>R&D / Engineering</span>
+          </div>
+          <div class="dept-card" onclick="selectDept(this, 'Production')">
+            <i class="bi bi-gear-wide-connected"></i>
+            <span>Production</span>
+          </div>
+          <div class="dept-card" onclick="selectDept(this, 'Quality')">
+            <i class="bi bi-shield-check"></i>
+            <span>Quality (QA)</span>
+          </div>
+          <div class="dept-card" onclick="selectDept(this, 'Shopfloor')">
+            <i class="bi bi-people"></i>
+            <span>Shop-Floor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Chat Widget Logic
+      function toggleChat() {
+        const chat = document.getElementById('chatWidget');
+        chat.classList.toggle('active');
+      }
+
+      function selectDept(element, deptName) {
+        // Reset other cards
+        document.querySelectorAll('.dept-card').forEach(card => {
+          card.style.background = 'white';
+          card.style.borderColor = '#e9ecef';
+        });
+
+        // Highlight selected
+        element.style.background = '#f0fff9';
+        element.style.borderColor = '#1dd1a1';
+
+        // Add User Message
+        const chatBody = document.getElementById('chatBody');
+        const userMsg = document.createElement('div');
+        userMsg.className = 'user-message message-content';
+        userMsg.innerText = deptName;
+        chatBody.appendChild(userMsg);
+
+        // Scroll to bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Simulate Typing/Response
+        setTimeout(() => {
+          const botMsg = document.createElement('div');
+          botMsg.className = 'd-flex flex-row';
+          botMsg.innerHTML = `<div class="message-content">Great choice. For ${deptName}, we recommend Employment + Education checks. Would you like to schedule a demo?</div>`;
+          chatBody.appendChild(botMsg);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1000);
+      }
+
+      // GSAP Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Reveal on Scroll
+      const revealElements = document.querySelectorAll(".reveal");
+      revealElements.forEach((element) => {
+        gsap.fromTo(element, 
+          { autoAlpha: 0, y: 50 }, 
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 85%",
+            },
+          }
+        );
+      });
+
+      // Navbar Scroll Effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.classList.add('shadow-sm');
+        } else {
+          navbar.classList.remove('shadow-sm');
+        }
+      });
+    </script>
+  </body>
+</html>
