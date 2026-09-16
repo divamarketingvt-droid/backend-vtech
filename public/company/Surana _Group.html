@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Background Verification for Surana Group — Verifitech</title>
+    <meta name="description" content="Verifitech helps Surana Group strengthen hiring decisions with comprehensive employee background verification designed for copper manufacturing, solar EPC, and industrial engineering roles."/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* ================= FOUNDATION ================= */
+        :root{
+            /* Surana / Verifitech Theme Colors */
+            --primary: #0FB0A8; 
+            --primary-dark: #0A968F; 
+            --primary-dd: #087E78;
+            --teal: #0FB0A8; 
+            --teal-d: #0A968F; 
+            --teal-dd: #087E78;
+            --teal-l: #E0F6F4; 
+            --teal-xl: #F0FBFA;
+            --navy: #0F1C2B; 
+            --navy-2: #16283A; 
+            --nline:rgba(255,255,255,.09);
+            --ink: #0F1B2A; 
+            --body: #5C6B7A; 
+            --muted: #8A97A5;
+            --line: #E6EBF1; 
+            --soft: #F4F7F9;
+            --sh-sm:0 1px 2px rgba(15,27,42,.05);
+            --sh:0 14px 34px -14px rgba(15,27,42,.16);
+            --r:16px;
+            --sans:'Inter',system-ui,sans-serif; 
+            --disp:'Plus Jakarta Sans',var(--sans);
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;scroll-padding-top:90px}
+        body{font:400 16px/1.65 var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        ::selection{background:var(--teal);color:#fff}
+        :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+        img,svg{display:block}
+        .container{width:min(1160px,92vw);margin-inline:auto}
+        h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em}
+        .tealt{color:var(--teal-d)}
+
+        /* reveal animation */
+        .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+        .reveal.in{opacity:1;transform:none}
+        .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+        /* pills & buttons */
+        .pill{display:inline-flex;align-items:center;gap:9px;background:var(--teal-l);color:var(--teal-dd);
+            font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+        .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none}
+        .pill.dark{background:rgba(15,176,168,.16);color:#7BE0DA}
+        .btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;text-decoration:none;
+            font:600 15px var(--sans);padding:15px 28px;border-radius:999px;background:var(--teal);color:#fff;
+            box-shadow:0 10px 22px -10px rgba(15,176,168,.65);transition:all .22s}
+        .btn svg{width:17px;height:17px;transition:transform .22s}
+        .btn:hover{background:var(--teal-d);transform:translateY(-2px)}
+        .btn:hover svg{transform:translateX(3px)}
+        .btn:disabled{opacity:.6;cursor:wait;transform:none}
+        .btn.sm{padding:11px 20px;font-size:14px}
+        .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+        .btn.ghost:hover{border-color:var(--teal);color:var(--teal-d)}
+        .btn.on-dark{background:transparent;border:1px solid var(--nline);box-shadow:none;color:#fff}
+        .btn.on-dark:hover{background:var(--teal);border-color:var(--teal)}
+
+        /* section scaffold */
+        .section{padding:96px 0}
+        .sec-head{max-width:800px;margin:0 auto 54px;text-align:center}
+        .sec-head.left{margin:0;text-align:left}
+        .sec-head h2{font:800 clamp(1.85rem,3.4vw,2.65rem)/1.16 var(--disp);color:var(--ink);margin-top:20px}
+        .sec-head p{margin-top:16px;color:var(--body);font-size:16.5px}
+        .soft{background:var(--soft)}
+
+        /* ============================================
+           NAVBAR & NAVIGATION STYLES
+           ============================================ */
+        .navbar {
+            padding: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 80px;
+            z-index: 1000;
+        }
+        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08); }
+        .navbar-collapse {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        @media (min-width: 992px) {
+            .navbar-collapse { background: transparent; backdrop-filter: none; padding: 0; margin-top: 0; box-shadow: none; }
+        }
+        .btn-support {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%; color: var(--ink, #333);
+            background: transparent; border: 1px solid rgba(0,0,0,0.15); transition: all 0.3s ease; font-size: 1.15rem; text-decoration: none;
+        }
+        .btn-support:hover { color: #fff; background: var(--primary, #0FB0A8); border-color: var(--primary, #0FB0A8); }
+        .navbar-brand {
+            font-weight: 800; font-size: 1.8rem; color: var(--dark);
+            letter-spacing: -0.5px; display: flex; flex-direction: column; line-height: 1.1; transition: color 0.3s;
+        }
+        .navbar-brand img { height: 60px; width: auto; object-fit: contain; display: block; }
+        .navbar-brand span { color: var(--primary); }
+        .brand-tagline { font-size: 0.65rem; font-weight: 500; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+        .nav-link {
+            font-weight: 600; color: var(--navy); margin: 0 0.6rem; position: relative;
+            font-size: 0.9rem; transition: all 0.3s ease; padding: 2rem 0.5rem !important; display: flex; align-items: center; gap: 4px;
+        }
+        .nav-link:hover { color: var(--primary); }
+        .dropdown-menu {
+            border: none; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border-radius: 12px;
+            padding: 1rem; margin-top: 0.5rem; min-width: 280px; border-top: 3px solid var(--primary); transition: all 0.3s ease;
+        }
+        .dropdown-menu.mega-menu { min-width: 600px; padding: 1.5rem; }
+        .dropdown-item {
+            padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
+            color: var(--navy); transition: all 0.3s ease; display: flex; align-items: center; gap: 10px;
+        }
+        .dropdown-item:hover { background: var(--teal-l); color: var(--primary); transform: translateX(5px); }
+        .dropdown-item i { font-size: 1.1rem; color: var(--primary); transition: color 0.3s; }
+        .dropdown-header {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--primary); margin-bottom: 0.5rem; padding: 0.5rem 1rem;
+        }
+        .btn-primary-custom {
+            background: var(--primary) !important; color: white !important; border: none;
+            padding: 0.75rem 1.8rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(15, 176, 168, 0.35); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+        }
+        .btn-primary-custom:hover {
+            background: var(--primary-dark) !important; transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(15, 176, 168, 0.45); color: white !important;
+        }
+        .country-selector {
+            display: flex; align-items: center; gap: 6px; padding: 0.5rem; border-radius: 6px;
+            border: 1px solid #e2e8f0; font-size: 0.85rem; font-weight: 600; color: var(--navy);
+            cursor: pointer; transition: all 0.3s ease; margin-left: 1rem;
+        }
+        .country-selector:hover { border-color: var(--primary); color: var(--primary); }
+        .country-selector.dropdown-toggle::after { display: none !important; }
+        .country-flag { font-size: 1.2rem; }
+
+        /* ================= HERO ================= */
+        .hero{position:relative;overflow:hidden;padding:100px 0 110px;
+            background:radial-gradient(1000px 560px at 88% -12%,#C9F1EA 0%,rgba(201,241,234,0) 62%),
+                       radial-gradient(760px 520px at -8% 112%,#E2F8F4 0%,rgba(226,248,244,0) 55%),
+                       linear-gradient(180deg,#FBFEFE,#F3FBF9)}
+        .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+            background-image:linear-gradient(rgba(15,176,168,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(15,176,168,.05) 1px,transparent 1px);
+            background-size:46px 46px;
+            -webkit-mask-image:radial-gradient(720px 420px at 72% 28%,#000,transparent);
+            mask-image:radial-gradient(720px 420px at 72% 28%,#000,transparent)}
+        .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+        .hero .pill{margin-bottom:26px}
+        .hero h1{font:800 clamp(2.15rem,4.5vw,3.55rem)/1.1 var(--disp);color:var(--ink)}
+        .hero h1 .hl{color:var(--teal)}
+        .hero-sub{margin-top:24px;color:var(--body);font-size:17px;max-width:560px}
+        .hero-sub strong{color:var(--ink);font-weight:600}
+        .hero-cta{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
+        .cta-note{margin-top:14px;font-size:13.5px;color:var(--muted)}
+        .hero-tag{margin-top:30px;display:flex;align-items:center;gap:10px;font:700 16px var(--disp)}
+        .hero-tag svg{width:20px;height:20px;color:var(--teal)}
+        .hero-meta{display:flex;gap:0;margin-top:22px;border-top:1px solid rgba(15,27,42,.08);padding-top:20px;max-width:520px}
+        .hero-meta div{flex:1}
+        .hero-meta div + div{border-left:1px solid rgba(15,27,42,.08);padding-left:22px}
+        .hero-meta b{display:block;font:800 22px var(--disp);color:var(--ink)}
+        .hero-meta span{font:600 12px var(--sans);color:var(--muted)}
+
+        /* floating widgets */
+        .hero-visual{position:relative;min-height:520px}
+        .dots{position:absolute;width:190px;height:190px;background-image:radial-gradient(#AFDED8 2px,transparent 2.4px);background-size:19px 19px;right:-10px;top:38%;opacity:.8;border-radius:20px}
+        .wg{position:absolute;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:18px;animation:float 6s ease-in-out infinite alternate}
+        @keyframes float{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+        .wg-live{width:310px;top:0;right:6px;z-index:2}
+        .wg-head{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+        .wg-head b{font:700 14px var(--disp);color:var(--ink)}
+        .wg-head small{font:700 9.5px var(--sans);letter-spacing:.12em;color:var(--muted)}
+        .wg-live-tag{margin-left:auto;font:700 10px var(--sans);letter-spacing:.08em;color:var(--teal-dd);background:var(--teal-l);padding:4px 9px;border-radius:999px;display:flex;align-items:center;gap:6px}
+        .wg-live-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 1.4s infinite}
+        @keyframes pulse{50%{opacity:.25}}
+        .vrow{display:flex;align-items:center;gap:11px;padding:9px 0}
+        .vrow + .vrow{border-top:1px solid var(--line)}
+        .avt{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:700 11.5px var(--sans);flex:none}
+        .avt.t{background:var(--teal-l);color:var(--teal-dd)}
+        .avt.a{background:#FEF3C7;color:#B45309}
+        .avt.b{background:#DBEAFE;color:#1D4ED8}
+        .vrow .vn{font:600 13.5px var(--sans);color:var(--ink);line-height:1.3}
+        .vrow .vs{font:500 11.5px var(--sans);color:var(--muted)}
+        .vrow .vic{margin-left:auto}
+        .vrow .vic svg{width:19px;height:19px}
+        .ic-ok{color:var(--teal)}.ic-wait{color:#F59E0B}
+        .wg-dossier{width:255px;left:0;top:180px;animation-delay:1.2s}
+        .wg-ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#19C2B6,#0B948D);display:grid;place-items:center;margin-bottom:13px}
+        .wg-ic svg{width:23px;height:23px;color:#fff}
+        .wg-dossier b{font:700 15px var(--disp);display:block}
+        .wg-dossier small{font:500 12px var(--sans);color:var(--muted);display:block;margin-top:2px}
+        .prog{height:7px;border-radius:99px;background:var(--soft);margin-top:13px;overflow:hidden}
+        .prog span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#19C2B6,#0B948D);animation:fill 1.6s cubic-bezier(.3,.8,.3,1) .8s forwards}
+        @keyframes fill{to{width:100%}}
+        .wg-global{width:280px;right:20px;bottom:0;animation-delay:2.1s}
+        .wg-global .gnum{display:flex;align-items:baseline;gap:8px}
+        .wg-global .gnum b{font:800 26px var(--disp);color:var(--ink)}
+        .wg-global .gnum span{font:600 11.5px var(--sans);color:var(--muted)}
+        .gloc{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font:600 12px var(--sans);color:#4B5A69}
+        .gloc + .gloc{border-top:1px solid var(--line)}
+        .gloc em{font:700 10px var(--sans);font-style:normal;letter-spacing:.08em;color:var(--teal-dd);background:var(--teal-l);padding:3px 8px;border-radius:999px}
+        @media(max-width:1024px){
+            .hero-grid{grid-template-columns:1fr}
+            .hero-visual{min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+            .dots{display:none}
+            .wg{position:static;animation:none;width:auto}
+            .wg-live{grid-column:1/-1}
+        }
+        @media(max-width:560px){.hero-visual{grid-template-columns:1fr}}
+
+        /* ================= TRUST STRIP ================= */
+        .trust{padding:44px 0 40px;border-bottom:1px solid var(--line)}
+        .trust-cap{text-align:center;font:700 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+        .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 38px}
+        .tbadge{display:flex;align-items:center;gap:9px;font:700 14px var(--disp);color:#7C8A99;transition:color .2s}
+        .tbadge svg{width:18px;height:18px;color:#9AA8B5;transition:color .2s}
+        .tbadge:hover{color:var(--teal-dd)}
+        .tbadge:hover svg{color:var(--teal)}
+
+        /* ================= SEC 01 · RISK CASCADE ================= */
+        .chain{display:flex;align-items:stretch;gap:8px;margin-top:48px}
+        .cnode{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 14px;text-align:center;transition:.25s}
+        .cnode .cico{width:46px;height:46px;border-radius:50%;background:var(--teal-l);display:grid;place-items:center;margin:0 auto 12px;transition:.25s}
+        .cnode .cico svg{width:21px;height:21px;color:var(--teal-d)}
+        .cnode b{font:700 14px var(--disp);color:var(--ink);display:block}
+        .cnode small{font:500 11.5px var(--sans);color:var(--muted);display:block;margin-top:3px}
+        .cnode:hover{transform:translateY(-4px);border-color:var(--teal);box-shadow:var(--sh)}
+        .carr{align-self:center;flex:none;color:#9ADFD8}
+        .carr svg{width:22px;height:22px}
+        @media(max-width:900px){.chain{flex-direction:column;max-width:420px;margin-inline:auto}.carr{transform:rotate(90deg);align-self:center}}
+        .risk-call{max-width:920px;margin:46px auto 0;background:var(--teal-xl);border:1px solid #C8ECE7;border-radius:var(--r);padding:32px 38px;text-align:center}
+        .risk-call p{color:var(--body);font-size:16px}
+        .risk-call strong{display:block;margin-top:14px;font:700 19px var(--disp);color:var(--teal-dd)}
+
+        /* ================= SEC 02 · WORKFORCE ================= */
+        .wf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .wf-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 28px;text-align:center;transition:all .25s}
+        .wf-card:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:transparent}
+        .wf-ic{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px}
+        .wf-ic svg{width:24px;height:24px}
+        .wf-card h3{font:700 17.5px var(--disp);color:var(--ink)}
+        .wf-card p{font-size:14px;color:var(--body);margin-top:9px}
+        .bg-teal{background:var(--teal-l);color:var(--teal-dd)}
+        .bg-amber{background:#FEF3C7;color:#B45309}
+        .bg-blue{background:#DBEAFE;color:#1D4ED8}
+        .bg-purple{background:#EDE9FE;color:#6D28D9}
+        .bg-green{background:#D1FAE5;color:#047857}
+        .bg-indigo{background:#E0E7FF;color:#4338ca}
+
+        /* ================= SEC 03 · CHECKS ================= */
+        .ck-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+        .ck-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;transition:all .25s}
+        .ck-card:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+        .ck-ic{width:48px;height:48px;border-radius:13px;background:var(--teal-l);display:grid;place-items:center;margin-bottom:18px}
+        .ck-ic svg{width:22px;height:22px;color:var(--teal-d)}
+        .ck-card h3{font:700 16.5px var(--disp);color:var(--ink)}
+        .ck-card p{font-size:13.8px;color:var(--body);margin-top:8px}
+        
+        /* ================= SEC 04 · LOCATIONS (WHY US) ================= */
+        .loc-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+        .loc-note{margin-top:18px;display:flex;align-items:flex-start;gap:12px;background:var(--teal-xl);border:1px solid #C8ECE7;border-radius:14px;padding:15px 17px;max-width:470px}
+        .loc-note svg{width:18px;height:18px;color:var(--teal);flex:none;margin-top:2px}
+        .loc-note small{display:block;font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+        .loc-note b{font:700 14.5px var(--sans);color:var(--ink)}
+        .loc-note span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+        .rx{background:radial-gradient(480px 200px at 85% -20%,rgba(15,176,168,.28),transparent 70%),var(--navy);border-radius:20px;padding:30px;color:#fff;position:sticky;top:104px}
+        .rx-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+        .rx-head svg{width:21px;height:21px;color:#2ED3C6}
+        .rx-head b{font:700 17px var(--disp)}
+        .rx-live{margin-left:auto;font:700 10px var(--sans);letter-spacing:.1em;color:#7BE0DA;background:rgba(15,176,168,.16);padding:5px 11px;border-radius:999px;display:flex;align-items:center;gap:6px}
+        .rx-live::before{content:"";width:6px;height:6px;border-radius:50%;background:#2ED3C6;animation:pulse 1.4s infinite}
+        .rx-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 0;border-top:1px solid var(--nline)}
+        .rx-row:first-of-type{border-top:0}
+        .rx-row small{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+        .rx-row b{font:600 14.5px var(--sans);text-align:right}
+        .rx-foot{margin-top:8px;font:500 13px var(--sans);color:rgba(255,255,255,.55)}
+        
+        /* ================= SEC 05 · PROCESS FLOW ================= */
+        .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:60px}
+        .fstep{text-align:center;position:relative;padding:0 8px}
+        .fstep::after{content:"";position:absolute;top:26px;left:calc(50% + 36px);width:calc(100% - 72px);border-top:2px dashed #B5E5E0}
+        .fstep:last-child::after{display:none}
+        .fnum{width:52px;height:52px;border-radius:50%;border:2px solid var(--teal);color:var(--teal-d);background:#fff;font:800 17px var(--disp);display:grid;place-items:center;margin:0 auto 16px;position:relative;z-index:1}
+        .fstep h3{font:700 17px var(--disp)}
+        .fstep p{font-size:14px;color:var(--body);max-width:250px;margin:8px auto 0}
+        .flow-close{text-align:center;margin-top:60px;font:700 clamp(1.25rem,2.6vw,1.9rem) var(--disp);color:var(--ink)}
+        .flow-close em{font-style:normal;color:var(--teal-d);border-bottom:3px solid var(--teal-l)}
+        @media(max-width:1024px){.flow{grid-template-columns:1fr 1fr;row-gap:38px}.fstep:nth-child(2)::after{display:none}}
+        @media(max-width:640px){.flow{grid-template-columns:1fr}.fstep::after{display:none}.fstep p{max-width:320px}}
+
+        /* ================= SEC · DEMO (DARK) ================= */
+        .demo{position:relative;overflow:hidden;background:radial-gradient(900px 480px at 90% -10%,rgba(15,176,168,.28) 0%,transparent 60%),var(--navy)}
+        .demo-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
+        .demo .sec-head.left h2{color:#fff}
+        .demo .sec-head.left p{color:rgba(255,255,255,.65)}
+        .demo-quote{margin-top:30px;border-left:3px solid #2ED3C6;padding-left:22px;font:600 clamp(1.15rem,2vw,1.4rem)/1.45 var(--disp);color:#fff}
+        .demo-quote em{color:#7BE0DA;font-style:normal}
+        .expect{list-style:none;margin-top:32px}
+        .expect li{display:flex;gap:13px;padding:13px 0;align-items:flex-start;font-size:15.5px;color:rgba(255,255,255,.75)}
+        .expect .ck{width:26px;height:26px;border-radius:50%;background:rgba(15,176,168,.18);display:grid;place-items:center;flex:none;margin-top:1px}
+        .expect .ck svg{width:13px;height:13px;color:#2ED3C6}
+        .form-card{background:#fff;border-radius:20px;box-shadow:0 30px 60px -20px rgba(0,0,0,.4);padding:32px}
+        .form-card h3{font:700 19px var(--disp);margin-bottom:4px}
+        .form-card .fsub{font-size:13.5px;color:var(--muted);margin-bottom:24px}
+        .field{margin-bottom:18px}
+        .field label{display:block;font:700 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:#54616F;margin-bottom:8px}
+        .field input{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font:500 15px var(--sans);color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s}
+        .field input::placeholder{color:#AAB6C2}
+        .field input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(15,176,168,.13)}
+        .emsg{display:none;font:500 12px var(--sans);color:#DC5A3A;margin-top:6px}
+        .field.err input{border-color:#DC5A3A}
+        .field.err .emsg{display:block}
+        .f-chips{display:flex;flex-wrap:wrap;gap:8px}
+        .f-chip{font:600 12.5px var(--sans);border:1px solid var(--line);background:#fff;color:#5C6B7A;padding:9px 15px;border-radius:999px;cursor:pointer;transition:all .2s}
+        .f-chip:hover{border-color:var(--teal);color:var(--teal-d)}
+        .f-chip.sel{background:var(--teal-l);border-color:transparent;color:var(--teal-dd);font-weight:700}
+        .f-submit{width:100%;justify-content:center;margin-top:6px}
+        .f-fine{text-align:center;font-size:12.5px;color:var(--muted);margin-top:14px}
+        .form-done{display:none;text-align:center;padding:26px 6px 10px}
+        .form-done.show{display:block}
+        .okmark{width:76px;margin:0 auto 20px}
+        .okmark circle{stroke-dasharray:152;stroke-dashoffset:152}
+        .okmark path{stroke-dasharray:40;stroke-dashoffset:40}
+        .form-done.play circle{animation:draw .7s ease-out forwards}
+        .form-done.play path{animation:draw .45s ease-out .55s forwards}
+        @keyframes draw{to{stroke-dashoffset:0}}
+        .form-done h3{font:800 24px var(--disp)}
+        .form-done p{font-size:14.5px;color:var(--body);margin-top:10px}
+        .form-done .ref{display:inline-block;margin-top:14px;font:700 13px var(--sans);color:var(--teal-dd);background:var(--teal-l);padding:8px 16px;border-radius:999px}
+
+        /* ================= FOOTER ================= */
+        footer{border-top:1px solid var(--line);padding:66px 0 28px;background:#fff}
+        .f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.15fr;gap:44px}
+        .f-brand p{font-size:13.5px;color:var(--body);margin-top:16px;max-width:300px}
+        .f-note{display:inline-block;margin-top:16px;font:700 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dd);background:var(--teal-l);padding:7px 12px;border-radius:8px}
+        .f-col h4{font:700 13px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:18px}
+        .f-col a{display:block;font:500 14px var(--sans);color:var(--body);text-decoration:none;padding:6px 0;transition:color .2s}
+        .f-col a:hover{color:var(--teal-d)}
+        .f-bot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:52px;padding-top:24px}
+        .f-bot small{font:500 12.5px var(--sans);color:var(--muted)}
+        .socials{display:flex;gap:10px}
+        .socials a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:#7C8A99;transition:all .2s}
+        .socials a:hover{border-color:var(--teal);color:var(--teal-d);transform:translateY(-2px)}
+        .socials svg{width:16px;height:16px}
+
+        /* ================= RESPONSIVE ================= */
+        @media(max-width:1024px){
+            .loc-grid,.demo-grid{grid-template-columns:1fr;gap:44px}
+            .rx{position:static}
+            .wf-grid,.ck-grid{grid-template-columns:1fr 1fr}
+            .ck-cta{grid-column:span 2}
+        }
+        @media(max-width:820px){.section{padding:72px 0}}
+        @media(max-width:640px){
+            .wf-grid,.ck-grid{grid-template-columns:1fr}
+            .ck-cta{grid-column:auto;flex-direction:column;align-items:flex-start}
+            .bene{grid-template-columns:1fr}
+            .hero{padding:76px 0 80px}
+            .risk-call{padding:26px 22px}
+            .f-grid{grid-template-columns:1fr 1fr}
+            .f-brand{grid-column:1/-1}
+        }
+        @media(prefers-reduced-motion:reduce){
+            *,*::before,**after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+            html{scroll-behavior:auto}
+            .reveal{opacity:1;transform:none}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==========================================
+     NEW BOOTSTRAP NAVIGATION
+     ========================================== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+        alt="Verifitech"
+        width="200px"
+        height="90%"
+      />
+    </a>
+
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
+          <div class="dropdown-menu mega-menu">
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="dropdown-header">Verification Services</h6>
+                <a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
+              </div>
+              <div class="col-md-6">
+                <h6 class="dropdown-header">Specialized Checks</h6>
+                <a href="#" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
+                <a href="#" class="dropdown-item"><i class="bi bi-shield-check"></i> Police Clearance</a>
+                <a href="#" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Industries</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Company</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="btn btn-primary-custom">Login</a>
+        <div class="dropdown">
+          <div class="country-selector dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="country-flag" id="current-flag">🇮🇳</span>
+            <span id="current-country">India</span>
+            <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
+            <li><a href="#" class="dropdown-item"><span class="country-flag">🇺🇸</span> USA</a></li>
+            <li><a href="#" class="dropdown-item"><span class="country-flag">🇦🇪</span> UAE</a></li>
+            <li><a href="#" class="dropdown-item"><span class="country-flag">🇬🇧</span> UK</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill reveal">Prepared exclusively for Surana Group</span>
+      <h1 class="reveal d1">As Surana Group Expands Its <span class="hl">Industrial & Energy</span> Operations, Verify the People Behind Growth.</h1>
+      <p class="hero-sub reveal d2">Copper Manufacturing. Renewable Energy. Telecom. Multiple Operations. One Workforce You Can Trust. Surana Group is entering a significant phase of expansion—and the workforce supporting that growth is becoming increasingly specialized.</p>
+      <div class="hero-cta reveal d3">
+        <a href="#demo" class="btn">Build My Verification Plan <i data-lucide="arrow-right"></i></a>
+        <a href="#why-verify" class="btn ghost">Learn More <i data-lucide="arrow-down"></i></a>
+      </div>
+      <p class="cta-note reveal d3">Your Business Is Expanding. Your Hiring Verification Should Scale With It.</p>
+      <p class="hero-tag reveal d4"><i data-lucide="shield-check"></i> Verify First. Build Trust.</p>
+      <div class="hero-meta reveal d4">
+        <div><b>Scaling</b><span>Operations</span></div>
+        <div><b>6+</b><span>Key Functions</span></div>
+        <div><b>Role-Based</b><span>Checks</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal d2" aria-label="Live verification dashboard preview">
+      <div class="dots" aria-hidden="true"></div>
+      <div class="wg wg-live">
+        <div class="wg-head"><b>Live Verifications</b><small>WIDGET</small><span class="wg-live-tag">Live</span></div>
+        <div class="vrow"><span class="avt t">RR</span><span><span class="vn">R. Reddy</span><br><span class="vs">Metallurgy · Education</span></span><span class="vic ic-ok"><i data-lucide="check-circle-2"></i></span></div>
+        <div class="vrow"><span class="avt a">SK</span><span><span class="vn">S. Kumar</span><br><span class="vs">Solar EPC · Employment</span></span><span class="vic ic-wait"><i data-lucide="clock"></i></span></div>
+        <div class="vrow"><span class="avt b">PV</span><span><span class="vn">P. Verma</span><br><span class="vs">Quality · Documents</span></span><span class="vic ic-ok"><i data-lucide="check-circle-2"></i></span></div>
+      </div>
+      <div class="wg wg-dossier">
+        <div class="wg-ic"><i data-lucide="shield-check"></i></div>
+        <b>Dossier Verified</b>
+        <small>4-point check · Candidate SUR-102</small>
+        <div class="prog"><span></span></div>
+      </div>
+      <div class="wg wg-global">
+        <div class="gnum"><b>SURANA</b><span>Group</span></div>
+        <div style="margin-top:10px">
+          <div class="gloc"><span>Copper Mfg.</span><em>Active</em></div>
+          <div class="gloc"><span>Solar EPC</span><em>Active</em></div>
+          <div class="gloc"><span>Tupran Plant</span><em>Active</em></div>
+          <div class="gloc"><span>Telecom</span><em>Active</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="container">
+    <p class="trust-cap">Certified. Compliant. Trusted at scale.</p>
+    <div class="trust-row">
+      <span class="tbadge"><i data-lucide="shield-check"></i>ISO 27001:2022</span>
+      <span class="tbadge"><i data-lucide="lock"></i>SOC 2 Type II</span>
+      <span class="tbadge"><i data-lucide="badge-check"></i>GDPR Ready</span>
+      <span class="tbadge"><i data-lucide="award"></i>NASSCOM Member</span>
+      <span class="tbadge"><i data-lucide="database"></i>19,000+ HR DB Companies</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SEC 01 · WHY VERIFY / RISK CASCADE ============ -->
+<section class="section" id="why-verify">
+  <div class="container">
+    <div class="sec-head">
+      <span class="pill reveal">The Risk</span>
+      <h2 class="reveal d1">When You're Scaling Manufacturing & Engineering Teams, Every Hiring Decision Carries More Weight.</h2>
+      <p class="reveal d2">Surana Group's growth depends on people operating across manufacturing plants, quality functions, engineering projects, industrial sales and renewable energy operations. <strong class="tealt">One verification approach may not fit every role.</strong></p>
+    </div>
+
+    <div class="chain reveal" aria-label="Business impact cascade">
+      <div class="cnode"><span class="cico"><i data-lucide="alert-circle"></i></span><b>Wrong Credentials</b><small>Resume claims</small></div>
+      <span class="carr"><i data-lucide="chevrons-right"></i></span>
+      <div class="cnode"><span class="cico"><i data-lucide="user-x"></i></span><b>Wrong Hiring</b><small>Bad fit</small></div>
+      <span class="carr"><i data-lucide="chevrons-right"></i></span>
+      <div class="cnode"><span class="cico"><i data-lucide="trending-down"></i></span><b>Operational Impact</b><small>Quality suffers</small></div>
+    </div>
+
+    <div class="risk-call reveal">
+      <p>Don't verify every candidate the same way. Verify according to the role. Your verification process should reflect that.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 02 · WORKFORCE ROLES ============ -->
+<section class="section soft" id="roles">
+  <div class="container">
+    <div class="sec-head">
+      <span class="pill reveal">Built Around Surana</span>
+      <h2 class="reveal d1">Built Around Surana Group's Hiring Environment.</h2>
+      <p class="reveal d2">Your HR team may be hiring for metallurgy, plant operations, quality, solar EPC, industrial sales or leadership. Each carries different hiring considerations.</p>
+    </div>
+    <div class="wf-grid">
+      <div class="wf-card reveal"><span class="wf-ic bg-teal"><i data-lucide="flask-conical"></i></span><h3>Metallurgy & Plant Ops</h3><p>Professionals supporting copper melting, casting, processing and manufacturing operations.</p></div>
+      <div class="wf-card reveal d1"><span class="wf-ic bg-blue"><i data-lucide="shield-check"></i></span><h3>Quality & ISO Compliance</h3><p>Candidates responsible for quality control, process standards and compliance-related activities.</p></div>
+      <div class="wf-card reveal d2"><span class="wf-ic bg-amber"><i data-lucide="cog"></i></span><h3>Industrial Engineering</h3><p>Technical professionals supporting plant efficiency, automation, production and operational improvement.</p></div>
+      <div class="wf-card reveal"><span class="wf-ic bg-indigo"><i data-lucide="sun"></i></span><h3>Solar EPC Engineering</h3><p>Engineers and project professionals supporting utility-scale solar execution across project locations.</p></div>
+      <div class="wf-card reveal d1"><span class="wf-ic bg-purple"><i data-lucide="briefcase"></i></span><h3>Industrial Sales</h3><p>Professionals managing relationships with industrial OEMs and customers across infrastructure and energy markets.</p></div>
+      <div class="wf-card reveal d2" style="background:var(--teal-xl);border-color:#C8ECE7"><span class="wf-ic bg-teal"><i data-lucide="users"></i></span><h3>Plant & Leadership</h3><p>Professionals responsible for plant, project and business operations across the Group.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 03 · CHECKS TABLE ============ -->
+<section class="section" id="checks">
+  <div class="container">
+    <div class="sec-head">
+      <span class="pill reveal">Role-Based Verification</span>
+      <h2 class="reveal d1">The objective isn't to verify more. It's to verify what matters for the role.</h2>
+      <p class="reveal d2">A metallurgical technician does not necessarily require the same verification approach as a solar EPC engineer.</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table align-middle border border-light shadow-sm" style="border-radius: 12px; overflow:hidden;">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col" style="font-weight: 700; font-family: var(--disp); color: var(--ink);">Surana Group Hiring Area</th>
+                    <th scope="col" style="font-weight: 700; font-family: var(--disp); color: var(--ink);">Verification Focus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 18px;">Metallurgy / Plant Operations</td>
+                    <td style="padding: 18px; color: var(--body);">Education + Employment + References + Documents</td>
+                </tr>
+                <tr class="table-light">
+                    <td style="padding: 18px;">Quality / ISO Compliance</td>
+                    <td style="padding: 18px; color: var(--body);">Education + Employment + References + Documents</td>
+                </tr>
+                <tr>
+                    <td style="padding: 18px;">Industrial Engineering</td>
+                    <td style="padding: 18px; color: var(--body);">Education + Employment + References</td>
+                </tr>
+                <tr class="table-light">
+                    <td style="padding: 18px;">Solar EPC Engineering</td>
+                    <td style="padding: 18px; color: var(--body);">Education + Employment + Address + References</td>
+                </tr>
+                <tr>
+                    <td style="padding: 18px;">Industrial Sales</td>
+                    <td style="padding: 18px; color: var(--body);">Employment + Education + References</td>
+                </tr>
+                <tr class="table-light">
+                    <td style="padding: 18px;">Plant Operations Leadership</td>
+                    <td style="padding: 18px; color: var(--body);">Employment + Education + References + Address</td>
+                </tr>
+                <tr>
+                    <td style="padding: 18px;">Corporate / Critical Roles</td>
+                    <td style="padding: 18px; color: var(--body);">Employment + Education + References + Documents</td>
+                </tr>
+                <tr class="table-light">
+                    <td style="padding: 18px;">Project / Field Workforce</td>
+                    <td style="padding: 18px; color: var(--body);">Role-appropriate background checks</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 04 · WHY VERIFITECH (LOCATIONS STYLE) ============ -->
+<section class="section" id="why-us">
+  <div class="container">
+    <div class="loc-grid">
+      <div>
+        <div class="sec-head left" style="margin-bottom:0">
+          <span class="pill reveal">Why Verifitech?</span>
+          <h2 class="reveal d1">Why This Matters for Surana Group Right Now.</h2>
+          <p class="reveal d2">Growth Across Multiple Businesses Creates a More Complex Talent Environment. Verify the people behind industrial growth.</p>
+        </div>
+        
+        <div class="mt-4 reveal d2">
+            <ul class="expect" style="color: var(--body);">
+                <li style="padding: 6px 0;"><span style="color:var(--teal-d); font-weight:600;">45,000 MT Copper Expansion:</span> Scaling operations at Tupran.</li>
+                <li style="padding: 6px 0;"><span style="color:var(--teal-d); font-weight:600;">₹5,000 Crore Roadmap:</span> Ambitious growth requiring scalable HR processes.</li>
+                <li style="padding: 6px 0;"><span style="color:var(--teal-d); font-weight:600;">Tieramet Demerger:</span> Organizational transformation requires new hiring strategies.</li>
+                <li style="padding: 6px 0;"><span style="color:var(--teal-d); font-weight:600;">Solar EPC Expansion:</span> Executing larger renewable energy projects.</li>
+                <li style="padding: 6px 0;"><span style="color:var(--teal-d); font-weight:600;">Emerging Infrastructure:</span> Demand for EV, AI Data Centers, and Power Grid components.</li>
+            </ul>
+        </div>
+      </div>
+
+      <aside class="rx reveal d2">
+        <div class="rx-head"><i data-lucide="shield-check"></i><b>Benefits</b><span class="rx-live">Standard</span></div>
+        <div class="rx-row"><small>Scale</small><b>Grows with you</b></div>
+        <div class="rx-row"><small>Accuracy</small><b>Validated Data</b></div>
+        <div class="rx-row"><small>Speed</small><b>Fast Turnaround</b></div>
+        <div class="rx-row"><small>Compliance</small><b>Audit Ready</b></div>
+        <div class="rx-foot">Designed for HR Teams Managing Manufacturing & Project Talent.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 05 · PROCESS FLOW ================= -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="sec-head">
+      <span class="pill reveal">Designed for HR Teams</span>
+      <h2 class="reveal d1">From Candidate Submission to Verification Results.</h2>
+      <p class="reveal d2">A structured process for a growing industrial workforce.</p>
+    </div>
+    <div class="flow">
+        <div class="fstep"><div class="fnum">01</div><h3>Identify Role</h3><p>Define the position and verification checks relevant to the hiring requirement.</p></div>
+        <div class="fstep"><div class="fnum">02</div><h3>Submit Details</h3><p>Provide the required candidate information through the verification workflow.</p></div>
+        <div class="fstep"><div class="fnum">03</div><h3>Run Checks</h3><p>Verifitech conducts the selected verification checks.</p></div>
+        <div class="fstep"><div class="fnum">04</div><h3>Make Decision</h3><p>Review structured findings and make informed decisions.</p></div>
+    </div>
+    <div class="flow-close reveal d2">
+        Your Recruiters Evaluate the Candidate.<br>Let Verification Validate the Information.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC · DEMO (DARK) ================= -->
+<section class="demo" id="demo">
+  <div class="container demo-grid">
+    <div>
+      <div class="sec-head left" style="margin-bottom:0">
+        <span class="pill reveal" style="color:var(--ink);background:#fff">Get Started</span>
+        <h2 class="reveal d1">Let's Build the Right Verification Approach for Surana Group.</h2>
+        <p class="reveal d2">Tell us your hiring function and we'll help identify the verification checks most relevant to your roles.</p>
+      </div>
+      <div class="demo-quote reveal d2">
+        "Verify the People Behind Industrial Growth. Because when capacity expands, projects grow and operations become more complex—the people driving them matter even more."
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <div id="form-content">
+        <h3>Build My Verification Plan</h3>
+        <p class="fsub">Our team will use these details to understand your hiring and verification requirements and recommend an appropriate approach.</p>
+        
+        <form id="hire-form" onsubmit="return false;">
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" required>
+                <div class="emsg">Please enter your name</div>
+            </div>
+            <div class="field">
+                <label>Work Email</label>
+                <input type="email" placeholder="Enter your business email" required>
+                <div class="emsg">Please enter a valid business email</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="field">
+                        <label>Job Title</label>
+                        <input type="text" placeholder="e.g. HR Manager" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="field">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="Enter phone number" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label>Primary Hiring Function</label>
+                <div class="f-chips" id="hiring-func">
+                    <span class="f-chip" onclick="selChip(this)">Plant Operations</span>
+                    <span class="f-chip" onclick="selChip(this)">Quality & ISO</span>
+                    <span class="f-chip" onclick="selChip(this)">Metallurgy</span>
+                    <span class="f-chip" onclick="selChip(this)">Engineering</span>
+                    <span class="f-chip" onclick="selChip(this)">Solar EPC</span>
+                    <span class="f-chip" onclick="selChip(this)">Industrial Sales</span>
+                    <span class="f-chip" onclick="selChip(this)">Corporate</span>
+                </div>
+            </div>
+
+            <div class="row">
+                 <div class="col-md-6">
+                    <div class="field">
+                        <label>Workforce Type</label>
+                        <select style="width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--ink);background:#fff;">
+                            <option>Permanent</option>
+                            <option>Contract</option>
+                            <option>Both</option>
+                        </select>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="field">
+                        <label>Hiring Geography</label>
+                        <select style="width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--ink);background:#fff;">
+                            <option>Hyderabad</option>
+                            <option>Tupran</option>
+                            <option>Telangana</option>
+                            <option>Project Locations</option>
+                            <option>Multiple Locations</option>
+                        </select>
+                    </div>
+                 </div>
+            </div>
+
+            <button class="btn f-submit" onclick="submitForm()">Build My Verification Plan</button>
+            <p class="f-fine">By submitting, you agree to our processing of your personal data.</p>
+        </form>
+      </div>
+
+      <div class="form-done" id="form-done">
+        <svg class="okmark" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="38" cy="38" r="36" stroke="#0FB0A8" stroke-width="4"/>
+            <path d="M24 38L34 48L52 28" stroke="#0FB0A8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Request Received!</h3>
+        <p>Thank you. Our team will review your Surana Group hiring requirements and contact you shortly with a personalized verification plan.</p>
+        <span class="ref">Ref: SURANA-PLAN-2024</span>
+        <button class="btn sm" style="margin-top:24px" onclick="resetForm()">Submit Another</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ================= -->
+<!-- <footer>
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="#" class="navbar-brand" style="padding:0">
+            <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" height="40" alt="Verifitech">
+        </a>
+        <p>Verifitech helps HR teams verify candidate backgrounds across employment, education, address, criminal records, references, and documents.</p>
+        <span class="f-note">Background Verification Solutions for Modern Hiring Teams</span>
+      </div>
+      <div class="f-col">
+        <h4>Solutions</h4>
+        <a href="#">Employment Check</a>
+        <a href="#">Education Check</a>
+        <a href="#">Address Verification</a>
+        <a href="#">Criminal Records</a>
+        <a href="#">Global Database</a>
+      </div>
+      <div class="f-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Partnership</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <div class="socials">
+            <a href="#"><i data-lucide="linkedin"></i></a>
+            <a href="#"><i data-lucide="twitter"></i></a>
+            <a href="#"><i data-lucide="facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <small>&copy; 2024 Verifitech. All rights reserved.</small>
+      <small>Privacy Policy | Terms of Service</small>
+    </div>
+  </div>
+</footer>
+ -->
+<script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Scroll Reveal Logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+
+    // Chip Selection Logic
+    function selChip(el) {
+        const parent = el.parentElement;
+        // Toggle selection
+        if(el.classList.contains('sel')) {
+            el.classList.remove('sel');
+        } else {
+            el.classList.add('sel');
+        }
+    }
+
+    // Form Handling
+    function submitForm() {
+        const form = document.getElementById('hire-form');
+        const content = document.getElementById('form-content');
+        const done = document.getElementById('form-done');
+        
+        // Basic validation visual check
+        let valid = true;
+        const inputs = form.querySelectorAll('input');
+        inputs.forEach(input => {
+            if(!input.value) {
+                input.parentElement.classList.add('err');
+                valid = false;
+            } else {
+                input.parentElement.classList.remove('err');
+            }
+        });
+
+        if(valid) {
+            // Simulate processing
+            const btn = form.querySelector('button');
+            btn.innerHTML = 'Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                content.style.display = 'none';
+                done.style.display = 'block';
+                // Trigger SVG animation
+                setTimeout(() => done.classList.add('play'), 100);
+            }, 1500);
+        }
+    }
+
+    function resetForm() {
+        document.getElementById('hire-form').reset();
+        document.getElementById('form-content').style.display = 'block';
+        const done = document.getElementById('form-done');
+        done.style.display = 'none';
+        done.classList.remove('play');
+        const btn = document.querySelector('#form-content button');
+        btn.innerHTML = 'Build My Verification Plan';
+        btn.disabled = false;
+        
+        // Clear chips
+        document.querySelectorAll('.f-chip').forEach(c => c.classList.remove('sel'));
+        // Clear errors
+        document.querySelectorAll('.field').forEach(f => f.classList.remove('err'));
+    }
+</script>
+
+</body>
+</html>
