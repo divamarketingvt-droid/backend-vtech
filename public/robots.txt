@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.verifitech.com/sitemap.xml
 Disallow: /wp
+
+Sitemap: https://www.verifitech.com/sitemap.xml
