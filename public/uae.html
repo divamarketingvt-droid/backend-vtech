@@ -1,2633 +1,953 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Verifitech | Background Screening UAE</title>
-
-  <meta name="description"
-        content="Fast, secure and compliant background screening for UAE employers. Verify candidates, employment, education, identity and more.">
-
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-
-  <!-- Bootstrap Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
-  >
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-    :root {
-      --teal: #0fb5a9;
-      --teal-dark: #07958b;
-      --teal-light: #e8fbf8;
-      --ink: #0c2e38;
-      --body: #52666d;
-      --light: #f5faf9;
-      --border: #dcebea;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      color: var(--body);
-      background: #fff;
-      line-height: 1.7;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .navbar {
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #edf3f2;
-    }
-
-    .navbar-brand {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-weight: 800;
-      color: var(--ink) !important;
-      font-size: 1.35rem;
-    }
-
-    .brand-dot {
-      color: var(--teal);
-    }
-
-    .nav-link {
-      color: var(--ink) !important;
-      font-weight: 600;
-      margin: 0 8px;
-    }
-
-    .nav-link:hover {
-      color: var(--teal) !important;
-    }
-
-    .btn-primary-custom {
-      background: var(--teal);
-      border: 0;
-      color: white;
-      padding: 13px 23px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: 0.25s;
-    }
-
-    .btn-primary-custom:hover {
-      background: var(--teal-dark);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline-custom {
-      border: 1px solid var(--border);
-      color: var(--ink);
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      background: white;
-    }
-
-    .btn-outline-custom:hover {
-      border-color: var(--teal);
-      color: var(--teal);
-    }
-
-    /* HERO */
-    .hero {
-      padding: 110px 0 90px;
-      background:
-        radial-gradient(circle at 90% 10%, rgba(15, 181, 169, 0.14), transparent 30%),
-        radial-gradient(circle at 10% 80%, rgba(15, 181, 169, 0.08), transparent 30%),
-        #f8fcfb;
-      overflow: hidden;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--teal-light);
-      color: var(--teal-dark);
-      padding: 8px 14px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero-badge span {
-      width: 8px;
-      height: 8px;
-      background: var(--teal);
-      border-radius: 50%;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
-      line-height: 1.08;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: var(--teal);
-    }
-
-    .hero-text {
-      font-size: 18px;
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 14px;
-      color: #61777d;
-    }
-
-    .trust-row i {
-      color: var(--teal);
-      margin-right: 5px;
-    }
-
-    /* DASHBOARD MOCKUP */
-    .dashboard-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 25px 70px rgba(12, 46, 56, 0.13);
-      transform: rotate(1deg);
-    }
-
-    .dashboard-top {
-      background: #f5f9f8;
-      border-radius: 14px;
-      padding: 13px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .dashboard-title {
-      font-weight: 700;
-      color: var(--ink);
-      font-size: 14px;
-    }
-
-    .dashboard-status {
-      color: #0b9c69;
-      background: #e8f9f1;
-      padding: 5px 9px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .candidate {
-      border: 1px solid #edf2f2;
-      padding: 14px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .candidate-name {
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .candidate-role {
-      font-size: 12px;
-      color: #83959a;
-    }
-
-    .progress {
-      height: 7px;
-      margin-top: 10px;
-      background: #edf3f2;
-    }
-
-    .progress-bar {
-      background: var(--teal);
-    }
-
-    /* SECTIONS */
-    .section {
-      padding: 90px 0;
-    }
-
-    .section-light {
-      background: var(--light);
-    }
-
-    .section-heading {
-      max-width: 750px;
-      margin: 0 auto 50px;
-      text-align: center;
-    }
-
-    .section-label {
-      color: var(--teal);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin-bottom: 15px;
-    }
-
-    .section-heading p {
-      margin-bottom: 0;
-      font-size: 17px;
-    }
-
-    /* LOGOS */
-    .logo-strip {
-      padding: 28px 0;
-      border-bottom: 1px solid #edf3f2;
-      border-top: 1px solid #edf3f2;
-      background: white;
-    }
-
-    .logo-item {
-      font-weight: 800;
-      color: #9babad;
-      font-size: 16px;
-      text-align: center;
-    }
-
-    /* CARDS */
-    .feature-card {
-      height: 100%;
-      padding: 30px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      transition: 0.3s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 18px 40px rgba(12, 46, 56, 0.09);
-    }
-
-    .icon-box {
-      width: 54px;
-      height: 54px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--teal-light);
-      color: var(--teal);
-      border-radius: 14px;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .feature-card h4 {
-      margin-bottom: 10px;
-    }
-
-    /* PROBLEM */
-    .problem-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 35px;
-      height: 100%;
-      border: 1px solid var(--border);
-    }
-
-    .problem-card i {
-      font-size: 28px;
-      color: var(--teal);
-    }
-
-    /* STEPS */
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--teal);
-      color: white;
-      font-weight: 800;
-      font-size: 18px;
-      margin: 0 auto 20px;
-    }
-
-    /* STATS */
-    .stats-section {
-      background: var(--ink);
-      color: white;
-    }
-
-    .stats-section h2,
-    .stats-section p {
-      color: white;
-    }
-
-    .stat-number {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: var(--teal);
-    }
-
-    .stat-label {
-      color: #b7c9cd;
-    }
-
-    /* TESTIMONIAL */
-    .testimonial {
-      height: 100%;
-      padding: 30px;
-      border-radius: 18px;
-      background: white;
-      border: 1px solid var(--border);
-    }
-
-    .stars {
-      color: #f5b83d;
-      margin-bottom: 15px;
-    }
-
-    .testimonial p {
-      font-size: 16px;
-    }
-
-    .person {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .avatar {
-      width: 44px;
-      height: 44px;
-      background: var(--teal-light);
-      color: var(--teal-dark);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-
-    .person strong {
-      color: var(--ink);
-    }
-
-    /* SECURITY */
-    .security-box {
-      background: var(--teal-light);
-      border-radius: 24px;
-      padding: 45px;
-    }
-
-    .security-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .security-list li {
-      margin-bottom: 15px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .security-list i {
-      color: var(--teal);
-      font-size: 20px;
-    }
-
-    /* FAQ */
-    .accordion-item {
-      border: 1px solid var(--border) !important;
-      border-radius: 12px !important;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-
-    .accordion-button {
-      font-weight: 700;
-      color: var(--ink);
-      background: white;
-    }
-
-    .accordion-button:not(.collapsed) {
-      color: var(--teal-dark);
-      background: var(--teal-light);
-      box-shadow: none;
-    }
-
-    .accordion-button:focus {
-      box-shadow: none;
-    }
-
-    /* CTA */
-    .cta-section {
-      padding: 90px 0;
-      background:
-        linear-gradient(135deg, #0fb5a9, #078d84);
-      color: white;
-    }
-
-    .cta-section h2 {
-      color: white;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-    }
-
-    .cta-section p {
-      color: rgba(255, 255, 255, 0.88);
-      max-width: 650px;
-      margin: 0 auto 30px;
-    }
-
-    .cta-section .btn-light {
-      border-radius: 10px;
-      padding: 13px 25px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    /* FORM */
-    .form-card {
-      background: white;
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 20px 60px rgba(12, 46, 56, 0.12);
-      border: 1px solid var(--border);
-    }
-
-    .form-label {
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .form-control,
-    .form-select {
-      border: 1px solid #dce8e7;
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 0.2rem rgba(15, 181, 169, 0.12);
-    }
-
-    /* FOOTER */
-    footer {
-      background: #071f26;
-      color: #9db2b7;
-      padding: 60px 0 25px;
-    }
-
-    footer h5 {
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    footer a {
-      color: #9db2b7;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    footer a:hover {
-      color: var(--teal);
-    }
-
-    .footer-brand {
-      color: white;
-      font-size: 1.4rem;
-      font-weight: 800;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 35px;
-      padding-top: 20px;
-      font-size: 13px;
-    }
-
-    /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: all 0.7s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 991px) {
-      .hero {
-        padding-top: 80px;
-      }
-
-      .dashboard-card {
-        margin-top: 40px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .section {
-        padding: 65px 0;
-      }
-
-      .hero {
-        padding: 70px 0;
-      }
-
-      .hero h1 {
-        letter-spacing: -1px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-actions a {
-        width: 100%;
-        text-align: center;
-      }
-
-      .security-box {
-        padding: 30px 20px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Screening UAE | Verify Candidates in Days, Not Weeks | Verifitech</title>
+<meta name="description" content="UAE-ready background screening with local expertise and global coverage across 190+ countries. Audit-ready reports, ATS-integrated, local UAE team. Book a free demo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230FB5A9'/%3E%3Cpath d='M18 33l9 9 19-20' stroke='white' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0FB5A9; --teal-dark:#0C9A8F; --teal-deep:#087A72;
+  --teal-soft:#E2F6F2; --teal-softer:#F2FAF8;
+  --ink:#0C2E38; --body:#54696F; --muted:#84989D;
+  --line:#E4EFEC; --bg-soft:#F7FBFA;
+  --rose:#D9534A; --rose-soft:#FCEEEC; --amber:#D98F1F; --amber-soft:#FBF3E2;
+  --shadow:0 18px 50px rgba(11,43,51,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-size:16.5px;line-height:1.65;color:var(--body);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);line-height:1.18;letter-spacing:-.02em;font-weight:700}
+a{text-decoration:none;color:inherit}
+ul,ol{list-style:none}
+svg{display:block}
+::selection{background:rgba(15,181,169,.22)}
+:focus-visible{outline:2.5px solid rgba(15,181,169,.5);outline-offset:2px;border-radius:6px}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:99}
+.skip:focus{left:0}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ KICKERS (numbered, editorial) ============ */
+.kick{display:flex;align-items:center;justify-content:center;gap:11px;font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);font-family:'Plus Jakarta Sans',sans-serif}
+.kick b{color:var(--teal);font-weight:800}
+.kick i{width:24px;height:1px;background:currentColor;opacity:.45}
+.kick.light{color:#5FE3D2}
+.sec-head{max-width:640px;margin:0 auto 56px;text-align:center}
+.sec-head h2{font-size:clamp(1.8rem,3.2vw,2.45rem);font-weight:800;margin-top:16px}
+.sec-head p{margin-top:12px;font-size:16.5px}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:#fff;background:var(--teal);border:none;border-radius:10px;padding:13px 24px;cursor:pointer;transition:.22s;white-space:nowrap}
+.btn .ic{width:17px;height:17px;stroke-width:2.3;transition:transform .22s}
+.btn:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,181,169,.32)}
+.btn:hover .ic{transform:translateX(3px)}
+.btn-sm{padding:9px 16px;font-size:14px}
+.btn-lg{padding:15px 28px;font-size:16px;border-radius:12px}
+.btn-block{width:100%}
+
+/* ============ HEADER ============ */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+.site-header.scrolled{background:rgba(255,255,255,.95);border-bottom-color:var(--line)}
+.header-inner{height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.02em}
+.brand-mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#17CEBF,#0A9A90);display:grid;place-items:center;color:#fff}
+.brand-mark .ic{width:16px;height:16px;stroke-width:3}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;padding:76px 0 0;
+  background:linear-gradient(180deg,#FBFEFD 0%,#EDF8F5 100%)}
+.skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:170px;color:var(--teal);pointer-events:none;z-index:0}
+.skyline svg{width:100%;height:100%;fill:currentColor;opacity:.07}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:#fff;border:1px solid rgba(15,181,169,.3);border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--teal-deep)}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.hero h1{font-size:clamp(2.1rem,4.2vw,3.05rem);font-weight:800;letter-spacing:-.03em;margin:20px 0 16px}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero-sub{font-size:17.5px;max-width:520px}
+.hero-points{margin-top:22px;display:flex;flex-direction:column;gap:11px}
+.hero-points li{display:flex;gap:10px;font-size:15px;color:#3E5B62;font-weight:500}
+.hero-points .ic{width:18px;height:18px;color:var(--teal);stroke-width:2.6;margin-top:4px}
+.hero-cta{margin-top:26px}
+.trust{margin-top:26px;padding-top:18px;border-top:1px solid rgba(12,46,56,.09);font-size:13px;font-weight:600;color:#5E7278;letter-spacing:.01em}
+#hero-form{scroll-margin-top:88px}
+
+/* ============ DASHBOARD MOCK ============ */
+.dash{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.win-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.win-dots{display:flex;gap:5px}
+.win-dots i{width:8px;height:8px;border-radius:50%;background:#DCE8E5}
+.win-bar b{font-size:13px;font-weight:700;color:var(--ink)}
+.live-pill{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);background:var(--teal-soft);padding:3px 10px;border-radius:999px}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.win-chips{display:flex;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.wchip{font-size:11.5px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.wchip.on{background:var(--teal-soft);border-color:transparent;color:var(--teal-deep);font-weight:700}
+.win-row{display:flex;align-items:center;gap:11px;padding:12px 16px}
+.win-row + .win-row{border-top:1px dashed var(--line)}
+.ava{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:10.5px;font-weight:800;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;flex:none}
+.win-row b{display:block;font-size:13px;font-weight:600;color:var(--ink);line-height:1.3}
+.win-row small{font-size:11.5px;color:var(--muted)}
+.st{margin-left:auto;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.st.ok{background:var(--teal-soft);color:var(--teal-deep)}
+.st.wait{background:var(--amber-soft);color:var(--amber)}
+.st.flag{background:var(--rose-soft);color:var(--rose)}
+.tat{font-size:11.5px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;width:38px;text-align:end}
+.win-foot{display:flex;align-items:center;gap:10px;padding:13px 16px;border-top:1px solid var(--line);background:var(--teal-softer)}
+.mini-bars{display:flex;align-items:flex-end;gap:3px;height:18px;margin-left:auto}
+.mini-bars i{width:5px;border-radius:2px;background:var(--teal);opacity:.75}
+.win-foot b{font-size:15px;color:var(--teal-deep);font-family:'Plus Jakarta Sans',sans-serif}
+.win-foot small{font-size:11.5px;color:var(--muted)}
+
+/* ============ LEAD FORM ============ */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:26px 26px 22px}
+.form-title{font-size:18.5px;font-weight:800}
+.form-note{font-size:13.5px;color:var(--muted);margin:5px 0 18px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f-field{margin-bottom:13px}
+.f-field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.f-field input,.f-field select{width:100%;padding:11.5px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;font-size:15px;color:var(--ink);background:#FBFDFD;transition:.2s}
+.f-field input::placeholder{color:#ABBCC0}
+.f-field input:focus,.f-field select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3.5px rgba(15,181,169,.13);background:#fff}
+.f-field select{appearance:none;-webkit-appearance:none;padding-right:36px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%230FB5A9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.phone-group{display:flex;align-items:stretch;border:1.5px solid var(--line);border-radius:10px;background:#FBFDFD;transition:.2s;overflow:hidden}
+.phone-group:focus-within{border-color:var(--teal);box-shadow:0 0 0 3.5px rgba(15,181,169,.13);background:#fff}
+.phone-prefix{display:grid;place-items:center;padding:0 12px;font-size:14.5px;font-weight:600;color:var(--teal-deep);background:var(--teal-softer);border-right:1px solid var(--line)}
+.phone-group input{flex:1;border:none;background:transparent;box-shadow:none!important;padding:11.5px 14px;min-width:0}
+.err{display:none;font-size:12.5px;color:var(--rose);margin-top:5px}
+.f-field.invalid input{border-color:var(--rose);background:#FEFAF9}
+.f-field.invalid .phone-group{border-color:var(--rose)}
+.f-field.invalid .err{display:block}
+.form-privacy{display:flex;align-items:flex-start;justify-content:center;gap:7px;font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.form-privacy .ic{width:14px;height:14px;stroke-width:2.2;margin-top:2px}
+.form-success{text-align:center;padding:14px 6px 6px}
+.s-icon{width:54px;height:54px;margin:0 auto 16px;border-radius:50%;background:linear-gradient(135deg,#17CEBF,#0A9A90);display:grid;place-items:center;color:#fff;animation:pop .55s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.s-icon .ic{width:25px;height:25px;stroke-width:3}
+.form-success h3{font-size:19px;margin-bottom:6px}
+.form-success p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.form-success ol{list-style:decimal;text-align:left;max-width:350px;margin:0 auto;display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:#3E5B62;padding-left:20px}
+.form-success ol b{color:var(--ink)}
+
+/* ============ LOGOS ============ */
+.logos{padding:52px 0;border-bottom:1px solid var(--line)}
+.logos .label{text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;font-family:'Plus Jakarta Sans',sans-serif}
+.logo-row{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 48px}
+.logo-item{display:flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#B0BEC1;letter-spacing:-.01em;transition:.25s}
+.logo-item svg{width:16px;height:16px;fill:#B0BEC1}
+.logo-item:hover{color:#6B7F84}
+
+/* ============ PROBLEM ============ */
+.problem{background:var(--bg-soft)}
+.problem-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
+.problem h2{font-size:clamp(1.8rem,3.2vw,2.4rem);font-weight:800}
+.problem .lead{margin-top:14px}
+.pain-list{display:flex;flex-direction:column;gap:14px}
+.pain{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;transition:.25s}
+.pain:hover{transform:translateY(-3px);border-color:rgba(15,181,169,.4);box-shadow:0 8px 22px rgba(11,43,51,.07)}
+.pain .ic{width:21px;height:21px;margin-top:3px;stroke-width:2.1}
+.pain.r .ic{color:var(--rose)} .pain.a .ic{color:var(--amber)}
+.pain h3{font-size:16px;margin-bottom:3px}
+.pain p{font-size:14.5px}
+
+/* ============ BENEFITS ============ */
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.bcard{border:1px solid var(--line);border-radius:14px;padding:26px 22px;background:#fff;transition:.25s}
+.bcard:hover{transform:translateY(-4px);border-color:rgba(15,181,169,.4);box-shadow:0 10px 26px rgba(11,43,51,.07)}
+.bcard>.ic{width:26px;height:26px;color:var(--teal);stroke-width:1.9}
+.bcard h3{font-size:16.5px;margin:15px 0 7px}
+.bcard p{font-size:14.5px}
+.center-cta{display:flex;justify-content:center;margin-top:48px}
+
+/* ============ VERIFY ============ */
+.verify{background:var(--bg-soft)}
+.scr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.scr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;transition:.25s}
+.scr:hover{transform:translateY(-4px);border-color:rgba(15,181,169,.4);box-shadow:0 10px 26px rgba(11,43,51,.07)}
+.scr>.ic{width:23px;height:23px;color:var(--teal);stroke-width:1.9}
+.scr h3{font-size:16px;margin:14px 0 6px}
+.scr p{font-size:14px}
+
+/* ============ HOW ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative}
+.steps::before{content:"";position:absolute;top:25px;left:18%;right:18%;border-top:1px solid #CBE7E0}
+.step{text-align:center;position:relative;padding:0 12px}
+.step-num{width:50px;height:50px;margin:0 auto;border-radius:50%;background:#fff;border:1.5px solid var(--teal);color:var(--teal-deep);display:grid;place-items:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;position:relative;z-index:1}
+.step h3{font-size:17px;margin:18px 0 7px}
+.step p{font-size:14.5px;max-width:300px;margin:0 auto}
+.how-note{margin:48px auto 0;text-align:center;font-size:14.5px;font-weight:600;color:var(--teal-deep)}
+.how-note span{display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);border-radius:999px;padding:10px 22px}
+.how-note .ic{width:16px;height:16px;stroke-width:2.6}
+
+/* ============ STATS ============ */
+.stats{background:var(--teal);padding:62px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.1rem,3.8vw,2.9rem);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.1}
+.stat .suf{font-size:.55em;color:#D9F8F3}
+.stat .lbl{display:block;margin-top:6px;color:rgba(255,255,255,.9);font-size:14px;font-weight:600}
+@media(min-width:821px){.stat + .stat{border-left:1px solid rgba(255,255,255,.28)}}
+
+/* ============ TESTIMONIALS ============ */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;transition:.25s}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(11,43,51,.07)}
+.tcard blockquote{font-size:15px;line-height:1.7;color:#33555E;flex:1}
+.metric{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin:16px 0 14px;background:var(--teal-soft);color:var(--teal-deep);font-weight:800;font-size:12.5px;font-family:'Plus Jakarta Sans',sans-serif;padding:5px 11px;border-radius:8px}
+.metric .ic{width:13px;height:13px;stroke-width:2.6}
+.t-who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:15px}
+.t-ava{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;flex:none}
+.t-who b{display:block;font-size:14px;color:var(--ink);line-height:1.35}
+.t-who small{font-size:12.5px;color:var(--muted)}
+
+/* ============ SECURITY (DARK) ============ */
+.security{background:linear-gradient(170deg,#0D323C 0%,#07222C 60%,#051A22 100%)}
+.security .sec-head h2{color:#fff}
+.security .sec-head p{color:rgba(255,255,255,.65)}
+.sec-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.sec-lead{color:rgba(255,255,255,.72);margin-bottom:24px}
+.sec-list{display:flex;flex-direction:column}
+.sec-list li{display:flex;gap:12px;align-items:flex-start;color:rgba(255,255,255,.85);font-size:15px;font-weight:500;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.sec-list .ic{width:19px;height:19px;color:#4ED8C6;stroke-width:2.3;margin-top:3px}
+.sec-avail{margin-top:20px;font-size:13.5px;color:rgba(255,255,255,.5)}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.badge-card{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:22px 20px;transition:.25s}
+.badge-card:hover{border-color:rgba(94,234,212,.4);transform:translateY(-3px)}
+.badge-card .ic{width:24px;height:24px;color:#4ED8C6;stroke-width:1.9}
+.badge-card h3{color:#fff;font-size:15px;margin:13px 0 4px}
+.badge-card p{color:rgba(255,255,255,.55);font-size:13px}
+
+/* ============ FAQ ============ */
+.faq-wrap{max-width:760px;margin:0 auto;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:20px 4px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;color:var(--ink);text-align:left}
+.faq-q .ic{width:17px;height:17px;color:var(--teal);stroke-width:2.4;transition:transform .3s;flex:none}
+.faq-item.open .faq-q .ic{transform:rotate(45deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 4px 20px;font-size:15px}
+
+/* ============ FINAL CTA ============ */
+.final{background:radial-gradient(800px 400px at 50% -20%,rgba(15,181,169,.28),transparent 60%),linear-gradient(180deg,#0C303A,#051B23);padding:96px 0}
+.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.final .kick{justify-content:flex-start}
+.final h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.5rem);font-weight:800;margin-top:16px}
+.final .sub{color:rgba(255,255,255,.7);margin:14px 0 30px;font-size:16.5px}
+.final .form-card{box-shadow:0 24px 60px rgba(0,0,0,.35)}
+
+/* ============ FOOTER ============ */
+.site-footer{background:#04151C;padding:40px 0 32px;color:rgba(255,255,255,.55)}
+.foot-top{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.foot-brand{color:#fff}
+.foot-addr{font-size:13.5px;line-height:1.7;margin-top:10px;font-style:normal}
+.foot-addr a{color:#5FE3D2}
+.foot-right{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.foot-links{display:flex;gap:24px;font-size:14px;flex-wrap:wrap}
+.foot-links a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:26px;padding-top:20px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-copy{text-align:center}
+  .hero-sub{margin:0 auto}
+  .hero-points{max-width:460px;margin:22px auto 0}
+  .hero-points li{text-align:start}
+  .problem-grid,.sec-grid,.final-grid{grid-template-columns:1fr;gap:44px}
+  .benefits-grid,.scr-grid{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .final .kick{justify-content:center}
+  .final .copy{text-align:center}
+}
+@media(max-width:820px){
+  .stats-grid{grid-template-columns:1fr 1fr;gap:36px 20px}
+  .steps{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:640px){
+  section{padding:66px 0}
+  .hero{padding:54px 0 0}
+  .skyline{height:90px;opacity:.7}
+  .hero-cta .btn{width:100%}
+  .f-row{grid-template-columns:1fr}
+  .benefits-grid,.scr-grid{grid-template-columns:1fr}
+  .t-grid{grid-template-columns:1fr}
+  .form-card{padding:22px 18px 18px}
+  .foot-right{align-items:flex-start}
+  .tat{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
-
 <body>
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-check-c" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.4 12.3 2.5 2.5 4.9-5.3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 5.8v5.4c0 4.5 2.9 7.8 7 9 4.1-1.2 7-4.5 7-9V5.8L12 3z"/><path d="m9.2 11.9 2 2 3.8-4.3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.4 2.6 3.7 5.7 3.7 9s-1.3 6.4-3.7 9c-2.4-2.6-3.7-5.7-3.7-9S9.6 5.6 12 3z"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.2a4.6 4.6 0 0 0 6.9.5l2.6-2.6a4.6 4.6 0 0 0-6.5-6.5l-1.5 1.5"/><path d="M14 10.8a4.6 4.6 0 0 0-6.9-.5l-2.6 2.6a4.6 4.6 0 0 0 6.5 6.5l1.5-1.5"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></symbol>
+  <symbol id="i-file-search" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><circle cx="11.2" cy="13" r="2.4"/><path d="m13 14.8 1.8 1.8"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"/><path d="M3 12.5h18"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2.8 9.4 12 5l9.2 4.4L12 13.8 2.8 9.4z"/><path d="M6.3 11.3v4.6c0 1.2 2.6 2.4 5.7 2.4s5.7-1.2 5.7-2.4v-4.6"/><path d="M21.2 9.4v4.4"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.2"/><circle cx="8.2" cy="10.8" r="1.9"/><path d="M5.4 15.8c.6-1.5 1.6-2.2 2.8-2.2s2.2.7 2.8 2.2"/><path d="M13.8 9.4h4.6M13.8 12.6h4.6M13.8 15.8h2.8"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.6a8.3 8.3 0 0 1-8.3 8.3c-1.4 0-2.8-.3-4-.9L3 20.5l1.5-5A8.3 8.3 0 1 1 21 11.6z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 4.6 2.9 17.5a2 2 0 0 0 1.7 3h14.8a2 2 0 0 0 1.7-3L13.7 4.6a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4"/><path d="M12 16.8h.01"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15.5"/><path d="m13.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9.2" r="5.4"/><path d="m8.9 13.6-1.4 7L12 18.2l4.5 2.4-1.4-7"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17.5 9.5 11l4 4L21 7"/><path d="M15.5 7H21v5.5"/></symbol>
+  <symbol id="i-user-x" viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.5 20c.8-3 3.2-4.6 6-4.6 2.8 0 5.2 1.6 6 4.6"/><path d="m16.8 8.5 4.7 4.7M21.5 8.5l-4.7 4.7"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.6-4.6"/></symbol>
+</svg>
 
-<nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
+<a class="skip" href="#main">Skip to content</a>
 
-    <a class="navbar-brand" href="#">
-<img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" width="200px" height="100px">
+<!-- ============ 1. MINIMAL HEADER ============ -->
+<header class="site-header" id="hdr">
+  <div class="container header-inner">
+    <a href="#" class="brand" aria-label="Verifitech home">
+      <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" width="200px" height="100px">
     </a>
-
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#mainNav"
-      aria-controls="mainNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="mainNav">
-
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#solutions">Solutions</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#how-it-works">How It Works</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#security">Security</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#faq">FAQ</a>
-        </li>
-
-        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-          <a href="#demo" class="btn btn-primary-custom">
-            Request a Demo
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
+    <a href="#hero-form" class="btn btn-sm">Book a Demo</a>
   </div>
-</nav>
+</header>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
+<main id="main">
+<!-- ============ 2. HERO ============ -->
 <section class="hero">
-
-  <div class="container">
-
-    <div class="row align-items-center g-5">
-
-      <div class="col-lg-7">
-
-        <div class="hero-badge">
-          <span></span>
-          Background Screening for UAE Employers
-        </div>
-
-        <h1>
-          Hire with
-          <span>confidence.</span>
-          Verify with speed.
-        </h1>
-
-        <p class="hero-text">
-          Modern background screening built for UAE employers.
-          Verify identity, employment, education and more through
-          one secure platform.
-        </p>
-
-        <div class="hero-actions">
-
-          <a href="#demo" class="btn btn-primary-custom">
-            Request a Demo
-            <i class="bi bi-arrow-right ms-1"></i>
-          </a>
-
-          <a href="#how-it-works" class="btn btn-outline-custom">
-            See How It Works
-          </a>
-
-        </div>
-
-        <div class="trust-row">
-
-          <span>
-            <i class="bi bi-check-circle-fill"></i>
-            Fast turnaround
-          </span>
-
-          <span>
-            <i class="bi bi-shield-check"></i>
-            Secure processing
-          </span>
-
-          <span>
-            <i class="bi bi-globe2"></i>
-            Global coverage
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-lg-5">
-
-        <div class="dashboard-card reveal">
-
-          <div class="dashboard-top">
-
-            <span class="dashboard-title">
-              Candidate Screening
-            </span>
-
-            <span class="dashboard-status">
-              <i class="bi bi-check-circle-fill"></i>
-              Completed
-            </span>
-
-          </div>
-
-          <div class="candidate">
-
-            <div class="d-flex justify-content-between">
-
-              <div>
-                <div class="candidate-name">
-                  Ahmed Rahman
-                </div>
-
-                <div class="candidate-role">
-                  Senior Software Engineer
-                </div>
-              </div>
-
-              <i
-                class="bi bi-check-circle-fill text-success"
-              ></i>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width: 100%;"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="candidate">
-
-            <div class="d-flex justify-content-between">
-
-              <div>
-                <div class="candidate-name">
-                  Identity Verification
-                </div>
-
-                <div class="candidate-role">
-                  UAE Identity Check
-                </div>
-              </div>
-
-              <i
-                class="bi bi-check-circle-fill text-success"
-              ></i>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width: 100%;"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="candidate">
-
-            <div class="d-flex justify-content-between">
-
-              <div>
-                <div class="candidate-name">
-                  Employment Verification
-                </div>
-
-                <div class="candidate-role">
-                  Previous Employer
-                </div>
-              </div>
-
-              <i
-                class="bi bi-check-circle-fill text-success"
-              ></i>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width: 100%;"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="candidate">
-
-            <div class="d-flex justify-content-between">
-
-              <div>
-                <div class="candidate-name">
-                  Education Verification
-                </div>
-
-                <div class="candidate-role">
-                  University Verification
-                </div>
-              </div>
-
-              <i
-                class="bi bi-clock text-warning"
-              ></i>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width: 70%;"
-              ></div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
+  <!-- Subtle Dubai skyline line-art (decorative, no stock imagery) -->
+  <div class="skyline" aria-hidden="true">
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="xMidYMax meet">
+      <path d="M0 180 V118 h44 V96 h24 V126 h36 V78 h20 V118 h30 V140 h34 V180 Z
+               M210 180 V138 h56 V118 h30 V180 Z
+               M370 180 V100 h14 V72 h12 V48 h10 V28 h6 V8 h4 V28 h6 V48 h10 V72 h12 V100 h14 V180 Z
+               M560 180 V60 h70 V180 h-12 V72 h-46 V180 Z
+               M700 180 V130 h40 V110 h26 V180 Z
+               M780 180 V146 h70 V180 Z
+               M880 180 C905 70 935 70 960 180 Z
+               M1010 180 V122 h30 V98 h22 V180 Z
+               M1090 180 V140 h60 V180 Z
+               M1170 180 V112 h28 V132 h34 V180 Z
+               M1440 180 V150 h-40 V180 Z"/>
+    </svg>
   </div>
 
-</section>
-
-
-<!-- =========================================================
-     LOGOS
-========================================================= -->
-
-<section class="logo-strip">
-
   <div class="container">
-
-    <div class="row align-items-center g-4">
-
-      <div class="col-lg-2 col-6 logo-item">
-        UAE EMPLOYERS
-      </div>
-
-      <div class="col-lg-2 col-6 logo-item">
-        ENTERPRISE
-      </div>
-
-      <div class="col-lg-2 col-6 logo-item">
-        FINANCE
-      </div>
-
-      <div class="col-lg-2 col-6 logo-item">
-        TECHNOLOGY
-      </div>
-
-      <div class="col-lg-2 col-6 logo-item">
-        HEALTHCARE
-      </div>
-
-      <div class="col-lg-2 col-6 logo-item">
-        SERVICES
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROBLEM
-========================================================= -->
-
-<section class="section section-light">
-
-  <div class="container">
-
-    <div class="section-heading reveal">
-
-      <div class="section-label">
-        Why Screening Matters
-      </div>
-
-      <h2>
-        Hiring shouldn't feel like a guessing game.
-      </h2>
-
-      <p>
-        CVs tell you what candidates say.
-        Background screening helps you understand what you can verify.
-      </p>
-
-    </div>
-
-
-    <div class="row g-4">
-
-      <div class="col-md-4">
-
-        <div class="problem-card reveal">
-
-          <i class="bi bi-file-earmark-text"></i>
-
-          <h4 class="mt-3">
-            CVs aren't enough
-          </h4>
-
-          <p>
-            Candidate information can be incomplete,
-            outdated or difficult to verify manually.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-4">
-
-        <div class="problem-card reveal">
-
-          <i class="bi bi-hourglass-split"></i>
-
-          <h4 class="mt-3">
-            Manual checks take time
-          </h4>
-
-          <p>
-            Calling previous employers and collecting documents
-            can slow down your hiring process.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-4">
-
-        <div class="problem-card reveal">
-
-          <i class="bi bi-shield-exclamation"></i>
-
-          <h4 class="mt-3">
-            Hiring risk is real
-          </h4>
-
-          <p>
-            A stronger verification process helps employers
-            make more informed hiring decisions.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     SOLUTIONS
-========================================================= -->
-
-<section
-  class="section"
-  id="solutions"
->
-
-  <div class="container">
-
-    <div class="section-heading reveal">
-
-      <div class="section-label">
-        Screening Solutions
-      </div>
-
-      <h2>
-        Everything you need to verify a candidate.
-      </h2>
-
-      <p>
-        Bring multiple verification checks together in one streamlined workflow.
-      </p>
-
-    </div>
-
-
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="feature-card reveal">
-
-          <div class="icon-box">
-            <i class="bi bi-person-vcard"></i>
-          </div>
-
-          <h4>
-            Identity Verification
-          </h4>
-
-          <p>
-            Verify candidate identity information and supporting documents.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="feature-card reveal">
-
-          <div class="icon-box">
-            <i class="bi bi-building-check"></i>
-          </div>
-
-          <h4>
-            Employment Verification
-          </h4>
-
-          <p>
-            Confirm employment history, roles and previous employer information.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="feature-card reveal">
-
-          <div class="icon-box">
-            <i class="bi bi-mortarboard"></i>
-          </div>
-
-          <h4>
-            Education Verification
-          </h4>
-
-          <p>
-            Validate education credentials and qualification information.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="feature-card reveal">
-
-          <div class="icon-box">
-            <i class="bi bi-telephone"></i>
-          </div>
-
-          <h4>
-            Reference Checks
-          </h4>
-
-          <p>
-            Collect structured feedback from professional references.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="feature-card reveal">
-
-          <div class="icon-box">
-            <i class="bi bi-globe"></i>
-          </div>
-
-          <h4>
-            Global Screening
-          </h4>
-
-          <p>
-            Support screening requirements for candidates with international backgrounds.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="feature-card reveal">
-
-          <div class="icon-box">
-            <i class="bi bi-bar-chart"></i>
-          </div>
-
-          <h4>
-            Centralized Reports
-          </h4>
-
-          <p>
-            Track verification progress and review results from one dashboard.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     BENEFITS
-========================================================= -->
-
-<section class="section section-light">
-
-  <div class="container">
-
-    <div class="row align-items-center g-5">
-
-      <div class="col-lg-6">
-
-        <div class="section-label">
-          Built for HR Teams
-        </div>
-
-        <h2 class="mb-4">
-          Spend less time chasing documents.
-          Spend more time hiring.
-        </h2>
-
-        <p>
-          VeriScreen helps HR teams organize candidate verification
-          from request to completion.
-        </p>
-
-        <ul class="security-list mt-4">
-
-          <li>
-            <i class="bi bi-check-circle-fill"></i>
-            <span>Centralized candidate screening</span>
-          </li>
-
-          <li>
-            <i class="bi bi-check-circle-fill"></i>
-            <span>Clear verification status tracking</span>
-          </li>
-
-          <li>
-            <i class="bi bi-check-circle-fill"></i>
-            <span>Structured reports</span>
-          </li>
-
-          <li>
-            <i class="bi bi-check-circle-fill"></i>
-            <span>Reduced manual follow-ups</span>
-          </li>
-
-          <li>
-            <i class="bi bi-check-circle-fill"></i>
-            <span>Designed for modern HR workflows</span>
-          </li>
-
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="pill reveal"><span class="dot"></span>Background Screening for UAE Employers</span>
+        <!-- A/B headline variants:
+             "Stop Losing Candidates to Screening Delays."
+             "Audit-Ready Background Checks for UAE Employers."
+             "Hire Faster in the UAE Without Compromising Compliance." -->
+        <h1 class="reveal" style="--d:.08s">Verify Candidates in Days, Not Weeks. <em>Protect Every Start Date.</em></h1>
+        <p class="hero-sub reveal" style="--d:.14s">UAE-ready background screening with local expertise and global coverage, built for HR and compliance teams that can't afford delays or risk.</p>
+        <ul class="hero-points reveal" style="--d:.2s">
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Education, employment, and criminal checks across 190+ countries</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Audit-ready reports and documented candidate consent</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>ATS-integrated, with a local UAE team</span></li>
         </ul>
-
+        <div class="hero-cta reveal" style="--d:.26s">
+          <a href="#hero-form" class="btn btn-lg">Book My Free Demo <svg class="ic"><use href="#i-arrow"/></svg></a>
+        </div>
+        <p class="trust reveal" style="--d:.32s">SOC 2 Type II · ISO 27001 · NAPBS Accredited · Trusted by 500+ employers across the GCC</p>
       </div>
 
-
-      <div class="col-lg-6">
-
-        <div class="form-card reveal">
-
-          <h4>
-            Screening at a glance
-          </h4>
-
-          <p>
-            Track candidate checks from one place.
-          </p>
-
-
-          <div class="candidate mt-4">
-
-            <div class="d-flex justify-content-between mb-2">
-
-              <strong>
-                Identity
-              </strong>
-
-              <span class="text-success">
-                Complete
-              </span>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:100%"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="candidate">
-
-            <div class="d-flex justify-content-between mb-2">
-
-              <strong>
-                Employment
-              </strong>
-
-              <span class="text-success">
-                Complete
-              </span>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:100%"
-              ></div>
-            </div>
-
-          </div>
-
-
-          <div class="candidate">
-
-            <div class="d-flex justify-content-between mb-2">
-
-              <strong>
-                Education
-              </strong>
-
-              <span class="text-warning">
-                In Progress
-              </span>
-
-            </div>
-
-            <div class="progress">
-              <div
-                class="progress-bar"
-                style="width:70%"
-              ></div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     HOW IT WORKS
-========================================================= -->
-
-<section
-  class="section"
-  id="how-it-works"
->
-
-  <div class="container">
-
-    <div class="section-heading reveal">
-
-      <div class="section-label">
-        Simple Process
-      </div>
-
-      <h2>
-        Screening without the complexity.
-      </h2>
-
-      <p>
-        A straightforward process for HR teams and candidates.
-      </p>
-
-    </div>
-
-
-    <div class="row g-5">
-
-      <div class="col-md-3">
-
-        <div class="step reveal">
-
-          <div class="step-number">
-            1
-          </div>
-
-          <h5>
-            Submit Candidate
-          </h5>
-
-          <p>
-            Add candidate information and select the checks you need.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-3">
-
-        <div class="step reveal">
-
-          <div class="step-number">
-            2
-          </div>
-
-          <h5>
-            Candidate Consent
-          </h5>
-
-          <p>
-            The candidate provides the required information and authorization.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-3">
-
-        <div class="step reveal">
-
-          <div class="step-number">
-            3
-          </div>
-
-          <h5>
-            Verification
-          </h5>
-
-          <p>
-            Verification checks are initiated and tracked through the platform.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-md-3">
-
-        <div class="step reveal">
-
-          <div class="step-number">
-            4
-          </div>
-
-          <h5>
-            Review Report
-          </h5>
-
-          <p>
-            Review the completed verification results and make an informed decision.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     STATS
-========================================================= -->
-
-<section class="section stats-section">
-
-  <div class="container">
-
-    <div class="row text-center g-4">
-
-      <div class="col-6 col-lg-3">
-
-        <div
-          class="stat-number counter"
-          data-target="190"
-        >
-          0
-        </div>
-
-        <div class="stat-label">
-          Countries Covered
-        </div>
-
-      </div>
-
-
-      <div class="col-6 col-lg-3">
-
-        <div
-          class="stat-number counter"
-          data-target="500"
-        >
-          0
-        </div>
-
-        <div class="stat-label">
-          Employers
-        </div>
-
-      </div>
-
-
-      <div class="col-6 col-lg-3">
-
-        <div
-          class="stat-number counter"
-          data-target="1000000"
-        >
-          0
-        </div>
-
-        <div class="stat-label">
-          Checks Processed
-        </div>
-
-      </div>
-
-
-      <div class="col-6 col-lg-3">
-
-        <div
-          class="stat-number counter"
-          data-target="99"
-        >
-          0
-        </div>
-
-        <div class="stat-label">
-          Accuracy
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     TESTIMONIALS
-========================================================= -->
-
-<section class="section section-light">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="section-label">
-        Customer Experience
-      </div>
-
-      <h2>
-        Built to make HR teams faster.
-      </h2>
-
-    </div>
-
-
-    <div class="row g-4">
-
-      <div class="col-lg-4">
-
-        <div class="testimonial reveal">
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <p>
-            "The biggest improvement for our team was having
-            all candidate checks organized in one place."
-          </p>
-
-          <div class="person">
-
-            <div class="avatar">
-              HR
-            </div>
-
-            <div>
-              <strong>HR Manager</strong>
-              <br>
-              <small>UAE Enterprise</small>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-lg-4">
-
-        <div class="testimonial reveal">
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <p>
-            "We were able to reduce the amount of manual
-            follow-up required during our hiring process."
-          </p>
-
-          <div class="person">
-
-            <div class="avatar">
-              TA
-            </div>
-
-            <div>
-              <strong>Talent Acquisition Lead</strong>
-              <br>
-              <small>Technology Company</small>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-lg-4">
-
-        <div class="testimonial reveal">
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <p>
-            "The centralized reporting makes it much easier
-            for our HR team to review candidate results."
-          </p>
-
-          <div class="person">
-
-            <div class="avatar">
-              HR
-            </div>
-
-            <div>
-              <strong>HR Director</strong>
-              <br>
-              <small>UAE Services Company</small>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     SECURITY
-========================================================= -->
-
-<section
-  class="section"
-  id="security"
->
-
-  <div class="container">
-
-    <div class="security-box">
-
-      <div class="row align-items-center g-5">
-
-        <div class="col-lg-6">
-
-          <div class="section-label">
-            Security & Privacy
-          </div>
-
-          <h2>
-            Candidate data deserves serious protection.
-          </h2>
-
-          <p>
-            VeriScreen is designed around secure data handling,
-            controlled access and privacy-conscious screening workflows.
-          </p>
-
-        </div>
-
-
-        <div class="col-lg-6">
-
-          <ul class="security-list">
-
-            <li>
-              <i class="bi bi-shield-check"></i>
-              <span>Secure candidate information handling</span>
-            </li>
-
-            <li>
-              <i class="bi bi-lock"></i>
-              <span>Controlled access to screening information</span>
-            </li>
-
-            <li>
-              <i class="bi bi-file-earmark-lock"></i>
-              <span>Structured document management</span>
-            </li>
-
-            <li>
-              <i class="bi bi-person-check"></i>
-              <span>Candidate consent workflows</span>
-            </li>
-
-            <li>
-              <i class="bi bi-globe2"></i>
-              <span>Support for international screening workflows</span>
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-
-<section
-  class="section section-light"
-  id="faq"
->
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <div class="section-label">
-        FAQ
-      </div>
-
-      <h2>
-        Frequently asked questions.
-      </h2>
-
-    </div>
-
-
-    <div
-      class="accordion mx-auto"
-      id="faqAccordion"
-      style="max-width:850px;"
-    >
-
-      <div class="accordion-item">
-
-        <h2 class="accordion-header">
-
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faq1"
-          >
-            What is background screening?
-          </button>
-
-        </h2>
-
-        <div
-          id="faq1"
-          class="accordion-collapse collapse show"
-          data-bs-parent="#faqAccordion"
-        >
-
-          <div class="accordion-body">
-            Background screening is the process of verifying
-            information provided by a candidate, such as identity,
-            employment and education history.
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <h2 class="accordion-header">
-
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faq2"
-          >
-            How long does verification take?
-          </button>
-
-        </h2>
-
-        <div
-          id="faq2"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-
-          <div class="accordion-body">
-            Turnaround time depends on the type of verification,
-            candidate location and the availability of source information.
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <h2 class="accordion-header">
-
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faq3"
-          >
-            Can you screen candidates outside the UAE?
-          </button>
-
-        </h2>
-
-        <div
-          id="faq3"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-
-          <div class="accordion-body">
-            Yes. International screening workflows can be supported
-            depending on the verification type and country.
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <h2 class="accordion-header">
-
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faq4"
-          >
-            Is candidate consent required?
-          </button>
-
-        </h2>
-
-        <div
-          id="faq4"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-
-          <div class="accordion-body">
-            Screening should be performed using appropriate candidate
-            authorization and according to applicable laws and regulations.
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="accordion-item">
-
-        <h2 class="accordion-header">
-
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faq5"
-          >
-            Which checks can employers request?
-          </button>
-
-        </h2>
-
-        <div
-          id="faq5"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-
-          <div class="accordion-body">
-            Depending on the candidate and screening requirements,
-            employers may request identity, employment, education,
-            reference and other appropriate verification checks.
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     DEMO FORM
-========================================================= -->
-
-<section
-  class="section"
-  id="demo"
->
-
-  <div class="container">
-
-    <div class="row justify-content-center">
-
-      <div class="col-lg-8">
-
-        <div class="form-card">
-
-          <div class="text-center mb-4">
-
-            <div class="section-label">
-              Get Started
-            </div>
-
-            <h2>
-              Request a VeriScreen demo
-            </h2>
-
-            <p>
-              Tell us a little about your organization and our team
-              will get in touch.
-            </p>
-
-          </div>
-
-
-          <form id="demoForm">
-
-            <div class="row g-3">
-
-              <div class="col-md-6">
-
-                <label class="form-label">
-                  Full Name
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Your name"
-                  required
-                >
-
+      <!-- 3. LEAD FORM -->
+      <div id="hero-form">
+        <div class="form-card reveal" style="--d:.15s">
+          <form class="lead-form" novalidate>
+            <div class="form-body">
+              <h3 class="form-title">See it in action. Get a tailored demo in 24 hours.</h3>
+              <p class="form-note">30-minute walkthrough · No commitment</p>
+              <div class="f-field">
+                <label for="h-name">Full name</label>
+                <input type="text" id="h-name" class="lf-name" placeholder="Fatima Al Mansouri" autocomplete="name">
+                <span class="err">Please enter your full name.</span>
               </div>
-
-
-              <div class="col-md-6">
-
-                <label class="form-label">
-                  Work Email
-                </label>
-
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="name@company.com"
-                  required
-                >
-
+              <div class="f-field">
+                <label for="h-email">Work email</label>
+                <input type="email" id="h-email" class="lf-email" placeholder="fatima@company.ae" autocomplete="email">
+                <span class="err">Please enter your work email.</span>
               </div>
-
-
-              <div class="col-md-6">
-
-                <label class="form-label">
-                  Company
-                </label>
-
-                <input
-                  type="text"
-                  class="form-control"
-                  id="company"
-                  placeholder="Company name"
-                  required
-                >
-
+              <div class="f-row">
+                <div class="f-field">
+                  <label for="h-company">Company name</label>
+                  <input type="text" id="h-company" class="lf-company" placeholder="Company" autocomplete="organization">
+                  <span class="err">Please enter your company name.</span>
+                </div>
+                <div class="f-field">
+                  <label for="h-title">Job title</label>
+                  <input type="text" id="h-title" class="lf-title" placeholder="HR Director" autocomplete="organization-title">
+                  <span class="err">Please enter your job title.</span>
+                </div>
               </div>
-
-
-              <div class="col-md-6">
-
-                <label class="form-label">
-                  Phone
-                </label>
-
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="phone"
-                  placeholder="+971 XX XXX XXXX"
-                >
-
+              <div class="f-field">
+                <label for="h-phone">Phone / WhatsApp</label>
+                <div class="phone-group">
+                  <span class="phone-prefix">+971</span>
+                  <input type="tel" id="h-phone" class="lf-phone" placeholder="50 123 4567" autocomplete="tel-national" dir="ltr">
+                </div>
+                <span class="err">Please enter a valid phone number.</span>
               </div>
-
-
-              <div class="col-md-6">
-
-                <label class="form-label">
-                  Company Size
-                </label>
-
-                <select
-                  class="form-select"
-                  id="companySize"
-                >
-
-                  <option value="">
-                    Select
-                  </option>
-
-                  <option>
-                    1 - 50
-                  </option>
-
-                  <option>
-                    51 - 200
-                  </option>
-
-                  <option>
-                    201 - 500
-                  </option>
-
-                  <option>
-                    501 - 1000
-                  </option>
-
-                  <option>
-                    1000+
-                  </option>
-
+              <div class="f-field">
+                <label for="h-volume">Monthly hiring volume</label>
+                <select id="h-volume" class="lf-volume">
+                  <option value="">Select monthly hiring volume</option>
+                  <option>1–10</option><option>11–50</option><option>51–200</option><option>200+</option>
                 </select>
-
+                <span class="err">Please select your monthly hiring volume.</span>
               </div>
-
-
-              <div class="col-md-6">
-
-                <label class="form-label">
-                  Screening Requirement
-                </label>
-
-                <select
-                  class="form-select"
-                  id="requirement"
-                >
-
-                  <option value="">
-                    Select
-                  </option>
-
-                  <option>
-                    Identity Verification
-                  </option>
-
-                  <option>
-                    Employment Verification
-                  </option>
-
-                  <option>
-                    Education Verification
-                  </option>
-
-                  <option>
-                    Reference Checks
-                  </option>
-
-                  <option>
-                    Multiple Checks
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="col-12">
-
-                <label class="form-label">
-                  Message
-                </label>
-
-                <textarea
-                  class="form-control"
-                  id="message"
-                  rows="4"
-                  placeholder="Tell us about your screening requirements..."
-                ></textarea>
-
-              </div>
-
-
-              <div class="col-12">
-
-                <div
-                  id="formMessage"
-                  class="d-none alert"
-                ></div>
-
-              </div>
-
-
-              <div class="col-12 text-center">
-
-                <button
-                  type="submit"
-                  class="btn btn-primary-custom px-5"
-                >
-                  Request Demo
-                  <i class="bi bi-arrow-right ms-1"></i>
-                </button>
-
-              </div>
-
+              <button type="submit" class="btn btn-block btn-lg">Get My Demo <svg class="ic"><use href="#i-arrow"/></svg></button>
+              <p class="form-privacy"><svg class="ic"><use href="#i-lock"/></svg><span>We respect your privacy. Your information is handled in line with UAE data protection requirements.</span></p>
             </div>
-
           </form>
-
+          <div class="form-success" hidden>
+            <div class="s-icon"><svg class="ic"><use href="#i-check"/></svg></div>
+            <h3>Request received!</h3>
+            <p>Here's what happens next:</p>
+            <ol>
+              <li><b>Within 24 hours:</b> we confirm your tailored demo slot by email or phone.</li>
+              <li><b>Your demo:</b> a 30-minute walkthrough mapped to your roles and hiring volume.</li>
+              <li><b>After:</b> a turnaround benchmark for your hiring volume — yours to keep.</li>
+            </ol>
+          </div>
         </div>
-
       </div>
-
     </div>
 
+    <!-- Dashboard visual: real-time case status (decorative) -->
+    <div class="dash reveal" style="--d:.25s;margin-top:64px" aria-hidden="true">
+      <div class="win-bar">
+        <span class="win-dots"><i></i><i></i><i></i></span>
+        <b>Case Dashboard — Live</b>
+        <span class="live-pill"><span class="live-dot"></span>Live</span>
+      </div>
+      <div class="win-chips">
+        <span class="wchip on">All · 24</span>
+        <span class="wchip">In progress · 6</span>
+        <span class="wchip">Clear · 16</span>
+        <span class="wchip">Flagged · 2</span>
+      </div>
+      <div class="win-row">
+        <span class="ava" style="background:linear-gradient(135deg,#17CEBF,#0A9A90)">FA</span>
+        <div><b>Fatima A.</b><small>Employment verification</small></div>
+        <span class="st ok">Clear</span>
+        <span class="tat">1.4d</span>
+      </div>
+      <div class="win-row">
+        <span class="ava" style="background:#0C2E38">RK</span>
+        <div><b>Rajesh K.</b><small>Police clearance</small></div>
+        <span class="st wait">In progress</span>
+        <span class="tat">3.1d</span>
+      </div>
+      <div class="win-row">
+        <span class="ava" style="background:#D98F1F">SH</span>
+        <div><b>Sara H.</b><small>Education verification</small></div>
+        <span class="st ok">Clear</span>
+        <span class="tat">2.2d</span>
+      </div>
+      <div class="win-row">
+        <span class="ava" style="background:#D9534A">DR</span>
+        <div><b>Daniyal R.</b><small>Senior-hire due diligence</small></div>
+        <span class="st flag">Flagged</span>
+        <span class="tat">6.8d</span>
+      </div>
+      <div class="win-foot">
+        <b>4.2</b><small>days average turnaround</small>
+        <span class="mini-bars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:52%"></i><i style="height:85%"></i><i style="height:100%"></i></span>
+      </div>
+    </div>
+    <div style="height:56px"></div>
   </div>
-
 </section>
 
-
-<!-- =========================================================
-     FINAL CTA
-========================================================= -->
-
-<section class="cta-section text-center">
-
-  <div class="container">
-
-    <h2>
-      Build a stronger hiring process.
-    </h2>
-
-    <p>
-      Give your HR team a faster and more organized way
-      to verify candidates.
-    </p>
-
-    <a
-      href="#demo"
-      class="btn btn-light"
-    >
-      Request a Demo
-      <i class="bi bi-arrow-right ms-1"></i>
-    </a>
-
+<!-- ============ 4. LOGO BAR ============ -->
+<section class="logos">
+  <div class="container reveal">
+    <p class="label">Trusted by leading employers across the UAE and GCC</p>
+    <div class="logo-row">
+      <span class="logo-item"><svg viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9z"/></svg>MERIDIAN GULF</span>
+      <span class="logo-item"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M12 3l8 6H4z"/></svg>Barjeel Capital</span>
+      <span class="logo-item"><svg viewBox="0 0 24 24"><path d="M12 3l7.8 4.5v9L12 21l-7.8-4.5v-9z"/></svg>FALCON HEIGHTS</span>
+      <span class="logo-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>Almasar Logistics</span>
+      <span class="logo-item"><svg viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg>Qamar Retail</span>
+      <span class="logo-item"><svg viewBox="0 0 24 24"><path d="M3 20 12 4l9 16z"/></svg>Duneview</span>
+    </div>
   </div>
-
 </section>
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-  <div class="container">
-
-    <div class="row g-5">
-
-      <div class="col-lg-5">
-
-        <div class="footer-brand">
-<!--           Veri<span class="brand-dot">Screen</span> -->
-        </div>
-
-        <p class="mt-3">
-          Modern background screening solutions for
-          employers in the UAE and beyond.
-        </p>
-
-      </div>
-
-
-      <div class="col-6 col-lg-2">
-
-        <h5>
-          Solutions
-        </h5>
-
-        <a href="#solutions">
-          Identity
-        </a>
-
-        <a href="#solutions">
-          Employment
-        </a>
-
-        <a href="#solutions">
-          Education
-        </a>
-
-        <a href="#solutions">
-          References
-        </a>
-
-      </div>
-
-
-      <div class="col-6 col-lg-2">
-
-        <h5>
-          Company
-        </h5>
-
-        <a href="#how-it-works">
-          How It Works
-        </a>
-
-        <a href="#security">
-          Security
-        </a>
-
-        <a href="#faq">
-          FAQ
-        </a>
-
-        <a href="#demo">
-          Contact
-        </a>
-
-      </div>
-
-
-      <div class="col-lg-3">
-
-        <h5>
-          Get Started
-        </h5>
-
-        <p>
-          Talk to our team about your background screening requirements.
-        </p>
-
-        <a
-          href="#demo"
-          class="btn btn-primary-custom"
-        >
-          Request a Demo
-        </a>
-
-      </div>
-
+<!-- ============ 5. PROBLEM ============ -->
+<section class="problem">
+  <div class="container problem-grid">
+    <div class="reveal">
+      <p class="kick" style="justify-content:flex-start"><b>01</b><i></i><span>The Problem</span></p>
+      <h2 style="margin-top:16px">Every day of delay puts your start date at risk.</h2>
+      <p class="lead">Screening is the last mile of hiring — and the one place where silence costs you offers, visas and audit confidence.</p>
     </div>
-
-
-    <div class="footer-bottom">
-
-      <div class="row">
-
-        <div class="col-md-6">
-          © <span id="year"></span> VeriScreen. All rights reserved.
-        </div>
-
-        <div class="col-md-6 text-md-end">
-          Background Screening | UAE
-        </div>
-
+    <div class="pain-list">
+      <div class="pain r reveal" style="--d:.05s">
+        <svg class="ic"><use href="#i-user-x"/></svg>
+        <div><h3>Offers lapse.</h3><p>Slow verification means candidates accept other offers before they join.</p></div>
       </div>
-
+      <div class="pain a reveal" style="--d:.14s">
+        <svg class="ic"><use href="#i-clock"/></svg>
+        <div><h3>Visa timelines slip.</h3><p>Screening delays push back visa processing and onboarding.</p></div>
+      </div>
+      <div class="pain r reveal" style="--d:.23s">
+        <svg class="ic"><use href="#i-alert"/></svg>
+        <div><h3>Audit exposure.</h3><p>Inconsistent or undocumented checks create compliance gaps.</p></div>
+      </div>
     </div>
-
   </div>
+</section>
 
+<!-- ============ 6. BENEFITS ============ -->
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kick"><b>02</b><i></i><span>Why Teams Switch</span></p>
+      <h2>Faster hiring, without the compliance trade-off.</h2>
+      <p>Outcomes your HR team feels in the offer stage — and your compliance team feels in the audit.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="bcard reveal" style="--d:.05s">
+        <svg class="ic"><use href="#i-bolt"/></svg>
+        <h3>Faster Time-to-Join</h3>
+        <p>Average turnaround of 4.2 days for UAE checks, tracked in real time.</p>
+      </div>
+      <div class="bcard reveal" style="--d:.12s">
+        <svg class="ic"><use href="#i-shield"/></svg>
+        <h3>Audit-Ready Compliance</h3>
+        <p>Documented consent, full audit trail, standardised reports.</p>
+      </div>
+      <div class="bcard reveal" style="--d:.19s">
+        <svg class="ic"><use href="#i-globe"/></svg>
+        <h3>Global Reach, Local Support</h3>
+        <p>Checks in 190+ countries, backed by a UAE-based team.</p>
+      </div>
+      <div class="bcard reveal" style="--d:.26s">
+        <svg class="ic"><use href="#i-link"/></svg>
+        <h3>Seamless Integration</h3>
+        <p>Connects with your ATS/HRIS — Workday, SAP SuccessFactors, Oracle, Greenhouse.</p>
+      </div>
+    </div>
+    <div class="center-cta reveal"><a href="#get-started" class="btn btn-lg">Book a Free Demo <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ============ 7. WHAT WE VERIFY ============ -->
+<section class="verify">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kick"><b>03</b><i></i><span>What We Verify</span></p>
+      <h2>Six checks. One dashboard.</h2>
+      <p>Configure packages per role — remove anything you don't need.</p>
+    </div>
+    <div class="scr-grid">
+      <div class="scr reveal" style="--d:.04s">
+        <svg class="ic"><use href="#i-id"/></svg>
+        <h3>Identity &amp; Emirates ID / Visa Status</h3>
+        <p>Government-grade identity, residence and right-to-work verification.</p>
+      </div>
+      <div class="scr reveal" style="--d:.1s">
+        <svg class="ic"><use href="#i-grad"/></svg>
+        <h3>Education Verification</h3>
+        <p>Degrees confirmed at source — with attestation support for UAE filing.</p>
+      </div>
+      <div class="scr reveal" style="--d:.16s">
+        <svg class="ic"><use href="#i-brief"/></svg>
+        <h3>Employment History</h3>
+        <p>Titles, dates and leaving reasons confirmed with previous employers.</p>
+      </div>
+      <div class="scr reveal" style="--d:.22s">
+        <svg class="ic"><use href="#i-file-search"/></svg>
+        <h3>Criminal &amp; Police Clearance</h3>
+        <p>UAE and home-country clearance certificates, run in parallel.</p>
+      </div>
+      <div class="scr reveal" style="--d:.28s">
+        <svg class="ic"><use href="#i-chat"/></svg>
+        <h3>Reference Checks</h3>
+        <p>Structured, fully documented interviews with previous managers.</p>
+      </div>
+      <div class="scr reveal" style="--d:.34s">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <h3>Senior-Hire Due Diligence</h3>
+        <p>Litigation, credit and adverse media screening for executive roles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. HOW IT WORKS ============ -->
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kick"><b>04</b><i></i><span>How It Works</span></p>
+      <h2>Three steps to your first verified hire.</h2>
+      <p>No rip-and-replace. Verifitech layers onto the tools you already use.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal" style="--d:.05s">
+        <span class="step-num">1</span>
+        <h3>Consult</h3>
+        <p>A 30-minute call to map your hiring and compliance needs.</p>
+      </div>
+      <div class="step reveal" style="--d:.15s">
+        <span class="step-num">2</span>
+        <h3>Integrate</h3>
+        <p>We connect to your ATS and set up consent workflows.</p>
+      </div>
+      <div class="step reveal" style="--d:.25s">
+        <span class="step-num">3</span>
+        <h3>Screen</h3>
+        <p>Candidates complete a simple digital process while you track results live.</p>
+      </div>
+    </div>
+    <p class="how-note reveal"><span><svg class="ic"><use href="#i-check"/></svg><span>Go live in under 2 weeks with a dedicated implementation manager.</span></span></p>
+  </div>
+</section>
+
+<!-- ============ 9. PROOF: STATS ============ -->
+<section class="stats" aria-label="Key results">
+  <div class="container stats-grid">
+    <!-- PLACEHOLDERS — replace each number only with figures you can substantiate -->
+    <div class="stat reveal"><b><span data-count="1" data-decimals="0">1</span><span class="suf">M+</span></b><span class="lbl">Checks completed</span></div>
+    <div class="stat reveal" style="--d:.08s"><b><span data-count="4.2" data-decimals="1">4.2</span></b><span class="lbl">Days average turnaround</span></div>
+    <div class="stat reveal" style="--d:.16s"><b><span data-count="99" data-decimals="0">99</span><span class="suf">%</span></b><span class="lbl">Data accuracy</span></div>
+    <div class="stat reveal" style="--d:.24s"><b><span data-count="35" data-decimals="0">35</span><span class="suf">%</span></b><span class="lbl">Faster time-to-join for clients</span></div>
+  </div>
+</section>
+
+<!-- ============ 9b. PROOF: TESTIMONIALS ============ -->
+<section style="padding-top:90px">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kick"><b>05</b><i></i><span>Proven Results</span></p>
+      <h2>HR and compliance leaders on what changed.</h2>
+      <p>Teams that switched to Verifitech — and what changed.</p>
+    </div>
+    <div class="t-grid">
+      <!-- Placeholder quotes — replace names, titles and companies with approved client references -->
+      <div class="tcard reveal" style="--d:.05s">
+        <blockquote>"We cut average screening time by 40%, and our offer-to-join gap dropped noticeably."</blockquote>
+        <span class="metric"><svg class="ic"><use href="#i-trend"/></svg>−40% screening time</span>
+        <div class="t-who">
+          <span class="t-ava" style="background:linear-gradient(135deg,#17CEBF,#0A9A90)">FA</span>
+          <div><b>Fatima Al Mansouri</b><small>Head of Talent Acquisition · Gulf Meridian, Dubai</small></div>
+        </div>
+      </div>
+      <div class="tcard reveal" style="--d:.15s">
+        <blockquote>"Every check arrives with documented consent and a full audit trail. Our last audit closed with zero findings."</blockquote>
+        <span class="metric"><svg class="ic"><use href="#i-shield"/></svg>0 audit findings</span>
+        <div class="t-who">
+          <span class="t-ava" style="background:#0C2E38">OS</span>
+          <div><b>Omar Al Suwaidi</b><small>Head of Compliance · Barjeel Capital, Abu Dhabi</small></div>
+        </div>
+      </div>
+      <div class="tcard reveal" style="--d:.25s">
+        <blockquote>"Turnaround went from 12 days to 4.6. Our joining dates finally hold, and visa scheduling stopped slipping."</blockquote>
+        <span class="metric"><svg class="ic"><use href="#i-trend"/></svg>12 days → 4.6 days</span>
+        <div class="t-who">
+          <span class="t-ava" style="background:#D98F1F">PN</span>
+          <div><b>Priya Nair</b><small>HR Director · Falcon Heights, Dubai</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. COMPLIANCE & DATA (DARK) ============ -->
+<section class="security">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kick light"><b>06</b><i></i><span>Security &amp; Compliance</span></p>
+      <h2>Built for UAE data protection and regulatory expectations.</h2>
+      <p>The specifics your compliance team needs before signing — stated plainly.</p>
+    </div>
+    <div class="sec-grid">
+      <div class="reveal">
+        <p class="sec-lead">Every check runs on audited infrastructure, with consent and audit trails captured automatically.</p>
+        <ul class="sec-list">
+          <li><svg class="ic"><use href="#i-lock"/></svg><span>Encryption: AES-256 at rest, TLS 1.2+ in transit</span></li>
+          <li><svg class="ic"><use href="#i-check-c"/></svg><span>Access controls: role-based permissions with SSO; immutable audit logs on every action</span></li>
+          <li><svg class="ic"><use href="#i-clock"/></svg><span>Retention: configurable — candidate data deleted after 12 months by default</span></li>
+          <li><svg class="ic"><use href="#i-globe"/></svg><span>Storage: UAE or regional hosting, per your data-residency requirement</span></li>
+          <li><svg class="ic"><use href="#i-shield"/></svg><span>Cross-border checks: transferred encrypted, under contractual safeguards, limited to what each check requires</span></li>
+          <li><svg class="ic"><use href="#i-award"/></svg><span>Aligned with the UAE PDPL and DIFC and ADGM data protection regimes</span></li>
+        </ul>
+        <!-- Per brief: no downloads on this page — overview is shared during the demo -->
+        <p class="sec-avail">Our full Compliance &amp; Data Security Overview is shared during your demo.</p>
+      </div>
+      <div class="badges">
+        <div class="badge-card reveal" style="--d:.05s"><svg class="ic"><use href="#i-shield"/></svg><h3>SOC 2 Type II</h3><p>Independently audited controls</p></div>
+        <div class="badge-card reveal" style="--d:.12s"><svg class="ic"><use href="#i-award"/></svg><h3>ISO 27001:2022</h3><p>Certified information security</p></div>
+        <div class="badge-card reveal" style="--d:.19s"><svg class="ic"><use href="#i-check-c"/></svg><h3>NAPBS (PBSA)</h3><p>Accredited screening provider</p></div>
+        <div class="badge-card reveal" style="--d:.26s"><svg class="ic"><use href="#i-lock"/></svg><h3>PDPL · DIFC · ADGM</h3><p>UAE data protection regimes</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. FAQ ============ -->
+<section>
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="kick"><b>07</b><i></i><span>FAQ</span></p>
+      <h2>UAE-specific questions, answered.</h2>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>How long do UAE background checks take?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>It depends on the check type: identity and Emirates ID verification often completes within 24 hours; employment in 2–4 working days; education in 3–7; UAE and home-country police clearance in 5–15 working days depending on the country. You'll see a live ETA for every case in your dashboard.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Do you support Emirates ID, visa, and UAE police clearance checks?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Yes. We verify identity and visa/residence status through official channels, obtain UAE police clearance certificates, and run home-country criminal checks in parallel so nothing waits in sequence.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>How do you handle candidate consent and data protection under UAE law?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Consent is captured digitally before any check begins. Processing is purpose-limited, retention is configurable, and every action is logged — aligned with the UAE PDPL and the DIFC and ADGM data protection regimes.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Where is candidate data stored, and is it transferred outside the UAE?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Candidate data is hosted in the UAE or regional data centres, per your residency requirement. Where a check requires an overseas source, data is transferred encrypted, under contractual safeguards, and limited to what that check requires.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Can you verify candidates from outside the UAE?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Yes — we verify candidates across 190+ countries through local registries, issuing bodies and in-country verification teams.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Do you integrate with our ATS/HRIS?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>We integrate with Workday, SAP SuccessFactors, Oracle and Greenhouse, plus a REST API and webhooks for custom stacks. Most clients go live in under 2 weeks.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Do you support DIFC, ADGM, or regulated-sector requirements?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Yes. Our data handling maps to DIFC Data Protection Law No. 5 of 2020 and ADGM's Data Protection Regulations 2021, and we support enhanced workflows for regulated sectors such as financial services, healthcare and education.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>Do you offer reports in Arabic?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Yes. Reports, consent flows and candidate updates are available in both Arabic and English.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>How does pricing work?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Per-check pricing with volume tiers from 10+ checks per month, plus role-based packages. Your demo includes a tailored quote for your hiring volume.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false"><span>How long does onboarding take?</span><svg class="ic"><use href="#i-plus"/></svg></button>
+        <div class="faq-a"><div><p>Typically under 2 weeks end to end — ATS integration, consent workflows and package setup — led by a dedicated implementation manager.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. FINAL CTA ============ -->
+<section class="final" id="get-started">
+  <div class="container final-grid">
+    <div class="copy reveal">
+      <p class="kick light"><b>08</b><i></i><span>Get Started</span></p>
+      <h2>Ready to protect your next hire?</h2>
+      <p class="sub">Book a free 30-minute demo and see how UAE employers verify faster without compromising compliance.</p>
+      <a href="#f-form" class="btn btn-lg">Book My Free Demo <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div id="f-form">
+      <div class="form-card reveal" style="--d:.1s">
+        <form class="lead-form" novalidate>
+          <div class="form-body">
+            <h3 class="form-title">See it in action. Get a tailored demo in 24 hours.</h3>
+            <p class="form-note">30-minute walkthrough · No commitment</p>
+            <div class="f-field">
+              <label for="f-name">Full name</label>
+              <input type="text" id="f-name" class="lf-name" placeholder="Fatima Al Mansouri" autocomplete="name">
+              <span class="err">Please enter your full name.</span>
+            </div>
+            <div class="f-field">
+              <label for="f-email">Work email</label>
+              <input type="email" id="f-email" class="lf-email" placeholder="fatima@company.ae" autocomplete="email">
+              <span class="err">Please enter your work email.</span>
+            </div>
+            <div class="f-row">
+              <div class="f-field">
+                <label for="f-company">Company name</label>
+                <input type="text" id="f-company" class="lf-company" placeholder="Company" autocomplete="organization">
+                <span class="err">Please enter your company name.</span>
+              </div>
+              <div class="f-field">
+                <label for="f-title">Job title</label>
+                <input type="text" id="f-title" class="lf-title" placeholder="HR Director" autocomplete="organization-title">
+                <span class="err">Please enter your job title.</span>
+              </div>
+            </div>
+            <div class="f-field">
+              <label for="f-phone">Phone / WhatsApp</label>
+              <div class="phone-group">
+                <span class="phone-prefix">+971</span>
+                <input type="tel" id="f-phone" class="lf-phone" placeholder="50 123 4567" autocomplete="tel-national" dir="ltr">
+              </div>
+              <span class="err">Please enter a valid phone number.</span>
+            </div>
+            <div class="f-field">
+              <label for="f-volume">Monthly hiring volume</label>
+              <select id="f-volume" class="lf-volume">
+                <option value="">Select monthly hiring volume</option>
+                <option>1–10</option><option>11–50</option><option>51–200</option><option>200+</option>
+              </select>
+              <span class="err">Please select your monthly hiring volume.</span>
+            </div>
+            <button type="submit" class="btn btn-block btn-lg">Get My Demo <svg class="ic"><use href="#i-arrow"/></svg></button>
+            <p class="form-privacy"><svg class="ic"><use href="#i-lock"/></svg><span>We respect your privacy. Your information is handled in line with UAE data protection requirements.</span></p>
+          </div>
+        </form>
+        <div class="form-success" hidden>
+          <div class="s-icon"><svg class="ic"><use href="#i-check"/></svg></div>
+          <h3>Request received!</h3>
+          <p>Here's what happens next:</p>
+          <ol>
+            <li><b>Within 24 hours:</b> we confirm your tailored demo slot by email or phone.</li>
+            <li><b>Your demo:</b> a 30-minute walkthrough mapped to your roles and hiring volume.</li>
+            <li><b>After:</b> a turnaround benchmark for your hiring volume — yours to keep.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ 13. MINIMAL FOOTER ============ -->
+<!--  <footer class="site-footer">
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <a href="#" class="brand foot-brand"><span class="brand-mark"><svg class="ic"><use href="#i-check"/></svg></span>Verifitech</a> -->
+        <!-- Replace with your registered office address and phone -->
+<!--         <address class="foot-addr">Boulevard Plaza Tower 1, Downtown Dubai, UAE<br><a href="tel:+97140000000" dir="ltr">+971 4 000 0000</a></address>
+      </div>
+      <div class="foot-right">
+        <nav class="foot-links" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookie Policy</a>
+        </nav>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 Verifitech. All rights reserved.</span>
+      <span>PDPL · SOC 2 Type II · ISO 27001:2022</span>
+    </div>
+  </div>
 </footer>
-
-
-<!-- Bootstrap JS -->
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-></script>
-
+  -->
+<!-- LinkedIn Insight Tag + conversion tracking would be installed here (before </body>) -->
 
 <script>
-  /* =========================================================
-     CURRENT YEAR
-  ========================================================= */
+/* ---------- Sticky header ---------- */
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 10), {passive:true});
 
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+/* ---------- Reveal on scroll ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-
-  /* =========================================================
-     SCROLL REVEAL
-  ========================================================= */
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
-
-  const revealObserver =
-    new IntersectionObserver(
-      function(entries) {
-
-        entries.forEach(function(entry) {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add("show");
-
-            revealObserver.unobserve(entry.target);
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-
-  revealElements.forEach(function(element) {
-
-    revealObserver.observe(element);
-
+/* ---------- Animated counters ---------- */
+const fmt = (n, d) => n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    cio.unobserve(e.target);
+    const el = e.target, target = parseFloat(el.dataset.count), dec = +(el.dataset.decimals || 0);
+    const t0 = performance.now(), dur = 1500;
+    const tick = t => {
+      const p = Math.min((t - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * ease, dec);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   });
+}, {threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
-
-  /* =========================================================
-     COUNTER ANIMATION
-  ========================================================= */
-
-  const counters =
-    document.querySelectorAll(".counter");
-
-  let countersStarted = false;
-
-
-  function startCounters() {
-
-    if (countersStarted) {
-      return;
-    }
-
-    countersStarted = true;
-
-    counters.forEach(function(counter) {
-
-      const target =
-        parseInt(counter.getAttribute("data-target"));
-
-      let current = 0;
-
-      const duration = 1800;
-
-      const stepTime =
-        Math.max(
-          Math.floor(duration / target),
-          5
-        );
-
-
-      const timer =
-        setInterval(function() {
-
-          current += Math.ceil(target / 100);
-
-          if (current >= target) {
-
-            current = target;
-
-            clearInterval(timer);
-
-          }
-
-          if (target >= 1000000) {
-
-            counter.textContent =
-              (current / 1000000).toFixed(
-                current >= 1000000 ? 0 : 1
-              ) + "M+";
-
-          }
-          else if (target >= 1000) {
-
-            counter.textContent =
-              Math.round(current / 1000) + "K+";
-
-          }
-          else if (target === 99) {
-
-            counter.textContent =
-              current + "%";
-
-          }
-          else {
-
-            counter.textContent =
-              current + "+";
-
-          }
-
-        }, stepTime);
-
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const btn = item.querySelector('.faq-q');
+  btn.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-q').setAttribute('aria-expanded','false');
     });
+    if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
 
-  }
+/* ---------- Lead forms (both instances) ---------- */
+const FREE = ['gmail.com','googlemail.com','yahoo.com','ymail.com','hotmail.com','hotmail.co.uk',
+  'outlook.com','live.com','msn.com','aol.com','icloud.com','me.com','protonmail.com','proton.me',
+  'gmx.com','mail.com','yandex.com','zoho.com'];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-
-  const statsSection =
-    document.querySelector(".stats-section");
-
-
-  const statsObserver =
-    new IntersectionObserver(
-      function(entries) {
-
-        if (
-          entries[0].isIntersecting
-        ) {
-
-          startCounters();
-
-          statsObserver.disconnect();
-
-        }
-
-      },
-      {
-        threshold: 0.3
+document.querySelectorAll('form.lead-form').forEach(form => {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let ok = true;
+    const checks = ['.lf-name','.lf-email','.lf-company','.lf-title','.lf-phone','.lf-volume'];
+    checks.forEach(cls => {
+      const input = form.querySelector(cls);
+      const field = input.closest('.f-field');
+      const errEl = field.querySelector('.err');
+      const v = input.value.trim();
+      let bad = !v;
+      if (!bad && cls === '.lf-email') {
+        if (!EMAIL_RE.test(v)) { errEl.textContent = "That email doesn't look right — mind checking it?"; bad = true; }
+        else if (FREE.includes(v.split('@')[1].toLowerCase())) { errEl.textContent = "Please use your work email — we'll only use it to book your demo."; bad = true; }
       }
-    );
-
-
-  if (statsSection) {
-    statsObserver.observe(statsSection);
-  }
-
-
-  /* =========================================================
-     DEMO FORM
-  ========================================================= */
-
-  const demoForm =
-    document.getElementById("demoForm");
-
-  const formMessage =
-    document.getElementById("formMessage");
-
-
-  demoForm.addEventListener(
-    "submit",
-    function(event) {
-
-      event.preventDefault();
-
-
-      const name =
-        document.getElementById("name").value.trim();
-
-      const email =
-        document.getElementById("email").value.trim();
-
-      const company =
-        document.getElementById("company").value.trim();
-
-
-      if (
-        !name ||
-        !email ||
-        !company
-      ) {
-
-        formMessage.className =
-          "alert alert-danger";
-
-        formMessage.textContent =
-          "Please complete the required fields.";
-
-        return;
-
+      if (!bad && cls === '.lf-phone') {
+        if (v.replace(/\D/g,'').length < 7) bad = true;
       }
-
-
-      const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-      if (!emailPattern.test(email)) {
-
-        formMessage.className =
-          "alert alert-danger";
-
-        formMessage.textContent =
-          "Please enter a valid work email address.";
-
-        return;
-
-      }
-
-
-      formMessage.className =
-        "alert alert-success";
-
-      formMessage.textContent =
-        "Thank you! Your demo request has been received.";
-
-
-      demoForm.reset();
-
-    }
-  );
-
-
-  /* =========================================================
-     SMOOTH NAVIGATION
-  ========================================================= */
-
-  document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(function(link) {
-
-      link.addEventListener(
-        "click",
-        function(event) {
-
-          const targetId =
-            this.getAttribute("href");
-
-          if (
-            targetId === "#" ||
-            !targetId
-          ) {
-            return;
-          }
-
-
-          const target =
-            document.querySelector(targetId);
-
-
-          if (target) {
-
-            event.preventDefault();
-
-            const navHeight = 80;
-
-            const targetPosition =
-              target.getBoundingClientRect().top +
-              window.scrollY -
-              navHeight;
-
-
-            window.scrollTo({
-              top: targetPosition,
-              behavior: "smooth"
-            });
-
-
-            /* Close mobile navbar */
-
-            const navbar =
-              document.getElementById("mainNav");
-
-            if (
-              navbar.classList.contains("show")
-            ) {
-
-              const collapse =
-                bootstrap.Collapse.getInstance(navbar);
-
-              if (collapse) {
-                collapse.hide();
-              }
-
-            }
-
-          }
-
-        }
-      );
-
+      field.classList.toggle('invalid', bad);
+      if (bad) ok = false;
     });
+    if (!ok) { form.querySelector('.f-field.invalid input, .f-field.invalid select')?.focus(); return; }
+    form.hidden = true;
+    const success = form.closest('.form-card').querySelector('.form-success');
+    success.hidden = false;
+    success.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+  form.querySelectorAll('input,select').forEach(i =>
+    i.addEventListener('input', () => i.closest('.f-field').classList.remove('invalid')));
+});
+
+/* ---------- Placeholder legal links ---------- */
+document.querySelectorAll('a[href="#"]').forEach(a =>
+  a.addEventListener('click', e => e.preventDefault()));
+
+/* ---------- CTA → focus form ---------- */
+document.querySelectorAll('a[href="#hero-form"], a[href="#f-form"]').forEach(a => {
+  a.addEventListener('click', () => {
+    const target = document.querySelector(a.getAttribute('href'));
+    setTimeout(() => target?.querySelector('input')?.focus({preventScroll:true}), 650);
+  });
+});
 </script>
-
 </body>
 </html>
