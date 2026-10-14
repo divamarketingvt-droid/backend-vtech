@@ -39,11 +39,9 @@ app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
 // Configure these values in your hosting environment.
 // Never place your real email password in this file.
-
-const EMAIL_USER = process.env.EMAIL_USER;
-const EMAIL_PASS = process.env.EMAIL_PASS;
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || EMAIL_USER;
-
+const EMAIL_USER = "ranjith20112@gmail.com";
+const EMAIL_PASS = "ctrcjjgomatpfmoz"; // Added quotes and removed spaces if it's an app password
+const ADMIN_EMAIL = "connect@verifitech.com" || EMAIL_USER;
 if (!EMAIL_USER || !EMAIL_PASS) {
   console.error(
     "Email configuration missing. Set EMAIL_USER and EMAIL_PASS."
