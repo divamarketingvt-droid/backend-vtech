@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Solutions UAE | IT Services, Staffing & Software | Verifitech Group</title>
+    <meta name="description" content="Mint Solutions, sister concern of Verifitech in Dubai, delivers IT services, staffing and enterprise software to UAE businesses. Hire with Mint. Verify with Verifitech.">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1ac2c1;
+            --primary-dark: #16a8a7;
+            --primary-light: #e0f7f7;
+            --dark: #0f172a;
+            --navy: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --gold: #d4af37;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* ══════════ NAVBAR ══════════ */
+        .navbar {
+            padding: 0;
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+            background: rgba(255,255,255,.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,.05);
+            height: 80px;
+        }
+        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.08); }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--dark);
+            letter-spacing: -.5px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .navbar-brand span { color: var(--primary); }
+        .brand-tagline {
+            font-size: .62rem;
+            font-weight: 600;
+            color: var(--gray);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+
+           FOOTER
+         ============================================ */
+      footer {
+        background: #f8fafc;
+        color: var(--dark);
+        padding: 80px 0 40px;
+      }
+
+      .footer-brand {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        display: block;
+        color: var(--dark);
+        text-decoration: none;
+      }
+
+      .footer-brand span {
+        color: var(--primary);
+      }
+
+      .footer-desc {
+        color: var(--gray);
+        margin-bottom: 2rem;
+        max-width: 300px;
+        line-height: 1.8;
+      }
+
+      .footer h5 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        font-size: 1.1rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: var(--gray);
+        text-decoration: none;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .footer-bottom {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid #cbd5e1;
+        text-align: center;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        color: white;
+      }
+
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--navy);
+            margin: 0 .55rem;
+            font-size: .9rem;
+            transition: color .3s ease;
+            padding: 1.75rem .4rem !important;
+        }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-sales {
+            background: var(--primary);
+            color: #fff !important;
+            border: none;
+            padding: .6rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: .88rem;
+            transition: all .3s ease;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(26,194,193,.3);
+            text-decoration: none;
+        }
+        .btn-sales:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26,194,193,.45);
+        }
+
+        .country-selector {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: .5rem .8rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+        .country-selector:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ══════════ HERO ══════════ */
+        .mint-hero {
+            padding: 150px 0 110px;
+            background:
+                radial-gradient(rgba(26,194,193,.09) 1.5px, transparent 1.5px),
+                linear-gradient(135deg, #f0fdfa 0%, #ffffff 55%, #fefce8 100%);
+            background-size: 26px 26px, auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: .5;
+            pointer-events: none;
+        }
+        .hero-blob.b1 { width: 420px; height: 420px; background: rgba(26,194,193,.18); top: -140px; right: -100px; }
+        .hero-blob.b2 { width: 340px; height: 340px; background: rgba(212,175,55,.12); bottom: -120px; left: -80px; }
+
+        .mint-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: .6rem 1.2rem;
+            background: rgba(26,194,193,.1);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: .92rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(26,194,193,.25);
+        }
+        .mint-badge i { animation: spin 6s linear infinite; }
+
+        .mint-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.12;
+            margin-bottom: 1.4rem;
+            color: var(--dark);
+            letter-spacing: -1.5px;
+        }
+        .hl {
+            color: var(--primary);
+            background: linear-gradient(transparent 68%, rgba(26,194,193,.22) 68%);
+            border-radius: 4px;
+            padding: 0 4px;
+        }
+
+        .mint-hero .lead {
+            font-size: 1.22rem;
+            color: var(--gray);
+            max-width: 580px;
+            margin-bottom: 2.2rem;
+        }
+
+        .trust-row { display: flex; align-items: center; gap: 14px; margin-top: 1.6rem; }
+        .trust-avatars { display: flex; }
+        .trust-avatars .tv {
+            width: 42px; height: 42px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--primary-light);
+            margin-right: -10px;
+            color: var(--primary);
+            font-size: 1.05rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,.07);
+        }
+        .trust-row small { color: var(--gray); font-weight: 600; }
+
+        .hero-url {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: .9rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+        .hero-url i { color: var(--primary); }
+
+        /* Scroll cue */
+        .hero-scroll {
+            position: absolute;
+            bottom: 26px; left: 50%;
+            transform: translateX(-50%);
+            width: 46px; height: 46px;
+            border: 2px solid rgba(26,194,193,.4);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            background: #fff;
+            animation: bounce 2s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        /* ── RIGHT SIDE : ORBITING ECOSYSTEM ── */
+        .hero-visual {
+            position: relative;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .visual-tag {
+            position: absolute;
+            top: -14px; left: 50%;
+            transform: translateX(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--dark);
+            color: #fff;
+            padding: .5rem 1.1rem;
+            border-radius: 50px;
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .5px;
+            white-space: nowrap;
+            z-index: 20;
+            box-shadow: 0 10px 25px rgba(15,23,42,.25);
+        }
+        .visual-tag i { color: var(--primary); }
+
+        .orbit-stage {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+        .orbit-stage::before {
+            content: '';
+            position: absolute;
+            inset: 14%;
+            background: radial-gradient(circle, rgba(26,194,193,.16) 0%, transparent 65%);
+            border-radius: 50%;
+        }
+
+        .ring {
+            position: absolute;
+            border: 2px dashed rgba(26,194,193,.35);
+            border-radius: 50%;
+        }
+        .ring.outer { inset: 5%; animation: spin 46s linear infinite; }
+        .ring.inner { inset: 21%; border-color: rgba(26,194,193,.22); animation: spinRev 30s linear infinite; }
+        .ring .dot {
+            position: absolute;
+            top: -6px; left: 50%;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 5px rgba(26,194,193,.18);
+        }
+        .ring .dot.d2 { top: auto; bottom: -6px; background: var(--gold); box-shadow: 0 0 0 5px rgba(212,175,55,.18); }
+
+        /* Centre core — LOGO SLOT */
+        .orbit-core {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            width: 33%;
+            aspect-ratio: 1;
+            background: #fff;
+            border-radius: 26%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            z-index: 8;
+            box-shadow: 0 25px 60px rgba(26,194,193,.28), inset 0 0 0 1px rgba(26,194,193,.15);
+            padding: 5%;
+            text-align: center;
+        }
+        .orbit-core::after {
+            content: '';
+            position: absolute;
+            inset: -13px;
+            border: 2px solid rgba(26,194,193,.35);
+            border-radius: 30%;
+            animation: pulse 2.6s ease-out infinite;
+        }
+        .orbit-core img { max-width: 62%; max-height: 44%; object-fit: contain; }
+        .core-fallback {
+            display: none;
+            width: 56px; height: 56px;
+            background: var(--primary-light);
+            border-radius: 16px;
+            align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        .core-name { font-weight: 800; font-size: clamp(.85rem, 1.3vw, 1.02rem); color: var(--dark); line-height: 1.1; }
+        .core-sub  { font-size: .58rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gray); }
+
+        /* Orbiting service chips */
+        .sat-orbit {
+            position: absolute;
+            inset: 5%;
+            animation: spin 32s linear infinite;
+            z-index: 9;
+            pointer-events: none;
+        }
+        .sat-orbit .sat-chip { animation: spinRev 32s linear infinite; }
+        .sat-orbit.o2, .sat-orbit.o2 .sat-chip { animation-delay: -10.6s; }
+        .sat-orbit.o3, .sat-orbit.o3 .sat-chip { animation-delay: -21.3s; }
+
+        .sat-pos { position: absolute; top: 0; left: 50%; transform: translate(-50%,-50%); }
+        .sat-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(8px);
+            padding: .55rem 1.05rem .55rem .6rem;
+            border-radius: 50px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 12px 30px rgba(15,23,42,.12);
+            white-space: nowrap;
+        }
+        .sat-chip .sc-icon {
+            width: 32px; height: 32px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: .95rem;
+            flex-shrink: 0;
+        }
+        .sat-chip span { font-size: .8rem; font-weight: 700; color: var(--dark); }
+
+        /* Floating glass stat cards */
+        .hero-float-grid { position: absolute; inset: 0; pointer-events: none; z-index: 12; }
+        .stat-card {
+            position: absolute;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(8px);
+            padding: .8rem 1.15rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 12px 30px rgba(15,23,42,.1);
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: auto;
+        }
+        .stat-card.pos-1 { top: 2%; left: -12px; }
+        .stat-card.pos-2 { top: 2%; right: -12px; animation-delay: 1s; }
+        .stat-card.pos-3 { bottom: 2%; left: -12px; animation-delay: 2s; }
+        .stat-card.pos-4 { bottom: 2%; right: -12px; animation-delay: 3s; }
+
+        .stat-icon {
+            width: 44px; height: 44px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .stat-text h4 { font-size: 1.25rem; font-weight: 800; margin: 0; line-height: 1.1; }
+        .stat-text p  { font-size: .74rem; color: var(--gray); margin: 0; font-weight: 600; }
+
+        /* ══════════ SECTION HEADERS ══════════ */
+        section { padding: 100px 0; }
+
+        .section-subtitle {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1.1rem;
+            background: rgba(26,194,193,.1);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.1rem;
+            border: 1px solid rgba(26,194,193,.2);
+        }
+        .section-subtitle.on-dark {
+            background: rgba(255,255,255,.08);
+            color: var(--primary);
+            border-color: rgba(255,255,255,.15);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .section-desc {
+            color: var(--gray);
+            font-size: 1.12rem;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* ══════════ ABOUT ══════════ */
+        .about-section { background: #fff; }
+
+        .fact-box {
+            background: var(--light-gray);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.2rem;
+            height: 100%;
+        }
+        .fact-box-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding-bottom: 1.4rem;
+            margin-bottom: .6rem;
+            border-bottom: 2px dashed rgba(26,194,193,.3);
+        }
+        .fb-logo {
+            width: 58px; height: 58px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,.05);
+            overflow: hidden;
+        }
+        .fb-logo img { max-width: 80%; max-height: 80%; object-fit: contain; }
+        .fb-link {
+            width: 40px; height: 40px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 6px 16px rgba(26,194,193,.35);
+            flex-shrink: 0;
+        }
+
+        .fact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .fact-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .fact-item i {
+            width: 50px; height: 50px;
+            background: #fff;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,.05);
+        }
+        .fact-item h4 {
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: var(--gray);
+            margin-bottom: .2rem;
+        }
+        .fact-item p { font-size: 1.02rem; font-weight: 700; margin: 0; }
+
+        /* ══════════ BETTER TOGETHER (FIXED ALIGNMENT) ══════════ */
+        .together-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .together-section::before {
+            content: '';
+            position: absolute;
+            top: -40%; right: -15%;
+            width: 550px; height: 550px;
+            background: radial-gradient(circle, rgba(26,194,193,.12) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        .together-section .section-title { color: #fff; }
+        .together-section .section-desc { color: rgba(255,255,255,.7); margin-inline: auto; }
+
+        .together-col { position: relative; }
+
+        .together-card {
+            background: rgba(255,255,255,.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 20px;
+            padding: 2.4rem 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            transition: all .3s ease;
+        }
+        .together-card:hover {
+            background: rgba(255,255,255,.09);
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .together-tag {
+            display: inline-block;
+            align-self: center;
+            padding: .32rem 1rem;
+            background: rgba(26,194,193,.16);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.3rem;
+        }
+        .together-icon {
+            width: 78px; height: 78px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            margin: 0 auto 1.3rem;
+            transition: all .3s ease;
+        }
+        .together-card:hover .together-icon {
+            transform: scale(1.1) rotate(-6deg);
+            box-shadow: 0 12px 30px rgba(26,194,193,.4);
+        }
+        .together-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: .7rem;
+            color: #fff;
+        }
+        .together-card p {
+            color: rgba(255,255,255,.72);
+            font-size: .93rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .card-brand {
+            margin-top: auto;
+            padding-top: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: .76rem;
+            font-weight: 700;
+            color: rgba(255,255,255,.6);
+            letter-spacing: .4px;
+        }
+        .card-brand img { height: 20px; width: auto; opacity: .9; }
+        .card-brand .mini-logo {
+            width: 26px; height: 26px;
+            background: rgba(26,194,193,.18);
+            border-radius: 8px;
+            display: none;
+            align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: .85rem;
+        }
+        .card-brand i.sep { color: var(--primary); font-size: .9rem; }
+
+        /* Flow arrows between equal cards */
+        .flow-arrow {
+            position: absolute;
+            top: 50%;
+            right: -46px;
+            transform: translateY(-50%);
+            width: 46px; height: 46px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+            z-index: 6;
+            box-shadow: 0 0 0 6px rgba(26,194,193,.2), 0 10px 22px rgba(26,194,193,.4);
+            animation: nudge 1.8s ease-in-out infinite;
+        }
+
+        .closing-line {
+            text-align: center;
+            margin-top: 3.2rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: rgba(255,255,255,.92);
+        }
+        .closing-line i { color: var(--primary); margin-right: .5rem; }
+
+        /* ══════════ SERVICES (no Learn More) ══════════ */
+        .services-section { background: var(--light-gray); }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.3rem 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all .3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,.1);
+            border-color: var(--primary);
+            transform: translateY(-6px);
+        }
+
+        .service-icon {
+            width: 68px; height: 68px;
+            background: var(--primary-light);
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.9rem;
+            color: var(--primary);
+            margin-bottom: 1.4rem;
+            transition: all .3s ease;
+        }
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.08) rotate(-6deg);
+            border-radius: 50%;
+        }
+        .service-card h3 { font-size: 1.22rem; font-weight: 700; margin-bottom: .7rem; }
+        .service-card > p { color: var(--gray); font-size: .93rem; line-height: 1.65; margin-bottom: 1.2rem; }
+
+        .service-checks { margin-top: auto; display: flex; flex-direction: column; gap: .55rem; }
+        .service-checks div {
+            display: flex; align-items: flex-start; gap: 8px;
+            font-size: .86rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .service-checks i { color: var(--primary); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+
+        /* ══════════ INDUSTRIES ══════════ */
+        .industries-section { background: #fff; }
+
+        .industry-item {
+            background: var(--light-gray);
+            border: 1px solid transparent;
+            border-radius: 18px;
+            padding: 2rem 1.2rem;
+            text-align: center;
+            height: 100%;
+            transition: all .3s ease;
+        }
+        .industry-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,.1);
+            background: #fff;
+            border-color: var(--primary);
+        }
+        .ind-icon {
+            width: 64px; height: 64px;
+            margin: 0 auto 1rem;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+            color: var(--primary);
+            transition: all .3s ease;
+        }
+        .industry-item:hover .ind-icon { background: var(--primary); color: #fff; transform: scale(1.1); }
+        .industry-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .2rem; }
+        .industry-item small { color: var(--gray); font-size: .78rem; font-weight: 600; }
+
+        /* ══════════ WHY (dark) ══════════ */
+        .why-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-section::before {
+            content: '';
+            position: absolute;
+            bottom: -40%; left: -15%;
+            width: 550px; height: 550px;
+            background: radial-gradient(circle, rgba(26,194,193,.12) 0%, transparent 60%);
+            border-radius: 50%;
+        }
+        .why-section .section-title { color: #fff; }
+        .why-section .section-desc { color: rgba(255,255,255,.7); margin-inline: auto; }
+
+        .why-card {
+            background: rgba(255,255,255,.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 20px;
+            padding: 2.2rem 1.9rem;
+            height: 100%;
+            transition: all .3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-card:hover {
+            background: rgba(255,255,255,.09);
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+        .why-num {
+            position: absolute;
+            top: 12px; right: 18px;
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: rgba(255,255,255,.06);
+            line-height: 1;
+        }
+        .why-icon {
+            width: 58px; height: 58px;
+            background: rgba(26,194,193,.15);
+            border: 1px solid rgba(26,194,193,.3);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+        }
+        .why-card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: .5rem; color: #fff; }
+        .why-card p { color: rgba(255,255,255,.7); font-size: .89rem; line-height: 1.65; margin: 0; }
+
+        /* ══════════ PROCESS ══════════ */
+        .process-section { background: var(--light-gray); }
+        .process-row { position: relative; }
+        .process-line {
+            position: absolute;
+            top: 72px;
+            left: 12.5%; right: 12.5%;
+            border-top: 2px dashed rgba(26,194,193,.4);
+            z-index: 0;
+        }
+        .process-step { text-align: center; position: relative; z-index: 2; padding: 0 .5rem; }
+        .step-number {
+            width: 80px; height: 80px;
+            margin: 0 auto 1.4rem;
+            background: #fff;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--primary);
+            box-shadow: 0 0 0 8px var(--light-gray), 0 10px 25px rgba(26,194,193,.2);
+            transition: all .3s ease;
+        }
+        .process-step:hover .step-number { background: var(--primary); color: #fff; transform: scale(1.08); }
+        .process-step h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .6rem; }
+        .process-step p { color: var(--gray); font-size: .92rem; margin: 0; }
+
+        /* ══════════ CTA ══════════ */
+        .cta-section {
+            background: linear-gradient(135deg, #f0fdfa 0%, #fefce8 100%);
+        }
+        .cta-box {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 26px;
+            padding: 3.5rem;
+            box-shadow: 0 25px 60px rgba(15,23,42,.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+        }
+        .cta-contact-item { display: flex; align-items: center; gap: .9rem; margin-bottom: 1rem; }
+        .cta-contact-item .ci {
+            width: 44px; height: 44px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .cta-contact-item div h5 { font-size: .76rem; text-transform: uppercase; letter-spacing: .8px; color: var(--gray); margin-bottom: 1px; }
+        .cta-contact-item div p { margin: 0; font-weight: 700; font-size: .95rem; }
+
+        .form-control-custom {
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: .85rem 1.1rem;
+            font-size: .93rem;
+            font-family: 'Inter', sans-serif;
+            background: var(--light-gray);
+            transition: all .3s ease;
+            color: var(--dark);
+        }
+        .form-control-custom:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(26,194,193,.15);
+        }
+        .form-label-custom {
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: .35rem;
+            display: block;
+        }
+
+        /* ══════════ FAQ ══════════ */
+        .faq-section { background: var(--light-gray); }
+        .faq-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            margin-bottom: .9rem;
+            overflow: hidden;
+            transition: all .3s ease;
+        }
+        .faq-item:hover, .faq-item.show { border-color: var(--primary); }
+        .faq-item.show { box-shadow: 0 15px 35px rgba(0,0,0,.08); }
+        .faq-num {
+            width: 40px; height: 40px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: .95rem;
+            flex-shrink: 0;
+        }
+        .accordion-button {
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            background: #fff;
+            gap: 1rem;
+            box-shadow: none !important;
+        }
+        .accordion-button:not(.collapsed) { color: var(--primary-dark); background: #fff; }
+        .accordion-button::after { display: none; }
+        .accordion-button .faq-chevron {
+            margin-left: auto;
+            color: var(--primary);
+            font-size: 1.15rem;
+            transition: transform .3s ease;
+        }
+        .accordion-button:not(.collapsed) .faq-chevron { transform: rotate(180deg); }
+        .accordion-body { padding: 0 1.5rem 1.4rem 4.4rem; color: var(--gray); font-size: .93rem; line-height: 1.7; }
+
+        /* ══════════ FOOTER ══════════ */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,.75);
+            padding: 70px 0 0;
+        }
+        .footer-brand img { height: 40px; margin-bottom: 1rem; }
+        .footer-brand .footer-fallback {
+            display: none;
+            width: 48px; height: 48px;
+            background: rgba(26,194,193,.15);
+            border-radius: 12px;
+            align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .footer h5 { color: #fff; font-size: .95rem; font-weight: 700; margin-bottom: 1.2rem; }
+        .footer a { color: rgba(255,255,255,.65); text-decoration: none; font-size: .9rem; transition: color .3s ease; display: inline-block; padding: .2rem 0; }
+        .footer a:hover { color: var(--primary); transform: translateX(4px); }
+        .footer .socials { display: flex; gap: 10px; margin-top: 1.2rem; }
+        .footer .socials a {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,.08);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .footer .socials a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.1);
+            margin-top: 3rem;
+            padding: 1.4rem 0;
+            font-size: .82rem;
+            text-align: center;
+            color: rgba(255,255,255,.5);
+        }
+        .footer-bottom i { color: var(--primary); }
+
+        /* ══════════ BUTTONS ══════════ */
+        .btn-primary-custom {
+            background: var(--primary) !important;
+            color: #fff !important;
+            border: none;
+            padding: 1rem 2.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.02rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(26,194,193,.35);
+            transition: all .3s ease;
+        }
+        .btn-primary-custom:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(26,194,193,.5);
+        }
+
+        /* ══════════ BACK TO TOP ══════════ */
+        .back-top {
+            position: fixed;
+            bottom: 26px; right: 26px;
+            width: 48px; height: 48px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(26,194,193,.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(14px);
+            transition: all .3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+        .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        /* ══════════ REVEAL ANIMATION ══════════ */
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: .12s; } .d2 { transition-delay: .24s; } .d3 { transition-delay: .36s; }
+
+        /* ══════════ KEYFRAMES ══════════ */
+        @keyframes spin     { to { transform: rotate(360deg); } }
+        @keyframes spinRev  { to { transform: rotate(-360deg); } }
+        @keyframes float    { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes pulse    { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.12); } }
+        @keyframes nudge    { 0%,100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(5px); } }
+        @keyframes bounce   { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE — TABLET & MOBILE
+        ═══════════════════════════════════════════ */
+
+        /* ── Small desktop / large tablet ── */
+        @media (max-width: 1199px) {
+            .mint-hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2.25rem; }
+            .sat-chip span { font-size: .74rem; }
+            .stat-text h4 { font-size: 1.1rem; }
+            .stat-card { padding: .65rem .9rem; }
+        }
+
+        /* ── Tablet (portrait & landscape below lg) ── */
+        @media (max-width: 991px) {
+            .nav-link { padding: .7rem .4rem !important; }
+            .navbar-collapse {
+                background: #fff;
+                border-radius: 16px;
+                padding: 1rem 1.4rem;
+                margin-top: .8rem;
+                box-shadow: 0 15px 40px rgba(0,0,0,.12);
+            }
+
+            .mint-hero { padding: 130px 0 80px; text-align: center; }
+            .mint-hero .lead { margin-inline: auto; }
+            .trust-row, .mint-hero .d-flex.gap-3 { justify-content: center; }
+
+            /* Hero visual: stack below text, stat cards become 2×2 grid */
+            .hero-visual { margin-top: 3.2rem; max-width: 460px; }
+            .hero-float-grid {
+                position: static;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+                margin-top: 1.8rem;
+                pointer-events: auto;
+            }
+            .stat-card { position: static !important; animation: none; width: 100%; }
+
+            .flow-arrow { display: none; }          /* arrows off on tablet */
+            .process-line { display: none; }
+            .hero-scroll { display: none; }
+            section { padding: 80px 0; }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 767px) {
+            .mint-hero { padding: 115px 0 60px; }
+            .mint-hero h1 { font-size: 2.1rem; letter-spacing: -1px; }
+            .mint-hero .lead { font-size: 1.05rem; }
+            .section-title { font-size: 1.8rem; }
+            .section-desc { font-size: 1rem; }
+            .hero-visual { max-width: 330px; }
+            .visual-tag { font-size: .64rem; padding: .4rem .9rem; }
+            .sat-chip { padding: .4rem .8rem .4rem .45rem; gap: 6px; }
+            .sat-chip .sc-icon { width: 27px; height: 27px; font-size: .8rem; }
+            .sat-chip span { font-size: .68rem; }
+            .core-name { font-size: .82rem; }
+
+            .together-card { padding: 2rem 1.5rem; }
+            .closing-line { font-size: 1.05rem; }
+            .cta-box { padding: 2.2rem 1.4rem; }
+            .accordion-body { padding-left: 1.5rem; }
+            .fact-box { padding: 1.6rem; }
+            section { padding: 68px 0; }
+        }
+
+        /* ── Small mobile ── */
+        @media (max-width: 575px) {
+            .navbar-brand { font-size: 1.45rem; }
+            .mint-hero h1 { font-size: 1.85rem; }
+            .hero-visual { max-width: 290px; }
+            .stat-text h4 { font-size: 1rem; }
+            .stat-icon { width: 38px; height: 38px; font-size: 1rem; }
+            .step-number { width: 66px; height: 66px; font-size: 1.5rem; }
+            .why-num { display: none; }
+            .back-top { bottom: 18px; right: 18px; width: 44px; height: 44px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back to top -->
+    <a href="#" class="back-top" id="backTop"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- ══════════ NAVBAR ══════════
+         LOGO SPOT #1 — Navbar (top-left).
+         Replace the text brand below with:
+         <img src="assets/verifitech-logo.svg" alt="Verifitech Group" style="height:42px;">
+         (or a combined Verifitech + Mint lockup, height ~40–44px) -->
+    <!-- ============================================
+         NAVIGATION (Section 5 — All URL fixes applied)
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index">
+          <img
+            src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+            alt="Verifitech"
+            width="120px"
+            height="60%"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <!-- SOLUTIONS Dropdown — All URLs fixed (5.2, 5.3) -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Solutions</a
+              >
+              <div class="dropdown-menu mega-menu">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Verification Services</h6>
+                    <!-- 5.3: id verification → id-verification -->
+                    <a
+                      href="../checks/id-verification"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-person-badge"></i> ID Verification
+                    </a>
+                    <!-- 5.1/5.2: ADRESS VERIFICATION → address-verification -->
+                    <a
+                      href="../checks/address-verification.html"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-geo-alt"></i> Address Verification
+                    </a>
+                    <a href="../checks/employment" class="dropdown-item">
+                      <i class="bi bi-briefcase"></i> Employment Verification
+                    </a>
+                    <!-- 5.3: education check → education-check -->
+                    <a
+                      href="../checks/education-check"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-mortarboard"></i> Education Verification
+                    </a>
+                    <!-- 5.3: court verification → court-verification -->
+                    <a
+                      href="../checks/court-verification"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-shield-exclamation"></i> Court Record
+                      Verification
+                    </a>
+                    <!-- 5.3: reference → reference -->
+                    <a href="../checks/reference" class="dropdown-item">
+                      <i class="bi bi-people"></i> Reference Check
+                    </a>
+                    <a href="../checks/DIN-verification" class="dropdown-item">
+                      <i class="fa-regular fa-id-card"></i> DIN Verification
+                    </a>
+                    <!-- 5.3: Directorship check → directorship-check -->
+                    <a
+                      href="../checks/Directorship-check.html"
+                      class="dropdown-item"
+                    >
+                      <i class="fa-regular fa-user"></i> Directorship
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="dropdown-header">Specialized Checks</h6>
+                    <!-- 5.3: global database → global-database -->
+                    <a href="../checks/global-check.html" class="dropdown-item">
+                      <i class="bi bi-globe"></i> Global Database Verification
+                    </a>
+                    <!-- 5.3: credit check → credit-check -->
+                    <a href="../checks/credit-check" class="dropdown-item">
+                      <i class="bi bi-credit-card"></i> Credit Check
+                    </a>
+                    <!-- 5.3: gap verification → gap-verification -->
+                    <a
+                      href="../checks/gap-verification"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-calendar-x"></i> Gap Check
+                    </a>
+                    <!-- 5.3: socialmeidaverification → social-media-verification -->
+                    <a
+                      href="../checks/socialmediaverification"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-share"></i> Social Media Verification
+                    </a>
+                    <!-- 5.3: police clearnce → police-clearance -->
+                    <a
+                      href="../checks/police-clearance"
+                      class="dropdown-item"
+                    >
+                      <i class="bi bi-shield-check"></i> Police Clearance
+                    </a>
+                    <!-- 5.3: drug test → drug-test -->
+                    <a href="../checks/drug-test" class="dropdown-item">
+                      <i class="bi bi-capsule"></i> Drug Test Screening
+                    </a>
+                    <!-- 5.3: "Vendor Digillencs" → "Vendor Due Diligence" -->
+                    <a class="dropdown-item" href="../checks/vendor">
+                      <i class="fa-solid fa-magnifying-glass"></i> Vendor Due
+                      Diligence
+                    </a>
+                    <!-- 5.3: passport verification → passport-verification -->
+                    <a
+                      href="../checks/passport-verification"
+                      class="dropdown-item"
+                    >
+                      <i class="fa-solid fa-passport"></i> Passport Verification
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Products Dropdown — 7.2: psychometric fix -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Products</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../products/exitinterview">
+                    <i class="fa-solid fa-right-from-bracket"></i> Exit
+                    Interviews
+                  </a>
+                </li>
+                <!-- 7.2: "psychometric" → "Psychometric Assessments" with correct link -->
+                <li>
+                  <a class="dropdown-item" href="../products/pm">
+                    <i class="fa-solid fa-chart-line"></i> Psychometric
+                    Assessments
+                  </a>
+                </li>
+                 <li>
+                                <a class="dropdown-item" href="../products/HRMS">
+                                  <i class="bi bi-laptop"></i>
+                                  HRMS
+                                </a>
+
+                                <a class="dropdown-item" href="../products/DMS">
+                   
+                                  <i class="fa-regular fa-file"></i> DMS
+                                </a>
+                             
+                            </li>
+              </ul>
+            </li>
+
+            <!-- INDUSTRY Dropdown — 5.3: All URL fixes -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Industry</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../industries/IT-ITES">
+                    <i class="bi bi-laptop"></i> IT & ITES
+                  </a>
+                </li>
+                <!-- 5.3: manufacturing → manufacturing -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/manufacturing"
+                  >
+                    <i class="bi bi-building-gear"></i> Manufacturing &
+                    Automobiles
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/Logistics">
+                    <i class="bi bi-truck"></i> Logistics & Mobility
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/banks">
+                    <i class="bi bi-bank"></i> Banking & NBFC
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/healthcare">
+                    <i class="bi bi-heart-pulse"></i> Healthcare & Pharma
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/travel-industries"
+                  >
+                    <i class="bi bi-airplane"></i> Hospitality & Travel
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/staffing">
+                    <i class="bi bi-person-workspace"></i> Staffing &
+                    Recruitment
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../industries/education">
+                    <i class="bi bi-book"></i> Education
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/FMCG">
+                    <i class="bi bi-box"></i> FMCG
+                  </a>
+                </li>
+                <!-- 5.3: Realestate-&-constructation → real-estate-construction -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Realestate-&-constructation"
+                  >
+                    <i class="bi bi-house"></i> Real Estate & Construction
+                  </a>
+                </li>
+                <!-- 5.3: Retail & E-commerce → retail-ecommerce -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../industries/Retail & E-commerce"
+                  >
+                    <i class="bi bi-shop"></i> Retail & E-commerce
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../industries/telecom">
+                    <i class="bi bi-broadcast"></i> Telecom
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- RESOURCES Dropdown — 7.3: API link fix, 7.4: Affiliate Marketing removed -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Resources</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../resources/blog">
+                    <i class="bi bi-journal-text"></i> Blogs
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/whitepapers">
+                    <i class="bi bi-file-earmark-text"></i> Whitepapers
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/casestudy">
+                    <i class="bi bi-star"></i> Case Study
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../resources/webinar">
+                    <i class="bi bi-camera-video"></i> Webinar
+                  </a>
+                </li>
+                <!-- 7.3: API now links to correct page -->
+                <li>
+                  <a class="dropdown-item" href="../products/api">
+                    <i class="bi bi-plug"></i> API
+                  </a>
+                </li>
+                <!-- 7.4: "Affiliate Marketing" link REMOVED -->
+              </ul>
+            </li>
+
+            <!-- COMPANY Dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Company</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus">
+                    <i class="far fa-handshake"></i> Partnership
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/aboutus">
+                    <i class="bi bi-info-circle"></i> About Us
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../company/careers">
+                    <i class="bi bi-briefcase"></i> Careers
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- HELP CENTER Dropdown — 7.4: Affiliate Marketing removed -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Help Center</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/candidate">
+                    <i class="bi bi-person"></i> For Candidates
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/customer">
+                    <i class="bi bi-building"></i> For Customers
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../helpcenter/partner">
+                    <i class="bi bi-people"></i> For Partners
+                  </a>
+                </li>
+                <!-- 7.4: "Affiliate Marketing" link REMOVED from here too -->
+              </ul>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <!-- <a
+              href="https://web.verifitech.com/"
+              target="blank"
+              class="btn-login"
+              >Login</a
+            > -->
+          </div>
+
+          <div class="d-flex align-items-center">
+            <a href="../contact/contact" class="btn btn-sales">Contact</a>
+
+            <div class="dropdown">
+              <div
+                class="country-selector dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="country-flag" id="current-flag">🇦🇪</span>
+                <span id="current-country">UAE</span>
+                <!-- <i
+                  class="bi bi-chevron-down ms-1"
+                  style="font-size: 0.7rem"
+                ></i> -->
+              </div>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a
+                    href="../countries/usa"
+                    class="dropdown-item country-option"
+                    data-country="USA"
+                    data-flag="🇺🇸"
+                  >
+                    <span class="country-flag">🇺🇸</span> USA
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../countries/UAE"
+                    class="dropdown-item country-option"
+                    data-country="UAE"
+                    data-flag="🇦🇪"
+                  >
+                    <span class="country-flag">🇦🇪</span> UAE
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../countries/aus"
+                    class="dropdown-item country-option"
+                    data-country="Australia"
+                    data-flag="🇦🇺"
+                  >
+                    <span class="country-flag">🇦🇺</span> Australia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../countries/uk"
+                    class="dropdown-item country-option"
+                    data-country="UK"
+                    data-flag="🇬🇧"
+                  >
+                    <span class="country-flag">🇬🇧</span> UK
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../countries/singapore"
+                    class="dropdown-item country-option"
+                    data-country="Singapore"
+                    data-flag="🇸🇬"
+                  >
+                    <span class="country-flag">🇸🇬</span> Singapore
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="../countries/Ireland"
+                    class="dropdown-item country-option"
+                    data-country="Ireland"
+                    data-flag="🇮🇪"
+                  >
+                    <span class="country-flag">🇮🇪</span> Ireland
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- ══════════ HERO ══════════ -->
+    <section class="mint-hero">
+        <div class="hero-blob b1"></div>
+        <div class="hero-blob b2"></div>
+
+        <div class="container">
+            <div class="row align-items-center gy-4">
+
+                <!-- LEFT — text (Talk to Our Team button REMOVED as requested) -->
+                <div class="col-lg-6 reveal">
+                    <div class="mint-badge">
+                        <i class="bi bi-diagram-3"></i>
+                        Our Sister Concern in the UAE
+                    </div>
+                    <h1>Mint Solutions: <span class="hl">Technology &amp; Talent</span> for UAE Businesses</h1>
+                    <p class="lead">
+                        Verifitech helps you verify talent. Our sister company, Mint Solutions, helps you find, build and power your teams with IT services, staffing and enterprise software — from Dubai.
+                    </p>
+
+                    <div class="d-flex flex-wrap">
+                        <a href="https://mintsolutions.ae" target="_blank" rel="noopener" class="btn btn-primary-custom btn-lg">
+                            Visit Mint Solutions <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                    <div class="hero-url">
+                        <i class="bi bi-globe2"></i> mintsolutions.ae — opens in a new tab
+                    </div>
+
+                    <div class="trust-row">
+                        <div class="trust-avatars">
+                            <div class="tv"><i class="bi bi-code-slash"></i></div>
+                            <div class="tv"><i class="bi bi-people-fill"></i></div>
+                            <div class="tv"><i class="bi bi-shield-check"></i></div>
+                        </div>
+                        <small>One trusted group — from Dubai to all 7 emirates</small>
+                    </div>
+                </div>
+
+                <!-- RIGHT — NEW: Orbiting Ecosystem Visual -->
+                <div class="col-lg-6 reveal d1">
+                    <div class="hero-visual">
+                        <div class="visual-tag">
+                            <i class="bi bi-diagram-3-fill"></i> One Group • Two Companies • End-to-End
+                        </div>
+
+                        <div class="orbit-stage">
+                            <!-- Decorative rings -->
+                            <div class="ring outer"><span class="dot"></span><span class="dot d2"></span></div>
+                            <div class="ring inner"><span class="dot"></span></div>
+
+                            <!-- Orbiting service chips -->
+                            <div class="sat-orbit">
+                                <div class="sat-pos">
+                                    <div class="sat-chip">
+                                        <span class="sc-icon"><i class="bi bi-terminal"></i></span>
+                                        <span>App Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sat-orbit o2">
+                                <div class="sat-pos">
+                                    <div class="sat-chip">
+                                        <span class="sc-icon"><i class="bi bi-people-fill"></i></span>
+                                        <span>IT Staffing</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sat-orbit o3">
+                                <div class="sat-pos">
+                                    <div class="sat-chip">
+                                        <span class="sc-icon"><i class="bi bi-gear-wide-connected"></i></span>
+                                        <span>Enterprise SW</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ═══════════════════════════════════════
+                                 LOGO SPOT #2 (PRIMARY) — HERO CENTRE CORE
+                                 Place the stacked/square version of the
+                                 Mint Solutions logo here.
+                                 File: assets/mint-logo.svg (or .png, transparent bg, ≥512px)
+                                 An icon fallback shows automatically if missing.
+                            ═══════════════════════════════════════ -->
+                            <div class="orbit-core">
+                                <img class="logo-img" src="assets/mint-logo.svg" alt="Mint Solutions Logo">
+                                <div class="core-fallback logo-fallback"><i class="bi bi-hexagon-fill"></i></div>
+                                <span class="core-name">Mint Solutions</span>
+                                <span class="core-sub">Dubai • UAE</span>
+                            </div>
+
+                            <!-- Floating glass stat cards -->
+                            <div class="hero-float-grid">
+                                <div class="stat-card pos-1">
+                                    <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
+                                    <div class="stat-text"><h4>2017</h4><p>Founded in Dubai</p></div>
+                                </div>
+                                <div class="stat-card pos-2">
+                                    <div class="stat-icon"><i class="bi bi-geo-alt"></i></div>
+                                    <div class="stat-text"><h4>JLT</h4><p>Fortune Tower HQ</p></div>
+                                </div>
+                                <div class="stat-card pos-3">
+                                    <div class="stat-icon"><i class="bi bi-briefcase"></i></div>
+                                    <div class="stat-text"><h4>3</h4><p>Client Sectors</p></div>
+                                </div>
+                                <div class="stat-card pos-4">
+                                    <div class="stat-icon"><i class="bi bi-shield-lock"></i></div>
+                                    <div class="stat-text"><h4>PDPL</h4><p>Compliance Aware</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="hero-scroll" aria-label="Scroll down"><i class="bi bi-chevron-down"></i></a>
+    </section>
+
+    <!-- ══════════ ABOUT ══════════ -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal">
+                    <div class="section-subtitle"><i class="bi bi-building"></i> Who Is Mint Solutions</div>
+                    <h2 class="section-title">A Dubai-Based Technology &amp; Staffing Partner</h2>
+                    <p class="section-desc mb-3">
+                        Founded in 2017 and based in Dubai, Mint Solutions delivers IT services, staffing and software solutions to government, enterprise and technology clients across the UAE.
+                    </p>
+                    <p class="section-desc">
+                        Together with Verifitech, Mint Solutions forms a single trusted group: one team finds and builds your talent and technology, the other verifies it — fully compliant with UAE regulations.
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://mintsolutions.ae" target="_blank" rel="noopener" class="btn btn-primary-custom">
+                            Explore mintsolutions.ae <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 reveal d1">
+                    <div class="fact-box">
+                        <!-- LOGO SPOT #3 — About "fact box" header strip.
+                             Two mini logos side-by-side: Mint (left) + Verifitech (right).
+                             Files: assets/mint-logo.svg & assets/verifitech-logo.svg (height ~34px inside white tiles) -->
+                        <div class="fact-box-header">
+                            <div class="fb-logo">
+                                <img class="logo-img" src="assets/mint-logo.svg" alt="Mint Solutions">
+                                <i class="bi bi-hexagon-fill logo-fallback" style="display:none;"></i>
+                            </div>
+                            <div class="fb-link"><i class="bi bi-link-45deg"></i></div>
+                            <div class="fb-logo">
+                                <img class="logo-img" src="assets/verifitech-logo.svg" alt="Verifitech">
+                                <i class="bi bi-shield-check logo-fallback" style="display:none;"></i>
+                            </div>
+                        </div>
+
+                        <div class="fact-item">
+                            <i class="bi bi-calendar2-check"></i>
+                            <div><h4>Founded</h4><p>2017</p></div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div><h4>Headquarters</h4><p>Fortune Tower, JLT, Dubai</p></div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="bi bi-briefcase-fill"></i>
+                            <div><h4>Clients</h4><p>Government, Enterprise, Technology</p></div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="bi bi-diagram-3"></i>
+                            <div><h4>Group</h4><p>Sister concern of Verifitech</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ BETTER TOGETHER (alignment fixed) ══════════ -->
+    <section class="together-section" id="together">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-subtitle on-dark"><i class="bi bi-diagram-3"></i> Better Together</div>
+                <h2 class="section-title">Hire with Mint. Verify with Verifitech.</h2>
+                <p class="section-desc">Two specialised teams, one seamless journey from sourcing to verified onboarding.</p>
+            </div>
+
+            <!-- 3 EQUAL columns (4+4+4 = 12) with animated flow arrows between -->
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-4 together-col reveal">
+                    <div class="together-card">
+                        <span class="together-tag">Step 01</span>
+                        <div class="together-icon"><i class="bi bi-search-heart"></i></div>
+                        <h3>Find</h3>
+                        <p>Mint Solutions supplies skilled IT and software professionals, exactly matched to your project's needs and your team's culture.</p>
+                        <div class="card-brand">
+                            <!-- LOGO SPOT #4a — Mini Mint logo (white version) on the "Find" card.
+                                 File: assets/mint-logo-white.svg (height 20px) -->
+                            <img class="logo-img" src="assets/mint-logo-white.svg" alt="Mint Solutions">
+                            <i class="bi bi-hexagon-fill logo-fallback mini-logo"></i>
+                            <span>Powered by Mint Solutions</span>
+                        </div>
+                    </div>
+                    <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 together-col reveal d1">
+                    <div class="together-card">
+                        <span class="together-tag">Step 02</span>
+                        <div class="together-icon"><i class="bi bi-shield-check"></i></div>
+                        <h3>Verify</h3>
+                        <p>Verifitech checks identity, education, employment and criminal records — MoHRE and PDPL compliant, every time.</p>
+                        <div class="card-brand">
+                            <!-- LOGO SPOT #4b — Mini Verifitech logo (white version) on the "Verify" card. -->
+                            <img class="logo-img" src="assets/verifitech-logo-white.svg" alt="Verifitech">
+                            <i class="bi bi-shield-check logo-fallback mini-logo"></i>
+                            <span>Powered by Verifitech</span>
+                        </div>
+                    </div>
+                    <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 together-col reveal d2">
+                    <div class="together-card">
+                        <span class="together-tag">Step 03</span>
+                        <div class="together-icon"><i class="bi bi-rocket-takeoff"></i></div>
+                        <h3>Onboard with Confidence</h3>
+                        <p>Both teams work together to get verified people into roles faster — with compliance built in from day one.</p>
+                        <div class="card-brand">
+                            <i class="bi bi-hexagon-fill"></i>
+                            <i class="bi bi-plus-lg sep"></i>
+                            <i class="bi bi-shield-check"></i>
+                            <span>One Trusted Group</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="closing-line reveal">
+                <i class="bi bi-check-circle-fill"></i>
+                One trusted group, from first hire to verified employee.
+            </p>
+        </div>
+    </section>
+
+    <!-- ══════════ SERVICES (Learn More removed) ══════════ -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-subtitle"><i class="bi bi-grid-3x3-gap"></i> What Mint Solutions Offers</div>
+                <h2 class="section-title">Technology, Talent &amp; Software — From Dubai</h2>
+                <p class="section-desc mx-auto">Four core service lines powering UAE government, enterprise and technology organisations</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-terminal"></i></div>
+                        <h3>Application Development &amp; Support</h3>
+                        <p>Custom software built for your business, with ongoing maintenance and responsive support.</p>
+                        <div class="service-checks">
+                            <div><i class="bi bi-check-circle-fill"></i> Custom web &amp; mobile apps</div>
+                            <div><i class="bi bi-check-circle-fill"></i> SLA-backed maintenance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal d1">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-palette"></i></div>
+                        <h3>Web &amp; UI/UX Design</h3>
+                        <p>Websites and user-focused interfaces designed to convert visitors into customers.</p>
+                        <div class="service-checks">
+                            <div><i class="bi bi-check-circle-fill"></i> Conversion-focused design</div>
+                            <div><i class="bi bi-check-circle-fill"></i> Brand-aligned systems</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal d2">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-people"></i></div>
+                        <h3>Staffing &amp; Team Augmentation</h3>
+                        <p>Dedicated software professionals who extend your team and scale with your roadmap.</p>
+                        <div class="service-checks">
+                            <div><i class="bi bi-check-circle-fill"></i> Contract &amp; permanent hiring</div>
+                            <div><i class="bi bi-check-circle-fill"></i> Rapid team scaling</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal d3">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h3>Enterprise Solutions</h3>
+                        <p>ERP, EHS and school management software that streamlines operations across your organisation.</p>
+                        <div class="service-checks">
+                            <div><i class="bi bi-check-circle-fill"></i> ERP / EHS platforms</div>
+                            <div><i class="bi bi-check-circle-fill"></i> School management systems</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ INDUSTRIES ══════════ -->
+    <section class="industries-section" id="industries">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-subtitle"><i class="bi bi-briefcase"></i> Industries They Serve</div>
+                <h2 class="section-title">Sectors Across the UAE</h2>
+                <p class="section-desc mx-auto">Solutions adapted to the needs of each sector.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg reveal">
+                    <div class="industry-item">
+                        <div class="ind-icon"><i class="bi bi-bank"></i></div>
+                        <h3>Government</h3><small>Digital services &amp; portals</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg reveal d1">
+                    <div class="industry-item">
+                        <div class="ind-icon"><i class="bi bi-building"></i></div>
+                        <h3>Enterprise</h3><small>Operations &amp; ERP</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg reveal d2">
+                    <div class="industry-item">
+                        <div class="ind-icon"><i class="bi bi-cpu"></i></div>
+                        <h3>Technology</h3><small>Products &amp; platforms</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg reveal d3">
+                    <div class="industry-item">
+                        <div class="ind-icon"><i class="bi bi-mortarboard"></i></div>
+                        <h3>Education</h3><small>School management</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg reveal">
+                    <div class="industry-item">
+                        <div class="ind-icon"><i class="bi bi-heart-pulse"></i></div>
+                        <h3>Healthcare</h3><small>Compliant systems</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ WHY CHOOSE ══════════ -->
+    <section class="why-section" id="why">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-subtitle on-dark"><i class="bi bi-award"></i> Why Choose the Verifitech–Mint Group</div>
+                <h2 class="section-title">Two Specialised Teams. One Trusted Group.</h2>
+                <p class="section-desc">The combined strength of Dubai-based technology expertise and compliance-first verification</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="why-card">
+                        <span class="why-num">01</span>
+                        <div class="why-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                        <h3>Local UAE Presence</h3>
+                        <p>Deep understanding of the UAE market, business culture and regulatory landscape — from Dubai to all 7 emirates.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal d1">
+                    <div class="why-card">
+                        <span class="why-num">02</span>
+                        <div class="why-icon"><i class="bi bi-shield-lock"></i></div>
+                        <h3>Compliance-First Approach</h3>
+                        <p>PDPL and MoHRE awareness built into the hiring side, not bolted on afterwards.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal d2">
+                    <div class="why-card">
+                        <span class="why-num">03</span>
+                        <div class="why-icon"><i class="bi bi-diagram-3-fill"></i></div>
+                        <h3>Two Specialised Teams</h3>
+                        <p>Technology and staffing from Mint Solutions. Verification from Verifitech. One trusted group.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal d3">
+                    <div class="why-card">
+                        <span class="why-num">04</span>
+                        <div class="why-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h3>Faster Hiring</h3>
+                        <p>Verified talent moves faster — screening runs in parallel with sourcing, not after it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ PROCESS ══════════ -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-subtitle"><i class="bi bi-list-check"></i> How to Work With Us</div>
+                <h2 class="section-title">From First Call to Verified Hire</h2>
+                <p class="section-desc mx-auto">A simple four-step journey, whichever service you need</p>
+            </div>
+
+            <div class="process-row">
+                <div class="process-line"></div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3 reveal">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h3>Tell Us What You Need</h3>
+                            <p>A team, a system or a screening package — we start with your exact requirement.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 reveal d1">
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h3>We Connect You</h3>
+                            <p>We introduce you to the right team — Mint Solutions or Verifitech.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 reveal d2">
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h3>Scope &amp; Proposal</h3>
+                            <p>A clear scope, timeline and transparent pricing — agreed before work begins.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 reveal d3">
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h3>Deliver &amp; Support</h3>
+                            <p>We deliver, verify and support — with ongoing partnership after launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ CTA / CONTACT ══════════ -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5">
+                        <!-- LOGO SPOT #5 — CTA box. Optional small Mint + Verifitech
+                             lockup above the heading (height ~32px, light version). -->
+                        <div class="section-subtitle"><i class="bi bi-chat-dots"></i> Get in Touch</div>
+                        <h2 class="section-title" style="font-size:2rem;">Ready to Build Your Team?</h2>
+                        <p class="section-desc mb-4">Tell us what you need — hiring, software or verification — and the right team will reach out within one business day.</p>
+
+                        <div class="cta-contact-item">
+                            <div class="ci"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div><h5>Office</h5><p>Fortune Tower, JLT, Dubai, UAE</p></div>
+                        </div>
+                        <div class="cta-contact-item">
+                            <div class="ci"><i class="bi bi-envelope-fill"></i></div>
+                            <div><h5>Email</h5><p>info@mintsolutions.ae</p></div>
+                        </div>
+                        <div class="cta-contact-item mb-0">
+                            <div class="ci"><i class="bi bi-telephone-fill"></i></div>
+                            <div><h5>Phone</h5><p>+971 4 XXX XXXX</p></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <form onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.');">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Full Name *</label>
+                                    <input type="text" class="form-control-custom" placeholder="Your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Company *</label>
+                                    <input type="text" class="form-control-custom" placeholder="Company name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Email *</label>
+                                    <input type="email" class="form-control-custom" placeholder="you@company.ae" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Phone</label>
+                                    <input type="tel" class="form-control-custom" placeholder="+971 ...">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-custom">I'm Interested In</label>
+                                    <select class="form-control-custom">
+                                        <option>IT Staffing &amp; Team Augmentation</option>
+                                        <option>Application Development</option>
+                                        <option>Web &amp; UI/UX Design</option>
+                                        <option>Enterprise Software (ERP/EHS/School)</option>
+                                        <option>Employee Verification (Verifitech)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-custom">Message</label>
+                                    <textarea class="form-control-custom" rows="3" placeholder="Tell us briefly about your requirement..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary-custom w-100 justify-content-center">
+                                        Send Enquiry <i class="bi bi-send-fill"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ FAQ ══════════ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-subtitle"><i class="bi bi-patch-check-fill"></i> Frequently Asked Questions</div>
+                <h2 class="section-title">Everything You Need to Know</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="accordion" id="faqAcc">
+
+                        <div class="accordion-item faq-item border-0 reveal">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#fq1">
+                                    <span class="faq-num">Q1</span> What services does Mint Solutions provide?
+                                    <i class="bi bi-chevron-down faq-chevron"></i>
+                                </button>
+                            </h3>
+                            <div id="fq1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">Mint Solutions offers four core lines: application development &amp; support, web &amp; UI/UX design, IT staffing &amp; team augmentation, and enterprise solutions (ERP, EHS and school management software) — all delivered from Dubai.</div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item border-0 reveal">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fq2">
+                                    <span class="faq-num">Q2</span> How do Mint Solutions and Verifitech work together?
+                                    <i class="bi bi-chevron-down faq-chevron"></i>
+                                </button>
+                            </h3>
+                            <div id="fq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">Mint Solutions sources and supplies skilled IT professionals; Verifitech then verifies identity, education, employment and criminal records in a MoHRE- and PDPL-compliant process — so you hire faster with full confidence.</div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item border-0 reveal">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fq3">
+                                    <span class="faq-num">Q3</span> Do you work with UAE government clients?
+                                    <i class="bi bi-chevron-down faq-chevron"></i>
+                                </button>
+                            </h3>
+                            <div id="fq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">Yes. The group serves government, enterprise and technology clients across the UAE, with deep familiarity with public-sector requirements and regulatory expectations.</div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item border-0 reveal">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fq4">
+                                    <span class="faq-num">Q4</span> How quickly can staffing engagements start?
+                                    <i class="bi bi-chevron-down faq-chevron"></i>
+                                </button>
+                            </h3>
+                            <div id="fq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">Because screening runs in parallel with sourcing rather than after it, verified candidates can typically be presented significantly faster than traditional sequential hiring — often within days for common roles.</div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item border-0 reveal">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fq5">
+                                    <span class="faq-num">Q5</span> Is candidate data handled compliantly?
+                                    <i class="bi bi-chevron-down faq-chevron"></i>
+                                </button>
+                            </h3>
+                            <div id="fq5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">Yes — the group is PDPL (UAE Personal Data Protection Law) compliance-aware, and verification workflows are designed around MoHRE guidance from day one.</div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item border-0 reveal">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#fq6">
+                                    <span class="faq-num">Q6</span> Where are you located?
+                                    <i class="bi bi-chevron-down faq-chevron"></i>
+                                </button>
+                            </h3>
+                            <div id="fq6" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                                <div class="accordion-body">Our headquarters is Fortune Tower, Jumeirah Lakes Towers (JLT), Dubai — serving clients from Dubai to all 7 emirates.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ============================================
+         FOOTER (7.1: Tagline localized)
+         ============================================ -->
+    <footer>
+      <div class="container">
+        <!-- Newsletter Section -->
+        <!-- <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="d-flex align-items-start gap-3">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div>
+                  <div class="newsletter-title">Stay Updated</div>
+                  <p class="newsletter-subtitle">
+                    Get the latest insights on background verification and
+                    compliance.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="newsletter-form-footer">
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input
+                      type="email"
+                      class="newsletter-input"
+                      placeholder="Enter your work email"
+                    />
+                    <p class="zf-errorMessage">
+                      Please enter a valid email address.
+                    </p>
+                  </div>
+                  <button class="newsletter-btn" type="button">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
+                </div>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> No spam. Unsubscribe
+                  anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Footer Main Content -->
+        <div class="footer-main-content">
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <a href="../index" class="footer-brand">
+                <img
+                  src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                  alt="Verifitech"
+                  class="footer-logo"
+                width="100" height="160%"/>
+              </a>
+              <!-- 7.1: Footer tagline localized for this page -->
+              <p class="footer-description">
+                Digital and physical address verification with GPS geo-tagging
+                and liveness detection — covering 19,000+ pin codes across
+                India.
+              </p>
+              <div class="social-icons">
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-twitter-x"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/id-verification">ID Verification</a>
+                </li>
+                <li>
+                  <a href="../checks/address-verification"
+                    >Address Verification</a
+                  >
+                </li>
+                <li><a href="../checks/employment">Employment</a></li>
+                <li><a href="../checks/education-check">Education</a></li>
+                <li>
+                  <a href="../checks/court-verification">Court Records</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+              <h5 class="footer-heading">Company</h5>
+              <ul class="footer-links">
+                <li><a href="../company/aboutus">About Us</a></li>
+                <li><a href="../company/careers">Careers</a></li>
+                <li><a href="../company/aboutus">Partnerships</a></li>
+                <li><a href="../contact/contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-4">
+              <h5 class="footer-heading">Resources</h5>
+              <ul class="footer-links">
+                <li><a href="../resources/blog">Blogs</a></li>
+                <li><a href="../resources/whitepapers">Whitepapers</a></li>
+                <li><a href="../resources/casestudy">Case Studies</a></li>
+                <li><a href="../resources/webinar">Webinars</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2">
+              <h5 class="footer-heading">Legal</h5>
+              <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Data Processing Agreement</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-md-start">
+              <p class="copyright">
+                &copy; 2026 Verifitech. All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <div class="compliance-badges justify-content-md-end">
+                <span class="comp-badge"
+                  ><i class="bi bi-shield-check"></i> ISO 27001</span
+                >
+                <span class="comp-badge"
+                  ><i class="bi bi-shield-check"></i> SOC 2</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Navbar shadow + back-to-top visibility
+        const nav = document.querySelector('.navbar');
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+            backTop.classList.toggle('show', window.scrollY > 500);
+        });
+
+        // Scroll-reveal animation
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('active'); io.unobserve(e.target); }
+            });
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // Logo fallback — if a logo file is missing, a matching icon appears instead
+        document.querySelectorAll('img.logo-img').forEach(img => {
+            img.addEventListener('error', () => {
+                img.style.display = 'none';
+                const f = img.parentElement.querySelector('.logo-fallback');
+                if (f) f.style.display = 'inline-flex';
+            });
+        });
+    </script>
+</body>
+</html>
