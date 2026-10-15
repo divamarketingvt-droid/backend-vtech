@@ -3659,139 +3659,91 @@ default"
       </div>
     </section>
 
-    <!-- Bootstrap JS --
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
+    <!-- Bootstrap JS -->
+       <!-- ==================== FOOTER ==================== -->
+    <footer class="footer site-footer">
       <div class="container">
-        <!-- Newsletter Section -->
-        <div class="newsletter-footer-section">
-          <div class="row align-items-center">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-              <div class="d-flex align-items-center gap-3 mb-2">
-                <div class="newsletter-icon-footer">
-                  <i class="bi bi-envelope-paper"></i>
-                </div>
-                <div>
-                  <h3 class="newsletter-title">Stay Updated</h3>
-                  <p class="newsletter-subtitle">
-                    Get the latest compliance updates and screening insights
-                    delivered to your inbox.
-                  </p>
-                </div>
+        <!-- Newsletter -->
+        <section class="newsletter-footer-section" aria-labelledby="newsletter-title">
+          <div class="newsletter-layout">
+            <div class="newsletter-intro">
+              <div class="newsletter-icon-footer"><i class="bi bi-envelope"></i></div>
+              <div>
+                <h2 class="newsletter-title" id="newsletter-title">Stay Updated</h2>
+                <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates,<br class="newsletter-desktop-break"> and industry trends.</p>
               </div>
             </div>
-            <div class="col-lg-7">
-              <form class="newsletter-form-footer" onsubmit="return false;">
-                <div class="input-group-wrapper">
-                  <div class="zf-tempContDiv">
-                    <input
-                      type="email"
-                      class="newsletter-input"
-                      placeholder="Enter your email address"
-                      required
-                    />
-                    <p class="zf-errorMessage">
-                      Please enter a valid email address.
-                    </p>
-                  </div>
-                  <button type="submit" class="newsletter-btn">
-                    Subscribe <i class="bi bi-arrow-right"></i>
-                  </button>
+            <form class="newsletter-form newsletter-form-footer" novalidate>
+              <div class="input-group-wrapper">
+                <div class="zf-tempContDiv">
+                  <input class="newsletter-input" type="email" name="email" placeholder="Enter your work email" aria-label="Your work email" required>
+                  <p class="zf-errorMessage"><i class="bi bi-exclamation-circle"></i> Please enter a valid email address.</p>
                 </div>
-                <p class="newsletter-disclaimer">
-                  <i class="bi bi-shield-check"></i>
-                  We respect your privacy. Unsubscribe at any time.
-                </p>
-              </form>
-            </div>
+                <button class="newsletter-btn" type="submit">Subscribe <i class="bi bi-arrow-right"></i></button>
+              </div>
+              <p class="newsletter-disclaimer"><i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.</p>
+            </form>
+          </div>
+        </section>
+
+        <!-- Footer links -->
+        <div class="row footer-main-content site-footer-links">
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 footer-brand-column">
+            <a class="footer-brand" href="/" aria-label="Verifitech home">
+              <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo">
+            </a>
+            <p class="footer-description">India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.</p>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
+            <h5 class="footer-heading">Solutions</h5>
+            <ul class="footer-links">
+              <li><a href="../checks/lp-employment">Employment Check</a></li>
+              <li><a href="../checks/lp-education-check">Education Verification</a></li>
+              <li><a href="../checks/lp-reference">Reference Checks</a></li>
+              <li><a href="../checks/lp-gap-verification">Gap Analysis</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
+            <h5 class="footer-heading">Company</h5>
+            <ul class="footer-links">
+              <li><a href="../company/aboutus">About Us</a></li>
+              <li><a href="../company/partnership">Partnership</a></li>
+              <li><a href="../company/careers">Careers</a></li>
+              <li><a href="../contact/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="../affilate/affilate">Affiliate</a></li>
+              <li><a href="../resources/blog">Blog</a></li>
+              <li><a href="../resources/casestudy">Case Studies</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
+            <h5 class="footer-heading">Our policy</h5>
+            <ul class="footer-links">
+              <li><a href="./Privacy policy pages/disclaimer">Disclaimer</a></li>
+              <li><a href="./Privacy policy pages/terms and conditions">Terms of Service</a></li>
+              <li><a href="./Privacy policy pages/privacypolicy">Privacy Policy</a></li>
+            </ul>
           </div>
         </div>
 
-        <!-- Footer Main Content -->
-        <div class="footer-main-content">
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <a class="footer-brand" href="../index"
-                >Verifi<span>tech</span></a
-              >
-              <p class="footer-desc">
-                Trusted UK employment screening with DBS checks, Right to Work
-                verification, and GDPR compliant background checks.
-              </p>
-              <div class="social-icons">
-                <a href="#" class="social-icon"
-                  ><i class="bi bi-linkedin"></i
-                ></a>
-                <a href="#" class="social-icon"
-                  ><i class="bi bi-twitter-x"></i
-                ></a>
-                <a href="#" class="social-icon"
-                  ><i class="bi bi-facebook"></i
-                ></a>
-                <a href="#" class="social-icon"
-                  ><i class="bi bi-instagram"></i
-                ></a>
-              </div>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-6">
-              <h5 class="footer-heading">Solutions</h5>
-              <ul class="footer-links">
-                <li><a href="#">ID Verification</a></li>
-                <li><a href="#">DBS Checks</a></li>
-                <li><a href="#">Right to Work</a></li>
-                <li><a href="#">Employment Checks</a></li>
-                <li><a href="#">Education Checks</a></li>
-              </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-6">
-              <h5 class="footer-heading">Industries</h5>
-              <ul class="footer-links">
-                <li><a href="#">Healthcare</a></li>
-                <li><a href="#">Education</a></li>
-                <li><a href="#">Financial Services</a></li>
-                <li><a href="#">Security</a></li>
-                <li><a href="#">Technology</a></li>
-              </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-6">
-              <h5 class="footer-heading">Resources</h5>
-              <ul class="footer-links">
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Whitepapers</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Webinars</a></li>
-                <li><a href="#">API Docs</a></li>
-              </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-6">
-              <h5 class="footer-heading">Company</h5>
-              <ul class="footer-links">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Partnership</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
+        <!-- Copyright and social links -->
+        <div class="footer-bottom site-footer-bottom">
+          <div class="footer-copyright"><p class="copyright">© 2026 Verifitech Private Limited. All rights reserved.</p></div>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://www.linkedin.com/company/verifitech/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/VerifiTechInfo/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://m.youtube.com/@verifitechindia4689" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.instagram.com/verifitech/reels/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
-        </div>
-
-        <div class="privacy-row">
-          <p class="copyright">
-            © 2025 Verifitech. All rights reserved.
-            <a href="#" class="privacy-link">Privacy Policy</a>
-            <span class="privacy-separator">|</span>
-            <a href="#" class="privacy-link">Terms of Service</a>
-            <span class="privacy-separator">|</span>
-            <a href="#" class="privacy-link">Cookie Policy</a>
-          </p>
         </div>
       </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Scroll Reveal + Navbar Scroll Effect -->
