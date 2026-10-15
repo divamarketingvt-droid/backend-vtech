@@ -1747,422 +1747,351 @@ default"
           margin-bottom: 1rem;
         }
       }
+.footer {
+  background: #f0fdfa;
+  color: var(--dark);
+  padding: 80px 0 40px;
+}
 
-      .footer {
-        background: #f8fafc;
-        color: var(--dark);
-        padding: 80px 0 40px;
-      }
+.footer-brand {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+}
 
-      .footer-brand {
-        font-size: 2rem;
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        display: block;
-        color: var(--dark);
-        text-decoration: none;
-      }
+.footer-brand span {
+  color: var(--primary);
+}
 
-      .footer-brand span {
-        color: var(--primary);
-      }
+.footer-desc {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 300px;
+  line-height: 1.8;
+}
 
-      .footer-desc {
-        color: var(--gray);
-        margin-bottom: 2rem;
-        max-width: 300px;
-        line-height: 1.8;
-      }
+.footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
 
-      .footer h5 {
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        color: var(--dark);
-        font-size: 1.1rem;
-      }
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
 
-      .footer-links {
-        list-style: none;
-        padding: 0;
-      }
-      .footer-links li {
-        margin-bottom: 1rem;
-      }
-      .footer-links a {
-        color: var(--gray);
-        text-decoration: none;
-        transition: all 0.3s;
-        display: inline-block;
-      }
+.footer-links li {
+  margin-bottom: 1rem;
+}
 
-      .footer-links a:hover {
-        color: var(--primary);
-        transform: translateX(5px);
-      }
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
 
-      .footer-bottom {
-        margin-top: 60px;
-        padding-top: 30px;
-        border-top: 1px solid #cbd5e1;
-        text-align: center;
-        color: var(--gray);
-        font-size: 0.9rem;
-      }
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
 
-      .social-icons {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd5e1;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
 
-      .social-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: rgba(15, 23, 42, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--dark);
-        transition: all 0.3s;
-        text-decoration: none;
-      }
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-      .social-icon:hover {
-        background: var(--primary);
-        transform: translateY(-3px);
-        color: white;
-      }
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  transition: all 0.3s;
+  text-decoration: none;
+}
 
-      .compliance-badges {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 2rem;
-        flex-wrap: wrap;
-      }
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  color: white;
+}
 
-      .comp-badge {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: rgba(15, 23, 42, 0.1);
-        border-radius: 8px;
-        font-size: 0.85rem;
-        color: var(--dark);
-        border: 1px solid rgba(15, 23, 42, 0.2);
-      }
+/* Compliance Badges */
+.compliance-badges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
 
-      .newsletter-footer-section {
-        background: linear-gradient(
-          135deg,
-          rgba(26, 194, 193, 0.1) 0%,
-          rgba(26, 194, 193, 0.05) 100%
-        );
-        border-radius: 20px;
-        padding: 40px;
-        margin-bottom: 50px;
-        border: 1px solid rgba(26, 194, 193, 0.2);
-        position: relative;
-        overflow: hidden;
-      }
+.comp-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--dark);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
 
-      .newsletter-footer-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(
-          circle,
-          rgba(26, 194, 193, 0.15) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        pointer-events: none;
-      }
+/* ============================================
+   NEWSLETTER FOOTER SECTION
+   ============================================ */
 
-      .newsletter-icon-footer {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-dark) 100%
-        );
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.8rem;
-        flex-shrink: 0;
-        box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
-      }
+.newsletter-footer-section {
+  background: linear-gradient(135deg, rgba(26, 194, 193, 0.1) 0%, rgba(26, 194, 193, 0.05) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  border: 1px solid rgba(26, 194, 193, 0.2);
+  position: relative;
+  overflow: hidden;
+}
 
-      .newsletter-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--dark);
-        margin-bottom: 0.25rem;
-      }
+.newsletter-footer-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 194, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
 
-      .newsletter-subtitle {
-        color: var(--gray);
-        font-size: 0.95rem;
-        margin: 0;
-        line-height: 1.5;
-      }
+.newsletter-icon-footer {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(26, 194, 193, 0.3);
+}
 
-      .newsletter-form-footer {
-        width: 100%;
-        position: relative;
-        z-index: 2;
-      }
+.newsletter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
 
-      .input-group-wrapper {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 10px;
-        align-items: flex-start;
-      }
+.newsletter-subtitle {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
 
-      .zf-tempContDiv {
-        flex: 1;
-        position: relative;
-        margin: 0;
-        padding: 0;
-      }
+.newsletter-form-footer {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
 
-      .newsletter-input {
-        width: 100%;
-        padding: 14px 20px;
-        border: 2px solid #e2e8f0;
-        border-radius: 12px;
-        font-size: 1rem;
-        color: var(--dark);
-        background: white;
-        transition: all 0.3s ease;
-        min-width: 0;
-        font-family: "Inter", sans-serif;
-        margin: 0;
-      }
+.input-group-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
 
-      .newsletter-input:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
-      }
+.zf-tempContDiv {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
 
-      .newsletter-input::placeholder {
-        color: #94a3b8;
-      }
+.newsletter-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--dark);
+  background: white;
+  transition: all 0.3s ease;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
 
-      .zf-errorMessage {
-        color: #ef4444;
-        font-size: 0.85rem;
-        margin-top: 6px;
-        margin-bottom: 0;
-        display: none;
-        align-items: center;
-        gap: 4px;
-        font-weight: 500;
-      }
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26, 194, 193, 0.1);
+}
 
-      .newsletter-btn {
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-dark) 100%
-        );
-        color: white;
-        border: none;
-        padding: 14px 28px;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        white-space: nowrap;
-        box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
-        font-family: "Inter", sans-serif;
-        height: fit-content;
-      }
+.newsletter-input::placeholder {
+  color: #94a3b8;
+}
 
-      .newsletter-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
-      }
+.zf-errorMessage {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
 
-      .newsletter-btn i {
-        transition: transform 0.3s ease;
-      }
-      .newsletter-btn:hover i {
-        transform: translateX(4px);
-      }
-      .newsletter-btn:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
+.zf-errorMessage::before {
+  content: '\F332';
+  font-family: 'bootstrap-icons';
+  font-size: 0.8rem;
+}
 
-      .newsletter-disclaimer {
-        color: var(--gray);
-        font-size: 0.85rem;
-        margin: 8px 0 0 0;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
+.newsletter-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(26, 194, 193, 0.3);
+  font-family: 'Inter', sans-serif;
+  height: fit-content;
+}
 
-      .newsletter-disclaimer i {
-        color: var(--primary);
-      }
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 194, 193, 0.4);
+}
 
-      .zf-error {
-        border-color: #ef4444 !important;
-        background-color: #fef2f2 !important;
-      }
-      .zf-success {
-        border-color: #10b981 !important;
-        background-color: #f0fdf4 !important;
-      }
+.newsletter-btn i {
+  transition: transform 0.3s ease;
+}
 
-      .footer-main-content {
-        margin-top: 20px;
-      }
+.newsletter-btn:hover i {
+  transform: translateX(4px);
+}
 
-      .privacy-row {
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid #e2e8f0;
-        text-align: center;
-        color: var(--gray);
-        font-size: 0.9rem;
-      }
+.newsletter-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 
-      .privacy-link {
-        color: var(--primary);
-        text-decoration: none;
-        transition: color 0.3s;
-      }
+.newsletter-disclaimer {
+  color: var(--gray);
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-      .privacy-link:hover {
-        color: var(--primary-dark);
-        text-decoration: underline;
-      }
+.newsletter-disclaimer i {
+  color: var(--primary);
+}
 
-      .privacy-separator {
-        margin: 0 10px;
-        color: #cbd5e1;
-      }
+.zf-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
 
-      .footer-logo {
-        width: 180px;
-        height: auto;
-        margin-bottom: 20px;
-      }
+.zf-success {
+  border-color: #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
 
-      .footer-description {
-        font-size: 14px;
-        line-height: 1.6;
-        max-width: 280px;
-        color: var(--gray);
-      }
+.footer-main-content {
+  margin-top: 20px;
+}
 
-      .footer-heading {
-        color: #1a1a1a;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 20px;
-      }
+.privacy-row {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
 
-      .social-links {
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-      }
+.privacy-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}checks
 
-      .copyright {
-        font-size: 14px;
-        margin: 0;
-        color: var(--gray);
-      }
+.privacy-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
 
-      /* UK Nations Bar */
-      .uk-nations-bar {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        margin-top: 2rem;
-        flex-wrap: wrap;
-      }
+.privacy-separator {
+  margin: 0 10px;
+  color: #cbd5e1;
+}
 
-      .uk-nation-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 0.4rem 1rem;
-        background: rgba(26, 194, 193, 0.08);
-        border: 1px solid rgba(26, 194, 193, 0.15);
-        border-radius: 50px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--navy);
-      }
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
 
-      .uk-nation-tag i {
-        color: var(--primary);
-        font-size: 0.75rem;
-      }
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--gray);
+}
 
-      /* DBS Level Cards */
-      .dbs-level-card {
-        background: rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 1.75rem;
-        height: 100%;
-        transition: all 0.3s ease;
-      }
+.footer-heading {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
 
-      .dbs-level-card:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-5px);
-        border-color: var(--primary);
-      }
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
 
-      .dbs-level-card h4 {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: white;
-        margin-bottom: 0.5rem;
-      }
-
-      .dbs-level-card p {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin: 0;
-      }
-
-      .dbs-level-card .level-badge {
-        display: inline-block;
-        padding: 0.2rem 0.6rem;
-        background: var(--primary);
-        color: white;
-        border-radius: 50px;
-        font-size: 0.7rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-    </style>
+.copyright 
+{
+  font-size: 14px;
+  margin: 0;
+  color: var(--gray);
+}
+          </style>
   </head>
   <body>
     <!-- Navigation -->
@@ -3661,88 +3590,171 @@ default"
 
     <!-- Bootstrap JS -->
        <!-- ==================== FOOTER ==================== -->
-    <footer class="footer site-footer">
+   <footer class="footer">
       <div class="container">
-        <!-- Newsletter -->
-        <section class="newsletter-footer-section" aria-labelledby="newsletter-title">
-          <div class="newsletter-layout">
-            <div class="newsletter-intro">
-              <div class="newsletter-icon-footer"><i class="bi bi-envelope"></i></div>
-              <div>
-                <h2 class="newsletter-title" id="newsletter-title">Stay Updated</h2>
-                <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates,<br class="newsletter-desktop-break"> and industry trends.</p>
+        <!-- Newsletter Section with Zoho Form -->
+        <div class="newsletter-footer-section">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="d-flex align-items-center gap-3 newsletter-header-content">
+                <div class="newsletter-icon-footer">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="newsletter-text-content">
+                  <h4 class="newsletter-title">Stay Updated</h4>
+                  <p class="newsletter-subtitle">Get the latest insights on background verification, compliance updates, and industry trends.</p>
+                </div>
               </div>
             </div>
-            <form class="newsletter-form newsletter-form-footer" novalidate>
-              <div class="input-group-wrapper">
-                <div class="zf-tempContDiv">
-                  <input class="newsletter-input" type="email" name="email" placeholder="Enter your work email" aria-label="Your work email" required>
-                  <p class="zf-errorMessage"><i class="bi bi-exclamation-circle"></i> Please enter a valid email address.</p>
+            <div class="col-lg-6">
+              <!-- Zoho Form Integration -->
+              <form 
+                action='https://forms.zohopublic.in/verifitech/form/EmailForm/formperma/SKIJ3QipRaWUwFKnGbpchcOlGRfoBCpr-GTyQfdQAUQ/htmlRecords/submit' 
+                name='form'
+                method='POST'
+                onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
+                accept-charset='UTF-8' 
+                enctype='multipart/form-data' 
+                id='form'
+                class="newsletter-form-footer"
+              >
+                <input type="hidden" name="zf_referrer_name" value="">
+                <input type="hidden" name="zf_redirect_url" value="">
+                <input type="hidden" name="zc_gad" value="">
+                
+                <div class="input-group-wrapper">
+                  <div class="zf-tempContDiv">
+                    <input 
+                      type="text" 
+                      name="Email" 
+                      checktype="c5" 
+                      value="" 
+                      maxlength="255" 
+                      fieldType="9" 
+                      placeholder="Enter your work email"
+                      class="newsletter-input"
+                      id="Email"
+                    />
+                    <p id="Email_error" class="zf-errorMessage">Invalid value</p>
+                  </div>
+                  <button type="submit" class="newsletter-btn zf-submitColor">
+                    Subscribe <i class="bi bi-arrow-right"></i>
+                  </button>
                 </div>
-                <button class="newsletter-btn" type="submit">Subscribe <i class="bi bi-arrow-right"></i></button>
-              </div>
-              <p class="newsletter-disclaimer"><i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.</p>
-            </form>
+                <p class="newsletter-disclaimer">
+                  <i class="bi bi-shield-check"></i> We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </div>
           </div>
-        </section>
+        </div>
+        
+        <div class="row footer-main-content">
+          <!-- Logo & Description Column -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <img
+                src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg"
+                alt="Verifitech"
+                class="footer-logo"
+              />
+            </div>
+            <p class="footer-description">
+              India's most trusted employment verification platform with direct
+              HR database integration and EPFO validation across 19,000+
+              companies.
+            </p>
+          </div>
 
-        <!-- Footer links -->
-        <div class="row footer-main-content site-footer-links">
-          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 footer-brand-column">
-            <a class="footer-brand" href="/" aria-label="Verifitech home">
-              <img src="https://wp.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" alt="Verifitech" class="footer-logo">
-            </a>
-            <p class="footer-description">India's most trusted employment verification platform with direct HR database integration and EPFO validation across 19,000+ companies.</p>
+          <!-- Solutions Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="footer-column">
+              <h5 class="footer-heading">Solutions</h5>
+              <ul class="footer-links">
+                <li>
+                  <a href="../checks/lp-employment.html">Employment Check</a>
+                </li>
+                <li>
+                  <a href="../checks/lp-education-check.html">Education Verification</a>
+                </li>
+                <li><a href="../checks/lp-reference.html">Reference Checks</a></li>
+                <li>
+                  <a href="../checks/lp-gap-verification.html">Gap Analysis</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
-            <h5 class="footer-heading">Solutions</h5>
-            <ul class="footer-links">
-              <li><a href="../checks/lp-employment">Employment Check</a></li>
-              <li><a href="../checks/lp-education-check">Education Verification</a></li>
-              <li><a href="../checks/lp-reference">Reference Checks</a></li>
-              <li><a href="../checks/lp-gap-verification">Gap Analysis</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
+
+          <!-- Company Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
             <h5 class="footer-heading">Company</h5>
             <ul class="footer-links">
-              <li><a href="../company/aboutus">About Us</a></li>
-              <li><a href="../company/partnership">Partnership</a></li>
-              <li><a href="../company/careers">Careers</a></li>
-              <li><a href="../contact/contact">Contact</a></li>
+              <li><a href="../company/aboutus.html">About Us</a></li>
+              <li><a href="../company/partnership.html">Partnership</a></li>
+              <li><a href="../company/careers.html">Careers</a></li>
+              <li><a href="../contact/contact.html">Contact</a></li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
+
+          <!-- Resources Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
             <h5 class="footer-heading">Resources</h5>
             <ul class="footer-links">
-              <li><a href="../affilate/affilate">Affiliate</a></li>
-              <li><a href="../resources/blog">Blog</a></li>
-              <li><a href="../resources/casestudy">Case Studies</a></li>
+              <li><a href="../affilate/affilate.html">Affiliate</a></li>
+              <li><a href="../resources/blog.html">Blog</a></li>
+              <li><a href="../resources/casestudy.html">Case Studies</a></li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 footer-column">
-            <h5 class="footer-heading">Our policy</h5>
+
+          <!-- Products Column -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h5 class="footer-heading">Products</h5>
             <ul class="footer-links">
-              <li><a href="./Privacy policy pages/disclaimer">Disclaimer</a></li>
-              <li><a href="./Privacy policy pages/terms and conditions">Terms of Service</a></li>
-              <li><a href="./Privacy policy pages/privacypolicy">Privacy Policy</a></li>
+              <li>
+                <a href="../products/exitinterview.html">Exit interview</a>
+              </li>
+              <li><a href="../products/pm.html">psychometric</a></li>
+              <li><a href="../products/api.html">API</a></li>
             </ul>
           </div>
         </div>
 
-        <!-- Copyright and social links -->
-        <div class="footer-bottom site-footer-bottom">
-          <div class="footer-copyright"><p class="copyright">© 2026 Verifitech Private Limited. All rights reserved.</p></div>
-          <div class="social-links" aria-label="Social media links">
-            <a href="https://www.linkedin.com/company/verifitech/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.facebook.com/VerifiTechInfo/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://m.youtube.com/@verifitechindia4689" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            <a href="https://www.instagram.com/verifitech/reels/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">
+                © 2026 Verifitech Solutions Private Limited. All rights
+                reserved.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/company/verifitech/" target="blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <!-- <a href="https://twitter.com/VerifiTechRaju/status/1595311653192716289" target="blank" class="social-icon"><i class="bi bi-twitter-x"></i></a> -->
+                <a href="https://www.facebook.com/VerifiTechInfo/" class="social-icon" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.youtube.com/@verifitechindia4689" class="social-icon" target="blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.instagram.com/verifitech/reels/" class="social-icon" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://wa.me/919176663777?text=Hi%20Verifitech%20Team%2C%0A%0AI%20am%20interested%20in%20your%20background%20verification%20services." class="social-icon" onclick="openWhatsApp(event)"><i class="bi bi-whatsapp"></i></a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Privacy Policy Row -->
+          <div class="privacy-row">
+            <a href="./Privacy policy pages/privacypolicy.html" class="privacy-link">Privacy Policy</a>
+            <span class="./privacy-separator">|</span>
+            <a href="Privacy policy pages/disclaimer.html" class="privacy-link">Disclaimer</a>
+            <span class="./privacy-separator">|</span>  
+            <a href="./Privacy policy pages/terms and conditions.html" class="privacy-link">Terms of Service</a>
+            <span class="privacy-separator">|</span>        
+            <a href="./Privacy policy pages/cookiepolicy.html" class="privacy-link">Cookies Policy</a>
           </div>
         </div>
       </div>
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
