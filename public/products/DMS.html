@@ -1635,6 +1635,36 @@
         </div>
       </div>
     </nav>
+        <a
+  href="../helpcenter/support"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Support Dashboard"
+  class="support-dashboard-float"
+  style="position: fixed; bottom: 170px; right: 30px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary, #1ac2c1) 0%, var(--primary-dark, #129b9a) 100%); color: #ffffff !important; text-decoration: none !important; border-radius: 50%; border: 3px solid rgba(255,255,255,0.3); box-shadow: 0 4px 20px rgba(26,194,193,0.4); z-index: 9999; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+
+  onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 25px rgba(26,194,193,0.6)'; this.querySelector('.float-tooltip').style.opacity='1'; this.querySelector('.float-tooltip').style.visibility='visible'; this.querySelector('.float-tooltip').style.right='75px';"
+
+  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(26,194,193,0.4)'; this.querySelector('.float-tooltip').style.opacity='0'; this.querySelector('.float-tooltip').style.visibility='hidden'; this.querySelector('.float-tooltip').style.right='70px';"
+
+  onfocus="this.querySelector('.float-tooltip').style.opacity='1'; this.querySelector('.float-tooltip').style.visibility='visible';"
+
+  onblur="this.querySelector('.float-tooltip').style.opacity='0'; this.querySelector('.float-tooltip').style.visibility='hidden';"
+>
+  <!-- Headset Icon -->
+  <i
+    class="bi bi-headset"
+    style="font-size: 1.6rem; line-height: 1;"
+  ></i>
+
+  <!-- Tooltip -->
+  <span
+    class="float-tooltip"
+    style="position: absolute; right: 70px; top: 50%; transform: translateY(-50%); background: #222222; color: #ffffff; padding: 9px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; white-space: nowrap; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.3s ease, right 0.3s ease, visibility 0.3s ease;"
+  >
+    Support Dashboard
+  </span>
+</a>
         
           <!-- Hero Section -->
     <section class="hero-section">
