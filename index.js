@@ -33,6 +33,24 @@ app.use(
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 
+const OLD_HOST = "paleturquoise-spoonbill-527408.hostingersite.com";
+const NEW_HOST = "employee.verifitech.com";
+
+app.use((req, res, next) => {
+  const host = (req.headers.host || "")
+    .split(":")[0]
+    .toLowerCase();
+
+  if (host === OLD_HOST) {
+    return res.redirect(
+      301,
+      `https://${NEW_HOST}${req.originalUrl}`
+    );
+  }
+
+  next();
+});
+
 // --------------------------------------------------
 // 2. EMAIL CONFIGURATION
 // --------------------------------------------------
