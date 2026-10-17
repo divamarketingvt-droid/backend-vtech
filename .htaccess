@@ -1,15 +1,21 @@
-# Redirect .html to extensionless URL
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^(.+)\.html$ /$1 [R=301,L]
-
-# Serve .html when extension is omitted
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+?)/?$ $1.html [L]
 
 
 RewriteEngine On
 
+# 1. Redirect the old Hostinger temporary URL to the new subdomain
+RewriteCond %{HTTP_HOST} ^paleturquoise-spoonbill-527408\.hostingersite\.com$ [NC]
+RewriteRule ^(.*)$ https://employee.verifitech.com/$1 [R=301,L,NE]
+
+# 2. Force HTTPS for other hostnames
 RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# 3. Redirect .html URLs to extensionless URLs
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# 4. Serve .html files when the extension is omitted
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
