@@ -1,0 +1,95 @@
+# Verifitech
+
+> Verifitech is a Chennai-headquartered background verification (BGV) and screening company that helps organizations hire and onboard with confidence. It provides employment, education, criminal and court, credit, address, ID, reference, directorship, gap, social media, passport, police clearance, drug test, global and vendor verification, plus HR technology products (HRMS, document management, performance management, exit interviews) and a verification API. Verifitech serves IT-ITES, banks and NBFCs, healthcare, education, manufacturing, FMCG, logistics, real estate, retail and e-commerce, travel, staffing and telecom employers in India and internationally.
+
+Verifitech (Verifitech India Info Pvt Ltd) is a private company headquartered in Chennai, Tamil Nadu, India, with services positioned around fast, accurate, compliant and customised background screening reports. Typical users are HR, talent acquisition, compliance, risk and procurement teams that need to verify candidates, employees, borrowers, vendors and suppliers.
+
+## Background Verification Checks
+
+- [ID Verification](https://verifitech.com/checks/id-verification): Verification of government-issued identity documents to confirm a candidate or customer is who they claim to be.
+- [Employment Verification](https://verifitech.com/checks/employment): Confirms past employers, designations, tenure and experience claims to catch fake or inflated experience.
+- [Education Verification](https://verifitech.com/checks/education-check): Verifies degrees, certificates, universities and institutions.
+- [Court Verification](https://verifitech.com/checks/court-verification): Searches court records for civil and criminal cases linked to a candidate or entity.
+- [Police Clearance](https://verifitech.com/checks/police-clearnce): Police verification and clearance checks for candidates and employees.
+- [Address Verification](https://verifitech.com/checks/address-verification): Physical and digital address verification to confirm residence and reduce fake-address risk.
+- [Reference Check](https://verifitech.com/checks/reference): Structured reference checks with previous employers and professional contacts.
+- [Credit Check](https://verifitech.com/checks/credit-check): Credit history verification for roles with financial responsibility and for lending and risk use cases.
+- [Gap Verification](https://verifitech.com/checks/gap-verification): Verifies and explains gaps in employment or education history.
+- [Directorship Check](https://verifitech.com/checks/Directorship-check): Checks whether a candidate or vendor holds directorships or has conflicting business interests.
+- [Social Media Verification](https://verifitech.com/checks/socialmeidaverification): Screens public social media presence for conduct and reputational risk.
+- [Passport Verification](https://verifitech.com/checks/passport-verification): Verifies passport details and validity.
+- [Drug Test](https://verifitech.com/checks/drug-test): Pre-employment and periodic drug screening.
+- [Global Check](https://verifitech.com/checks/global-check): International background screening for candidates with overseas history.
+- [Vendor Verification](https://verifitech.com/checks/vendor): Due diligence and screening of vendors and suppliers.
+
+## Products and Technology
+
+- [Verification API](https://verifitech.com/products/api): API for integrating background verification into HRMS, ATS, onboarding and lending workflows.
+- [HRMS](https://verifitech.com/products/HRMS): Human resource management software from Verifitech.
+- [Document Management System (DMS)](https://verifitech.com/products/DMS): Secure storage and management of employee and verification documents.
+- [Performance Management](https://verifitech.com/products/pm): Tools for employee performance management.
+- [Exit Interview](https://verifitech.com/products/exitinterview): Exit interview and attrition-feedback solution.
+- [Psychometric Assessment](https://verifitech.com/tools/Psychometric.html): Psychometric tools for candidate and employee assessment.
+- [Free Trial](https://verifitech.com/tools/FreeTrail.html): Free trial access to Verifitech tools.
+
+## Industries
+
+- [Banks and Financial Services](https://verifitech.com/industries/banks): Employee, borrower, address and credit verification for banks, NBFCs and financial institutions.
+- [IT and ITES](https://verifitech.com/industries/IT-ITES): Bulk hiring verification and audit-ready BGV files for IT services, BPO and ITES companies.
+- [Healthcare](https://verifitech.com/industries/healthcare): Verification of doctors, nurses, paramedics and support staff.
+- [Education](https://verifitech.com/industries/education): Background checks for teachers, faculty and staff in schools and colleges.
+- [Manufacturing](https://verifitech.com/industries/manufacturing): Workforce and contract labour verification for manufacturing and automobile companies.
+- [FMCG](https://verifitech.com/industries/FMCG): Sales force, distributor and vendor verification for FMCG companies.
+- [Logistics](https://verifitech.com/industries/Logistics): Driver, delivery and warehouse staff verification.
+- [Real Estate and Construction](https://verifitech.com/industries/Realestate%20&%20Construction.html): Verification for real estate, construction workforce and contractors.
+- [Retail and E-commerce](https://verifitech.com/industries/Retail%20&%20E-commerce): Background checks for retail staff, delivery partners and marketplace sellers.
+- [Travel and Hospitality](https://verifitech.com/industries/travel-industries): Employee and partner verification for travel and hospitality businesses.
+- [Staffing](https://verifitech.com/industries/staffing): Candidate verification for staffing and recruitment agencies.
+- [Telecom](https://verifitech.com/industries/telecom): Employee and field-partner verification for telecom companies.
+
+## Countries
+
+- [Ireland](https://verifitech.com/countries/Ireland): Background screening support for Ireland.
+- [Singapore](https://verifitech.com/countries/singapore.html): Background screening support for Singapore.
+
+## Resources
+
+- [Blog](https://verifitech.com/resources/blog): Articles on background verification, hiring compliance and fraud prevention.
+- [Whitepapers](https://verifitech.com/resources/whitepapers): In-depth reports and guides on screening and verification.
+- [Case Studies](https://verifitech.com/resources/casestudy): Examples of how organizations use Verifitech.
+- [Webinars](https://verifitech.com/resources/webinar): Recorded and upcoming webinars on background verification.
+- [Digital Address Verification (PDF)](https://verifitech.com/resources/Verifitech_Digital_Address_Verification.pdf): Document explaining Verifitech's digital address verification.
+
+## Company
+
+- [About Us](https://verifitech.com/company/aboutus): Company background, mission and team.
+- [Careers](https://verifitech.com/company/careers): Open roles at Verifitech.
+- [Partnership](https://verifitech.com/company/partnership): Partnership opportunities with Verifitech.
+- [Affiliate Program](https://verifitech.com/affilate/affilate): Affiliate and referral program.
+- [Contact](https://verifitech.com/contact/contact): Contact details and enquiry form.
+- [Book a Demo](https://verifitech.com/Demo/booking): Schedule a product demo.
+
+## Help Center
+
+- [Customer Help](https://verifitech.com/helpcenter/customer): Support information for customers.
+- [Candidate Help](https://verifitech.com/helpcenter/candidate): Guidance for candidates going through verification.
+- [Partner Help](https://verifitech.com/helpcenter/partner): Support information for partners.
+- [Support](https://verifitech.com/helpcenter/support): General support and queries.
+
+## Legal
+
+- [Privacy Policy](https://verifitech.com/Privacy-policy-pages/privacypolicy): How personal and candidate data is collected and used.
+- [Disclaimer](https://verifitech.com/Privacy-policy-pages/disclaimer): Website disclaimer.
+- [Terms and Conditions](https://verifitech.com/Privacy-policy-pages/terms%20-and%20-conditions): Terms of use for Verifitech services.
+
+## Contact
+
+- Company: Verifitech
+- Location: Chennai, Tamil Nadu, India
+- Website: https://verifitech.com
+- Phone: [add official phone number]
+- Email: [add official email]
+
+## Keywords
+
+background verification, background verification company India, BGV services, employee background check, pre-employment screening, employment verification, education verification, criminal record check, court record verification, police clearance, address verification, digital address verification, ID verification, passport verification, reference check, credit check, gap verification, directorship check, social media screening, drug test, global background check, international background screening, vendor due diligence, supplier screening, housekeeping staff verification, exit interview software, HRMS, document management system, background verification API, bulk hiring verification, BGV for banks, BGV for NBFC, BGV for IT ITES, BGV for BPO, BGV for healthcare, BGV for logistics, BGV for staffing, BGV for telecom, background verification Chennai, Verifitech
