@@ -4,3 +4,26 @@ Allow: /
 Disallow: /wp
 
 Sitemap: https://www.verifitech.com/sitemap.xml
+
+# AI Search Crawlers
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /wp
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /wp
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /wp
+
+# AI Model Training Crawlers - Blocked
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
