@@ -909,12 +909,7 @@ body {
   flex-shrink: 0;
 }
 
-.badge-text h6 {
-  font-weight: 700;
-  margin: 0;
-  font-size: 1.1rem;
-  color: var(--dark);
-}
+.badge-text .badge-title {
 
 .badge-text p {
   margin: 0;
@@ -3289,7 +3284,7 @@ body::after,
           <div class="dropdown-menu mega-menu">
             <div class="row">
               <div class="col-md-6">
-                <h6 class="dropdown-header">Verification Services</h6>
+                <div class="dropdown-header">Verification Services</div>
                 <a href="./checks/id-verification" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
                 <a href="./checks/address-verification.html" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
                 <a href="./checks/employment" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
@@ -3300,7 +3295,7 @@ body::after,
                 <a href="./checks/Directorship-check" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
               </div>
               <div class="col-md-6">
-                <h6 class="dropdown-header">Specialized Checks</h6>
+                <div class="dropdown-header">Specialized Checks</div>
                 <a href="./checks/global-check" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
                 <a href="./checks/credit-check" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
                 <a href="./checks/gap-verification" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
@@ -3478,8 +3473,9 @@ body::after,
                 <div class="badge-item">
                   <div class="badge-icon"><i class="bi bi-shield-check"></i></div>
                   <div class="badge-text">
-                    <h6>99.9%</h6>
-                    <p>Accuracy</p>
+                 <div class="badge-title">99.9%</div>
+                 <p>Accuracy</p>
+                 </div>
                   </div>
                 </div>
                 <div class="badge-item">
