@@ -302,6 +302,35 @@
     justify-content: center;
     text-align: center;
 }
+/* About Hero Description */
+.about-description {
+    max-width: 850px;
+    width: 100%;
+    margin: 35px auto 45px;
+
+    text-align: justify;
+    text-justify: inter-word;
+
+    font-size: 1.25rem;
+    line-height: 1.85;
+
+    letter-spacing: 0.2px;
+    word-spacing: 1px;
+
+    color: #64748b;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-description {
+        max-width: 100%;
+        padding: 0 15px;
+        font-size: 1.05rem;
+        line-height: 1.75;
+        text-align: left;
+    }
+}
+      
 /* Center Hero Content */
 .about-hero .container {
     width: 100%;
@@ -1992,15 +2021,9 @@
   ,CEO & Director of Verifitech | 6 November 2026
 </p>
 
-        <p class="lead">
+        <p class="lead about-description">
           Verifitech is a Global background verification company founded on 22 June 2009 and headquartered in Chennai, India. We helps 1,000+ enterprises in 25+ countries hire safely by verifying identity, employment, education, address and criminal records. It is ISO 27001 certified and validates employment directly against EPFO records for 19,000+ companies.
         </p>
-
-        <div class="d-flex gap-3 flex-wrap justify-content-center">
-          <a href="#mission-vision" class="btn btn-primary-custom btn-lg">
-            Our Purpose <i class="bi bi-arrow-down"></i>
-          </a>
-
           <a
             href="#leadership"
             class="btn btn-outline-dark btn-lg"
@@ -2018,7 +2041,6 @@
     </div>
   </div>
 </section>
-
         
 
     <!-- NEW VISION & MISSION SECTION -->
