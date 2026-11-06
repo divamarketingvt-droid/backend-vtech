@@ -15,11 +15,21 @@ const PORT = process.env.PORT || 3000;
 
 app.disable("x-powered-by");
 
+// EJS VIEW ENGINE
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+// Render index.ejs
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
 app.use(
   cors({
     origin: [
       "https://verifitech.com",
       "https://www.verifitech.com",
+      "https://employee.verifitech.com",
       "http://localhost:3000",
       "http://localhost:5000",
       "http://127.0.0.1:3000",
@@ -36,6 +46,7 @@ app.use(express.urlencoded({ extended: true, limit: "1mb" }));
 const OLD_HOST = "paleturquoise-spoonbill-527408.hostingersite.com";
 const NEW_HOST = "employee.verifitech.com";
 
+// Redirect old domain to new domain
 app.use((req, res, next) => {
   const host = (req.headers.host || "")
     .split(":")[0]
@@ -52,14 +63,23 @@ app.use((req, res, next) => {
 });
 
 // --------------------------------------------------
-// 2. EMAIL CONFIGURATION
+// 2. STATIC FILES
 // --------------------------------------------------
 
-// Configure these values in your hosting environment.
-// Never place your real email password in this file.
-const EMAIL_USER = "ranjith20112@gmail.com";
-const EMAIL_PASS = "ctrcjjgomatpfmoz"; // Added quotes and removed spaces if it's an app password
-const ADMIN_EMAIL = "connect@verifitech.com" || EMAIL_USER;
+app.use(
+  express.static(path.join(__dirname, "public"))
+);
+
+// --------------------------------------------------
+// 3. EMAIL CONFIGURATION
+// --------------------------------------------------
+
+// Configure credentials in your .env file.
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
+const ADMIN_EMAIL =
+  process.env.ADMIN_EMAIL || "connect@verifitech.com";
+
 if (!EMAIL_USER || !EMAIL_PASS) {
   console.error(
     "Email configuration missing. Set EMAIL_USER and EMAIL_PASS."
@@ -79,11 +99,13 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 30000
 });
 
-// Check SMTP credentials when the server starts.
+// Verify SMTP connection
 if (EMAIL_USER && EMAIL_PASS) {
   transporter.verify()
     .then(() => {
-      console.log("SMTP connection and authentication successful.");
+      console.log(
+        "SMTP connection and authentication successful."
+      );
     })
     .catch((err) => {
       console.error("SMTP verification failed:", {
@@ -95,12 +117,8 @@ if (EMAIL_USER && EMAIL_PASS) {
 }
 
 // --------------------------------------------------
-// 3. OTP STORAGE
+// 4. OTP STORAGE
 // --------------------------------------------------
-
-// This uses in-memory storage. OTPs are lost if the
-// server restarts, and storage is not shared between
-// multiple server instances.
 
 const otpStore = new Map();
 const verifiedEmails = new Set();
@@ -163,7 +181,18 @@ function getSafeError(err) {
 }
 
 // --------------------------------------------------
-// 4. HEALTH CHECK
+// 5. RENDER EJS WEBSITE
+// --------------------------------------------------
+
+// Homepage: views/index.ejs
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Verifitech"
+  });
+});
+
+// --------------------------------------------------
+// 6. HEALTH CHECK
 // --------------------------------------------------
 
 app.get("/api/health", (req, res) => {
@@ -174,7 +203,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // --------------------------------------------------
-// 5. SEND OTP
+// 7. SEND OTP
 // --------------------------------------------------
 
 app.post("/api/send-otp", async (req, res) => {
@@ -203,8 +232,6 @@ app.post("/api/send-otp", async (req, res) => {
     }
 
     if (!EMAIL_USER || !EMAIL_PASS) {
-      console.error("OTP cannot be sent: email credentials are missing.");
-
       return res.status(500).json({
         success: false,
         message: "Email service is not configured. Please contact support."
@@ -214,14 +241,15 @@ app.post("/api/send-otp", async (req, res) => {
     const existing = otpStore.get(email);
     const now = Date.now();
 
-    // Prevent rapid resend requests.
+    // Prevent rapid resend requests
     if (
       existing &&
       existing.lastSentAt &&
       now - existing.lastSentAt < OTP_RESEND_DELAY_MS
     ) {
       const secondsRemaining = Math.ceil(
-        (OTP_RESEND_DELAY_MS - (now - existing.lastSentAt)) / 1000
+        (OTP_RESEND_DELAY_MS -
+          (now - existing.lastSentAt)) / 1000
       );
 
       return res.status(429).json({
@@ -230,9 +258,10 @@ app.post("/api/send-otp", async (req, res) => {
       });
     }
 
-    // Four-digit OTP to match your existing frontend.
+    // Generate four-digit OTP
+    const crypto = require("crypto");
     const otp = String(
-      Math.floor(1000 + Math.random() * 9000)
+      crypto.randomInt(1000, 10000)
     );
 
     const mailOptions = {
@@ -265,7 +294,7 @@ app.post("/api/send-otp", async (req, res) => {
       `
     };
 
-    // Send the email first. Save the OTP only if sending succeeds.
+    // Save OTP only after successful email delivery
     await transporter.sendMail(mailOptions);
 
     otpStore.set(email, {
@@ -275,13 +304,13 @@ app.post("/api/send-otp", async (req, res) => {
       attempts: 0
     });
 
-    // A newly sent OTP requires verification again.
     verifiedEmails.delete(email);
 
     return res.status(200).json({
       success: true,
       message: "OTP sent successfully to your business email."
     });
+
   } catch (err) {
     console.error("OTP EMAIL ERROR:", getSafeError(err));
 
@@ -293,7 +322,7 @@ app.post("/api/send-otp", async (req, res) => {
 });
 
 // --------------------------------------------------
-// 6. VERIFY OTP
+// 8. VERIFY OTP
 // --------------------------------------------------
 
 app.post("/api/verify-otp", (req, res) => {
@@ -338,7 +367,7 @@ app.post("/api/verify-otp", (req, res) => {
     }
 
     if (record.otp !== otp) {
-      record.attempts += 1;
+      record.attempts++;
 
       return res.status(400).json({
         success: false,
@@ -353,6 +382,7 @@ app.post("/api/verify-otp", (req, res) => {
       success: true,
       message: "Email verified successfully."
     });
+
   } catch (err) {
     console.error("OTP VERIFICATION ERROR:", getSafeError(err));
 
@@ -364,7 +394,7 @@ app.post("/api/verify-otp", (req, res) => {
 });
 
 // --------------------------------------------------
-// 7. REUSABLE FORM EMAIL FUNCTION
+// 9. REUSABLE FORM EMAIL FUNCTION
 // --------------------------------------------------
 
 async function sendFormEmail(subject, formData, replyTo) {
@@ -380,14 +410,16 @@ async function sendFormEmail(subject, formData, replyTo) {
           ? JSON.stringify(value)
           : String(value ?? "");
 
-      return `<tr>
-        <td style="padding:8px;border:1px solid #ddd;font-weight:bold">
-          ${escapeHtml(key)}
-        </td>
-        <td style="padding:8px;border:1px solid #ddd">
-          ${escapeHtml(displayValue)}
-        </td>
-      </tr>`;
+      return `
+        <tr>
+          <td style="padding:8px;border:1px solid #ddd;font-weight:bold">
+            ${escapeHtml(key)}
+          </td>
+          <td style="padding:8px;border:1px solid #ddd">
+            ${escapeHtml(displayValue)}
+          </td>
+        </tr>
+      `;
     })
     .join("");
 
@@ -405,7 +437,6 @@ async function sendFormEmail(subject, formData, replyTo) {
     `
   };
 
-  // Only set Reply-To when a valid email was provided.
   if (replyTo && isValidEmail(replyTo)) {
     mailOptions.replyTo = replyTo;
   }
@@ -414,7 +445,7 @@ async function sendFormEmail(subject, formData, replyTo) {
 }
 
 // --------------------------------------------------
-// 8. SUBMIT TRIAL FORM
+// 10. SUBMIT TRIAL FORM
 // --------------------------------------------------
 
 app.post("/api/submit-trial", async (req, res) => {
@@ -441,13 +472,13 @@ app.post("/api/submit-trial", async (req, res) => {
       email
     );
 
-    // Consume verification after successful submission.
     verifiedEmails.delete(email);
 
     return res.status(200).json({
       success: true,
       message: "Your trial request has been submitted successfully."
     });
+
   } catch (err) {
     console.error("TRIAL SUBMISSION ERROR:", getSafeError(err));
 
@@ -459,7 +490,7 @@ app.post("/api/submit-trial", async (req, res) => {
 });
 
 // --------------------------------------------------
-// 9. SUBMIT REQUEST FORM
+// 11. SUBMIT REQUEST FORM
 // --------------------------------------------------
 
 app.post("/api/submit-request", async (req, res) => {
@@ -483,6 +514,7 @@ app.post("/api/submit-request", async (req, res) => {
       success: true,
       message: "Your request has been submitted successfully."
     });
+
   } catch (err) {
     console.error("REQUEST SUBMISSION ERROR:", getSafeError(err));
 
@@ -494,7 +526,7 @@ app.post("/api/submit-request", async (req, res) => {
 });
 
 // --------------------------------------------------
-// 10. SUBMIT CONTACT FORM
+// 12. SUBMIT CONTACT FORM
 // --------------------------------------------------
 
 app.post("/api/submit-contact", async (req, res) => {
@@ -518,6 +550,7 @@ app.post("/api/submit-contact", async (req, res) => {
       success: true,
       message: "Your message has been submitted successfully."
     });
+
   } catch (err) {
     console.error("CONTACT SUBMISSION ERROR:", getSafeError(err));
 
@@ -529,17 +562,7 @@ app.post("/api/submit-contact", async (req, res) => {
 });
 
 // --------------------------------------------------
-// 11. SERVE WEBSITE FILES
-// --------------------------------------------------
-
-app.use(
-  express.static(path.join(__dirname, "public"), {
-    extensions: ["html"]
-  })
-);
-
-// --------------------------------------------------
-// 12. NOT-FOUND HANDLER
+// 13. NOT-FOUND HANDLER
 // --------------------------------------------------
 
 app.use("/api", (req, res) => {
@@ -550,7 +573,7 @@ app.use("/api", (req, res) => {
 });
 
 // --------------------------------------------------
-// 13. GENERAL ERROR HANDLER
+// 14. GENERAL ERROR HANDLER
 // --------------------------------------------------
 
 app.use((err, req, res, next) => {
@@ -567,7 +590,7 @@ app.use((err, req, res, next) => {
 });
 
 // --------------------------------------------------
-// 14. START SERVER
+// 15. START SERVER
 // --------------------------------------------------
 
 app.listen(PORT, () => {
