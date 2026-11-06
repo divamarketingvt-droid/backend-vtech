@@ -18,9 +18,7 @@ app.disable("x-powered-by");
 // EJS VIEW ENGINE
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
-// Render index.ejs
-app.get("/", (req, res) => {
+app.get(["/", "/index.ejs"], (req, res) => {
     res.render("index");
 });
 
