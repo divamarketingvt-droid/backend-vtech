@@ -2,6 +2,12 @@
 
 RewriteEngine On
 
+# --- 404 custom error page ---
+# Serves /404.html whenever a request returns HTTP 404.
+# The URL stays in the browser address bar; only the displayed page changes.
+ErrorDocument 404 /404.html
+
+
 # 1. Redirect the old Hostinger temporary URL to the new subdomain
 RewriteCond %{HTTP_HOST} ^paleturquoise-spoonbill-527408\.hostingersite\.com$ [NC]
 RewriteRule ^(.*)$ https://employee.verifitech.com/$1 [R=301,L,NE]
