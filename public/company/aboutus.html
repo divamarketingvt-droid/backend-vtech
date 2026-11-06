@@ -285,18 +285,54 @@
       }
 
       /* About Hero Section */
-      .about-hero {
-        padding: 140px 0 100px;
-        background: linear-gradient(
-          135deg,
-          #f0fdfa 0%,
-          #ffffff 50%,
-          #ccfbf1 100%
-        );
-        position: relative;
-        overflow: hidden;
-      }
+     .about-hero {
+    min-height: 100vh;
+    padding: 100px 0;
+    background: linear-gradient(
+        135deg,
+        #f0fdfa 0%,
+        #ffffff 50%,
+        #ccfbf1 100%
+    );
+    position: relative;
+    overflow: hidden;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/* Center Hero Content */
+.about-hero .container {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.about-hero .row {
+    justify-content: center;
+}
+
+.about-hero .reveal {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.about-hero .about-badge {
+    justify-content: center;
+}
+
+.about-hero h1 {
+    text-align: center;
+}
+
+.about-hero .lead {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
       .about-hero::before {
         content: "";
         position: absolute;
