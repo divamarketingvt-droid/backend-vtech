@@ -244,7 +244,7 @@ site-header .country-flag { font-size: 1.2rem; }
             <i class="bi bi-chevron-down ms-1" style="font-size: 0.7rem"></i>
           </div>
           <ul class="dropdown-menu dropdown-menu-end" style="min-width: 180px">
-            <li><a href="/" class="dropdown-item country-option" data-country="India" data-flag="🇮🇳"><span class="country-flag">🇮🇳</span> India</a></li>
+            // <li><a href="/" class="dropdown-item country-option" data-country="India" data-flag="🇮🇳"><span class="country-flag">🇮🇳</span> India</a></li>
             <li><a href="/countries/usa" class="dropdown-item country-option" data-country="USA" data-flag="🇺🇸"><span class="country-flag">🇺🇸</span> USA</a></li>
             <li><a href="/countries/UAE" class="dropdown-item country-option" data-country="UAE" data-flag="🇦🇪"><span class="country-flag">🇦🇪</span> UAE</a></li>
             <li><a href="/countries/aus" class="dropdown-item country-option" data-country="Australia" data-flag="🇦🇺"><span class="country-flag">🇦🇺</span> Australia</a></li>
