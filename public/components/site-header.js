@@ -337,6 +337,12 @@ site-header .country-flag { font-size: 1.2rem; }
           self.querySelector("#current-country").textContent = a.dataset.country;
         }
       });
+      // Hide the country already shown in the selector, so the dropdown
+      // lists only the other countries (e.g. on /countries/aus, no Australia).
+      var current = self.querySelector("#current-country").textContent.trim();
+      this.querySelectorAll(".country-option").forEach(function (a) {
+        if (a.dataset.country === current) a.closest("li").style.display = "none";
+      });
     }
 
     bind() {
