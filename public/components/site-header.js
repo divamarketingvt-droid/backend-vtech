@@ -150,7 +150,7 @@ site-header .country-flag { font-size: 1.2rem; }
                 <a href="/checks/credit-check" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
                 <a href="/checks/gap-verification" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
                 <a href="/checks/social-meida-verification" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
-                <a href="/checks/police-verification" class="dropdown-item"><i class="bi bi-shield-check"></i>police Clearance</a>
+                <a href="/checks/police-verification" class="dropdown-item"><i class="bi bi-shield-check"></i>Police Clearance</a>
                 <a href="/checks/drug-test" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
                 <a href="/checks/vendor-due-diligence" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a>
                 <a href="/checks/passport-verification" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a>
