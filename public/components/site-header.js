@@ -137,22 +137,22 @@ site-header .country-flag { font-size: 1.2rem; }
                 <div class="dropdown-header">Verification Services</div>
                 <a href="/checks/id-verification" class="dropdown-item"><i class="bi bi-person-badge"></i> ID Verification</a>
                 <a href="/checks/address-verification" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
-                <a href="/checks/employment" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
-                <a href="/checks/education-check" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
-                <a href="/checks/court-verification" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
-                <a href="/checks/reference" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
-                <a href="/checks/DIN-verification" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a>
+                <a href="/checks/employment-verification" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
+                <a href="/checks/education-verification" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
+                <a href="/checks/court-record-verification" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
+                <a href="/checks/reference-check" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
+                <a href="/checks/din-verification" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a>
                 <a href="/checks/Directorship-check" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
               </div>
               <div class="col-md-6">
                 <div class="dropdown-header">Specialized Checks</div>
-                <a href="/checks/global-check" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
+                <a href="/checks/global-database-verification" class="dropdown-item"><i class="bi bi-globe"></i> Global Database Verification</a>
                 <a href="/checks/credit-check" class="dropdown-item"><i class="bi bi-credit-card"></i> Credit Check</a>
                 <a href="/checks/gap-verification" class="dropdown-item"><i class="bi bi-calendar-x"></i> Gap Check</a>
-                <a href="/checks/socialmeidaverification" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
-                <a href="/checks/Police-clearance" class="dropdown-item"><i class="bi bi-shield-check"></i>police Clearance</a>
+                <a href="/checks/social-meida-verification" class="dropdown-item"><i class="bi bi-share"></i> Social Media Verification</a>
+                <a href="/checks/police-verification" class="dropdown-item"><i class="bi bi-shield-check"></i>police Clearance</a>
                 <a href="/checks/drug-test" class="dropdown-item"><i class="bi bi-capsule"></i> Drug Test Screening</a>
-                <a href="/checks/vendor" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a>
+                <a href="/checks/vendor-due-diligence" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i> Vendor Due Diligence</a>
                 <a href="/checks/passport-verification" class="dropdown-item"><i class="fa-solid fa-passport"></i> Passport Verification</a>
               </div>
             </div>
