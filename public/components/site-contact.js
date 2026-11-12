@@ -7,11 +7,12 @@
  *   <site-contact></site-contact>
  *
  * Two tabs:
- *   Business   -> Zoho "Contact11" form. "What are you looking for?" lists every
- *                 check in /checks, plus "Other" (shows a text box). On a check
- *                 page, that check is pre-selected.
- *   Individual -> Zoho "CandidateDetails2" form (name + email). The typed
- *                 "What are you looking for?" is emailed via /api/submit-contact.
+ *   Business   -> Zoho "Business" form (Full Name, Email, Contact Number,
+ *                 Dropdown). "What are you looking for?" lists every check in
+ *                 /checks, plus "Other" (shows a text box). On a check page,
+ *                 that check is pre-selected.
+ *   Individual -> Zoho "individualForm" (First/Last Name, Email,
+ *                 What are you looking for?).
  *
  * Edit the list of checks ONCE here (CHECKS below) and every page updates.
  */
@@ -29,39 +30,34 @@
   }
   if (customElements.get("site-contact")) return;
 
-  var BUSINESS_ACTION = "https://forms.zohopublic.in/verifitech/form/Contact11/formperma/9sK-SF3CwyblvIWCRgSvNK2NNjTYicXeIaw3s4zV1G8/htmlRecords/submit";
-  var CANDIDATE_ACTION = "https://forms.zohopublic.in/verifitech/form/CandidateDetails2/formperma/AAu_pxyF_x894Jj90mWKsHv6Hxj0dBzqM11f4Zhz1bQ/htmlRecords/submit";
+  var BUSINESS_ACTION = "https://forms.zohopublic.in/verifitech/form/Business/formperma/XUBS3dnmwo5a4C36XBthKqE5L9kT7Ei7yWL4ykhSU6I/htmlRecords/submit";
+  var CANDIDATE_ACTION = "https://forms.zohopublic.in/verifitech/form/individualForm/formperma/adF_Mk-7JfNB7gTETrJGUsHWyETMV-B5sonAI4JNEJI/htmlRecords/submit";
 
   // Every page in /checks.  file = page name in /checks, label = what the user sees,
-  // zoho = an option that already exists in the Zoho "Dropdown1" field (Zoho rejects
-  // values it doesn't know). The exact check chosen is always sent in the message too.
-  // Once you add all these labels as options in Zoho, set zoho = label.
+  // zoho = the exact option text in the Zoho "Business" form's "Dropdown" field
+  // (Zoho ignores values it doesn't know, so these must match Zoho letter for letter).
   var CHECKS = [
-    { file: "id-verification",         label: "ID Verification",              zoho: "Identity Verification" },
+    { file: "id-verification",         label: "ID Verification",              zoho: "ID Verification" },
     { file: "address-verification",    label: "Address Verification",         zoho: "Address Verification" },
     { file: "employment",              label: "Employment Verification",      zoho: "Employment Verification" },
     { file: "education-check",         label: "Education Verification",       zoho: "Education Verification" },
-    { file: "court-verification",      label: "Court Record Verification",    zoho: "Criminal Record Check" },
+    { file: "court-verification",      label: "Court Record Verification",    zoho: "Court Record Verification" },
     { file: "reference",               label: "Reference Check",              zoho: "Reference Check" },
-    { file: "DIN-verification",        label: "DIN Verification",             zoho: "Identity Verification" },
-    { file: "Directorship-check",      label: "Directorship Check",           zoho: "Identity Verification" },
-    { file: "global-check",            label: "Global Database Verification", zoho: "Criminal Record Check" },
-    { file: "credit-check",            label: "Credit Check",                 zoho: "Employment Verification" },
-    { file: "gap-verification",        label: "Gap Verification",             zoho: "Employment Verification" },
-    { file: "socialmeidaverification", label: "Social Media Verification",    zoho: "Reference Check" },
-    { file: "Police-clearance",        label: "Police Clearance",             zoho: "Criminal Record Check" },
-    { file: "drug-test",               label: "Drug Test Screening",          zoho: "Criminal Record Check" },
-    { file: "vendor",                  label: "Vendor Due Diligence",         zoho: "Reference Check" },
-    { file: "passport-verification",   label: "Passport Verification",        zoho: "Identity Verification" }
+    { file: "DIN-verification",        label: "DIN Verification",             zoho: "DIN Verification" },
+    { file: "Directorship-check",      label: "Directorship Check",           zoho: "Directorship" },
+    { file: "global-check",            label: "Global Database Verification", zoho: "Global DataBase Verification" },
+    { file: "credit-check",            label: "Credit Check",                 zoho: "Credit Check" },
+    { file: "gap-verification",        label: "Gap Verification",             zoho: "Gap Check" },
+    { file: "socialmeidaverification", label: "Social Media Verification",    zoho: "Social Media Verification" },
+    { file: "Police-clearance",        label: "Police Clearance",             zoho: "Police Clearance" },
+    { file: "drug-test",               label: "Drug Test Screening",          zoho: "Drug Test Screening" },
+    { file: "vendor",                  label: "Vendor Due Diligence",         zoho: "Vendor Due Diligence" },
+    { file: "passport-verification",   label: "Passport Verification",        zoho: "Passport Verification" }
   ];
   // "Other" option at the end of the Business dropdown. When chosen, a text box
-  // appears so the visitor can type what they need. Change zoho to "Other" once
-  // that option exists in the Zoho dropdown.
-  var OTHER = { label: "Other", zoho: "Employment Verification" };
-
-  // Zoho's candidate form has no message field, so the Individual tab's
-  // "What are you looking for?" text is also emailed through the site's own API.
-  var CONTACT_API = SITE_ROOT + "api/submit-contact";
+  // appears so the visitor can type what they need. The Zoho form has no "Other"
+  // option yet; set zoho to its exact text once it is added in Zoho.
+  var OTHER = { label: "Other", zoho: "" };
 
   var STYLE_ID = "site-contact-styles";
   var CSS = String.raw`
@@ -168,7 +164,7 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
       return '<label class="sc-ms-opt"><input type="checkbox" name="Looking" value="' + label + '"' + (on ? " checked" : "") + '><span>' + label + '</span></label>';
     }
     var opts = CHECKS.map(function (c) { return box(c.label, c.file === preselect); }).join("") + box(OTHER.label, false);
-    var hidden = '<input type="hidden" name="zf_referrer_name" value=""><input type="hidden" name="zf_redirect_url" value=""><input type="hidden" name="zc_gad" value=""><input type="hidden" name="Date" value="">';
+    var hidden = '<input type="hidden" name="zf_referrer_name" value=""><input type="hidden" name="zf_redirect_url" value=""><input type="hidden" name="zc_gad" value="">';
     return '' +
 '<section class="sc-wrap" aria-labelledby="' + uid + '-title">' +
 '  <div>' +
@@ -189,14 +185,12 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
 '    </div>' +
 
 '    <form id="' + uid + '-fb" role="tabpanel" aria-labelledby="' + uid + '-tb" data-form="business" action="' + BUSINESS_ACTION + '" method="POST" novalidate>' + hidden +
-'      <input type="hidden" name="MultiLine" value="">' +
          field('<input class="sc-input" name="SingleLine" placeholder="Full Name" aria-label="Full Name" autocomplete="name" maxlength="255" required>', "Please enter your name") +
 '      <div class="sc-row">' +
            field('<input class="sc-input" type="email" name="Email" placeholder="Business Email" aria-label="Business Email" autocomplete="email" maxlength="255" required data-business>', "Please enter a valid business email") +
            field('<input class="sc-input" type="tel" name="PhoneNumber_countrycode" placeholder="Contact Number" aria-label="Contact Number" autocomplete="tel" maxlength="20" required>', "Please enter a valid contact number") +
 '      </div>' +
          field('<input class="sc-input" name="SingleLine1" placeholder="Company" aria-label="Company" autocomplete="organization" maxlength="255" required>', "Please enter your company") +
-'      <input type="hidden" name="Dropdown1" value="">' +
 '      <div class="sc-field sc-ms">' +
 '        <button type="button" class="sc-input sc-ms-btn" aria-haspopup="true" aria-expanded="false" aria-controls="' + uid + '-ms"><span class="sc-ms-text">What are you looking for?</span></button>' +
 '        <div class="sc-ms-panel" id="' + uid + '-ms" role="group" aria-label="What are you looking for? (choose one or more)" hidden>' +
@@ -219,7 +213,7 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
            field('<input class="sc-input" name="Name_Last" placeholder="Last Name" aria-label="Last Name" autocomplete="family-name" maxlength="255" required>', "Please enter your last name") +
 '      </div>' +
          field('<input class="sc-input" type="email" name="Email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" maxlength="255" required>', "Please enter a valid email") +
-         field('<input class="sc-input" name="LookingFor" placeholder="What are you looking for?" aria-label="What are you looking for?" maxlength="500" required>', "Please tell us what you are looking for") +
+         field('<input class="sc-input" name="SingleLine" placeholder="What are you looking for?" aria-label="What are you looking for?" maxlength="500" required>', "Please tell us what you are looking for") +
 '      <button type="submit" class="sc-submit">Submit</button>' +
 '      <p class="sc-note">By submitting this form, you are agreeing to our <a href="/Privacy-policy-pages/privacypolicy">privacy policy</a>.</p>' +
 '    </form>' +
@@ -236,11 +230,6 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
   }
 
   var FREE_DOMAINS = ["gmail.com", "yahoo.com", "yahoo.co.in", "yahoo.co.uk", "hotmail.com", "outlook.com", "live.com", "icloud.com", "aol.com", "rediffmail.com", "protonmail.com", "zoho.com", "ymail.com", "msn.com"];
-  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  function today() {
-    var d = new Date();
-    return String(d.getDate()).padStart(2, "0") + "-" + MONTHS[d.getMonth()] + "-" + d.getFullYear();
-  }
 
   function check(input) {
     var v = input.value.trim();
@@ -380,38 +369,25 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
           }
           if (!ok) { first.focus(); return; }
 
-          form.querySelector('[name="Date"]').value = today();
           form.querySelector('[name="zf_referrer_name"]').value = location.href;
 
           var data = new FormData(form);
           var name;
           if (form.dataset.form === "business") {
+            // Zoho "Business" form fields: SingleLine (Full Name), Email,
+            // PhoneNumber_countrycode, Dropdown (one value).
             var list = picked();
-            // Zoho's dropdown holds one value: use the first chosen check's Zoho option.
             var firstCheck = CHECKS.filter(function (x) { return list.indexOf(x.label) !== -1; })[0];
-            var wanted = list.map(function (l) {
-              return l === OTHER.label ? "Other - " + String(data.get("OtherText") || "").trim() : l;
-            });
-            data.delete("OtherText");
+            var zohoValue = firstCheck ? firstCheck.zoho : OTHER.zoho;
             data.delete("Looking");
-            data.set("Dropdown1", firstCheck ? firstCheck.zoho : OTHER.zoho);
-            data.set("MultiLine", "Looking for: " + wanted.join(", ") + "\nPage: " + location.href);
+            data.delete("OtherText");    // no matching field in the Zoho form yet
+            data.delete("SingleLine1");  // Company: no matching field in the Zoho form yet
+            if (zohoValue) data.set("Dropdown", zohoValue);
             name = data.get("SingleLine");
           } else {
+            // Zoho "individualForm" fields: Name_First, Name_Last, Email,
+            // SingleLine (What are you looking for?).
             name = data.get("Name_First");
-            var looking = String(data.get("LookingFor") || "").trim();
-            data.delete("LookingFor");
-            // Zoho's candidate form can't store this text, so email it too (best effort).
-            fetch(CONTACT_API, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                fullName: (data.get("Name_First") + " " + data.get("Name_Last")).trim(),
-                email: data.get("Email"),
-                phone: "",
-                message: "Individual enquiry - Looking for: " + looking + " (Page: " + location.href + ")"
-              })
-            }).catch(function () {});
           }
 
           var btn = form.querySelector(".sc-submit");
