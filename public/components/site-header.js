@@ -167,8 +167,8 @@ site-header .country-flag { font-size: 1.2rem; }
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/products/exitinterview"><i class="bi bi-box-arrow-right"></i> Exit Interviews</a></li>
             <li><a class="dropdown-item" href="/products/pm"><i class="bi bi-graph-up"></i> Psychometric</a></li>
-            <li><a class="dropdown-item" href="/products/HRMS"><i class="bi bi-laptop"></i> HRMS</a></li>
-            <li><a class="dropdown-item" href="/products/DMS"><i class="fa-regular fa-file"></i> DMS</a></li>
+            <li><a class="dropdown-item" href="/products/hrms"><i class="bi bi-laptop"></i> HRMS</a></li>
+            <li><a class="dropdown-item" href="/products/dms"><i class="fa-regular fa-file"></i> DMS</a></li>
           </ul>
         </li>
 
