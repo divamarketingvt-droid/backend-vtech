@@ -100,10 +100,24 @@ site-contact form { display: grid; gap: 18px; }
 site-contact form[hidden] { display: none; }
 site-contact .sc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 site-contact .sc-field { position: relative; }
+site-contact .sc-wrap > *, site-contact form, site-contact .sc-field, site-contact .sc-ms-btn { min-width: 0; }
 site-contact .sc-input { width: 100%; height: 56px; padding: 0 18px; border: 1.5px solid var(--sc-border); border-radius: 8px; background: #fff; color: var(--sc-dark); font: inherit; font-size: 1rem; transition: border-color .2s, box-shadow .2s; }
 site-contact .sc-input::placeholder { color: #5b6880; }
 site-contact .sc-input:focus { outline: none; border-color: var(--sc-primary); box-shadow: 0 0 0 3px rgba(10, 168, 167, .15); }
-site-contact select.sc-input { appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235b6880' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; }
+site-contact .sc-ms-btn { display: flex; align-items: center; text-align: left; padding-right: 44px; cursor: pointer; color: #5b6880; }
+site-contact .sc-ms-btn.has-value { color: var(--sc-dark); }
+site-contact .sc-ms-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+site-contact .sc-ms-btn[aria-expanded="true"] { border-color: var(--sc-primary); box-shadow: 0 0 0 3px rgba(10, 168, 167, .15); }
+site-contact .sc-ms-panel { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 20; background: #fff; border: 1.5px solid var(--sc-border); border-radius: 10px; box-shadow: 0 16px 40px rgba(15, 23, 42, .14); padding: 12px; }
+site-contact .sc-ms-panel[hidden] { display: none; }
+site-contact .sc-ms-hint { margin: 0 4px 8px; font-size: .8rem; font-weight: 600; color: var(--sc-text); text-transform: uppercase; letter-spacing: .04em; }
+site-contact .sc-ms-list { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; max-height: 260px; overflow-y: auto; }
+site-contact .sc-ms-opt { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 6px; font-size: .92rem; color: var(--sc-dark); cursor: pointer; line-height: 1.3; }
+site-contact .sc-ms-opt:hover { background: #f1fafa; }
+site-contact .sc-ms-opt input { width: 18px; height: 18px; flex: 0 0 18px; margin: 0; accent-color: var(--sc-primary); cursor: pointer; }
+site-contact .sc-ms-done { display: block; width: 100%; margin-top: 10px; height: 40px; border: 0; border-radius: 6px; background: var(--sc-primary-light); color: var(--sc-primary-dark); font: inherit; font-weight: 700; cursor: pointer; }
+site-contact .sc-ms-done:hover { background: #c4efef; }
+site-contact .sc-ms-btn, site-contact select.sc-input { appearance: none; -webkit-appearance: none; padding-right: 44px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235b6880' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; }
 site-contact select.sc-input:invalid { color: #5b6880; }
 site-contact select.sc-input option { color: var(--sc-dark); }
 site-contact .sc-field.sc-bad .sc-input { border-color: #dc2626; }
@@ -130,6 +144,7 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
 @media (max-width: 575px) {
   site-contact .sc-card { padding: 20px; border-radius: 16px; }
   site-contact .sc-row { grid-template-columns: 1fr; }
+  site-contact .sc-ms-list { grid-template-columns: 1fr; }
   site-contact .sc-tabs { gap: 10px; }
   site-contact .sc-tab { height: 52px; font-size: .95rem; gap: 8px; }
 }
@@ -149,9 +164,10 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
   }
 
   function template(uid, preselect) {
-    var opts = CHECKS.map(function (c) {
-      return '<option value="' + c.label + '"' + (c.file === preselect ? " selected" : "") + ">" + c.label + "</option>";
-    }).join("");
+    function box(label, on) {
+      return '<label class="sc-ms-opt"><input type="checkbox" name="Looking" value="' + label + '"' + (on ? " checked" : "") + '><span>' + label + '</span></label>';
+    }
+    var opts = CHECKS.map(function (c) { return box(c.label, c.file === preselect); }).join("") + box(OTHER.label, false);
     var hidden = '<input type="hidden" name="zf_referrer_name" value=""><input type="hidden" name="zf_redirect_url" value=""><input type="hidden" name="zc_gad" value=""><input type="hidden" name="Date" value="">';
     return '' +
 '<section class="sc-wrap" aria-labelledby="' + uid + '-title">' +
@@ -180,7 +196,16 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
            field('<input class="sc-input" type="tel" name="PhoneNumber_countrycode" placeholder="Contact Number" aria-label="Contact Number" autocomplete="tel" maxlength="20" required>', "Please enter a valid contact number") +
 '      </div>' +
          field('<input class="sc-input" name="SingleLine1" placeholder="Company" aria-label="Company" autocomplete="organization" maxlength="255" required>', "Please enter your company") +
-         field('<select class="sc-input" name="Dropdown1" aria-label="What are you looking for?" required><option value="" disabled' + (preselect ? "" : " selected") + '>What are you looking for?</option>' + opts + '<option value="' + OTHER.label + '">' + OTHER.label + '</option></select>', "Please choose a check") +
+'      <input type="hidden" name="Dropdown1" value="">' +
+'      <div class="sc-field sc-ms">' +
+'        <button type="button" class="sc-input sc-ms-btn" aria-haspopup="true" aria-expanded="false" aria-controls="' + uid + '-ms"><span class="sc-ms-text">What are you looking for?</span></button>' +
+'        <div class="sc-ms-panel" id="' + uid + '-ms" role="group" aria-label="What are you looking for? (choose one or more)" hidden>' +
+'          <p class="sc-ms-hint">Select all that apply</p>' +
+'          <div class="sc-ms-list">' + opts + '</div>' +
+'          <button type="button" class="sc-ms-done">Done</button>' +
+'        </div>' +
+'        <div class="sc-err">Please choose at least one check</div>' +
+'      </div>' +
 '      <div class="sc-other" hidden>' +
            field('<input class="sc-input" name="OtherText" placeholder="Please tell us what you need" aria-label="Please tell us what you need" maxlength="500" required disabled>', "Please tell us what you need") +
 '      </div>' +
@@ -281,21 +306,60 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
       });
 
       forms.forEach(function (form) {
-        var inputs = form.querySelectorAll(".sc-input");
-        // Business: show a text box when "Other" is chosen in the dropdown.
-        var dropdown = form.querySelector('[name="Dropdown1"]');
-        var otherBox = form.querySelector(".sc-other");
-        var otherInput = otherBox && otherBox.querySelector("input");
-        function toggleOther() {
-          var on = dropdown.value === OTHER.label;
-          otherBox.hidden = !on;
-          otherInput.disabled = !on;
-          if (!on) otherInput.closest(".sc-field").classList.remove("sc-bad");
+        var inputs = form.querySelectorAll(".sc-input:not(.sc-ms-btn)");
+
+        // Business: "What are you looking for?" — dropdown of checkboxes (pick one or more).
+        var ms = form.querySelector(".sc-ms");
+        var msBtn, msPanel, msText, boxes, otherBox, otherInput;
+        function picked() {
+          return Array.prototype.filter.call(boxes, function (b) { return b.checked; }).map(function (b) { return b.value; });
         }
-        if (otherBox) dropdown.addEventListener("change", function () {
-          toggleOther();
-          if (!otherBox.hidden) otherInput.focus();
-        });
+        function refresh() {
+          var list = picked();
+          msText.textContent = !list.length ? "What are you looking for?"
+            : list.length <= 2 ? list.join(", ")
+            : list.slice(0, 2).join(", ") + " +" + (list.length - 2) + " more";
+          msBtn.classList.toggle("has-value", list.length > 0);
+          var other = list.indexOf(OTHER.label) !== -1;
+          otherBox.hidden = !other;
+          otherInput.disabled = !other;
+          if (!other) otherInput.closest(".sc-field").classList.remove("sc-bad");
+          if (list.length) ms.classList.remove("sc-bad");
+        }
+        function openMs(open) {
+          msPanel.hidden = !open;
+          msBtn.setAttribute("aria-expanded", open);
+        }
+        function checkMs() {
+          var ok = picked().length > 0;
+          ms.classList.toggle("sc-bad", !ok);
+          msBtn.setAttribute("aria-invalid", ok ? "false" : "true");
+          return ok;
+        }
+        if (ms) {
+          msBtn = ms.querySelector(".sc-ms-btn");
+          msPanel = ms.querySelector(".sc-ms-panel");
+          msText = ms.querySelector(".sc-ms-text");
+          boxes = ms.querySelectorAll('input[type="checkbox"]');
+          otherBox = form.querySelector(".sc-other");
+          otherInput = otherBox.querySelector("input");
+          msBtn.addEventListener("click", function () { openMs(msPanel.hidden); });
+          ms.querySelector(".sc-ms-done").addEventListener("click", function () { openMs(false); msBtn.focus(); });
+          boxes.forEach(function (b) {
+            b.addEventListener("change", function () {
+              refresh();
+              if (b.value === OTHER.label && b.checked) { openMs(false); otherInput.focus(); }
+            });
+          });
+          document.addEventListener("click", function (e) {
+            if (!msPanel.hidden && !ms.contains(e.target)) openMs(false);
+          });
+          ms.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && !msPanel.hidden) { openMs(false); msBtn.focus(); }
+          });
+          refresh();
+        }
+
         inputs.forEach(function (inp) {
           var ev = inp.tagName === "SELECT" ? "change" : "blur";
           inp.addEventListener(ev, function () { check(inp); });
@@ -310,6 +374,10 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
           inputs.forEach(function (inp) {
             if (!inp.disabled && !check(inp)) { ok = false; first = first || inp; }
           });
+          if (ms && !checkMs()) {
+            ok = false;
+            if (!first || msBtn.compareDocumentPosition(first) & Node.DOCUMENT_POSITION_FOLLOWING) first = msBtn;
+          }
           if (!ok) { first.focus(); return; }
 
           form.querySelector('[name="Date"]').value = today();
@@ -318,13 +386,16 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
           var data = new FormData(form);
           var name;
           if (form.dataset.form === "business") {
-            var label = data.get("Dropdown1");
-            var c = CHECKS.filter(function (x) { return x.label === label; })[0];
-            var wanted = label;
-            if (label === OTHER.label) wanted = "Other - " + String(data.get("OtherText") || "").trim();
+            var list = picked();
+            // Zoho's dropdown holds one value: use the first chosen check's Zoho option.
+            var firstCheck = CHECKS.filter(function (x) { return list.indexOf(x.label) !== -1; })[0];
+            var wanted = list.map(function (l) {
+              return l === OTHER.label ? "Other - " + String(data.get("OtherText") || "").trim() : l;
+            });
             data.delete("OtherText");
-            data.set("Dropdown1", c ? c.zoho : OTHER.zoho);
-            data.set("MultiLine", "Looking for: " + wanted + "\nPage: " + location.href);
+            data.delete("Looking");
+            data.set("Dropdown1", firstCheck ? firstCheck.zoho : OTHER.zoho);
+            data.set("MultiLine", "Looking for: " + wanted.join(", ") + "\nPage: " + location.href);
             name = data.get("SingleLine");
           } else {
             name = data.get("Name_First");
@@ -353,7 +424,7 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
               body.hidden = true;
               done.classList.add("show");
               form.reset();
-              if (otherBox) toggleOther();
+              if (ms) { refresh(); ms.classList.remove("sc-bad"); }
             })
             .catch(function () {
               alert("Sorry, something went wrong. Please try again or email connect@verifitech.com.");
