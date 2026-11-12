@@ -182,11 +182,11 @@ site-header .country-flag { font-size: 1.2rem; }
             <li><a class="dropdown-item" href="/industries/healthcare"><i class="bi bi-heart-pulse"></i> Healthcare and Pharma</a></li>
             <li><a class="dropdown-item" href="/industries/education"><i class="bi bi-book"></i> Education</a></li>
             <li><a class="dropdown-item" href="/industries/manufacturing"><i class="bi bi-building-gear"></i> Manufacturing</a></li>
-            <li><a class="dropdown-item" href="/industries/IT-ITES"><i class="bi bi-laptop"></i> IT/ITeS</a></li>
-            <li><a class="dropdown-item" href="/industries/FMCG"><i class="bi bi-box"></i> FMCG</a></li>
-            <li><a class="dropdown-item" href="/industries/Logistics"><i class="bi bi-truck"></i> Logistics</a></li>
-            <li><a class="dropdown-item" href="/industries/Realestate-&-constructation"><i class="bi bi-house"></i> Real Estate &amp; Construction</a></li>
-            <li><a class="dropdown-item" href="/industries/Retail & E-commerce"><i class="bi bi-shop"></i> Retail &amp; E-commerce</a></li>
+            <li><a class="dropdown-item" href="/industries/it-ites"><i class="bi bi-laptop"></i> IT/ITeS</a></li>
+            <li><a class="dropdown-item" href="/industries/fmcg"><i class="bi bi-box"></i> FMCG</a></li>
+            <li><a class="dropdown-item" href="/industries/logistics"><i class="bi bi-truck"></i> Logistics</a></li>
+            <li><a class="dropdown-item" href="/industries/realestate-&-constructation"><i class="bi bi-house"></i> Real Estate &amp; Construction</a></li>
+            <li><a class="dropdown-item" href="/industries/retail-&-e-commerce"><i class="bi bi-shop"></i> Retail &amp; E-commerce</a></li>
             <li><a class="dropdown-item" href="/industries/travel-industries"><i class="bi bi-airplane"></i> Travel and Hospitality</a></li>
             <li><a class="dropdown-item" href="/industries/staffing"><i class="bi bi-person-workspace"></i> Staffing and Recruitment</a></li>
             <li><a class="dropdown-item" href="/industries/telecom"><i class="bi bi-broadcast"></i> Telecom</a></li>
