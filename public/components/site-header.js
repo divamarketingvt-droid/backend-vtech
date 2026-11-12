@@ -139,7 +139,7 @@ site-header .country-flag { font-size: 1.2rem; }
                 <a href="/checks/address-verification" class="dropdown-item"><i class="bi bi-geo-alt"></i> Address Verification</a>
                 <a href="/checks/employment-verification" class="dropdown-item"><i class="bi bi-briefcase"></i> Employment Verification</a>
                 <a href="/checks/education-verification" class="dropdown-item"><i class="bi bi-mortarboard"></i> Education Verification</a>
-                <a href="/checks/court-verification" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
+                <a href="/checks/court-record-verification" class="dropdown-item"><i class="bi bi-shield-exclamation"></i> Court Record Verification</a>
                 <a href="/checks/reference-check" class="dropdown-item"><i class="bi bi-people"></i> Reference Check</a>
                 <a href="/checks/din-verification" class="dropdown-item"><i class="fa-regular fa-id-card"></i> DIN Verification</a>
                 <a href="/checks/directorship-check" class="dropdown-item"><i class="fa-regular fa-user"></i> Directorship</a>
