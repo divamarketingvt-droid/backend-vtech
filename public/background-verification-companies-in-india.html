@@ -3,7 +3,7 @@
 <head>
 
   <!-- Google Tag Manager -->
-        <script src="../components/site-gtm.js"></script>
+        <script src="components/site-gtm.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -450,8 +450,8 @@ details p{margin:.8rem 0 0;color:var(--gray)}
 a:focus-visible,summary:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 
 /* icons: inline SVG (no icon-font dependency) */
-i.bi{display:inline-flex;align-items:center;justify-content:center;font-style:normal;line-height:1}
-i.bi::before{content:none!important;display:none!important}
+i.bi:has(svg){display:inline-flex;align-items:center;justify-content:center;font-style:normal;line-height:1}
+i.bi:has(svg)::before{content:none!important;display:none!important}
 i.bi svg{position:static!important;left:auto!important;bottom:auto!important;width:1em!important;height:1em!important;flex:0 0 auto;fill:currentColor;overflow:visible}
 /* list icons: icon box = height of the first text line, so icon and text centre line up */
 .check-list i{width:1.2rem;height:1.7rem}
@@ -460,21 +460,11 @@ i.bi svg{position:static!important;left:auto!important;bottom:auto!important;wid
 </head>
 <body>
 
-<script src="/components/site-header.js"></script>
+<script src="components/site-header.js"></script>
 <site-header></site-header>
 
 <main>
 
-<!DOCTYPE html>
-<html lang="en-IN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Background Verification Companies in India | Verifitech</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
 :root{--primary:#1ac2c1;--primary-dark:#16a8a7;--primary-light:#e0f7f7;--dark:#0f172a;--navy:#1e293b;--gray:#64748b;--gs:#f0fdfa;--ge:#ccfbf1}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -544,13 +534,6 @@ a{color:var(--primary-dark)}
 @media (prefers-reduced-motion:reduce){.fc{animation:none}svg animate{display:none}}
 a:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 </style>
-</head>
-<body>
-
-<!-- Keep your own header include here -->
-<!-- <script src="/components/site-header.js"></script><site-header></site-header> -->
-
-<main>
 <!-- HERO -->
 <section class="hero-in">
   <div class="container">
@@ -712,9 +695,6 @@ a:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
     </div>
   </div>
 </section>
-</main>
-</body>
-</html>
 
 <!-- TRUST -->
 <section class="trust">
@@ -1031,12 +1011,12 @@ a:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
   </div>
 </section>
 
-<script src="/components/site-contact.js"></script>
+<script src="components/site-contact.js"></script>
 <site-contact></site-contact>
 
 </main>
 
-<script src="/components/site-footer.js"></script>
+<script src="components/site-footer.js"></script>
 <site-footer></site-footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
