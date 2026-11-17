@@ -3,7 +3,7 @@
   <head>
 
      <!-- Google Tag Manager -->
-        <script src="../components/site-gtm.js"></script>
+        <script src="components/site-gtm.js"></script>
 <!-- Primary SEO -->
 <title>Global background verification services - Verifitech</title>
 <meta name="description" content="Global background verification services powered by AI. Verify identity, employment, education and criminal records worldwide. Book a free demo." />
@@ -4837,6 +4837,10 @@ body::after,
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     z-index: 10001;
     opacity: 0;
+    /* Closed banner is invisible: make sure it can't block clicks on the
+       footer (social icons) underneath it. */
+    visibility: hidden;
+    pointer-events: none;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     border: 1px solid var(--cookie-border);
@@ -4845,6 +4849,8 @@ body::after,
   .cookie-banner.active {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .cookie-header {
@@ -5505,6 +5511,7 @@ body::after,
       border-radius: 12px;
       font-weight: 500;
       z-index: 10002;
+      pointer-events: none;
       box-shadow: 0 10px 40px rgba(0,0,0,0.3);
       animation: slideUp 0.3s ease;
     `;
@@ -5543,12 +5550,12 @@ body::after,
 </script>
 
      <!-- contact form -->
-    <script src="../components/site-contact.js"></script>
+    <script src="components/site-contact.js"></script>
 <site-contact></site-contact>
 
     
     <!-- Footer -->
-   <script src="../components/site-footer.js"></script>
+   <script src="components/site-footer.js"></script>
 <site-footer></site-footer>
 
 
