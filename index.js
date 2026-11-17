@@ -453,14 +453,12 @@ app.use((req, res, next) => {
 
   }
 
-  // Normal website URL
+  // Normal website URL → custom 404 page (public/404/404.html)
   res.status(404).sendFile(
-    path.join(
-      __dirname,
-      "public",
-      "error-pages",
-      "404.html"
-    )
+    path.join(__dirname, "public", "404", "404.html"),
+    (err) => {
+      if (err && !res.headersSent) res.status(404).type("text").send("404 - Page not found");
+    }
   );
 
 });
@@ -485,13 +483,14 @@ app.use((err, req, res, next) => {
 
   }
 
-  // Website request → Custom HTML page
+  if (res.headersSent) return next(err);
+
+  // Website request → custom error page (500.html in the project root)
   res.status(500).sendFile(
-    path.join(
-      __dirname,
-      "public",
-      "500.html"
-    )
+    path.join(__dirname, "500.html"),
+    (sendErr) => {
+      if (sendErr && !res.headersSent) res.status(500).type("text").send("500 - Something went wrong");
+    }
   );
 
 });
