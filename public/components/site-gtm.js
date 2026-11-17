@@ -11,6 +11,26 @@
 (function (w, d) {
   var GTM_ID = "GTM-WLJ5C8CJ";
 
+  // A Custom HTML tag in the GTM container (Zoho CRM "zcga.js" tag) contains
+  // placeholder text "....." (and an empty <form> full of dots) that GTM drops at
+  // the bottom of <body>. Remove anything placed directly in <body> that is only
+  // dots. (Real fix: delete the dots from that tag in GTM and publish.)
+  function onlyDots(n) {
+    var t = n.textContent || "";
+    return /^[\s.…·]+$/.test(t) && t.replace(/\s/g, "").length >= 3;
+  }
+  function removeStrayDots() {
+    if (!d.body) return;
+    Array.prototype.slice.call(d.body.childNodes).forEach(function (n) {
+      if ((n.nodeType === 3 || (n.nodeType === 1 && n.children.length === 0)) && onlyDots(n)) n.remove();
+    });
+  }
+  function watchBody() {
+    removeStrayDots();
+    new MutationObserver(removeStrayDots).observe(d.body, { childList: true });
+  }
+  if (d.body) watchBody(); else d.addEventListener("DOMContentLoaded", watchBody);
+
   // dataLayer + gtag() helper, available to any script on the page.
   w.dataLayer = w.dataLayer || [];
   w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };
