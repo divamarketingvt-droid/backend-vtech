@@ -734,7 +734,7 @@ site-footer .copyright {
         <div class="col-md-6">
 
           <p class="copyright">
-            © ${YEAR} Verifitech Private Limited. All rights reserved.
+            © ${YEAR} Verifitech India Info Private Limited. All rights reserved.
           </p>
 
         </div>
