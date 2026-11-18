@@ -1,4 +1,11 @@
+RewriteEngine On
 
+# Real files and folders (/about, /resources, css, images...) load normally
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Anything else like /my-blog-slug goes to post.php
+RewriteRule ^([a-z0-9-]+)/?$ post.php?slug=$1 [L,QSA]
 
 RewriteEngine On
 # --- 404 custom error page ---
