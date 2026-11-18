@@ -212,7 +212,10 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
            field('<input class="sc-input" name="Name_First" placeholder="First Name" aria-label="First Name" autocomplete="given-name" maxlength="255" required>', "Please enter your first name") +
            field('<input class="sc-input" name="Name_Last" placeholder="Last Name" aria-label="Last Name" autocomplete="family-name" maxlength="255" required>', "Please enter your last name") +
 '      </div>' +
-         field('<input class="sc-input" type="email" name="Email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" maxlength="255" required>', "Please enter a valid email") +
+'      <div class="sc-row">' +
+           field('<input class="sc-input" type="email" name="Email" placeholder="Email Address" aria-label="Email Address" autocomplete="email" maxlength="255" required>', "Please enter a valid email") +
+           field('<input class="sc-input" type="tel" name="PhoneNumber_countrycode" placeholder="Phone Number" aria-label="Phone Number" autocomplete="tel" maxlength="20" required>', "Please enter a valid phone number") +
+'      </div>' +
          field('<input class="sc-input" name="SingleLine" placeholder="What are you looking for?" aria-label="What are you looking for?" maxlength="500" required>', "Please tell us what you are looking for") +
 '      <button type="submit" class="sc-submit">Submit</button>' +
 '      <p class="sc-note">By submitting this form, you are agreeing to our <a href="/Privacy-policy-pages/privacypolicy">privacy policy</a>.</p>' +
@@ -385,8 +388,8 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
             if (zohoValue) data.set("Dropdown", zohoValue);
             name = data.get("SingleLine");
           } else {
-            // Zoho "individualForm" fields: Name_First, Name_Last, Email,
-            // SingleLine (What are you looking for?).
+            // Zoho "individualForm" fields: Name_First, Name_Last,
+            // PhoneNumber_countrycode, Email, SingleLine (What are you looking for?).
             name = data.get("Name_First");
           }
 
