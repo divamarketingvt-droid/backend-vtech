@@ -2201,5 +2201,17 @@
             }
         });
     </script>
+
+// Put this on /resources/blog (e.g. just before </body>).
+// Old links like /resources/blog#post-22107 will redirect to /your-post-slug
+(function () {
+  var m = location.hash.match(/^#post-(\d+)$/);
+  if (!m) return;
+  fetch('https://wp.verifitech.com/wp-json/wp/v2/posts/' + m[1] + '?_fields=slug')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (p) { if (p && p.slug) location.replace('/' + p.slug); })
+    .catch(function () {});
+})();
+ 
 </body>
 </html>
