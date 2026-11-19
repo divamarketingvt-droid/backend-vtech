@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -43,7 +43,6 @@
   <meta name="twitter:image:alt" content="Global ID Verification Services - Verifitech" />
 
   <!-- Site assets -->
-  <script src="../components/site-gtm.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -195,35 +194,35 @@
     .btn-o:hover{background:var(--mint);color:var(--teal-d);transform:translateY(-2px)}
 
     /* ============ HERO (matches home page) ============ */
-    .hero{position:relative;padding:140px 0 100px;color:var(--ink);overflow:hidden;
+    .hero{position:relative;padding:104px 0 60px;color:var(--ink);overflow:hidden;
       background:linear-gradient(135deg,#f0fdfa 100%,#dff2ee 30%,#f0fdfa 100%)}
     .hero::before{content:"";position:absolute;top:-120px;right:-120px;width:440px;height:440px;border-radius:50%;
       background:radial-gradient(circle,rgba(26,194,193,.18) 0%,transparent 70%);pointer-events:none}
     .hero::after{content:"";position:absolute;bottom:-160px;left:-120px;width:420px;height:420px;border-radius:50%;
       background:radial-gradient(circle,rgba(26,194,193,.12) 0%,transparent 70%);pointer-events:none}
-    .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-    .crumbs{font-size:.88rem;color:var(--ink2);margin-bottom:20px}
+    .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+    .crumbs{font-size:.88rem;color:var(--ink2);margin-bottom:14px}
     .crumbs a{color:var(--teal-d);text-decoration:none}
     .crumbs a:hover{text-decoration:underline}
-    .hero h1{color:var(--ink)!important;font-size:clamp(2.2rem,4.8vw,3.5rem);font-weight:800;letter-spacing:-.035em;margin-bottom:22px}
+    .hero h1{color:var(--ink)!important;font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800;letter-spacing:-.035em;margin-bottom:16px}
     .hero h1 span{color:#1ac2c1}
-    .intro{font-size:1.15rem;color:#475569;max-width:54ch;margin-bottom:32px}
+    .intro{font-size:1.02rem;color:#475569;max-width:56ch;margin-bottom:24px}
     .intro strong{color:var(--ink)}
     .cta{display:flex;flex-wrap:wrap;gap:12px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
     .chips span{font-size:.82rem;padding:.35rem .8rem;border:1px solid rgba(15,23,42,.12);border-radius:99px;color:#475569;background:rgba(255,255,255,.6)}
 
     /* Live scan demo card — dark card on the light hero for contrast */
-    .demo{position:relative;max-width:440px;margin-left:auto}
-    .idcard{position:relative;background:linear-gradient(135deg,#fff,#e8f6f5);color:var(--ink);border-radius:18px;padding:22px;display:grid;grid-template-columns:96px 1fr;gap:18px;box-shadow:0 30px 60px -25px rgba(15,23,42,.35);overflow:hidden;border:1px solid rgba(26,194,193,.18)}
-    .photo{height:116px;border-radius:12px;background:linear-gradient(160deg,#1ac2c1,#16a8a7);display:grid;place-items:center;font-size:3.4rem;color:#fff}
+    .demo{position:relative;max-width:400px;margin-left:auto}
+    .idcard{position:relative;background:linear-gradient(135deg,#fff,#e8f6f5);color:var(--ink);border-radius:16px;padding:18px;display:grid;grid-template-columns:80px 1fr;gap:14px;box-shadow:0 24px 50px -25px rgba(15,23,42,.35);overflow:hidden;border:1px solid rgba(26,194,193,.18)}
+    .photo{height:92px;border-radius:10px;background:linear-gradient(160deg,#1ac2c1,#16a8a7);display:grid;place-items:center;font-size:2.6rem;color:#fff}
     .idcard small{color:var(--ink2);display:block;font-size:.75rem}
     .idcard b{font-family:Sora,sans-serif;font-size:1.05rem;display:block;margin-bottom:8px}
     .idcard .no{font-family:Sora,sans-serif;letter-spacing:.12em;font-size:1.05rem;margin-top:8px}
     .scan{position:absolute;left:0;right:0;height:3px;background:#1ac2c1;box-shadow:0 0 22px 6px rgba(26,194,193,.7);animation:scan 4s ease-in-out infinite}
     @keyframes scan{0%{top:0;opacity:0}8%{opacity:1}50%{top:100%;opacity:1}58%,100%{top:100%;opacity:0}}
-    .results{margin-top:16px;background:#fff;border:1px solid rgba(15,23,42,.08);border-radius:16px;padding:8px 20px;box-shadow:0 12px 30px -18px rgba(15,23,42,.3)}
-    .results div{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(15,23,42,.08);opacity:0;animation:tick 4s infinite}
+    .results{margin-top:12px;background:#fff;border:1px solid rgba(15,23,42,.08);border-radius:14px;padding:6px 16px;box-shadow:0 12px 30px -18px rgba(15,23,42,.3)}
+    .results div{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(15,23,42,.08);opacity:0;animation:tick 4s infinite}
     .results div:last-child{border:0}
     .results i{color:#1ac2c1;font-size:1.2rem}
     .results em{margin-left:auto;font-style:normal;font-size:.82rem;font-weight:600;color:#16a8a7}
@@ -232,7 +231,7 @@
     .results div:nth-child(3){animation-delay:1.6s}
     .results div:nth-child(4){animation-delay:2.3s}
     @keyframes tick{0%{opacity:0;transform:translateY(8px)}8%,85%{opacity:1;transform:none}100%{opacity:0}}
-    .verified{position:absolute;right:-14px;bottom:-18px;background:var(--gold);color:var(--ink);font-weight:700;font-size:.9rem;padding:.55rem 1rem;border-radius:12px;transform:rotate(-4deg);box-shadow:0 14px 30px -10px rgba(0,0,0,.3)}
+    .verified{position:absolute;right:-10px;bottom:-14px;background:var(--gold);color:var(--ink);font-weight:700;font-size:.85rem;padding:.45rem .85rem;border-radius:10px;transform:rotate(-4deg);box-shadow:0 12px 26px -10px rgba(0,0,0,.3)}
 
     /* ============ INTRO / What is ============ */
     .what{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
@@ -368,7 +367,7 @@
       .bento{grid-template-columns:1fr 1fr}
       .bento .big{grid-column:span 2}
       .sec{padding:68px 0}
-      .hero{padding:120px 0 70px}
+      .hero{padding:92px 0 48px}
       .final .box{padding:44px 28px}
     }
     @media(max-width:575px){
@@ -376,7 +375,7 @@
       .bento .big,.bento .bento-wide,.types .types-wide{grid-column:auto}
       .final .box{padding:32px 22px}
       .idcard{grid-template-columns:1fr;text-align:center}
-      .photo{height:80px;width:80px;margin:0 auto}
+      .photo{height:72px;width:72px;margin:0 auto}
     }
   </style>
 </head>
@@ -400,7 +399,7 @@
         </span>
         <h1>Global ID verification services <span>for hiring and onboarding</span></h1>
         <p class="intro">
-          Verify <strong>government-issued IDs across India, the USA, UK, UAE, Australia, Singapore, Ireland and beyond</strong> — Aadhaar, PAN, SSN, NRIC, Emirates ID, passports, driving licences and work permits — in seconds against issuing-authority databases. Verifitech's real-time identity verification platform combines OCR data extraction, AI-powered tamper detection and biometric selfie match to confirm every ID is genuine, compliant and risk-free. Built for HR and background verification (BGV) teams hiring across borders, with developer-friendly APIs and audit-ready reports.
+          Verify <strong>government-issued IDs across India, the USA, UK, UAE, Australia, Singapore, Ireland and beyond</strong> — Aadhaar, PAN, SSN, NRIC, Emirates ID, passports and driving licences — in seconds against issuing-authority databases. OCR extraction, AI tamper detection, selfie match and audit-ready reports, built for HR and BGV teams hiring across borders.
         </p>
         <div class="cta">
           <a class="btn-g" href="../tools/freetrail.html">Contact Sales</a>
