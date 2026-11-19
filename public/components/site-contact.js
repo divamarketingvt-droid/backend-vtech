@@ -1,5 +1,5 @@
 /*
- * Verifitech — reusable "Contact Us" section
+ * Verifitech — reusable "Contact Sales" section
  * ------------------------------------------
  * Usage (put this where the section should appear, e.g. just above the footer):
  *
@@ -168,7 +168,7 @@ site-contact .sc-hp { position: absolute; left: -9999px; width: 1px; height: 1px
     return '' +
 '<section class="sc-wrap" aria-labelledby="' + uid + '-title">' +
 '  <div>' +
-'    <span class="sc-badge">Contact Us</span>' +
+'    <span class="sc-badge">Contact Sales</span>' +
 '    <h2 class="sc-title" id="' + uid + '-title">Let’s Build a<br>More Trusted <span>Tomorrow</span></h2>' +
 '    <p class="sc-lead">Have a question or need assistance? Our team is here to help with all your background verification needs.</p>' +
 '    <ul class="sc-points">' +
