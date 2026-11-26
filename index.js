@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -12,9 +14,13 @@ const PORT = process.env.PORT || 3000;
    CONFIG
 ========================================== */
 
-const EMAIL_USER = "connect@verifitech.com";
-const EMAIL_PASS = "kxpm kiwh onav otge";
-const ADMIN_EMAIL = "connect@verifitech.com";
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || EMAIL_USER;
+
+if (!EMAIL_USER || !EMAIL_PASS) {
+  console.warn("⚠️  EMAIL_USER / EMAIL_PASS missing in .env — emails will fail");
+}
 
 const DEPARTMENT_EMAILS = {
   service: "connect@verifitech.com",
@@ -431,6 +437,116 @@ app.post("/api/submit-contact", async (req, res) => {
     res.status(500).json({
       success: false,
       message: err.message
+    });
+  }
+});
+
+
+/* ==========================================
+   6. MINT SOLUTIONS (UAE) ENQUIRY FORM
+========================================== */
+
+const MINT_ENQUIRY_RECIPIENTS = (
+  process.env.MINT_ENQUIRY_TO ||
+  "ranjith20112@gmail.com,kovendan16@gmail.com"
+).split(",").map(e => e.trim()).filter(Boolean);
+
+const MINT_ENQUIRY_CC = (process.env.MINT_ENQUIRY_CC || "")
+  .split(",").map(e => e.trim()).filter(Boolean);
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+app.post("/api/submit-mint-enquiry", async (req, res) => {
+
+  const {
+    fullName,
+    company,
+    email,
+    phone,
+    interest,
+    message
+  } = req.body || {};
+
+  if (!fullName || !company || !email) {
+    return res.status(400).json({
+      success: false,
+      message: "Name, company and email are required"
+    });
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid email address"
+    });
+  }
+
+  try {
+
+    await transporter.sendMail({
+      from: `"New Enquiry" <${EMAIL_USER}>`,
+      to: MINT_ENQUIRY_RECIPIENTS,
+      ...(MINT_ENQUIRY_CC.length && { cc: MINT_ENQUIRY_CC }),
+      replyTo: email,
+      subject: `New UAE Enquiry - ${String(fullName).slice(0, 100)}`,
+      html: `
+        <h2>New Enquiry Received - Verifitech</h2>
+        <p><b>Name:</b> ${escapeHtml(fullName)}</p>
+        <p><b>Company:</b> ${escapeHtml(company)}</p>
+        <p><b>Email:</b> ${escapeHtml(email)}</p>
+        <p><b>Phone:</b> ${escapeHtml(phone) || "N/A"}</p>
+        <p><b>Interested In:</b> ${escapeHtml(interest) || "N/A"}</p>
+        <p><b>Message:</b><br>${escapeHtml(message).replace(/\n/g, "<br>") || "N/A"}</p>
+      `
+    });
+
+    console.log("✅ MINT ENQUIRY SENT:", email);
+
+    // Auto-reply to the visitor (a failure here does not fail the enquiry)
+    if (process.env.MINT_AUTOREPLY !== "false") {
+      transporter.sendMail({
+        from: `"Verifitech" <${EMAIL_USER}>`,
+        to: email,
+        subject: "We received your enquiry - Verifitech",
+        html: `
+          <div style="font-family:Arial,sans-serif;font-size:15px;color:#222;line-height:1.6">
+            <p>Hi ${escapeHtml(fullName)},</p>
+            <p>Thank you for contacting Verifitech. We have received your enquiry
+            ${interest ? `about <b>${escapeHtml(interest)}</b>` : ""} and our team
+            will get back to you within one business day.</p>
+            <p><b>Your details:</b><br>
+              Company: ${escapeHtml(company)}<br>
+              Phone: ${escapeHtml(phone) || "N/A"}<br>
+              Message: ${escapeHtml(message).replace(/\n/g, "<br>") || "N/A"}
+            </p>
+            <p>Regards,<br>Team Verifitech<br>+91 9176663777</p>
+            <p style="font-size:12px;color:#888">This is an automated message. Please do not reply to this email.</p>
+          </div>
+        `
+      })
+        .then(() => console.log("✅ MINT AUTO-REPLY SENT:", email))
+        .catch(err => console.error("❌ MINT AUTO-REPLY ERROR:", err.message));
+    }
+
+    res.json({
+      success: true,
+      message: "Enquiry sent"
+    });
+
+  } catch (err) {
+
+    console.error("❌ MINT ENQUIRY ERROR:", err);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to send enquiry"
     });
   }
 });

@@ -2275,27 +2275,27 @@
                     </div>
 
                     <div class="col-lg-7">
-                        <form onsubmit="event.preventDefault(); alert('Thank you! Our team will contact you shortly.');">
+                        <form id="mintEnquiryForm" novalidate>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label-custom">Full Name *</label>
-                                    <input type="text" class="form-control-custom" placeholder="Your name" required>
+                                    <input type="text" name="fullName" class="form-control-custom" placeholder="Your name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label-custom">Company *</label>
-                                    <input type="text" class="form-control-custom" placeholder="Company name" required>
+                                    <input type="text" name="company" class="form-control-custom" placeholder="Company name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label-custom">Email *</label>
-                                    <input type="email" class="form-control-custom" placeholder="you@company.ae" required>
+                                    <input type="email" name="email" class="form-control-custom" placeholder="you@company.ae" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label-custom">Phone</label>
-                                    <input type="tel" class="form-control-custom" placeholder="+971 ...">
+                                    <input type="tel" name="phone" class="form-control-custom" placeholder="+971 ...">
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label-custom">I'm Interested In</label>
-                                    <select class="form-control-custom">
+                                    <select name="interest" class="form-control-custom">
                                         <option>IT Staffing &amp; Team Augmentation</option>
                                         <option>Application Development</option>
                                         <option>Web &amp; UI/UX Design</option>
@@ -2305,12 +2305,13 @@
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label-custom">Message</label>
-                                    <textarea class="form-control-custom" rows="3" placeholder="Tell us briefly about your requirement..."></textarea>
+                                    <textarea name="message" class="form-control-custom" rows="3" placeholder="Tell us briefly about your requirement..."></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary-custom w-100 justify-content-center">
+                                    <button type="submit" id="mintEnquiryBtn" class="btn btn-primary-custom w-100 justify-content-center">
                                         Send Enquiry <i class="bi bi-send-fill"></i>
                                     </button>
+                                    <p id="mintEnquiryStatus" class="mt-2 mb-0 small" role="status" aria-live="polite"></p>
                                 </div>
                             </div>
                         </form>
@@ -2517,5 +2518,46 @@
             });
         });
     </script>
+<script>
+(function () {
+  var form = document.getElementById("mintEnquiryForm");
+  if (!form) return;
+  var btn = document.getElementById("mintEnquiryBtn");
+  var status = document.getElementById("mintEnquiryStatus");
+  var btnHtml = btn.innerHTML;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    var data = Object.fromEntries(new FormData(form).entries());
+    btn.disabled = true;
+    btn.innerHTML = "Sending...";
+    status.style.color = "";
+    status.textContent = "";
+
+    fetch("/api/submit-mint-enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.j.success) throw new Error(res.j.message || "Failed");
+        form.reset();
+        status.style.color = "#198754";
+        status.textContent = "Thank you! Our team will contact you shortly.";
+      })
+      .catch(function (err) {
+        status.style.color = "#dc3545";
+        status.textContent = "Sorry, your enquiry could not be sent. " + (err.message || "") + " Please try again.";
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.innerHTML = btnHtml;
+      });
+  });
+})();
+</script>
 </body>
 </html>
