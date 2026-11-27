@@ -546,6 +546,16 @@
             transform: scale(1.05);
         }
 
+        /* Posts without a featured image show the Verifitech logo */
+        .blog-image img.is-logo,
+        .related-blog-image img.is-logo,
+        .featured-image-single.is-logo {
+            object-fit: contain;
+            background: var(--primary-light);
+            padding: 10% 16%;
+        }
+        .featured-image-single.is-logo { padding: 60px 20%; }
+
         .category-tag {
             position: absolute;
             top: 1rem;
@@ -1841,6 +1851,37 @@
             infoEl.classList.remove('show');
         }
 
+        // Verifitech logo used when a post has no featured image (or the image fails to load)
+        const VT_LOGO = '../assets/logos/verifitech-logo.svg';
+        const VT_LOGO_ALT = 'Verifitech logo';
+
+        // Returns { src, alt, isLogo } for a post's card image
+        function postImage(post) {
+            const media = post._embedded?.['wp:featuredmedia']?.[0];
+            if (media?.source_url) {
+                return {
+                    src: media.source_url,
+                    alt: media.alt_text || stripHtml(post.title.rendered),
+                    isLogo: false
+                };
+            }
+            return { src: VT_LOGO, alt: VT_LOGO_ALT, isLogo: true };
+        }
+
+        function postImageTag(post) {
+            const img = postImage(post);
+            return `<img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt)}" loading="lazy"${img.isLogo ? ' class="is-logo"' : ''} onerror="vtImgFallback(this)">`;
+        }
+
+        // Broken image → swap in the logo (only once, to avoid loops)
+        function vtImgFallback(img) {
+            if (img.dataset.fallback) return;
+            img.dataset.fallback = '1';
+            img.src = VT_LOGO;
+            img.alt = VT_LOGO_ALT;
+            img.classList.add('is-logo');
+        }
+
         // Escape HTML to prevent XSS
         function escapeHtml(text) {
             const div = document.createElement('div');
@@ -1909,10 +1950,7 @@
 
         function renderSinglePost(post) {
             // Get data
-            let imageUrl = 'https://via.placeholder.com/1200x600/e0f7f7/1ac2c1?text=Verifitech';
-            if (post._embedded?.['wp:featuredmedia']?.[0]) {
-                imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
-            }
+            const featured = postImage(post);
 
             let categoryName = 'General';
             let categoryId = null;
@@ -1945,8 +1983,12 @@
             document.getElementById('spTitle').textContent = post.title.rendered;
             document.getElementById('spDate').innerHTML = `<i class="bi bi-calendar3"></i> ${date}`;
             document.getElementById('spReadTime').innerHTML = `<i class="bi bi-clock"></i> ${readTime} min read`;
-            document.getElementById('spImage').src = imageUrl;
-            document.getElementById('spImage').alt = post.title.rendered;
+            const spImage = document.getElementById('spImage');
+            delete spImage.dataset.fallback;
+            spImage.onerror = () => vtImgFallback(spImage);
+            spImage.src = featured.src;
+            spImage.alt = featured.isLogo ? VT_LOGO_ALT : featured.alt;
+            spImage.classList.toggle('is-logo', featured.isLogo);
             document.getElementById('spBody').innerHTML = cleanContent;
             document.title = `${post.title.rendered} - Verifitech Blog`;
 
@@ -2025,10 +2067,6 @@
             container.innerHTML = '';
 
             posts.forEach(post => {
-                let imageUrl = 'https://via.placeholder.com/400x250/e0f7f7/1ac2c1?text=Verifitech';
-                if (post._embedded?.['wp:featuredmedia']?.[0]) {
-                    imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
-                }
 
                 let categoryName = 'General';
                 if (post._embedded?.['wp:term']) {
@@ -2047,7 +2085,7 @@
                 col.innerHTML = `
                     <article class="related-blog-card" onclick="showSinglePost(${post.id})">
                         <div class="related-blog-image">
-                            <img src="${imageUrl}" alt="${post.title.rendered}" loading="lazy">
+                            ${postImageTag(post)}
                         </div>
                         <div class="related-blog-content">
                             <span class="related-blog-category">${categoryName}</span>
@@ -2176,10 +2214,6 @@
             const col = document.createElement('div');
             col.className = 'col-md-6 col-lg-4';
             
-            let imageUrl = 'https://via.placeholder.com/600x400/e0f7f7/1ac2c1?text=Verifitech';
-            if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-                imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
-            }
 
             let categoryName = 'General';
             if (post._embedded && post._embedded['wp:term']) {
@@ -2206,7 +2240,7 @@
                 <article class="blog-card">
                     <div class="blog-image">
                         <span class="category-tag">${catLabel}</span>
-                        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(post._embedded['wp:featuredmedia'][0]?.alt_text || stripHtml(post.title.rendered))}" loading="lazy">
+                        ${postImageTag(post)}
                     </div>
                     <div class="blog-content">
                         <div class="post-meta">
@@ -2227,7 +2261,7 @@
                 <article class="blog-card" onclick="showSinglePost(${post.id})" style="cursor: pointer;">
                     <div class="blog-image">
                         <span class="category-tag">${categoryName}</span>
-                        <img src="${imageUrl}" alt="${post.title.rendered}" loading="lazy">
+                        ${postImageTag(post)}
                     </div>
                     <div class="blog-content">
                         <div class="post-meta">

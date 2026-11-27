@@ -60,7 +60,7 @@
         <% posts.forEach(function (p) { %>
         <a class="vt-card" href="<%= p.url %>">
           <div class="vt-card-img">
-            <% if (p.featuredImage) { %><img src="<%= p.featuredImage %>" alt="<%= p.featuredImageAlt %>" loading="lazy"><% } %>
+            <% if (p.featuredImage) { %><img src="<%= p.featuredImage %>" alt="<%= p.featuredImageAlt %>" loading="lazy" onerror="this.onerror=null;this.src='/assets/logos/verifitech-logo.svg';this.alt='Verifitech logo';this.className='is-logo'"><% } else { %><img class="is-logo" src="/assets/logos/verifitech-logo.svg" alt="Verifitech logo" loading="lazy"><% } %>
           </div>
           <div class="vt-card-body">
             <span class="vt-card-cat"><%= p.categories.map(function (c) { return c.name; }).join(' · ') %></span>

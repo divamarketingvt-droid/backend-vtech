@@ -118,7 +118,7 @@
         <% related.forEach(function (r) { %>
         <a class="vt-card" href="<%= r.url %>">
           <div class="vt-card-img">
-            <% if (r.featuredImage) { %><img src="<%= r.featuredImage %>" alt="<%= r.featuredImageAlt %>" loading="lazy"><% } %>
+            <% if (r.featuredImage) { %><img src="<%= r.featuredImage %>" alt="<%= r.featuredImageAlt %>" loading="lazy" onerror="this.onerror=null;this.src='/assets/logos/verifitech-logo.svg';this.alt='Verifitech logo';this.className='is-logo'"><% } else { %><img class="is-logo" src="/assets/logos/verifitech-logo.svg" alt="Verifitech logo" loading="lazy"><% } %>
           </div>
           <div class="vt-card-body">
             <span class="vt-card-cat"><%= r.categories[0] ? r.categories[0].name : 'Insights' %></span>
