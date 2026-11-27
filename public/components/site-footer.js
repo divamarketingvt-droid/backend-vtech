@@ -675,9 +675,9 @@ site-footer .copyright {
           <h2 class="footer-heading">Solutions</h2>
 
           <ul class="footer-links">
-            <li><a href="/checks/employment">Employment Check</a></li>
-            <li><a href="/checks/education-check">Education Verification</a></li>
-            <li><a href="/checks/reference">Reference Checks</a></li>
+            <li><a href="/checks/employment-verification">Employment Check</a></li>
+            <li><a href="/checks/education-verification">Education Verification</a></li>
+            <li><a href="/checks/reference-check">Reference Checks</a></li>
             <li><a href="/checks/gap-verification">Gap Analysis</a></li>
           </ul>
 
