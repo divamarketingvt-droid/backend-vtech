@@ -2,8 +2,11 @@ User-agent: *
 Allow: /
 
 Disallow: /wp
+Disallow: /blog-admin
+Disallow: /api/
 
 Sitemap: https://www.verifitech.com/sitemap.xml
+Sitemap: https://www.verifitech.com/blog-sitemap.xml
 
 # AI Search Crawlers
 User-agent: OAI-SearchBot

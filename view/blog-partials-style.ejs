@@ -1,0 +1,84 @@
+<style>
+  :root {
+    --primary: #1ac2c1;
+    --primary-dark: #16a8a7;
+    --primary-light: #e0f7f7;
+    --dark: #0f172a;
+    --navy: #1e293b;
+    --gray: #64748b;
+    --light-gray: #f8fafc;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Inter", sans-serif; color: var(--dark); line-height: 1.6; background: var(--light-gray); margin: 0; }
+  a { color: var(--primary-dark); }
+
+  .vt-breadcrumb { font-size: .875rem; color: var(--gray); margin-bottom: 1.25rem; }
+  .vt-breadcrumb a { color: var(--gray); text-decoration: none; }
+  .vt-breadcrumb a:hover { color: var(--primary-dark); }
+  .vt-breadcrumb span { margin: 0 .4rem; }
+
+  .vt-post-wrap { max-width: 860px; margin: 0 auto; padding: 140px 16px 60px; }
+  .vt-cats { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin-bottom: 1rem; }
+  .vt-cat { display: inline-block; background: var(--primary-light); color: var(--primary-dark); font-weight: 600;
+            font-size: .8rem; padding: .3rem .85rem; border-radius: 50px; text-decoration: none; }
+  .vt-cat:hover { background: var(--primary); color: #fff; }
+  .vt-title { font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.2; text-align: center; margin: 0 0 1rem; }
+  .vt-meta { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; color: var(--gray); font-size: .9rem; margin-bottom: 2rem; }
+  .vt-meta i { color: var(--primary); margin-right: .3rem; }
+  .vt-featured { width: 100%; max-height: 480px; object-fit: cover; border-radius: 20px; margin-bottom: 2.5rem;
+                 box-shadow: 0 20px 50px rgba(15, 23, 42, .12); }
+  .vt-content { background: #fff; border-radius: 20px; padding: clamp(1.25rem, 4vw, 3rem); box-shadow: 0 4px 20px rgba(15, 23, 42, .05);
+                font-size: 1.075rem; line-height: 1.85; color: #334155; overflow-wrap: anywhere; }
+  .vt-content h2 { font-size: 1.7rem; font-weight: 700; color: var(--dark); margin: 2.25rem 0 1rem; }
+  .vt-content h3 { font-size: 1.35rem; font-weight: 700; color: var(--dark); margin: 1.75rem 0 .75rem; }
+  .vt-content h4 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin: 1.5rem 0 .5rem; }
+  .vt-content p { margin-bottom: 1.25rem; }
+  .vt-content img { max-width: 100%; height: auto; border-radius: 12px; margin: 1.25rem 0; }
+  .vt-content iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 12px; margin: 1.25rem 0; }
+  .vt-content blockquote { border-left: 4px solid var(--primary); background: var(--primary-light); margin: 1.5rem 0;
+                           padding: 1rem 1.5rem; border-radius: 0 12px 12px 0; font-style: italic; }
+  .vt-content pre { background: var(--dark); color: #e2e8f0; padding: 1rem; border-radius: 10px; overflow-x: auto; }
+  .vt-content ul, .vt-content ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .vt-content li { margin-bottom: .4rem; }
+  .vt-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; display: block; overflow-x: auto; }
+  .vt-content th, .vt-content td { border: 1px solid #e2e8f0; padding: .6rem .8rem; }
+  .vt-content .ql-align-center { text-align: center; } .vt-content .ql-align-right { text-align: right; }
+  .vt-content .ql-align-justify { text-align: justify; }
+
+  .vt-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+  .vt-tag { background: var(--light-gray); border: 1px solid #e2e8f0; color: var(--gray); font-size: .8rem; padding: .25rem .75rem; border-radius: 50px; }
+
+  .vt-share { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+  .vt-share strong { margin-right: .5rem; }
+  .vt-share a, .vt-share button { width: 42px; height: 42px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+                  background: var(--primary-light); color: var(--primary-dark); border: 0; text-decoration: none; font-size: 1.1rem; cursor: pointer; }
+  .vt-share a:hover, .vt-share button:hover { background: var(--primary); color: #fff; }
+
+  .vt-preview-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 99999; background: #f59e0b; color: #111;
+                    text-align: center; font-weight: 600; padding: .5rem 16px; font-size: .9rem; }
+
+  .vt-related { max-width: 1200px; margin: 0 auto; padding: 0 16px 70px; }
+  .vt-section-title { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; text-align: center; }
+  .vt-section-title span { color: var(--primary); }
+  .vt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .vt-card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 20px rgba(15, 23, 42, .06);
+             text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; }
+  .vt-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15, 23, 42, .12); color: inherit; }
+  .vt-card-img { aspect-ratio: 16/10; background: var(--primary-light); overflow: hidden; }
+  .vt-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .vt-card-body { padding: 1.25rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+  .vt-card-cat { color: var(--primary-dark); font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .vt-card h2, .vt-card h3 { font-size: 1.15rem; font-weight: 700; margin: .5rem 0; line-height: 1.35; }
+  .vt-card p { color: var(--gray); font-size: .92rem; margin: 0 0 1rem; }
+  .vt-card-date { margin-top: auto; color: var(--gray); font-size: .82rem; }
+
+  .vt-list-hero { padding: 140px 16px 40px; text-align: center; background: linear-gradient(180deg, var(--primary-light), var(--light-gray)); }
+  .vt-list-hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; margin: .5rem 0; }
+  .vt-list-hero p { color: var(--gray); max-width: 640px; margin: 0 auto; }
+  .vt-chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; margin: 1.5rem auto 0; max-width: 1000px; }
+  .vt-chip { padding: .45rem 1.1rem; border-radius: 50px; border: 2px solid #e2e8f0; background: #fff; color: var(--navy);
+             text-decoration: none; font-weight: 600; font-size: .88rem; }
+  .vt-chip.active, .vt-chip:hover { border-color: var(--primary); background: var(--primary); color: #fff; }
+  .vt-list { max-width: 1200px; margin: 0 auto; padding: 40px 16px 70px; }
+  .vt-empty { text-align: center; color: var(--gray); padding: 3rem 0; }
+</style>

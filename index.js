@@ -6,9 +6,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
+const blogRoutes = require("./blog/routes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.set("trust proxy", 1);
 
 /* ==========================================
    CONFIG
@@ -45,6 +48,14 @@ app.use(cors({
 
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+/* ==========================================
+   DYNAMIC SITEMAP (site pages + blog posts)
+   Must come before express.static so it wins over public/sitemap.xml,
+   which is still used as the list of normal site pages.
+========================================== */
+
+app.get("/sitemap.xml", blogRoutes.sitemapHandler);
 
 /* ==========================================
    STATIC WEBSITE
@@ -550,6 +561,15 @@ app.post("/api/submit-mint-enquiry", async (req, res) => {
     });
   }
 });
+
+
+/* ==========================================
+   BLOG (own posts + admin panel)
+   /blog/:slug, /blog/category/:slug, /blog-admin,
+   /api/blogs, /api/blog-admin/*  — see blog/routes.js
+========================================== */
+
+app.use(blogRoutes);
 
 
 /* =========================================================

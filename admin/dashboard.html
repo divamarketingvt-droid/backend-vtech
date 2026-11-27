@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Blog Admin | Verifitech</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+  <style>
+    :root { --primary: #1ac2c1; --primary-dark: #16a8a7; --primary-light: #e0f7f7; --dark: #0f172a; --navy: #1e293b;
+            --gray: #64748b; --line: #e2e8f0; --bg: #f8fafc; --ok: #16a34a; --warn: #d97706; --bad: #dc2626; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Inter", sans-serif; background: var(--bg); color: var(--dark); font-size: 15px; }
+    button, input, select, textarea { font: inherit; }
+    a { color: var(--primary-dark); }
+
+    .topbar { position: sticky; top: 0; z-index: 50; background: var(--dark); color: #fff; display: flex; align-items: center;
+              gap: 1rem; padding: .8rem 16px; }
+    .topbar .brand { font-weight: 800; display: flex; align-items: center; gap: .5rem; }
+    .topbar .brand i { color: var(--primary); font-size: 1.3rem; }
+    .topbar .spacer { flex: 1; }
+    .topbar a, .topbar button { color: #cbd5e1; background: none; border: 0; cursor: pointer; text-decoration: none; font-size: .9rem; }
+    .topbar a:hover, .topbar button:hover { color: #fff; }
+    .who { color: #94a3b8; font-size: .85rem; }
+
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 24px 16px 60px; }
+    .head { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.25rem; }
+    .head h1 { font-size: 1.5rem; margin: 0; flex: 1; }
+    .btn { display: inline-flex; align-items: center; gap: .4rem; border: 0; border-radius: 10px; padding: .6rem 1.1rem;
+           font-weight: 600; cursor: pointer; text-decoration: none; background: #fff; color: var(--navy); border: 1px solid var(--line); }
+    .btn:hover { border-color: var(--primary); }
+    .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-danger { color: var(--bad); }
+    .btn-sm { padding: .35rem .7rem; font-size: .82rem; border-radius: 8px; }
+    .btn:disabled { opacity: .6; cursor: wait; }
+
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; }
+    .panel h2 { font-size: 1rem; margin: 0 0 1rem; display: flex; align-items: center; gap: .45rem; }
+    .panel h2 i { color: var(--primary); }
+
+    .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1rem; }
+    .filters input, .filters select { padding: .55rem .8rem; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .filters input { flex: 1; min-width: 200px; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gray);
+         padding: .6rem .75rem; border-bottom: 1px solid var(--line); }
+    td { padding: .75rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    td .title { font-weight: 600; color: var(--dark); }
+    td .slug { color: var(--gray); font-size: .8rem; }
+    .pill { display: inline-block; font-size: .72rem; font-weight: 600; padding: .15rem .55rem; border-radius: 50px;
+            background: var(--primary-light); color: var(--primary-dark); margin: 0 .25rem .25rem 0; }
+    .status { font-size: .75rem; font-weight: 700; padding: .2rem .6rem; border-radius: 50px; }
+    .status.published { background: #dcfce7; color: var(--ok); }
+    .status.draft { background: #fef3c7; color: var(--warn); }
+    .actions { display: flex; gap: .35rem; flex-wrap: wrap; }
+    .empty { text-align: center; color: var(--gray); padding: 2.5rem 0; }
+    .table-wrap { overflow-x: auto; }
+
+    /* Editor */
+    .editor-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 1.25rem; align-items: start; }
+    @media (max-width: 1000px) { .editor-grid { grid-template-columns: 1fr; } }
+    label { display: block; font-weight: 600; font-size: .85rem; margin-bottom: .35rem; }
+    .hint { color: var(--gray); font-weight: 400; font-size: .78rem; }
+    .field { margin-bottom: 1rem; }
+    .field input[type=text], .field input[type=url], .field textarea, .field select {
+      width: 100%; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+    .title-input { font-size: 1.4rem !important; font-weight: 700; padding: .8rem 1rem !important; }
+    .counter { float: right; font-size: .75rem; font-weight: 500; color: var(--gray); }
+    .counter.ok { color: var(--ok); } .counter.warn { color: var(--warn); } .counter.bad { color: var(--bad); }
+    .slug-row { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
+    .slug-row span { padding: .65rem .2rem .65rem .8rem; color: var(--gray); font-size: .85rem; white-space: nowrap; }
+    .slug-row input { border: 0 !important; padding-left: 0 !important; box-shadow: none !important; }
+
+    #editor { min-height: 420px; font-size: 1rem; background: #fff; }
+    .ql-toolbar.ql-snow { border-radius: 10px 10px 0 0; border-color: var(--line); background: #f8fafc; position: sticky; top: 52px; z-index: 5; }
+    .ql-container.ql-snow { border-radius: 0 0 10px 10px; border-color: var(--line); }
+    .ql-editor { min-height: 420px; line-height: 1.75; }
+    .ql-editor img { max-width: 100%; }
+
+    .cat-list { max-height: 230px; overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; padding: .4rem; }
+    .cat-item { display: flex; align-items: center; gap: .55rem; padding: .4rem .5rem; border-radius: 8px; cursor: pointer; font-weight: 500; }
+    .cat-item:hover { background: var(--bg); }
+    .cat-item input { accent-color: var(--primary); width: 16px; height: 16px; }
+    .cat-add { display: flex; gap: .4rem; margin-top: .6rem; }
+    .cat-add input { flex: 1; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 8px; }
+
+    .img-preview { width: 100%; aspect-ratio: 16/9; border: 2px dashed var(--line); border-radius: 10px; display: grid; place-items: center;
+                   color: var(--gray); overflow: hidden; background: var(--bg); margin-bottom: .6rem; cursor: pointer; }
+    .img-preview img { width: 100%; height: 100%; object-fit: cover; }
+
+    .serp { border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1rem; background: #fff; font-family: Arial, sans-serif; }
+    .serp .u { color: #202124; font-size: .8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .serp .t { color: #1a0dab; font-size: 1.15rem; line-height: 1.3; margin: .2rem 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .serp .d { color: #4d5156; font-size: .85rem; line-height: 1.45; }
+
+    .checks { list-style: none; padding: 0; margin: 0; }
+    .checks li { display: flex; gap: .5rem; align-items: flex-start; font-size: .85rem; padding: .3rem 0; }
+    .checks li i { margin-top: .1rem; }
+    .checks .ok i { color: var(--ok); } .checks .bad i { color: var(--bad); } .checks .warn i { color: var(--warn); }
+    .score { font-weight: 800; font-size: 1.1rem; }
+
+    .radio-row { display: flex; gap: .5rem; }
+    .radio-row label { flex: 1; border: 1px solid var(--line); border-radius: 10px; padding: .55rem; text-align: center; cursor: pointer; font-weight: 600; margin: 0; }
+    .radio-row input { display: none; }
+    .radio-row input:checked + span { color: var(--primary-dark); }
+    .radio-row label:has(input:checked) { border-color: var(--primary); background: var(--primary-light); }
+
+    .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(120px); background: var(--dark); color: #fff;
+             padding: .75rem 1.25rem; border-radius: 10px; font-weight: 600; transition: transform .3s; z-index: 999; max-width: calc(100% - 32px); }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.error { background: var(--bad); }
+    .hidden { display: none !important; }
+    .check-inline { display: flex; align-items: center; gap: .5rem; font-weight: 500; font-size: .88rem; }
+    .field.two { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    @media (max-width: 600px) { .field.two { grid-template-columns: 1fr; } }
+    textarea.code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .82rem; background: #0f172a !important;
+                    color: #e2e8f0; border-color: #0f172a !important; line-height: 1.5; }
+    .warn-note { font-size: .8rem; color: var(--warn); background: #fffbeb; border-radius: 8px; padding: .5rem .75rem; margin: 0; }
+    .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
+    @media (max-width: 900px) { .settings-grid { grid-template-columns: 1fr; } }
+    .sub-h { font-size: .92rem; margin: 0 0 .6rem; display: flex; gap: .4rem; align-items: center; }
+    .sub-h i { color: var(--primary); }
+    .stat-row { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .stat { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: .45rem .8rem; font-size: .8rem; color: var(--gray); }
+    .stat b { color: var(--dark); font-size: 1rem; margin-right: .2rem; }
+    .sitemap-list summary { cursor: pointer; font-weight: 600; font-size: .85rem; color: var(--primary-dark); }
+    .sitemap-list #sitemapUrls { max-height: 260px; overflow-y: auto; font-size: .78rem; margin-top: .5rem; border: 1px solid var(--line); border-radius: 8px; }
+    .sitemap-list .row { display: flex; gap: .5rem; padding: .35rem .6rem; border-bottom: 1px solid var(--line); align-items: center; }
+    .sitemap-list .row span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .link-row { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: .6rem; align-items: center; padding: .55rem 0; border-bottom: 1px solid var(--line); }
+    .link-row:last-child { border-bottom: 0; }
+    .link-row .href { font-size: .82rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .link-row .txt { font-size: .75rem; color: var(--gray); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .link-row select { padding: .4rem .5rem; border: 1px solid var(--line); border-radius: 8px; font-size: .82rem; background: #fff; }
+    .badge-int, .badge-ext { font-size: .66rem; font-weight: 700; padding: .1rem .4rem; border-radius: 4px; margin-right: .35rem; text-transform: uppercase; }
+    .badge-int { background: #e0e7ff; color: #3730a3; } .badge-ext { background: #fef3c7; color: #92400e; }
+    .panel-head { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
+    .panel-head h2 { margin: 0; }
+    .og-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.25rem; }
+    @media (max-width: 760px) { .og-grid { grid-template-columns: 1fr; } }
+    .og-card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #f0f2f5; }
+    .og-img { aspect-ratio: 1200/630; background: #dfe3e8; display: grid; place-items: center; color: #94a3b8; font-size: 2rem; overflow: hidden; }
+    .og-img img { width: 100%; height: 100%; object-fit: cover; }
+    .og-body { padding: .6rem .8rem .75rem; }
+    .og-domain { font-size: .7rem; color: #65676b; letter-spacing: .03em; }
+    .og-title { font-weight: 700; font-size: .95rem; color: #050505; line-height: 1.3; margin: .15rem 0;
+                display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .og-desc { font-size: .8rem; color: #65676b; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    code { background: var(--bg); padding: .05rem .35rem; border-radius: 4px; font-size: .82rem; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><i class="bi bi-journal-richtext"></i> Verifitech Blog Admin</div>
+    <div class="spacer"></div>
+    <span class="who" id="who"></span>
+    <a href="/resources/blog" target="_blank"><i class="bi bi-box-arrow-up-right"></i> View blog</a>
+    <button id="logoutBtn"><i class="bi bi-box-arrow-right"></i> Logout</button>
+  </header>
+
+  <!-- ===================== LIST VIEW ===================== -->
+  <main class="wrap" id="listView">
+    <div class="head">
+      <h1>Blog posts</h1>
+      <button class="btn" id="settingsBtn"><i class="bi bi-gear"></i> Settings</button>
+      <button class="btn" id="manageCatsBtn"><i class="bi bi-tags"></i> Categories</button>
+      <button class="btn btn-primary" id="newPostBtn"><i class="bi bi-plus-lg"></i> New post</button>
+    </div>
+
+    <!-- ===== SETTINGS ===== -->
+    <section class="panel hidden" id="settingsPanel">
+      <div class="panel-head">
+        <button class="btn btn-sm" type="button" id="settingsBackBtn"><i class="bi bi-arrow-left"></i> Back</button>
+        <h2><i class="bi bi-gear"></i> Blog settings</h2>
+      </div>
+      <div class="settings-grid">
+        <div>
+          <h3 class="sub-h"><i class="bi bi-diagram-3"></i> Sitemap</h3>
+          <p class="hint" style="margin:0 0 .75rem">
+            <a href="/sitemap.xml" target="_blank">/sitemap.xml</a> is built automatically: your site pages + every published post + category pages.
+            It updates the moment you publish. Blog only: <a href="/blog-sitemap.xml" target="_blank">/blog-sitemap.xml</a>.
+          </p>
+          <div class="stat-row" id="sitemapStats"></div>
+          <div class="field">
+            <label class="check-inline"><input type="checkbox" id="setIncludeStatic"> Include normal site pages (from public/sitemap.xml)</label>
+          </div>
+          <div class="field two">
+            <div>
+              <label>Post change frequency</label>
+              <select id="setChangefreq">
+                <option>always</option><option>hourly</option><option>daily</option><option>weekly</option>
+                <option>monthly</option><option>yearly</option><option>never</option>
+              </select>
+            </div>
+            <div>
+              <label>Post priority (0.0–1.0)</label>
+              <input type="text" id="setPriority" inputmode="decimal">
+            </div>
+          </div>
+          <div class="field">
+            <label>Exclude URLs from sitemap <span class="hint">— one full URL per line</span></label>
+            <textarea id="setExclude" rows="3" class="code" placeholder="https://www.verifitech.com/some-old-page"></textarea>
+          </div>
+          <details class="sitemap-list">
+            <summary>Show all sitemap URLs</summary>
+            <div id="sitemapUrls"></div>
+          </details>
+
+          <h3 class="sub-h" style="margin-top:1.5rem"><i class="bi bi-link-45deg"></i> Links in posts</h3>
+          <div class="field">
+            <label>Default for external links <span class="hint">— can be changed per link inside each post</span></label>
+            <select id="setDefaultRel">
+              <option value="dofollow">Dofollow (pass SEO value)</option>
+              <option value="nofollow">Nofollow</option>
+              <option value="sponsored">Sponsored (paid / affiliate)</option>
+              <option value="ugc">UGC (user-generated)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="check-inline"><input type="checkbox" id="setNewTab"> Open external links in a new tab</label>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="sub-h"><i class="bi bi-code-slash"></i> Custom code on every blog page</h3>
+          <div class="field">
+            <label>Head code <span class="hint">— inserted before &lt;/head&gt; (meta tags, verification tags, analytics, CSS)</span></label>
+            <textarea id="setHeadCode" rows="7" class="code" spellcheck="false" placeholder='&lt;meta name="google-site-verification" content="..."&gt;'></textarea>
+          </div>
+          <div class="field">
+            <label>Footer scripts <span class="hint">— inserted before &lt;/body&gt; (chat widgets, pixels, tracking)</span></label>
+            <textarea id="setFooterCode" rows="7" class="code" spellcheck="false" placeholder="&lt;script&gt;...&lt;/script&gt;"></textarea>
+          </div>
+          <p class="warn-note"><i class="bi bi-exclamation-triangle"></i> Code here runs on the live site as-is. Paste only code from sources you trust.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <button class="btn btn-primary" id="saveSettingsBtn"><i class="bi bi-save"></i> Save settings</button>
+        <button class="btn" type="button" id="settingsCancelBtn"><i class="bi bi-arrow-left"></i> Back to posts</button>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="catPanel">
+      <h2><i class="bi bi-tags"></i> Manage categories</h2>
+      <div id="catManageList"></div>
+      <div class="cat-add" style="max-width:420px">
+        <input type="text" id="catManageInput" placeholder="New category name">
+        <button class="btn btn-primary btn-sm" id="catManageAdd">Add</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="filters">
+        <input type="search" id="search" placeholder="Search posts…">
+        <select id="filterStatus">
+          <option value="">All statuses</option>
+          <option value="published">Published</option>
+          <option value="draft">Draft</option>
+        </select>
+        <select id="filterCat"><option value="">All categories</option></select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Title</th><th>Categories</th><th>Status</th><th>Updated</th><th></th></tr></thead>
+          <tbody id="postRows"></tbody>
+        </table>
+      </div>
+      <div class="empty hidden" id="emptyState">
+        <i class="bi bi-journal-plus" style="font-size:2rem"></i>
+        <p>No posts yet. Click <strong>New post</strong> to write your first article.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== EDITOR VIEW ===================== -->
+  <main class="wrap hidden" id="editorView">
+    <div class="head">
+      <button class="btn" id="backBtn"><i class="bi bi-arrow-left"></i> All posts</button>
+      <h1 id="editorHeading">New post</h1>
+      <a class="btn hidden" id="viewPostBtn" target="_blank"><i class="bi bi-eye"></i> View</a>
+      <button class="btn" id="saveDraftBtn"><i class="bi bi-save"></i> Save draft</button>
+      <button class="btn btn-primary" id="publishBtn"><i class="bi bi-send"></i> Publish</button>
+    </div>
+
+    <div class="editor-grid">
+      <div>
+        <div class="panel">
+          <div class="field">
+            <input type="text" id="title" class="title-input" placeholder="Post title (H1)" maxlength="200">
+          </div>
+          <div class="field">
+            <label>URL slug <span class="hint">— short, lowercase, keywords separated by hyphens</span></label>
+            <div class="slug-row"><span id="slugPrefix">/blog/</span><input type="text" id="slug" placeholder="auto-generated-from-title"></div>
+          </div>
+          <div id="editor"></div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-text-paragraph"></i> Excerpt</h2>
+          <div class="field">
+            <textarea id="excerpt" rows="3" placeholder="Short summary shown on blog cards (auto-generated from content if empty)"></textarea>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-google"></i> SEO settings</h2>
+          <div class="field">
+            <label>Focus keyword <span class="hint">— main phrase you want to rank for</span></label>
+            <input type="text" id="focusKeyword" placeholder="e.g. employee background verification">
+          </div>
+          <div class="field">
+            <label>SEO title <span class="counter" id="metaTitleCount"></span></label>
+            <input type="text" id="metaTitle" placeholder="Defaults to: Post title | Verifitech Blog">
+          </div>
+          <div class="field">
+            <label>Meta description <span class="counter" id="metaDescCount"></span></label>
+            <textarea id="metaDescription" rows="3" placeholder="120–160 characters that make people want to click"></textarea>
+          </div>
+          <label>Google preview</label>
+          <div class="serp">
+            <div class="u" id="serpUrl"></div>
+            <div class="t" id="serpTitle"></div>
+            <div class="d" id="serpDesc"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-share"></i> Social sharing (Open Graph) <span class="hint">— LinkedIn, Facebook, WhatsApp, X</span></h2>
+          <p class="hint" style="margin:-.5rem 0 1rem">Leave a field empty to use the SEO title, meta description and featured image.</p>
+          <div class="og-grid">
+            <div>
+              <div class="field">
+                <label>OG title <span class="counter" id="ogTitleCount"></span></label>
+                <input type="text" id="ogTitle" placeholder="Defaults to SEO title">
+              </div>
+              <div class="field">
+                <label>OG description <span class="counter" id="ogDescCount"></span></label>
+                <textarea id="ogDescription" rows="3" placeholder="Defaults to meta description"></textarea>
+              </div>
+              <div class="field">
+                <label>OG image <span class="hint">— best size 1200 × 630 px</span></label>
+                <div style="display:flex;gap:.4rem">
+                  <input type="url" id="ogImage" placeholder="Defaults to featured image" style="flex:1">
+                  <button class="btn btn-sm" id="ogUploadBtn" type="button"><i class="bi bi-upload"></i> Upload</button>
+                </div>
+              </div>
+              <div class="field">
+                <label>OG image alt text</label>
+                <input type="text" id="ogImageAlt" placeholder="Defaults to featured image alt text">
+              </div>
+              <div class="field two">
+                <div>
+                  <label>OG type</label>
+                  <select id="ogType"><option value="article">article</option><option value="website">website</option></select>
+                </div>
+                <div>
+                  <label>X / Twitter card</label>
+                  <select id="twitterCard">
+                    <option value="summary_large_image">Large image</option>
+                    <option value="summary">Small image</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label>Share preview</label>
+              <div class="og-card">
+                <div class="og-img" id="ogPrevImg"><i class="bi bi-image"></i></div>
+                <div class="og-body">
+                  <div class="og-domain">VERIFITECH.COM</div>
+                  <div class="og-title" id="ogPrevTitle"></div>
+                  <div class="og-desc" id="ogPrevDesc"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-robot"></i> Robots &amp; canonical</h2>
+          <div class="field two">
+            <div>
+              <label>Search engines may…</label>
+              <select id="robotsIndex">
+                <option value="index">Index this page</option>
+                <option value="noindex">Not index (noindex)</option>
+              </select>
+            </div>
+            <div>
+              <label>Links on this page</label>
+              <select id="robotsFollow">
+                <option value="follow">Follow (dofollow)</option>
+                <option value="nofollow">Don't follow (nofollow)</option>
+              </select>
+            </div>
+          </div>
+          <p class="hint" style="margin:-.5rem 0 1rem">Meta robots tag: <code id="robotsPreview">index, follow</code>. Noindex posts are left out of the sitemap.</p>
+          <div class="field">
+            <label>Canonical URL <span class="hint">— leave empty to use this post's own URL (only set if the article was first published elsewhere)</span></label>
+            <input type="url" id="canonicalUrl" placeholder="https://…">
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-link-45deg"></i> Links: dofollow / nofollow</h2>
+          <p class="hint" style="margin:-.5rem 0 .75rem">Every link in the article is listed here. Choose how search engines treat each one.</p>
+          <div id="linkList"></div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-code-slash"></i> Custom code for this post</h2>
+          <div class="field">
+            <label>Custom head tags <span class="hint">— added inside &lt;head&gt; (extra meta, hreflang, FAQ schema JSON-LD, CSS)</span></label>
+            <textarea id="customHead" rows="5" class="code" spellcheck="false" placeholder='&lt;script type="application/ld+json"&gt;{ "@context": "https://schema.org", "@type": "FAQPage", ... }&lt;/script&gt;'></textarea>
+          </div>
+          <div class="field">
+            <label>Custom script tags <span class="hint">— added before &lt;/body&gt;</span></label>
+            <textarea id="customScripts" rows="5" class="code" spellcheck="false" placeholder="&lt;script&gt;...&lt;/script&gt;"></textarea>
+          </div>
+          <p class="warn-note"><i class="bi bi-exclamation-triangle"></i> This code runs on the live page as-is. Site-wide code lives in Settings.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="panel">
+          <h2><i class="bi bi-toggle-on"></i> Status</h2>
+          <div class="radio-row">
+            <label><input type="radio" name="status" value="draft" checked><span>Draft</span></label>
+            <label><input type="radio" name="status" value="published"><span>Published</span></label>
+          </div>
+          <div class="field" style="margin-top:1rem">
+            <label>Author</label>
+            <input type="text" id="author" placeholder="Author name">
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-folder2"></i> Categories <span class="hint">(select one or more)</span></h2>
+          <div class="cat-list" id="catList"></div>
+          <div class="cat-add">
+            <input type="text" id="newCatInput" placeholder="Add new category">
+            <button class="btn btn-sm" id="newCatBtn"><i class="bi bi-plus"></i> Add</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-image"></i> Featured image</h2>
+          <div class="img-preview" id="imgPreview" title="Click to upload"><span><i class="bi bi-cloud-arrow-up"></i> Click to upload</span></div>
+          <input type="file" id="imgFile" accept="image/png,image/jpeg,image/webp,image/gif" class="hidden">
+          <div class="field">
+            <label>Or image URL</label>
+            <input type="url" id="featuredImage" placeholder="https://… or /uploads/blog/…">
+          </div>
+          <div class="field">
+            <label>Image alt text <span class="hint">— describe the image (SEO + accessibility)</span></label>
+            <input type="text" id="featuredImageAlt">
+          </div>
+          <button class="btn btn-sm btn-danger" id="removeImg">Remove image</button>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-hash"></i> Tags</h2>
+          <div class="field">
+            <input type="text" id="tags" placeholder="comma, separated, tags">
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2><i class="bi bi-clipboard-check"></i> SEO checklist <span class="score" id="seoScore" style="margin-left:auto"></span></h2>
+          <ul class="checks" id="seoChecks"></ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  <script>
+    /* ============ helpers ============ */
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const slugify = (t) => String(t || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
+      .replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 90);
+    const fmtDate = (d) => d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '—';
+
+    function toast(msg, isError) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.className = 'toast show' + (isError ? ' error' : '');
+      clearTimeout(t._h); t._h = setTimeout(() => t.className = 'toast', 3000);
+    }
+
+    async function api(url, opts = {}) {
+      const res = await fetch(url, {
+        credentials: 'same-origin',
+        ...opts,
+        headers: { 'Content-Type': 'application/json', ...(opts.headers || {}) },
+        body: opts.body ? JSON.stringify(opts.body) : undefined
+      });
+      if (res.status === 401) { location.href = '/blog-admin/login'; throw new Error('Login required'); }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) throw new Error(data.message || 'Request failed');
+      return data;
+    }
+
+    /* ============ state ============ */
+    let posts = [];
+    let categories = [];
+    let editing = null;        // post being edited (null = new)
+    let slugTouched = false;
+    let dirty = false;
+    let settings = {};
+    let siteUrl = '';
+    let linkRel = {};          // per-link choice for the post being edited: { href: 'nofollow' }
+
+    /* ============ Quill editor ============ */
+    const quill = new Quill('#editor', {
+      theme: 'snow',
+      placeholder: 'Write your article… Use Heading 2 / Heading 3 for sections (good for SEO).',
+      modules: {
+        toolbar: {
+          container: [
+            [{ header: [2, 3, 4, false] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ align: [] }],
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video'],
+            ['clean']
+          ],
+          handlers: { image: () => pickImage((url) => {
+            const range = quill.getSelection(true);
+            quill.insertEmbed(range.index, 'image', url, 'user');
+            quill.setSelection(range.index + 1);
+          }) }
+        }
+      }
+    });
+    let linkTimer;
+    quill.on('text-change', () => {
+      dirty = true; updateSeo();
+      clearTimeout(linkTimer); linkTimer = setTimeout(renderLinks, 400);
+    });
+
+    /* ============ image upload ============ */
+    function pickImage(onDone) {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/png,image/jpeg,image/webp,image/gif';
+      input.onchange = () => input.files[0] && uploadFile(input.files[0]).then(onDone).catch((e) => toast(e.message, true));
+      input.click();
+    }
+
+    function uploadFile(file) {
+      return new Promise((resolve, reject) => {
+        if (file.size > 5 * 1024 * 1024) return reject(new Error('Image must be under 5 MB'));
+        const reader = new FileReader();
+        reader.onload = async () => {
+          try {
+            toast('Uploading image…');
+            const data = await api('/api/blog-admin/upload', { method: 'POST', body: { dataUrl: reader.result, filename: file.name } });
+            toast('Image uploaded');
+            resolve(data.url);
+          } catch (e) { reject(e); }
+        };
+        reader.onerror = () => reject(new Error('Could not read file'));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    $('imgPreview').onclick = () => $('imgFile').click();
+    $('imgFile').onchange = (e) => {
+      const f = e.target.files[0];
+      if (!f) return;
+      uploadFile(f).then((url) => { $('featuredImage').value = url; renderImg(); dirty = true; updateSeo(); })
+        .catch((err) => toast(err.message, true));
+      e.target.value = '';
+    };
+    $('featuredImage').oninput = () => { renderImg(); updateSeo(); };
+    $('ogUploadBtn').onclick = () => pickImage((url) => { $('ogImage').value = url; dirty = true; updateSeo(); });
+    $('removeImg').onclick = () => { $('featuredImage').value = ''; $('featuredImageAlt').value = ''; renderImg(); updateSeo(); };
+    function renderImg() {
+      const url = $('featuredImage').value.trim();
+      $('imgPreview').innerHTML = url
+        ? `<img src="${esc(url)}" alt="">`
+        : '<span><i class="bi bi-cloud-arrow-up"></i> Click to upload</span>';
+    }
+
+    /* ============ categories ============ */
+    function renderCatChecklist(selected = []) {
+      $('catList').innerHTML = categories.length
+        ? categories.map((c) => `
+          <label class="cat-item">
+            <input type="checkbox" value="${esc(c.slug)}" ${selected.includes(c.slug) ? 'checked' : ''}>
+            ${esc(c.name)}
+          </label>`).join('')
+        : '<p class="hint" style="padding:.5rem">No categories yet — add one below.</p>';
+      $('catList').querySelectorAll('input').forEach((i) => i.onchange = () => { dirty = true; updateSeo(); });
+    }
+    const selectedCats = () => [...$('catList').querySelectorAll('input:checked')].map((i) => i.value);
+
+    async function addCategory(name) {
+      name = name.trim();
+      if (!name) return null;
+      const data = await api('/api/blog-admin/categories', { method: 'POST', body: { name } });
+      categories = data.categories;
+      return data.category;
+    }
+
+    $('newCatBtn').onclick = async () => {
+      try {
+        const keep = selectedCats();
+        const cat = await addCategory($('newCatInput').value);
+        if (!cat) return;
+        $('newCatInput').value = '';
+        renderCatChecklist([...keep, cat.slug]);
+        renderCatFilter(); renderCatManage();
+        toast(`Category “${cat.name}” added`);
+      } catch (e) { toast(e.message, true); }
+    };
+    $('newCatInput').onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); $('newCatBtn').click(); } };
+
+    function renderCatFilter() {
+      const v = $('filterCat').value;
+      $('filterCat').innerHTML = '<option value="">All categories</option>' +
+        categories.map((c) => `<option value="${esc(c.slug)}">${esc(c.name)}</option>`).join('');
+      $('filterCat').value = v;
+    }
+
+    function renderCatManage() {
+      $('catManageList').innerHTML = categories.map((c) => {
+        const n = posts.filter((p) => (p.categories || []).includes(c.slug)).length;
+        return `<span class="pill" style="font-size:.85rem;padding:.35rem .5rem .35rem .8rem">
+          ${esc(c.name)} <small style="opacity:.7">(${n})</small>
+          <a href="/blog/category/${esc(c.slug)}" target="_blank" title="View page" style="margin-left:.3rem"><i class="bi bi-box-arrow-up-right"></i></a>
+          <button data-del="${esc(c.slug)}" title="Delete" style="border:0;background:none;color:var(--bad);cursor:pointer"><i class="bi bi-x-circle"></i></button>
+        </span>`;
+      }).join('') || '<p class="hint">No categories.</p>';
+      $('catManageList').querySelectorAll('[data-del]').forEach((b) => b.onclick = async () => {
+        const c = categories.find((x) => x.slug === b.dataset.del);
+        if (!confirm(`Delete category “${c.name}”? Posts will stay, only the category is removed from them.`)) return;
+        try {
+          const data = await api('/api/blog-admin/categories/' + encodeURIComponent(c.slug), { method: 'DELETE' });
+          categories = data.categories;
+          await loadPosts();
+          renderCatManage(); renderCatFilter();
+          toast('Category deleted');
+        } catch (e) { toast(e.message, true); }
+      });
+    }
+    $('manageCatsBtn').onclick = () => $('catPanel').classList.toggle('hidden');
+    $('catManageAdd').onclick = async () => {
+      try {
+        const cat = await addCategory($('catManageInput').value);
+        if (!cat) return;
+        $('catManageInput').value = '';
+        renderCatManage(); renderCatFilter();
+        toast(`Category “${cat.name}” added`);
+      } catch (e) { toast(e.message, true); }
+    };
+    $('catManageInput').onkeydown = (e) => { if (e.key === 'Enter') $('catManageAdd').click(); };
+
+    /* ============ list view ============ */
+    async function loadPosts() {
+      const data = await api('/api/blog-admin/posts');
+      posts = data.posts;
+      renderList();
+    }
+
+    function renderList() {
+      const q = $('search').value.trim().toLowerCase();
+      const st = $('filterStatus').value;
+      const cat = $('filterCat').value;
+      const rows = posts.filter((p) =>
+        (!q || p.title.toLowerCase().includes(q) || p.slug.includes(q)) &&
+        (!st || p.status === st) &&
+        (!cat || (p.categories || []).includes(cat)));
+
+      $('emptyState').classList.toggle('hidden', posts.length > 0);
+      $('postRows').innerHTML = rows.map((p) => `
+        <tr>
+          <td><div class="title">${esc(p.title)}</div><div class="slug">/blog/${esc(p.slug)}</div></td>
+          <td>${(p.categories || []).map((s) => {
+            const c = categories.find((x) => x.slug === s);
+            return c ? `<span class="pill">${esc(c.name)}</span>` : '';
+          }).join('') || '<span class="hint">—</span>'}</td>
+          <td><span class="status ${p.status}">${p.status === 'published' ? 'Published' : 'Draft'}</span></td>
+          <td style="white-space:nowrap">${fmtDate(p.updatedAt)}</td>
+          <td><div class="actions">
+            <button class="btn btn-sm" data-edit="${p.id}"><i class="bi bi-pencil"></i> Edit</button>
+            <a class="btn btn-sm" href="/blog/${esc(p.slug)}" target="_blank"><i class="bi bi-eye"></i></a>
+            <button class="btn btn-sm btn-danger" data-delete="${p.id}"><i class="bi bi-trash"></i></button>
+          </div></td>
+        </tr>`).join('');
+
+      $('postRows').querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => openEditor(posts.find((p) => p.id === b.dataset.edit)));
+      $('postRows').querySelectorAll('[data-delete]').forEach((b) => b.onclick = async () => {
+        const p = posts.find((x) => x.id === b.dataset.delete);
+        if (!confirm(`Delete “${p.title}”? This cannot be undone.`)) return;
+        try {
+          await api('/api/blog-admin/posts/' + p.id, { method: 'DELETE' });
+          await loadPosts(); renderCatManage();
+          toast('Post deleted');
+        } catch (e) { toast(e.message, true); }
+      });
+    }
+    ['search', 'filterStatus', 'filterCat'].forEach((id) => $(id).addEventListener('input', renderList));
+
+    /* ============ editor view ============ */
+    function openEditor(post) {
+      editing = post || null;
+      slugTouched = !!post;
+      $('editorHeading').textContent = post ? 'Edit post' : 'New post';
+      $('title').value = post?.title || '';
+      $('slug').value = post?.slug || '';
+      quill.setContents([]);
+      if (post?.content) quill.clipboard.dangerouslyPasteHTML(post.content);
+      $('excerpt').value = post?.excerpt || '';
+      $('focusKeyword').value = post?.focusKeyword || '';
+      $('metaTitle').value = post?.metaTitle || '';
+      $('metaDescription').value = post?.metaDescription || '';
+      $('robotsIndex').value = post?.robotsIndex || (post?.noindex ? 'noindex' : 'index');
+      $('robotsFollow').value = post?.robotsFollow || 'follow';
+      $('canonicalUrl').value = post?.canonicalUrl || '';
+      $('ogTitle').value = post?.ogTitle || '';
+      $('ogDescription').value = post?.ogDescription || '';
+      $('ogImage').value = post?.ogImage || '';
+      $('ogImageAlt').value = post?.ogImageAlt || '';
+      $('ogType').value = post?.ogType || 'article';
+      $('twitterCard').value = post?.twitterCard || 'summary_large_image';
+      $('customHead').value = post?.customHead || '';
+      $('customScripts').value = post?.customScripts || '';
+      linkRel = { ...(post?.linkRel || {}) };
+      renderLinks();
+      updateRobotsPreview();
+      $('author').value = post?.author || window.__user?.name || '';
+      $('featuredImage').value = post?.featuredImage || '';
+      $('featuredImageAlt').value = post?.featuredImageAlt || '';
+      $('tags').value = (post?.tags || []).join(', ');
+      document.querySelector(`input[name=status][value=${post?.status === 'published' ? 'published' : 'draft'}]`).checked = true;
+      renderCatChecklist(post?.categories || []);
+      renderImg();
+      updateViewBtn();
+      $('listView').classList.add('hidden');
+      $('editorView').classList.remove('hidden');
+      window.scrollTo(0, 0);
+      updateSeo();
+      dirty = false;
+      history.replaceState(null, '', post ? '#edit=' + post.id : '#new');
+    }
+
+    function updateViewBtn() {
+      $('viewPostBtn').classList.toggle('hidden', !editing);
+      if (editing) {
+        $('viewPostBtn').href = '/blog/' + editing.slug;
+        $('viewPostBtn').innerHTML = editing.status === 'published' ? '<i class="bi bi-eye"></i> View' : '<i class="bi bi-eye"></i> Preview';
+      }
+    }
+
+    function closeEditor() {
+      if (dirty && !confirm('You have unsaved changes. Leave anyway?')) return;
+      dirty = false;
+      $('editorView').classList.add('hidden');
+      $('listView').classList.remove('hidden');
+      history.replaceState(null, '', location.pathname);
+      renderList();
+    }
+
+    $('title').oninput = () => {
+      if (!slugTouched) $('slug').value = slugify($('title').value);
+      dirty = true; updateSeo();
+    };
+    $('slug').oninput = () => { slugTouched = true; dirty = true; updateSeo(); };
+    $('slug').onblur = () => { $('slug').value = slugify($('slug').value); updateSeo(); };
+    ['excerpt', 'focusKeyword', 'metaTitle', 'metaDescription', 'featuredImageAlt', 'tags', 'author',
+     'canonicalUrl', 'customHead', 'ogTitle', 'ogDescription', 'ogImage', 'ogImageAlt', 'ogType', 'twitterCard', 'customScripts', 'robotsIndex', 'robotsFollow'].forEach((id) =>
+      $(id).addEventListener('input', () => { dirty = true; updateSeo(); }));
+
+    function collect(status) {
+      return {
+        title: $('title').value.trim(),
+        slug: $('slug').value.trim() || slugify($('title').value),
+        content: quill.root.innerHTML === '<p><br></p>' ? '' : quill.root.innerHTML,
+        excerpt: $('excerpt').value.trim(),
+        focusKeyword: $('focusKeyword').value.trim(),
+        metaTitle: $('metaTitle').value.trim(),
+        metaDescription: $('metaDescription').value.trim(),
+        robotsIndex: $('robotsIndex').value,
+        robotsFollow: $('robotsFollow').value,
+        canonicalUrl: $('canonicalUrl').value.trim(),
+        linkRel: currentLinkRel(),
+        ogTitle: $('ogTitle').value.trim(),
+        ogDescription: $('ogDescription').value.trim(),
+        ogImage: $('ogImage').value.trim(),
+        ogImageAlt: $('ogImageAlt').value.trim(),
+        ogType: $('ogType').value,
+        twitterCard: $('twitterCard').value,
+        customHead: $('customHead').value,
+        customScripts: $('customScripts').value,
+        author: $('author').value.trim(),
+        featuredImage: $('featuredImage').value.trim(),
+        featuredImageAlt: $('featuredImageAlt').value.trim(),
+        tags: $('tags').value,
+        categories: selectedCats(),
+        status
+      };
+    }
+
+    async function save(status) {
+      const body = collect(status);
+      if (!body.title) { toast('Please enter a title', true); $('title').focus(); return; }
+      if (status === 'published' && !body.categories.length && !confirm('No category selected. Publish anyway?')) return;
+      const btns = [$('saveDraftBtn'), $('publishBtn')];
+      btns.forEach((b) => b.disabled = true);
+      try {
+        const data = editing
+          ? await api('/api/blog-admin/posts/' + editing.id, { method: 'PUT', body })
+          : await api('/api/blog-admin/posts', { method: 'POST', body });
+        editing = data.post;
+        $('slug').value = editing.slug;
+        slugTouched = true;
+        document.querySelector(`input[name=status][value=${editing.status}]`).checked = true;
+        $('editorHeading').textContent = 'Edit post';
+        history.replaceState(null, '', '#edit=' + editing.id);
+        updateViewBtn();
+        dirty = false;
+        await loadPosts(); renderCatManage();
+        toast(status === 'published' ? 'Published! 🎉' : 'Draft saved');
+      } catch (e) {
+        toast(e.message, true);
+      } finally {
+        btns.forEach((b) => b.disabled = false);
+      }
+    }
+
+    $('saveDraftBtn').onclick = () => save('draft');
+    $('publishBtn').onclick = () => save('published');
+    $('newPostBtn').onclick = () => openEditor(null);
+    $('backBtn').onclick = closeEditor;
+    document.querySelectorAll('input[name=status]').forEach((r) => r.onchange = () => dirty = true);
+
+    window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's' && !$('editorView').classList.contains('hidden')) {
+        e.preventDefault();
+        save(document.querySelector('input[name=status]:checked').value);
+      }
+    });
+
+    /* ============ robots + links (dofollow / nofollow) ============ */
+    function updateRobotsPreview() {
+      $('robotsPreview').textContent = `${$('robotsIndex').value}, ${$('robotsFollow').value}`;
+    }
+    $('robotsIndex').addEventListener('change', updateRobotsPreview);
+    $('robotsFollow').addEventListener('change', updateRobotsPreview);
+
+    function isExternalHref(href) {
+      if (!/^https?:\/\//i.test(href)) return false;
+      try {
+        const host = new URL(href).hostname.replace(/^www\./, '');
+        const own = new URL(siteUrl || location.origin).hostname.replace(/^www\./, '');
+        return host !== own && host !== location.hostname.replace(/^www\./, '');
+      } catch { return false; }
+    }
+
+    function contentLinks() {
+      const map = new Map();
+      quill.root.querySelectorAll('a[href]').forEach((a) => {
+        const href = a.getAttribute('href');
+        if (!map.has(href)) map.set(href, a.textContent.trim());
+      });
+      return [...map.entries()].map(([href, text]) => ({ href, text, external: isExternalHref(href) }));
+    }
+
+    // Only keep choices for links still in the article
+    function currentLinkRel() {
+      const hrefs = new Set(contentLinks().map((l) => l.href));
+      const out = {};
+      Object.entries(linkRel).forEach(([h, r]) => { if (hrefs.has(h)) out[h] = r; });
+      return out;
+    }
+
+    const REL_LABEL = { dofollow: 'Dofollow', nofollow: 'Nofollow', sponsored: 'Sponsored', ugc: 'UGC' };
+
+    function renderLinks() {
+      const links = contentLinks();
+      if (!links.length) {
+        $('linkList').innerHTML = '<p class="hint" style="margin:0">No links in the article yet. Select text and click the 🔗 button in the editor toolbar to add one.</p>';
+        return;
+      }
+      $('linkList').innerHTML = links.map((l, i) => {
+        const def = l.external ? (settings.defaultExternalRel || 'dofollow') : 'dofollow';
+        const cur = linkRel[l.href] || '';
+        return `<div class="link-row">
+          <div style="min-width:0">
+            <div class="href"><span class="${l.external ? 'badge-ext' : 'badge-int'}">${l.external ? 'External' : 'Internal'}</span>${esc(l.href)}</div>
+            <div class="txt">“${esc(l.text || '(no text)')}”</div>
+          </div>
+          <select data-link="${i}">
+            <option value="">Default (${REL_LABEL[def]})</option>
+            ${Object.keys(REL_LABEL).map((r) => `<option value="${r}" ${cur === r ? 'selected' : ''}>${REL_LABEL[r]}</option>`).join('')}
+          </select>
+        </div>`;
+      }).join('');
+      $('linkList').querySelectorAll('select[data-link]').forEach((sel) => sel.onchange = () => {
+        const href = links[+sel.dataset.link].href;
+        if (sel.value) linkRel[href] = sel.value; else delete linkRel[href];
+        dirty = true;
+      });
+    }
+
+    /* ============ settings panel ============ */
+    function fillSettings() {
+      $('setIncludeStatic').checked = !!settings.sitemapIncludeStatic;
+      $('setChangefreq').value = settings.postChangefreq || 'monthly';
+      $('setPriority').value = settings.postPriority || '0.7';
+      $('setExclude').value = (settings.sitemapExclude || []).join('\n');
+      $('setDefaultRel').value = settings.defaultExternalRel || 'dofollow';
+      $('setNewTab').checked = !!settings.externalNewTab;
+      $('setHeadCode').value = settings.headCode || '';
+      $('setFooterCode').value = settings.footerCode || '';
+    }
+
+    async function loadSitemapInfo() {
+      try {
+        const data = await api('/api/blog-admin/sitemap');
+        const c = data.counts;
+        $('sitemapStats').innerHTML =
+          `<span class="stat"><b>${c.total}</b> URLs total</span>
+           <span class="stat"><b>${c.pages}</b> site pages</span>
+           <span class="stat"><b>${c.posts}</b> blog posts</span>
+           <span class="stat"><b>${c.categories}</b> categories</span>`;
+        const label = { page: 'Page', blog: 'Blog', post: 'Post', category: 'Category' };
+        $('sitemapUrls').innerHTML = data.entries.map((e) =>
+          `<div class="row"><span class="pill" style="margin:0">${label[e.source]}</span><span>${esc(e.loc)}</span></div>`).join('');
+      } catch (e) { toast(e.message, true); }
+    }
+
+    let settingsSnapshot = '';
+    const settingsFormState = () => JSON.stringify(['setIncludeStatic', 'setChangefreq', 'setPriority', 'setExclude',
+      'setDefaultRel', 'setNewTab', 'setHeadCode', 'setFooterCode'].map((id) => $(id).type === 'checkbox' ? $(id).checked : $(id).value));
+
+    function closeSettings() {
+      if (settingsFormState() !== settingsSnapshot && !confirm('You have unsaved settings. Leave without saving?')) return;
+      fillSettings(); // discard unsaved edits
+      $('settingsPanel').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    $('settingsBackBtn').onclick = closeSettings;
+    $('settingsCancelBtn').onclick = closeSettings;
+
+    $('settingsBtn').onclick = () => {
+      if (!$('settingsPanel').classList.contains('hidden')) return closeSettings();
+      const panel = $('settingsPanel');
+      panel.classList.toggle('hidden');
+      if (!panel.classList.contains('hidden')) {
+        fillSettings(); loadSitemapInfo();
+        settingsSnapshot = settingsFormState();
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    $('saveSettingsBtn').onclick = async () => {
+      const btn = $('saveSettingsBtn');
+      btn.disabled = true;
+      try {
+        const data = await api('/api/blog-admin/settings', {
+          method: 'PUT',
+          body: {
+            sitemapIncludeStatic: $('setIncludeStatic').checked,
+            postChangefreq: $('setChangefreq').value,
+            postPriority: $('setPriority').value,
+            sitemapExclude: $('setExclude').value,
+            defaultExternalRel: $('setDefaultRel').value,
+            externalNewTab: $('setNewTab').checked,
+            headCode: $('setHeadCode').value,
+            footerCode: $('setFooterCode').value
+          }
+        });
+        settings = data.settings;
+        fillSettings();
+        settingsSnapshot = settingsFormState();
+        await loadSitemapInfo();
+        toast('Settings saved');
+      } catch (e) { toast(e.message, true); }
+      finally { btn.disabled = false; }
+    };
+
+    /* ============ SEO analysis ============ */
+    function counter(el, len, min, max) {
+      el.textContent = `${len} / ${max}`;
+      el.className = 'counter ' + (len === 0 ? '' : len < min ? 'warn' : len > max ? 'bad' : 'ok');
+    }
+
+    function updateSeo() {
+      const title = $('title').value.trim();
+      const metaTitle = $('metaTitle').value.trim() || (title ? `${title} | Verifitech Blog` : '');
+      const text = quill.getText().trim();
+      const metaDesc = $('metaDescription').value.trim() || $('excerpt').value.trim() || text.slice(0, 160);
+      const slug = $('slug').value.trim() || slugify(title);
+      const kw = $('focusKeyword').value.trim().toLowerCase();
+      const html = quill.root.innerHTML;
+      const words = text ? text.split(/\s+/).length : 0;
+
+      counter($('metaTitleCount'), metaTitle.length, 30, 60);
+
+      // Open Graph preview (falls back to SEO title / description / featured image)
+      const ogTitle = $('ogTitle').value.trim() || metaTitle;
+      const ogDesc = $('ogDescription').value.trim() || metaDesc;
+      const ogImg = $('ogImage').value.trim() || $('featuredImage').value.trim();
+      counter($('ogTitleCount'), $('ogTitle').value.trim().length, 1, 95);
+      counter($('ogDescCount'), $('ogDescription').value.trim().length, 1, 200);
+      $('ogPrevTitle').textContent = ogTitle || 'Your post title';
+      $('ogPrevDesc').textContent = ogDesc || 'Your description';
+      $('ogPrevImg').innerHTML = ogImg ? `<img src="${esc(ogImg)}" alt="">` : '<i class="bi bi-image"></i>';
+      counter($('metaDescCount'), metaDesc.length, 120, 160);
+
+      $('serpUrl').textContent = `verifitech.com › blog › ${slug || 'your-post'}`;
+      $('serpTitle').textContent = metaTitle || 'Your post title';
+      $('serpDesc').textContent = metaDesc ? (metaDesc.length > 160 ? metaDesc.slice(0, 157) + '…' : metaDesc) : 'Your meta description will appear here.';
+
+      const firstPara = (text.split('\n').find((l) => l.trim()) || '').toLowerCase();
+      const slugKw = slugify(kw);
+      const kwCount = kw ? (text.toLowerCase().match(new RegExp(kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length : 0;
+      const density = words ? (kwCount * kw.split(/\s+/).length / words) * 100 : 0;
+      const tmp = document.createElement('div'); tmp.innerHTML = html;
+      const imgs = [...tmp.querySelectorAll('img')];
+      const links = [...tmp.querySelectorAll('a[href]')];
+
+      const checks = [
+        [!!kw, 'Focus keyword is set', 'Set a focus keyword'],
+        [kw && title.toLowerCase().includes(kw), 'Keyword appears in the title', 'Add the focus keyword to the title'],
+        [kw && metaDesc.toLowerCase().includes(kw), 'Keyword appears in meta description', 'Add the focus keyword to the meta description'],
+        [kw && slug.includes(slugKw), 'Keyword appears in the URL slug', 'Add the focus keyword to the URL slug'],
+        [kw && firstPara.includes(kw), 'Keyword in the first paragraph', 'Use the focus keyword in the first paragraph'],
+        [kw && density >= 0.5 && density <= 2.5, `Keyword density ${density.toFixed(1)}% (good: 0.5–2.5%)`, `Keyword density is ${density.toFixed(1)}% (aim for 0.5–2.5%)`, 'warn'],
+        [metaTitle.length >= 30 && metaTitle.length <= 60, 'SEO title length is good', `SEO title is ${metaTitle.length} chars (aim for 30–60)`, 'warn'],
+        [metaDesc.length >= 120 && metaDesc.length <= 160, 'Meta description length is good', `Meta description is ${metaDesc.length} chars (aim for 120–160)`, 'warn'],
+        [words >= 600, `${words} words — good length`, `${words} words — aim for 600+ for better ranking`, words >= 300 ? 'warn' : 'bad'],
+        [tmp.querySelectorAll('h2').length > 0, 'Uses H2 sub-headings', 'Add H2 sub-headings to structure the article'],
+        [!!($('ogImage').value.trim() || $('featuredImage').value.trim()), 'Social share image is set', 'Add a featured or OG image (shown when shared on LinkedIn, WhatsApp…)'],
+        [!$('featuredImage').value.trim() || !!$('featuredImageAlt').value.trim(), 'Featured image has alt text', 'Add alt text to the featured image'],
+        [imgs.every((i) => i.getAttribute('alt')), 'All content images have alt text', 'Some images in the content have no alt text', 'warn'],
+        [links.length > 0, 'Contains links (internal/external)', 'Add at least one link to a related page', 'warn'],
+        [selectedCats().length > 0, 'At least one category selected', 'Select at least one category'],
+        [$('robotsIndex').value === 'index', 'Page can be indexed by Google', 'Post is set to noindex — it will not appear in Google'],
+        [$('robotsFollow').value === 'follow', 'Links on the page are followed', 'Whole page is nofollow — links pass no SEO value', 'warn']
+      ];
+
+      let ok = 0;
+      $('seoChecks').innerHTML = checks.map(([pass, good, bad, level]) => {
+        if (pass) ok++;
+        const cls = pass ? 'ok' : (level || 'bad');
+        const icon = pass ? 'bi-check-circle-fill' : cls === 'warn' ? 'bi-exclamation-circle-fill' : 'bi-x-circle-fill';
+        return `<li class="${cls}"><i class="bi ${icon}"></i><span>${esc(pass ? good : bad)}</span></li>`;
+      }).join('');
+      const score = Math.round((ok / checks.length) * 100);
+      $('seoScore').textContent = score + '/100';
+      $('seoScore').style.color = score >= 80 ? 'var(--ok)' : score >= 50 ? 'var(--warn)' : 'var(--bad)';
+    }
+
+    /* ============ init ============ */
+    $('logoutBtn').onclick = async () => {
+      if (dirty && !confirm('You have unsaved changes. Logout anyway?')) return;
+      dirty = false;
+      await fetch('/api/blog-admin/logout', { method: 'POST', credentials: 'same-origin' });
+      location.href = '/blog-admin/login';
+    };
+
+    (async function init() {
+      try {
+        const me = await api('/api/blog-admin/me');
+        window.__user = me.user;
+        const st = await api('/api/blog-admin/settings');
+        settings = st.settings; siteUrl = st.siteUrl;
+        $('who').textContent = 'Signed in as ' + (me.user.name || me.user.username);
+        categories = (await api('/api/blog-admin/categories')).categories;
+        renderCatFilter();
+        await loadPosts();
+        renderCatManage();
+        const m = location.hash.match(/^#edit=(.+)$/);
+        if (m) { const p = posts.find((x) => x.id === m[1]); if (p) openEditor(p); }
+        else if (location.hash === '#new') openEditor(null);
+      } catch (e) { toast(e.message, true); }
+    })();
+  </script>
+</body>
+</html>
