@@ -53,6 +53,10 @@
       .case-card:hover .case-thumbnail img { transform: scale(1.1); }
       
       .thumbnail-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); z-index: 1; }
+      /* No image → Verifitech logo on a light background */
+      .case-thumbnail.has-logo { background: var(--primary-light); }
+      .case-thumbnail.has-logo img, img.vt-logo-fallback { object-fit: contain !important; padding: 12% 18%; background: var(--primary-light); }
+      .case-thumbnail.has-logo .thumbnail-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(15,23,42,0.12) 100%); }
       
       .industry-badge { position: absolute; top: 1rem; left: 1rem; background: var(--primary); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 2; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
       
@@ -1887,7 +1891,7 @@ function getHeroImage(post) {
   if (!img) {
     img = getFeaturedImage(post, 'medium_large');
   }
-  return img || getDefaultHeroImage();
+  return img || ''; // no image → hero shows its plain brand gradient
 }
 
 function getIndustry(post) {
@@ -1999,7 +2003,9 @@ function renderCaseStudies(posts) {
 function createCaseStudyCard(post) {
   const title = post.title?.rendered || 'Untitled';
   const excerpt = stripHtml(post.excerpt?.rendered || '').substring(0, 120) + '...';
-  const featuredImage = getFeaturedImage(post) || getDefaultImage();
+  const ownImage = getFeaturedImage(post);
+  const featuredImage = ownImage || getDefaultImage();
+  const imgAlt = ownImage ? (post._embedded?.['wp:featuredmedia']?.[0]?.alt_text || stripHtml(title)) : VT_LOGO_ALT;
   const industry = getIndustry(post);
   const metrics = extractMetrics(post);
   const open = post._local
@@ -2010,8 +2016,8 @@ function createCaseStudyCard(post) {
   return `
     <div class="col-md-6 col-lg-4 reveal"${post._local ? ' data-local-case' : ''}>
       ${open}
-        <div class="case-thumbnail">
-          <img src="${featuredImage}" alt="${escapeHtml(title)}" loading="lazy" onerror="this.src='${getDefaultImage()}'">
+        <div class="case-thumbnail${ownImage ? '' : ' has-logo'}">
+          <img src="${escapeHtml(featuredImage)}" alt="${escapeHtml(imgAlt)}" loading="lazy" onerror="vtCaseImgFallback(this)">
           <div class="thumbnail-overlay"></div>
           <span class="industry-badge">${escapeHtml(industry)}</span>
           <div class="read-more-badge">
@@ -2049,7 +2055,8 @@ function renderRelatedCases(currentId) {
   }
   
   container.innerHTML = related.map(post => {
-    const img = getFeaturedImage(post) || getDefaultImage();
+    const ownImg = getFeaturedImage(post);
+    const img = ownImg || getDefaultImage();
     const industry = getIndustry(post);
     const title = post.title?.rendered || 'Untitled';
     const excerpt = stripHtml(post.excerpt?.rendered || '').substring(0, 80) + '...';
@@ -2057,7 +2064,7 @@ function renderRelatedCases(currentId) {
     return `
       <div class="col-md-4 reveal">
         <div class="related-case-card" onclick="openSingleCaseStudy(${post.id})" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); cursor: pointer; transition: all 0.3s ease;">
-          <img src="${img}" style="width: 100%; height: 200px; object-fit: cover;" alt="${escapeHtml(title)}" onerror="this.src='${getDefaultImage()}'">
+          <img src="${escapeHtml(img)}" style="width: 100%; height: 200px; object-fit: cover;" alt="${escapeHtml(ownImg ? stripHtml(title) : VT_LOGO_ALT)}"${ownImg ? '' : ' class="vt-logo-fallback"'} onerror="vtCaseImgFallback(this)">
           <div style="padding: 1.5rem;">
             <span style="background: var(--primary-light); color: var(--primary-dark); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;">${escapeHtml(industry)}</span>
             <h4 style="margin-top: 1rem; font-weight: 700; font-size: 1.1rem; color: var(--dark);">${escapeHtml(title)}</h4>
@@ -2151,8 +2158,16 @@ function populateSingleCaseStudy(data) {
   // HERO SECTION: Always show featured image
   const heroImg = document.getElementById('singleHeroImage');
   if (heroImg) {
-    heroImg.src = heroImage;
-    heroImg.alt = title;
+    heroImg.onerror = () => { heroImg.style.display = 'none'; };
+    if (heroImage) {
+      heroImg.style.display = '';
+      heroImg.src = heroImage;
+      heroImg.alt = title;
+    } else {
+      heroImg.style.display = 'none';
+      heroImg.removeAttribute('src');
+      heroImg.alt = '';
+    }
   }
   
   const heroTitle = document.getElementById('singleHeroTitle');
@@ -2608,8 +2623,23 @@ function formatDate(dateString) {
   });
 }
 
+// Default image = Verifitech logo (used when a case study has no image, or its image fails to load)
+const VT_LOGO = '../assets/logos/verifitech-logo.svg';
+const VT_LOGO_ALT = 'Verifitech logo';
+
 function getDefaultImage() {
-  return 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop';
+  return VT_LOGO;
+}
+
+// <img onerror>: swap a broken image for the logo (once)
+function vtCaseImgFallback(img) {
+  if (img.dataset.fallback) return;
+  img.dataset.fallback = '1';
+  img.src = VT_LOGO;
+  img.alt = VT_LOGO_ALT;
+  img.classList.add('vt-logo-fallback');
+  const thumb = img.closest('.case-thumbnail');
+  if (thumb) thumb.classList.add('has-logo');
 }
 
 function getDefaultHeroImage() {
