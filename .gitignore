@@ -1,2 +1,13 @@
-node_modules/
+node_modules
+
+# secrets
 .env
+.env.*
+!.env.example
+
+# blog working files
+*.tmp
+
+# files uploaded from /blog-admin (live server data, not source)
+public/uploads/blog/*
+!public/uploads/blog/.gitkeep

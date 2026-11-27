@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/components/site-gtm.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% var pageTitle = category.name + ' Articles | Verifitech Blog'; %>
+  <% var pageDesc = 'Read Verifitech articles on ' + category.name + ': background verification insights, compliance updates and hiring best practices.'; %>
+  <% var canonical = siteUrl + '/blog/category/' + category.slug; %>
+  <title><%= pageTitle %></title>
+  <meta name="description" content="<%= pageDesc %>">
+  <meta name="robots" content="<%= posts.length ? 'index, follow' : 'noindex, follow' %>">
+  <link rel="canonical" href="<%= canonical %>">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Verifitech">
+  <meta property="og:title" content="<%= pageTitle %>">
+  <meta property="og:description" content="<%= pageDesc %>">
+  <meta property="og:url" content="<%= canonical %>">
+  <meta property="og:image" content="<%= siteUrl %>/verifitech-og-banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json"><%- JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: pageTitle,
+    url: canonical,
+    hasPart: posts.map(function (p) { return { "@type": "BlogPosting", headline: p.title, url: siteUrl + p.url }; })
+  }).replace(/</g, '\\u003c') %></script>
+  <%- include('blog-partials-style') %>
+  <% if (settings.headCode) { %><%- settings.headCode %><% } %>
+</head>
+<body>
+  <script src="/components/site-header.js"></script>
+  <site-header></site-header>
+
+  <main>
+    <section class="vt-list-hero">
+      <nav class="vt-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>›</span><a href="/resources/blog">Blog</a><span>›</span><%= category.name %>
+      </nav>
+      <h1><%= category.name %></h1>
+      <p><%= pageDesc %></p>
+      <div class="vt-chips">
+        <a class="vt-chip" href="/resources/blog">All Topics</a>
+        <% categories.forEach(function (c) { %>
+          <a class="vt-chip<%= c.slug === category.slug ? ' active' : '' %>" href="/blog/category/<%= c.slug %>"><%= c.name %></a>
+        <% }) %>
+      </div>
+    </section>
+
+    <section class="vt-list">
+      <% if (!posts.length) { %>
+        <p class="vt-empty">No articles in this category yet. <a href="/resources/blog">Browse all articles</a></p>
+      <% } else { %>
+      <div class="vt-grid">
+        <% posts.forEach(function (p) { %>
+        <a class="vt-card" href="<%= p.url %>">
+          <div class="vt-card-img">
+            <% if (p.featuredImage) { %><img src="<%= p.featuredImage %>" alt="<%= p.featuredImageAlt %>" loading="lazy"><% } %>
+          </div>
+          <div class="vt-card-body">
+            <span class="vt-card-cat"><%= p.categories.map(function (c) { return c.name; }).join(' · ') %></span>
+            <h2><%= p.title %></h2>
+            <p><%= p.excerpt.length > 140 ? p.excerpt.slice(0, 140) + '…' : p.excerpt %></p>
+            <span class="vt-card-date"><i class="bi bi-calendar3"></i> <%= new Date(p.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %> · <%= p.readingTime %> min read</span>
+          </div>
+        </a>
+        <% }) %>
+      </div>
+      <% } %>
+    </section>
+  </main>
+
+  <script src="/components/site-contact.js"></script>
+  <site-contact></site-contact>
+  <script src="/components/site-footer.js"></script>
+  <site-footer></site-footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <% if (settings.footerCode) { %><%- settings.footerCode %><% } %>
+</body>
+</html>

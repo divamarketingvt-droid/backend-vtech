@@ -1641,8 +1641,61 @@
             'others': 1
         };
 
+        // ===== Own (self-hosted) blog posts from /api/blogs =====
+        let localCategories = [];
+
+        // Convert a self-hosted post into the same shape as a WordPress post,
+        // so search, cards and filters work for both.
+        function toWpShape(p) {
+            return {
+                id: 'local-' + p.id,
+                _local: true,
+                link: p.url,
+                date: p.publishedAt,
+                title: { rendered: escapeHtml(p.title) },
+                excerpt: { rendered: escapeHtml(p.excerpt || '') },
+                content: { rendered: escapeHtml(p.searchText || '') },
+                _embedded: {
+                    'wp:featuredmedia': p.featuredImage ? [{ source_url: p.featuredImage, alt_text: p.featuredImageAlt }] : [],
+                    'wp:term': [p.categories.map(c => ({ taxonomy: 'category', name: c.name, slug: c.slug }))]
+                }
+            };
+        }
+
+        async function fetchLocalPosts(category) {
+            try {
+                const url = '/api/blogs' + (category && category !== 'all' ? '?category=' + encodeURIComponent(category) : '');
+                const res = await fetch(url);
+                if (!res.ok) return [];
+                const data = await res.json();
+                return (data.posts || []).map(toWpShape);
+            } catch (e) {
+                return []; // server API not available (e.g. static preview) — show WordPress posts only
+            }
+        }
+
+        // Add filter buttons for self-hosted categories that aren't in the list yet
+        async function loadLocalCategories() {
+            try {
+                const res = await fetch('/api/blog-categories');
+                if (!res.ok) return;
+                localCategories = (await res.json()).categories || [];
+                const container = document.getElementById('categoriesContainer');
+                localCategories.forEach(c => {
+                    if (!c.count) return;
+                    if (container.querySelector(`[data-category="${CSS.escape(c.slug)}"]`)) return;
+                    const btn = document.createElement('button');
+                    btn.className = 'category-btn';
+                    btn.dataset.category = c.slug;
+                    btn.innerHTML = '<i class="bi bi-tag"></i> ' + escapeHtml(c.name);
+                    container.appendChild(btn);
+                });
+            } catch (e) { /* ignore */ }
+        }
+
         // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadLocalCategories();
             if (window.location.hash.startsWith('#post-')) {
                 const postId = window.location.hash.replace('#post-', '');
                 showSinglePost(postId);
@@ -2039,15 +2092,34 @@
 
             try {
                 let url = `${WP_API_URL}/posts?per_page=9&page=${currentPage}&_embed=wp:featuredmedia,wp:term,author`;
-                
+
                 if (currentCategory !== 'all' && categoryMap[currentCategory]) {
                     url += `&categories=${categoryMap[currentCategory]}`;
                 }
 
-                const response = await fetch(url);
-                const posts = await response.json();
-                
-                totalPosts = response.headers.get('X-WP-Total') || posts.length;
+                // Own posts are loaded once (on the first page) and shown first
+                const localPosts = currentPage === 1 ? await fetchLocalPosts(currentCategory) : [];
+                if (currentPage === 1) window.__localCount = localPosts.length;
+
+                // Category that exists only in the own blog → skip WordPress
+                const skipWp = currentCategory !== 'all' && !categoryMap[currentCategory];
+
+                let wpPosts = [];
+                let wpTotal = 0;
+                if (!skipWp) {
+                    try {
+                        const response = await fetch(url);
+                        if (response.ok) {
+                            wpPosts = await response.json();
+                            wpTotal = parseInt(response.headers.get('X-WP-Total') || wpPosts.length, 10);
+                        }
+                    } catch (e) {
+                        if (!localPosts.length && currentPage === 1) throw e;
+                    }
+                }
+
+                const posts = [...localPosts, ...wpPosts];
+                totalPosts = wpTotal + (window.__localCount || 0);
                 
                 if (reset) {
                     blogGrid.innerHTML = '';
@@ -2077,7 +2149,7 @@
                 }
 
                 const loadMoreContainer = document.getElementById('loadMoreContainer');
-                if (posts.length === 9 && allPosts.length < totalPosts) {
+                if (wpPosts.length === 9 && allPosts.length < totalPosts) {
                     loadMoreContainer.style.display = 'block';
                 } else {
                     loadMoreContainer.style.display = 'none';
@@ -2124,6 +2196,32 @@
             });
 
             const excerpt = stripHtml(post.excerpt.rendered).substring(0, 120) + '...';
+
+            // Own posts → real link to the SEO-friendly page /blog/<slug>
+            if (post._local) {
+                const cats = post._embedded['wp:term'][0];
+                const catLabel = cats.length ? escapeHtml(cats.map(c => c.name).join(' · ')) : 'Insights';
+                col.innerHTML = `
+                <a href="${post.link}" style="text-decoration:none;color:inherit;display:block;height:100%">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span class="category-tag">${catLabel}</span>
+                        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(post._embedded['wp:featuredmedia'][0]?.alt_text || stripHtml(post.title.rendered))}" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="post-meta">
+                            <span><i class="bi bi-calendar3"></i> ${date}</span>
+                        </div>
+                        <h3>${post.title.rendered}</h3>
+                        <p>${excerpt}</p>
+                        <span class="read-more">
+                            Read Article <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+                </article>
+                </a>`;
+                return col;
+            }
 
             col.innerHTML = `
                 <article class="blog-card" onclick="showSinglePost(${post.id})" style="cursor: pointer;">
