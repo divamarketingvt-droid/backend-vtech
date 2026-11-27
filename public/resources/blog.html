@@ -1437,7 +1437,7 @@
             el.classList.add('vt-hide');
             setTimeout(function () { el.remove(); }, 600);
         }
-        setTimeout(hidePreloader, 8000);
+        setTimeout(hidePreloader, 3000); // after this the skeleton cards show until articles arrive
     </script>
     
     
@@ -1747,7 +1747,7 @@
                     const postId = window.location.hash.replace('#post-', '');
                     await showSinglePost(postId);
                 } else {
-                    await fetchPosts();
+                    await fetchPosts(true); // true = show skeleton cards while loading
                 }
             })();
             setupCategoryFilters();

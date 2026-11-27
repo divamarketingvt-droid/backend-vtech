@@ -13,6 +13,7 @@ const ejs = require("ejs");
 
 const store = require("./store");
 const auth = require("./auth");
+const { injectPreloader } = require("./preloader");
 
 const router = express.Router();
 
@@ -320,7 +321,7 @@ router.get("/blog/category/:slug", async (req, res, next) => {
     const html = await ejs.renderFile(path.join(VIEWS, "blog-list.ejs"), {
       siteUrl, category, categories: cats, posts, settings: store.getSettings()
     });
-    res.send(html);
+    res.send(injectPreloader(html));
   } catch (err) { next(err); }
 });
 
@@ -400,7 +401,7 @@ router.get("/blog/:slug", async (req, res, next) => {
       isPreview: post.status !== "published",
       jsonLd: JSON.stringify(jsonLd).replace(/</g, "\\u003c")
     });
-    res.send(html);
+    res.send(injectPreloader(html));
   } catch (err) { next(err); }
 });
 

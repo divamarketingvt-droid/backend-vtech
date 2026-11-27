@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
 const blogRoutes = require("./blog/routes");
+const { preloaderMiddleware } = require("./blog/preloader");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -56,6 +57,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 ========================================== */
 
 app.get("/sitemap.xml", blogRoutes.sitemapHandler);
+
+/* ==========================================
+   SITE-WIDE PRELOADER (Verifitech logo loading screen)
+   Adds it to every .html page in public/ — see blog/preloader.js.
+   Turn off with PRELOADER=false in .env
+========================================== */
+
+app.use(preloaderMiddleware(path.join(__dirname, "public")));
 
 /* ==========================================
    STATIC WEBSITE
