@@ -468,7 +468,7 @@ app.post("/api/submit-contact", async (req, res) => {
 
 const MINT_ENQUIRY_RECIPIENTS = (
   process.env.MINT_ENQUIRY_TO ||
-  "ranjith20112@gmail.com,kovendan16@gmail.com"
+  "rishi@mintsolutions.ae,verify.middleeast@verifitech.com"
 ).split(",").map(e => e.trim()).filter(Boolean);
 
 const MINT_ENQUIRY_CC = (process.env.MINT_ENQUIRY_CC || "")
