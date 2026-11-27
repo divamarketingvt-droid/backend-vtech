@@ -1624,11 +1624,56 @@ let currentCaseIndex = 0;
 // ============================================
 
 document.addEventListener('DOMContentLoaded', async () => {
+  localCasesPromise = fetchLocalCaseStudies(); // own blog posts (started in parallel)
   await findCaseStudyCategory();
   fetchCaseStudies();
   initRevealAnimations();
   initNavbarScroll();
 });
+
+// ============================================
+// OWN BLOG POSTS (from /blog-admin) IN A "CASE STUDIES" CATEGORY
+// Any category whose name or slug looks like "Case Study / Case Studies"
+// ============================================
+
+let localCasesPromise = Promise.resolve([]);
+let localCases = [];
+const CASE_CATEGORY_RE = /case[\s_-]*stud(y|ies)/i;
+
+async function fetchLocalCaseStudies() {
+  try {
+    const res = await fetch('/api/blogs', { headers: { 'Accept': 'application/json' } });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.posts || [])
+      .filter(p => (p.categories || []).some(c => CASE_CATEGORY_RE.test(c.slug) || CASE_CATEGORY_RE.test(c.name)))
+      .map(p => ({
+        id: 'local-' + p.id,
+        _local: true,
+        link: p.url,
+        date: p.publishedAt,
+        title: { rendered: p.title },
+        excerpt: { rendered: p.excerpt || '' },
+        content: { rendered: p.searchText || '' },
+        _embedded: {
+          'wp:featuredmedia': p.featuredImage ? [{ source_url: p.featuredImage, alt_text: p.featuredImageAlt }] : [],
+          'wp:term': [p.categories.map(c => ({ taxonomy: 'category', name: c.name, slug: c.slug }))]
+        }
+      }));
+  } catch (e) {
+    return []; // site opened without the Node server — WordPress case studies only
+  }
+}
+
+// Shown first on the page, before the WordPress case studies
+function renderLocalCaseStudies() {
+  const container = document.getElementById('case-studies-container');
+  if (!container || !localCases.length) return;
+  container.querySelectorAll('[data-local-case]').forEach(el => el.remove());
+  container.insertAdjacentHTML('afterbegin', localCases.map(createCaseStudyCard).join(''));
+  container.style.display = 'flex';
+  initRevealAnimations();
+}
 
 // ============================================
 // CATEGORY DETECTION
@@ -1726,12 +1771,22 @@ async function fetchCaseStudies(page = 1, perPage = 6) {
     
     showLoading(false);
     renderCaseStudies(posts);
+    if (page === 1) {
+      localCases = await localCasesPromise;
+      renderLocalCaseStudies();
+    }
     updateLoadMoreButton();
     
   } catch (error) {
     console.error('Fetch error:', error);
     showLoading(false);
-    showError();
+    localCases = await localCasesPromise;
+    if (page === 1 && localCases.length) {
+      document.getElementById('case-studies-container').innerHTML = '';
+      renderLocalCaseStudies(); // WordPress is down, but own case studies still show
+    } else {
+      showError();
+    }
   }
 }
 
@@ -1801,6 +1856,7 @@ function getContentImage(post, featuredImageUrl) {
 // ============================================
 
 function getFeaturedImage(post, size = 'medium_large') {
+  if (post._local) return post._embedded['wp:featuredmedia'][0]?.source_url || '';
   const embedded = post._embedded;
   if (!embedded || !embedded['wp:featuredmedia'] || !embedded['wp:featuredmedia'][0]) {
     return '';
@@ -1946,10 +2002,14 @@ function createCaseStudyCard(post) {
   const featuredImage = getFeaturedImage(post) || getDefaultImage();
   const industry = getIndustry(post);
   const metrics = extractMetrics(post);
+  const open = post._local
+    ? `<a class="case-card" href="${escapeHtml(post.link)}" style="text-decoration:none;color:inherit">`
+    : `<div class="case-card" onclick="openSingleCaseStudy(${post.id})">`;
+  const close = post._local ? '</a>' : '</div>';
   
   return `
-    <div class="col-md-6 col-lg-4 reveal">
-      <div class="case-card" onclick="openSingleCaseStudy(${post.id})">
+    <div class="col-md-6 col-lg-4 reveal"${post._local ? ' data-local-case' : ''}>
+      ${open}
         <div class="case-thumbnail">
           <img src="${featuredImage}" alt="${escapeHtml(title)}" loading="lazy" onerror="this.src='${getDefaultImage()}'">
           <div class="thumbnail-overlay"></div>
@@ -1970,7 +2030,7 @@ function createCaseStudyCard(post) {
             `).join('')}
           </div>
         </div>
-      </div>
+      ${close}
     </div>
   `;
 }

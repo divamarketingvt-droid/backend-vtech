@@ -2141,24 +2141,30 @@
         }
 
         // Setup category filter buttons
+        // One listener on the button row, so buttons added later
+        // (own blog categories like "Case Studies") work too
         function setupCategoryFilters() {
-            const buttons = document.querySelectorAll('.category-btn');
-            buttons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    buttons.forEach(b => b.classList.remove('active'));
-                    e.currentTarget.classList.add('active');
-                    currentCategory = e.currentTarget.dataset.category;
-                    currentPage = 1;
-                    // Clear search when changing category
-                    clearSearch();
-                    fetchPosts(true);
-                });
+            const container = document.getElementById('categoriesContainer');
+            container.addEventListener('click', (e) => {
+                const btn = e.target.closest('.category-btn[data-category]');
+                if (!btn || !container.contains(btn)) return;
+                container.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                currentPage = 1;
+                // Clear search when changing category
+                clearSearch();
+                fetchPosts(true);
             });
         }
 
         // Fetch posts from WordPress API
+        let fetchToken = 0; // the newest request wins (e.g. clicking a category while posts are still loading)
+
         async function fetchPosts(reset = false) {
-            if (isLoading) return;
+            if (isLoading && !reset) return; // "load more" waits; a new category/reset always goes ahead
+            const token = ++fetchToken;
+            const stale = () => token !== fetchToken;
             isLoading = true;
 
             const blogGrid = document.getElementById('blogGrid');
@@ -2177,6 +2183,7 @@
 
                 // Own posts are loaded once (on the first page) and shown first
                 const localPosts = currentPage === 1 ? await fetchLocalPosts(currentCategory) : [];
+                if (stale()) return;
                 if (currentPage === 1) window.__localCount = localPosts.length;
 
                 // Category that exists only in the own blog → skip WordPress
@@ -2196,6 +2203,7 @@
                     }
                 }
 
+                if (stale()) return; // user picked another category meanwhile
                 const posts = [...localPosts, ...wpPosts];
                 totalPosts = wpTotal + (window.__localCount || 0);
                 
@@ -2235,7 +2243,7 @@
 
             } catch (error) {
                 console.error('Error fetching posts:', error);
-                if (reset) {
+                if (reset && !stale()) {
                     blogGrid.innerHTML = `
                         <div class="col-12 error-message">
                             <i class="bi bi-exclamation-circle"></i>
@@ -2245,7 +2253,7 @@
                     `;
                 }
             } finally {
-                isLoading = false;
+                if (!stale()) isLoading = false;
             }
         }
 
