@@ -14,6 +14,7 @@ const ejs = require("ejs");
 const store = require("./store");
 const auth = require("./auth");
 const { injectPreloader } = require("./preloader");
+const { notifyLogin } = require("./notify");
 
 const router = express.Router();
 
@@ -448,6 +449,7 @@ router.post("/api/blog-admin/login", (req, res) => {
   }
   auth.clearFailures(ip);
   auth.createSession(res, req, user);
+  notifyLogin({ user, ip, userAgent: req.get("user-agent") }); // email alert (BLOG_LOGIN_NOTIFY_TO in .env)
   res.json({ success: true, user: { username: user.username, name: user.name } });
 });
 
