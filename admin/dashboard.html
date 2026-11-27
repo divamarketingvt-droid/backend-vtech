@@ -21,6 +21,13 @@
               gap: 1rem; padding: .8rem 16px; }
     .topbar .brand { font-weight: 800; display: flex; align-items: center; gap: .5rem; }
     .topbar .brand i { color: var(--primary); font-size: 1.3rem; }
+    .topbar .brand-logo { display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 10px;
+                          padding: 0 8px; height: 42px; overflow: hidden; flex-shrink: 0; }
+    /* the logo file has empty space above/below — crop it with a taller image inside a fixed-height box */
+    .topbar .brand-logo img { height: 70px; width: auto; margin: -14px 0; display: block; }
+    .topbar .brand-logo:hover { box-shadow: 0 0 0 3px rgba(26,194,193,.45); }
+    .topbar .brand-logo:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+    @media (max-width: 640px) { .topbar { flex-wrap: wrap; } .topbar .brand { display: none; } .who { display: none; } }
     .topbar .spacer { flex: 1; }
     .topbar a, .topbar button { color: #cbd5e1; background: none; border: 0; cursor: pointer; text-decoration: none; font-size: .9rem; }
     .topbar a:hover, .topbar button:hover { color: #fff; }
@@ -157,7 +164,10 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><i class="bi bi-journal-richtext"></i> Verifitech Blog Admin</div>
+    <a class="brand-logo" href="https://www.verifitech.com" target="_blank" rel="noopener" title="Open verifitech.com in a new tab">
+      <img src="/assets/logos/verifitech-logo.svg" alt="Verifitech logo" width="120" height="68">
+    </a>
+    <div class="brand"><i class="bi bi-journal-richtext"></i> Blog Admin</div>
     <div class="spacer"></div>
     <span class="who" id="who"></span>
     <a href="/resources/blog" target="_blank"><i class="bi bi-box-arrow-up-right"></i> View blog</a>
