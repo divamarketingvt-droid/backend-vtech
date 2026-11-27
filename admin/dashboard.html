@@ -445,6 +445,10 @@
             <label><input type="radio" name="status" value="published"><span>Published</span></label>
           </div>
           <div class="field" style="margin-top:1rem">
+            <label class="check-inline"><input type="checkbox" id="showToc" checked> Show table of contents</label>
+            <p class="hint" style="margin:.3rem 0 0" id="tocHint">Built automatically from the Heading 2 / Heading 3 titles in the article.</p>
+          </div>
+          <div class="field">
             <label>Author</label>
             <input type="text" id="author" placeholder="Author name">
           </div>
@@ -736,6 +740,7 @@
       $('focusKeyword').value = post?.focusKeyword || '';
       $('metaTitle').value = post?.metaTitle || '';
       $('metaDescription').value = post?.metaDescription || '';
+      $('showToc').checked = post?.showToc !== false;
       $('robotsIndex').value = post?.robotsIndex || (post?.noindex ? 'noindex' : 'index');
       $('robotsFollow').value = post?.robotsFollow || 'follow';
       $('canonicalUrl').value = post?.canonicalUrl || '';
@@ -802,6 +807,7 @@
         focusKeyword: $('focusKeyword').value.trim(),
         metaTitle: $('metaTitle').value.trim(),
         metaDescription: $('metaDescription').value.trim(),
+        showToc: $('showToc').checked,
         robotsIndex: $('robotsIndex').value,
         robotsFollow: $('robotsFollow').value,
         canonicalUrl: $('canonicalUrl').value.trim(),
@@ -855,6 +861,7 @@
     $('newPostBtn').onclick = () => openEditor(null);
     $('backBtn').onclick = closeEditor;
     document.querySelectorAll('input[name=status]').forEach((r) => r.onchange = () => dirty = true);
+    $('showToc').onchange = () => dirty = true;
 
     window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
     document.addEventListener('keydown', (e) => {
@@ -1020,6 +1027,12 @@
       const words = text ? text.split(/\s+/).length : 0;
 
       counter($('metaTitleCount'), metaTitle.length, 30, 60);
+
+      // Table of contents hint: how many headings will be listed
+      const tocCount = quill.root.querySelectorAll('h2, h3').length;
+      $('tocHint').textContent = tocCount >= 2
+        ? `${tocCount} headings found — they will be listed at the top of the post.`
+        : 'Add at least 2 Heading 2 / Heading 3 titles in the article to show a table of contents.';
 
       // Open Graph preview (falls back to SEO title / description / featured image)
       const ogTitle = $('ogTitle').value.trim() || metaTitle;

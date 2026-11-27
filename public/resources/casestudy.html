@@ -1453,6 +1453,9 @@
               <img id="singleFeaturedImage" src="" alt="Case Study Featured Image" />
             </div>
 
+            <!-- Table of contents (built from the sections and headings below) -->
+            <div id="caseToc" hidden></div>
+
             <!-- Challenge Section -->
             <div class="content-section reveal">
               <div class="challenge-box">
@@ -1610,6 +1613,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../components/site-toc.js"></script>
     
     <script>
     // ============================================
@@ -2141,6 +2145,14 @@ function openSingleCaseStudy(postId) {
   document.getElementById('caseStudiesListView').classList.add('hidden');
   const singleView = document.getElementById('singleCaseView');
   singleView.classList.add('active');
+  if (window.vtBuildToc) {
+    vtBuildToc({
+      root: document.querySelector('#singleCaseView .content-grid > .main-content'),
+      mount: document.getElementById('caseToc'),
+      selector: 'h2, h3',
+      flat: true // the page's own section boxes are H3, the article uses H2 → one even list
+    });
+  }
   
   const ctaSection = document.getElementById('ctaSection');
   if (ctaSection) ctaSection.style.display = 'none';

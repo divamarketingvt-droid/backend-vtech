@@ -138,6 +138,7 @@ function buildPostFromBody(body, existing, posts, cats, user) {
     ogImageAlt: String(body.ogImageAlt || "").trim().slice(0, 300),
     ogType: ["article", "website"].includes(body.ogType) ? body.ogType : "article",
     twitterCard: body.twitterCard === "summary" ? "summary" : "summary_large_image",
+    showToc: body.showToc !== false,
     customHead: String(body.customHead || "").slice(0, 20000),
     customScripts: String(body.customScripts || "").slice(0, 20000),
     createdAt: existing ? existing.createdAt : now,
@@ -189,6 +190,32 @@ function applyLinkRel(html, linkRel, settings, siteUrl) {
     if (newTab) clean += ' target="_blank"';
     return `<a${clean}>`;
   });
+}
+
+/* ---------- table of contents: give H2/H3 an id and list them ---------- */
+
+function decodeEntities(s) {
+  return String(s).replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n));
+}
+
+function buildToc(html) {
+  const items = [];
+  const used = new Set();
+  const out = String(html || "").replace(/<h([23])(\s[^>]*)?>([\s\S]*?)<\/h\1>/gi, (tag, level, attrs = "", inner) => {
+    const text = decodeEntities(stripHtml(inner)).trim();
+    if (!text) return tag;
+    const existing = /\sid\s*=\s*(["'])(.*?)\1/i.exec(attrs);
+    let id = existing ? existing[2] : store.slugify(text).slice(0, 60) || "section";
+    if (!existing) {
+      let n = 2; const base = id;
+      while (used.has(id)) id = `${base}-${n++}`;
+    }
+    used.add(id);
+    items.push({ level: Number(level), text, id });
+    return existing ? tag : `<h${level}${attrs} id="${id}">${inner}</h${level}>`;
+  });
+  return { html: out, items };
 }
 
 function robotsFor(post) {
@@ -348,6 +375,7 @@ router.get("/blog/:slug", async (req, res, next) => {
 
     const settings = store.getSettings();
     const canonical = post.canonicalUrl || `${siteUrl}/blog/${post.slug}`;
+    const toc = buildToc(applyLinkRel(post.content, post.linkRel, settings, siteUrl));
     const image = absUrl(siteUrl, post.featuredImage);
 
     const jsonLd = [
@@ -383,7 +411,8 @@ router.get("/blog/:slug", async (req, res, next) => {
 
     const html = await ejs.renderFile(path.join(VIEWS, "blog-post.ejs"), {
       siteUrl,
-      post: { ...post, content: applyLinkRel(post.content, post.linkRel, settings, siteUrl) },
+      post: { ...post, content: toc.html },
+      toc: post.showToc === false || toc.items.length < 2 ? [] : toc.items,
       settings,
       robots: robotsFor(post),
       postCats,

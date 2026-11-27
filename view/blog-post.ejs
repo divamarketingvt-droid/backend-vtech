@@ -92,6 +92,18 @@
       <img class="vt-featured" src="<%= post.featuredImage %>" alt="<%= post.featuredImageAlt || post.title %>" itemprop="image" fetchpriority="high">
       <% } %>
 
+      <% if (toc.length) { %>
+      <nav class="vt-toc" aria-label="Table of contents">
+        <details open>
+          <summary><i class="bi bi-list-ul"></i> Table of contents <span class="vt-toc-count"><%= toc.length %> sections</span><i class="bi bi-chevron-down vt-toc-chev"></i></summary>
+          <ol>
+            <% toc.forEach(function (t) { %><li class="vt-l<%= t.level %>"><a href="#<%= t.id %>"><%= t.text %></a></li>
+            <% }) %>
+          </ol>
+        </details>
+      </nav>
+      <% } %>
+
       <div class="vt-content" itemprop="articleBody">
         <%- post.content %>
 
