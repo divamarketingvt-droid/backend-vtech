@@ -2812,7 +2812,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="phone">Phone Number *</label>
-                                                        <input type="tel" class="form-control" id="phone" placeholder="+1 (555) 000-0000" required autocomplete="tel">
+                                                        <input type="tel" class="form-control" id="phone" placeholder="+91 72..." required autocomplete="tel">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -2823,7 +2823,16 @@
                                                 </div>
                                             </div>
                                            
-                                            <!-- 3-Card Service Selection -->
+                                            <!-- ============================================================ -->
+                                            <!-- 3-CARD SERVICE SELECTION  (TEMPORARILY DISABLED)              -->
+                                            <!-- Reason: TL requested removal. Commented out instead of       -->
+                                            <!--         deleting so it can be re-enabled quickly when needed. -->
+                                            <!-- To re-enable: remove the wrapping HTML comment block below.  -->
+                                            <!-- Also keep an eye on validateStep1() and the continueToStep2  -->
+                                            <!-- click handler in <script> — both were patched to tolerate a -->
+                                            <!-- missing service selection.                                  -->
+                                            <!-- ============================================================ -->
+                                            <!--
                                             <div class="form-group">
                                                 <label>Select Service *</label>
                                                 <div class="services-selection">
@@ -2870,6 +2879,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            -->
+                                            <!-- END of commented-out 3-Card Service Selection -->
                                            
                                             <!-- Candidates Input -->
                                             <div class="form-group">
@@ -3156,7 +3167,7 @@
             SERVICE_ID: 'service_jkft8rg',
             USER_TEMPLATE_ID: 'template_fsjkf3s',
             HOST_TEMPLATE_ID: 'template_gj9o8wa',
-            HOST_EMAIL: 'kovendan16@gmail.com'
+            HOST_EMAIL: 'connect@verifitech.email'
         };
 
         (function() {
@@ -3240,6 +3251,8 @@
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const company = document.getElementById('company').value;
+            // Service section is currently commented out — tolerate a missing selection.
+            // When the service cards are re-enabled, restore: const service = document.querySelector('input[name="service"]:checked');
             const service = document.querySelector('input[name="service"]:checked');
             const cInput = document.getElementById('candidates');
             const cVal = parseInt(cInput.value);
@@ -3254,7 +3267,10 @@
                 cInput.classList.remove('is-invalid-volume');
             }
            
-            const valid = name && email && phone && company && service && cValid && isEmailValid;
+            // Service check intentionally skipped while the service section is disabled.
+            // Original line (re-enable when needed):
+            //     const valid = name && email && phone && company && service && cValid && isEmailValid;
+            const valid = name && email && phone && company && cValid && isEmailValid;
             document.getElementById('continueToStep2').disabled = !valid;
             return valid;
         }
@@ -3592,12 +3608,17 @@
            
             document.getElementById('continueToStep2').addEventListener('click', function() {
                 if (!validateStep1()) return;
+                // Service section is currently commented out — read the value safely,
+                // falling back to 'General Inquiry' so the email summary / calendar description still have text.
+                // When the service cards are re-enabled, restore the original line:
+                //     service: document.querySelector('input[name="service"]:checked').value,
+                const serviceEl = document.querySelector('input[name="service"]:checked');
                 formData = { ...formData,
                     name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
                     phone: document.getElementById('phone').value,
                     company: document.getElementById('company').value,
-                    service: document.querySelector('input[name="service"]:checked').value,
+                    service: serviceEl ? serviceEl.value : 'General Inquiry',
                     candidates: document.getElementById('candidates').value,
                     timezone: document.getElementById('timezoneSelect').value
                 };
